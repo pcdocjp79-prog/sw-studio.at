@@ -1,4 +1,5 @@
-﻿<html lang="en" class="scroll-smooth">
+﻿<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,8 +53,8 @@
         <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2">
           <a href="#product" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Services</a>
           <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">über uns</a>
-          <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Kontakt</a>
-          <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Inspiration</a>
+          <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Kontakt</a>
+          <a href="#voice" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Inspiration</a>
         </nav>
       </div>
     </header>
@@ -65,7 +66,7 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
         </span>
-        <span class="text-xs font-medium text-zinc-300"></span>
+        <span class="text-xs font-medium text-zinc-300">Kostenloses Erstgespräch verfügbar</span>
       </div>
 
       <h1 class="animate-enter delay-100 font-display text-5xl sm:text-7xl font-semibold tracking-tight text-white mb-6 max-w-4xl">
@@ -87,7 +88,7 @@
         </div>
 
         <a href="#" class="text-zinc-400 hover:text-white text-sm font-medium px-6 py-3 transition-colors flex items-center gap-2">
-          Packete ansehen
+          Pakete ansehen
           <iconify-icon icon="solar:alt-arrow-right-linear"></iconify-icon>
         </a>
       </div>
@@ -219,18 +220,18 @@
             <h2 class="font-display text-3xl font-semibold mb-2">Business Logic</h2>
             <p class="text-zinc-400">Collaborate on models that drive your business.</p>
           </div>
-          <div class="flex p-1 rounded-xl bg-white/5 border border-white/10">
-            <button onclick="switchTab('collab')" id="tab-collab" class="px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/10 text-white shadow-sm">
+          <div class="flex p-1 rounded-xl bg-white/5 border border-white/10" role="tablist" aria-label="Business Logic Tabs">
+            <button type="button" data-tab="collab" id="tab-collab" role="tab" aria-controls="content-collab" aria-selected="true" class="px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/10 text-white shadow-sm">
               Collaborative
             </button>
-            <button onclick="switchTab('audit')" id="tab-audit" class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white transition-all">
+            <button type="button" data-tab="audit" id="tab-audit" role="tab" aria-controls="content-audit" aria-selected="false" class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white transition-all">
               Audit Logs
             </button>
           </div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div id="content-collab" class="tab-content">
+          <div id="content-collab" class="tab-content" role="tabpanel" aria-labelledby="tab-collab">
             <h3 class="text-xl font-semibold mb-4 text-white">Real-time multiplayer editing</h3>
             <p class="text-zinc-400 leading-relaxed mb-6">
               Edit business models together in real time with live cursors, inline comments, and versioned saves. Everyone on the board sees changes immediately.
@@ -242,7 +243,7 @@
             </ul>
           </div>
 
-          <div id="content-audit" class="tab-content hidden">
+          <div id="content-audit" class="tab-content hidden" role="tabpanel" aria-labelledby="tab-audit">
             <h3 class="text-xl font-semibold mb-4 text-white">Complete traceability</h3>
             <p class="text-zinc-400 leading-relaxed mb-6">
               Every decision, variable change, and deployment is logged forever. Revert to any point in time with millisecond precision.
@@ -301,7 +302,7 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
           <div class="audio-bar w-1.5 h-6 bg-white/20 rounded-full"></div>
         </div>
 
-        <a href="https://seaint-voice-jlt3nm40e-seaints-projects.vercel.app" target="_blank" class="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition-transform duration-300">
+        <a href="https://seaint-voice-jlt3nm40e-seaints-projects.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition-transform duration-300">
           Try Voice Agent
           <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
         </a>
@@ -318,13 +319,13 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
 
             <div class="flex items-center gap-4 mb-8">
               <div class="bg-white/5 p-1 rounded-lg border border-white/10 inline-flex">
-                <button onclick="setBilling('monthly')" id="btn-monthly" class="px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow">Monthly</button>
-                <button onclick="setBilling('yearly')" id="btn-yearly" class="px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white">Yearly</button>
+                <button type="button" data-billing="monthly" id="btn-monthly" class="px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow">Monthly</button>
+                <button type="button" data-billing="yearly" id="btn-yearly" class="px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white">Yearly</button>
               </div>
             </div>
 
             <div class="space-y-3">
-              <div onclick="selectPlan('business')" id="card-business" class="p-4 rounded-xl border border-white/20 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
+              <button type="button" data-plan="business" id="card-business" class="w-full text-left p-4 rounded-xl border border-white/20 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
                 <div class="flex justify-between items-center">
                   <div>
                     <div class="font-semibold">Business</div>
@@ -332,8 +333,8 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
                   </div>
                   <iconify-icon icon="solar:check-circle-bold" class="text-white text-xl"></iconify-icon>
                 </div>
-              </div>
-              <div onclick="selectPlan('enterprise')" id="card-enterprise" class="p-4 rounded-xl border border-white/5 cursor-pointer hover:bg-white/10 transition-colors">
+              </button>
+              <button type="button" data-plan="enterprise" id="card-enterprise" class="w-full text-left p-4 rounded-xl border border-white/5 cursor-pointer hover:bg-white/10 transition-colors">
                 <div class="flex justify-between items-center">
                   <div>
                     <div class="font-semibold">Enterprise</div>
@@ -341,7 +342,7 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
                   </div>
                   <iconify-icon icon="solar:circle-linear" class="text-zinc-500 text-xl"></iconify-icon>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
 

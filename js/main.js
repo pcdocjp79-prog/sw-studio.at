@@ -1,15 +1,23 @@
+// Mark document as JS-enabled so CSS can apply progressive enhancement.
+document.documentElement.classList.add("js");
+
 // Scroll Observer
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("is-visible");
-    });
-  },
-  { threshold: 0.1 }
-);
-document
-  .querySelectorAll(".reveal-on-scroll")
-  .forEach((el) => observer.observe(el));
+const revealOnScrollElements = document.querySelectorAll(".reveal-on-scroll");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  revealOnScrollElements.forEach((el) => observer.observe(el));
+} else {
+  revealOnScrollElements.forEach((el) => el.classList.add("is-visible"));
+}
 
 // Scroll-driven background pan (top -> bottom of image)
 const root = document.documentElement;
@@ -205,29 +213,41 @@ if (glassNav && window.matchMedia("(pointer: fine)").matches) {
 }
 
 // Logic Tab Switcher
+const validTabs = new Set(["collab", "audit"]);
+
 function switchTab(tab) {
+  if (!validTabs.has(tab)) return;
+
+  const nextContent = document.getElementById("content-" + tab);
+  if (!nextContent) return;
+
   document.querySelectorAll(".tab-content").forEach((el) => el.classList.add("hidden"));
-  document.getElementById("content-" + tab).classList.remove("hidden");
+  nextContent.classList.remove("hidden");
 
-  const btn1 = document.getElementById("tab-collab");
-  const btn2 = document.getElementById("tab-audit");
+  const btnCollab = document.getElementById("tab-collab");
+  const btnAudit = document.getElementById("tab-audit");
+  if (!btnCollab || !btnAudit) return;
 
-  if (tab === "collab") {
-    btn1.classList.add("bg-white/10", "text-white", "shadow-sm");
-    btn1.classList.remove("text-zinc-400");
-    btn2.classList.remove("bg-white/10", "text-white", "shadow-sm");
-    btn2.classList.add("text-zinc-400");
-  } else {
-    btn2.classList.add("bg-white/10", "text-white", "shadow-sm");
-    btn2.classList.remove("text-zinc-400");
-    btn1.classList.remove("bg-white/10", "text-white", "shadow-sm");
-    btn1.classList.add("text-zinc-400");
-  }
+  const collabActive = tab === "collab";
+  btnCollab.classList.toggle("bg-white/10", collabActive);
+  btnCollab.classList.toggle("text-white", collabActive);
+  btnCollab.classList.toggle("shadow-sm", collabActive);
+  btnCollab.classList.toggle("text-zinc-400", !collabActive);
+
+  btnAudit.classList.toggle("bg-white/10", !collabActive);
+  btnAudit.classList.toggle("text-white", !collabActive);
+  btnAudit.classList.toggle("shadow-sm", !collabActive);
+  btnAudit.classList.toggle("text-zinc-400", collabActive);
+
+  btnCollab.setAttribute("aria-selected", String(collabActive));
+  btnAudit.setAttribute("aria-selected", String(!collabActive));
 }
 
 // Pricing Logic
 let currentPlan = "business";
 let currentBilling = "monthly";
+const validBillingPeriods = new Set(["monthly", "yearly"]);
+const cardBaseClass = "w-full text-left p-4 rounded-xl border cursor-pointer hover:bg-white/10 transition-colors";
 
 const plans = {
   business: {
@@ -245,12 +265,18 @@ const plans = {
 };
 
 function setBilling(period) {
+  if (!validBillingPeriods.has(period)) return;
+
   currentBilling = period;
-  document.getElementById("btn-monthly").className =
+  const monthlyButton = document.getElementById("btn-monthly");
+  const yearlyButton = document.getElementById("btn-yearly");
+  if (!monthlyButton || !yearlyButton) return;
+
+  monthlyButton.className =
     period === "monthly"
       ? "px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow"
       : "px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white";
-  document.getElementById("btn-yearly").className =
+  yearlyButton.className =
     period === "yearly"
       ? "px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow"
       : "px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white";
@@ -258,32 +284,32 @@ function setBilling(period) {
 }
 
 function selectPlan(plan) {
+  if (!plans[plan]) return;
+
   currentPlan = plan;
 
-  const b = document.getElementById("card-business");
-  const e = document.getElementById("card-enterprise");
+  const businessCard = document.getElementById("card-business");
+  const enterpriseCard = document.getElementById("card-enterprise");
+  if (!businessCard || !enterpriseCard) return;
 
   const activeClass = "border-white/20 bg-white/5";
-  const inactiveClass = "border-white/5";
+  const inactiveClass = "border-white/5 bg-transparent";
+  const businessActive = plan === "business";
+  const enterpriseActive = !businessActive;
 
-  if (plan === "business") {
-    b.className = `p-4 rounded-xl cursor-pointer hover:bg-white/10 transition-colors ${activeClass}`;
-    e.className = `p-4 rounded-xl cursor-pointer hover:bg-white/10 transition-colors ${inactiveClass}`;
-    b.querySelector("iconify-icon").setAttribute("icon", "solar:check-circle-bold");
-    b.querySelector("iconify-icon").classList.add("text-white");
-    b.querySelector("iconify-icon").classList.remove("text-zinc-500");
-    e.querySelector("iconify-icon").setAttribute("icon", "solar:circle-linear");
-    e.querySelector("iconify-icon").classList.add("text-zinc-500");
-    e.querySelector("iconify-icon").classList.remove("text-white");
-  } else {
-    e.className = `p-4 rounded-xl cursor-pointer hover:bg-white/10 transition-colors ${activeClass}`;
-    b.className = `p-4 rounded-xl cursor-pointer hover:bg-white/10 transition-colors ${inactiveClass}`;
-    e.querySelector("iconify-icon").setAttribute("icon", "solar:check-circle-bold");
-    e.querySelector("iconify-icon").classList.add("text-white");
-    e.querySelector("iconify-icon").classList.remove("text-zinc-500");
-    b.querySelector("iconify-icon").setAttribute("icon", "solar:circle-linear");
-    b.querySelector("iconify-icon").classList.add("text-zinc-500");
-    b.querySelector("iconify-icon").classList.remove("text-white");
+  businessCard.className = `${cardBaseClass} ${businessActive ? activeClass : inactiveClass}`;
+  enterpriseCard.className = `${cardBaseClass} ${enterpriseActive ? activeClass : inactiveClass}`;
+
+  const businessIcon = businessCard.querySelector("iconify-icon");
+  const enterpriseIcon = enterpriseCard.querySelector("iconify-icon");
+  if (businessIcon && enterpriseIcon) {
+    businessIcon.setAttribute("icon", businessActive ? "solar:check-circle-bold" : "solar:circle-linear");
+    businessIcon.classList.toggle("text-white", businessActive);
+    businessIcon.classList.toggle("text-zinc-500", !businessActive);
+
+    enterpriseIcon.setAttribute("icon", enterpriseActive ? "solar:check-circle-bold" : "solar:circle-linear");
+    enterpriseIcon.classList.toggle("text-white", enterpriseActive);
+    enterpriseIcon.classList.toggle("text-zinc-500", !enterpriseActive);
   }
 
   updatePricingUI();
@@ -291,21 +317,53 @@ function selectPlan(plan) {
 
 function updatePricingUI() {
   const data = plans[currentPlan];
+  if (!data) return;
+
   const price = currentBilling === "monthly" ? data.monthly : data.yearly;
   const suffix = currentBilling === "monthly" ? "/month" : "/year";
 
-  document.getElementById("price-display").innerText = "$" + price;
-  document.getElementById("period-display").innerText = suffix;
-  document.getElementById("desc-display").innerText = data.desc;
-
+  const priceDisplay = document.getElementById("price-display");
+  const periodDisplay = document.getElementById("period-display");
+  const descDisplay = document.getElementById("desc-display");
   const list = document.getElementById("feature-list");
-  list.innerHTML = "";
-  data.features.forEach((f) => {
-    list.innerHTML += `<li class="flex items-center gap-3 text-sm animate-enter"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> ${f}</li>`;
+  if (!priceDisplay || !periodDisplay || !descDisplay || !list) return;
+
+  priceDisplay.textContent = "$" + price;
+  periodDisplay.textContent = suffix;
+  descDisplay.textContent = data.desc;
+
+  list.textContent = "";
+  data.features.forEach((feature) => {
+    const item = document.createElement("li");
+    item.className = "flex items-center gap-3 text-sm";
+
+    const icon = document.createElement("iconify-icon");
+    icon.setAttribute("icon", "solar:check-read-linear");
+    icon.className = "text-blue-400";
+
+    item.append(icon, document.createTextNode(" " + feature));
+    list.appendChild(item);
   });
 }
 
-// Expose for inline onclick handlers
-window.switchTab = switchTab;
-window.setBilling = setBilling;
-window.selectPlan = selectPlan;
+document.querySelectorAll("[data-tab]").forEach((button) => {
+  button.addEventListener("click", () => {
+    switchTab(button.dataset.tab);
+  });
+});
+
+document.querySelectorAll("[data-billing]").forEach((button) => {
+  button.addEventListener("click", () => {
+    setBilling(button.dataset.billing);
+  });
+});
+
+document.querySelectorAll("[data-plan]").forEach((button) => {
+  button.addEventListener("click", () => {
+    selectPlan(button.dataset.plan);
+  });
+});
+
+switchTab("collab");
+setBilling(currentBilling);
+selectPlan(currentPlan);

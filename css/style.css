@@ -196,10 +196,26 @@ img {
   .glass-nav::before {
     animation: none;
   }
+
+  .animate-enter,
+  .animate-float,
+  .animate-float-delayed,
+  .audio-bar {
+    animation: none !important;
+  }
+
+  .reveal-on-scroll,
+  .js .reveal-on-scroll,
+  .js .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
-.reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-on-scroll { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
+.js .reveal-on-scroll { opacity: 0; transform: translateY(30px); }
+.js .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
 
 .top-nav {
@@ -265,7 +281,7 @@ img {
 }
 
 .nav-mouse-glow {
-  display: none;
+  display: block;
   pointer-events: none;
   position: absolute;
   inset: 2px;
@@ -285,7 +301,7 @@ img {
 }
 
 .glass-nav.is-glow-active .nav-mouse-glow {
-  opacity: 0;
+  opacity: 1;
 }
 
 .glass-nav > *:not(.nav-mouse-glow) {

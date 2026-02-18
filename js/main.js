@@ -167,20 +167,23 @@ if (glassNav && mobileNavToggle && primaryNav) {
 }
 
 
-// Glass Nav Mouse Glow
-if (glassNav && window.matchMedia("(pointer: fine)").matches) {
-  let rect = null;
+// Pointer Glow (Navigation + Section 2 Tiles)
+const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+
+const attachPointerGlow = (element, options = {}) => {
+  const {
+    activeClassName = "is-glow-active",
+    xVariable = "--glow-x",
+    yVariable = "--glow-y",
+  } = options;
+
   let rafId = null;
   let targetX = 0;
   let targetY = 0;
 
-  const updateRect = () => {
-    rect = glassNav.getBoundingClientRect();
-  };
-
   const renderGlow = () => {
-    glassNav.style.setProperty("--glow-x", `${targetX}px`);
-    glassNav.style.setProperty("--glow-y", `${targetY}px`);
+    element.style.setProperty(xVariable, `${targetX}px`);
+    element.style.setProperty(yVariable, `${targetY}px`);
     rafId = null;
   };
 
@@ -189,27 +192,39 @@ if (glassNav && window.matchMedia("(pointer: fine)").matches) {
     rafId = requestAnimationFrame(renderGlow);
   };
 
-  glassNav.addEventListener("pointerenter", (event) => {
-    updateRect();
-    glassNav.classList.add("is-glow-active");
+  const updateGlowTarget = (event) => {
+    const rect = element.getBoundingClientRect();
     targetX = event.clientX - rect.left;
     targetY = event.clientY - rect.top;
     queueRender();
+  };
+
+  element.addEventListener("pointerenter", (event) => {
+    element.classList.add(activeClassName);
+    updateGlowTarget(event);
   });
 
-  glassNav.addEventListener("pointermove", (event) => {
-    if (!rect) updateRect();
-    targetX = event.clientX - rect.left;
-    targetY = event.clientY - rect.top;
-    queueRender();
-  });
+  element.addEventListener("pointermove", updateGlowTarget);
 
-  glassNav.addEventListener("pointerleave", () => {
-    glassNav.classList.remove("is-glow-active");
+  element.addEventListener("pointerleave", () => {
+    element.classList.remove(activeClassName);
   });
+};
 
-  window.addEventListener("resize", updateRect);
-  window.addEventListener("scroll", updateRect, { passive: true });
+if (supportsFinePointer) {
+  if (glassNav) {
+    attachPointerGlow(glassNav, {
+      xVariable: "--glow-x",
+      yVariable: "--glow-y",
+    });
+  }
+
+  document.querySelectorAll(".section-2 .tile-card").forEach((tileCard) => {
+    attachPointerGlow(tileCard, {
+      xVariable: "--tile-glow-x",
+      yVariable: "--tile-glow-y",
+    });
+  });
 }
 
 // Logic Tab Switcher

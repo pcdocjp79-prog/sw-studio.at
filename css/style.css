@@ -131,6 +131,8 @@ img {
 
 .section-2 .tile-card {
   --section2-border-angle: 0deg;
+  --tile-glow-x: 50%;
+  --tile-glow-y: 50%;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -142,9 +144,33 @@ img {
   transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
 }
 
-.section-2 .tile-card > * {
+.section-2 .tile-card > *:not(.tile-mouse-glow) {
   position: relative;
   z-index: 1;
+}
+
+.section-2 .tile-mouse-glow {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  z-index: 0;
+  opacity: 0;
+  background: radial-gradient(
+    220px circle at var(--tile-glow-x) var(--tile-glow-y),
+    rgba(255, 255, 255, 0.52) 0%,
+    rgba(255, 255, 255, 0.24) 24%,
+    rgba(255, 255, 255, 0.08) 42%,
+    rgba(255, 255, 255, 0) 62%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 280ms ease;
+  will-change: background, opacity;
+}
+
+.section-2 .tile-card.is-glow-active .tile-mouse-glow {
+  opacity: 0.82;
 }
 
 .section-2 .tile-card::before {

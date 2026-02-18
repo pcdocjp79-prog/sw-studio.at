@@ -289,11 +289,11 @@ img {
   z-index: 0;
   opacity: 0;
   background: radial-gradient(
-    190px circle at var(--glow-x) var(--glow-y),
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.42) 18%,
-    rgba(255, 255, 255, 0.12) 36%,
-    rgba(255, 255, 255, 0) 58%
+    170px circle at var(--glow-x) var(--glow-y),
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 18%,
+    rgba(255, 255, 255, 0.08) 36%,
+    rgba(255, 255, 255, 0) 56%
   );
   mix-blend-mode: screen;
   transition: opacity 300ms ease;
@@ -301,7 +301,7 @@ img {
 }
 
 .glass-nav.is-glow-active .nav-mouse-glow {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .glass-nav > *:not(.nav-mouse-glow) {

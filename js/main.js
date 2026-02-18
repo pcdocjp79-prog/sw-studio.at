@@ -1,6 +1,10 @@
 // Mark document as JS-enabled so CSS can apply progressive enhancement.
 document.documentElement.classList.add("js");
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 // Scroll Observer
 const revealOnScrollElements = document.querySelectorAll(".reveal-on-scroll");
 
@@ -49,14 +53,59 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
   requestBackgroundPanFrame();
 });
 
 // Navigation Elements
 const topNav = document.querySelector(".top-nav");
 const glassNav = document.getElementById("glass-nav");
+const brandLink = document.querySelector(".brand-link");
 const mobileNavToggle = document.getElementById("mobile-nav-toggle");
 const primaryNav = document.getElementById("primary-nav");
+const scrollToTopButton = document.getElementById("scroll-to-top");
+const scrollToTopThreshold = 200;
+
+let scrollToTopTicking = false;
+
+const updateScrollToTopVisibility = () => {
+  if (!scrollToTopButton) {
+    scrollToTopTicking = false;
+    return;
+  }
+
+  scrollToTopButton.classList.toggle("is-visible", window.scrollY > scrollToTopThreshold);
+  scrollToTopTicking = false;
+};
+
+const requestScrollToTopFrame = () => {
+  if (scrollToTopTicking) return;
+  scrollToTopTicking = true;
+  requestAnimationFrame(updateScrollToTopVisibility);
+};
+
+if (brandLink) {
+  brandLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+if (scrollToTopButton) {
+  scrollToTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  updateScrollToTopVisibility();
+
+  window.addEventListener(
+    "scroll",
+    requestScrollToTopFrame,
+    { passive: true }
+  );
+
+  window.addEventListener("resize", requestScrollToTopFrame);
+}
 
 // Hide/Show top navigation based on scroll direction
 

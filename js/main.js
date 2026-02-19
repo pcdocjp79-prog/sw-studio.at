@@ -450,13 +450,29 @@ const sectionTwoDetailPanels = Array.from(document.querySelectorAll(".section-2 
 const sectionTwoDetailPanelsById = new Map(
   sectionTwoDetailPanels.map((detailPanel) => [detailPanel.id, detailPanel])
 );
+const webdevDetailPanel = document.getElementById("webdev-detail-panel");
+const webdevPartSlides = Array.from(document.querySelectorAll("[data-webdev-slide]"));
+const webdevPartPrevButton = document.getElementById("webdev-part-prev");
+const webdevPartNextButton = document.getElementById("webdev-part-next");
+const webdevPartIndicator = document.getElementById("webdev-part-indicator");
+const sectionTwoReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let sectionTwoReducedMotion = sectionTwoReducedMotionQuery.matches;
+const sectionTwoLineItemSelector =
+  ".tile-detail-panel__eyebrow, .tile-detail-panel__title, .tile-detail-panel__text, .tile-detail-panel__pager-subheading, .tile-detail-panel__pager-list li, .tile-detail-panel__pager-steps li";
 let activeSectionTwoTileCard = null;
 let activeSectionTwoDetailPanel = null;
 let sectionTwoPositionRafId = null;
+let sectionTwoSafeInsetRafId = null;
+let sectionTwoSafeInsetMonitorUntil = 0;
+let webdevPartIndex = 0;
 
 const setSectionTwoTileActive = (tileCard, isActive) => {
+  const activeState = String(isActive);
   tileCard.classList.toggle("is-media-active", isActive);
-  tileCard.setAttribute("aria-pressed", String(isActive));
+  tileCard.setAttribute("aria-pressed", activeState);
+  if (tileCard.hasAttribute("aria-controls")) {
+    tileCard.setAttribute("aria-expanded", activeState);
+  }
 };
 
 const setSectionTwoDetailPanelVisible = (detailPanel, isVisible) => {
@@ -465,7 +481,204 @@ const setSectionTwoDetailPanelVisible = (detailPanel, isVisible) => {
   detailPanel.setAttribute("aria-hidden", String(!isVisible));
 };
 
+const setSectionTwoLineIndices = (container) => {
+  if (!container) return;
+  let lineIndex = 0;
+
+  container.querySelectorAll(sectionTwoLineItemSelector).forEach((lineItem) => {
+    lineItem.setAttribute("data-line-item", "");
+    lineItem.style.setProperty("--line-index", String(lineIndex));
+    lineIndex += 1;
+  });
+};
+
+const getSectionTwoLineAnimationContainer = (detailPanel) => {
+  if (!detailPanel) return null;
+  const activeWebdevSlide = detailPanel.querySelector("[data-webdev-slide].is-active");
+  if (activeWebdevSlide) return activeWebdevSlide;
+  return detailPanel.querySelector(".tile-detail-panel__content");
+};
+
+const resetSectionTwoLineAnimation = (detailPanel) => {
+  if (!detailPanel) return;
+  detailPanel.querySelectorAll(".is-lines-active").forEach((container) => {
+    container.classList.remove("is-lines-active");
+  });
+};
+
+const triggerSectionTwoLineAnimation = (container, baseDelayMs = 190) => {
+  if (!container) return;
+
+  const detailPanel = container.closest(".tile-detail-panel");
+  if (detailPanel) {
+    const containerRect = container.getBoundingClientRect();
+    const entersFromLeft = detailPanel.classList.contains("tile-detail-panel--from-left");
+    const entryTravel = window.innerWidth + containerRect.width + 80;
+    const dynamicEnterX = entersFromLeft ? -entryTravel : entryTravel;
+    container.style.setProperty("--line-enter-x", `${dynamicEnterX.toFixed(2)}px`);
+  }
+
+  container.style.setProperty("--line-base-delay", `${Math.max(baseDelayMs, 0)}ms`);
+  container.classList.remove("is-lines-active");
+
+  if (sectionTwoReducedMotion) {
+    container.classList.add("is-lines-active");
+    return;
+  }
+
+  void container.offsetWidth;
+  container.classList.add("is-lines-active");
+};
+
+sectionTwoDetailPanels.forEach((detailPanel) => {
+  const webdevSlides = detailPanel.querySelectorAll("[data-webdev-slide]");
+  if (webdevSlides.length > 0) {
+    webdevSlides.forEach((slide) => {
+      setSectionTwoLineIndices(slide);
+    });
+    return;
+  }
+
+  const content = detailPanel.querySelector(".tile-detail-panel__content");
+  setSectionTwoLineIndices(content);
+});
+
+const updateWebdevPartPager = () => {
+  if (webdevPartSlides.length === 0) return;
+
+  const lastIndex = webdevPartSlides.length - 1;
+  webdevPartIndex = Math.max(0, Math.min(webdevPartIndex, lastIndex));
+
+  webdevPartSlides.forEach((slide, index) => {
+    const isActive = index === webdevPartIndex;
+    slide.classList.toggle("is-active", isActive);
+    slide.setAttribute("aria-hidden", String(!isActive));
+  });
+
+  if (webdevPartIndicator) {
+    webdevPartIndicator.textContent = `Teil ${webdevPartIndex + 1} / ${webdevPartSlides.length}`;
+  }
+
+  webdevPartPrevButton?.classList.toggle("is-hidden", webdevPartIndex === 0);
+  webdevPartNextButton?.classList.toggle("is-hidden", webdevPartIndex === lastIndex);
+
+  if (webdevDetailPanel?.classList.contains("is-visible")) {
+    const openingRun = webdevDetailPanel.hasAttribute("data-lines-opening");
+    const baseDelay = openingRun ? 620 : 120;
+    triggerSectionTwoLineAnimation(webdevPartSlides[webdevPartIndex], baseDelay);
+    if (openingRun) {
+      webdevDetailPanel.removeAttribute("data-lines-opening");
+    }
+  }
+};
+
+const resetWebdevPartPager = () => {
+  if (webdevPartSlides.length === 0) return;
+  webdevPartIndex = 0;
+  updateWebdevPartPager();
+};
+
+if (webdevPartSlides.length > 0) {
+  updateWebdevPartPager();
+
+  webdevPartPrevButton?.addEventListener("click", () => {
+    webdevPartIndex -= 1;
+    updateWebdevPartPager();
+  });
+
+  webdevPartNextButton?.addEventListener("click", () => {
+    webdevPartIndex += 1;
+    updateWebdevPartPager();
+  });
+}
+
 const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const resetSectionTwoDetailPanelSafeInsets = (detailPanel) => {
+  if (!detailPanel) return;
+  detailPanel.style.setProperty("--detail-panel-safe-start", "0px");
+  detailPanel.style.setProperty("--detail-panel-safe-end", "0px");
+};
+
+const updateSectionTwoDetailPanelSafeInsets = (tileCard, detailPanel) => {
+  if (!tileCard || !detailPanel) return;
+
+  const mediaElement = tileCard.querySelector(".tile-card-media--filled");
+  if (!mediaElement) {
+    resetSectionTwoDetailPanelSafeInsets(detailPanel);
+    return;
+  }
+
+  const detailPanelRect = detailPanel.getBoundingClientRect();
+  const mediaRect = mediaElement.getBoundingClientRect();
+  if (detailPanelRect.width <= 0 || detailPanelRect.height <= 0) {
+    resetSectionTwoDetailPanelSafeInsets(detailPanel);
+    return;
+  }
+
+  const overlapWidth = Math.max(
+    0,
+    Math.min(detailPanelRect.right, mediaRect.right) - Math.max(detailPanelRect.left, mediaRect.left)
+  );
+  const overlapHeight = Math.max(
+    0,
+    Math.min(detailPanelRect.bottom, mediaRect.bottom) - Math.max(detailPanelRect.top, mediaRect.top)
+  );
+
+  if (overlapWidth <= 0 || overlapHeight <= 0) {
+    resetSectionTwoDetailPanelSafeInsets(detailPanel);
+    return;
+  }
+
+  const overlapCenterX = Math.max(detailPanelRect.left, mediaRect.left) + overlapWidth / 2;
+  const detailPanelCenterX = detailPanelRect.left + detailPanelRect.width / 2;
+  const visiblePanelLeft = Math.max(detailPanelRect.left, 0);
+  const visiblePanelRight = Math.min(detailPanelRect.right, window.innerWidth);
+  const visiblePanelWidth = Math.max(1, visiblePanelRight - visiblePanelLeft);
+  const insetGap = 16;
+  const maxInset = visiblePanelWidth * 0.38;
+  const safeInset = Math.min(overlapWidth + insetGap, maxInset);
+
+  if (overlapCenterX <= detailPanelCenterX) {
+    detailPanel.style.setProperty("--detail-panel-safe-start", `${safeInset.toFixed(2)}px`);
+    detailPanel.style.setProperty("--detail-panel-safe-end", "0px");
+    return;
+  }
+
+  detailPanel.style.setProperty("--detail-panel-safe-start", "0px");
+  detailPanel.style.setProperty("--detail-panel-safe-end", `${safeInset.toFixed(2)}px`);
+};
+
+const syncActiveSectionTwoDetailPanelSafeInsets = () => {
+  if (!activeSectionTwoTileCard || !activeSectionTwoDetailPanel) return;
+  updateSectionTwoDetailPanelSafeInsets(activeSectionTwoTileCard, activeSectionTwoDetailPanel);
+};
+
+const monitorActiveSectionTwoDetailPanelSafeInsets = () => {
+  syncActiveSectionTwoDetailPanelSafeInsets();
+
+  if (performance.now() < sectionTwoSafeInsetMonitorUntil && activeSectionTwoTileCard && activeSectionTwoDetailPanel) {
+    sectionTwoSafeInsetRafId = requestAnimationFrame(monitorActiveSectionTwoDetailPanelSafeInsets);
+    return;
+  }
+
+  sectionTwoSafeInsetRafId = null;
+};
+
+const stopSectionTwoSafeInsetMonitor = () => {
+  if (sectionTwoSafeInsetRafId !== null) {
+    cancelAnimationFrame(sectionTwoSafeInsetRafId);
+    sectionTwoSafeInsetRafId = null;
+  }
+  sectionTwoSafeInsetMonitorUntil = 0;
+};
+
+const startSectionTwoSafeInsetMonitor = (durationMs = 680) => {
+  if (!activeSectionTwoTileCard || !activeSectionTwoDetailPanel) return;
+  sectionTwoSafeInsetMonitorUntil = performance.now() + durationMs;
+  if (sectionTwoSafeInsetRafId !== null) return;
+  sectionTwoSafeInsetRafId = requestAnimationFrame(monitorActiveSectionTwoDetailPanelSafeInsets);
+};
 
 const clearSectionTwoDetailPanelPosition = (detailPanel) => {
   if (!detailPanel) return;
@@ -520,8 +733,12 @@ if (sectionTwoTileCards.length > 0) {
     sectionTwoDetailPanels.forEach((detailPanel) => {
       setSectionTwoDetailPanelVisible(detailPanel, false);
       clearSectionTwoDetailPanelPosition(detailPanel);
+      resetSectionTwoDetailPanelSafeInsets(detailPanel);
+      resetSectionTwoLineAnimation(detailPanel);
+      detailPanel.removeAttribute("data-lines-opening");
     });
 
+    stopSectionTwoSafeInsetMonitor();
     activeSectionTwoTileCard = null;
     activeSectionTwoDetailPanel = null;
   };
@@ -533,17 +750,31 @@ if (sectionTwoTileCards.length > 0) {
     tileCard.setAttribute("role", "button");
     tileCard.setAttribute("tabindex", "0");
     tileCard.setAttribute("aria-pressed", "false");
+    if (linkedDetailPanel) {
+      tileCard.setAttribute("aria-controls", linkedDetailPanel.id);
+      tileCard.setAttribute("aria-expanded", "false");
+    }
 
     const toggleTileCard = () => {
       const shouldActivate = !tileCard.classList.contains("is-media-active");
       closeSectionTwoTiles();
       if (!shouldActivate) return;
 
+      activeSectionTwoTileCard = tileCard;
+      activeSectionTwoDetailPanel = linkedDetailPanel;
       setSectionTwoTileActive(tileCard, true);
       positionSectionTwoDetailPanel(tileCard, linkedDetailPanel);
       setSectionTwoDetailPanelVisible(linkedDetailPanel, true);
-      activeSectionTwoTileCard = tileCard;
-      activeSectionTwoDetailPanel = linkedDetailPanel;
+      if (linkedDetailPanel?.id === "webdev-detail-panel") {
+        linkedDetailPanel.setAttribute("data-lines-opening", "true");
+        resetWebdevPartPager();
+      } else {
+        triggerSectionTwoLineAnimation(getSectionTwoLineAnimationContainer(linkedDetailPanel), 360);
+      }
+
+      if (linkedDetailPanel) {
+        startSectionTwoSafeInsetMonitor();
+      }
     };
 
     tileCard.addEventListener("click", () => {
@@ -564,8 +795,15 @@ if (sectionTwoTileCards.length > 0) {
     closeSectionTwoTiles();
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (!activeSectionTwoTileCard) return;
+    closeSectionTwoTiles();
+  });
+
   window.addEventListener("resize", () => {
     requestActiveSectionTwoDetailPanelPosition();
+    startSectionTwoSafeInsetMonitor(320);
   });
 
   closeSectionTwoTiles();
@@ -573,6 +811,16 @@ if (sectionTwoTileCards.length > 0) {
   sectionTwoDetailPanels.forEach((detailPanel) => {
     detailPanel.setAttribute("aria-hidden", "true");
   });
+}
+
+const handleSectionTwoReducedMotionChange = (event) => {
+  sectionTwoReducedMotion = event.matches;
+};
+
+if (typeof sectionTwoReducedMotionQuery.addEventListener === "function") {
+  sectionTwoReducedMotionQuery.addEventListener("change", handleSectionTwoReducedMotionChange);
+} else if (typeof sectionTwoReducedMotionQuery.addListener === "function") {
+  sectionTwoReducedMotionQuery.addListener(handleSectionTwoReducedMotionChange);
 }
 
 // Logic Tab Switcher

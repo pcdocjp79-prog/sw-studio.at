@@ -14,7 +14,7 @@
     />
 
     <!-- Iconify -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
     <!-- Tailwind -->
     <script src="js/tailwind.config.js"></script>
@@ -182,13 +182,104 @@
           class="tile-detail-panel"
           aria-hidden="true"
         >
-          <div class="tile-detail-panel__content">
-            <p class="tile-detail-panel__eyebrow">Webentwicklung</p>
-            <h4 class="tile-detail-panel__title">Projektfenster</h4>
-            <p class="tile-detail-panel__text">
-              Hier kann spaeter der Deep-Dive fuer die erste Kachel stehen:
-              Leistungsumfang, Tech-Stack, Projektablauf und konkrete Referenzbeispiele.
-            </p>
+          <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-webdev-pager>
+            <article class="tile-detail-panel__pager-slide is-active" data-webdev-slide>
+              <p class="tile-detail-panel__eyebrow">Teil 1</p>
+              <h4 class="tile-detail-panel__title">Professionelle Webentwicklung mit Strategie und System</h4>
+              <p class="tile-detail-panel__text">
+                Ich entwickle moderne, performante Websites, die nicht nur gut aussehen, sondern technisch sauber aufgebaut, schnell ladend
+                und langfristig skalierbar sind. Jede Website wird individuell an Ihr Unternehmen, Ihre Ziele und Ihre Zielgruppe angepasst.
+              </p>
+            </article>
+
+            <article class="tile-detail-panel__pager-slide" data-webdev-slide aria-hidden="true">
+              <p class="tile-detail-panel__eyebrow">Teil 2</p>
+              <h4 class="tile-detail-panel__title">Individuelle Webentwicklung (Custom Code)</h4>
+              <p class="tile-detail-panel__text">
+                Für Unternehmen mit hohen Anforderungen entwickle ich maßgeschneiderte Websites auf Basis von modernem HTML, CSS und JavaScript.
+              </p>
+              <p class="tile-detail-panel__pager-subheading">Vorteile:</p>
+              <ul class="tile-detail-panel__pager-list">
+                <li>Maximale Performance durch schlanken, optimierten Code</li>
+                <li>Hohe Sicherheit ohne unnötige Plugin-Abhängigkeiten</li>
+                <li>Volle Design- und Funktionsfreiheit</li>
+                <li>Skalierbarkeit für zukünftige Erweiterungen</li>
+                <li>Optimierte Core Web Vitals für bessere Google-Rankings</li>
+              </ul>
+              <p class="tile-detail-panel__text">
+                Diese Lösung eignet sich besonders für Unternehmen, die langfristig wachsen und Wert auf technische Exzellenz legen.
+              </p>
+            </article>
+
+            <article class="tile-detail-panel__pager-slide" data-webdev-slide aria-hidden="true">
+              <p class="tile-detail-panel__eyebrow">Teil 3</p>
+              <h4 class="tile-detail-panel__title">WordPress &amp; CMS-Lösungen</h4>
+              <p class="tile-detail-panel__text">
+                Für flexible und erweiterbare Projekte setze ich auf WordPress oder vergleichbare CMS-Systeme.
+              </p>
+              <p class="tile-detail-panel__pager-subheading">Geeignet für:</p>
+              <ul class="tile-detail-panel__pager-list">
+                <li>Unternehmenswebsites</li>
+                <li>Blogs</li>
+                <li>Landingpages</li>
+                <li>Online-Shops</li>
+                <li>Content-getriebene Plattformen</li>
+              </ul>
+              <p class="tile-detail-panel__text">
+                Sie erhalten eine benutzerfreundliche Oberfläche, mit der Sie Inhalte selbst verwalten können – bei gleichzeitig professioneller
+                technischer Umsetzung im Hintergrund.
+              </p>
+            </article>
+
+            <article class="tile-detail-panel__pager-slide" data-webdev-slide aria-hidden="true">
+              <p class="tile-detail-panel__eyebrow">Teil 4</p>
+              <h4 class="tile-detail-panel__title">Struktur &amp; Performance</h4>
+              <p class="tile-detail-panel__text">
+                Eine gute Website beginnt nicht mit Design, sondern mit Struktur.
+              </p>
+              <p class="tile-detail-panel__pager-subheading">Ich entwickle:</p>
+              <ul class="tile-detail-panel__pager-list">
+                <li>Klare Seitenarchitektur</li>
+                <li>Logische Navigation</li>
+                <li>SEO-optimierte URL-Strukturen</li>
+                <li>Mobile-First Layouts</li>
+                <li>Schnelle Ladezeiten durch optimierte Assets</li>
+              </ul>
+              <p class="tile-detail-panel__text">Performance ist kein Extra – sie ist Standard.</p>
+            </article>
+
+            <article class="tile-detail-panel__pager-slide" data-webdev-slide aria-hidden="true">
+              <p class="tile-detail-panel__eyebrow">Teil 5</p>
+              <h4 class="tile-detail-panel__title">Projektablauf</h4>
+              <p class="tile-detail-panel__pager-subheading">So läuft ein Projekt ab:</p>
+              <ol class="tile-detail-panel__pager-steps">
+                <li>Analyse &amp; Zieldefinition</li>
+                <li>Struktur &amp; Konzeptentwicklung</li>
+                <li>Design &amp; technische Umsetzung</li>
+                <li>Testing &amp; Optimierung</li>
+                <li>Launch &amp; optionaler Wartungsvertrag</li>
+              </ol>
+            </article>
+
+            <div class="tile-detail-panel__pager-nav" role="group" aria-label="Webentwicklung Teile">
+              <button
+                id="webdev-part-prev"
+                type="button"
+                class="tile-detail-panel__pager-arrow is-hidden"
+                aria-label="Vorheriger Teil"
+              >
+                ←
+              </button>
+              <p id="webdev-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">Teil 1 / 5</p>
+              <button
+                id="webdev-part-next"
+                type="button"
+                class="tile-detail-panel__pager-arrow"
+                aria-label="Nächster Teil"
+              >
+                →
+              </button>
+            </div>
           </div>
         </aside>
 

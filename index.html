@@ -25,6 +25,7 @@
   </head>
 
   <body class="antialiased selection:bg-zinc-200 selection:text-black">
+    <div id="animated-background" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <header class="top-nav fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-5">
@@ -51,10 +52,11 @@
         </button>
 
         <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2">
-          <a href="#product" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Services</a>
-          <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">über uns</a>
-          <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Kontakt</a>
-          <a href="#voice" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-base font-medium text-[#ff5dac]">Inspiration</a>
+          <a href="#product" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Leistungen</a>
+          <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Marketing & SEO</a>
+          <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Branding & Design</a>
+          <a href="#voice" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Über mich</a>
+          <a href="#contact" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Kontakt</a>
         </nav>
       </div>
     </header>
@@ -62,11 +64,11 @@
     <!-- Hero Section -->
     <main class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
       <h1 class="animate-enter delay-100 font-display text-5xl sm:text-7xl font-semibold tracking-tight text-white mb-6 max-w-4xl">
-        Websites, die Vertrauen schaffen – und Anfragen bringen.
+        Moderne Websites. Klare Strategien. Messbare Ergebnisse.
       </h1>
 
       <p class="animate-enter delay-200 text-lg sm:text-xl text-zinc-400 max-w-2xl mb-10 leading-relaxed">
-        Smart Web Studio entwickelt moderne Websites für KMU in Vorarlberg – klar im Design, schnell, mobiloptimiert und auf Conversions ausgelegt.
+        Ich entwickle performante Websites und digitale Marketinglösungen für Unternehmen, die wachsen wollen – mit Code, WordPress oder individuellen Systemen.
       </p>
 
       <div class="animate-enter delay-300 flex flex-col sm:flex-row items-center gap-4">
@@ -75,52 +77,91 @@
           <div class="line top"></div><div class="line bot"></div>
           <button class="btn">
             <iconify-icon icon="solar:code-scan-linear" class="mr-2 text-lg"></iconify-icon>
-            Erstgespräch
+            Projekt anfragen
           </button>
         </div>
 
         <a href="#" class="text-zinc-400 hover:text-white text-sm font-medium px-6 py-3 transition-colors flex items-center gap-2">
-          Pakete ansehen
+          Leistungen entdecken
           <iconify-icon icon="solar:alt-arrow-right-linear"></iconify-icon>
         </a>
       </div>
 
       <div class="section-2 animate-enter delay-300 mt-20 relative w-full max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-stretch">
-          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
+          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
             <span class="tile-mouse-glow" aria-hidden="true"></span>
-            <div class="w-14 h-14 rounded-full border-2 border-[#ff5dac] text-[#ff5dac] flex items-center justify-center">
-              <iconify-icon icon="solar:alt-arrow-down-linear" width="30"></iconify-icon>
+            <div class="tile-card-body tile-card-body--with-image">
+              <div class="tile-card-copy">
+                <div class="tile-card-header">
+                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Webentwicklung</h3>
+                </div>
+                <p class="text-zinc-100 text-sm leading-relaxed">
+                  Maßgeschneiderte Websites mit modernem Code, WordPress oder flexiblen Baukastensystemen – optimiert für Performance und Skalierbarkeit.
+                </p>
+              </div>
+              <div class="tile-card-media tile-card-media--filled">
+                <img
+                  src="assets/Webengwiklung.webP"
+                  alt="Webentwicklung Visual"
+                  class="tile-card-media-image"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
-            <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Website &amp; Design</h3>
-            <p class="text-zinc-100 text-base leading-relaxed max-w-md">
-              Von der Konzeption bis zum Launch begleite ich jedes Projekt persönlich. Durch den gezielten Einsatz intelligenter
-              Systeme und KI-gestützter Prozesse entstehen durchdachte, performante Websites effizient und zukunftssicher.
-            </p>
           </article>
 
-          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
+          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
             <span class="tile-mouse-glow" aria-hidden="true"></span>
-            <div class="w-14 h-14 rounded-full border-2 border-[#ff5dac] text-[#ff5dac] flex items-center justify-center">
-              <iconify-icon icon="solar:alt-arrow-down-linear" width="30"></iconify-icon>
+            <div class="tile-card-body tile-card-body--with-image">
+              <div class="tile-card-copy">
+                <div class="tile-card-header">
+                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">SEO &amp; Marketing</h3>
+                </div>
+                <p class="text-zinc-100 text-sm leading-relaxed">
+                  Strategische Sichtbarkeit durch Suchmaschinenoptimierung, Content-Strategien und datengetriebene Kampagnen.
+                </p>
+              </div>
+              <div class="tile-card-media tile-card-media--filled">
+                <img
+                  src="assets/Seo_Marketing.webP"
+                  alt="SEO und Marketing Visual"
+                  class="tile-card-media-image"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
-            <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Social Media &amp; Marketing</h3>
-            <p class="text-zinc-100 text-base leading-relaxed max-w-md">
-              Ich baue deinen professionellen Auftritt auf Instagram, LinkedIn und weiteren Plattformen strategisch auf und richte
-              ihn visuell konsequent an deiner Marke aus. Struktur, Design und Inhalte greifen dabei klar ineinander.
-            </p>
           </article>
 
-          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
+          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
             <span class="tile-mouse-glow" aria-hidden="true"></span>
-            <div class="w-14 h-14 rounded-full border-2 border-[#ff5dac] text-[#ff5dac] flex items-center justify-center">
-              <iconify-icon icon="solar:alt-arrow-down-linear" width="30"></iconify-icon>
+            <div class="tile-card-body tile-card-body--with-image">
+              <div class="tile-card-copy">
+                <div class="tile-card-header">
+                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Branding &amp; Design</h3>
+                </div>
+                <p class="text-zinc-100 text-sm leading-relaxed">
+                  Entwicklung klarer Markenidentitäten, Logos und visueller Konzepte mit Wiedererkennungswert.
+                </p>
+              </div>
+              <div class="tile-card-media tile-card-media--filled">
+                <img
+                  src="assets/Branding_Desing.webP"
+                  alt="Branding und Design Visual"
+                  class="tile-card-media-image"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
-            <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Strategie &amp; Wachstum</h3>
-            <p class="text-zinc-100 text-base leading-relaxed max-w-md">
-              Ich entwickle mit dir eine klare Wachstumsstrategie, die Website, Inhalte und digitale Kanäle in ein skalierbares System
-              überführt. So entstehen Sichtbarkeit, Vertrauen und planbar mehr qualifizierte Anfragen.
-            </p>
           </article>
         </div>
 
@@ -366,7 +407,7 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-black py-12 px-4">
+    <footer id="contact" class="border-t border-white/10 bg-black py-12 px-4">
       <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
         <div class="col-span-2">
           <div class="flex items-center gap-2 mb-4">

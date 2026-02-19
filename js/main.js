@@ -443,6 +443,138 @@ if (supportsFinePointer) {
   });
 }
 
+// Section 2 Tile Media Toggle (click to expand image)
+const sectionTwoElement = document.querySelector(".section-2");
+const sectionTwoTileCards = Array.from(document.querySelectorAll(".section-2 .tile-card"));
+const sectionTwoDetailPanels = Array.from(document.querySelectorAll(".section-2 .tile-detail-panel"));
+const sectionTwoDetailPanelsById = new Map(
+  sectionTwoDetailPanels.map((detailPanel) => [detailPanel.id, detailPanel])
+);
+let activeSectionTwoTileCard = null;
+let activeSectionTwoDetailPanel = null;
+let sectionTwoPositionRafId = null;
+
+const setSectionTwoTileActive = (tileCard, isActive) => {
+  tileCard.classList.toggle("is-media-active", isActive);
+  tileCard.setAttribute("aria-pressed", String(isActive));
+};
+
+const setSectionTwoDetailPanelVisible = (detailPanel, isVisible) => {
+  if (!detailPanel) return;
+  detailPanel.classList.toggle("is-visible", isVisible);
+  detailPanel.setAttribute("aria-hidden", String(!isVisible));
+};
+
+const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const clearSectionTwoDetailPanelPosition = (detailPanel) => {
+  if (!detailPanel) return;
+  detailPanel.style.removeProperty("--detail-panel-left");
+  detailPanel.style.removeProperty("--detail-panel-right");
+  detailPanel.style.removeProperty("--detail-panel-from-left-left");
+  detailPanel.style.removeProperty("--detail-panel-from-left-right");
+};
+
+const positionSectionTwoDetailPanel = (tileCard, detailPanel) => {
+  if (!sectionTwoElement || !tileCard || !detailPanel) return;
+
+  const sectionRect = sectionTwoElement.getBoundingClientRect();
+  const tileRect = tileCard.getBoundingClientRect();
+
+  if (sectionRect.width <= 0 || tileRect.width <= 0) return;
+
+  const tileLeftInSection = tileRect.left - sectionRect.left;
+  const tileWidth = tileRect.width;
+
+  if (detailPanel.classList.contains("tile-detail-panel--from-left")) {
+    const targetRight = sectionRect.width - (tileLeftInSection + tileWidth * 0.82);
+    const panelRight = clampValue(targetRight, 24, sectionRect.width * 0.68);
+    detailPanel.style.setProperty("--detail-panel-from-left-right", `${panelRight.toFixed(2)}px`);
+    return;
+  }
+
+  const targetLeft = tileLeftInSection + tileWidth * 0.88;
+  const panelLeft = clampValue(targetLeft, 220, sectionRect.width - 140);
+  detailPanel.style.setProperty("--detail-panel-left", `${panelLeft.toFixed(2)}px`);
+};
+
+const syncActiveSectionTwoDetailPanelPosition = () => {
+  if (!activeSectionTwoTileCard || !activeSectionTwoDetailPanel) return;
+  positionSectionTwoDetailPanel(activeSectionTwoTileCard, activeSectionTwoDetailPanel);
+};
+
+const requestActiveSectionTwoDetailPanelPosition = () => {
+  if (sectionTwoPositionRafId !== null) return;
+  sectionTwoPositionRafId = requestAnimationFrame(() => {
+    syncActiveSectionTwoDetailPanelPosition();
+    sectionTwoPositionRafId = null;
+  });
+};
+
+if (sectionTwoTileCards.length > 0) {
+  const closeSectionTwoTiles = () => {
+    sectionTwoTileCards.forEach((tileCard) => {
+      setSectionTwoTileActive(tileCard, false);
+    });
+
+    sectionTwoDetailPanels.forEach((detailPanel) => {
+      setSectionTwoDetailPanelVisible(detailPanel, false);
+      clearSectionTwoDetailPanelPosition(detailPanel);
+    });
+
+    activeSectionTwoTileCard = null;
+    activeSectionTwoDetailPanel = null;
+  };
+
+  sectionTwoTileCards.forEach((tileCard) => {
+    const linkedPanelId = tileCard.dataset.detailPanel;
+    const linkedDetailPanel = linkedPanelId ? sectionTwoDetailPanelsById.get(linkedPanelId) : null;
+
+    tileCard.setAttribute("role", "button");
+    tileCard.setAttribute("tabindex", "0");
+    tileCard.setAttribute("aria-pressed", "false");
+
+    const toggleTileCard = () => {
+      const shouldActivate = !tileCard.classList.contains("is-media-active");
+      closeSectionTwoTiles();
+      if (!shouldActivate) return;
+
+      setSectionTwoTileActive(tileCard, true);
+      positionSectionTwoDetailPanel(tileCard, linkedDetailPanel);
+      setSectionTwoDetailPanelVisible(linkedDetailPanel, true);
+      activeSectionTwoTileCard = tileCard;
+      activeSectionTwoDetailPanel = linkedDetailPanel;
+    };
+
+    tileCard.addEventListener("click", () => {
+      toggleTileCard();
+    });
+
+    tileCard.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleTileCard();
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickedInsideTileCard = sectionTwoTileCards.some((tileCard) => tileCard.contains(event.target));
+    const clickedInsideDetailPanel = sectionTwoDetailPanels.some((detailPanel) => detailPanel.contains(event.target));
+    if (clickedInsideTileCard || clickedInsideDetailPanel) return;
+    closeSectionTwoTiles();
+  });
+
+  window.addEventListener("resize", () => {
+    requestActiveSectionTwoDetailPanelPosition();
+  });
+
+  closeSectionTwoTiles();
+} else {
+  sectionTwoDetailPanels.forEach((detailPanel) => {
+    detailPanel.setAttribute("aria-hidden", "true");
+  });
+}
+
 // Logic Tab Switcher
 const validTabs = new Set(["collab", "audit"]);
 

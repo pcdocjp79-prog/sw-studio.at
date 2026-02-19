@@ -89,7 +89,11 @@
 
       <div class="section-2 animate-enter delay-300 mt-20 relative w-full max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-stretch">
-          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
+          <article
+            id="tile-card-webdev"
+            data-detail-panel="webdev-detail-panel"
+            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20"
+          >
             <span class="tile-mouse-glow" aria-hidden="true"></span>
             <div class="tile-card-body tile-card-body--with-image">
               <div class="tile-card-copy">
@@ -114,7 +118,11 @@
             </div>
           </article>
 
-          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
+          <article
+            id="tile-card-seo"
+            data-detail-panel="seo-detail-panel"
+            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20"
+          >
             <span class="tile-mouse-glow" aria-hidden="true"></span>
             <div class="tile-card-body tile-card-body--with-image">
               <div class="tile-card-copy">
@@ -139,7 +147,11 @@
             </div>
           </article>
 
-          <article class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
+          <article
+            id="tile-card-branding"
+            data-detail-panel="branding-detail-panel"
+            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20"
+          >
             <span class="tile-mouse-glow" aria-hidden="true"></span>
             <div class="tile-card-body tile-card-body--with-image">
               <div class="tile-card-copy">
@@ -164,6 +176,51 @@
             </div>
           </article>
         </div>
+
+        <aside
+          id="webdev-detail-panel"
+          class="tile-detail-panel"
+          aria-hidden="true"
+        >
+          <div class="tile-detail-panel__content">
+            <p class="tile-detail-panel__eyebrow">Webentwicklung</p>
+            <h4 class="tile-detail-panel__title">Projektfenster</h4>
+            <p class="tile-detail-panel__text">
+              Hier kann spaeter der Deep-Dive fuer die erste Kachel stehen:
+              Leistungsumfang, Tech-Stack, Projektablauf und konkrete Referenzbeispiele.
+            </p>
+          </div>
+        </aside>
+
+        <aside
+          id="seo-detail-panel"
+          class="tile-detail-panel tile-detail-panel--from-left"
+          aria-hidden="true"
+        >
+          <div class="tile-detail-panel__content">
+            <p class="tile-detail-panel__eyebrow">SEO &amp; Marketing</p>
+            <h4 class="tile-detail-panel__title">Strategiefenster</h4>
+            <p class="tile-detail-panel__text">
+              Hier kann spaeter der Deep-Dive fuer SEO und Marketing stehen:
+              Keyword-Strategie, Content-Cluster, Kampagnenlogik und Messkonzept.
+            </p>
+          </div>
+        </aside>
+
+        <aside
+          id="branding-detail-panel"
+          class="tile-detail-panel tile-detail-panel--from-left"
+          aria-hidden="true"
+        >
+          <div class="tile-detail-panel__content">
+            <p class="tile-detail-panel__eyebrow">Branding &amp; Design</p>
+            <h4 class="tile-detail-panel__title">Designfenster</h4>
+            <p class="tile-detail-panel__text">
+              Hier kann spaeter der Deep-Dive fuer Branding und Design stehen:
+              Markenstory, visuelle Leitlinien, Designsystem und Anwendungen.
+            </p>
+          </div>
+        </aside>
 
         <div class="absolute -inset-10 bg-blue-500/10 blur-3xl rounded-[50%] z-[-1]"></div>
       </div>

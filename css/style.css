@@ -231,7 +231,7 @@ img {
 }
 
 .section-2 .tile-card-body--with-image {
-  grid-template-columns: minmax(0, 1fr) clamp(118px, 34%, 160px);
+  grid-template-columns: minmax(0, 0.86fr) clamp(136px, 42%, 190px);
   align-items: start;
 }
 

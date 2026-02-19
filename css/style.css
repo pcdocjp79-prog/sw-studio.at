@@ -273,6 +273,9 @@ img {
 }
 
 .section-2 .tile-card-media--filled {
+  --card-img-x: 0px;
+  --card-img-y: 0px;
+  --card-img-rot: 0deg;
   min-height: 0;
   align-self: start;
   justify-self: end;
@@ -280,7 +283,10 @@ img {
   background: transparent;
   padding: 0;
   width: clamp(150px, 52%, 220px);
-  transform-origin: center top;
+  transform-origin: right center;
+  transform: translate(var(--card-img-x), var(--card-img-y)) rotate(var(--card-img-rot)) scale(1);
+  transition: transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
   z-index: 1;
   pointer-events: none;
 }
@@ -297,18 +303,40 @@ img {
   border-radius: 0.65rem;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.24));
+  transition: box-shadow 460ms ease, filter 460ms ease;
 }
 
 .section-2 .tile-card:nth-child(1) .tile-card-media--filled {
-  transform: translate(36px, 34px) rotate(2.8deg);
+  --card-img-x: 42px;
+  --card-img-y: 38px;
+  --card-img-rot: 3.8deg;
 }
 
 .section-2 .tile-card:nth-child(2) .tile-card-media--filled {
-  transform: translate(30px, 24px) rotate(-1.2deg);
+  --card-img-x: 36px;
+  --card-img-y: 20px;
+  --card-img-rot: -2.1deg;
 }
 
 .section-2 .tile-card:nth-child(3) .tile-card-media--filled {
-  transform: translate(34px, 30px) rotate(2deg);
+  --card-img-x: 40px;
+  --card-img-y: 34px;
+  --card-img-rot: 2.9deg;
+}
+
+.section-2 .tile-card:hover {
+  overflow: visible;
+  z-index: 6;
+}
+
+.section-2 .tile-card:hover .tile-card-media--filled {
+  transform: translate(calc(var(--card-img-x) + 54px), calc(var(--card-img-y) - 14px)) rotate(calc(var(--card-img-rot) + 1.9deg)) scale(1.92);
+  z-index: 8;
+}
+
+.section-2 .tile-card:hover .tile-card-media-image {
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.52);
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.34));
 }
 
 .section-2 .tile-mouse-glow {
@@ -386,12 +414,25 @@ img {
     width: min(100%, 210px);
     justify-self: center;
     pointer-events: auto;
+    transition: none;
   }
 
   .section-2 .tile-card:nth-child(1) .tile-card-media--filled,
   .section-2 .tile-card:nth-child(2) .tile-card-media--filled,
   .section-2 .tile-card:nth-child(3) .tile-card-media--filled {
+    --card-img-x: 0px;
+    --card-img-y: 0px;
+    --card-img-rot: 0deg;
     transform: none;
+  }
+
+  .section-2 .tile-card:hover .tile-card-media--filled {
+    transform: none;
+  }
+
+  .section-2 .tile-card:hover .tile-card-media-image {
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.24));
   }
 
   .section-2 .tile-card-media {

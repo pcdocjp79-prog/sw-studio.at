@@ -28,11 +28,10 @@
     <div id="animated-background" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <header class="top-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-5">
-      <div id="glass-nav" class="glass-nav w-full max-w-7xl mx-auto">
-        <span class="nav-mouse-glow" aria-hidden="true"></span>
+    <header class="top-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+      <div id="glass-nav" class="glass-nav w-full">
 
-        <a href="#top" class="brand-link flex items-center gap-3 rounded-full px-2 py-0.5">
+        <a href="#top" class="brand-link flex items-center gap-3">
           <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
           <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart Web Studio</span>
         </a>
@@ -51,7 +50,7 @@
           <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
         </button>
 
-        <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2">
+        <nav id="primary-nav" class="nav-links ml-auto flex items-center gap-1 sm:gap-2">
           <a href="#product" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Leistungen</a>
           <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Marketing & SEO</a>
           <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Branding & Design</a>
@@ -62,94 +61,30 @@
     </header>
 
     <!-- Hero Section -->
-    <main class="relative pt-28 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <section class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-center">
-        <div class="max-w-2xl text-left">
-          <h1
-            class="hero-headline hero-headline--stagger font-display text-4xl sm:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-5 sm:mb-6"
-            data-hero-headline
-            data-hero-mode="stagger"
-          >
-            <span class="hero-headline__variant hero-headline__variant--stagger is-active" data-hero-variant="stagger">
-              <span class="hero-line" style="--hero-line-index: 0;">Moderne Websites.</span>
-              <span class="hero-line" style="--hero-line-index: 1;">Klare Strategien.</span>
-              <span class="hero-line" style="--hero-line-index: 2;">Messbare Ergebnisse.</span>
-            </span>
-            <span class="hero-headline__variant hero-headline__variant--keywords" data-hero-variant="keywords" aria-hidden="true">
-              <span class="hero-line">Moderne <span class="hero-keyword">Websites</span>.</span>
-              <span class="hero-line">Strategie mit <span class="hero-keyword">System</span>.</span>
-              <span class="hero-line">Ergebnisse, die <span class="hero-keyword">wachsen</span>.</span>
-            </span>
-          </h1>
+    <main class="relative pt-0 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="hero-scroll-stack">
+        <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
+          <div class="hero-stage__viewport">
+            <div class="hero-stage__frame" data-hero-stage-card>
+              <span class="hero-stage__noise" aria-hidden="true"></span>
+              <span class="hero-stage__glow" aria-hidden="true"></span>
+              <div class="hero-stage__grid" aria-hidden="true"></div>
 
-          <p class="animate-enter delay-200 text-base sm:text-lg xl:text-xl text-zinc-400 max-w-xl mb-8 sm:mb-10 leading-relaxed">
-            Ich entwickle performante Websites und digitale Marketinglösungen für Unternehmen, die wachsen wollen – mit Code, WordPress oder individuellen Systemen.
-          </p>
-
-          <div class="animate-enter delay-200 flex flex-col sm:flex-row sm:flex-wrap items-start gap-4">
-            <div class="btn-wrapper group">
-              <div class="dot tl"></div><div class="dot tr"></div><div class="dot bl"></div><div class="dot br"></div>
-              <div class="line top"></div><div class="line bot"></div>
-              <button class="btn">
-                <iconify-icon icon="solar:code-scan-linear" class="mr-2 text-lg"></iconify-icon>
-                Projekt anfragen
-              </button>
-            </div>
-
-            <a href="#product" class="text-zinc-400 hover:text-white text-sm sm:text-base font-medium px-2 sm:px-6 py-3 transition-colors flex items-center gap-2">
-              Leistungen entdecken
-              <iconify-icon icon="solar:alt-arrow-right-linear"></iconify-icon>
-            </a>
-          </div>
-        </div>
-
-        <aside class="animate-enter delay-300 w-full max-w-md sm:max-w-lg lg:max-w-none mx-auto lg:mx-0">
-          <div class="glass-card hero-visual w-full max-w-[460px] mx-auto lg:ml-auto lg:mr-0 rounded-3xl p-4 sm:p-6 lg:p-7 min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] flex items-center justify-center overflow-visible">
-            <span class="hero-visual__halo" aria-hidden="true"></span>
-            <ul class="hero-visual__roles hero-visual__roles--stack-top" aria-hidden="true">
-              <li>Web-Architekt</li>
-              <li>Markenentwickler</li>
-              <li>UX-orientiert</li>
-              <li>Performance-Fokus</li>
-              <li>Präzise</li>
-            </ul>
-            <ul class="hero-visual__roles hero-visual__roles--stack-mid" aria-hidden="true">
-              <li>Web-Architekt</li>
-              <li>Markenentwickler</li>
-              <li>UX-orientiert</li>
-              <li>Performance-Fokus</li>
-              <li>Präzise</li>
-            </ul>
-            <ul class="hero-visual__roles hero-visual__roles--stack-base" aria-label="Leistungsprofil">
-              <li>Web-Architekt</li>
-              <li>Markenentwickler</li>
-              <li>UX-orientiert</li>
-              <li>Performance-Fokus</li>
-              <li>Präzise</li>
-            </ul>
-            <figure class="hero-floating-object" aria-hidden="true">
-              <span class="hero-floating-object__shadow"></span>
-              <span class="hero-floating-object__layer hero-floating-object__layer--rear"></span>
-              <span class="hero-floating-object__layer hero-floating-object__layer--mid"></span>
-
-              <div class="hero-floating-object__panel">
-                <img
-                  src="assets/webdesigner_portrait.webp"
-                  alt=""
-                  class="hero-floating-object__image"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="high"
-                />
-                <span class="hero-floating-object__image-gloss" aria-hidden="true"></span>
+              <div class="hero-stage__content">
+                <p class="hero-stage__eyebrow">Smart Web Studio</p>
+                <h2 class="hero-stage__title">Moderne Websites.
+Klare Strategien.
+</h2>
+                <p class="hero-stage__text">
+                  Diese Fläche ist als Full-Width Header vorbereitet und reagiert bereits interaktiv per Maus mit einer 3D-Bewegung.
+                </p>
               </div>
-            </figure>
+            </div>
           </div>
-        </aside>
-      </section>
+        </section>
 
-      <div class="section-2 section-2--dock-test animate-enter delay-300 mt-16 lg:mt-20 relative w-full max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-stretch">
+        <div class="section-2 section-2--dock-test animate-enter delay-300 mt-16 lg:mt-20 relative w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 xl:gap-12 items-stretch">
           <article
             id="tile-card-webdev"
             data-detail-panel="webdev-detail-panel"
@@ -534,8 +469,94 @@
           </div>
         </aside>
 
-        <div class="absolute -inset-10 bg-blue-500/10 blur-3xl rounded-[50%] z-[-1]"></div>
+          <div class="absolute -inset-10 bg-blue-500/10 blur-3xl rounded-[50%] z-[-1]"></div>
+        </div>
       </div>
+
+      <section class="w-full max-w-6xl mx-auto mt-20 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-center">
+        <div class="max-w-2xl text-left">
+          <h1
+            class="hero-headline hero-headline--stagger font-display text-4xl sm:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-5 sm:mb-6"
+            data-hero-headline
+            data-hero-mode="stagger"
+          >
+            <span class="hero-headline__variant hero-headline__variant--stagger is-active" data-hero-variant="stagger">
+              <span class="hero-line" style="--hero-line-index: 0;">Moderne Websites.</span>
+              <span class="hero-line" style="--hero-line-index: 1;">Klare Strategien.</span>
+              <span class="hero-line" style="--hero-line-index: 2;">Messbare Ergebnisse.</span>
+            </span>
+            <span class="hero-headline__variant hero-headline__variant--keywords" data-hero-variant="keywords" aria-hidden="true">
+              <span class="hero-line">Moderne <span class="hero-keyword">Websites</span>.</span>
+              <span class="hero-line">Strategie mit <span class="hero-keyword">System</span>.</span>
+              <span class="hero-line">Ergebnisse, die <span class="hero-keyword">wachsen</span>.</span>
+            </span>
+          </h1>
+
+          <p class="animate-enter delay-200 text-base sm:text-lg xl:text-xl text-zinc-400 max-w-xl mb-8 sm:mb-10 leading-relaxed">
+            Ich entwickle performante Websites und digitale Marketinglösungen für Unternehmen, die wachsen wollen – mit Code, WordPress oder individuellen Systemen.
+          </p>
+
+          <div class="animate-enter delay-200 flex flex-col sm:flex-row sm:flex-wrap items-start gap-4">
+            <div class="btn-wrapper group">
+              <div class="dot tl"></div><div class="dot tr"></div><div class="dot bl"></div><div class="dot br"></div>
+              <div class="line top"></div><div class="line bot"></div>
+              <button class="btn">
+                <iconify-icon icon="solar:code-scan-linear" class="mr-2 text-lg"></iconify-icon>
+                Projekt anfragen
+              </button>
+            </div>
+
+            <a href="#product" class="text-zinc-400 hover:text-white text-sm sm:text-base font-medium px-2 sm:px-6 py-3 transition-colors flex items-center gap-2">
+              Leistungen entdecken
+              <iconify-icon icon="solar:alt-arrow-right-linear"></iconify-icon>
+            </a>
+          </div>
+        </div>
+
+        <aside class="animate-enter delay-300 w-full max-w-md sm:max-w-lg lg:max-w-none mx-auto lg:mx-0">
+          <div class="glass-card hero-visual w-full max-w-[460px] mx-auto lg:ml-auto lg:mr-0 rounded-3xl p-4 sm:p-6 lg:p-7 min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] flex items-center justify-center overflow-visible">
+            <span class="hero-visual__halo" aria-hidden="true"></span>
+            <ul class="hero-visual__roles hero-visual__roles--stack-top" aria-hidden="true">
+              <li>Web-Architekt</li>
+              <li>Markenentwickler</li>
+              <li>UX-orientiert</li>
+              <li>Performance-Fokus</li>
+              <li>Präzise</li>
+            </ul>
+            <ul class="hero-visual__roles hero-visual__roles--stack-mid" aria-hidden="true">
+              <li>Web-Architekt</li>
+              <li>Markenentwickler</li>
+              <li>UX-orientiert</li>
+              <li>Performance-Fokus</li>
+              <li>Präzise</li>
+            </ul>
+            <ul class="hero-visual__roles hero-visual__roles--stack-base" aria-label="Leistungsprofil">
+              <li>Web-Architekt</li>
+              <li>Markenentwickler</li>
+              <li>UX-orientiert</li>
+              <li>Performance-Fokus</li>
+              <li>Präzise</li>
+            </ul>
+            <figure class="hero-floating-object" aria-hidden="true">
+              <span class="hero-floating-object__shadow"></span>
+              <span class="hero-floating-object__layer hero-floating-object__layer--rear"></span>
+              <span class="hero-floating-object__layer hero-floating-object__layer--mid"></span>
+
+              <div class="hero-floating-object__panel">
+                <img
+                  src="assets/webdesigner_portrait.webp"
+                  alt=""
+                  class="hero-floating-object__image"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+                <span class="hero-floating-object__image-gloss" aria-hidden="true"></span>
+              </div>
+            </figure>
+          </div>
+        </aside>
+      </section>
     </main>
 
     <!-- Features -->

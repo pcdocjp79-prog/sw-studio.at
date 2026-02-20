@@ -268,39 +268,6 @@ if ("IntersectionObserver" in window) {
   revealOnScrollElements.forEach((el) => el.classList.add("is-visible"));
 }
 
-// Scroll-driven background parallax (slower than page scroll)
-const root = document.documentElement;
-const backgroundParallaxFactor = 0.2;
-let bgPanTicking = false;
-
-const updateBackgroundPan = () => {
-  const parallaxOffset = -window.scrollY * backgroundParallaxFactor;
-  root.style.setProperty("--bg-parallax-offset", `${parallaxOffset.toFixed(2)}px`);
-  bgPanTicking = false;
-};
-
-const requestBackgroundPanFrame = () => {
-  if (bgPanTicking) return;
-  bgPanTicking = true;
-  requestAnimationFrame(updateBackgroundPan);
-};
-
-updateBackgroundPan();
-
-window.addEventListener(
-  "scroll",
-  requestBackgroundPanFrame,
-  { passive: true }
-);
-
-window.addEventListener("resize", () => {
-  requestBackgroundPanFrame();
-});
-
-window.addEventListener("load", () => {
-  requestBackgroundPanFrame();
-});
-
 // Navigation Elements
 const topNav = document.querySelector(".top-nav");
 const glassNav = document.getElementById("glass-nav");
@@ -362,11 +329,14 @@ if (topNav) {
     }
 
     const scrollingDown = currentScrollY > lastScrollY + directionThreshold;
+    const scrollingUp = currentScrollY < lastScrollY - directionThreshold;
 
     if (currentScrollY <= topThreshold) {
       topNav.classList.remove("is-hidden");
     } else if (scrollingDown) {
       topNav.classList.add("is-hidden");
+    } else if (scrollingUp) {
+      topNav.classList.remove("is-hidden");
     }
 
     lastScrollY = currentScrollY;
@@ -453,8 +423,121 @@ if (glassNav && mobileNavToggle && primaryNav) {
 }
 
 
-// Pointer Glow (Navigation + Section 2 Tiles)
+// Pointer Glow (Section 2 Tiles)
 const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+
+const initHeroStageInteraction = () => {
+  const heroStageElement = document.querySelector("[data-hero-stage]");
+  const heroStageCard = heroStageElement?.querySelector("[data-hero-stage-card]");
+  if (!heroStageElement || !heroStageCard) return;
+
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const maxTilt = 5;
+  const pointerInfluence = 0.65;
+  const lerpFactor = 0.1;
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let rafId = null;
+
+  const setVisualState = (normalizedX, normalizedY) => {
+    const pointerXPercent = ((normalizedX + 1) * 50).toFixed(2);
+    const pointerYPercent = ((normalizedY + 1) * 50).toFixed(2);
+    const rotateX = (-normalizedY * maxTilt).toFixed(2);
+    const rotateY = (normalizedX * maxTilt).toFixed(2);
+
+    heroStageElement.style.setProperty("--hero-stage-pointer-x", `${pointerXPercent}%`);
+    heroStageElement.style.setProperty("--hero-stage-pointer-y", `${pointerYPercent}%`);
+    heroStageElement.style.setProperty("--hero-stage-rotate-x", `${rotateX}deg`);
+    heroStageElement.style.setProperty("--hero-stage-rotate-y", `${rotateY}deg`);
+  };
+
+  const renderTilt = () => {
+    currentX += (targetX - currentX) * lerpFactor;
+    currentY += (targetY - currentY) * lerpFactor;
+    setVisualState(currentX, currentY);
+
+    const settled =
+      Math.abs(targetX - currentX) < 0.002 &&
+      Math.abs(targetY - currentY) < 0.002;
+
+    if (settled) {
+      rafId = null;
+      return;
+    }
+
+    rafId = requestAnimationFrame(renderTilt);
+  };
+
+  const queueRender = () => {
+    if (rafId !== null) return;
+    rafId = requestAnimationFrame(renderTilt);
+  };
+
+  const setPointerTarget = (event) => {
+    const rect = heroStageCard.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
+
+    const normalizedX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    const normalizedY = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+
+    targetX = Math.max(-1, Math.min(1, normalizedX * pointerInfluence));
+    targetY = Math.max(-1, Math.min(1, normalizedY * pointerInfluence));
+    queueRender();
+  };
+
+  const resetTilt = (instant = false) => {
+    targetX = 0;
+    targetY = 0;
+
+    if (!instant) {
+      queueRender();
+      return;
+    }
+
+    currentX = 0;
+    currentY = 0;
+    setVisualState(0, 0);
+  };
+
+  const canAnimate = () => supportsFinePointer && !reducedMotionQuery.matches;
+
+  heroStageElement.addEventListener("pointerenter", (event) => {
+    if (!canAnimate()) return;
+    heroStageElement.classList.add("is-interactive");
+    setPointerTarget(event);
+  });
+
+  heroStageElement.addEventListener("pointermove", (event) => {
+    if (!heroStageElement.classList.contains("is-interactive")) return;
+    setPointerTarget(event);
+  });
+
+  const handlePointerExit = () => {
+    heroStageElement.classList.remove("is-interactive");
+    resetTilt();
+  };
+
+  heroStageElement.addEventListener("pointerleave", handlePointerExit);
+  heroStageElement.addEventListener("pointercancel", handlePointerExit);
+
+  const handleReducedMotionChange = (event) => {
+    if (!event.matches) return;
+    heroStageElement.classList.remove("is-interactive");
+    resetTilt(true);
+  };
+
+  if (typeof reducedMotionQuery.addEventListener === "function") {
+    reducedMotionQuery.addEventListener("change", handleReducedMotionChange);
+  } else if (typeof reducedMotionQuery.addListener === "function") {
+    reducedMotionQuery.addListener(handleReducedMotionChange);
+  }
+
+  resetTilt(true);
+};
+
+initHeroStageInteraction();
 
 const attachPointerGlow = (element, options = {}) => {
   const {
@@ -498,13 +581,6 @@ const attachPointerGlow = (element, options = {}) => {
 };
 
 if (supportsFinePointer) {
-  if (glassNav) {
-    attachPointerGlow(glassNav, {
-      xVariable: "--glow-x",
-      yVariable: "--glow-y",
-    });
-  }
-
   document.querySelectorAll(".section-2 .tile-card").forEach((tileCard) => {
     attachPointerGlow(tileCard, {
       xVariable: "--tile-glow-x",

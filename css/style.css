@@ -217,13 +217,29 @@ img {
   transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
 }
 
+.section-2.section-2--dock-test .tile-card {
+  overflow: visible;
+}
+
+.section-2.section-2--dock-test .tile-card .tile-card-media--filled {
+  width: clamp(177px, 59%, 258px);
+}
+
+.section-2.section-2--dock-test .tile-card:nth-child(1) .tile-card-media--filled,
+.section-2.section-2--dock-test .tile-card:nth-child(2) .tile-card-media--filled,
+.section-2.section-2--dock-test .tile-card:nth-child(3) .tile-card-media--filled {
+  --card-img-x: 42px;
+  --card-img-y: 46px;
+  --card-img-rot: 3.8deg;
+}
+
 .section-2 .tile-detail-panel {
   --section2-border-angle: 0deg;
   --detail-panel-safe-start: 0px;
   --detail-panel-safe-end: 0px;
   --line-enter-x: 110vw;
   position: absolute;
-  top: clamp(0.35rem, 1.3vw, 1rem);
+  top: clamp(-1.65rem, -0.25vw, -1.05rem);
   left: var(--detail-panel-left, clamp(320px, 29vw, 460px));
   right: var(--detail-panel-right, clamp(-44vw, -24vw, -12vw));
   height: clamp(280px, 34vw, 460px);
@@ -582,7 +598,7 @@ img {
 
 .section-2 .tile-card.is-media-active .tile-card-media--filled {
   position: relative;
-  transform: translate(calc(var(--card-img-x) + 54px), calc(var(--card-img-y) - 14px)) rotate(calc(var(--card-img-rot) + 1.9deg)) scale(1.92);
+  transform: translate(calc(var(--card-img-x) + 54px), calc(var(--card-img-y) - 18px)) rotate(calc(var(--card-img-rot) + 1.9deg)) scale(1.92);
   z-index: 12;
 }
 

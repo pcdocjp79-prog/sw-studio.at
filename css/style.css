@@ -152,6 +152,320 @@ img {
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 
+@keyframes heroLineIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+.hero-headline {
+  min-height: calc(3 * 1.08em);
+  line-height: 1.08;
+}
+
+.hero-headline__variant {
+  display: none;
+}
+
+.hero-headline__variant.is-active {
+  display: block;
+}
+
+.hero-headline .hero-line {
+  display: block;
+}
+
+.js .hero-headline--stagger.is-animating [data-hero-variant="stagger"].is-active .hero-line {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  filter: blur(8px);
+  animation: heroLineIn 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--hero-line-index, 0) * 240ms);
+  will-change: transform, opacity, filter;
+}
+
+.hero-keyword {
+  color: #eff8ff;
+  background-image: linear-gradient(
+    108deg,
+    rgba(235, 247, 255, 0.98) 0%,
+    rgba(175, 223, 255, 0.94) 50%,
+    rgba(253, 186, 219, 0.86) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 14px rgba(156, 210, 255, 0.22);
+}
+
+@keyframes heroObjectFloat {
+  0%,
+  100% {
+    transform: translate3d(var(--hero-object-shift-x, 0px), var(--hero-object-shift-y, 0px), 0)
+      rotateX(8deg) rotateY(-8deg) rotateZ(-2deg);
+  }
+
+  50% {
+    transform: translate3d(
+        var(--hero-object-shift-x, 0px),
+        calc(var(--hero-object-shift-y, 0px) - 12px),
+        0
+      )
+      rotateX(9deg) rotateY(-6deg) rotateZ(1deg);
+  }
+}
+
+@keyframes heroObjectShadow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+
+  50% {
+    opacity: 0.26;
+    transform: translate3d(-50%, 5px, 0) scale(0.88);
+  }
+}
+
+.hero-visual {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  z-index: 6;
+}
+
+.hero-visual__halo {
+  position: absolute;
+  left: 50%;
+  bottom: 19%;
+  width: clamp(180px, 60%, 290px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 28% 30%,
+    rgba(188, 239, 255, 0.34) 0%,
+    rgba(133, 166, 255, 0.24) 40%,
+    rgba(12, 14, 31, 0) 72%
+  );
+  transform: translateX(-50%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-visual__roles {
+  --hero-roles-gap: 14px;
+  --hero-roles-gap-double: 28px;
+  position: absolute;
+  left: clamp(0.7rem, 1.55vw, 1.15rem);
+  bottom: clamp(0.7rem, 1.8vw, 1.25rem);
+  margin: 0;
+  padding: clamp(0.5rem, 0.8vw, 0.74rem) clamp(0.6rem, 1.2vw, 0.92rem);
+  width: clamp(156px, 41%, 214px);
+  list-style: none;
+  display: grid;
+  gap: 0.26rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(160deg, rgba(14, 18, 33, 0.84) 0%, rgba(9, 12, 21, 0.66) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.34);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.hero-visual__roles--stack-base {
+  z-index: 4;
+}
+
+.hero-visual__roles--stack-mid {
+  transform: translate3d(0, calc(-100% - var(--hero-roles-gap)), 0);
+  opacity: 0.76;
+  z-index: 3;
+}
+
+.hero-visual__roles--stack-top {
+  transform: translate3d(0, calc(-200% - var(--hero-roles-gap-double)), 0);
+  opacity: 0.56;
+  z-index: 2;
+}
+
+.hero-visual__roles li {
+  position: relative;
+  padding-left: 0.6rem;
+  font-size: clamp(0.64rem, 0.74vw, 0.74rem);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(236, 244, 255, 0.94);
+}
+
+.hero-visual__roles li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(191, 238, 255, 0.94) 0%, rgba(255, 133, 199, 0.82) 100%);
+  box-shadow: 0 0 0.35rem rgba(162, 220, 255, 0.45);
+}
+
+.hero-floating-object {
+  --hero-object-shift-x: clamp(34px, 6vw, 92px);
+  --hero-object-shift-y: clamp(20px, 3.1vw, 44px);
+  position: relative;
+  width: min(100%, 336px);
+  aspect-ratio: 4 / 5;
+  transform-style: preserve-3d;
+  transform-origin: 50% 66%;
+  animation: heroObjectFloat 8.6s ease-in-out infinite;
+  will-change: transform;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-floating-object__shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  width: 78%;
+  height: 22px;
+  border-radius: 999px;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0) 100%);
+  filter: blur(6px);
+  transform: translate3d(-50%, 0, 0);
+  transform-origin: center;
+  animation: heroObjectShadow 8.6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hero-floating-object__layer {
+  position: absolute;
+  inset: clamp(7px, 3%, 11px);
+  border-radius: 1.1rem;
+  pointer-events: none;
+}
+
+.hero-floating-object__layer--rear {
+  border: 1px solid rgba(147, 192, 255, 0.26);
+  background: linear-gradient(165deg, rgba(24, 33, 57, 0.55) 0%, rgba(10, 13, 23, 0.2) 100%);
+  transform: translate3d(-14px, 18px, -44px) rotateZ(-3deg);
+  opacity: 0.68;
+}
+
+.hero-floating-object__layer--mid {
+  border: 1px solid rgba(185, 224, 255, 0.24);
+  background: linear-gradient(165deg, rgba(31, 39, 67, 0.58) 0%, rgba(12, 14, 26, 0.34) 100%);
+  transform: translate3d(12px, 10px, -24px) rotateZ(2deg);
+  opacity: 0.84;
+}
+
+.hero-floating-object__panel {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.15rem;
+  border: 1px solid rgba(226, 236, 255, 0.24);
+  background: linear-gradient(
+    168deg,
+    rgba(15, 16, 32, 0.95) 0%,
+    rgba(14, 17, 34, 0.88) 54%,
+    rgba(9, 10, 20, 0.94) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transform: translate3d(0, 0, 24px);
+  overflow: hidden;
+}
+
+.hero-floating-object__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.04) contrast(1.04);
+}
+
+.hero-floating-object__image-gloss {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 42%),
+    linear-gradient(180deg, rgba(9, 12, 22, 0) 46%, rgba(6, 8, 16, 0.28) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .hero-floating-object {
+    --hero-object-shift-x: clamp(14px, 4vw, 40px);
+    --hero-object-shift-y: clamp(10px, 2.2vw, 22px);
+    width: min(100%, 310px);
+  }
+
+  .hero-visual__roles {
+    --hero-roles-gap: 12px;
+    --hero-roles-gap-double: 24px;
+    width: clamp(142px, 38%, 186px);
+  }
+
+  .hero-visual__roles--stack-mid {
+    transform: translate3d(0, calc(-100% - var(--hero-roles-gap)), 0);
+  }
+
+  .hero-visual__roles--stack-top {
+    transform: translate3d(0, calc(-200% - var(--hero-roles-gap-double)), 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-visual {
+    min-height: 300px;
+  }
+
+  .hero-visual__roles {
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    width: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.38rem 0.56rem;
+    padding: 0.52rem 0.62rem;
+  }
+
+  .hero-visual__roles li {
+    font-size: 0.62rem;
+  }
+
+  .hero-visual__roles--stack-mid,
+  .hero-visual__roles--stack-top {
+    display: none;
+  }
+
+  .hero-floating-object {
+    --hero-object-shift-x: clamp(6px, 2.2vw, 16px);
+    --hero-object-shift-y: clamp(-12px, -2.2vw, -4px);
+    width: min(100%, 270px);
+  }
+
+  .hero-floating-object__shadow {
+    bottom: -30px;
+    width: 82%;
+  }
+}
+
 @keyframes float { 0%,100%{transform:translate(0,0)} 50%{transform:translateY(-10px)} }
 @keyframes float-delayed { 0%,100%{transform:translate(0,0)} 50%{transform:translateY(-8px)} }
 .animate-float { animation: float 6s ease-in-out infinite; }
@@ -747,8 +1061,22 @@ img {
   .animate-enter,
   .animate-float,
   .animate-float-delayed,
-  .audio-bar {
+  .audio-bar,
+  .hero-floating-object,
+  .hero-floating-object__shadow,
+  .hero-headline--stagger.is-animating [data-hero-variant="stagger"].is-active .hero-line {
     animation: none !important;
+  }
+
+  .hero-headline .hero-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hero-floating-object {
+    transform: translate3d(var(--hero-object-shift-x, 0px), var(--hero-object-shift-y, 0px), 0)
+      rotateX(8deg) rotateY(-7deg) rotateZ(-1deg);
   }
 
   .reveal-on-scroll,

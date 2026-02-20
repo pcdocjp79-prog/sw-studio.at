@@ -450,21 +450,38 @@ const sectionTwoDetailPanels = Array.from(document.querySelectorAll(".section-2 
 const sectionTwoDetailPanelsById = new Map(
   sectionTwoDetailPanels.map((detailPanel) => [detailPanel.id, detailPanel])
 );
-const webdevDetailPanel = document.getElementById("webdev-detail-panel");
-const webdevPartSlides = Array.from(document.querySelectorAll("[data-webdev-slide]"));
-const webdevPartPrevButton = document.getElementById("webdev-part-prev");
-const webdevPartNextButton = document.getElementById("webdev-part-next");
-const webdevPartIndicator = document.getElementById("webdev-part-indicator");
 const sectionTwoReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let sectionTwoReducedMotion = sectionTwoReducedMotionQuery.matches;
 const sectionTwoLineItemSelector =
   ".tile-detail-panel__eyebrow, .tile-detail-panel__title, .tile-detail-panel__text, .tile-detail-panel__pager-subheading, .tile-detail-panel__pager-list li, .tile-detail-panel__pager-steps li";
+const sectionTwoPagerConfigs = [
+  {
+    panelId: "webdev-detail-panel",
+    slideSelector: "[data-webdev-slide]",
+    prevButtonId: "webdev-part-prev",
+    nextButtonId: "webdev-part-next",
+    indicatorId: "webdev-part-indicator",
+  },
+  {
+    panelId: "seo-detail-panel",
+    slideSelector: "[data-seo-slide]",
+    prevButtonId: "seo-part-prev",
+    nextButtonId: "seo-part-next",
+    indicatorId: "seo-part-indicator",
+  },
+  {
+    panelId: "branding-detail-panel",
+    slideSelector: "[data-branding-slide]",
+    prevButtonId: "branding-part-prev",
+    nextButtonId: "branding-part-next",
+    indicatorId: "branding-part-indicator",
+  },
+];
 let activeSectionTwoTileCard = null;
 let activeSectionTwoDetailPanel = null;
 let sectionTwoPositionRafId = null;
 let sectionTwoSafeInsetRafId = null;
 let sectionTwoSafeInsetMonitorUntil = 0;
-let webdevPartIndex = 0;
 
 const setSectionTwoTileActive = (tileCard, isActive) => {
   const activeState = String(isActive);
@@ -494,8 +511,8 @@ const setSectionTwoLineIndices = (container) => {
 
 const getSectionTwoLineAnimationContainer = (detailPanel) => {
   if (!detailPanel) return null;
-  const activeWebdevSlide = detailPanel.querySelector("[data-webdev-slide].is-active");
-  if (activeWebdevSlide) return activeWebdevSlide;
+  const activePagerSlide = detailPanel.querySelector("[data-pager-slide].is-active");
+  if (activePagerSlide) return activePagerSlide;
   return detailPanel.querySelector(".tile-detail-panel__content");
 };
 
@@ -531,9 +548,9 @@ const triggerSectionTwoLineAnimation = (container, baseDelayMs = 190) => {
 };
 
 sectionTwoDetailPanels.forEach((detailPanel) => {
-  const webdevSlides = detailPanel.querySelectorAll("[data-webdev-slide]");
-  if (webdevSlides.length > 0) {
-    webdevSlides.forEach((slide) => {
+  const pagerSlides = detailPanel.querySelectorAll("[data-pager-slide]");
+  if (pagerSlides.length > 0) {
+    pagerSlides.forEach((slide) => {
       setSectionTwoLineIndices(slide);
     });
     return;
@@ -543,54 +560,112 @@ sectionTwoDetailPanels.forEach((detailPanel) => {
   setSectionTwoLineIndices(content);
 });
 
-const updateWebdevPartPager = () => {
-  if (webdevPartSlides.length === 0) return;
+const createSectionTwoPagerController = (config) => {
+  const detailPanel = document.getElementById(config.panelId);
+  if (!detailPanel) return null;
 
-  const lastIndex = webdevPartSlides.length - 1;
-  webdevPartIndex = Math.max(0, Math.min(webdevPartIndex, lastIndex));
+  const slides = Array.from(detailPanel.querySelectorAll(config.slideSelector));
+  if (slides.length === 0) return null;
 
-  webdevPartSlides.forEach((slide, index) => {
-    const isActive = index === webdevPartIndex;
-    slide.classList.toggle("is-active", isActive);
-    slide.setAttribute("aria-hidden", String(!isActive));
-  });
+  const prevButton = document.getElementById(config.prevButtonId);
+  const nextButton = document.getElementById(config.nextButtonId);
+  const indicator = document.getElementById(config.indicatorId);
 
-  if (webdevPartIndicator) {
-    webdevPartIndicator.textContent = `${webdevPartIndex + 1} / ${webdevPartSlides.length}`;
-  }
+  let partIndex = 0;
+  let navRevealTimeoutId = null;
 
-  webdevPartPrevButton?.classList.toggle("is-hidden", webdevPartIndex === 0);
-  webdevPartNextButton?.classList.toggle("is-hidden", webdevPartIndex === lastIndex);
+  const clearNavRevealTimer = () => {
+    if (navRevealTimeoutId === null) return;
+    window.clearTimeout(navRevealTimeoutId);
+    navRevealTimeoutId = null;
+  };
 
-  if (webdevDetailPanel?.classList.contains("is-visible")) {
-    const openingRun = webdevDetailPanel.hasAttribute("data-lines-opening");
-    const baseDelay = openingRun ? 620 : 120;
-    triggerSectionTwoLineAnimation(webdevPartSlides[webdevPartIndex], baseDelay);
-    if (openingRun) {
-      webdevDetailPanel.removeAttribute("data-lines-opening");
+  const setNavVisible = (isVisible) => {
+    detailPanel.classList.toggle("is-pager-nav-hidden", !isVisible);
+  };
+
+  const scheduleNavReveal = (delayMs = 0) => {
+    clearNavRevealTimer();
+    setNavVisible(false);
+
+    const resolvedDelay = sectionTwoReducedMotion ? 0 : Math.max(delayMs, 0);
+    navRevealTimeoutId = window.setTimeout(() => {
+      setNavVisible(true);
+      navRevealTimeoutId = null;
+    }, resolvedDelay);
+  };
+
+  const update = () => {
+    const lastIndex = slides.length - 1;
+    partIndex = Math.max(0, Math.min(partIndex, lastIndex));
+
+    slides.forEach((slide, index) => {
+      const isActive = index === partIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    if (indicator) {
+      indicator.textContent = `${partIndex + 1} / ${slides.length}`;
     }
-  }
-};
 
-const resetWebdevPartPager = () => {
-  if (webdevPartSlides.length === 0) return;
-  webdevPartIndex = 0;
-  updateWebdevPartPager();
-};
+    prevButton?.classList.toggle("is-hidden", partIndex === 0);
+    nextButton?.classList.toggle("is-hidden", partIndex === lastIndex);
 
-if (webdevPartSlides.length > 0) {
-  updateWebdevPartPager();
+    if (detailPanel.classList.contains("is-visible")) {
+      const openingRun = detailPanel.hasAttribute("data-lines-opening");
+      const openingDelay = sectionTwoReducedMotion ? 0 : 620;
+      const baseDelay = openingRun ? openingDelay : 120;
+      triggerSectionTwoLineAnimation(slides[partIndex], baseDelay);
 
-  webdevPartPrevButton?.addEventListener("click", () => {
-    webdevPartIndex -= 1;
-    updateWebdevPartPager();
+      if (openingRun) {
+        scheduleNavReveal(openingDelay);
+        detailPanel.removeAttribute("data-lines-opening");
+      } else {
+        clearNavRevealTimer();
+        setNavVisible(true);
+      }
+    }
+  };
+
+  const reset = () => {
+    partIndex = 0;
+    update();
+  };
+
+  prevButton?.addEventListener("click", () => {
+    partIndex -= 1;
+    update();
   });
 
-  webdevPartNextButton?.addEventListener("click", () => {
-    webdevPartIndex += 1;
-    updateWebdevPartPager();
+  nextButton?.addEventListener("click", () => {
+    partIndex += 1;
+    update();
   });
-}
+
+  update();
+
+  return {
+    detailPanel,
+    open: () => {
+      detailPanel.setAttribute("data-lines-opening", "true");
+      setNavVisible(false);
+      reset();
+    },
+    teardown: () => {
+      clearNavRevealTimer();
+      setNavVisible(true);
+    },
+  };
+};
+
+const sectionTwoPagerControllers = sectionTwoPagerConfigs
+  .map((pagerConfig) => createSectionTwoPagerController(pagerConfig))
+  .filter((pagerController) => Boolean(pagerController));
+
+const sectionTwoPagerControllersByPanelId = new Map(
+  sectionTwoPagerControllers.map((pagerController) => [pagerController.detailPanel.id, pagerController])
+);
 
 const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
 
@@ -726,6 +801,10 @@ const requestActiveSectionTwoDetailPanelPosition = () => {
 
 if (sectionTwoTileCards.length > 0) {
   const closeSectionTwoTiles = () => {
+    sectionTwoPagerControllers.forEach((pagerController) => {
+      pagerController.teardown();
+    });
+
     sectionTwoTileCards.forEach((tileCard) => {
       setSectionTwoTileActive(tileCard, false);
     });
@@ -765,9 +844,13 @@ if (sectionTwoTileCards.length > 0) {
       setSectionTwoTileActive(tileCard, true);
       positionSectionTwoDetailPanel(tileCard, linkedDetailPanel);
       setSectionTwoDetailPanelVisible(linkedDetailPanel, true);
-      if (linkedDetailPanel?.id === "webdev-detail-panel") {
-        linkedDetailPanel.setAttribute("data-lines-opening", "true");
-        resetWebdevPartPager();
+
+      const linkedPagerController = linkedDetailPanel
+        ? sectionTwoPagerControllersByPanelId.get(linkedDetailPanel.id)
+        : null;
+
+      if (linkedPagerController) {
+        linkedPagerController.open();
       } else {
         triggerSectionTwoLineAnimation(getSectionTwoLineAnimationContainer(linkedDetailPanel), 360);
       }

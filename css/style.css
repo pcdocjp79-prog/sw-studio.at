@@ -344,6 +344,14 @@ img {
   max-width: min(42rem, 68%);
 }
 
+.section-2 .tile-detail-panel--from-left .tile-detail-panel__content--webdev-pager {
+  text-align: left;
+}
+
+.section-2 .tile-detail-panel--from-left .tile-detail-panel__content--webdev-pager .tile-detail-panel__pager-slide > * {
+  margin-left: auto;
+}
+
 .section-2 .tile-detail-panel__pager-subheading {
   margin: 0;
   font-weight: 600;
@@ -370,6 +378,19 @@ img {
   align-items: center;
   gap: 0.55rem;
   padding-top: 0.45rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.section-2 .tile-detail-panel--from-left .tile-detail-panel__pager-nav {
+  justify-content: flex-end;
+}
+
+.section-2 .tile-detail-panel.is-pager-nav-hidden .tile-detail-panel__pager-nav {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
 }
 
 .section-2 .tile-detail-panel__pager-arrow {

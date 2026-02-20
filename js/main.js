@@ -556,7 +556,7 @@ const updateWebdevPartPager = () => {
   });
 
   if (webdevPartIndicator) {
-    webdevPartIndicator.textContent = `Teil ${webdevPartIndex + 1} / ${webdevPartSlides.length}`;
+    webdevPartIndicator.textContent = `${webdevPartIndex + 1} / ${webdevPartSlides.length}`;
   }
 
   webdevPartPrevButton?.classList.toggle("is-hidden", webdevPartIndex === 0);

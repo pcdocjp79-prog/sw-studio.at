@@ -293,9 +293,8 @@ if (topNav) {
     }
 
     const scrollingDown = currentScrollY > lastScrollY + directionThreshold;
-    const scrollingUp = currentScrollY < lastScrollY - directionThreshold;
 
-    if (currentScrollY <= topThreshold || scrollingUp) {
+    if (currentScrollY <= topThreshold) {
       topNav.classList.remove("is-hidden");
     } else if (scrollingDown) {
       topNav.classList.add("is-hidden");

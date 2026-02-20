@@ -600,6 +600,8 @@ img {
   position: relative;
   transform: translate(calc(var(--card-img-x) + 54px), calc(var(--card-img-y) - 18px)) rotate(calc(var(--card-img-rot) + 1.9deg)) scale(1.92);
   z-index: 12;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .section-2 .tile-card.is-media-active .tile-card-media-image {

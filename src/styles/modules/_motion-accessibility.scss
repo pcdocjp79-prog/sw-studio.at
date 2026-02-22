@@ -1,0 +1,63 @@
+@media (prefers-reduced-motion: reduce) {
+  .section-2 .tile-card::before {
+    animation: none;
+  }
+
+  .animate-enter,
+  .animate-float,
+  .animate-float-delayed,
+  .audio-bar,
+  .hero-floating-object,
+  .hero-floating-object__shadow,
+  .hero-headline--stagger.is-animating [data-hero-variant="stagger"].is-active .hero-line {
+    animation: none !important;
+  }
+
+  .hero-headline .hero-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hero-floating-object {
+    transform: translate3d(var(--hero-object-shift-x, 0px), var(--hero-object-shift-y, 0px), 0)
+      rotateX(8deg) rotateY(-7deg) rotateZ(-1deg);
+  }
+
+  .reveal-on-scroll,
+  .js .reveal-on-scroll,
+  .js .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .section-2 .tile-detail-panel [data-line-item] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .section-2 .tile-detail-panel .is-lines-active [data-line-item] {
+    animation: none !important;
+  }
+
+  #hero-stage {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .scroll-focus-section,
+  .js .scroll-focus-section,
+  .js .scroll-focus-section.is-visible,
+  .js .scroll-focus-section.is-visible.is-in-focus {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+}
+

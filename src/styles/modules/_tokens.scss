@@ -1,0 +1,22 @@
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #ff00ff;
+  --bg-color: #000000;
+  --text-color: #111111;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --font-main: "Inter", sans-serif;
+  --hero-background-height: 100vh;
+  --hero-scroll-opacity: 1;
+  --hero-frame-scroll-blur: 0px;
+  --hero-frame-scroll-opacity: 1;
+  --hero-frame-scroll-scale: 1;
+  --hero-frame-scroll-shift-y: 0px;
+}
+
+@supports (height: 100svh) {
+  :root {
+    --hero-background-height: 100svh;
+  }
+}
+

@@ -268,6 +268,127 @@ if ("IntersectionObserver" in window) {
   revealOnScrollElements.forEach((el) => el.classList.add("is-visible"));
 }
 
+const scrollFocusSections = Array.from(document.querySelectorAll(".scroll-focus-section"));
+const heroStageForScrollFocus = document.querySelector("[data-hero-stage]");
+const firstScrollFocusSection = scrollFocusSections[0] || null;
+
+if (heroStageForScrollFocus) {
+  document.body.classList.add("has-fixed-hero-bg");
+}
+
+const initScrollFocusEffect = () => {
+  if (scrollFocusSections.length === 0) return;
+
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let reducedMotion = reducedMotionQuery.matches;
+  let rafId = null;
+
+  const setHeroScrollFocusVisuals = (
+    frameBlur,
+    frameOpacity,
+    frameScale,
+    frameShiftY,
+    stageOpacity
+  ) => {
+    document.documentElement.style.setProperty("--hero-scroll-opacity", `${stageOpacity.toFixed(3)}`);
+    document.documentElement.style.setProperty("--hero-frame-scroll-blur", `${frameBlur.toFixed(2)}px`);
+    document.documentElement.style.setProperty("--hero-frame-scroll-opacity", `${frameOpacity.toFixed(3)}`);
+    document.documentElement.style.setProperty("--hero-frame-scroll-scale", `${frameScale.toFixed(3)}`);
+    document.documentElement.style.setProperty("--hero-frame-scroll-shift-y", `${frameShiftY.toFixed(2)}px`);
+  };
+
+  const getHeroBlurProgress = (viewportHeight) => {
+    if (!firstScrollFocusSection) return 0;
+
+    const sectionRect = firstScrollFocusSection.getBoundingClientRect();
+    const startLine = viewportHeight;
+    const endLine = viewportHeight * 0.16;
+    const rawProgress = (startLine - sectionRect.top) / Math.max(startLine - endLine, 1);
+    return Math.min(1, Math.max(0, rawProgress));
+  };
+
+  const updateScrollFocusState = () => {
+    rafId = null;
+
+    if (reducedMotion) {
+      scrollFocusSections.forEach((section) => {
+        section.classList.add("is-visible");
+      });
+
+      if (heroStageForScrollFocus) {
+        setHeroScrollFocusVisuals(0, 1, 1, 0, 1);
+      }
+      return;
+    }
+
+    const viewportHeight = Math.max(window.innerHeight, 1);
+
+    if (!heroStageForScrollFocus) return;
+
+    const blurProgress = getHeroBlurProgress(viewportHeight);
+    const depthProgress = Math.min(1, Math.max(0, Math.pow(blurProgress, 0.82)));
+    const frameBlurAmount = 118 * depthProgress;
+    const frameOpacity = Math.max(0.3, 1 - depthProgress * 0.58);
+    const frameScale = Math.max(0.66, 1 - depthProgress * 0.34);
+    const frameShiftY = -112 * depthProgress;
+    const stageOpacity = Math.max(0.2, 1 - depthProgress * 0.64);
+    setHeroScrollFocusVisuals(
+      frameBlurAmount,
+      frameOpacity,
+      frameScale,
+      frameShiftY,
+      stageOpacity
+    );
+  };
+
+  const queueScrollFocusUpdate = () => {
+    if (rafId !== null) return;
+    rafId = requestAnimationFrame(updateScrollFocusState);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const sectionRevealObserver = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observerInstance.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -10% 0px",
+      }
+    );
+
+    scrollFocusSections.forEach((section, index) => {
+      section.style.setProperty("--scroll-focus-delay", `${Math.min(index * 90, 450)}ms`);
+      sectionRevealObserver.observe(section);
+    });
+  } else {
+    scrollFocusSections.forEach((section) => {
+      section.classList.add("is-visible");
+    });
+  }
+
+  const handleReducedMotionChange = (event) => {
+    reducedMotion = event.matches;
+    queueScrollFocusUpdate();
+  };
+
+  if (typeof reducedMotionQuery.addEventListener === "function") {
+    reducedMotionQuery.addEventListener("change", handleReducedMotionChange);
+  } else if (typeof reducedMotionQuery.addListener === "function") {
+    reducedMotionQuery.addListener(handleReducedMotionChange);
+  }
+
+  window.addEventListener("scroll", queueScrollFocusUpdate, { passive: true });
+  window.addEventListener("resize", queueScrollFocusUpdate);
+  queueScrollFocusUpdate();
+};
+
+initScrollFocusEffect();
+
 // Navigation Elements
 const topNav = document.querySelector(".top-nav");
 const glassNav = document.getElementById("glass-nav");
@@ -440,6 +561,7 @@ const initHeroStageInteraction = () => {
   let currentX = 0;
   let currentY = 0;
   let rafId = null;
+  const usesFixedBackgroundLayer = document.body.classList.contains("has-fixed-hero-bg");
 
   const setVisualState = (normalizedX, normalizedY) => {
     const pointerXPercent = ((normalizedX + 1) * 50).toFixed(2);
@@ -479,8 +601,10 @@ const initHeroStageInteraction = () => {
     const rect = heroStageCard.getBoundingClientRect();
     if (rect.width <= 0 || rect.height <= 0) return;
 
-    const normalizedX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    const normalizedY = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+    const relativeX = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+    const relativeY = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+    const normalizedX = relativeX * 2 - 1;
+    const normalizedY = relativeY * 2 - 1;
 
     targetX = Math.max(-1, Math.min(1, normalizedX * pointerInfluence));
     targetY = Math.max(-1, Math.min(1, normalizedY * pointerInfluence));
@@ -503,24 +627,38 @@ const initHeroStageInteraction = () => {
 
   const canAnimate = () => supportsFinePointer && !reducedMotionQuery.matches;
 
-  heroStageElement.addEventListener("pointerenter", (event) => {
-    if (!canAnimate()) return;
-    heroStageElement.classList.add("is-interactive");
-    setPointerTarget(event);
-  });
-
-  heroStageElement.addEventListener("pointermove", (event) => {
-    if (!heroStageElement.classList.contains("is-interactive")) return;
-    setPointerTarget(event);
-  });
-
   const handlePointerExit = () => {
     heroStageElement.classList.remove("is-interactive");
     resetTilt();
   };
 
-  heroStageElement.addEventListener("pointerleave", handlePointerExit);
-  heroStageElement.addEventListener("pointercancel", handlePointerExit);
+  if (usesFixedBackgroundLayer) {
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!canAnimate()) return;
+        heroStageElement.classList.add("is-interactive");
+        setPointerTarget(event);
+      },
+      { passive: true }
+    );
+    window.addEventListener("pointerleave", handlePointerExit);
+    window.addEventListener("blur", handlePointerExit);
+  } else {
+    heroStageElement.addEventListener("pointerenter", (event) => {
+      if (!canAnimate()) return;
+      heroStageElement.classList.add("is-interactive");
+      setPointerTarget(event);
+    });
+
+    heroStageElement.addEventListener("pointermove", (event) => {
+      if (!heroStageElement.classList.contains("is-interactive")) return;
+      setPointerTarget(event);
+    });
+
+    heroStageElement.addEventListener("pointerleave", handlePointerExit);
+    heroStageElement.addEventListener("pointercancel", handlePointerExit);
+  }
 
   const handleReducedMotionChange = (event) => {
     if (!event.matches) return;

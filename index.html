@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
     <script src="js/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Your CSS -->
+    <!-- Legacy CSS (stabil) -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -72,18 +72,20 @@
 
               <div class="hero-stage__content">
                 <p class="hero-stage__eyebrow">Smart Web Studio</p>
-                <h2 class="hero-stage__title">Moderne Websites.
-Klare Strategien.
-</h2>
+                <h2 class="hero-stage__title">
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Moderne</span> Websites.</span>
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Strategie</span> mit System.</span>
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Ergebnisse</span>, die wachsen.</span>
+                </h2>
                 <p class="hero-stage__text">
-                  Diese Fläche ist als Full-Width Header vorbereitet und reagiert bereits interaktiv per Maus mit einer 3D-Bewegung.
+                  Ich kombiniere Branding, Entwicklung und Growth-Strategie zu einem skalierbaren digitalen System.
                 </p>
               </div>
-            </div>
+</div>
           </div>
         </section>
 
-        <div class="section-2 section-2--dock-test animate-enter delay-300 mt-16 lg:mt-20 relative w-full">
+        <div class="section-2 section-2--dock-test scroll-focus-section animate-enter delay-300 mt-16 lg:mt-20 relative w-full">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 xl:gap-12 items-stretch">
           <article
             id="tile-card-webdev"
@@ -264,7 +266,7 @@ Klare Strategien.
                 class="tile-detail-panel__pager-arrow is-hidden"
                 aria-label="Vorheriger Teil"
               >
-                ←
+                &larr;
               </button>
               <p id="webdev-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
               <button
@@ -273,7 +275,7 @@ Klare Strategien.
                 class="tile-detail-panel__pager-arrow"
                 aria-label="Nächster Teil"
               >
-                →
+                &rarr;
               </button>
             </div>
           </div>
@@ -365,7 +367,7 @@ Klare Strategien.
                 class="tile-detail-panel__pager-arrow is-hidden"
                 aria-label="Vorheriger SEO-Teil"
               >
-                ←
+                &larr;
               </button>
               <p id="seo-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
               <button
@@ -374,7 +376,7 @@ Klare Strategien.
                 class="tile-detail-panel__pager-arrow"
                 aria-label="Nächster SEO-Teil"
               >
-                →
+                &rarr;
               </button>
             </div>
           </div>
@@ -454,7 +456,7 @@ Klare Strategien.
                 class="tile-detail-panel__pager-arrow is-hidden"
                 aria-label="Vorheriger Branding-Teil"
               >
-                ←
+                &larr;
               </button>
               <p id="branding-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
               <button
@@ -463,7 +465,7 @@ Klare Strategien.
                 class="tile-detail-panel__pager-arrow"
                 aria-label="Nächster Branding-Teil"
               >
-                →
+                &rarr;
               </button>
             </div>
           </div>
@@ -473,22 +475,22 @@ Klare Strategien.
         </div>
       </div>
 
-      <section class="w-full max-w-6xl mx-auto mt-20 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-center">
-        <div class="max-w-2xl text-left">
+      <section class="scroll-focus-section w-full max-w-6xl mx-auto mt-20 lg:mt-24 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 xl:gap-16 items-center">
+        <div class="max-w-3xl text-left">
           <h1
             class="hero-headline hero-headline--stagger font-display text-4xl sm:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-5 sm:mb-6"
             data-hero-headline
             data-hero-mode="stagger"
           >
             <span class="hero-headline__variant hero-headline__variant--stagger is-active" data-hero-variant="stagger">
-              <span class="hero-line" style="--hero-line-index: 0;">Moderne Websites.</span>
-              <span class="hero-line" style="--hero-line-index: 1;">Klare Strategien.</span>
-              <span class="hero-line" style="--hero-line-index: 2;">Messbare Ergebnisse.</span>
+              <span class="hero-line sm:whitespace-nowrap" style="--hero-line-index: 0;"><span class="hero-word-accent">Moderne</span> Websites.</span>
+              <span class="hero-line sm:whitespace-nowrap" style="--hero-line-index: 1;"><span class="hero-word-accent">Strategie</span> mit System.</span>
+              <span class="hero-line sm:whitespace-nowrap" style="--hero-line-index: 2;"><span class="hero-word-accent">Ergebnisse</span>, die wachsen.</span>
             </span>
             <span class="hero-headline__variant hero-headline__variant--keywords" data-hero-variant="keywords" aria-hidden="true">
-              <span class="hero-line">Moderne <span class="hero-keyword">Websites</span>.</span>
-              <span class="hero-line">Strategie mit <span class="hero-keyword">System</span>.</span>
-              <span class="hero-line">Ergebnisse, die <span class="hero-keyword">wachsen</span>.</span>
+              <span class="hero-line sm:whitespace-nowrap"><span class="hero-word-accent">Moderne</span> <span class="hero-keyword">Websites</span>.</span>
+              <span class="hero-line sm:whitespace-nowrap"><span class="hero-word-accent">Strategie</span> mit <span class="hero-keyword">System</span>.</span>
+              <span class="hero-line sm:whitespace-nowrap"><span class="hero-word-accent">Ergebnisse</span>, die <span class="hero-keyword">wachsen</span>.</span>
             </span>
           </h1>
 
@@ -560,7 +562,7 @@ Klare Strategien.
     </main>
 
     <!-- Features -->
-    <section id="product" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="product" class="scroll-focus-section py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div class="reveal-on-scroll">
         <h2 class="font-display text-3xl md:text-4xl font-semibold mb-12 text-center">
           Intelligence for <span class="text-zinc-500">every department.</span>
@@ -639,7 +641,7 @@ Klare Strategien.
     </section>
 
     <!-- Logic -->
-    <section id="logic" class="py-20 bg-black/50 border-y border-white/5">
+    <section id="logic" class="scroll-focus-section py-20 bg-black/50 border-y border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
@@ -708,7 +710,7 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
     </section>
 
     <!-- Voice -->
-    <section id="voice" class="py-24 relative overflow-hidden">
+    <section id="voice" class="scroll-focus-section py-24 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent pointer-events-none"></div>
       <div class="max-w-4xl mx-auto px-4 text-center relative z-10 reveal-on-scroll">
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 mb-8 shadow-[0_0_30px_-10px_rgba(255,255,255,0.3)]">
@@ -736,7 +738,7 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
     </section>
 
     <!-- Pricing -->
-    <section id="pricing" class="py-20 px-4 max-w-7xl mx-auto">
+    <section id="pricing" class="scroll-focus-section py-20 px-4 max-w-7xl mx-auto">
       <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden reveal-on-scroll">
         <div class="grid md:grid-cols-2 gap-12">
           <div class="flex flex-col justify-center">
@@ -845,10 +847,12 @@ forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300"
       type="button"
       aria-label="Nach oben scrollen"
     >
-      <span aria-hidden="true">↑</span>
+      <span aria-hidden="true">&uarr;</span>
     </button>
 
-    <!-- Your JS -->
+    <!-- Legacy JS (stabil) -->
     <script src="js/main.js"></script>
   </body>
 </html>
+
+

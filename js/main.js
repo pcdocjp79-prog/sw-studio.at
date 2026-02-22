@@ -18,7 +18,7 @@ function initAnimatedBackground() {
       const canvas = document.createElement("canvas");
       return Boolean(
         window.WebGLRenderingContext &&
-          (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
       );
     } catch (_error) {
       return false;
@@ -326,7 +326,7 @@ const initScrollFocusEffect = () => {
     if (!heroStageForScrollFocus) return;
 
     const blurProgress = getHeroBlurProgress(viewportHeight);
-    const depthProgress = Math.min(1, Math.max(0, Math.pow(blurProgress, 0.82)));
+    const depthProgress = Math.min(1, Math.max(0, Math.pow(blurProgress, 1.8)));
     const frameBlurAmount = 118 * depthProgress;
     const frameOpacity = Math.max(0.3, 1 - depthProgress * 0.58);
     const frameScale = Math.max(0.66, 1 - depthProgress * 0.34);
@@ -825,7 +825,7 @@ const initSectionTwoCardsReveal = () => {
     {
       // Trigger later: section needs to reach the viewport center band.
       threshold: 0.01,
-      rootMargin: "-40% 0px -40% 0px",
+      rootMargin: "-48% 0px -48% 0px",
     }
   );
 

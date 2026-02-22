@@ -1,97 +1,99 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Web Studio</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Web Studio</title>
 
-    <!-- Iconify -->
-    <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
 
-    <!-- Tailwind -->
-    <script src="js/tailwind.config.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Iconify -->
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-    <!-- Legacy CSS (stabil) -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+  <!-- Tailwind -->
+  <script src="js/tailwind.config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
-    <div id="animated-background" aria-hidden="true"></div>
+  <!-- Legacy CSS (stabil) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-    <!-- Navigation -->
-    <header class="top-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
-      <div id="glass-nav" class="glass-nav w-full">
+<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
 
-        <a href="#top" class="brand-link flex items-center gap-3">
-          <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
-          <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart Web Studio</span>
-        </a>
+  <!-- Navigation -->
+  <header class="top-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
 
-        <button
-          id="mobile-nav-toggle"
-          class="mobile-nav-toggle"
-          type="button"
-          aria-label="Navigation umschalten"
-          aria-expanded="false"
-          aria-controls="primary-nav"
-        >
-          <span class="sr-only">Menü</span>
-          <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
-          <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
-          <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
-        </button>
+      <a href="#top" class="brand-link flex items-center gap-3">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
 
-        <nav id="primary-nav" class="nav-links ml-auto flex items-center gap-1 sm:gap-2">
-          <a href="#product" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Leistungen</a>
-          <a href="#logic" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Marketing & SEO</a>
-          <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Branding & Design</a>
-          <a href="#voice" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Über mich</a>
-          <a href="#contact" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Kontakt</a>
-        </nav>
-      </div>
-    </header>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Menü</span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
 
-    <!-- Hero Section -->
-    <main class="relative pt-0 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="hero-scroll-stack">
-        <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
-          <div class="hero-stage__viewport">
-            <div class="hero-stage__frame" data-hero-stage-card>
-              <span class="hero-stage__noise" aria-hidden="true"></span>
-              <span class="hero-stage__glow" aria-hidden="true"></span>
-              <div class="hero-stage__grid" aria-hidden="true"></div>
+      <nav id="primary-nav" class="nav-links ml-auto flex items-center gap-1 sm:gap-2">
+        <a href="#product"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Leistungen</a>
+        <a href="#logic"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Marketing &
+          SEO</a>
+        <a href="#pricing"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Branding &
+          Design</a>
+        <a href="#voice"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Über mich</a>
+        <a href="#contact"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium text-[#ff5dac]">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-              <div class="hero-stage__content">
-                <p class="hero-stage__eyebrow">Smart Web Studio</p>
-                <h2 class="hero-stage__title">
-                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Moderne</span> Websites.</span>
-                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Strategie</span> mit System.</span>
-                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Ergebnisse</span>, die wachsen.</span>
-                </h2>
-                <p class="hero-stage__text">
-                  Ich kombiniere Branding, Entwicklung und Growth-Strategie zu einem skalierbaren digitalen System.
-                </p>
-              </div>
-</div>
+  <!-- Hero Section -->
+  <main class="relative pt-0 pb-20">
+    <div class="hero-scroll-stack max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
+        <div class="hero-stage__viewport">
+          <div class="hero-stage__frame" data-hero-stage-card>
+            <span class="hero-stage__noise" aria-hidden="true"></span>
+            <span class="hero-stage__glow" aria-hidden="true"></span>
+            <div class="hero-stage__grid" aria-hidden="true"></div>
+
+            <div class="hero-stage__content">
+              <p class="hero-stage__eyebrow">Smart Web Studio</p>
+              <h2 class="hero-stage__title">
+                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Moderne</span> Websites.</span>
+                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Strategie</span> mit
+                  System.</span>
+                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Ergebnisse</span>, die
+                  wachsen.</span>
+              </h2>
+              <p class="hero-stage__text">
+                Ich kombiniere Branding, Entwicklung und Growth-Strategie zu einem skalierbaren digitalen System.
+              </p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div class="section-2 section-2--dock-test scroll-focus-section animate-enter delay-300 mt-16 lg:mt-20 relative w-full">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 xl:gap-12 items-stretch">
-          <article
-            id="tile-card-webdev"
-            data-detail-panel="webdev-detail-panel"
-            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20"
-          >
+      <div
+        class="section-2 section-2--dock-test scroll-focus-section animate-enter delay-300 mt-16 lg:mt-20 relative w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 xl:gap-12 items-stretch">
+          <article id="tile-card-webdev" data-detail-panel="webdev-detail-panel"
+            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
             <span class="tile-mouse-glow" aria-hidden="true"></span>
             <div class="tile-card-body tile-card-body--with-image">
               <div class="tile-card-copy">
@@ -99,102 +101,78 @@
                   <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Webentwicklung</h3>
                 </div>
                 <p class="text-zinc-100 text-xs leading-relaxed">
-                  Maßgeschneiderte Websites mit modernem Code, WordPress oder flexiblen Baukastensystemen – optimiert für Performance und Skalierbarkeit.
+                  Maßgeschneiderte Websites mit modernem Code, WordPress oder flexiblen Baukastensystemen – optimiert
+                  für Performance und Skalierbarkeit.
                 </p>
               </div>
               <div class="tile-card-media tile-card-media--filled">
-                <img
-                  src="assets/Webengwiklung.webP"
-                  alt="Webentwicklung Visual"
-                  class="tile-card-media-image"
-                  width="1024"
-                  height="1536"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src="assets/Webengwiklung.webP" alt="Webentwicklung Visual" class="tile-card-media-image"
+                  width="1024" height="1536" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
 
-          <article
-            id="tile-card-seo"
-            data-detail-panel="seo-detail-panel"
-            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20"
-          >
+          <article id="tile-card-seo" data-detail-panel="seo-detail-panel"
+            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
             <span class="tile-mouse-glow" aria-hidden="true"></span>
             <div class="tile-card-body tile-card-body--with-image">
               <div class="tile-card-copy">
                 <div class="tile-card-header">
-                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac] whitespace-nowrap">SEO &amp; Marketing</h3>
+                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac] whitespace-nowrap">SEO &amp; Marketing
+                  </h3>
                 </div>
                 <p class="text-zinc-100 text-xs leading-relaxed">
-                  Strategische Sichtbarkeit durch Suchmaschinenoptimierung, Content-Strategien und datengetriebene Kampagnen.
+                  Strategische Sichtbarkeit durch Suchmaschinenoptimierung, Content-Strategien und datengetriebene
+                  Kampagnen.
                 </p>
               </div>
               <div class="tile-card-media tile-card-media--filled">
-                <img
-                  src="assets/Seo_Marketing.webP"
-                  alt="SEO und Marketing Visual"
-                  class="tile-card-media-image"
-                  width="1024"
-                  height="1536"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src="assets/Seo_Marketing.webP" alt="SEO und Marketing Visual" class="tile-card-media-image"
+                  width="1024" height="1536" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
 
-          <article
-            id="tile-card-branding"
-            data-detail-panel="branding-detail-panel"
-            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20"
-          >
+          <article id="tile-card-branding" data-detail-panel="branding-detail-panel"
+            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
             <span class="tile-mouse-glow" aria-hidden="true"></span>
             <div class="tile-card-body tile-card-body--with-image">
               <div class="tile-card-copy">
                 <div class="tile-card-header">
-                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac] whitespace-nowrap">Branding &amp; Design</h3>
+                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac] whitespace-nowrap">Branding &amp; Design
+                  </h3>
                 </div>
                 <p class="text-zinc-100 text-xs leading-relaxed">
                   Entwicklung klarer Markenidentitäten, Logos und visueller Konzepte mit Wiedererkennungswert.
                 </p>
               </div>
               <div class="tile-card-media tile-card-media--filled">
-                <img
-                  src="assets/Branding_Desing.webP"
-                  alt="Branding und Design Visual"
-                  class="tile-card-media-image"
-                  width="1024"
-                  height="1536"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src="assets/Branding_Desing.webP" alt="Branding und Design Visual" class="tile-card-media-image"
+                  width="1024" height="1536" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
         </div>
 
-        <aside
-          id="webdev-detail-panel"
-          class="tile-detail-panel"
-          aria-hidden="true"
-        >
+        <aside id="webdev-detail-panel" class="tile-detail-panel" aria-hidden="true">
           <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-webdev-pager>
             <article class="tile-detail-panel__pager-slide is-active" data-webdev-slide data-pager-slide>
-              
+
               <h4 class="tile-detail-panel__title">Professionelle Webentwicklung mit Strategie und System</h4>
               <p class="tile-detail-panel__text">
-                Ich entwickle moderne, performante Websites, die nicht nur gut aussehen, sondern technisch sauber aufgebaut, schnell ladend
-                und langfristig skalierbar sind. Jede Website wird individuell an Ihr Unternehmen, Ihre Ziele und Ihre Zielgruppe angepasst.
+                Ich entwickle moderne, performante Websites, die nicht nur gut aussehen, sondern technisch sauber
+                aufgebaut, schnell ladend
+                und langfristig skalierbar sind. Jede Website wird individuell an Ihr Unternehmen, Ihre Ziele und Ihre
+                Zielgruppe angepasst.
               </p>
             </article>
 
             <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-               
+
               <h4 class="tile-detail-panel__title">Individuelle Webentwicklung</h4>
               <p class="tile-detail-panel__text">
-                Für Unternehmen mit hohen Anforderungen entwickle ich maßgeschneiderte Websites auf Basis von modernem HTML, CSS und JavaScript.
+                Für Unternehmen mit hohen Anforderungen entwickle ich maßgeschneiderte Websites auf Basis von modernem
+                HTML, CSS und JavaScript.
               </p>
               <p class="tile-detail-panel__pager-subheading">Vorteile:</p>
               <ul class="tile-detail-panel__pager-list">
@@ -205,12 +183,13 @@
                 <li>Optimierte Core Web Vitals für bessere Google-Rankings</li>
               </ul>
               <p class="tile-detail-panel__text">
-                Diese Lösung eignet sich besonders für Unternehmen, die langfristig wachsen und Wert auf technische Exzellenz legen.
+                Diese Lösung eignet sich besonders für Unternehmen, die langfristig wachsen und Wert auf technische
+                Exzellenz legen.
               </p>
             </article>
 
             <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-               
+
               <h4 class="tile-detail-panel__title">WordPress &amp; CMS-Lösungen</h4>
               <p class="tile-detail-panel__text">
                 Für flexible und erweiterbare Projekte setze ich auf WordPress oder vergleichbare CMS-Systeme.
@@ -224,13 +203,14 @@
                 <li>Content-getriebene Plattformen</li>
               </ul>
               <p class="tile-detail-panel__text">
-                Sie erhalten eine benutzerfreundliche Oberfläche, mit der Sie Inhalte selbst verwalten können – bei gleichzeitig professioneller
+                Sie erhalten eine benutzerfreundliche Oberfläche, mit der Sie Inhalte selbst verwalten können – bei
+                gleichzeitig professioneller
                 technischer Umsetzung im Hintergrund.
               </p>
             </article>
 
             <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-               
+
               <h4 class="tile-detail-panel__title">Struktur &amp; Performance</h4>
               <p class="tile-detail-panel__text">
                 Eine gute Website beginnt nicht mit Design, sondern mit Struktur.
@@ -247,7 +227,7 @@
             </article>
 
             <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-              
+
               <h4 class="tile-detail-panel__title">Projektablauf</h4>
               <p class="tile-detail-panel__pager-subheading">So läuft ein Projekt ab:</p>
               <ol class="tile-detail-panel__pager-steps">
@@ -260,38 +240,27 @@
             </article>
 
             <div class="tile-detail-panel__pager-nav" role="group" aria-label="Webentwicklung Teile">
-              <button
-                id="webdev-part-prev"
-                type="button"
-                class="tile-detail-panel__pager-arrow is-hidden"
-                aria-label="Vorheriger Teil"
-              >
+              <button id="webdev-part-prev" type="button" class="tile-detail-panel__pager-arrow is-hidden"
+                aria-label="Vorheriger Teil">
                 &larr;
               </button>
               <p id="webdev-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
-              <button
-                id="webdev-part-next"
-                type="button"
-                class="tile-detail-panel__pager-arrow"
-                aria-label="Nächster Teil"
-              >
+              <button id="webdev-part-next" type="button" class="tile-detail-panel__pager-arrow"
+                aria-label="Nächster Teil">
                 &rarr;
               </button>
             </div>
           </div>
         </aside>
 
-        <aside
-          id="seo-detail-panel"
-          class="tile-detail-panel tile-detail-panel--from-left"
-          aria-hidden="true"
-        >
+        <aside id="seo-detail-panel" class="tile-detail-panel tile-detail-panel--from-left" aria-hidden="true">
           <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-seo-pager>
             <article class="tile-detail-panel__pager-slide is-active" data-seo-slide data-pager-slide>
               <p class="tile-detail-panel__eyebrow">SEO &amp; Marketing</p>
               <h4 class="tile-detail-panel__title">Digitale Sichtbarkeit mit messbaren Ergebnissen</h4>
               <p class="tile-detail-panel__text">
-                Eine Website allein reicht nicht aus. Entscheidend ist, dass Ihre Zielgruppe Sie findet. Ich entwickle durchdachte Strategien,
+                Eine Website allein reicht nicht aus. Entscheidend ist, dass Ihre Zielgruppe Sie findet. Ich entwickle
+                durchdachte Strategien,
                 die Sichtbarkeit erhöhen und nachhaltiges Wachstum ermöglichen.
               </p>
             </article>
@@ -361,38 +330,27 @@
             </article>
 
             <div class="tile-detail-panel__pager-nav" role="group" aria-label="SEO und Marketing Teile">
-              <button
-                id="seo-part-prev"
-                type="button"
-                class="tile-detail-panel__pager-arrow is-hidden"
-                aria-label="Vorheriger SEO-Teil"
-              >
+              <button id="seo-part-prev" type="button" class="tile-detail-panel__pager-arrow is-hidden"
+                aria-label="Vorheriger SEO-Teil">
                 &larr;
               </button>
               <p id="seo-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
-              <button
-                id="seo-part-next"
-                type="button"
-                class="tile-detail-panel__pager-arrow"
-                aria-label="Nächster SEO-Teil"
-              >
+              <button id="seo-part-next" type="button" class="tile-detail-panel__pager-arrow"
+                aria-label="Nächster SEO-Teil">
                 &rarr;
               </button>
             </div>
           </div>
         </aside>
 
-        <aside
-          id="branding-detail-panel"
-          class="tile-detail-panel tile-detail-panel--from-left"
-          aria-hidden="true"
-        >
+        <aside id="branding-detail-panel" class="tile-detail-panel tile-detail-panel--from-left" aria-hidden="true">
           <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-branding-pager>
             <article class="tile-detail-panel__pager-slide is-active" data-branding-slide data-pager-slide>
               <p class="tile-detail-panel__eyebrow">Branding &amp; Design</p>
               <h4 class="tile-detail-panel__title">Marken, die Vertrauen schaffen und im Gedächtnis bleiben</h4>
               <p class="tile-detail-panel__text">
-                Eine starke Marke ist mehr als ein Logo. Sie ist die Grundlage für Wiedererkennung, Vertrauen und Positionierung im Markt.
+                Eine starke Marke ist mehr als ein Logo. Sie ist die Grundlage für Wiedererkennung, Vertrauen und
+                Positionierung im Markt.
               </p>
             </article>
 
@@ -437,7 +395,8 @@
                 <li>Moderne visuelle Elemente</li>
               </ul>
               <p class="tile-detail-panel__text">
-                Optional integriere ich innovative 3D-Visualisierungen oder Animationen, um digitale Erlebnisse zu schaffen, die sich vom
+                Optional integriere ich innovative 3D-Visualisierungen oder Animationen, um digitale Erlebnisse zu
+                schaffen, die sich vom
                 Wettbewerb abheben.
               </p>
             </article>
@@ -445,414 +404,442 @@
             <article class="tile-detail-panel__pager-slide" data-branding-slide data-pager-slide aria-hidden="true">
               <h4 class="tile-detail-panel__title">Rebranding &amp; Weiterentwicklung</h4>
               <p class="tile-detail-panel__text">
-                Bestehende Marken können modernisiert und strategisch neu ausgerichtet werden – ohne Identität zu verlieren.
+                Bestehende Marken können modernisiert und strategisch neu ausgerichtet werden – ohne Identität zu
+                verlieren.
               </p>
             </article>
 
             <div class="tile-detail-panel__pager-nav" role="group" aria-label="Branding und Design Teile">
-              <button
-                id="branding-part-prev"
-                type="button"
-                class="tile-detail-panel__pager-arrow is-hidden"
-                aria-label="Vorheriger Branding-Teil"
-              >
+              <button id="branding-part-prev" type="button" class="tile-detail-panel__pager-arrow is-hidden"
+                aria-label="Vorheriger Branding-Teil">
                 &larr;
               </button>
               <p id="branding-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
-              <button
-                id="branding-part-next"
-                type="button"
-                class="tile-detail-panel__pager-arrow"
-                aria-label="Nächster Branding-Teil"
-              >
+              <button id="branding-part-next" type="button" class="tile-detail-panel__pager-arrow"
+                aria-label="Nächster Branding-Teil">
                 &rarr;
               </button>
             </div>
           </div>
         </aside>
 
-          <div class="absolute -inset-10 bg-blue-500/10 blur-3xl rounded-[50%] z-[-1]"></div>
-        </div>
+        <div class="absolute -inset-10 bg-blue-500/10 blur-3xl rounded-[50%] z-[-1]"></div>
       </div>
+    </div>
 
-      <section class="scroll-focus-section w-full max-w-6xl mx-auto mt-20 lg:mt-24 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 xl:gap-16 items-center">
-        <div class="max-w-3xl text-left">
-          <h1
-            class="hero-headline hero-headline--stagger font-display text-4xl sm:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-5 sm:mb-6"
-            data-hero-headline
-            data-hero-mode="stagger"
-          >
-            <span class="hero-headline__variant hero-headline__variant--stagger is-active" data-hero-variant="stagger">
-              <span class="hero-line sm:whitespace-nowrap" style="--hero-line-index: 0;"><span class="hero-word-accent">Moderne</span> Websites.</span>
-              <span class="hero-line sm:whitespace-nowrap" style="--hero-line-index: 1;"><span class="hero-word-accent">Strategie</span> mit System.</span>
-              <span class="hero-line sm:whitespace-nowrap" style="--hero-line-index: 2;"><span class="hero-word-accent">Ergebnisse</span>, die wachsen.</span>
-            </span>
-            <span class="hero-headline__variant hero-headline__variant--keywords" data-hero-variant="keywords" aria-hidden="true">
-              <span class="hero-line sm:whitespace-nowrap"><span class="hero-word-accent">Moderne</span> <span class="hero-keyword">Websites</span>.</span>
-              <span class="hero-line sm:whitespace-nowrap"><span class="hero-word-accent">Strategie</span> mit <span class="hero-keyword">System</span>.</span>
-              <span class="hero-line sm:whitespace-nowrap"><span class="hero-word-accent">Ergebnisse</span>, die <span class="hero-keyword">wachsen</span>.</span>
-            </span>
-          </h1>
+    <!-- Section 3: Mein Ansatz / System -->
+    <section id="approach" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="approach-section__inner max-w-7xl mx-auto">
 
-          <p class="animate-enter delay-200 text-base sm:text-lg xl:text-xl text-zinc-400 max-w-xl mb-8 sm:mb-10 leading-relaxed">
-            Ich entwickle performante Websites und digitale Marketinglösungen für Unternehmen, die wachsen wollen – mit Code, WordPress oder individuellen Systemen.
+        <!-- Heading -->
+        <div class="approach-section__header reveal-on-scroll">
+          <p class="approach-section__eyebrow">Mein Ansatz</p>
+          <h2 class="approach-section__headline font-display">
+            Websites entstehen nicht aus Design.<br class="hidden sm:block" /> Sondern aus Klarheit.
+          </h2>
+          <p class="approach-section__subline">
+            Viele Unternehmen investieren in eine neue Website – aber nicht in die Strategie dahinter. Ich arbeite
+            anders.
           </p>
+        </div>
 
-          <div class="animate-enter delay-200 flex flex-col sm:flex-row sm:flex-wrap items-start gap-4">
-            <div class="btn-wrapper group">
-              <div class="dot tl"></div><div class="dot tr"></div><div class="dot bl"></div><div class="dot br"></div>
-              <div class="line top"></div><div class="line bot"></div>
-              <button class="btn">
-                <iconify-icon icon="solar:code-scan-linear" class="mr-2 text-lg"></iconify-icon>
-                Projekt anfragen
-              </button>
+        <!-- Cards -->
+        <div class="approach-section__grid">
+
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">01</p>
+              <h3 class="approach-card__title font-display">Positionierung vor Gestaltung</h3>
+              <p class="approach-card__body">
+                Bevor ein Pixel entsteht, klären wir: Zielgruppe, Angebot, Differenzierung, Kernbotschaft. Ohne Klarheit
+                kein Premium.
+              </p>
             </div>
+          </article>
 
-            <a href="#product" class="text-zinc-400 hover:text-white text-sm sm:text-base font-medium px-2 sm:px-6 py-3 transition-colors flex items-center gap-2">
-              Leistungen entdecken
-              <iconify-icon icon="solar:alt-arrow-right-linear"></iconify-icon>
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">02</p>
+              <h3 class="approach-card__title font-display">Struktur vor Optik</h3>
+              <p class="approach-card__body">
+                Ich entwickle: klare Seitenarchitektur, Conversion-Führung, logische Nutzerwege, messbare Touchpoints.
+                Design unterstützt – es führt nicht.
+              </p>
+            </div>
+          </article>
+
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">03</p>
+              <h3 class="approach-card__title font-display">Performance als Standard</h3>
+              <p class="approach-card__body">
+                Schnelle Ladezeiten. Saubere Struktur. Tracking-Setup vorbereitet. Skalierbar. Weil Qualität messbar
+                ist.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="approach-section__cta reveal-on-scroll">
+          <p class="approach-section__cta-lead">Lass uns dein Projekt strategisch denken.</p>
+          <a href="#contact" class="approach-section__btn" aria-label="Erstgespräch buchen">
+            Erstgespräch buchen
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Prozess / Zusammenarbeit -->
+    <section id="process" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="process-section__inner max-w-7xl mx-auto">
+
+        <!-- Heading -->
+        <div class="process-section__header reveal-on-scroll">
+          <p class="process-section__eyebrow">Zusammenarbeit</p>
+          <h2 class="process-section__headline font-display">
+            Ein klarer Prozess.<br class="hidden sm:block" /> Keine Überraschungen.
+          </h2>
+          <p class="process-section__subline">
+            Vom ersten Gespräch bis zum Launch – du weißt jederzeit, was als Nächstes passiert.
+          </p>
+        </div>
+
+        <!-- Steps -->
+        <ol class="process-section__steps" aria-label="Projektprozess in vier Schritten">
+
+          <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">01</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">01</p>
+              <h3 class="process-step__title font-display">Analyse &amp; Zieldefinition</h3>
+              <p class="process-step__body">
+                Wir klären Zielgruppe, Angebot und Erfolgskriterien. Du bekommst Klarheit vor Gestaltung.
+              </p>
+            </div>
+          </li>
+
+          <li class="process-step reveal-on-scroll" style="--process-delay: 80ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">02</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">02</p>
+              <h3 class="process-step__title font-display">Strategie &amp; Struktur</h3>
+              <p class="process-step__body">
+                Seitenarchitektur, Positionierung und Conversion-Logik. Bevor Design beginnt, steht das Fundament.
+              </p>
+            </div>
+          </li>
+
+          <li class="process-step reveal-on-scroll" style="--process-delay: 160ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">03</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">03</p>
+              <h3 class="process-step__title font-display">Design &amp; Umsetzung</h3>
+              <p class="process-step__body">
+                Premium UI, saubere Entwicklung, Performance-Fokus. Kein Overdesign. Kein Chaos.
+              </p>
+            </div>
+          </li>
+
+          <li class="process-step reveal-on-scroll" style="--process-delay: 240ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">04</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">04</p>
+              <h3 class="process-step__title font-display">Launch &amp; Optimierung</h3>
+              <p class="process-step__body">
+                Tracking aktiv, Prozesse definiert, nächste Schritte geplant. Website ist Start – nicht Ende.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+
+        <!-- CTA -->
+        <div class="process-section__cta reveal-on-scroll">
+          <p class="process-section__cta-lead">Bereit für einen strukturierten Start?</p>
+          <a href="#contact" class="process-section__btn" aria-label="Erstgespräch buchen">
+            Erstgespräch buchen
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 5: Pakete / Einstieg -->
+    <section id="packages" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+
+        <!-- Heading -->
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Pakete &amp; Einstieg</p>
+          <h2 class="packages-section__headline font-display">
+            Klare Pakete. Klarer Scope.
+          </h2>
+          <p class="packages-section__subline">
+            Damit du schnell entscheiden kannst – ohne Angebots-Chaos. Exakter Umfang wird im Erstgespräch definiert.
+          </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="packages-section__grid">
+
+          <!-- Card 1: Starter -->
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;" data-package="starter">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Starter</p>
+                <p class="pkg-card__tagline">Solider Start für einen professionellen Auftritt.</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Leistungen Starter-Paket">
+                <li class="pkg-card__list-item">Mini-Strategie + klare Seitenstruktur</li>
+                <li class="pkg-card__list-item">1–3 Seiten (One-Pager oder Small Site)</li>
+                <li class="pkg-card__list-item">Basis-SEO &amp; sauberes Setup</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <p class="pkg-card__price">ab <strong>€ 3.900</strong> <span
+                    class="pkg-card__price-hint">Richtwert</span>
+                </p>
+                <a href="#contact?paket=starter" class="pkg-card__btn" aria-label="Starter-Paket anfragen">
+                  Starter anfragen
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Professional (Empfohlen) -->
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;"
+            data-package="professional">
+            <div class="pkg-card__badge" aria-label="Empfohlen">Empfohlen</div>
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Professional</p>
+                <p class="pkg-card__tagline">Premium-Auftritt + Lead-System für qualifizierte Anfragen.</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Leistungen Professional-Paket">
+                <li class="pkg-card__list-item">Positionierung + Messaging geschärft</li>
+                <li class="pkg-card__list-item">5–10 Seiten + Conversion-Führung</li>
+                <li class="pkg-card__list-item">Performance-Fokus + Tracking vorbereitet</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <p class="pkg-card__price">ab <strong>€ 8.900</strong> <span
+                    class="pkg-card__price-hint">Richtwert</span>
+                </p>
+                <a href="#contact?paket=professional" class="pkg-card__btn pkg-card__btn--featured"
+                  aria-label="Professional-Paket anfragen">
+                  Professional anfragen
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Growth -->
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;" data-package="growth">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Growth</p>
+                <p class="pkg-card__tagline">Für Unternehmen, die planbar Nachfrage aufbauen wollen.</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Leistungen Growth-Paket">
+                <li class="pkg-card__list-item">Alles aus Professional + Content/SEO-Plan</li>
+                <li class="pkg-card__list-item">Funnel-Assets + Iterationsplan</li>
+                <li class="pkg-card__list-item">Reporting &amp; Optimierungs-Rhythmus</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <p class="pkg-card__price">ab <strong>€ 18.000</strong> <span
+                    class="pkg-card__price-hint">Richtwert</span></p>
+                <a href="#contact?paket=growth" class="pkg-card__btn" aria-label="Growth-Paket anfragen">
+                  Growth anfragen
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="packages-section__disclaimer reveal-on-scroll">
+          Hinweis: Preise sind Richtwerte. Das finale Angebot hängt von Umfang, Inhalt und Zeitplan ab.
+        </p>
+
+        <!-- Bottom CTA -->
+        <div class="packages-section__cta reveal-on-scroll">
+          <p class="packages-section__cta-lead">Unsicher, welches Paket passt?</p>
+          <div class="packages-section__cta-btns">
+            <a href="#contact" class="packages-section__btn packages-section__btn--primary"
+              aria-label="Erstgespräch buchen">
+              Erstgespräch buchen
+            </a>
+            <a href="#contact?anfrage=mini-audit" class="packages-section__btn packages-section__btn--secondary"
+              aria-label="Mini-Audit anfordern">
+              Mini-Audit anfordern
             </a>
           </div>
         </div>
 
-        <aside class="animate-enter delay-300 w-full max-w-md sm:max-w-lg lg:max-w-none mx-auto lg:mx-0">
-          <div class="glass-card hero-visual w-full max-w-[460px] mx-auto lg:ml-auto lg:mr-0 rounded-3xl p-4 sm:p-6 lg:p-7 min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] flex items-center justify-center overflow-visible">
-            <span class="hero-visual__halo" aria-hidden="true"></span>
-            <ul class="hero-visual__roles hero-visual__roles--stack-top" aria-hidden="true">
-              <li>Web-Architekt</li>
-              <li>Markenentwickler</li>
-              <li>UX-orientiert</li>
-              <li>Performance-Fokus</li>
-              <li>Präzise</li>
-            </ul>
-            <ul class="hero-visual__roles hero-visual__roles--stack-mid" aria-hidden="true">
-              <li>Web-Architekt</li>
-              <li>Markenentwickler</li>
-              <li>UX-orientiert</li>
-              <li>Performance-Fokus</li>
-              <li>Präzise</li>
-            </ul>
-            <ul class="hero-visual__roles hero-visual__roles--stack-base" aria-label="Leistungsprofil">
-              <li>Web-Architekt</li>
-              <li>Markenentwickler</li>
-              <li>UX-orientiert</li>
-              <li>Performance-Fokus</li>
-              <li>Präzise</li>
-            </ul>
-            <figure class="hero-floating-object" aria-hidden="true">
-              <span class="hero-floating-object__shadow"></span>
-              <span class="hero-floating-object__layer hero-floating-object__layer--rear"></span>
-              <span class="hero-floating-object__layer hero-floating-object__layer--mid"></span>
+      </div>
+    </section>
 
-              <div class="hero-floating-object__panel">
-                <img
-                  src="assets/webdesigner_portrait.webp"
-                  alt=""
-                  class="hero-floating-object__image"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="high"
-                />
-                <span class="hero-floating-object__image-gloss" aria-hidden="true"></span>
+    <!-- Section 6: Über mich / Vertrauen -->
+    <section id="about" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="about-section__inner max-w-7xl mx-auto">
+
+        <div class="about-section__layout">
+
+          <!-- Left: Portrait -->
+          <div class="about-section__portrait-col reveal-on-scroll">
+            <figure class="about-portrait">
+              <div class="about-portrait__frame">
+                <img src="assets/webdesigner_portrait.webp" srcset="assets/webdesigner_portrait.webp 800w"
+                  sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
+                  alt="Portrait von dem Gründer von Smart Web Studio" width="800" height="1000" loading="lazy"
+                  decoding="async" class="about-portrait__img" />
+                <span class="about-portrait__gloss" aria-hidden="true"></span>
               </div>
             </figure>
           </div>
-        </aside>
-      </section>
-    </main>
 
-    <!-- Features -->
-    <section id="product" class="scroll-focus-section py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="reveal-on-scroll">
-        <h2 class="font-display text-3xl md:text-4xl font-semibold mb-12 text-center">
-          Intelligence for <span class="text-zinc-500">every department.</span>
-        </h2>
+          <!-- Right: Text -->
+          <div class="about-section__text-col">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="md:col-span-2 glass-card rounded-3xl p-8 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 blur-[80px] rounded-full transition-all group-hover:bg-purple-500/20"></div>
-
-            <div class="relative z-10">
-              <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 border border-white/10 text-white">
-                <iconify-icon icon="solar:magic-stick-3-linear" width="24"></iconify-icon>
-              </div>
-              <h3 class="text-xl font-semibold mb-2">Strategic AI Assistant</h3>
-              <p class="text-zinc-400 text-sm leading-relaxed max-w-md">
-                Let AI handle the data crunching. Generate reports, refine strategy, and boost revenue with a context-aware assistant that knows your business logic.
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Über mich</p>
+              <h2 class="about-section__headline font-display">
+                Du arbeitest direkt mit mir.
+              </h2>
+              <p class="about-section__subline">
+                Keine Übergaben. Kein Agentur-Pingpong. Klare Entscheidungen. Saubere Umsetzung.
               </p>
             </div>
 
-            <div class="mt-8 space-y-3 max-w-md mx-auto md:ml-0 md:mr-auto border border-white/5 rounded-xl p-4 bg-black/20">
-              <div class="flex gap-3">
-                <div class="w-6 h-6 rounded-full bg-zinc-700 flex-shrink-0"></div>
-                <div class="bg-white/10 rounded-r-xl rounded-bl-xl p-2 text-xs text-zinc-200">Forecast Q3 margins based on current churn.</div>
-              </div>
-              <div class="flex gap-3 flex-row-reverse">
-                <div class="w-6 h-6 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center text-[10px]">S</div>
-                <div class="bg-blue-600/20 border border-blue-500/30 rounded-l-xl rounded-br-xl p-2 text-xs text-blue-100">
-                  Based on current velocity, Q3 margins are projected at 22%. I recommend optimizing server costs.
-                </div>
-              </div>
-            </div>
-          </div>
+            <div class="about-section__blocks">
 
-          <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 border border-white/10 text-white">
-              <iconify-icon icon="solar:shield-warning-linear" width="24"></iconify-icon>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Enterprise Governance</h3>
-            <p class="text-zinc-400 text-sm leading-relaxed mb-6">RBAC, Audit Logs, and SOC2 compliance built-in.</p>
-            <div class="space-y-2">
-              <div class="flex items-center gap-3 text-xs text-zinc-300 p-2 rounded border border-white/5 bg-white/[0.02]">
-                <iconify-icon icon="solar:check-circle-linear" class="text-green-400"></iconify-icon>
-                <span>Access Review: Passed</span>
+              <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
+                <h3 class="about-block__title font-display">Strategie + Umsetzung aus einer Hand</h3>
+                <p class="about-block__body">
+                  Ich verbinde Positionierung, Design und Entwicklung zu einem klaren System.
+                </p>
               </div>
-              <div class="flex items-center gap-3 text-xs text-zinc-300 p-2 rounded border border-white/5 bg-white/[0.02]">
-                <iconify-icon icon="solar:check-circle-linear" class="text-green-400"></iconify-icon>
-                <span>Data Encryption: AES-256</span>
-              </div>
-              <div class="flex items-center gap-3 text-xs text-zinc-300 p-2 rounded border border-white/5 bg-white/[0.02]">
-                <iconify-icon icon="solar:check-circle-linear" class="text-green-400"></iconify-icon>
-                <span>SSO Enforcement: On</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="md:col-span-3 glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 group">
-            <div class="flex-1">
-              <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 border border-white/10 text-white">
-                <iconify-icon icon="solar:bolt-linear" width="24"></iconify-icon>
+              <div class="about-block reveal-on-scroll" style="--about-delay: 80ms;">
+                <h3 class="about-block__title font-display">Struktur statt Chaos</h3>
+                <p class="about-block__body">
+                  Du bekommst klare Deliverables, Deadlines und Fokus.
+                </p>
               </div>
-              <h3 class="text-xl font-semibold mb-2">Workflow Automation</h3>
-              <p class="text-zinc-400 text-sm leading-relaxed max-w-lg">
-                Trigger actions across your stack. From Slack notifications to database updates, automate the mundane.
-              </p>
+
+              <div class="about-block reveal-on-scroll" style="--about-delay: 160ms;">
+                <h3 class="about-block__title font-display">Langfristiges Denken</h3>
+                <p class="about-block__body">
+                  Website ist kein Projekt – sondern ein Wachstumssystem.
+                </p>
+              </div>
+
             </div>
-            <div class="flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity">
-              <div class="w-12 h-12 rounded-lg bg-[#635BFF] flex items-center justify-center text-white"><iconify-icon icon="simple-icons:stripe" width="20"></iconify-icon></div>
-              <div class="w-8 h-[1px] bg-white/20"></div>
-              <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-black font-bold text-xs">S</div>
-              <div class="w-8 h-[1px] bg-white/20"></div>
-              <div class="w-12 h-12 rounded-lg bg-[#4A154B] flex items-center justify-center text-white"><iconify-icon icon="simple-icons:slack" width="20"></iconify-icon></div>
+
+            <div class="about-section__cta reveal-on-scroll">
+              <p class="about-section__cta-lead">Wenn du strukturiert wachsen willst, lass uns sprechen.</p>
+              <a href="#contact" class="about-section__btn" aria-label="Erstgespräch buchen">
+                Erstgespräch buchen
+              </a>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Logic -->
-    <section id="logic" class="scroll-focus-section py-20 bg-black/50 border-y border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-          <div>
-            <h2 class="font-display text-3xl font-semibold mb-2">Business Logic</h2>
-            <p class="text-zinc-400">Collaborate on models that drive your business.</p>
-          </div>
-          <div class="flex p-1 rounded-xl bg-white/5 border border-white/10" role="tablist" aria-label="Business Logic Tabs">
-            <button type="button" data-tab="collab" id="tab-collab" role="tab" aria-controls="content-collab" aria-selected="true" class="px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/10 text-white shadow-sm">
-              Collaborative
-            </button>
-            <button type="button" data-tab="audit" id="tab-audit" role="tab" aria-controls="content-audit" aria-selected="false" class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white transition-all">
-              Audit Logs
-            </button>
-          </div>
+    <!-- Final Closing CTA -->
+    <section id="final-cta" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
+
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">
+            Bereit für den nächsten Schritt?
+          </h2>
+          <p class="final-cta-section__subline">
+            Wenn du einen Auftritt willst, der wie eine Premium-Marke wirkt und wie ein
+            Vertriebssystem arbeitet, dann starte hier.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div id="content-collab" class="tab-content" role="tabpanel" aria-labelledby="tab-collab">
-            <h3 class="text-xl font-semibold mb-4 text-white">Real-time multiplayer editing</h3>
-            <p class="text-zinc-400 leading-relaxed mb-6">
-              Edit business models together in real time with live cursors, inline comments, and versioned saves. Everyone on the board sees changes immediately.
-            </p>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3 text-sm text-zinc-300"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> Live cursor tracking</li>
-              <li class="flex items-center gap-3 text-sm text-zinc-300"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> Branching and merging logic</li>
-              <li class="flex items-center gap-3 text-sm text-zinc-300"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> Instant deployment</li>
-            </ul>
-          </div>
-
-          <div id="content-audit" class="tab-content hidden" role="tabpanel" aria-labelledby="tab-audit">
-            <h3 class="text-xl font-semibold mb-4 text-white">Complete traceability</h3>
-            <p class="text-zinc-400 leading-relaxed mb-6">
-              Every decision, variable change, and deployment is logged forever. Revert to any point in time with millisecond precision.
-            </p>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3 text-sm text-zinc-300"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> Immutable ledger</li>
-              <li class="flex items-center gap-3 text-sm text-zinc-300"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> User attribution</li>
-            </ul>
-          </div>
-
-          <div class="glass-card rounded-2xl border border-white/10 overflow-hidden relative group">
-            <div class="absolute top-0 left-0 w-full h-8 bg-white/5 border-b border-white/5 flex items-center px-3 gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
-            </div>
-            <div class="pt-12 p-6 overflow-x-auto">
-              <pre class="font-mono text-sm text-zinc-300"><span class="text-purple-400">const</span> <span class="text-blue-400">forecast</span> = Seaint.Model.<span class="text-yellow-300">open</span>(<span class="text-green-300">"q3-revenue"</span>);
-
-<span class="text-zinc-500">// Collaborative session active</span>
-forecast.<span class="text-yellow-300">apply</span>(<span class="text-green-300">"growth_strategy_v2"</span>, {
-    user: <span class="text-green-300">"cfo_office"</span>,
-    timestamp: Date.<span class="text-yellow-300">now</span>()
-});
-
-<span class="text-purple-400">await</span> forecast.<span class="text-yellow-300">save</span>(<span class="text-green-300">"v2.1"</span>, <span class="text-green-300">"Board prep"</span>);</pre>
-
-              <div class="absolute top-28 left-48 flex items-center gap-2 animate-float">
-                <iconify-icon icon="solar:cursor-bold" class="text-pink-500 rotate-[-45deg]"></iconify-icon>
-                <span class="bg-pink-500 text-white text-[10px] px-1.5 rounded font-bold">Sarah (CFO)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Voice -->
-    <section id="voice" class="scroll-focus-section py-24 relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent pointer-events-none"></div>
-      <div class="max-w-4xl mx-auto px-4 text-center relative z-10 reveal-on-scroll">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 mb-8 shadow-[0_0_30px_-10px_rgba(255,255,255,0.3)]">
-          <iconify-icon icon="solar:microphone-3-linear" class="text-3xl text-white"></iconify-icon>
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="#contact" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
+            Erstgespräch buchen
+          </a>
+          <a href="#contact?anfrage=mini-audit" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Mini-Audit anfordern">
+            Mini-Audit anfordern
+          </a>
         </div>
 
-        <h2 class="font-display text-4xl sm:text-5xl font-semibold text-white mb-6">Talk to your Data</h2>
-        <p class="text-zinc-400 text-lg mb-12 max-w-xl mx-auto">
-          Experience real-time enterprise intelligence. Ask questions, generate reports, and control workflows using natural voice commands.
+        <p class="final-cta-section__microcopy reveal-on-scroll" style="--final-cta-delay: 180ms;">
+          Kostenlos. 20 Minuten. Klare Empfehlung für dein Projekt.
         </p>
 
-        <div class="flex items-center justify-center gap-1.5 h-16 mb-12">
-          <div class="audio-bar w-1.5 h-6 bg-white/20 rounded-full"></div>
-          <div class="audio-bar w-1.5 h-10 bg-white/40 rounded-full"></div>
-          <div class="audio-bar w-1.5 h-16 bg-white rounded-full shadow-[0_0_15px_white]"></div>
-          <div class="audio-bar w-1.5 h-10 bg-white/40 rounded-full"></div>
-          <div class="audio-bar w-1.5 h-6 bg-white/20 rounded-full"></div>
-        </div>
-
-        <a href="https://seaint-voice-jlt3nm40e-seaints-projects.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition-transform duration-300">
-          Try Voice Agent
-          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
-        </a>
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="scroll-focus-section py-20 px-4 max-w-7xl mx-auto">
-      <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden reveal-on-scroll">
-        <div class="grid md:grid-cols-2 gap-12">
-          <div class="flex flex-col justify-center">
-            <h2 class="text-4xl font-display font-semibold mb-4">Simple pricing<br />for every stage.</h2>
-            <p class="text-zinc-400 mb-8">Pick a plan today and switch anytime.</p>
 
-            <div class="flex items-center gap-4 mb-8">
-              <div class="bg-white/5 p-1 rounded-lg border border-white/10 inline-flex">
-                <button type="button" data-billing="monthly" id="btn-monthly" class="px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow">Monthly</button>
-                <button type="button" data-billing="yearly" id="btn-yearly" class="px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white">Yearly</button>
-              </div>
-            </div>
 
-            <div class="space-y-3">
-              <button type="button" data-plan="business" id="card-business" class="w-full text-left p-4 rounded-xl border border-white/20 bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
-                <div class="flex justify-between items-center">
-                  <div>
-                    <div class="font-semibold">Business</div>
-                    <div class="text-xs text-zinc-400">Launch fast, scale faster.</div>
-                  </div>
-                  <iconify-icon icon="solar:check-circle-bold" class="text-white text-xl"></iconify-icon>
-                </div>
-              </button>
-              <button type="button" data-plan="enterprise" id="card-enterprise" class="w-full text-left p-4 rounded-xl border border-white/5 cursor-pointer hover:bg-white/10 transition-colors">
-                <div class="flex justify-between items-center">
-                  <div>
-                    <div class="font-semibold">Enterprise</div>
-                    <div class="text-xs text-zinc-400">Global compliance &amp; security.</div>
-                  </div>
-                  <iconify-icon icon="solar:circle-linear" class="text-zinc-500 text-xl"></iconify-icon>
-                </div>
-              </button>
-            </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="border-t border-white/10 bg-black py-12 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div class="col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-5 h-5 bg-white rounded flex items-center justify-center text-black font-bold text-[10px]">S
           </div>
-
-          <div class="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl p-8 flex flex-col justify-between relative">
-            <div class="absolute inset-0 bg-noise opacity-5"></div>
-            <div>
-              <div class="flex items-end gap-2 mb-2">
-                <span id="price-display" class="text-5xl font-display font-bold">$249</span>
-                <span id="period-display" class="text-zinc-400 mb-2">/month</span>
-              </div>
-              <p id="desc-display" class="text-sm text-zinc-300 uppercase tracking-wide mb-8">GREAT FOR TEAMS LAUNCHING WORKFLOWS.</p>
-
-              <ul id="feature-list" class="space-y-4">
-                <li class="flex items-center gap-3 text-sm"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> Up to 10 Users</li>
-                <li class="flex items-center gap-3 text-sm"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> Basic Reporting</li>
-                <li class="flex items-center gap-3 text-sm"><iconify-icon icon="solar:check-read-linear" class="text-blue-400"></iconify-icon> 30-Day Audit Log</li>
-              </ul>
-            </div>
-
-            <button class="w-full mt-8 bg-white text-black py-3 rounded-xl font-medium hover:bg-zinc-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-              Get Started
-            </button>
-          </div>
+          <span class="font-bold text-sm tracking-widest">SEAINT</span>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="border-t border-white/10 bg-black py-12 px-4">
-      <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
-        <div class="col-span-2">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-5 h-5 bg-white rounded flex items-center justify-center text-black font-bold text-[10px]">S</div>
-            <span class="font-bold text-sm tracking-widest">SEAINT</span>
-          </div>
-          <p class="text-sm text-zinc-500 max-w-xs">The operating system for modern business. Scale faster and smarter with SEAINT.</p>
-        </div>
-
-        <div>
-          <h4 class="text-white font-medium mb-4">Product</h4>
-          <ul class="space-y-2 text-sm text-zinc-500">
-            <li><a href="#product" class="hover:text-white transition">Intelligence</a></li>
-            <li><a href="#logic" class="hover:text-white transition">Workflows</a></li>
-            <li><a href="#pricing" class="hover:text-white transition">Enterprise</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-medium mb-4">Resources</h4>
-          <ul class="space-y-2 text-sm text-zinc-500">
-            <li><a href="#product" class="hover:text-white transition">Documentation</a></li>
-            <li><a href="#logic" class="hover:text-white transition">API Reference</a></li>
-            <li><a href="#contact" class="hover:text-white transition">Status</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-white font-medium mb-4">Legal</h4>
-          <ul class="space-y-2 text-sm text-zinc-500">
-            <li><a href="#contact" class="hover:text-white transition">Privacy</a></li>
-            <li><a href="#contact" class="hover:text-white transition">Terms</a></li>
-          </ul>
-        </div>
+        <p class="text-sm text-zinc-500 max-w-xs">The operating system for modern business. Scale faster and smarter
+          with SEAINT.</p>
       </div>
 
-      <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-xs text-zinc-600">
-        © 2025 Seaint Business Inc. All rights reserved.
+      <div>
+        <h4 class="text-white font-medium mb-4">Product</h4>
+        <ul class="space-y-2 text-sm text-zinc-500">
+          <li><a href="#product" class="hover:text-white transition">Intelligence</a></li>
+          <li><a href="#logic" class="hover:text-white transition">Workflows</a></li>
+          <li><a href="#pricing" class="hover:text-white transition">Enterprise</a></li>
+        </ul>
       </div>
-    </footer>
 
-    <button
-      id="scroll-to-top"
-      class="scroll-to-top-btn"
-      type="button"
-      aria-label="Nach oben scrollen"
-    >
-      <span aria-hidden="true">&uarr;</span>
-    </button>
+      <div>
+        <h4 class="text-white font-medium mb-4">Resources</h4>
+        <ul class="space-y-2 text-sm text-zinc-500">
+          <li><a href="#product" class="hover:text-white transition">Documentation</a></li>
+          <li><a href="#logic" class="hover:text-white transition">API Reference</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Status</a></li>
+        </ul>
+      </div>
 
-    <!-- Legacy JS (stabil) -->
-    <script src="js/main.js"></script>
-  </body>
+      <div>
+        <h4 class="text-white font-medium mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm text-zinc-500">
+          <li><a href="#contact" class="hover:text-white transition">Privacy</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-xs text-zinc-600">
+      © 2025 Seaint Business Inc. All rights reserved.
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <!-- Legacy JS (stabil) -->
+  <script src="js/main.js"></script>
+</body>
+
 </html>
-
-

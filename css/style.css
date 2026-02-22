@@ -3291,6 +3291,116 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 }
 
 /* ============================================
+   MOBILE OPTIMIZATION PASS
+   ============================================ */
+
+@media (max-width: 900px) {
+  body.has-fixed-hero-bg .hero-scroll-stack {
+    padding-top: clamp(0.8rem, 3vw, 1.25rem);
+  }
+
+  body.has-fixed-hero-bg #hero-stage {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    z-index: 0;
+  }
+
+  body.has-fixed-hero-bg #hero-stage .hero-stage__viewport {
+    height: auto;
+    min-height: clamp(260px, 72vw, 520px);
+    aspect-ratio: 16 / 10.5;
+  }
+
+  body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
+    inset: clamp(0.7rem, 2.5vw, 1.2rem);
+  }
+
+  .hero-scroll-stack .section-2.section-2--dock-test {
+    margin-top: clamp(0.85rem, 3vw, 1.2rem);
+  }
+
+  .section-2.section-2--dock-test {
+    height: auto;
+    padding-inline: clamp(0.75rem, 3vw, 1rem);
+  }
+
+  .approach-section,
+  .process-section,
+  .packages-section,
+  .about-section,
+  .final-cta-section {
+    padding-top: clamp(3.4rem, 9vw, 4.8rem) !important;
+    padding-bottom: clamp(3.4rem, 9vw, 4.8rem) !important;
+  }
+
+  .approach-section__header,
+  .process-section__header,
+  .packages-section__header {
+    margin-bottom: 2.4rem;
+  }
+
+  .approach-section__grid,
+  .process-section__steps,
+  .packages-section__grid {
+    gap: 1rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .packages-section__cta-btns,
+  .final-cta-section__btns {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .packages-section__btn,
+  .final-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links .nav-link,
+  .mobile-nav-toggle,
+  .pkg-card__btn,
+  .approach-section__btn,
+  .process-section__btn,
+  .about-section__btn,
+  .packages-section__btn,
+  .final-cta-btn {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-nav {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: calc(0.25rem + env(safe-area-inset-top));
+  }
+
+  .glass-nav {
+    padding: 0.5rem;
+  }
+
+  .brand-link span {
+    max-width: 48vw;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-stage__title {
+    font-size: clamp(1.2rem, 6.8vw, 2rem);
+    line-height: 1.08;
+  }
+
+  .hero-stage__content {
+    padding: clamp(0.85rem, 4vw, 1.25rem);
+  }
+}
+
+/* ============================================
    SITE FOOTER
    ============================================ */
 

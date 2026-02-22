@@ -734,6 +734,7 @@ const sectionTwoDetailPanels = Array.from(document.querySelectorAll(".section-2 
 const sectionTwoDetailPanelsById = new Map(
   sectionTwoDetailPanels.map((detailPanel) => [detailPanel.id, detailPanel])
 );
+const sectionTwoCardsRevealReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const sectionTwoReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let sectionTwoReducedMotion = sectionTwoReducedMotionQuery.matches;
 const sectionTwoLineItemSelector =
@@ -766,6 +767,84 @@ let activeSectionTwoDetailPanel = null;
 let sectionTwoPositionRafId = null;
 let sectionTwoSafeInsetRafId = null;
 let sectionTwoSafeInsetMonitorUntil = 0;
+
+const initSectionTwoCardsReveal = () => {
+  if (!sectionTwoElement || sectionTwoTileCards.length === 0) return;
+
+  const revealOrder = sectionTwoTileCards.slice().reverse();
+  const revealStepMs = 130;
+  let hasRevealed = false;
+  let revealTimeoutIds = [];
+
+  const clearRevealTimers = () => {
+    revealTimeoutIds.forEach((timeoutId) => {
+      window.clearTimeout(timeoutId);
+    });
+    revealTimeoutIds = [];
+  };
+
+  const revealCards = (stagger = true) => {
+    if (hasRevealed) return;
+    hasRevealed = true;
+    sectionTwoElement.classList.add("is-cards-revealed");
+    clearRevealTimers();
+
+    if (!stagger) {
+      revealOrder.forEach((tileCard) => {
+        tileCard.classList.add("is-slide-in");
+      });
+      return;
+    }
+
+    revealOrder.forEach((tileCard, index) => {
+      const timeoutId = window.setTimeout(() => {
+        tileCard.classList.add("is-slide-in");
+      }, index * revealStepMs);
+      revealTimeoutIds.push(timeoutId);
+    });
+  };
+
+  if (sectionTwoCardsRevealReducedMotionQuery.matches) {
+    revealCards(false);
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    revealCards(false);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        revealCards(true);
+        observer.disconnect();
+      });
+    },
+    {
+      // Trigger later: section needs to reach the viewport center band.
+      threshold: 0.01,
+      rootMargin: "-40% 0px -40% 0px",
+    }
+  );
+
+  observer.observe(sectionTwoElement);
+
+  const handleMotionPreferenceChange = (event) => {
+    if (!event.matches) return;
+    revealCards(false);
+    observer.disconnect();
+  };
+
+  if (typeof sectionTwoCardsRevealReducedMotionQuery.addEventListener === "function") {
+    sectionTwoCardsRevealReducedMotionQuery.addEventListener("change", handleMotionPreferenceChange, { once: true });
+  } else if (typeof sectionTwoCardsRevealReducedMotionQuery.addListener === "function") {
+    sectionTwoCardsRevealReducedMotionQuery.addListener(handleMotionPreferenceChange);
+  }
+};
+
+initSectionTwoCardsReveal();
 
 const setSectionTwoTileActive = (tileCard, isActive) => {
   const activeState = String(isActive);

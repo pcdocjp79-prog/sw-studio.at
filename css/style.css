@@ -322,19 +322,7 @@ img {
 }
 
 .hero-stage__viewport::after {
-  content: "";
-  position: absolute;
-  inset: -14%;
-  background: radial-gradient(26% 26% at var(--hero-stage-pointer-x) var(--hero-stage-pointer-y),
-      rgba(158, 218, 255, 0.2) 0%,
-      rgba(158, 218, 255, 0) 100%);
-  transition: opacity 240ms ease;
-  opacity: 0.74;
-  transform-origin: center;
-  animation: heroStageAuraPulse 10s ease-in-out infinite;
-  will-change: transform, opacity;
-  pointer-events: none;
-  z-index: 1;
+  content: none;
 }
 
 .hero-stage__frame {
@@ -422,16 +410,7 @@ img {
 }
 
 .hero-stage__glow {
-  position: absolute;
-  width: clamp(220px, 34vw, 560px);
-  height: clamp(220px, 34vw, 560px);
-  left: var(--hero-stage-pointer-x);
-  top: var(--hero-stage-pointer-y);
-  transform: translate(-50%, -50%) translateZ(36px);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(118, 202, 255, 0.24) 0%, rgba(118, 202, 255, 0) 68%);
-  pointer-events: none;
-  z-index: 2;
+  display: none;
 }
 
 .hero-stage__noise {
@@ -3209,6 +3188,97 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   .final-cta-btn:hover {
     transition: none;
     transform: none;
+  }
+}
+
+/* ============================================
+   CARD HOVER MICROINTERACTIONS
+   ============================================ */
+
+.approach-card,
+.process-step,
+.pkg-card,
+.about-portrait__frame {
+  transition-duration: 220ms;
+}
+
+.about-block {
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+
+.approach-card::before,
+.process-step::before {
+  content: none;
+}
+
+@media (any-hover: hover) {
+  .section-2 .tile-card:hover {
+    transform: translateY(-3px);
+    background: rgba(24, 24, 24, 0.68);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  }
+
+  .section-2 .tile-card.is-media-active:hover {
+    transform: none;
+  }
+
+  .section-2 .tile-card:is(:hover, .is-media-active)::before {
+    filter: drop-shadow(0 0 10px rgba(185, 255, 248, 0.45));
+  }
+
+  .approach-card:hover,
+  .process-step:hover,
+  .pkg-card:hover,
+  .about-portrait__frame:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.13);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  }
+
+  .approach-card:hover {
+    background: rgba(24, 24, 24, 0.62);
+  }
+
+  .process-step:hover {
+    background: rgba(22, 22, 28, 0.68);
+  }
+
+  .pkg-card:hover {
+    background: rgba(24, 24, 32, 0.62);
+  }
+
+  .pkg-card--featured:hover {
+    border-color: rgba(148, 242, 255, 0.3);
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.28),
+      0 0 0 1px rgba(148, 242, 255, 0.14);
+  }
+
+  .about-block:hover {
+    transform: translateY(-2px);
+    border-left-color: rgba(148, 242, 255, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .section-2 .tile-card,
+  .approach-card,
+  .process-step,
+  .pkg-card,
+  .about-block,
+  .about-portrait__frame {
+    transition: none !important;
+  }
+
+  .section-2 .tile-card:hover,
+  .approach-card:hover,
+  .process-step:hover,
+  .pkg-card:hover,
+  .about-block:hover,
+  .about-portrait__frame:hover {
+    transform: none !important;
   }
 }
 

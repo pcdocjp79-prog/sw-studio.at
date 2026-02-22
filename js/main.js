@@ -431,50 +431,32 @@ if (scrollToTopButton) {
   window.addEventListener("resize", requestScrollToTopFrame);
 }
 
-// Hide/Show top navigation based on scroll direction
+// Keep navigation sticky and increase readability after small scroll
 
 if (topNav) {
-  let lastScrollY = Math.max(window.scrollY, 0);
   let ticking = false;
-  const directionThreshold = 4;
   const topThreshold = 24;
 
-  const updateTopNavVisibility = () => {
+  const updateTopNavScrollState = () => {
     const currentScrollY = Math.max(window.scrollY, 0);
-
-    if (topNav.classList.contains("nav-locked-open")) {
-      topNav.classList.remove("is-hidden");
-      lastScrollY = currentScrollY;
-      ticking = false;
-      return;
-    }
-
-    const scrollingDown = currentScrollY > lastScrollY + directionThreshold;
-    const scrollingUp = currentScrollY < lastScrollY - directionThreshold;
-
-    if (currentScrollY <= topThreshold) {
-      topNav.classList.remove("is-hidden");
-    } else if (scrollingDown) {
-      topNav.classList.add("is-hidden");
-    } else if (scrollingUp) {
-      topNav.classList.remove("is-hidden");
-    }
-
-    lastScrollY = currentScrollY;
+    topNav.classList.toggle("is-scrolled", currentScrollY > topThreshold);
     ticking = false;
+  };
+
+  const requestTopNavStateUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateTopNavScrollState);
   };
 
   window.addEventListener(
     "scroll",
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(updateTopNavVisibility);
-    },
+    requestTopNavStateUpdate,
     { passive: true }
   );
+  window.addEventListener("resize", requestTopNavStateUpdate);
 
-  updateTopNavVisibility();
+  updateTopNavScrollState();
 }
 
 // Mobile Navigation
@@ -484,11 +466,6 @@ if (glassNav && mobileNavToggle && primaryNav) {
   const setMobileNavState = (isOpen) => {
     const open = Boolean(isOpen) && mobileBreakpoint.matches;
     glassNav.classList.toggle("is-mobile-open", open);
-    topNav?.classList.toggle("nav-locked-open", open);
-
-    if (open) {
-      topNav?.classList.remove("is-hidden");
-    }
 
     mobileNavToggle.setAttribute("aria-expanded", String(open));
 
@@ -540,6 +517,94 @@ if (glassNav && mobileNavToggle && primaryNav) {
     mobileBreakpoint.addEventListener("change", syncWithBreakpoint);
   } else if (typeof mobileBreakpoint.addListener === "function") {
     mobileBreakpoint.addListener(syncWithBreakpoint);
+  }
+}
+
+const navSectionLinks = primaryNav
+  ? Array.from(primaryNav.querySelectorAll("[data-nav-section]"))
+  : [];
+
+const setActiveNavSectionLink = (sectionId) => {
+  if (!sectionId) return;
+
+  navSectionLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${sectionId}`;
+    link.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+};
+
+if (navSectionLinks.length > 0) {
+  const navSectionTargets = navSectionLinks
+    .map((link) => {
+      const href = link.getAttribute("href") || "";
+      if (!href.startsWith("#")) return null;
+      const sectionId = href.slice(1);
+      let sectionElement = document.getElementById(sectionId);
+      if (!sectionElement) return null;
+
+      if (sectionId === "kontakt" && sectionElement.offsetHeight <= 1) {
+        const footerElement = document.getElementById("site-footer");
+        if (footerElement) {
+          sectionElement = footerElement;
+        }
+      }
+
+      return { id: sectionId, element: sectionElement };
+    })
+    .filter((entry) => Boolean(entry));
+
+  const validSectionIds = new Set(navSectionTargets.map((entry) => entry.id));
+  const initialHashId = (window.location.hash || "").replace(/^#/, "");
+  const initialActiveSectionId = validSectionIds.has(initialHashId)
+    ? initialHashId
+    : navSectionTargets[0]?.id;
+
+  if (initialActiveSectionId) {
+    setActiveNavSectionLink(initialActiveSectionId);
+  }
+
+  navSectionLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href") || "";
+      if (!href.startsWith("#")) return;
+      setActiveNavSectionLink(href.slice(1));
+    });
+  });
+
+  if ("IntersectionObserver" in window && navSectionTargets.length > 0) {
+    let currentActiveSectionId = initialActiveSectionId || navSectionTargets[0].id;
+
+    const navSectionObserver = new IntersectionObserver(
+      (entries) => {
+        let nextActive = null;
+        let bestRatio = 0;
+
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (entry.intersectionRatio <= bestRatio) return;
+          bestRatio = entry.intersectionRatio;
+          nextActive = entry.target.id;
+        });
+
+        if (!nextActive || nextActive === currentActiveSectionId) return;
+        currentActiveSectionId = nextActive;
+        setActiveNavSectionLink(nextActive);
+      },
+      {
+        rootMargin: "-36% 0px -48% 0px",
+        threshold: [0.18, 0.34, 0.52, 0.68],
+      }
+    );
+
+    navSectionTargets.forEach((entry) => {
+      navSectionObserver.observe(entry.element);
+    });
   }
 }
 

@@ -571,7 +571,7 @@
     </section>
 
     <!-- Section 5: Pakete / Einstieg -->
-    <section id="packages" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+    <section id="pricing" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="packages-section__inner max-w-7xl mx-auto">
 
         <!-- Heading -->
@@ -790,47 +790,59 @@
   </main>
 
   <!-- Footer -->
-  <footer id="contact" class="border-t border-white/10 bg-black py-12 px-4">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
-      <div class="col-span-2">
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-5 h-5 bg-white rounded flex items-center justify-center text-black font-bold text-[10px]">S
-          </div>
-          <span class="font-bold text-sm tracking-widest">SEAINT</span>
-        </div>
-        <p class="text-sm text-zinc-500 max-w-xs">The operating system for modern business. Scale faster and smarter
-          with SEAINT.</p>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="kontakt" class="site-footer__anchor" aria-hidden="true"></div>
+
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Premium-Auftritte mit System – für messbare Ergebnisse.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="#tile-card-webdev">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="#tile-card-branding">Branding &amp; Rebranding</a></li>
+            <li><a class="site-footer__link" href="#tile-card-seo">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="#approach">Growth &amp; Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+          <h3 class="site-footer__heading">Einstieg</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="#kontakt">Erstgespräch buchen</a></li>
+            <li><a class="site-footer__link" href="#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="#pricing">Pakete</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="#impressum">Impressum</a></li>
+            <li><a class="site-footer__link" href="#datenschutz">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
       </div>
 
-      <div>
-        <h4 class="text-white font-medium mb-4">Product</h4>
-        <ul class="space-y-2 text-sm text-zinc-500">
-          <li><a href="#product" class="hover:text-white transition">Intelligence</a></li>
-          <li><a href="#logic" class="hover:text-white transition">Workflows</a></li>
-          <li><a href="#pricing" class="hover:text-white transition">Enterprise</a></li>
-        </ul>
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">
+          &copy; 2026 Smart Web Studio. Alle Rechte vorbehalten.
+        </small>
+        <small class="site-footer__signature">
+          Made with clarity &amp; structure.
+        </small>
       </div>
-
-      <div>
-        <h4 class="text-white font-medium mb-4">Resources</h4>
-        <ul class="space-y-2 text-sm text-zinc-500">
-          <li><a href="#product" class="hover:text-white transition">Documentation</a></li>
-          <li><a href="#logic" class="hover:text-white transition">API Reference</a></li>
-          <li><a href="#contact" class="hover:text-white transition">Status</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-white font-medium mb-4">Legal</h4>
-        <ul class="space-y-2 text-sm text-zinc-500">
-          <li><a href="#contact" class="hover:text-white transition">Privacy</a></li>
-          <li><a href="#contact" class="hover:text-white transition">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-xs text-zinc-600">
-      © 2025 Seaint Business Inc. All rights reserved.
     </div>
   </footer>
 

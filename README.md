@@ -18,9 +18,11 @@
 - `src/scripts/modules/effects/hero3dScrollEffects.js`: Isolated 3D + scroll effects
 - `src/styles/main.scss`: SCSS entry
 - `src/styles/modules/*.scss`: Style modules
-- `index.html`: Loads Vite module entry (`/src/main.js`)
+- `index.html`: Current production page entry
+- `js/main.js` and `css/style.css`: Active legacy runtime/style for the current page
 
 ## Notes
 
-- `js/main.js` and `css/style.css` are kept as legacy snapshot files and are no longer wired in `index.html`.
+- `src/main.js` is prepared for the Vite-driven modular bundle path.
+- `index.html` currently references `js/main.js` and `css/style.css` directly for runtime stability.
 

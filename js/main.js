@@ -171,83 +171,6 @@ function initAnimatedBackground() {
 
 initAnimatedBackground();
 
-const heroHeadline = document.querySelector("[data-hero-headline]");
-const heroHeadlineReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const heroHeadlineAnimationStorageKey = "sws.heroHeadlineAnimated";
-
-const getHeroHeadlineAnimationState = () => {
-  try {
-    return window.sessionStorage.getItem(heroHeadlineAnimationStorageKey) === "1";
-  } catch (_error) {
-    return false;
-  }
-};
-
-const setHeroHeadlineAnimationState = () => {
-  try {
-    window.sessionStorage.setItem(heroHeadlineAnimationStorageKey, "1");
-  } catch (_error) {
-    // sessionStorage may be unavailable in restricted environments.
-  }
-};
-
-const setHeroHeadlineVariant = (headlineElement, variant) => {
-  if (!headlineElement) return;
-
-  const resolvedVariant = variant === "keywords" ? "keywords" : "stagger";
-  headlineElement.dataset.activeVariant = resolvedVariant;
-
-  headlineElement.querySelectorAll("[data-hero-variant]").forEach((variantElement) => {
-    const isActive = variantElement.dataset.heroVariant === resolvedVariant;
-    variantElement.classList.toggle("is-active", isActive);
-    variantElement.setAttribute("aria-hidden", String(!isActive));
-  });
-};
-
-const initHeroHeadline = () => {
-  if (!heroHeadline) return;
-
-  const configuredVariant = heroHeadline.dataset.heroMode === "keywords" ? "keywords" : "stagger";
-  setHeroHeadlineVariant(heroHeadline, configuredVariant);
-
-  if (configuredVariant !== "stagger") return;
-
-  const shouldReduceMotion = heroHeadlineReducedMotionQuery.matches;
-  const hasAnimatedAlready = getHeroHeadlineAnimationState();
-
-  if (shouldReduceMotion || hasAnimatedAlready) {
-    heroHeadline.classList.add("is-animated");
-    setHeroHeadlineAnimationState();
-    return;
-  }
-
-  const staggerVariant = heroHeadline.querySelector('[data-hero-variant="stagger"]');
-  const heroLines = staggerVariant ? Array.from(staggerVariant.querySelectorAll(".hero-line")) : [];
-
-  if (heroLines.length === 0) {
-    heroHeadline.classList.add("is-animated");
-    setHeroHeadlineAnimationState();
-    return;
-  }
-
-  heroHeadline.classList.add("is-animating");
-
-  let animationCompleted = false;
-  const completeHeroHeadlineAnimation = () => {
-    if (animationCompleted) return;
-    animationCompleted = true;
-    heroHeadline.classList.remove("is-animating");
-    heroHeadline.classList.add("is-animated");
-    setHeroHeadlineAnimationState();
-  };
-
-  heroLines[heroLines.length - 1].addEventListener("animationend", completeHeroHeadlineAnimation, { once: true });
-  const sequenceDurationMs = (heroLines.length - 1) * 240 + 820;
-  window.setTimeout(completeHeroHeadlineAnimation, sequenceDurationMs);
-};
-
-initHeroHeadline();
-
 // Scroll Observer
 const revealOnScrollElements = document.querySelectorAll(".reveal-on-scroll");
 
@@ -558,6 +481,9 @@ if (navSectionLinks.length > 0) {
       return { id: sectionId, element: sectionElement };
     })
     .filter((entry) => Boolean(entry));
+  const sectionIdsByElement = new Map(
+    navSectionTargets.map((entry) => [entry.element, entry.id])
+  );
 
   const validSectionIds = new Set(navSectionTargets.map((entry) => entry.id));
   const initialHashId = (window.location.hash || "").replace(/^#/, "");
@@ -587,9 +513,11 @@ if (navSectionLinks.length > 0) {
 
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
+          const resolvedId = sectionIdsByElement.get(entry.target);
+          if (!resolvedId) return;
           if (entry.intersectionRatio <= bestRatio) return;
           bestRatio = entry.intersectionRatio;
-          nextActive = entry.target.id;
+          nextActive = resolvedId;
         });
 
         if (!nextActive || nextActive === currentActiveSectionId) return;
@@ -836,8 +764,8 @@ let sectionTwoSafeInsetMonitorUntil = 0;
 const initSectionTwoCardsReveal = () => {
   if (!sectionTwoElement || sectionTwoTileCards.length === 0) return;
 
-  const revealOrder = sectionTwoTileCards.slice().reverse();
-  const revealStepMs = 130;
+  const revealOrder = sectionTwoTileCards.slice();
+  const revealStepMs = 90;
   let hasRevealed = false;
   let revealTimeoutIds = [];
 
@@ -1333,183 +1261,3 @@ if (typeof sectionTwoReducedMotionQuery.addEventListener === "function") {
 } else if (typeof sectionTwoReducedMotionQuery.addListener === "function") {
   sectionTwoReducedMotionQuery.addListener(handleSectionTwoReducedMotionChange);
 }
-
-// Logic Tab Switcher
-const validTabs = new Set(["collab", "audit"]);
-
-function switchTab(tab) {
-  if (!validTabs.has(tab)) return;
-
-  const nextContentId = "content-" + tab;
-  const nextContent = document.getElementById(nextContentId);
-  if (!nextContent) return;
-
-  document.querySelectorAll(".tab-content").forEach((el) => {
-    const isActivePanel = el.id === nextContentId;
-    el.classList.toggle("hidden", !isActivePanel);
-    el.setAttribute("aria-hidden", String(!isActivePanel));
-  });
-
-  const btnCollab = document.getElementById("tab-collab");
-  const btnAudit = document.getElementById("tab-audit");
-  if (!btnCollab || !btnAudit) return;
-
-  const collabActive = tab === "collab";
-  btnCollab.classList.toggle("bg-white/10", collabActive);
-  btnCollab.classList.toggle("text-white", collabActive);
-  btnCollab.classList.toggle("shadow-sm", collabActive);
-  btnCollab.classList.toggle("text-zinc-400", !collabActive);
-
-  btnAudit.classList.toggle("bg-white/10", !collabActive);
-  btnAudit.classList.toggle("text-white", !collabActive);
-  btnAudit.classList.toggle("shadow-sm", !collabActive);
-  btnAudit.classList.toggle("text-zinc-400", collabActive);
-
-  btnCollab.setAttribute("aria-selected", String(collabActive));
-  btnAudit.setAttribute("aria-selected", String(!collabActive));
-  btnCollab.setAttribute("tabindex", collabActive ? "0" : "-1");
-  btnAudit.setAttribute("tabindex", collabActive ? "-1" : "0");
-}
-
-// Pricing Logic
-let currentPlan = "business";
-let currentBilling = "monthly";
-const validBillingPeriods = new Set(["monthly", "yearly"]);
-const cardBaseClass = "w-full text-left p-4 rounded-xl border cursor-pointer hover:bg-white/10 transition-colors";
-
-const plans = {
-  business: {
-    monthly: 249,
-    yearly: 2490,
-    desc: "GREAT FOR TEAMS LAUNCHING WORKFLOWS.",
-    features: ["Up to 10 Users", "Basic Reporting", "30-Day Audit Log"],
-  },
-  enterprise: {
-    monthly: 999,
-    yearly: 9990,
-    desc: "GLOBAL COMPLIANCE & PRODUCTION SCALE.",
-    features: ["Unlimited Users", "Advanced AI Analytics", "SSO & Compliance", "Priority Support"],
-  },
-};
-
-function setBilling(period) {
-  if (!validBillingPeriods.has(period)) return;
-
-  currentBilling = period;
-  const monthlyButton = document.getElementById("btn-monthly");
-  const yearlyButton = document.getElementById("btn-yearly");
-  if (!monthlyButton || !yearlyButton) return;
-
-  monthlyButton.className =
-    period === "monthly"
-      ? "px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow"
-      : "px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white";
-  yearlyButton.className =
-    period === "yearly"
-      ? "px-3 py-1 text-xs font-medium rounded bg-white/10 text-white shadow"
-      : "px-3 py-1 text-xs font-medium rounded text-zinc-400 hover:text-white";
-  updatePricingUI();
-}
-
-function selectPlan(plan) {
-  if (!plans[plan]) return;
-
-  currentPlan = plan;
-
-  const businessCard = document.getElementById("card-business");
-  const enterpriseCard = document.getElementById("card-enterprise");
-  if (!businessCard || !enterpriseCard) return;
-
-  const activeClass = "border-white/20 bg-white/5";
-  const inactiveClass = "border-white/5 bg-transparent";
-  const businessActive = plan === "business";
-  const enterpriseActive = !businessActive;
-
-  businessCard.className = `${cardBaseClass} ${businessActive ? activeClass : inactiveClass}`;
-  enterpriseCard.className = `${cardBaseClass} ${enterpriseActive ? activeClass : inactiveClass}`;
-
-  const businessIcon = businessCard.querySelector("iconify-icon");
-  const enterpriseIcon = enterpriseCard.querySelector("iconify-icon");
-  if (businessIcon && enterpriseIcon) {
-    businessIcon.setAttribute("icon", businessActive ? "solar:check-circle-bold" : "solar:circle-linear");
-    businessIcon.classList.toggle("text-white", businessActive);
-    businessIcon.classList.toggle("text-zinc-500", !businessActive);
-
-    enterpriseIcon.setAttribute("icon", enterpriseActive ? "solar:check-circle-bold" : "solar:circle-linear");
-    enterpriseIcon.classList.toggle("text-white", enterpriseActive);
-    enterpriseIcon.classList.toggle("text-zinc-500", !enterpriseActive);
-  }
-
-  updatePricingUI();
-}
-
-function updatePricingUI() {
-  const data = plans[currentPlan];
-  if (!data) return;
-
-  const price = currentBilling === "monthly" ? data.monthly : data.yearly;
-  const suffix = currentBilling === "monthly" ? "/month" : "/year";
-
-  const priceDisplay = document.getElementById("price-display");
-  const periodDisplay = document.getElementById("period-display");
-  const descDisplay = document.getElementById("desc-display");
-  const list = document.getElementById("feature-list");
-  if (!priceDisplay || !periodDisplay || !descDisplay || !list) return;
-
-  priceDisplay.textContent = "$" + price;
-  periodDisplay.textContent = suffix;
-  descDisplay.textContent = data.desc;
-
-  list.textContent = "";
-  data.features.forEach((feature) => {
-    const item = document.createElement("li");
-    item.className = "flex items-center gap-3 text-sm";
-
-    const icon = document.createElement("iconify-icon");
-    icon.setAttribute("icon", "solar:check-read-linear");
-    icon.className = "text-blue-400";
-
-    item.append(icon, document.createTextNode(" " + feature));
-    list.appendChild(item);
-  });
-}
-
-const tabButtons = Array.from(document.querySelectorAll("[data-tab]"));
-tabButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    switchTab(button.dataset.tab);
-  });
-
-  button.addEventListener("keydown", (event) => {
-    const currentIndex = tabButtons.indexOf(button);
-    if (currentIndex === -1) return;
-
-    let nextIndex = null;
-    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabButtons.length;
-    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabButtons.length) % tabButtons.length;
-    if (event.key === "Home") nextIndex = 0;
-    if (event.key === "End") nextIndex = tabButtons.length - 1;
-    if (nextIndex === null) return;
-
-    event.preventDefault();
-    const nextButton = tabButtons[nextIndex];
-    switchTab(nextButton.dataset.tab);
-    nextButton.focus();
-  });
-});
-
-document.querySelectorAll("[data-billing]").forEach((button) => {
-  button.addEventListener("click", () => {
-    setBilling(button.dataset.billing);
-  });
-});
-
-document.querySelectorAll("[data-plan]").forEach((button) => {
-  button.addEventListener("click", () => {
-    selectPlan(button.dataset.plan);
-  });
-});
-
-switchTab("collab");
-setBilling(currentBilling);
-selectPlan(currentPlan);

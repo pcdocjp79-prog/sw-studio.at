@@ -111,6 +111,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   --tile-glow-x: 50%;
   --tile-glow-y: 50%;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   isolation: isolate;
   background: rgba(20, 20, 20, 0.6);
@@ -207,7 +208,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   transform: translateX(32vw);
   transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms ease;
   pointer-events: none;
-  z-index: 5;
+  z-index: 20;
 }
 
 .section-2 .tile-detail-panel--from-left {
@@ -536,21 +537,22 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 
 .section-2 .tile-card.is-media-active {
   overflow: visible;
-  z-index: auto;
-  isolation: auto;
+  z-index: 32;
+  isolation: isolate;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   transition-property: box-shadow, border-color;
 }
 
 .section-2 .tile-card.is-media-active .tile-card-body {
-  z-index: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .section-2 .tile-card.is-media-active .tile-card-media--filled {
   position: relative;
   transform: translate(calc(var(--card-img-x) + 54px), calc(var(--card-img-y) - 18px)) rotate(calc(var(--card-img-rot) + 1.9deg)) scale(1.92);
-  z-index: 12;
+  z-index: 40;
   pointer-events: auto;
   cursor: pointer;
 }
@@ -616,14 +618,16 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   content: none;
 }
 
-.section-2 .tile-card:hover {
-  transform: translateY(-6px);
+.section-2 .tile-card:not(.is-media-active):hover {
+  transform: translateY(-4px) scale(1.03);
   border-color: rgba(255, 255, 255, 0.24);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.34);
+  z-index: 2;
 }
 
 .section-2 .tile-card.is-media-active:hover {
   transform: none;
+  z-index: 32;
 }
 
 .section-2 .tile-card:is(:hover, .is-media-active)::before {

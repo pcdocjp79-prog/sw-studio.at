@@ -1983,9 +1983,12 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 #services,
 #process,
 #pricing,
-#about,
-#kontakt {
+#about {
   scroll-margin-top: var(--nav-anchor-offset);
+}
+
+#kontakt {
+  scroll-margin-top: calc(var(--nav-anchor-offset) + 0.8rem);
 }
 
 /* ============================================

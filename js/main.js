@@ -536,6 +536,35 @@ if (navSectionLinks.length > 0) {
   }
 }
 
+const cardLinkTargets = Array.from(document.querySelectorAll("[data-card-link]"));
+
+if (cardLinkTargets.length > 0) {
+  const shouldIgnoreCardLinkClick = (target) =>
+    Boolean(target?.closest("a, button, input, textarea, select, summary"));
+
+  const navigateToCardLink = (cardElement) => {
+    const targetUrl = cardElement.getAttribute("data-card-link");
+    if (!targetUrl) return;
+    window.location.href = targetUrl;
+  };
+
+  cardLinkTargets.forEach((cardElement) => {
+    cardElement.style.cursor = "pointer";
+
+    cardElement.addEventListener("click", (event) => {
+      if (event.defaultPrevented) return;
+      if (shouldIgnoreCardLinkClick(event.target)) return;
+      navigateToCardLink(cardElement);
+    });
+
+    cardElement.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      navigateToCardLink(cardElement);
+    });
+  });
+}
+
 
 // Hero pointer interaction
 const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;

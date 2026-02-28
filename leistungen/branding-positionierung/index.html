@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Branding &amp; Positionierung | Smart Web Studio</title>
+  <meta name="description"
+    content="Branding, Positionierung und ein konsistentes Brand-System – damit dein Auftritt premium wirkt und zur klaren Wahl wird." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Iconify -->
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Legacy CSS (stabil) -->
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+
+<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+
+      <a href="#top" class="brand-link flex items-center gap-3">
+        <img src="../../assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Home</a>
+        <a href="#services" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Problem</a>
+        <a href="#process" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Ansatz</a>
+        <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Deliverables</a>
+        <a href="#about" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Rebranding</a>
+        <a href="#kontakt" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Kontakt</a>
+        <a href="#kontakt"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Erstgespräch buchen
+        </a>
+      </nav>
+
+      <a href="#kontakt" class="nav-cta" aria-label="Erstgespräch buchen">
+        Erstgespräch buchen
+      </a>
+    </div>
+  </header>
+
+  <main class="relative pt-0 pb-0">
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="branding-hero-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Branding &amp; Positionierung</p>
+              <h1 id="branding-hero-title" class="about-section__headline font-display">
+                Branding, das dich zur klaren Wahl macht.
+              </h1>
+              <p class="about-section__subline">
+                Ich schärfe deine Positionierung, deine Botschaft und dein visuelles System – damit dein Auftritt
+                nicht nur gut aussieht, sondern Premium wirkt.
+              </p>
+            </div>
+
+            <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
+              <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Brand Sprint anfragen">
+                Brand Sprint anfragen
+              </a>
+              <a href="#projekte" class="final-cta-btn final-cta-btn--secondary"
+                aria-label="Rebranding-Projekte ansehen">
+                Projekte ansehen
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
+            <div class="hero-stage">
+              <div class="hero-stage__viewport">
+                <div class="hero-stage__frame">
+                  <span class="hero-stage__noise" aria-hidden="true"></span>
+                  <span class="hero-stage__glow" aria-hidden="true"></span>
+                  <div class="hero-stage__grid" aria-hidden="true"></div>
+
+                  <div class="hero-stage__content">
+                    <p class="hero-stage__eyebrow">Brand Sprint Framework</p>
+                    <p class="hero-stage__title font-display">
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Positionierung</span>
+                        klar.</span>
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Botschaft</span>
+                        präzise.</span>
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Auftreten</span>
+                        konsistent.</span>
+                    </p>
+                    <p class="hero-stage__text">
+                      Zielgruppe, Nutzenversprechen und visuelle Leitlinien greifen als ein System ineinander.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="problem-headline">
+      <div class="approach-section__inner max-w-7xl mx-auto">
+        <div class="approach-section__header reveal-on-scroll">
+          <p class="approach-section__eyebrow">Problem</p>
+          <h2 id="problem-headline" class="approach-section__headline font-display">
+            Wenn deine Marke austauschbar wirkt, gewinnt der Preis.
+          </h2>
+          <p class="approach-section__subline">
+            Viele Unternehmen haben ein Logo – aber keine klare Positionierung. Die Botschaft ist unscharf, der Nutzen
+            nicht greifbar, das Design inkonsistent. Das Ergebnis: Besucher vergleichen. Und entscheiden nach Preis.
+            Premium beginnt mit Klarheit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="approach-headline">
+      <div class="process-section__inner max-w-7xl mx-auto">
+        <div class="process-section__header reveal-on-scroll">
+          <p class="process-section__eyebrow">Ansatz</p>
+          <h2 id="approach-headline" class="process-section__headline font-display">
+            Marke als System, nicht als Logo.
+          </h2>
+          <p class="process-section__subline">
+            Ich entwickle ein strukturiertes Brand-System, das deine Positionierung sichtbar macht – auf Website,
+            Social Media, Präsentationen und Kampagnen.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <article class="pkg-card pkg-card--featured reveal-on-scroll">
+            <div class="pkg-card__inner">
+              <p class="pkg-card__name font-display">System-Bausteine</p>
+              <ul class="pkg-card__list" aria-label="Brand-System-Bausteine">
+                <li class="pkg-card__list-item">Klare Zielgruppen-Definition</li>
+                <li class="pkg-card__list-item">Präzises Nutzenversprechen</li>
+                <li class="pkg-card__list-item">Differenzierende Markenbotschaft</li>
+                <li class="pkg-card__list-item">Farb- und Typografie-System</li>
+                <li class="pkg-card__list-item">Visuelle Leitlinien für digitale Kanäle</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="deliverables-headline">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Deliverables</p>
+          <h2 id="deliverables-headline" class="packages-section__headline font-display">
+            Was du konkret bekommst.
+          </h2>
+        </div>
+
+        <div class="packages-section__grid">
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Strategie</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Strategie-Deliverables">
+                <li class="pkg-card__list-item">Positionierungs-Workshop (kompakt &amp; fokussiert)</li>
+                <li class="pkg-card__list-item">Markenbotschaft &amp; Kernclaim</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Design-System</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Design-Deliverables">
+                <li class="pkg-card__list-item">Logo / Logo-Refresh</li>
+                <li class="pkg-card__list-item">Farb- und Typografie-System</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Umsetzung</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Umsetzungs-Deliverables">
+                <li class="pkg-card__list-item">Mini Brand Guide (digital)</li>
+                <li class="pkg-card__list-item">Social &amp; Website Design-Grundlage</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="packages-section__disclaimer reveal-on-scroll">
+          Keine endlosen PDFs. Sondern umsetzbare Klarheit.
+        </p>
+      </div>
+    </section>
+
+    <div id="projekte" aria-hidden="true"></div>
+    <section id="about" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="rebranding-headline">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Rebranding</p>
+              <h2 id="rebranding-headline" class="about-section__headline font-display">
+                Rebranding ohne Identitätsverlust.
+              </h2>
+              <p class="about-section__subline">
+                Ein Rebranding bedeutet nicht, alles zu verändern. Ich analysiere, was funktioniert – und modernisiere
+                gezielt dort, wo es strategisch sinnvoll ist. Deine Stammkunden bleiben. Deine Wahrnehmung steigt.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-section__blocks">
+            <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
+              <h3 class="about-block__title font-display">Erhalt der Markenidentität</h3>
+              <p class="about-block__body">
+                Wiedererkennbare Elemente bleiben erhalten, damit Vertrauen und Kontinuität gesichert sind.
+              </p>
+            </div>
+
+            <div class="about-block reveal-on-scroll" style="--about-delay: 90ms;">
+              <h3 class="about-block__title font-display">Gezielte Modernisierung</h3>
+              <p class="about-block__body">
+                Visuelle und sprachliche Anpassungen erfolgen dort, wo sie die Positionierung strategisch schärfen.
+              </p>
+            </div>
+
+            <div class="about-block reveal-on-scroll" style="--about-delay: 180ms;">
+              <h3 class="about-block__title font-display">Steigende Wahrnehmung</h3>
+              <p class="about-block__body">
+                Deine Marke bleibt vertraut, wirkt aber klarer, hochwertiger und als eindeutig bessere Wahl.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">
+            Wenn deine Marke Premium sein soll, muss sie klar sein.
+          </h2>
+        </div>
+
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
+            Erstgespräch buchen
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="kontakt-footer" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="impressum" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="datenschutz" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Premium-Auftritte mit System – für messbare Ergebnisse.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/#service-webentwicklung">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="/leistungen/branding-positionierung/">Branding &amp;
+                Positionierung</a></li>
+            <li><a class="site-footer__link" href="/#service-growth">Marketing &amp; Growth</a></li>
+            <li><a class="site-footer__link" href="/#approach">Growth &amp; Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+          <h3 class="site-footer__heading">Einstieg</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="#kontakt">Erstgespräch buchen</a></li>
+            <li><a class="site-footer__link" href="#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="#pricing">Pakete</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="/#cookie-einstellungen">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">
+          &copy; 2026 Smart Web Studio.
+        </small>
+        <small class="site-footer__signature">
+          Made with clarity &amp; structure.
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="../../js/main.js"></script>
+</body>
+
+</html>
+
+

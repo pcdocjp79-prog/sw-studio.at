@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webentwicklung | Smart Web Studio</title>
+  <meta name="description"
+    content="Performante Websites mit klarer Struktur, starker Nutzerführung und Conversion-Architektur – gebaut als Vertriebssystem." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Iconify -->
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Legacy CSS (stabil) -->
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+
+<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+
+      <a href="#top" class="brand-link flex items-center gap-3">
+        <img src="../../assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Home</a>
+        <a href="#services" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Problem</a>
+        <a href="#process" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Vorgehen</a>
+        <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Was ich baue</a>
+        <a href="#about" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Standards</a>
+        <a href="#kontakt" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Kontakt</a>
+        <a href="#kontakt"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Erstgespräch buchen
+        </a>
+        <!-- Platzhalter fuer spaetere Seiten:
+        <a href="#" class="nav-link" aria-disabled="true" tabindex="-1">Projekte</a>
+        <a href="#" class="nav-link" aria-disabled="true" tabindex="-1">Insights</a>
+        -->
+      </nav>
+
+      <a href="#kontakt" class="nav-cta" aria-label="Erstgespräch buchen">
+        Erstgespräch buchen
+      </a>
+    </div>
+  </header>
+
+  <main class="relative pt-0 pb-0">
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="webdev-hero-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Webentwicklung</p>
+              <h1 id="webdev-hero-title" class="about-section__headline font-display">
+                Webentwicklung, die wie ein Vertriebssystem arbeitet.
+              </h1>
+              <p class="about-section__subline">
+                Ich entwickle performante Websites mit klarer Struktur, starker Nutzerführung und messbarer
+                Conversion-Logik.
+              </p>
+            </div>
+
+            <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
+              <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Projekt anfragen">
+                Projekt anfragen
+              </a>
+              <a href="#kontakt" class="final-cta-btn final-cta-btn--secondary" aria-label="Mini-Audit anfordern">
+                Mini-Audit anfordern
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
+            <div class="hero-stage">
+              <div class="hero-stage__viewport">
+                <div class="hero-stage__frame">
+                  <span class="hero-stage__noise" aria-hidden="true"></span>
+                  <span class="hero-stage__glow" aria-hidden="true"></span>
+                  <div class="hero-stage__grid" aria-hidden="true"></div>
+
+                  <div class="hero-stage__content">
+                    <p class="hero-stage__eyebrow">Performance Website</p>
+                    <p class="hero-stage__title font-display">
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Struktur</span> zuerst.</span>
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Nutzerführung</span> klar.</span>
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Conversion</span> messbar.</span>
+                    </p>
+                    <p class="hero-stage__text">
+                      Konzipiert als System, das qualifizierte Anfragen erzeugt und nicht nur gut aussieht.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="problem-headline">
+      <div class="approach-section__inner max-w-7xl mx-auto">
+        <div class="approach-section__header reveal-on-scroll">
+          <p class="approach-section__eyebrow">Problem</p>
+          <h2 id="problem-headline" class="approach-section__headline font-display">
+            Viele Websites sehen gut aus. Verkaufen aber nicht.
+          </h2>
+          <p class="approach-section__subline">
+            Unklare Struktur, langsame Ladezeiten, fehlende Call-to-Actions und keine klare Funnel-Logik führen dazu,
+            dass Besucher abspringen. Design allein reicht nicht. Struktur entscheidet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="vorgehen-headline">
+      <div class="process-section__inner max-w-7xl mx-auto">
+        <div class="process-section__header reveal-on-scroll">
+          <p class="process-section__eyebrow">Vorgehen</p>
+          <h2 id="vorgehen-headline" class="process-section__headline font-display">
+            Strategie vor Design. Struktur vor Code.
+          </h2>
+          <p class="process-section__subline">
+            Bevor ich entwickle, definiere ich Ziel &amp; Conversion-Ziel, Seitenstruktur, Nutzerführung,
+            Angebotslogik und Call-to-Action-Strategie. Erst dann entsteht das visuelle Konzept.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <article class="pkg-card pkg-card--featured reveal-on-scroll">
+            <div class="pkg-card__inner">
+              <p class="pkg-card__name font-display">Strategisches Fundament</p>
+              <ul class="pkg-card__list" aria-label="Vorgehen in fünf Bausteinen">
+                <li class="pkg-card__list-item">Ziel &amp; Conversion-Ziel</li>
+                <li class="pkg-card__list-item">Seitenstruktur</li>
+                <li class="pkg-card__list-item">Nutzerführung</li>
+                <li class="pkg-card__list-item">Angebotslogik</li>
+                <li class="pkg-card__list-item">Call-to-Action-Strategie</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="process-section__cta reveal-on-scroll">
+          <p class="process-section__cta-lead">
+            So wird deine Website zu einem System – nicht zu einer digitalen Visitenkarte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="build-headline">
+      <div class="approach-section__inner max-w-7xl mx-auto">
+        <div class="approach-section__header reveal-on-scroll">
+          <p class="approach-section__eyebrow">Was ich baue</p>
+          <h2 id="build-headline" class="approach-section__headline font-display">
+            Websites mit Substanz.
+          </h2>
+        </div>
+
+        <div class="approach-section__grid">
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">01</p>
+              <h3 class="approach-card__title font-display">Landingpages</h3>
+              <p class="approach-card__body">
+                Fokussiert für Kampagnen, Angebote oder Launches – mit klarer Conversion-Architektur.
+              </p>
+            </div>
+          </article>
+
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">02</p>
+              <h3 class="approach-card__title font-display">Corporate Websites</h3>
+              <p class="approach-card__body">
+                Strukturierte Unternehmensauftritte mit Hierarchie, Vertrauen und SEO-Basis.
+              </p>
+            </div>
+          </article>
+
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">03</p>
+              <h3 class="approach-card__title font-display">Skalierbare Systeme</h3>
+              <p class="approach-card__body">
+                Erweiterbar, wartbar und technisch sauber – wenn deine Website mehr als Marketing sein soll.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="quality-headline">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__header reveal-on-scroll">
+          <p class="about-section__eyebrow">Qualität &amp; Standards</p>
+          <h2 id="quality-headline" class="about-section__headline font-display">
+            Performance ist kein Extra. Sie ist Standard.
+          </h2>
+          <p class="about-section__subline">
+            Ich entwickle mit Fokus auf schnelle Ladezeiten, saubere Code-Struktur, SEO-Grundlagen, klare
+            Content-Hierarchien und barrierefreundliche Umsetzung. Ergebnis: bessere UX, bessere Conversion.
+          </p>
+        </div>
+
+        <div class="packages-section__cta-btns reveal-on-scroll">
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">Schnelle
+            Ladezeiten</span>
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">Saubere
+            Struktur</span>
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">SEO-Basics</span>
+          <span class="packages-section__btn packages-section__btn--secondary"
+            style="cursor: default;">Accessibility-ready</span>
+          <span class="packages-section__btn packages-section__btn--secondary"
+            style="cursor: default;">Tracking-ready</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">
+            Wenn deine Website Umsatz bringen soll – nicht nur Eindruck.
+          </h2>
+        </div>
+
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Projekt starten">
+            Projekt starten
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="kontakt-footer" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="impressum" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="datenschutz" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Premium-Auftritte mit System – für messbare Ergebnisse.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/leistungen/webentwicklung/">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="/leistungen/branding-positionierung/">Branding &amp;
+                Positionierung</a></li>
+            <li><a class="site-footer__link" href="/#service-growth">Marketing &amp; Growth</a></li>
+            <li><a class="site-footer__link" href="/#approach">Growth &amp; Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+          <h3 class="site-footer__heading">Einstieg</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="#kontakt">Erstgespräch buchen</a></li>
+            <li><a class="site-footer__link" href="#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="#pricing">Pakete</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="/#cookie-einstellungen">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">
+          &copy; 2026 Smart Web Studio.
+        </small>
+        <small class="site-footer__signature">
+          Made with clarity &amp; structure.
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="../../js/main.js"></script>
+</body>
+
+</html>

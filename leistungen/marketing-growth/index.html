@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing &amp; Growth | Smart Web Studio</title>
+  <meta name="description"
+    content="SEO, Content und Tracking als System &ndash; damit Sichtbarkeit in Anfragen &uuml;bersetzt wird. Messbar. Planbar. Skalierbar." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Iconify -->
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Legacy CSS (stabil) -->
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+
+<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+
+      <a href="#top" class="brand-link flex items-center gap-3">
+        <img src="../../assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Home</a>
+        <a href="#services" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Problem</a>
+        <a href="#process" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Ansatz</a>
+        <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Tracking</a>
+        <a href="#about" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Skalierung</a>
+        <a href="#kontakt" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
+          data-nav-section>Kontakt</a>
+        <a href="#kontakt"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Erstgespr&auml;ch buchen
+        </a>
+        <!-- Platzhalter fuer spaetere Seiten:
+        <a href="#" class="nav-link" aria-disabled="true" tabindex="-1">Projekte</a>
+        <a href="#" class="nav-link" aria-disabled="true" tabindex="-1">Insights</a>
+        -->
+      </nav>
+
+      <a href="#kontakt" class="nav-cta" aria-label="Erstgespr&auml;ch buchen">
+        Erstgespr&auml;ch buchen
+      </a>
+    </div>
+  </header>
+
+  <main class="relative pt-0 pb-0">
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="growth-hero-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Marketing &amp; Growth</p>
+              <h1 id="growth-hero-title" class="about-section__headline font-display">
+                Sichtbarkeit, die in Anfragen &uuml;bersetzt wird.
+              </h1>
+              <p class="about-section__subline">
+                Ich verbinde SEO, Content und Tracking zu einem strukturierten Wachstumssystem.
+              </p>
+            </div>
+
+            <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
+              <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Growth-Call buchen">
+                Growth-Call buchen
+              </a>
+              <a href="#kontakt" class="final-cta-btn final-cta-btn--secondary" aria-label="Mini-Audit anfordern">
+                Mini-Audit anfordern
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
+            <div class="hero-stage">
+              <div class="hero-stage__viewport">
+                <div class="hero-stage__frame">
+                  <span class="hero-stage__noise" aria-hidden="true"></span>
+                  <span class="hero-stage__glow" aria-hidden="true"></span>
+                  <div class="hero-stage__grid" aria-hidden="true"></div>
+
+                  <div class="hero-stage__content">
+                    <p class="hero-stage__eyebrow">Growth System Map</p>
+                    <p class="hero-stage__title font-display">
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">SEO</span> als Basis.</span>
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Content</span> mit Logik.</span>
+                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Tracking</span> f&uuml;r Entscheidungen.</span>
+                    </p>
+                    <p class="hero-stage__text">
+                      Sichtbarkeit, Nutzerf&uuml;hrung und Conversion greifen als ein messbares System ineinander.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="problem-headline">
+      <div class="approach-section__inner max-w-7xl mx-auto">
+        <div class="approach-section__header reveal-on-scroll">
+          <p class="approach-section__eyebrow">Problem</p>
+          <h2 id="problem-headline" class="approach-section__headline font-display">
+            Traffic ohne Struktur ist Zufall.
+          </h2>
+          <p class="approach-section__subline">
+            Viele Unternehmen investieren in Social Media oder SEO &ndash; ohne Funnel-Logik oder Messbarkeit. Mehr
+            Reichweite bedeutet nicht automatisch mehr Umsatz. Ohne System bleibt Wachstum unplanbar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="ansatz-headline">
+      <div class="process-section__inner max-w-7xl mx-auto">
+        <div class="process-section__header reveal-on-scroll">
+          <p class="process-section__eyebrow">Ansatz</p>
+          <h2 id="ansatz-headline" class="process-section__headline font-display">
+            Marketing als logische Verl&auml;ngerung deiner Marke.
+          </h2>
+          <p class="process-section__subline">
+            Ich entwickle eine Growth-Strategie, die auf deinem Angebot und deiner Positionierung basiert.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <article class="pkg-card pkg-card--featured reveal-on-scroll">
+            <div class="pkg-card__inner">
+              <p class="pkg-card__name font-display">Wachstums-Bausteine</p>
+              <ul class="pkg-card__list" aria-label="Growth-Bausteine">
+                <li class="pkg-card__list-item">SEO-Struktur &amp; Content-Logik</li>
+                <li class="pkg-card__list-item">Funnel-Architektur</li>
+                <li class="pkg-card__list-item">Conversion-Tracking</li>
+                <li class="pkg-card__list-item">Lead-Magnet-Systeme</li>
+                <li class="pkg-card__list-item">Angebots-Optimierung</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="process-section__cta reveal-on-scroll">
+          <p class="process-section__cta-lead">
+            So wird Marketing messbar &ndash; statt emotional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="tracking-headline">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Tracking</p>
+          <h2 id="tracking-headline" class="packages-section__headline font-display">
+            Was nicht gemessen wird, kann nicht verbessert werden.
+          </h2>
+          <p class="packages-section__subline">
+            Ich definiere klare Key Events wie Terminbuchungen, Formular-Anfragen, Downloads und Angebots-Klicks.
+            Anhand dieser Daten werden Optimierungen geplant und umgesetzt.
+          </p>
+        </div>
+
+        <div class="packages-section__cta-btns reveal-on-scroll">
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">Terminbuchung</span>
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">Formular</span>
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">Download</span>
+          <span class="packages-section__btn packages-section__btn--secondary" style="cursor: default;">CTA-Klick</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="scale-headline">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__header reveal-on-scroll">
+          <p class="about-section__eyebrow">Skalierung</p>
+          <h2 id="scale-headline" class="about-section__headline font-display">
+            Von stabil zu skalierbar.
+          </h2>
+          <p class="about-section__subline">
+            Wenn Marke, Website und Tracking sauber aufgebaut sind, wird Wachstum planbar. Dann sprechen wir
+            &uuml;ber Content-Systeme, Kampagnen, Automatisierung und laufende Optimierung &ndash; nicht vorher.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">
+            Wenn Wachstum kein Zufall mehr sein soll.
+          </h2>
+        </div>
+
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespr&auml;ch buchen">
+            Erstgespr&auml;ch buchen
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="kontakt-footer" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="impressum" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="datenschutz" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Premium-Auftritte mit System &ndash; f&uuml;r messbare Ergebnisse.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/leistungen/webentwicklung/">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="/leistungen/branding-positionierung/">Branding &amp;
+                Positionierung</a></li>
+            <li><a class="site-footer__link" href="/leistungen/marketing-growth/">Marketing &amp; Growth</a></li>
+            <li><a class="site-footer__link" href="/#approach">Growth &amp; Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+          <h3 class="site-footer__heading">Einstieg</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="#kontakt">Erstgespr&auml;ch buchen</a></li>
+            <li><a class="site-footer__link" href="#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="#pricing">Pakete</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="/#cookie-einstellungen">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">
+          &copy; 2026 Smart Web Studio.
+        </small>
+        <small class="site-footer__signature">
+          Made with clarity &amp; structure.
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="../../js/main.js"></script>
+</body>
+
+</html>

@@ -1031,10 +1031,10 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease;
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
   will-change: transform, box-shadow;
 }
 
@@ -1059,10 +1059,10 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 
 .js .section-2.section-2--dock-test .tile-card.is-slide-ready {
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease;
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
 }
 
 .section-2.section-2--dock-test .tile-card {
@@ -1550,6 +1550,23 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   mask-composite: exclude;
 }
 
+.section-2 .tile-card::before {
+  opacity: 1;
+  filter: drop-shadow(0 0 18px rgba(185, 255, 248, 0.9));
+}
+
+.section-2 .tile-card:nth-child(1)::before {
+  animation-delay: 0s;
+}
+
+.section-2 .tile-card:nth-child(2)::before {
+  animation-delay: -2.1s;
+}
+
+.section-2 .tile-card:nth-child(3)::before {
+  animation-delay: -4.2s;
+}
+
 .section-2 .tile-card::after,
 .section-2 .tile-detail-panel::after {
   content: none;
@@ -1557,7 +1574,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 
 .section-2 .tile-card:not(.is-media-active):hover,
 .js .section-2.section-2--dock-test .tile-card.is-slide-in:not(.is-media-active):hover {
-  transform: translateY(-4px) scale(1.015);
+  transform: translateY(-2px) scale(1.008);
   border-color: rgba(255, 255, 255, 0.28);
   box-shadow:
     0 14px 30px rgba(0, 0, 0, 0.3),
@@ -3442,11 +3459,12 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 .approach-card,
 .process-step,
 .pkg-card {
+  --section2-border-angle: 0deg;
   transition:
-    transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 500ms ease,
-    border-color 500ms ease,
-    background 500ms ease;
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
   will-change: transform, box-shadow;
 }
 
@@ -3455,29 +3473,49 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   content: none;
 }
 
-/* Static premium border in section-2 style thickness (3px), no rotation */
+/* Permanent animated premium border */
 .approach-card::after,
 .process-step::after,
 .pkg-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 3px;
+  padding: 2px;
   border-radius: inherit;
-  background: linear-gradient(132deg,
-      rgba(148, 242, 255, 0.92) 0%,
-      rgba(126, 112, 255, 0.9) 38%,
-      rgba(255, 84, 184, 0.9) 72%,
-      rgba(178, 255, 245, 0.92) 100%);
-  opacity: 0;
-  filter: drop-shadow(0 0 8px rgba(185, 255, 248, 0.28));
-  transition: opacity 220ms ease, filter 220ms ease;
+  background: conic-gradient(from var(--section2-border-angle),
+      rgba(148, 242, 255, 1),
+      rgba(126, 112, 255, 0.96),
+      rgba(255, 84, 184, 0.96),
+      rgba(178, 255, 245, 1),
+      rgba(148, 242, 255, 1));
+  animation: section2GlowSpin 6.5s linear infinite;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(185, 255, 248, 0.58));
+  transition: opacity 180ms ease, filter 180ms ease;
   pointer-events: none;
   z-index: 0;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
+}
+
+.approach-card:nth-child(3n+1)::after,
+.process-step:nth-child(3n+1)::after,
+.pkg-card:nth-child(3n+1)::after {
+  animation-delay: 0s;
+}
+
+.approach-card:nth-child(3n+2)::after,
+.process-step:nth-child(3n+2)::after,
+.pkg-card:nth-child(3n+2)::after {
+  animation-delay: -2.2s;
+}
+
+.approach-card:nth-child(3n+3)::after,
+.process-step:nth-child(3n+3)::after,
+.pkg-card:nth-child(3n+3)::after {
+  animation-delay: -4.4s;
 }
 
 .approach-card__inner,
@@ -3499,13 +3537,13 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 .approach-card.reveal-on-scroll.is-visible:hover,
 .process-step.reveal-on-scroll.is-visible:hover,
 .pkg-card.reveal-on-scroll.is-visible:hover {
-  transform: translateY(-12px) scale(1.06);
-  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-3px) scale(1.012);
+  border-color: rgba(255, 255, 255, 0.32);
   box-shadow:
-    0 22px 48px -12px rgba(0, 0, 0, 0.5),
-    0 0 24px rgba(98, 173, 255, 0.15);
+    0 16px 34px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(98, 173, 255, 0.1);
   z-index: 10;
-  background: rgba(35, 35, 35, 0.85);
+  background: rgba(30, 30, 30, 0.74);
 }
 
 @media (any-hover: hover) {
@@ -3520,8 +3558,8 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   .approach-card:hover::after,
   .process-step:hover::after,
   .pkg-card:hover::after {
-    opacity: 0.96;
-    filter: drop-shadow(0 0 10px rgba(185, 255, 248, 0.42));
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(185, 255, 248, 0.95));
   }
 }
 

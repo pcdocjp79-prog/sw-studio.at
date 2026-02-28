@@ -120,10 +120,10 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease;
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
   will-change: transform, box-shadow;
 }
 
@@ -133,10 +133,10 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 
 .js .section-2.section-2--dock-test .tile-card.is-slide-ready {
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease;
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
 }
 
 .section-2.section-2--dock-test .tile-card .tile-card-media--filled {
@@ -634,6 +634,23 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   mask-composite: exclude;
 }
 
+.section-2 .tile-card::before {
+  opacity: 1;
+  filter: drop-shadow(0 0 18px rgba(185, 255, 248, 0.9));
+}
+
+.section-2 .tile-card:nth-child(1)::before {
+  animation-delay: 0s;
+}
+
+.section-2 .tile-card:nth-child(2)::before {
+  animation-delay: -2.1s;
+}
+
+.section-2 .tile-card:nth-child(3)::before {
+  animation-delay: -4.2s;
+}
+
 .section-2 .tile-card::after,
 .section-2 .tile-detail-panel::after {
   content: none;
@@ -641,7 +658,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 
 .section-2 .tile-card:not(.is-media-active):hover,
 .js .section-2.section-2--dock-test .tile-card.is-slide-in:not(.is-media-active):hover {
-  transform: translateY(-4px) scale(1.015);
+  transform: translateY(-2px) scale(1.008);
   border-color: rgba(255, 255, 255, 0.28);
   box-shadow:
     0 14px 30px rgba(0, 0, 0, 0.3),

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz | [STUDIO_NAME]</title>
+  <meta name="description"
+    content="Datenschutzerklärung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Datenschutz | [STUDIO_NAME]" />
+  <meta property="og:description"
+    content="Datenschutzerklärung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
+  <meta property="og:url" content="/datenschutz/" />
+  <link rel="canonical" href="https://[STUDIO_DOMAIN]/datenschutz/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Iconify -->
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Legacy CSS (stabil) -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+      <a href="/" class="brand-link flex items-center gap-3" aria-label="Zur Startseite">
+        <img src="../assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Startseite</a>
+        <a href="/#kontakt"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
+        <a href="/#kontakt"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Kontakt aufnehmen
+        </a>
+      </nav>
+
+      <a href="/#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </header>
+
+  <main class="legal-page">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section class="legal-hero reveal-on-scroll" aria-labelledby="legal-headline">
+        <p class="legal-hero__eyebrow">Rechtliches</p>
+        <h1 id="legal-headline" class="legal-hero__headline font-display">Datenschutzerklärung</h1>
+        <p class="legal-hero__subline">
+          Diese Seite informiert strukturiert darüber, welche personenbezogenen Daten verarbeitet werden und zu welchen
+          Zwecken.
+        </p>
+      </section>
+
+      <nav class="legal-toc reveal-on-scroll" aria-label="Inhaltsverzeichnis Datenschutzerklärung">
+        <p class="legal-toc__title">Inhaltsverzeichnis</p>
+        <ul class="legal-toc__list">
+          <li><a class="legal-toc__link" href="#verantwortlicher">Verantwortlicher</a></li>
+          <li><a class="legal-toc__link" href="#zwecke">Zwecke der Verarbeitung</a></li>
+          <li><a class="legal-toc__link" href="#rechtsgrundlagen">Rechtsgrundlagen</a></li>
+          <li><a class="legal-toc__link" href="#empfaenger">Empfänger / Auftragsverarbeiter</a></li>
+          <li><a class="legal-toc__link" href="#speicherdauer">Speicherdauer</a></li>
+          <li><a class="legal-toc__link" href="#rechte">Betroffenenrechte</a></li>
+          <li><a class="legal-toc__link" href="#drittlandtransfer">Drittlandtransfer</a></li>
+          <li><a class="legal-toc__link" href="#kontakt-datenschutz">Kontakt Datenschutz</a></li>
+        </ul>
+      </nav>
+
+      <div class="legal-content">
+        <section id="verantwortlicher" class="legal-section reveal-on-scroll" aria-labelledby="verantwortlicher-title">
+          <h2 id="verantwortlicher-title" class="legal-section__title font-display">Verantwortlicher</h2>
+          <dl class="legal-definition-list">
+            <div>
+              <dt>Studio / Name</dt>
+              <dd>[STUDIO/NAME]</dd>
+            </div>
+            <div>
+              <dt>Adresse</dt>
+              <dd>[STRASSE, PLZ, ORT, LAND]</dd>
+            </div>
+            <div>
+              <dt>E-Mail</dt>
+              <dd>[E-MAIL-ADRESSE]</dd>
+            </div>
+            <div>
+              <dt>Telefon</dt>
+              <dd>[TELEFONNUMMER]</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="zwecke" class="legal-section reveal-on-scroll" aria-labelledby="zwecke-title">
+          <h2 id="zwecke-title" class="legal-section__title font-display">Zwecke der Verarbeitung</h2>
+          <ul class="legal-list">
+            <li>Bereitstellung und Betrieb dieser Website</li>
+            <li>Bearbeitung von Kontaktanfragen und Kommunikation mit Interessenten/Kunden</li>
+            <li>Technische Stabilität, Sicherheit und Fehleranalyse</li>
+            <li>Erfüllung gesetzlicher Aufbewahrungs- und Nachweispflichten</li>
+            <li>[OPTIONAL: Reichweitenmessung / Analytics nur falls tatsächlich aktiviert]</li>
+          </ul>
+        </section>
+
+        <section id="rechtsgrundlagen" class="legal-section reveal-on-scroll" aria-labelledby="rechtsgrundlagen-title">
+          <h2 id="rechtsgrundlagen-title" class="legal-section__title font-display">Rechtsgrundlagen</h2>
+          <p>
+            Die konkrete Zuordnung der Rechtsgrundlagen muss anhand des tatsächlichen Setups erfolgen (z. B.
+            Vertragsanbahnung/-erfüllung, berechtigtes Interesse, Einwilligung, gesetzliche Pflichten).
+          </p>
+          <p class="legal-muted">
+            Hinweis: Diese Struktur dient als Platzhalter und stellt keine Rechtsberatung dar.
+          </p>
+        </section>
+
+        <section id="empfaenger" class="legal-section reveal-on-scroll" aria-labelledby="empfaenger-title">
+          <h2 id="empfaenger-title" class="legal-section__title font-display">Empfänger / Auftragsverarbeiter</h2>
+          <ul class="legal-list">
+            <li>Hosting: [PROVIDER, SITZ/LAND]</li>
+            <li>E-Mail-Dienst: [PROVIDER, SITZ/LAND]</li>
+            <li>Formular-/CRM-Dienst: [PROVIDER, SITZ/LAND]</li>
+            <li>[OPTIONAL: Analytics-Dienst, falls aktiv]</li>
+          </ul>
+        </section>
+
+        <section id="speicherdauer" class="legal-section reveal-on-scroll" aria-labelledby="speicherdauer-title">
+          <h2 id="speicherdauer-title" class="legal-section__title font-display">Speicherdauer</h2>
+          <p>
+            Personenbezogene Daten werden grundsätzlich nur so lange gespeichert, wie es für den jeweiligen Zweck
+            erforderlich ist.
+          </p>
+          <p>
+            Darüber hinaus gelten gesetzliche Aufbewahrungsfristen und Dokumentationspflichten, sofern diese
+            einschlägig sind.
+          </p>
+        </section>
+
+        <section id="rechte" class="legal-section reveal-on-scroll" aria-labelledby="rechte-title">
+          <h2 id="rechte-title" class="legal-section__title font-display">Betroffenenrechte</h2>
+          <ul class="legal-list">
+            <li>Recht auf Auskunft</li>
+            <li>Recht auf Berichtigung</li>
+            <li>Recht auf Löschung</li>
+            <li>Recht auf Einschränkung der Verarbeitung</li>
+            <li>Recht auf Datenübertragbarkeit</li>
+            <li>Recht auf Widerspruch</li>
+            <li>Recht auf Widerruf erteilter Einwilligungen</li>
+            <li>Beschwerderecht bei der zuständigen Aufsichtsbehörde</li>
+          </ul>
+        </section>
+
+        <section id="drittlandtransfer" class="legal-section reveal-on-scroll" aria-labelledby="drittland-title">
+          <h2 id="drittland-title" class="legal-section__title font-display">Drittlandtransfer</h2>
+          <p>Derzeit erfolgt nach aktuellem Stand kein Drittlandtransfer außerhalb der EU/des EWR.</p>
+          <p class="legal-muted">
+            Falls Drittland-Dienste eingesetzt werden, müssen diese hier mit passender Grundlage und Schutzmaßnahmen
+            ergänzt werden.
+          </p>
+        </section>
+
+        <section id="kontakt-datenschutz" class="legal-section reveal-on-scroll" aria-labelledby="kontakt-data-title">
+          <h2 id="kontakt-data-title" class="legal-section__title font-display">Kontakt Datenschutz</h2>
+          <p>Für datenschutzbezogene Anliegen: <a class="legal-link"
+              href="mailto:[DATENSCHUTZ@DEINE-DOMAIN.TLD]">[DATENSCHUTZ@DEINE-DOMAIN.TLD]</a></p>
+        </section>
+
+        <aside class="legal-note reveal-on-scroll" role="note" aria-label="Wichtiger Hinweis">
+          Diese Vorlage muss mit deinem tatsächlichen Setup (Tools, Provider, Prozesse, Rechtsgrundlagen) befüllt und
+          geprüft werden.
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="impressum" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Premium-Auftritte mit System – für messbare Ergebnisse.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/#services">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="/#services">Branding &amp; Rebranding</a></li>
+            <li><a class="site-footer__link" href="/#services">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="/#approach">Growth &amp; Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+          <h3 class="site-footer__heading">Einstieg</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/#kontakt">Erstgespräch buchen</a></li>
+            <li><a class="site-footer__link" href="/#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="/#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="/#pricing">Pakete</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="/#cookie-einstellungen">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">
+          &copy; 2026 Smart Web Studio. Alle Rechte vorbehalten.
+        </small>
+        <small class="site-footer__signature">
+          Made with clarity &amp; structure.
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+
+</html>

@@ -17,7 +17,23 @@
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
   <!-- Tailwind -->
-  <script src="js/tailwind.config.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Legacy CSS (stabil) -->
@@ -97,342 +113,75 @@
         </div>
       </section>
 
-      <div id="services"
-        class="section-2 section-2--dock-test scroll-focus-section animate-enter delay-300 mt-16 lg:mt-20 relative w-full">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 xl:gap-12 items-stretch">
-          <article id="tile-card-webdev" data-detail-panel="webdev-detail-panel"
-            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
-            <span class="tile-mouse-glow" aria-hidden="true"></span>
-            <div class="tile-card-body tile-card-body--with-image">
-              <div class="tile-card-copy">
-                <div class="tile-card-header">
-                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac]">Webentwicklung</h3>
-                </div>
-                <p class="text-zinc-100 text-xs leading-relaxed">
-                  Maßgeschneiderte Websites mit modernem Code, WordPress oder flexiblen Baukastensystemen – optimiert
-                  für Performance und Skalierbarkeit.
-                </p>
-              </div>
-              <div class="tile-card-media tile-card-media--filled">
-                <img src="assets/Webengwiklung.webP" alt="Webentwicklung Visual" class="tile-card-media-image"
-                  width="1024" height="1536" loading="lazy" decoding="async" />
-              </div>
-            </div>
-          </article>
+      <section id="services"
+        class="service-pillars-section scroll-focus-section animate-enter delay-300 mt-16 lg:mt-20 relative w-full"
+        aria-labelledby="services-headline">
+        <div class="service-pillars-section__inner max-w-7xl mx-auto">
+          <div class="approach-section__header reveal-on-scroll">
+            <p class="approach-section__eyebrow">Service-Ebenen</p>
+            <h2 id="services-headline" class="approach-section__headline font-display">
+              Drei Bausteine. Ein System.
+            </h2>
+            <p class="approach-section__subline">
+              Branding, Entwicklung und Growth greifen bei mir ineinander, damit aus einer Website ein messbares
+              Vertriebssystem wird.
+            </p>
+          </div>
 
-          <article id="tile-card-seo" data-detail-panel="seo-detail-panel"
-            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
-            <span class="tile-mouse-glow" aria-hidden="true"></span>
-            <div class="tile-card-body tile-card-body--with-image">
-              <div class="tile-card-copy">
-                <div class="tile-card-header">
-                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac] whitespace-nowrap">SEO &amp; Marketing
-                  </h3>
-                </div>
-                <p class="text-zinc-100 text-xs leading-relaxed">
-                  Strategische Sichtbarkeit durch Suchmaschinenoptimierung, Content-Strategien und datengetriebene
-                  Kampagnen.
+          <div class="approach-section__grid service-pillars-section__grid">
+            <article id="service-branding" class="approach-card service-pillars-card reveal-on-scroll"
+              style="--approach-delay: 0ms;">
+              <span class="approach-card__ghost-num" aria-hidden="true">01</span>
+              <div class="approach-card__inner">
+                <p class="approach-card__num">BRAND SYSTEM</p>
+                <h3 class="approach-card__title font-display">Branding &amp; Positionierung</h3>
+                <p class="approach-card__body">
+                  Ich schärfe deine Marke, dein Nutzenversprechen und dein visuelles System. Damit du nicht wie „noch
+                  ein Anbieter“ wirkst – sondern wie die klare Wahl.
                 </p>
+                <a href="#kontakt" class="approach-section__btn service-pillars-card__btn"
+                  aria-label="Branding entdecken und Kontakt aufnehmen">
+                  Branding entdecken
+                </a>
               </div>
-              <div class="tile-card-media tile-card-media--filled">
-                <img src="assets/Seo_Marketing.webP" alt="SEO und Marketing Visual" class="tile-card-media-image"
-                  width="1024" height="1536" loading="lazy" decoding="async" />
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article id="tile-card-branding" data-detail-panel="branding-detail-panel"
-            class="tile-card glass-card rounded-2xl p-6 md:p-8 text-left h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.28)] hover:border-white/20">
-            <span class="tile-mouse-glow" aria-hidden="true"></span>
-            <div class="tile-card-body tile-card-body--with-image">
-              <div class="tile-card-copy">
-                <div class="tile-card-header">
-                  <h3 class="font-display text-2xl md:text-3xl text-[#ff5dac] whitespace-nowrap">Branding &amp; Design
-                  </h3>
-                </div>
-                <p class="text-zinc-100 text-xs leading-relaxed">
-                  Entwicklung klarer Markenidentitäten, Logos und visueller Konzepte mit Wiedererkennungswert.
+            <article id="service-webentwicklung" class="approach-card service-pillars-card reveal-on-scroll"
+              style="--approach-delay: 100ms;">
+              <span class="approach-card__ghost-num" aria-hidden="true">02</span>
+              <div class="approach-card__inner">
+                <p class="approach-card__num">PERFORMANCE WEBSITE</p>
+                <h3 class="approach-card__title font-display">Webentwicklung mit Struktur</h3>
+                <p class="approach-card__body">
+                  Ich entwickle schnelle, skalierbare Websites mit klarer Nutzerführung und Conversion-Architektur.
+                  Gebaut als Vertriebssystem – nicht als digitale Visitenkarte.
                 </p>
+                <a href="#kontakt" class="approach-section__btn service-pillars-card__btn"
+                  aria-label="Webentwicklung ansehen und Kontakt aufnehmen">
+                  Webentwicklung ansehen
+                </a>
               </div>
-              <div class="tile-card-media tile-card-media--filled">
-                <img src="assets/Branding_Desing.webP" alt="Branding und Design Visual" class="tile-card-media-image"
-                  width="1024" height="1536" loading="lazy" decoding="async" />
+            </article>
+
+            <article id="service-growth" class="approach-card service-pillars-card reveal-on-scroll"
+              style="--approach-delay: 200ms;">
+              <span class="approach-card__ghost-num" aria-hidden="true">03</span>
+              <div class="approach-card__inner">
+                <p class="approach-card__num">GROWTH LAYER</p>
+                <h3 class="approach-card__title font-display">Marketing &amp; Growth</h3>
+                <p class="approach-card__body">
+                  Ich verbinde SEO, Tracking und Funnel-Logik zu einem System, das Sichtbarkeit in Anfragen übersetzt.
+                  Messbar. Planbar. Skalierbar.
+                </p>
+                <a href="#kontakt" class="approach-section__btn service-pillars-card__btn"
+                  aria-label="Growth verstehen und Kontakt aufnehmen">
+                  Growth verstehen
+                </a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
-
-        <aside id="webdev-detail-panel" class="tile-detail-panel" aria-hidden="true">
-          <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-webdev-pager>
-            <article class="tile-detail-panel__pager-slide is-active" data-webdev-slide data-pager-slide>
-
-              <h4 class="tile-detail-panel__title">Professionelle Webentwicklung mit Strategie und System</h4>
-              <p class="tile-detail-panel__text">
-                Ich entwickle moderne, performante Websites, die nicht nur gut aussehen, sondern technisch sauber
-                aufgebaut, schnell ladend
-                und langfristig skalierbar sind. Jede Website wird individuell an Ihr Unternehmen, Ihre Ziele und Ihre
-                Zielgruppe angepasst.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-
-              <h4 class="tile-detail-panel__title">Individuelle Webentwicklung</h4>
-              <p class="tile-detail-panel__text">
-                Für Unternehmen mit hohen Anforderungen entwickle ich maßgeschneiderte Websites auf Basis von modernem
-                HTML, CSS und JavaScript.
-              </p>
-              <p class="tile-detail-panel__pager-subheading">Vorteile:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Maximale Performance durch schlanken, optimierten Code</li>
-                <li>Hohe Sicherheit ohne unnötige Plugin-Abhängigkeiten</li>
-                <li>Volle Design- und Funktionsfreiheit</li>
-                <li>Skalierbarkeit für zukünftige Erweiterungen</li>
-                <li>Optimierte Core Web Vitals für bessere Google-Rankings</li>
-              </ul>
-              <p class="tile-detail-panel__text">
-                Diese Lösung eignet sich besonders für Unternehmen, die langfristig wachsen und Wert auf technische
-                Exzellenz legen.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-
-              <h4 class="tile-detail-panel__title">WordPress &amp; CMS-Lösungen</h4>
-              <p class="tile-detail-panel__text">
-                Für flexible und erweiterbare Projekte setze ich auf WordPress oder vergleichbare CMS-Systeme.
-              </p>
-              <p class="tile-detail-panel__pager-subheading">Geeignet für:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Unternehmenswebsites</li>
-                <li>Blogs</li>
-                <li>Landingpages</li>
-                <li>Online-Shops</li>
-                <li>Content-getriebene Plattformen</li>
-              </ul>
-              <p class="tile-detail-panel__text">
-                Sie erhalten eine benutzerfreundliche Oberfläche, mit der Sie Inhalte selbst verwalten können – bei
-                gleichzeitig professioneller
-                technischer Umsetzung im Hintergrund.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-
-              <h4 class="tile-detail-panel__title">Struktur &amp; Performance</h4>
-              <p class="tile-detail-panel__text">
-                Eine gute Website beginnt nicht mit Design, sondern mit Struktur.
-              </p>
-              <p class="tile-detail-panel__pager-subheading">Ich entwickle:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Klare Seitenarchitektur</li>
-                <li>Logische Navigation</li>
-                <li>SEO-optimierte URL-Strukturen</li>
-                <li>Mobile-First Layouts</li>
-                <li>Schnelle Ladezeiten durch optimierte Assets</li>
-              </ul>
-              <p class="tile-detail-panel__text">Performance ist kein Extra – sie ist Standard.</p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-webdev-slide data-pager-slide aria-hidden="true">
-
-              <h4 class="tile-detail-panel__title">Projektablauf</h4>
-              <p class="tile-detail-panel__pager-subheading">So läuft ein Projekt ab:</p>
-              <ol class="tile-detail-panel__pager-steps">
-                <li>Analyse &amp; Zieldefinition</li>
-                <li>Struktur &amp; Konzeptentwicklung</li>
-                <li>Design &amp; technische Umsetzung</li>
-                <li>Testing &amp; Optimierung</li>
-                <li>Launch &amp; optionaler Wartungsvertrag</li>
-              </ol>
-            </article>
-
-            <div class="tile-detail-panel__pager-nav" role="group" aria-label="Webentwicklung Teile">
-              <button id="webdev-part-prev" type="button" class="tile-detail-panel__pager-arrow is-hidden"
-                aria-label="Vorheriger Teil">
-                &larr;
-              </button>
-              <p id="webdev-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
-              <button id="webdev-part-next" type="button" class="tile-detail-panel__pager-arrow"
-                aria-label="Nächster Teil">
-                &rarr;
-              </button>
-            </div>
-          </div>
-        </aside>
-
-        <aside id="seo-detail-panel" class="tile-detail-panel tile-detail-panel--from-left" aria-hidden="true">
-          <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-seo-pager>
-            <article class="tile-detail-panel__pager-slide is-active" data-seo-slide data-pager-slide>
-              <p class="tile-detail-panel__eyebrow">SEO &amp; Marketing</p>
-              <h4 class="tile-detail-panel__title">Digitale Sichtbarkeit mit messbaren Ergebnissen</h4>
-              <p class="tile-detail-panel__text">
-                Eine Website allein reicht nicht aus. Entscheidend ist, dass Ihre Zielgruppe Sie findet. Ich entwickle
-                durchdachte Strategien,
-                die Sichtbarkeit erhöhen und nachhaltiges Wachstum ermöglichen.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-seo-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Suchmaschinenoptimierung (SEO)</h4>
-              <p class="tile-detail-panel__text">SEO ist ein langfristiger Prozess mit nachhaltiger Wirkung.</p>
-              <p class="tile-detail-panel__pager-subheading">On-Page Optimierung:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Keyword-Analyse</li>
-                <li>Optimierte Überschriftenstruktur</li>
-                <li>Technische SEO</li>
-                <li>Meta-Daten &amp; strukturierte Daten</li>
-                <li>Core Web Vitals Optimierung</li>
-              </ul>
-              <p class="tile-detail-panel__pager-subheading">Technische SEO:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Sauberer Code</li>
-                <li>Schnelle Ladezeiten</li>
-                <li>Mobile Optimierung</li>
-                <li>Interne Verlinkungsstruktur</li>
-              </ul>
-              <p class="tile-detail-panel__text">Ziel: bessere Rankings und qualifizierter Traffic.</p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-seo-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Content-Strategie</h4>
-              <p class="tile-detail-panel__text">Inhalte entscheiden über Vertrauen.</p>
-              <p class="tile-detail-panel__pager-subheading">Ich entwickle:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Strategische Blog-Konzepte</li>
-                <li>SEO-Landingpages</li>
-                <li>Conversion-orientierte Texte</li>
-                <li>Positionierung als Experte</li>
-              </ul>
-              <p class="tile-detail-panel__text">Content wird nicht nur geschrieben – er wird geplant.</p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-seo-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Performance Marketing</h4>
-              <p class="tile-detail-panel__text">
-                Für schnellere Ergebnisse kombiniere ich organische Strategien mit bezahlten Kampagnen.
-              </p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Google Ads</li>
-                <li>Social Media Kampagnen</li>
-                <li>Retargeting</li>
-                <li>Conversion-Tracking</li>
-                <li>Funnel-Optimierung</li>
-              </ul>
-              <p class="tile-detail-panel__text">
-                Alle Maßnahmen werden datenbasiert analysiert und kontinuierlich optimiert.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-seo-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Analyse &amp; Reporting</h4>
-              <p class="tile-detail-panel__text">Transparenz ist entscheidend.</p>
-              <p class="tile-detail-panel__pager-subheading">Sie erhalten:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Klare Auswertungen</li>
-                <li>Traffic-Analysen</li>
-                <li>Conversion-Tracking</li>
-                <li>Handlungsempfehlungen</li>
-              </ul>
-              <p class="tile-detail-panel__text">Marketing ohne Zahlen ist kein Marketing.</p>
-            </article>
-
-            <div class="tile-detail-panel__pager-nav" role="group" aria-label="SEO und Marketing Teile">
-              <button id="seo-part-prev" type="button" class="tile-detail-panel__pager-arrow is-hidden"
-                aria-label="Vorheriger SEO-Teil">
-                &larr;
-              </button>
-              <p id="seo-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
-              <button id="seo-part-next" type="button" class="tile-detail-panel__pager-arrow"
-                aria-label="Nächster SEO-Teil">
-                &rarr;
-              </button>
-            </div>
-          </div>
-        </aside>
-
-        <aside id="branding-detail-panel" class="tile-detail-panel tile-detail-panel--from-left" aria-hidden="true">
-          <div class="tile-detail-panel__content tile-detail-panel__content--webdev-pager" data-branding-pager>
-            <article class="tile-detail-panel__pager-slide is-active" data-branding-slide data-pager-slide>
-              <p class="tile-detail-panel__eyebrow">Branding &amp; Design</p>
-              <h4 class="tile-detail-panel__title">Marken, die Vertrauen schaffen und im Gedächtnis bleiben</h4>
-              <p class="tile-detail-panel__text">
-                Eine starke Marke ist mehr als ein Logo. Sie ist die Grundlage für Wiedererkennung, Vertrauen und
-                Positionierung im Markt.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-branding-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Markenstrategie</h4>
-              <p class="tile-detail-panel__text">Bevor gestaltet wird, wird strategisch gedacht.</p>
-              <p class="tile-detail-panel__pager-subheading">Ich analysiere:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Zielgruppe</li>
-                <li>Marktumfeld</li>
-                <li>Wettbewerber</li>
-                <li>Positionierung</li>
-                <li>Werte &amp; Vision</li>
-              </ul>
-              <p class="tile-detail-panel__text">Das Ergebnis ist eine klare Markenbasis.</p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-branding-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Visuelle Identität</h4>
-              <p class="tile-detail-panel__pager-subheading">Auf Basis der Strategie entwickle ich:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Logo</li>
-                <li>Farbkonzept</li>
-                <li>Typografie</li>
-                <li>Designsystem</li>
-                <li>Brand Guidelines</li>
-              </ul>
-              <p class="tile-detail-panel__text">
-                Alles ist konsistent – über Website, Social Media und Print hinweg.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-branding-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Modernes Design &amp; digitale Wirkung</h4>
-              <p class="tile-detail-panel__text">Design muss nicht laut sein – es muss klar sein.</p>
-              <p class="tile-detail-panel__pager-subheading">Ich kombiniere:</p>
-              <ul class="tile-detail-panel__pager-list">
-                <li>Minimalistische Gestaltung</li>
-                <li>Hohe Lesbarkeit</li>
-                <li>Strukturierte Layouts</li>
-                <li>Nutzerzentrierte UX</li>
-                <li>Moderne visuelle Elemente</li>
-              </ul>
-              <p class="tile-detail-panel__text">
-                Optional integriere ich innovative 3D-Visualisierungen oder Animationen, um digitale Erlebnisse zu
-                schaffen, die sich vom
-                Wettbewerb abheben.
-              </p>
-            </article>
-
-            <article class="tile-detail-panel__pager-slide" data-branding-slide data-pager-slide aria-hidden="true">
-              <h4 class="tile-detail-panel__title">Rebranding &amp; Weiterentwicklung</h4>
-              <p class="tile-detail-panel__text">
-                Bestehende Marken können modernisiert und strategisch neu ausgerichtet werden – ohne Identität zu
-                verlieren.
-              </p>
-            </article>
-
-            <div class="tile-detail-panel__pager-nav" role="group" aria-label="Branding und Design Teile">
-              <button id="branding-part-prev" type="button" class="tile-detail-panel__pager-arrow is-hidden"
-                aria-label="Vorheriger Branding-Teil">
-                &larr;
-              </button>
-              <p id="branding-part-indicator" class="tile-detail-panel__pager-indicator" aria-live="polite">1 / 5</p>
-              <button id="branding-part-next" type="button" class="tile-detail-panel__pager-arrow"
-                aria-label="Nächster Branding-Teil">
-                &rarr;
-              </button>
-            </div>
-          </div>
-        </aside>
-
-        <div class="absolute -inset-10 bg-blue-500/10 blur-3xl rounded-[50%] z-[-1]"></div>
-      </div>
+      </section>
     </div>
 
     <!-- Section 3: Mein Ansatz / System -->
@@ -495,7 +244,7 @@
         <!-- CTA -->
         <div class="approach-section__cta reveal-on-scroll">
           <p class="approach-section__cta-lead">Lass uns dein Projekt strategisch denken.</p>
-          <a href="#contact" class="approach-section__btn" aria-label="Erstgespräch buchen">
+          <a href="#kontakt" class="approach-section__btn" aria-label="Erstgespräch buchen">
             Erstgespräch buchen
           </a>
         </div>
@@ -570,7 +319,7 @@
         <!-- CTA -->
         <div class="process-section__cta reveal-on-scroll">
           <p class="process-section__cta-lead">Bereit für einen strukturierten Start?</p>
-          <a href="#contact" class="process-section__btn" aria-label="Erstgespräch buchen">
+          <a href="#kontakt" class="process-section__btn" aria-label="Erstgespräch buchen">
             Erstgespräch buchen
           </a>
         </div>
@@ -678,7 +427,7 @@
         <div class="packages-section__cta reveal-on-scroll">
           <p class="packages-section__cta-lead">Unsicher, welches Paket passt?</p>
           <div class="packages-section__cta-btns">
-            <a href="#contact" class="packages-section__btn packages-section__btn--primary"
+            <a href="#kontakt" class="packages-section__btn packages-section__btn--primary"
               aria-label="Erstgespräch buchen">
               Erstgespräch buchen
             </a>
@@ -751,7 +500,7 @@
 
             <div class="about-section__cta reveal-on-scroll">
               <p class="about-section__cta-lead">Wenn du strukturiert wachsen willst, lass uns sprechen.</p>
-              <a href="#contact" class="about-section__btn" aria-label="Erstgespräch buchen">
+              <a href="#kontakt" class="about-section__btn" aria-label="Erstgespräch buchen">
                 Erstgespräch buchen
               </a>
             </div>
@@ -777,7 +526,7 @@
         </div>
 
         <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="#contact" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
+          <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
             Erstgespräch buchen
           </a>
           <a href="#kontakt" class="final-cta-btn final-cta-btn--secondary"
@@ -819,9 +568,9 @@
         <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="#tile-card-webdev">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="#tile-card-branding">Branding &amp; Rebranding</a></li>
-            <li><a class="site-footer__link" href="#tile-card-seo">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="#service-webentwicklung">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="#service-branding">Branding &amp; Positionierung</a></li>
+            <li><a class="site-footer__link" href="#service-growth">Marketing &amp; Growth</a></li>
             <li><a class="site-footer__link" href="#approach">Growth &amp; Strategie</a></li>
           </ul>
         </nav>
@@ -839,8 +588,8 @@
         <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="#impressum">Impressum</a></li>
-            <li><a class="site-footer__link" href="#datenschutz">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
             <li><a class="site-footer__link" href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
@@ -862,7 +611,7 @@
   </button>
 
   <!-- Legacy JS (stabil) -->
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

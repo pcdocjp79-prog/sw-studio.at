@@ -161,7 +161,26 @@ export const initHero3DScrollEffects = () => {
     let currentX = 0;
     let currentY = 0;
     let rafId = null;
+    let cardRect = null;
+    let cardRectRafId = null;
     const usesFixedBackgroundLayer = document.body.classList.contains("has-fixed-hero-bg");
+
+    const updateCardRect = () => {
+      const rect = heroStageCard.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) {
+        cardRect = null;
+        return;
+      }
+      cardRect = rect;
+    };
+
+    const requestCardRectUpdate = () => {
+      if (cardRectRafId !== null) return;
+      cardRectRafId = requestAnimationFrame(() => {
+        updateCardRect();
+        cardRectRafId = null;
+      });
+    };
   
     const setVisualState = (normalizedX, normalizedY) => {
       const pointerXPercent = ((normalizedX + 1) * 50).toFixed(2);
@@ -198,11 +217,14 @@ export const initHero3DScrollEffects = () => {
     };
   
     const setPointerTarget = (event) => {
-      const rect = heroStageCard.getBoundingClientRect();
-      if (rect.width <= 0 || rect.height <= 0) return;
-  
-      const relativeX = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-      const relativeY = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+      if (!cardRect) {
+        updateCardRect();
+      }
+
+      if (!cardRect) return;
+
+      const relativeX = Math.max(0, Math.min(1, (event.clientX - cardRect.left) / cardRect.width));
+      const relativeY = Math.max(0, Math.min(1, (event.clientY - cardRect.top) / cardRect.height));
       const normalizedX = relativeX * 2 - 1;
       const normalizedY = relativeY * 2 - 1;
   
@@ -231,7 +253,10 @@ export const initHero3DScrollEffects = () => {
       heroStageElement.classList.remove("is-interactive");
       resetTilt();
     };
-  
+
+    window.addEventListener("resize", requestCardRectUpdate);
+    window.addEventListener("scroll", requestCardRectUpdate, { passive: true });
+
     if (usesFixedBackgroundLayer) {
       window.addEventListener(
         "pointermove",
@@ -247,6 +272,7 @@ export const initHero3DScrollEffects = () => {
     } else {
       heroStageElement.addEventListener("pointerenter", (event) => {
         if (!canAnimate()) return;
+        updateCardRect();
         heroStageElement.classList.add("is-interactive");
         setPointerTarget(event);
       });
@@ -271,7 +297,8 @@ export const initHero3DScrollEffects = () => {
     } else if (typeof reducedMotionQuery.addListener === "function") {
       reducedMotionQuery.addListener(handleReducedMotionChange);
     }
-  
+
+    updateCardRect();
     resetTilt(true);
   };
   

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum | [STUDIO_NAME]</title>
+  <meta name="description"
+    content="Impressum und Anbieterkennzeichnung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Impressum | [STUDIO_NAME]" />
+  <meta property="og:description"
+    content="Impressum und Anbieterkennzeichnung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
+  <meta property="og:url" content="/impressum/" />
+  <link rel="canonical" href="https://[STUDIO_DOMAIN]/impressum/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Iconify -->
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Legacy CSS (stabil) -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+      <a href="/" class="brand-link flex items-center gap-3" aria-label="Zur Startseite">
+        <img src="../assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Startseite</a>
+        <a href="/#kontakt"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
+        <a href="/#kontakt"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Kontakt aufnehmen
+        </a>
+      </nav>
+
+      <a href="/#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </header>
+
+  <main class="legal-page">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section class="legal-hero" aria-labelledby="legal-headline">
+        <p class="legal-hero__eyebrow">Rechtliches</p>
+        <h1 id="legal-headline" class="legal-hero__headline font-display">Impressum / Anbieterkennzeichnung</h1>
+        <p class="legal-hero__subline">
+          Angaben zum Anbieter gemäß den geltenden Informationspflichten in strukturierter Form.
+        </p>
+      </section>
+
+      <div class="legal-content">
+        <section id="anbieter" class="legal-section" aria-labelledby="anbieter-title">
+          <h2 id="anbieter-title" class="legal-section__title font-display">Anbieter</h2>
+          <dl class="legal-definition-list">
+            <div>
+              <dt>Studio</dt>
+              <dd>[STUDIO_NAME]</dd>
+            </div>
+            <div>
+              <dt>Name</dt>
+              <dd>[DEIN_NAME]</dd>
+            </div>
+            <div>
+              <dt>Anschrift</dt>
+              <dd>[STRASSE, PLZ, ORT, LAND]</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="kontakt-impressum" class="legal-section" aria-labelledby="kontakt-title">
+          <h2 id="kontakt-title" class="legal-section__title font-display">Kontakt</h2>
+          <dl class="legal-definition-list">
+            <div>
+              <dt>E-Mail</dt>
+              <dd>[E-MAIL-ADRESSE]</dd>
+            </div>
+            <div>
+              <dt>Telefon (optional)</dt>
+              <dd>[TELEFONNUMMER]</dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Optional: Nur einblenden, wenn eine vertretungsberechtigte Person anzugeben ist. -->
+        <section id="vertretungsberechtigte-person" class="legal-section" hidden
+          aria-labelledby="vertretung-title">
+          <h2 id="vertretung-title" class="legal-section__title font-display">Vertretungsberechtigte Person</h2>
+          <p>[NAME DER VERTRETUNGSBERECHTIGTEN PERSON]</p>
+        </section>
+
+        <!-- Optional: Nur einblenden, wenn Register-/UID-/Unternehmensdaten vorhanden sind. -->
+        <section id="register-uid" class="legal-section" hidden aria-labelledby="register-title">
+          <h2 id="register-title" class="legal-section__title font-display">Register / UID / Unternehmensdaten</h2>
+          <dl class="legal-definition-list">
+            <div>
+              <dt>Registergericht</dt>
+              <dd>[REGISTERGERICHT]</dd>
+            </div>
+            <div>
+              <dt>Registernummer</dt>
+              <dd>[REGISTERNUMMER]</dd>
+            </div>
+            <div>
+              <dt>Umsatzsteuer-ID / UID</dt>
+              <dd>[UID-NUMMER]</dd>
+            </div>
+            <div>
+              <dt>Unternehmensbezeichnung (falls abweichend)</dt>
+              <dd>[UNTERNEHMENSDATEN]</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="haftung-links" class="legal-section" aria-labelledby="haftung-title">
+          <h2 id="haftung-title" class="legal-section__title font-display">Haftung / Links</h2>
+          <p>
+            Inhalte dieser Website wurden mit angemessener Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
+            Aktualität kann jedoch keine Gewähr übernommen werden.
+          </p>
+          <p>
+            Für Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich. Bei Bekanntwerden konkreter
+            Rechtsverletzungen werden entsprechende Links umgehend überprüft und ggf. entfernt.
+          </p>
+        </section>
+
+        <p class="legal-muted">Angaben werden bei Änderungen aktualisiert.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Premium-Auftritte mit System – für messbare Ergebnisse.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/#services">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="/#services">Branding &amp; Rebranding</a></li>
+            <li><a class="site-footer__link" href="/#services">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="/#approach">Growth &amp; Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+          <h3 class="site-footer__heading">Einstieg</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/#kontakt">Erstgespräch buchen</a></li>
+            <li><a class="site-footer__link" href="/#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="/#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="/#pricing">Pakete</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="/#cookie-einstellungen">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">
+          &copy; 2026 Smart Web Studio. Alle Rechte vorbehalten.
+        </small>
+        <small class="site-footer__signature">
+          Made with clarity &amp; structure.
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+
+</html>

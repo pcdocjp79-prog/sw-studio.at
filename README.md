@@ -19,6 +19,8 @@
 - `src/styles/main.scss`: SCSS entry
 - `src/styles/modules/*.scss`: Style modules
 - `index.html`: Current production page entry
+- `impressum/index.html`: Separate legal page (`/impressum/`)
+- `datenschutz/index.html`: Separate legal page (`/datenschutz/`)
 - `js/main.js` and `css/style.css`: Active legacy runtime/style for the current page
 
 ## Notes

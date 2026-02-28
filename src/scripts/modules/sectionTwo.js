@@ -14,6 +14,25 @@ export const initSectionTwoFeature = () => {
     let rafId = null;
     let targetX = 0;
     let targetY = 0;
+    let elementRect = null;
+    let elementRectRafId = null;
+
+    const updateElementRect = () => {
+      const rect = element.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) {
+        elementRect = null;
+        return;
+      }
+      elementRect = rect;
+    };
+
+    const requestElementRectUpdate = () => {
+      if (elementRectRafId !== null) return;
+      elementRectRafId = requestAnimationFrame(() => {
+        updateElementRect();
+        elementRectRafId = null;
+      });
+    };
   
     const renderGlow = () => {
       element.style.setProperty(xVariable, `${targetX}px`);
@@ -27,13 +46,19 @@ export const initSectionTwoFeature = () => {
     };
   
     const updateGlowTarget = (event) => {
-      const rect = element.getBoundingClientRect();
-      targetX = event.clientX - rect.left;
-      targetY = event.clientY - rect.top;
+      if (!elementRect) {
+        updateElementRect();
+      }
+
+      if (!elementRect) return;
+
+      targetX = event.clientX - elementRect.left;
+      targetY = event.clientY - elementRect.top;
       queueRender();
     };
-  
+
     element.addEventListener("pointerenter", (event) => {
+      updateElementRect();
       element.classList.add(activeClassName);
       updateGlowTarget(event);
     });
@@ -43,6 +68,9 @@ export const initSectionTwoFeature = () => {
     element.addEventListener("pointerleave", () => {
       element.classList.remove(activeClassName);
     });
+
+    window.addEventListener("resize", requestElementRectUpdate);
+    window.addEventListener("scroll", requestElementRectUpdate, { passive: true });
   };
   
   if (supportsFinePointer) {

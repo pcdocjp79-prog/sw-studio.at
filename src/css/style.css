@@ -326,10 +326,11 @@ img {
 }
 
 .hero-stage__frame {
+  --section2-border-angle: 0deg;
   position: absolute;
   inset: clamp(0.9rem, 2.2vw, 2rem);
   border-radius: clamp(0.7rem, 1.5vw, 1.2rem);
-  border: 1px solid rgba(212, 232, 255, 0.3);
+  border: 1px solid rgba(212, 232, 255, 0.2);
   background: linear-gradient(146deg,
       rgba(255, 255, 255, 0.22) 0%,
       rgba(255, 255, 255, 0.12) 24%,
@@ -377,12 +378,25 @@ img {
 .hero-stage__frame::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;
+  padding: 2px;
   border-radius: inherit;
-  border: 1px solid rgba(228, 241, 255, 0.16);
-  box-shadow: inset 0 0 0 1px rgba(160, 214, 255, 0.08);
+  background: conic-gradient(from var(--section2-border-angle),
+      rgba(148, 242, 255, 1),
+      rgba(126, 112, 255, 0.96),
+      rgba(255, 84, 184, 0.96),
+      rgba(178, 255, 245, 1),
+      rgba(148, 242, 255, 1));
+  animation: section2GlowSpin 6.5s linear infinite;
+  opacity: 0.92;
+  filter: drop-shadow(0 0 14px rgba(185, 255, 248, 0.62));
+  transition: opacity 220ms ease, filter 220ms ease;
   pointer-events: none;
   z-index: 3;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
 }
 
 .hero-stage.is-interactive .hero-stage__frame {
@@ -393,6 +407,11 @@ img {
     0 50px 94px rgba(2, 8, 22, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     inset 0 -24px 38px rgba(3, 7, 16, 0.5);
+}
+
+.hero-stage.is-interactive .hero-stage__frame::after {
+  opacity: 1;
+  filter: drop-shadow(0 0 18px rgba(185, 255, 248, 0.95));
 }
 
 .hero-stage__grid {
@@ -490,6 +509,12 @@ img {
   .hero-stage__frame {
     transform: none;
     transition: none;
+  }
+
+  .hero-stage__frame::after {
+    animation: none;
+    opacity: 0.74;
+    filter: drop-shadow(0 0 8px rgba(185, 255, 248, 0.44));
   }
 
 }

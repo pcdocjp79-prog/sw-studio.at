@@ -3281,8 +3281,10 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 
 .about-section__btn {
   display: inline-flex;
+  justify-self: start;
   align-self: start;
-  padding: 0.85rem 2.1rem;
+  width: fit-content;
+  padding: 0.78rem 1.35rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.2);

@@ -515,7 +515,7 @@
 
     <!-- Final Closing CTA -->
     <section id="kontakt" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
+      <div class="final-cta-section__inner max-w-5xl mx-auto text-center">
 
         <div class="reveal-on-scroll">
           <h2 class="final-cta-section__headline font-display">
@@ -527,19 +527,49 @@
           </p>
         </div>
 
-        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
-            Erstgespräch buchen
-          </a>
-          <a href="#kontakt" class="final-cta-btn final-cta-btn--secondary"
-            aria-label="Mini-Audit anfordern">
-            Mini-Audit anfordern
-          </a>
-        </div>
+        <div class="contact-form-shell reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <h3 class="contact-form-shell__title font-display">Kontaktformular</h3>
+          <p id="contact-form-note" class="contact-form__hint">
+            Nur das Feld E-Mail ist verpflichtend. Alle anderen Angaben helfen f&uuml;r eine schnellere Einordnung.
+          </p>
 
-        <p class="final-cta-section__microcopy reveal-on-scroll" style="--final-cta-delay: 180ms;">
-          Kostenlos. 20 Minuten. Klare Empfehlung für dein Projekt.
-        </p>
+          <!-- // TODO: Backend-Endpunkt oder Form-Service (z. B. PHP-Mail, Node-API, Formspree etc.) hier eintragen -->
+          <form class="contact-form" method="POST" action="" data-contact-form aria-describedby="contact-form-note">
+            <div class="contact-form__grid">
+              <div class="contact-field">
+                <label for="contact-name">Name <span class="contact-field__meta">(optional)</span></label>
+                <input id="contact-name" class="contact-input" name="name" type="text" autocomplete="name" />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-email">E-Mail <span class="contact-field__meta">(Pflichtfeld)</span></label>
+                <input id="contact-email" class="contact-input" name="email" type="email" required autocomplete="email"
+                  inputmode="email" aria-required="true" />
+              </div>
+
+              <div class="contact-field contact-field--full">
+                <label for="contact-phone">Telefonnummer <span class="contact-field__meta">(optional)</span></label>
+                <input id="contact-phone" class="contact-input" name="phone" type="tel" autocomplete="tel" />
+              </div>
+
+              <div class="contact-field contact-field--full">
+                <label for="contact-message">Nachricht <span class="contact-field__meta">(optional)</span></label>
+                <textarea id="contact-message" class="contact-input contact-textarea" name="message" rows="6"
+                  autocomplete="off"></textarea>
+              </div>
+            </div>
+
+            <div class="contact-form__actions">
+              <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit">
+                Nachricht senden
+              </button>
+            </div>
+          </form>
+
+          <p class="contact-form__success" data-contact-success role="status" aria-live="polite" tabindex="-1" hidden>
+            Vielen Dank, wir melden uns zeitnah.
+          </p>
+        </div>
 
       </div>
     </section>

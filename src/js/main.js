@@ -565,6 +565,40 @@ if (cardLinkTargets.length > 0) {
   });
 }
 
+const initContactForm = () => {
+  const contactForm = document.querySelector("[data-contact-form]");
+  if (!contactForm) return;
+
+  const successMessage = document.querySelector("[data-contact-success]");
+  const hasConfiguredEndpoint = () =>
+    (contactForm.getAttribute("action") || "").trim().length > 0;
+
+  contactForm.addEventListener("submit", (event) => {
+    if (hasConfiguredEndpoint()) return;
+
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    contactForm.reset();
+
+    if (successMessage) {
+      successMessage.hidden = false;
+      successMessage.focus({ preventScroll: true });
+    }
+  });
+
+  contactForm.addEventListener("input", () => {
+    if (!successMessage || successMessage.hidden) return;
+    successMessage.hidden = true;
+  });
+};
+
+initContactForm();
+
 
 // Hero pointer interaction
 const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;

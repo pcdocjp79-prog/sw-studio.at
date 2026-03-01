@@ -12,8 +12,8 @@
   <meta property="og:title" content="Impressum | [STUDIO_NAME]" />
   <meta property="og:description"
     content="Impressum und Anbieterkennzeichnung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
-  <meta property="og:url" content="/impressum/" />
-  <link rel="canonical" href="https://[STUDIO_DOMAIN]/impressum/" />
+  <meta property="og:url" content="/impressum" />
+  <link rel="canonical" href="https://[STUDIO_DOMAIN]/impressum" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Legacy CSS (stabil) -->
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
@@ -54,8 +54,8 @@
 
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="/" class="brand-link flex items-center gap-3" aria-label="Zur Startseite">
-        <img src="../assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+      <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Zur Startseite">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
         <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
           Web Studio</span>
       </a>
@@ -69,15 +69,15 @@
 
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
         <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Startseite</a>
-        <a href="/#kontakt"
+        <a href="index.html#kontakt"
           class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="/#kontakt"
+        <a href="index.html#kontakt"
           class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
           Kontakt aufnehmen
         </a>
       </nav>
 
-      <a href="/#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">
+      <a href="index.html#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">
         Kontakt aufnehmen
       </a>
     </div>
@@ -191,29 +191,29 @@
         <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="/#services">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="/#services">Branding &amp; Rebranding</a></li>
-            <li><a class="site-footer__link" href="/#services">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="/#approach">Growth &amp; Strategie</a></li>
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding &amp; Positionierung</a></li>
+            <li><a class="site-footer__link" href="marketing.html">Marketing &amp; Growth</a></li>
+            <li><a class="site-footer__link" href="index.html#approach">Growth &amp; Strategie</a></li>
           </ul>
         </nav>
 
         <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
           <h3 class="site-footer__heading">Einstieg</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="/#kontakt">Erstgespräch buchen</a></li>
-            <li><a class="site-footer__link" href="/#kontakt">Mini-Audit anfordern</a></li>
-            <li><a class="site-footer__link" href="/#process">Prozess</a></li>
-            <li><a class="site-footer__link" href="/#pricing">Pakete</a></li>
+            <li><a class="site-footer__link" href="index.html#kontakt">Erstgespräch buchen</a></li>
+            <li><a class="site-footer__link" href="index.html#kontakt">Mini-Audit anfordern</a></li>
+            <li><a class="site-footer__link" href="index.html#process">Prozess</a></li>
+            <li><a class="site-footer__link" href="index.html#pricing">Pakete</a></li>
           </ul>
         </nav>
 
         <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="/impressum/">Impressum / Anbieterkennzeichnung</a></li>
-            <li><a class="site-footer__link" href="/datenschutz/">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="/#cookie-einstellungen">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="impressum.html">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="index.html#cookie-einstellungen">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
       </div>
@@ -233,7 +233,7 @@
     <span aria-hidden="true">&uarr;</span>
   </button>
 
-  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="src/js/main.js"></script>
 </body>
 
 </html>

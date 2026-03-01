@@ -13,18 +13,19 @@
 
 ## Structure
 
-- `src/main.js`: App entry point (Vite)
-- `src/scripts/modules`: Modular JS features
-- `src/scripts/modules/effects/hero3dScrollEffects.js`: Isolated 3D + scroll effects
-- `src/styles/main.scss`: SCSS entry
-- `src/styles/modules/*.scss`: Style modules
-- `index.html`: Current production page entry
-- `impressum/index.html`: Separate legal page (`/impressum/`)
-- `datenschutz/index.html`: Separate legal page (`/datenschutz/`)
-- `js/main.js` and `css/style.css`: Active legacy runtime/style for the current page
+- `index.html`: Startseite
+- `branding.html`: Leistungsseite Branding
+- `marketing.html`: Leistungsseite Marketing
+- `webentwicklung.html`: Leistungsseite Webentwicklung
+- `impressum.html`: Impressum
+- `datenschutz.html`: Datenschutz
+- `src/js/main.js`: Aktives Frontend-Script
+- `src/css/style.css`: Aktives Stylesheet
+- `assets/`: Lokale statische Bilder (Logo, Portrait)
+- `public/assets/`: Vite/Vercel public assets
 
 ## Notes
 
-- `src/main.js` is prepared for the Vite-driven modular bundle path.
-- `index.html` currently references `js/main.js` and `css/style.css` directly for runtime stability.
+- The project works with `npm run dev` and also with simple static local serving of the root HTML files.
+- Internal page links point to `*.html` files for reliable local navigation.
 

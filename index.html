@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
-<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+<body id="top" data-page="home" class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
 
   <!-- Navigation -->
@@ -130,7 +130,8 @@
 
           <div class="approach-section__grid service-pillars-section__grid">
             <article id="service-branding" class="approach-card service-pillars-card reveal-on-scroll"
-              style="--approach-delay: 0ms;">
+              style="--approach-delay: 0ms;" data-card-link="branding.html" role="link" tabindex="0"
+              aria-label="Branding-Unterseite ansehen">
               <span class="approach-card__ghost-num" aria-hidden="true">01</span>
               <div class="approach-card__inner">
                 <p class="approach-card__num">BRAND SYSTEM</p>
@@ -597,7 +598,7 @@
           <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
         </section>
 
-        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="#service-webentwicklung">Webentwicklung</a></li>
@@ -607,7 +608,7 @@
           </ul>
         </nav>
 
-        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Einstieg">
           <h3 class="site-footer__heading">Einstieg</h3>
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="#kontakt">Erstgespräch buchen</a></li>
@@ -617,7 +618,7 @@
           </ul>
         </nav>
 
-        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="impressum.html">Impressum / Anbieterkennzeichnung</a></li>

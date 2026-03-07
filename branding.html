@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
-<body id="top" class="antialiased selection:bg-zinc-200 selection:text-black">
+<body id="top" data-page="branding" class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
 
   <!-- Navigation -->
@@ -63,7 +63,7 @@
       </button>
 
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="/" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Home</a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Home</a>
         <a href="#services" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
           data-nav-section>Problem</a>
         <a href="#process" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
@@ -298,7 +298,7 @@
         </div>
 
         <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
+          <a href="index.html#kontakt" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch buchen">
             Erstgespräch buchen
           </a>
         </div>
@@ -324,7 +324,7 @@
           <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
         </section>
 
-        <nav class="site-footer__column" aria-label="Footer-Navigation Leistungen">
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
@@ -335,22 +335,22 @@
           </ul>
         </nav>
 
-        <nav class="site-footer__column" aria-label="Footer-Navigation Einstieg">
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Einstieg">
           <h3 class="site-footer__heading">Einstieg</h3>
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="#kontakt">Erstgespräch buchen</a></li>
             <li><a class="site-footer__link" href="#kontakt">Mini-Audit anfordern</a></li>
-            <li><a class="site-footer__link" href="#process">Prozess</a></li>
-            <li><a class="site-footer__link" href="#pricing">Pakete</a></li>
+            <li><a class="site-footer__link" href="#process">Ansatz</a></li>
+            <li><a class="site-footer__link" href="#pricing">Deliverables</a></li>
           </ul>
         </nav>
 
-        <nav class="site-footer__column" aria-label="Footer-Navigation Rechtliches">
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="impressum.html">Impressum / Anbieterkennzeichnung</a></li>
             <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="index.html#cookie-einstellungen">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
       </div>

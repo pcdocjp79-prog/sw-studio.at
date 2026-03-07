@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media Strategie | Smart Web Studio</title>
+  <meta name="description"
+    content="Content-Themen, Templates, Posting-System und Funnel-Logik fuer Social Media mit klarem Angebotsbezug." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+
+<body id="top" data-page="social" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+      <a href="index.html" class="brand-link flex items-center gap-3">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
+        <a href="leistungen.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
+        <a href="projekte.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
+        <a href="ablauf.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
+        <a href="preise.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
+        <a href="insights.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
+        <a href="kontakt.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
+        <a href="kontakt.html#terminbuchung"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
+          buchen</a>
+      </nav>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+    </div>
+  </header>
+
+  <main class="relative pt-0 pb-0">
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="social-hero-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Social Media Strategie</p>
+              <h1 id="social-hero-title" class="about-section__headline font-display">
+                Social Content braucht ein System, nicht nur Disziplin.
+              </h1>
+              <p class="about-section__subline">
+                Ich entwickle Themenfelder, Content-Templates, ein Posting-System und die Funnel-Logik dahinter, damit
+                Social Media nicht nur Aktivitaet zeigt, sondern Nachfrage vorbereitet.
+              </p>
+            </div>
+            <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
+              <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+                aria-label="Social Strategie anfragen">
+                Social Strategie anfragen
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
+            <article class="pkg-card pkg-card--featured">
+              <div class="pkg-card__inner">
+                <div class="pkg-card__header">
+                  <p class="pkg-card__name font-display">Content System</p>
+                </div>
+                <ul class="pkg-card__list" aria-label="Content System Bausteine">
+                  <li class="pkg-card__list-item">Themencluster fuer Expertenstatus und Nachfrage</li>
+                  <li class="pkg-card__list-item">Templates fuer schnellere Produktion</li>
+                  <li class="pkg-card__list-item">Posting-Rhythmus mit realistischem Aufwand</li>
+                  <li class="pkg-card__list-item">Uebergang von Content zu Termin oder Anfrage</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="approach-section__inner max-w-7xl mx-auto">
+        <div class="approach-section__header reveal-on-scroll">
+          <p class="approach-section__eyebrow">Was enthalten ist</p>
+          <h2 class="approach-section__headline font-display">
+            Von Themen ueber Templates bis zum Funnel.
+          </h2>
+        </div>
+        <div class="approach-section__grid">
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">THEMEN</p>
+              <h3 class="approach-card__title font-display">Content Themen</h3>
+              <p class="approach-card__body">
+                Themenfelder werden direkt aus Positionierung, Fragen der Zielgruppe und Angebotslogik abgeleitet.
+              </p>
+            </div>
+          </article>
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">ASSETS</p>
+              <h3 class="approach-card__title font-display">Templates</h3>
+              <p class="approach-card__body">
+                Wiederverwendbare Formate machen Content-Produktion planbar statt jeden Post neu zu erfinden.
+              </p>
+            </div>
+          </article>
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;">
+            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
+            <div class="approach-card__inner">
+              <p class="approach-card__num">FLOW</p>
+              <h3 class="approach-card__title font-display">Posting System &amp; Funnel</h3>
+              <p class="approach-card__body">
+                Content fuehrt in konkrete CTA-Schritte und wird nicht als isolierter Kanal behandelt.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">
+            Wenn Social nicht nur busy wirken, sondern Richtung geben soll.
+          </h2>
+        </div>
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Termin buchen</a>
+          <a href="kontakt.html" class="final-cta-btn final-cta-btn--secondary">Projekt anfragen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
+          <p class="site-footer__description">Social Media Strategie mit Themen, Templates und Funnel-Logik.</p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
+            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
+            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
+            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
+            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
+            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
+            <li><a class="site-footer__link" href="ueber-mich.html">Ueber mich</a></li>
+            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
+            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="src/js/main.js"></script>
+</body>
+
+</html>

@@ -1,126 +1,67 @@
 const HOME_PATH = "index.html";
-const NAV_LINK_CLASS = "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium";
+const CONTACT_PATH = "kontakt.html";
+const BOOKING_HASH = "terminbuchung";
+const COOKIE_PATH = "cookies.html";
+
+const NAV_LINK_CLASS =
+  "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium";
 const NAV_MOBILE_CTA_CLASS = `${NAV_LINK_CLASS} nav-link--mobile-cta`;
 const DEFAULT_COOKIE_NOTE =
-  "Cookie-Einstellungen folgen nach Integration des Consent-Tools.";
+  "Consent-Tool noch nicht aktiv. Diese Seite beschreibt den geplanten Cookie- und Tracking-Setup.";
 
-const HOME_ENTRY_LINKS = [
-  { type: "contact", label: "Erstgespr\u00e4ch buchen" },
-  { type: "contact", label: "Mini-Audit anfordern" },
-  { type: "section", id: "process", label: "Prozess" },
-  { type: "section", id: "pricing", label: "Pakete" },
+const GLOBAL_NAV_LINKS = [
+  { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
+  { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
+  { type: "page", path: "projekte.html", label: "Projekte", pageKey: "projekte" },
+  { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
+  { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
+  { type: "page", path: "insights.html", label: "Insights", pageKey: "insights" },
+  { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
 
-const PAGE_CONFIGS = {
-  home: {
-    path: HOME_PATH,
-    navCtaLabel: "Erstgespr\u00e4ch buchen",
-    navLinks: [
-      { type: "section", id: "services", label: "Leistungen" },
-      { type: "section", id: "process", label: "Ablauf" },
-      { type: "section", id: "pricing", label: "Pakete" },
-      { type: "section", id: "about", label: "\u00dcber mich" },
-      { type: "section", id: "kontakt", label: "Kontakt" },
-    ],
-    footerEntryLinks: HOME_ENTRY_LINKS,
-  },
-  branding: {
-    path: "branding.html",
-    navCtaLabel: "Erstgespr\u00e4ch buchen",
-    navLinks: [
-      { type: "page", path: HOME_PATH, label: "Start" },
-      { type: "section", id: "services", label: "Problem" },
-      { type: "section", id: "process", label: "Ansatz" },
-      { type: "section", id: "pricing", label: "Deliverables" },
-      { type: "section", id: "about", label: "Rebranding" },
-      { type: "contact", label: "Kontakt" },
-    ],
-    footerEntryLinks: [
-      { type: "contact", label: "Erstgespr\u00e4ch buchen" },
-      { type: "contact", label: "Mini-Audit anfordern" },
-      { type: "section", id: "process", label: "Ansatz" },
-      { type: "section", id: "pricing", label: "Deliverables" },
-    ],
-  },
-  webentwicklung: {
-    path: "webentwicklung.html",
-    navCtaLabel: "Erstgespr\u00e4ch buchen",
-    navLinks: [
-      { type: "page", path: HOME_PATH, label: "Start" },
-      { type: "section", id: "services", label: "Problem" },
-      { type: "section", id: "process", label: "Vorgehen" },
-      { type: "section", id: "pricing", label: "Was ich baue" },
-      { type: "section", id: "about", label: "Standards" },
-      { type: "contact", label: "Kontakt" },
-    ],
-    footerEntryLinks: [
-      { type: "contact", label: "Erstgespr\u00e4ch buchen" },
-      { type: "contact", label: "Mini-Audit anfordern" },
-      { type: "section", id: "process", label: "Vorgehen" },
-      { type: "section", id: "pricing", label: "Was ich baue" },
-    ],
-  },
-  marketing: {
-    path: "marketing.html",
-    navCtaLabel: "Erstgespr\u00e4ch buchen",
-    navLinks: [
-      { type: "page", path: HOME_PATH, label: "Start" },
-      { type: "section", id: "services", label: "Problem" },
-      { type: "section", id: "process", label: "Ansatz" },
-      { type: "section", id: "pricing", label: "Tracking" },
-      { type: "section", id: "about", label: "Skalierung" },
-      { type: "contact", label: "Kontakt" },
-    ],
-    footerEntryLinks: [
-      { type: "contact", label: "Erstgespr\u00e4ch buchen" },
-      { type: "contact", label: "Mini-Audit anfordern" },
-      { type: "section", id: "process", label: "Ansatz" },
-      { type: "section", id: "pricing", label: "Tracking" },
-    ],
-  },
-  impressum: {
-    path: "impressum.html",
-    navCtaLabel: "Kontakt aufnehmen",
-    navLinks: [
-      { type: "page", path: HOME_PATH, label: "Startseite" },
-      { type: "page", path: `${HOME_PATH}#services`, label: "Leistungen" },
-      { type: "contact", label: "Kontakt" },
-    ],
-    footerEntryLinks: [
-      { type: "contact", label: "Erstgespr\u00e4ch buchen" },
-      { type: "contact", label: "Mini-Audit anfordern" },
-      { type: "page", path: `${HOME_PATH}#process`, label: "Prozess" },
-      { type: "page", path: `${HOME_PATH}#pricing`, label: "Pakete" },
-    ],
-  },
-  datenschutz: {
-    path: "datenschutz.html",
-    navCtaLabel: "Kontakt aufnehmen",
-    navLinks: [
-      { type: "page", path: HOME_PATH, label: "Startseite" },
-      { type: "page", path: `${HOME_PATH}#services`, label: "Leistungen" },
-      { type: "contact", label: "Kontakt" },
-    ],
-    footerEntryLinks: [
-      { type: "contact", label: "Erstgespr\u00e4ch buchen" },
-      { type: "contact", label: "Mini-Audit anfordern" },
-      { type: "page", path: `${HOME_PATH}#process`, label: "Prozess" },
-      { type: "page", path: `${HOME_PATH}#pricing`, label: "Pakete" },
-    ],
-  },
-};
+const FOOTER_NAVIGATION_LINKS = [
+  { type: "page", path: "projekte.html", label: "Projekte", pageKey: "projekte" },
+  { type: "page", path: "case-study.html", label: "Case Study", pageKey: "case-study" },
+  { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
+  { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
+  { type: "page", path: "ueber-mich.html", label: "Ueber mich", pageKey: "ueber-mich" },
+  { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
+];
 
 const FOOTER_SERVICE_LINKS = [
-  { type: "page", path: "branding.html", label: "Branding & Positionierung", pageKey: "branding" },
   { type: "page", path: "webentwicklung.html", label: "Webentwicklung", pageKey: "webentwicklung" },
-  { type: "page", path: "marketing.html", label: "Marketing & Growth", pageKey: "marketing" },
+  { type: "page", path: "branding.html", label: "Branding", pageKey: "branding" },
+  { type: "page", path: "marketing.html", label: "SEO & Marketing", pageKey: "marketing" },
+  { type: "page", path: "social.html", label: "Social Strategie", pageKey: "social" },
+  { type: "page", path: "growth.html", label: "Growth Strategie", pageKey: "growth" },
 ];
 
 const FOOTER_LEGAL_LINKS = [
-  { type: "page", path: "impressum.html", label: "Impressum / Anbieterkennzeichnung", pageKey: "impressum" },
+  { type: "page", path: "impressum.html", label: "Impressum", pageKey: "impressum" },
   { type: "page", path: "datenschutz.html", label: "Datenschutz", pageKey: "datenschutz" },
-  { type: "cookie", label: "Cookie-Einstellungen" },
+  { type: "cookie", path: COOKIE_PATH, label: "Cookie-Einstellungen", pageKey: "cookies" },
 ];
+
+const PAGE_CONFIGS = {
+  home: { path: HOME_PATH, navCtaLabel: "Termin buchen" },
+  leistungen: { path: "leistungen.html", navCtaLabel: "Termin buchen" },
+  branding: { path: "branding.html", navCtaLabel: "Termin buchen" },
+  webentwicklung: { path: "webentwicklung.html", navCtaLabel: "Termin buchen" },
+  marketing: { path: "marketing.html", navCtaLabel: "Termin buchen" },
+  social: { path: "social.html", navCtaLabel: "Termin buchen" },
+  growth: { path: "growth.html", navCtaLabel: "Termin buchen" },
+  projekte: { path: "projekte.html", navCtaLabel: "Termin buchen" },
+  "case-study": { path: "case-study.html", navCtaLabel: "Termin buchen" },
+  ablauf: { path: "ablauf.html", navCtaLabel: "Termin buchen" },
+  preise: { path: "preise.html", navCtaLabel: "Termin buchen" },
+  "ueber-mich": { path: "ueber-mich.html", navCtaLabel: "Termin buchen" },
+  insights: { path: "insights.html", navCtaLabel: "Termin buchen" },
+  kontakt: { path: CONTACT_PATH, navCtaLabel: "Termin buchen" },
+  danke: { path: "danke.html", navCtaLabel: "Termin buchen" },
+  impressum: { path: "impressum.html", navCtaLabel: "Termin buchen" },
+  datenschutz: { path: "datenschutz.html", navCtaLabel: "Termin buchen" },
+  cookies: { path: COOKIE_PATH, navCtaLabel: "Termin buchen" },
+};
 
 const getCurrentPageKey = () => {
   const explicitPageKey = document.body?.dataset.page?.trim();
@@ -148,20 +89,18 @@ const getCurrentPagePath = (currentPageKey) => {
   return !slug || slug === "/" ? HOME_PATH : slug;
 };
 
-const hasLocalContactDestination = () => {
-  const contactMode = document.body?.dataset.contactMode?.trim();
+const getBookingTarget = () => {
+  const configuredTarget = document.body?.dataset.bookingTarget?.trim();
+  if (configuredTarget) return configuredTarget;
 
-  if (contactMode === "local") return true;
-  if (contactMode === "global") return false;
-
-  return Boolean(document.querySelector("[data-contact-form]"));
+  return getCurrentPageKey() === "kontakt"
+    ? `#${BOOKING_HASH}`
+    : `${CONTACT_PATH}#${BOOKING_HASH}`;
 };
-
-const getContactTarget = () => (hasLocalContactDestination() ? "#kontakt" : `${HOME_PATH}#kontakt`);
 
 const getCookieTarget = () => {
   const configuredTarget = document.body?.dataset.cookieTarget?.trim();
-  return configuredTarget || "#cookie-einstellungen";
+  return configuredTarget || COOKIE_PATH;
 };
 
 const isCurrentPageLink = (path, currentPagePath) => {
@@ -171,12 +110,10 @@ const isCurrentPageLink = (path, currentPagePath) => {
 
 const getResolvedHref = (link, runtimeConfig) => {
   switch (link.type) {
-    case "section":
-      return `#${link.id}`;
-    case "contact":
-      return runtimeConfig.contactTarget;
     case "cookie":
       return runtimeConfig.cookieTarget;
+    case "section":
+      return `#${link.id}`;
     case "page":
     default:
       return link.path || HOME_PATH;
@@ -186,18 +123,12 @@ const getResolvedHref = (link, runtimeConfig) => {
 const createLinkElement = (link, runtimeConfig, options = {}) => {
   const anchor = document.createElement("a");
   const href = getResolvedHref(link, runtimeConfig);
-  const isLocalSection = link.type === "section";
-  const isLocalContact = link.type === "contact" && runtimeConfig.contactTarget === "#kontakt";
 
   anchor.href = href;
   anchor.textContent = link.label;
 
   if (options.className) {
     anchor.className = options.className;
-  }
-
-  if (isLocalSection || isLocalContact) {
-    anchor.setAttribute("data-nav-section", "");
   }
 
   const isCurrentPage =
@@ -217,21 +148,21 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
   return anchor;
 };
 
-const renderPrimaryNavigation = (primaryNav, pageConfig, runtimeConfig) => {
-  if (!primaryNav || !pageConfig) return;
+const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
+  if (!primaryNav) return;
 
   const fragment = document.createDocumentFragment();
 
-  pageConfig.navLinks.forEach((link) => {
+  GLOBAL_NAV_LINKS.forEach((link) => {
     fragment.appendChild(
       createLinkElement(link, runtimeConfig, { className: NAV_LINK_CLASS })
     );
   });
 
   const mobileCta = document.createElement("a");
-  mobileCta.href = runtimeConfig.contactTarget;
+  mobileCta.href = runtimeConfig.bookingTarget;
   mobileCta.className = NAV_MOBILE_CTA_CLASS;
-  mobileCta.textContent = pageConfig.navCtaLabel;
+  mobileCta.textContent = "Termin buchen";
   fragment.appendChild(mobileCta);
 
   primaryNav.replaceChildren(fragment);
@@ -277,8 +208,21 @@ const upsertCookiePlaceholderNote = (footer, runtimeConfig) => {
   note.textContent = DEFAULT_COOKIE_NOTE;
 };
 
-const renderFooterNavigation = (footer, pageConfig, runtimeConfig) => {
-  if (!footer || !pageConfig) return;
+const syncFooterHeadings = (footer) => {
+  if (!footer) return;
+
+  const entryHeading = footer.querySelector(
+    '[data-footer-group="entry"] .site-footer__heading'
+  );
+  if (entryHeading) {
+    entryHeading.textContent = "Navigation";
+  }
+};
+
+const renderFooterNavigation = (footer, runtimeConfig) => {
+  if (!footer) return;
+
+  syncFooterHeadings(footer);
 
   renderFooterList(
     footer.querySelector('[data-footer-group="services"] .site-footer__list'),
@@ -288,7 +232,7 @@ const renderFooterNavigation = (footer, pageConfig, runtimeConfig) => {
 
   renderFooterList(
     footer.querySelector('[data-footer-group="entry"] .site-footer__list'),
-    pageConfig.footerEntryLinks || HOME_ENTRY_LINKS,
+    FOOTER_NAVIGATION_LINKS,
     runtimeConfig
   );
 
@@ -312,7 +256,7 @@ const updateBrandAndCtaLinks = (pageConfig, runtimeConfig) => {
   }
 
   if (navCta && pageConfig) {
-    navCta.href = runtimeConfig.contactTarget;
+    navCta.href = runtimeConfig.bookingTarget;
     navCta.textContent = pageConfig.navCtaLabel;
     navCta.setAttribute("aria-label", pageConfig.navCtaLabel);
   }
@@ -324,14 +268,7 @@ const normalizeStandaloneLinks = (runtimeConfig) => {
   });
 
   document
-    .querySelectorAll(`a[href="#kontakt"], a[href="${HOME_PATH}#kontakt"]`)
-    .forEach((link) => {
-      if (link.closest("#primary-nav")) return;
-      link.href = runtimeConfig.contactTarget;
-    });
-
-  document
-    .querySelectorAll(`a[href="#cookie-einstellungen"], a[href="${HOME_PATH}#cookie-einstellungen"]`)
+    .querySelectorAll(`a[href="#cookie-einstellungen"], a[href="${COOKIE_PATH}"], a[href="${HOME_PATH}#cookie-einstellungen"]`)
     .forEach((link) => {
       link.href = runtimeConfig.cookieTarget;
 
@@ -570,14 +507,14 @@ export const initNavigation = () => {
   const runtimeConfig = {
     currentPageKey,
     currentPagePath: getCurrentPagePath(currentPageKey),
-    contactTarget: getContactTarget(),
+    bookingTarget: getBookingTarget(),
     cookieTarget: getCookieTarget(),
     cookieIsPlaceholder: !document.querySelector("[data-cookie-settings]"),
   };
 
   updateBrandAndCtaLinks(pageConfig, runtimeConfig);
-  renderPrimaryNavigation(primaryNav, pageConfig, runtimeConfig);
-  renderFooterNavigation(footer, pageConfig, runtimeConfig);
+  renderPrimaryNavigation(primaryNav, runtimeConfig);
+  renderFooterNavigation(footer, runtimeConfig);
   normalizeStandaloneLinks(runtimeConfig);
 
   initScrollToTop(scrollToTopButton);
@@ -585,4 +522,3 @@ export const initNavigation = () => {
   initMobileNavigation(glassNav, mobileNavToggle, primaryNav);
   initActiveSectionObserver(primaryNav);
 };
-

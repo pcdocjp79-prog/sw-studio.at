@@ -1,22 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Web Studio</title>
+  <title>Smart Web Studio | Marke. Website. Wachstum.</title>
+  <meta name="description"
+    content="Smart Web Studio verbindet Branding, Webentwicklung und Growth zu einem klaren System aus Marke, Website und Wachstum." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
     rel="stylesheet" />
 
-  <!-- Iconify -->
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-  <!-- Tailwind -->
   <script>
     tailwind.config = {
       theme: {
@@ -36,17 +35,14 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Legacy CSS (stabil) -->
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body id="top" data-page="home" class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
 
-  <!-- Navigation -->
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-
       <a href="index.html" class="brand-link flex items-center gap-3">
         <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
         <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
@@ -61,32 +57,31 @@
       </button>
 
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="#services" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
-          data-nav-section>Leistungen</a>
-        <a href="#process" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
-          data-nav-section>Ablauf</a>
-        <a href="#pricing" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
-          data-nav-section>Pakete</a>
-        <a href="#about" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
-          data-nav-section>Über mich</a>
-        <a href="#kontakt" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium"
-          data-nav-section>Kontakt</a>
-        <a href="#kontakt" class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
-          Erstgespräch buchen
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
+        <a href="leistungen.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
+        <a href="projekte.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
+        <a href="ablauf.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
+        <a href="preise.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
+        <a href="insights.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
+        <a href="kontakt.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
+        <a href="kontakt.html#terminbuchung"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Termin buchen
         </a>
-        <!-- Platzhalter fuer spaetere Seiten:
-        <a href="#" class="nav-link" aria-disabled="true" tabindex="-1">Projekte</a>
-        <a href="#" class="nav-link" aria-disabled="true" tabindex="-1">Insights</a>
-        -->
       </nav>
 
-      <a href="#kontakt" class="nav-cta" aria-label="Erstgespräch buchen">
-        Erstgespräch buchen
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">
+        Termin buchen
       </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <main class="relative pt-0 pb-0">
     <div class="hero-scroll-stack max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
@@ -98,87 +93,113 @@
 
             <div class="hero-stage__content">
               <p class="hero-stage__eyebrow">Smart Web Studio</p>
-              <h2 class="hero-stage__title">
-                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Moderne</span> Websites.</span>
-                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Strategie</span> mit
-                  System.</span>
-                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Ergebnisse</span>, die
-                  wachsen.</span>
-              </h2>
+              <h1 class="hero-stage__title">
+                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Marke</span> mit Richtung.</span>
+                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Website</span> mit Struktur.</span>
+                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Wachstum</span> mit System.</span>
+              </h1>
               <p class="hero-stage__text">
-                Ich kombiniere Branding, Entwicklung und Growth-Strategie zu einem skalierbaren digitalen System.
+                Ich verbinde Branding, Webentwicklung und Growth zu einem klaren Setup, das aus Sichtbarkeit qualifizierte
+                Anfragen macht.
               </p>
+              <div class="final-cta-section__btns justify-start mt-8">
+                <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+                  aria-label="Erstgespraech buchen">
+                  Erstgespraech buchen
+                </a>
+                <a href="leistungen.html" class="final-cta-btn final-cta-btn--secondary"
+                  aria-label="Leistungen ansehen">
+                  Leistungen ansehen
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <section id="problem"
+        class="approach-section scroll-focus-section animate-enter delay-200 mt-16 lg:mt-20 px-0"
+        aria-labelledby="problem-headline">
+        <div class="approach-section__inner max-w-7xl mx-auto">
+          <div class="approach-section__header reveal-on-scroll">
+            <p class="approach-section__eyebrow">Problem</p>
+            <h2 id="problem-headline" class="approach-section__headline font-display">
+              Viele Websites sehen gut aus, bringen aber keine Kunden.
+            </h2>
+            <p class="approach-section__subline">
+              Wenn Positionierung, Nutzerfuehrung und Conversion nicht sauber zusammenspielen, bleibt selbst ein schoener
+              Auftritt nur digitale Fassade. Ich arbeite deshalb von der Strategie in die Umsetzung, nicht andersherum.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section id="services"
-        class="service-pillars-section scroll-focus-section animate-enter delay-300 mt-16 lg:mt-20 relative w-full"
+        class="service-pillars-section scroll-focus-section animate-enter delay-300 mt-10 lg:mt-16 relative w-full"
         aria-labelledby="services-headline">
         <div class="service-pillars-section__inner max-w-7xl mx-auto">
           <div class="approach-section__header reveal-on-scroll">
-            <p class="approach-section__eyebrow">Service-Ebenen</p>
+            <p class="approach-section__eyebrow">Leistungen</p>
             <h2 id="services-headline" class="approach-section__headline font-display">
-              Drei Bausteine. Ein System.
+              Drei Kernbereiche. Ein klares Vertriebssystem.
             </h2>
             <p class="approach-section__subline">
-              Branding, Entwicklung und Growth greifen bei mir ineinander, damit aus einer Website ein messbares
-              Vertriebssystem wird.
+              Branding schaerft den Auftritt, Webentwicklung uebersetzt ihn in ein performantes System und Marketing sorgt
+              fuer messbare Nachfrage.
             </p>
           </div>
 
           <div class="approach-section__grid service-pillars-section__grid">
-            <article id="service-branding" class="approach-card service-pillars-card reveal-on-scroll"
-              style="--approach-delay: 0ms;" data-card-link="branding.html" role="link" tabindex="0"
-              aria-label="Branding-Unterseite ansehen">
+            <article id="service-webentwicklung" class="approach-card service-pillars-card reveal-on-scroll"
+              style="--approach-delay: 0ms;" data-card-link="webentwicklung.html" role="link" tabindex="0"
+              aria-label="Webentwicklung ansehen">
               <span class="approach-card__ghost-num" aria-hidden="true">01</span>
               <div class="approach-card__inner">
-                <p class="approach-card__num">BRAND SYSTEM</p>
-                <h3 class="approach-card__title font-display">Branding &amp; Positionierung</h3>
+                <p class="approach-card__num">WEBSYSTEM</p>
+                <h3 class="approach-card__title font-display">Webentwicklung</h3>
                 <p class="approach-card__body">
-                  Ich schärfe deine Marke, dein Nutzenversprechen und dein visuelles System. Damit du nicht wie „noch
-                  ein Anbieter“ wirkst – sondern wie die klare Wahl.
+                  Landingpages, Business-Websites und skalierbare Systeme mit Performance, Struktur und klarer
+                  Nutzerfuehrung.
                 </p>
-                <a href="branding.html" class="approach-section__btn service-pillars-card__btn"
-                  aria-label="Branding-Unterseite ansehen">
-                  Branding entdecken
+                <a href="webentwicklung.html" class="approach-section__btn service-pillars-card__btn"
+                  aria-label="Zur Seite Webentwicklung">
+                  Webentwicklung
                 </a>
               </div>
             </article>
 
-            <article id="service-webentwicklung" class="approach-card service-pillars-card reveal-on-scroll"
-              style="--approach-delay: 100ms;" data-card-link="webentwicklung.html" role="link" tabindex="0"
-              aria-label="Webentwicklung-Unterseite ansehen">
+            <article id="service-branding" class="approach-card service-pillars-card reveal-on-scroll"
+              style="--approach-delay: 100ms;" data-card-link="branding.html" role="link" tabindex="0"
+              aria-label="Branding ansehen">
               <span class="approach-card__ghost-num" aria-hidden="true">02</span>
               <div class="approach-card__inner">
-                <p class="approach-card__num">PERFORMANCE WEBSITE</p>
-                <h3 class="approach-card__title font-display">Webentwicklung mit Struktur</h3>
+                <p class="approach-card__num">BRAND SYSTEM</p>
+                <h3 class="approach-card__title font-display">Branding</h3>
                 <p class="approach-card__body">
-                  Ich entwickle schnelle, skalierbare Websites mit klarer Nutzerführung und Conversion-Architektur.
-                  Gebaut als Vertriebssystem – nicht als digitale Visitenkarte.
+                  Positionierung, Messaging, visuelle Leitlinien und ein Design-System, das deine Marke konsistent und
+                  hochwertig fuehrt.
                 </p>
-                <a href="webentwicklung.html" class="approach-section__btn service-pillars-card__btn"
-                  aria-label="Webentwicklung-Unterseite ansehen">
-                  Webentwicklung ansehen
+                <a href="branding.html" class="approach-section__btn service-pillars-card__btn"
+                  aria-label="Zur Seite Branding">
+                  Branding
                 </a>
               </div>
             </article>
 
             <article id="service-growth" class="approach-card service-pillars-card reveal-on-scroll"
-              style="--approach-delay: 200ms;" data-card-link="marketing.html" role="link"
-              tabindex="0" aria-label="Marketing-und-Growth-Unterseite ansehen">
+              style="--approach-delay: 200ms;" data-card-link="marketing.html" role="link" tabindex="0"
+              aria-label="SEO und Marketing ansehen">
               <span class="approach-card__ghost-num" aria-hidden="true">03</span>
               <div class="approach-card__inner">
                 <p class="approach-card__num">GROWTH LAYER</p>
-                <h3 class="approach-card__title font-display">Marketing &amp; Growth</h3>
+                <h3 class="approach-card__title font-display">Marketing</h3>
                 <p class="approach-card__body">
-                  Ich verbinde SEO, Tracking und Funnel-Logik zu einem System, das Sichtbarkeit in Anfragen übersetzt.
-                  Messbar. Planbar. Skalierbar.
+                  SEO-Struktur, Tracking, Content-Logik und Conversion-Hebel, damit Sichtbarkeit in Anfragen uebersetzt
+                  wird.
                 </p>
                 <a href="marketing.html" class="approach-section__btn service-pillars-card__btn"
-                  aria-label="Marketing-und-Growth-Unterseite ansehen">
-                  Growth verstehen
+                  aria-label="Zur Seite SEO und Marketing">
+                  SEO &amp; Marketing
                 </a>
               </div>
             </article>
@@ -187,99 +208,106 @@
       </section>
     </div>
 
-    <!-- Section 3: Mein Ansatz / System -->
-    <section id="approach" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="approach-section__inner max-w-7xl mx-auto">
-
-        <!-- Heading -->
-        <div class="approach-section__header reveal-on-scroll">
-          <p class="approach-section__eyebrow">Mein Ansatz</p>
-          <h2 class="approach-section__headline font-display">
-            Websites entstehen nicht aus Design.<br class="hidden sm:block" /> Sondern aus Klarheit.
-          </h2>
-          <p class="approach-section__subline">
-            Viele Unternehmen investieren in eine neue Website – aber nicht in die Strategie dahinter. Ich arbeite
-            anders.
-          </p>
-        </div>
-
-        <!-- Cards -->
-        <div class="approach-section__grid">
-
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">01</p>
-              <h3 class="approach-card__title font-display">Positionierung vor Gestaltung</h3>
-              <p class="approach-card__body">
-                Bevor ein Pixel entsteht, klären wir: Zielgruppe, Angebot, Differenzierung, Kernbotschaft. Ohne Klarheit
-                kein Premium.
+    <section id="featured-project" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="featured-project-title">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Beispiel Projekt</p>
+              <h2 id="featured-project-title" class="about-section__headline font-display">
+                Eine Case Study ohne Showroom-Theater.
+              </h2>
+              <p class="about-section__subline">
+                Solange keine freigegebenen Kundendaten vorliegen, zeige ich transparent die Struktur, Denkweise und
+                Deliverables hinter einem typischen Projekt. Kein Fake-Proof. Keine erfundenen Zahlen.
               </p>
             </div>
-          </article>
 
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">02</p>
-              <h3 class="approach-card__title font-display">Struktur vor Optik</h3>
-              <p class="approach-card__body">
-                Ich entwickle: klare Seitenarchitektur, Conversion-Führung, logische Nutzerwege, messbare Touchpoints.
-                Design unterstützt – es führt nicht.
-              </p>
+            <div class="about-section__blocks">
+              <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
+                <h3 class="about-block__title font-display">Ausgangslage</h3>
+                <p class="about-block__body">
+                  Unklare Positionierung, inkonsistente Website-Struktur und fehlende Priorisierung der Conversion-Wege.
+                </p>
+              </div>
+
+              <div class="about-block reveal-on-scroll" style="--about-delay: 90ms;">
+                <h3 class="about-block__title font-display">Umsetzung</h3>
+                <p class="about-block__body">
+                  Messaging scharfziehen, Angebotslogik sortieren, Seitenarchitektur definieren und alle CTAs sauber in
+                  einen Kontaktfluss fuehren.
+                </p>
+              </div>
+
+              <div class="about-block reveal-on-scroll" style="--about-delay: 180ms;">
+                <h3 class="about-block__title font-display">Ergebnis</h3>
+                <p class="about-block__body">
+                  Eine Seite, die nicht nur hochwertig wirkt, sondern nachvollziehbar zu Angebot, Vertrauen und Anfrage
+                  fuehrt.
+                </p>
+              </div>
             </div>
-          </article>
 
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">03</p>
-              <h3 class="approach-card__title font-display">Performance als Standard</h3>
-              <p class="approach-card__body">
-                Schnelle Ladezeiten. Saubere Struktur. Tracking-Setup vorbereitet. Skalierbar. Weil Qualität messbar
-                ist.
+            <div class="about-section__cta reveal-on-scroll">
+              <p class="about-section__cta-lead">
+                Die komplette Struktur findest du in der Beispiel-Case-Study.
               </p>
+              <a href="case-study.html" class="about-section__btn" aria-label="Case Study ansehen">
+                Case Study ansehen
+              </a>
             </div>
-          </article>
+          </div>
 
+          <div class="reveal-on-scroll" style="--about-delay: 120ms;">
+            <article class="pkg-card pkg-card--featured">
+              <div class="pkg-card__inner">
+                <div class="pkg-card__header">
+                  <p class="pkg-card__name font-display">Case Study Struktur</p>
+                  <p class="pkg-card__tagline">Framework statt frei erfundener Referenz.</p>
+                </div>
+                <ul class="pkg-card__list" aria-label="Case Study Aufbau">
+                  <li class="pkg-card__list-item">Ausgangslage und Projektkontext</li>
+                  <li class="pkg-card__list-item">Zielbild und strategischer Fokus</li>
+                  <li class="pkg-card__list-item">Umsetzung in Marke, Website und Funnel</li>
+                  <li class="pkg-card__list-item">Ergebnis als transparente Deliverable-Ebene</li>
+                </ul>
+                <div class="pkg-card__footer">
+                  <p class="pkg-card__price">ohne <strong>Kundendaten</strong> <span class="pkg-card__price-hint">Testmodus</span>
+                  </p>
+                  <a href="case-study.html" class="pkg-card__btn pkg-card__btn--featured"
+                    aria-label="Zur Beispiel-Case-Study">
+                    Zur Case Study
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-
-        <!-- CTA -->
-        <div class="approach-section__cta reveal-on-scroll">
-          <p class="approach-section__cta-lead">Lass uns dein Projekt strategisch denken.</p>
-          <a href="#kontakt" class="approach-section__btn" aria-label="Erstgespräch buchen">
-            Erstgespräch buchen
-          </a>
-        </div>
-
       </div>
     </section>
 
-    <!-- Section 4: Prozess / Zusammenarbeit -->
     <section id="process" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="process-section__inner max-w-7xl mx-auto">
-
-        <!-- Heading -->
         <div class="process-section__header reveal-on-scroll">
-          <p class="process-section__eyebrow">Zusammenarbeit</p>
+          <p class="process-section__eyebrow">Ablauf</p>
           <h2 class="process-section__headline font-display">
-            Ein klarer Prozess.<br class="hidden sm:block" /> Keine Überraschungen.
+            Ein klarer Prozess. Keine Black Box.
           </h2>
           <p class="process-section__subline">
-            Vom ersten Gespräch bis zum Launch – du weißt jederzeit, was als Nächstes passiert.
+            Von der Analyse bis zum Launch bleibt sichtbar, woran gearbeitet wird und welche Entscheidung als Naechstes
+            faellig ist.
           </p>
         </div>
 
-        <!-- Steps -->
         <ol class="process-section__steps" aria-label="Projektprozess in vier Schritten">
-
           <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
             <span class="process-step__ghost-num" aria-hidden="true">01</span>
             <div class="process-step__inner">
               <p class="process-step__num">01</p>
-              <h3 class="process-step__title font-display">Analyse &amp; Zieldefinition</h3>
+              <h3 class="process-step__title font-display">Analyse</h3>
               <p class="process-step__body">
-                Wir klären Zielgruppe, Angebot und Erfolgskriterien. Du bekommst Klarheit vor Gestaltung.
+                Zielgruppe, Angebot, Wettbewerb und vorhandene Website werden strukturiert bewertet.
               </p>
             </div>
           </li>
@@ -288,9 +316,9 @@
             <span class="process-step__ghost-num" aria-hidden="true">02</span>
             <div class="process-step__inner">
               <p class="process-step__num">02</p>
-              <h3 class="process-step__title font-display">Strategie &amp; Struktur</h3>
+              <h3 class="process-step__title font-display">Strategie</h3>
               <p class="process-step__body">
-                Seitenarchitektur, Positionierung und Conversion-Logik. Bevor Design beginnt, steht das Fundament.
+                Positionierung, Seitenarchitektur, Nutzerwege und Conversion-Ziele werden definiert.
               </p>
             </div>
           </li>
@@ -299,9 +327,9 @@
             <span class="process-step__ghost-num" aria-hidden="true">03</span>
             <div class="process-step__inner">
               <p class="process-step__num">03</p>
-              <h3 class="process-step__title font-display">Design &amp; Umsetzung</h3>
+              <h3 class="process-step__title font-display">Umsetzung</h3>
               <p class="process-step__body">
-                Premium UI, saubere Entwicklung, Performance-Fokus. Kein Overdesign. Kein Chaos.
+                Design, Entwicklung und Content-Fuehrung werden auf das priorisierte Zielsystem ausgerichtet.
               </p>
             </div>
           </li>
@@ -310,290 +338,107 @@
             <span class="process-step__ghost-num" aria-hidden="true">04</span>
             <div class="process-step__inner">
               <p class="process-step__num">04</p>
-              <h3 class="process-step__title font-display">Launch &amp; Optimierung</h3>
+              <h3 class="process-step__title font-display">Launch</h3>
               <p class="process-step__body">
-                Tracking aktiv, Prozesse definiert, nächste Schritte geplant. Website ist Start – nicht Ende.
+                Tracking, CTA-Wege und Uebergabe werden finalisiert, damit die Seite nicht nur online geht, sondern
+                einsatzbereit ist.
               </p>
             </div>
           </li>
-
         </ol>
-
-        <!-- CTA -->
-        <div class="process-section__cta reveal-on-scroll">
-          <p class="process-section__cta-lead">Bereit für einen strukturierten Start?</p>
-          <a href="#kontakt" class="process-section__btn" aria-label="Erstgespräch buchen">
-            Erstgespräch buchen
-          </a>
-        </div>
-
       </div>
     </section>
 
-    <!-- Section 5: Pakete / Einstieg -->
-    <section id="pricing" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+    <section id="conversion-paths" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="packages-section__inner max-w-7xl mx-auto">
-
-        <!-- Heading -->
         <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Pakete &amp; Einstieg</p>
+          <p class="packages-section__eyebrow">Zwei Wege</p>
           <h2 class="packages-section__headline font-display">
-            Klare Pakete. Klarer Scope.
+            Besucher sollen immer einen klaren naechsten Schritt sehen.
           </h2>
           <p class="packages-section__subline">
-            Damit du schnell entscheiden kannst – ohne Angebots-Chaos. Exakter Umfang wird im Erstgespräch definiert.
+            Entweder ueber die Leistung in die Anfrage oder ueber Projektlogik in Richtung Vertrauen und Termin.
           </p>
         </div>
 
-        <!-- Cards -->
         <div class="packages-section__grid">
-
-          <!-- Card 1: Starter -->
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;" data-package="starter">
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
             <div class="pkg-card__inner">
               <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Starter</p>
-                <p class="pkg-card__tagline">Solider Start für einen professionellen Auftritt.</p>
+                <p class="pkg-card__name font-display">Weg 1</p>
+                <p class="pkg-card__tagline">Start -&gt; Leistungen -&gt; Service -&gt; Kontakt</p>
               </div>
-              <ul class="pkg-card__list" aria-label="Leistungen Starter-Paket">
-                <li class="pkg-card__list-item">Mini-Strategie + klare Seitenstruktur</li>
-                <li class="pkg-card__list-item">1–3 Seiten (One-Pager oder Small Site)</li>
-                <li class="pkg-card__list-item">Basis-SEO &amp; sauberes Setup</li>
+              <ul class="pkg-card__list" aria-label="Leistungsweg">
+                <li class="pkg-card__list-item">Hub-Seite mit allen Angeboten</li>
+                <li class="pkg-card__list-item">Vertiefte Service-Seiten pro Thema</li>
+                <li class="pkg-card__list-item">Kontaktseite mit Termin- und Formularweg</li>
               </ul>
               <div class="pkg-card__footer">
-                <p class="pkg-card__price">ab <strong>€ 3.900</strong> <span
-                    class="pkg-card__price-hint">Richtwert</span>
-                </p>
-                <a href="#kontakt" class="pkg-card__btn" aria-label="Starter-Paket anfragen">
-                  Starter anfragen
+                <a href="leistungen.html" class="pkg-card__btn" aria-label="Zum Leistungsbereich">
+                  Leistungsweg ansehen
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Card 2: Professional (Empfohlen) -->
-          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;"
-            data-package="professional">
-            <div class="pkg-card__badge" aria-label="Empfohlen">Empfohlen</div>
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
             <div class="pkg-card__inner">
               <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Professional</p>
-                <p class="pkg-card__tagline">Premium-Auftritt + Lead-System für qualifizierte Anfragen.</p>
+                <p class="pkg-card__name font-display">Weg 2</p>
+                <p class="pkg-card__tagline">Start -&gt; Projekte -&gt; Case Study -&gt; Termin</p>
               </div>
-              <ul class="pkg-card__list" aria-label="Leistungen Professional-Paket">
-                <li class="pkg-card__list-item">Positionierung + Messaging geschärft</li>
-                <li class="pkg-card__list-item">5–10 Seiten + Conversion-Führung</li>
-                <li class="pkg-card__list-item">Performance-Fokus + Tracking vorbereitet</li>
+              <ul class="pkg-card__list" aria-label="Projektweg">
+                <li class="pkg-card__list-item">Projektlogik als Transparenz statt Fake-Portfolio</li>
+                <li class="pkg-card__list-item">Beispiel-Case-Study ohne erfundene Zahlen</li>
+                <li class="pkg-card__list-item">Direkter Uebergang in den Buchungs-CTA</li>
               </ul>
               <div class="pkg-card__footer">
-                <p class="pkg-card__price">ab <strong>€ 8.900</strong> <span
-                    class="pkg-card__price-hint">Richtwert</span>
-                </p>
-                <a href="#kontakt" class="pkg-card__btn pkg-card__btn--featured"
-                  aria-label="Professional-Paket anfragen">
-                  Professional anfragen
+                <a href="projekte.html" class="pkg-card__btn pkg-card__btn--featured" aria-label="Projektweg ansehen">
+                  Projektweg ansehen
                 </a>
               </div>
             </div>
           </article>
-
-          <!-- Card 3: Growth -->
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;" data-package="growth">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Growth</p>
-                <p class="pkg-card__tagline">Für Unternehmen, die planbar Nachfrage aufbauen wollen.</p>
-              </div>
-              <ul class="pkg-card__list" aria-label="Leistungen Growth-Paket">
-                <li class="pkg-card__list-item">Alles aus Professional + Content/SEO-Plan</li>
-                <li class="pkg-card__list-item">Funnel-Assets + Iterationsplan</li>
-                <li class="pkg-card__list-item">Reporting &amp; Optimierungs-Rhythmus</li>
-              </ul>
-              <div class="pkg-card__footer">
-                <p class="pkg-card__price">ab <strong>€ 18.000</strong> <span
-                    class="pkg-card__price-hint">Richtwert</span></p>
-                <a href="#kontakt" class="pkg-card__btn" aria-label="Growth-Paket anfragen">
-                  Growth anfragen
-                </a>
-              </div>
-            </div>
-          </article>
-
         </div>
-
-        <!-- Disclaimer -->
-        <p class="packages-section__disclaimer reveal-on-scroll">
-          Hinweis: Preise sind Richtwerte. Das finale Angebot hängt von Umfang, Inhalt und Zeitplan ab.
-        </p>
-
-        <!-- Bottom CTA -->
-        <div class="packages-section__cta reveal-on-scroll">
-          <p class="packages-section__cta-lead">Unsicher, welches Paket passt?</p>
-          <div class="packages-section__cta-btns">
-            <a href="#kontakt" class="packages-section__btn packages-section__btn--primary"
-              aria-label="Erstgespräch buchen">
-              Erstgespräch buchen
-            </a>
-            <a href="#kontakt" class="packages-section__btn packages-section__btn--secondary"
-              aria-label="Mini-Audit anfordern">
-              Mini-Audit anfordern
-            </a>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- Section 6: Über mich / Vertrauen -->
-    <section id="about" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="about-section__inner max-w-7xl mx-auto">
-
-        <div class="about-section__layout">
-
-          <!-- Left: Portrait -->
-          <div class="about-section__portrait-col reveal-on-scroll">
-            <figure class="about-portrait">
-              <div class="about-portrait__frame">
-                <img src="assets/uebermich.webP" srcset="assets/uebermich.webP 800w"
-                  sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
-                  alt="Portrait von dem Gründer von Smart Web Studio" width="800" height="1000" loading="lazy"
-                  decoding="async" class="about-portrait__img" />
-                <span class="about-portrait__gloss" aria-hidden="true"></span>
-              </div>
-            </figure>
-          </div>
-
-          <!-- Right: Text -->
-          <div class="about-section__text-col">
-
-            <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">Über mich</p>
-              <h2 class="about-section__headline font-display">
-                Du arbeitest direkt mit mir.
-              </h2>
-              <p class="about-section__subline">
-                Keine Übergaben. Kein Agentur-Pingpong. Klare Entscheidungen. Saubere Umsetzung.
-              </p>
-            </div>
-
-            <div class="about-section__blocks">
-
-              <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
-                <h3 class="about-block__title font-display">Strategie + Umsetzung aus einer Hand</h3>
-                <p class="about-block__body">
-                  Ich verbinde Positionierung, Design und Entwicklung zu einem klaren System.
-                </p>
-              </div>
-
-              <div class="about-block reveal-on-scroll" style="--about-delay: 80ms;">
-                <h3 class="about-block__title font-display">Struktur statt Chaos</h3>
-                <p class="about-block__body">
-                  Du bekommst klare Deliverables, Deadlines und Fokus.
-                </p>
-              </div>
-
-              <div class="about-block reveal-on-scroll" style="--about-delay: 160ms;">
-                <h3 class="about-block__title font-display">Langfristiges Denken</h3>
-                <p class="about-block__body">
-                  Website ist kein Projekt – sondern ein Wachstumssystem.
-                </p>
-              </div>
-
-            </div>
-
-            <div class="about-section__cta reveal-on-scroll">
-              <p class="about-section__cta-lead">Wenn du strukturiert wachsen willst, lass uns sprechen.</p>
-              <a href="#kontakt" class="about-section__btn" aria-label="Erstgespräch buchen">
-                Erstgespräch buchen
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Final Closing CTA -->
     <section id="kontakt" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="final-cta-section__inner max-w-5xl mx-auto text-center">
-
         <div class="reveal-on-scroll">
           <h2 class="final-cta-section__headline font-display">
-            Bereit für den nächsten Schritt?
+            Bereit fuer den naechsten Schritt?
           </h2>
           <p class="final-cta-section__subline">
-            Wenn du einen Auftritt willst, der wie eine Premium-Marke wirkt und wie ein
-            Vertriebssystem arbeitet, dann starte hier.
+            Wenn du Marke, Website und Wachstum in ein sauberes System bringen willst, starten wir mit einem strukturierten
+            Erstgespraech oder direkt mit einer Projektanfrage.
           </p>
         </div>
 
-        <div class="contact-form-shell reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <h3 class="contact-form-shell__title font-display">Kontaktformular</h3>
-          <p id="contact-form-note" class="contact-form__hint">
-            Nur das Feld E-Mail ist verpflichtend. Alle anderen Angaben helfen f&uuml;r eine schnellere Einordnung.
-          </p>
-
-          <!-- // TODO: Backend-Endpunkt oder Form-Service (z. B. PHP-Mail, Node-API, Formspree etc.) hier eintragen -->
-          <form class="contact-form" method="POST" action="" data-contact-form aria-describedby="contact-form-note">
-            <div class="contact-form__grid">
-              <div class="contact-field">
-                <label for="contact-name">Name <span class="contact-field__meta">(optional)</span></label>
-                <input id="contact-name" class="contact-input" name="name" type="text" autocomplete="name" />
-              </div>
-
-              <div class="contact-field">
-                <label for="contact-email">E-Mail <span class="contact-field__meta">(Pflichtfeld)</span></label>
-                <input id="contact-email" class="contact-input" name="email" type="email" required autocomplete="email"
-                  inputmode="email" aria-required="true" />
-              </div>
-
-              <div class="contact-field contact-field--full">
-                <label for="contact-phone">Telefonnummer <span class="contact-field__meta">(optional)</span></label>
-                <input id="contact-phone" class="contact-input" name="phone" type="tel" autocomplete="tel" />
-              </div>
-
-              <div class="contact-field contact-field--full">
-                <label for="contact-message">Nachricht <span class="contact-field__meta">(optional)</span></label>
-                <textarea id="contact-message" class="contact-input contact-textarea" name="message" rows="6"
-                  autocomplete="off"></textarea>
-              </div>
-            </div>
-
-            <div class="contact-form__actions">
-              <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit">
-                Nachricht senden
-              </button>
-            </div>
-          </form>
-
-          <p class="contact-form__success" data-contact-success role="status" aria-live="polite" tabindex="-1" hidden>
-            Vielen Dank, wir melden uns zeitnah.
-          </p>
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+            aria-label="Projekt starten">
+            Projekt starten
+          </a>
+          <a href="kontakt.html" class="final-cta-btn final-cta-btn--secondary" aria-label="Kontaktseite ansehen">
+            Kontaktseite ansehen
+          </a>
         </div>
-
       </div>
     </section>
-
-
-
   </main>
 
-  <!-- Footer -->
   <footer id="site-footer" class="site-footer" role="contentinfo">
     <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
-    <div id="kontakt-footer" class="site-footer__anchor" aria-hidden="true"></div>
-    <div id="impressum" class="site-footer__anchor" aria-hidden="true"></div>
-    <div id="datenschutz" class="site-footer__anchor" aria-hidden="true"></div>
     <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
 
     <div class="site-footer__inner max-w-7xl mx-auto">
       <div class="site-footer__grid">
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
-          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
           <p class="site-footer__description">
-            Premium-Auftritte mit System – für messbare Ergebnisse.
+            Strategische Websites mit klarem Angebot, starker Nutzerfuehrung und einer professionellen Conversion-Logik.
           </p>
           <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
         </section>
@@ -601,29 +446,32 @@
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="#service-webentwicklung">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="#service-branding">Branding &amp; Positionierung</a></li>
-            <li><a class="site-footer__link" href="#service-growth">Marketing &amp; Growth</a></li>
-            <li><a class="site-footer__link" href="#approach">Growth &amp; Strategie</a></li>
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
+            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
+            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
           </ul>
         </nav>
 
-        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Einstieg">
-          <h3 class="site-footer__heading">Einstieg</h3>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="#kontakt">Erstgespräch buchen</a></li>
-            <li><a class="site-footer__link" href="#kontakt">Mini-Audit anfordern</a></li>
-            <li><a class="site-footer__link" href="#process">Prozess</a></li>
-            <li><a class="site-footer__link" href="#pricing">Pakete</a></li>
+            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
+            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
+            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
+            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
+            <li><a class="site-footer__link" href="ueber-mich.html">Ueber mich</a></li>
+            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
           </ul>
         </nav>
 
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
           <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum / Anbieterkennzeichnung</a></li>
+            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
             <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
       </div>
@@ -633,7 +481,7 @@
           &copy; 2026 Smart Web Studio.
         </small>
         <small class="site-footer__signature">
-          Made with clarity &amp; structure.
+          Built for clarity, structure and conversion.
         </small>
       </div>
     </div>
@@ -643,7 +491,6 @@
     <span aria-hidden="true">&uarr;</span>
   </button>
 
-  <!-- Legacy JS (stabil) -->
   <script type="module" src="src/js/main.js"></script>
 </body>
 

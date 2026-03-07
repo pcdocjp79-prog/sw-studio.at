@@ -349,6 +349,10 @@ const initContactForm = () => {
   if (!contactForm) return;
 
   const successMessage = document.querySelector("[data-contact-success]");
+  const successHref =
+    contactForm.dataset.successHref?.trim() ||
+    document.body?.dataset.contactSuccessPath?.trim() ||
+    "";
   const hasConfiguredEndpoint = () =>
     (contactForm.getAttribute("action") || "").trim().length > 0;
 
@@ -364,6 +368,11 @@ const initContactForm = () => {
 
     contactForm.reset();
 
+    if (successHref) {
+      window.location.href = successHref;
+      return;
+    }
+
     if (successMessage) {
       successMessage.hidden = false;
       successMessage.focus({ preventScroll: true });
@@ -377,6 +386,49 @@ const initContactForm = () => {
 };
 
 initContactForm();
+
+const initProjectIntentButtons = () => {
+  const projectTypeField = document.querySelector('[name="projectType"]');
+  const timelineField = document.querySelector('[name="timeline"]');
+  const messageField = document.querySelector('[name="message"]');
+  const supportedButtons = Array.from(document.querySelectorAll("[data-prefill-project]"));
+
+  if (supportedButtons.length === 0 || !projectTypeField) return;
+
+  supportedButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const projectValue = button.getAttribute("data-prefill-project") || "";
+      const timelineValue = button.getAttribute("data-prefill-timeline") || "";
+      const messageValue = button.getAttribute("data-prefill-message") || "";
+      const targetId = button.getAttribute("data-prefill-target");
+      const targetElement = targetId ? document.getElementById(targetId) : projectTypeField;
+
+      if (projectValue) {
+        projectTypeField.value = projectValue;
+      }
+
+      if (timelineField && timelineValue) {
+        timelineField.value = timelineValue;
+      }
+
+      if (messageField && messageValue && !messageField.value) {
+        messageField.value = messageValue;
+      }
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        const focusTarget =
+          targetElement.matches("input, textarea, select, button") ?
+            targetElement :
+            targetElement.querySelector("input, textarea, select, button");
+
+        focusTarget?.focus({ preventScroll: true });
+      }
+    });
+  });
+};
+
+initProjectIntentButtons();
 
 
 // Hero pointer interaction

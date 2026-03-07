@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ueber mich | Smart Web Studio</title>
+  <meta name="description" content="Ueber Smart Web Studio, Arbeitsweise, Philosophie und warum Kunden direkt mit dem Gruender arbeiten." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+
+<body id="top" data-page="ueber-mich" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+      <a href="index.html" class="brand-link flex items-center gap-3"><img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" /><span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart Web Studio</span></a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="primary-nav"><span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span></button>
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation"><a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a><a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a><a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a><a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a><a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a><a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a><a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a><a href="kontakt.html#terminbuchung" class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin buchen</a></nav>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+    </div>
+  </header>
+
+  <main class="relative pt-0 pb-0">
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__portrait-col reveal-on-scroll">
+            <figure class="about-portrait">
+              <div class="about-portrait__frame">
+                <img src="assets/uebermich.webP" srcset="assets/uebermich.webP 800w" sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw" alt="Portrait des Gruenders von Smart Web Studio" width="800" height="1000" loading="lazy" decoding="async" class="about-portrait__img" />
+                <span class="about-portrait__gloss" aria-hidden="true"></span>
+              </div>
+            </figure>
+          </div>
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Ueber mich</p>
+              <h1 class="about-section__headline font-display">Du arbeitest direkt mit mir.</h1>
+              <p class="about-section__subline">Keine Agentur-Weitergabe. Keine Zwischenebenen. Strategie, Struktur und Umsetzung bleiben in einer Hand.</p>
+            </div>
+            <div class="about-section__blocks">
+              <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;"><h2 class="about-block__title font-display">Arbeitsweise</h2><p class="about-block__body">Ich denke Projekte zuerst in Zielgruppe, Angebot und Conversion, bevor Gestaltung ueberhaupt eine Rolle spielt.</p></div>
+              <div class="about-block reveal-on-scroll" style="--about-delay: 80ms;"><h2 class="about-block__title font-display">Philosophie</h2><p class="about-block__body">Weniger Show, mehr Klarheit. Jede Seite, jede Botschaft und jeder CTA muss begruendbar sein.</p></div>
+              <div class="about-block reveal-on-scroll" style="--about-delay: 160ms;"><h2 class="about-block__title font-display">Zusammenarbeit</h2><p class="about-block__body">Klare Deliverables, saubere Deadlines und ein Projektprozess, der keine Ueberraschungen produziert.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="approach-section__inner max-w-7xl mx-auto">
+        <div class="approach-section__header reveal-on-scroll"><p class="approach-section__eyebrow">Warum mit mir arbeiten</p><h2 class="approach-section__headline font-display">Drei Gruende, warum Projekte hier fokussiert bleiben.</h2></div>
+        <div class="approach-section__grid">
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;"><span class="approach-card__ghost-num" aria-hidden="true">01</span><div class="approach-card__inner"><p class="approach-card__num">CLARITY</p><h3 class="approach-card__title font-display">Strategie und Umsetzung greifen ineinander</h3><p class="approach-card__body">Es gibt keine Reibung zwischen Konzept, Design und Technik.</p></div></article>
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;"><span class="approach-card__ghost-num" aria-hidden="true">02</span><div class="approach-card__inner"><p class="approach-card__num">FOCUS</p><h3 class="approach-card__title font-display">Weniger Pingpong, mehr Tempo</h3><p class="approach-card__body">Entscheidungen bleiben schnell, weil die Projektfuehrung nicht ueber mehrere Stellen verteilt ist.</p></div></article>
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;"><span class="approach-card__ghost-num" aria-hidden="true">03</span><div class="approach-card__inner"><p class="approach-card__num">QUALITY</p><h3 class="approach-card__title font-display">Keine getrennten Inseln</h3><p class="approach-card__body">Marke, Website, Tracking und Growth werden als Gesamtsystem gedacht.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-4xl mx-auto text-center"><div class="reveal-on-scroll"><h2 class="final-cta-section__headline font-display">Wenn du direkte Zusammenarbeit und klare Entscheidungen willst.</h2></div><div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;"><a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Termin buchen</a><a href="kontakt.html" class="final-cta-btn final-cta-btn--secondary">Kontaktseite</a></div></div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title"><h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2><p class="site-footer__tagline">Marke. Website. Wachstum.</p><p class="site-footer__description">Direkte Zusammenarbeit ohne Agentur-Pingpong.</p><p class="site-footer__meta">Standort: Vorarlberg / DACH</p></section>
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen"><h3 class="site-footer__heading">Leistungen</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li><li><a class="site-footer__link" href="branding.html">Branding</a></li><li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li><li><a class="site-footer__link" href="social.html">Social Strategie</a></li><li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li></ul></nav>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation"><h3 class="site-footer__heading">Navigation</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="projekte.html">Projekte</a></li><li><a class="site-footer__link" href="case-study.html">Case Study</a></li><li><a class="site-footer__link" href="preise.html">Preise</a></li><li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li><li><a class="site-footer__link" href="ueber-mich.html">Ueber mich</a></li><li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li></ul></nav>
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches"><h3 class="site-footer__heading">Rechtliches</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="impressum.html">Impressum</a></li><li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li><li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li></ul></nav>
+      </div>
+      <div class="site-footer__bottom" aria-label="Footer Abschluss"><small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small><small class="site-footer__signature">Built for clarity, structure and conversion.</small></div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen"><span aria-hidden="true">&uarr;</span></button>
+  <script type="module" src="src/js/main.js"></script>
+</body>
+
+</html>

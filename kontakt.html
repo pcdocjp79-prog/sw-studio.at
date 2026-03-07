@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | Smart Web Studio</title>
+  <meta name="description"
+    content="Kontaktseite von Smart Web Studio mit Terminweg und Projektformular fuer strukturierte Anfragen." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+
+<body id="top" data-page="kontakt" data-contact-success-path="danke.html"
+  class="antialiased selection:bg-zinc-200 selection:text-black">
+  <div id="animated-background" aria-hidden="true"></div>
+
+  <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
+    <div id="glass-nav" class="glass-nav w-full">
+      <a href="index.html" class="brand-link flex items-center gap-3">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
+        <a href="leistungen.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
+        <a href="projekte.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
+        <a href="ablauf.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
+        <a href="preise.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
+        <a href="insights.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
+        <a href="kontakt.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
+        <a href="#terminbuchung"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
+          buchen</a>
+      </nav>
+
+      <a href="#terminbuchung" class="nav-cta" aria-label="Termin buchen">
+        Termin buchen
+      </a>
+    </div>
+  </header>
+
+  <main class="relative pt-0 pb-0">
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="contact-hero-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Kontakt</p>
+              <h1 id="contact-hero-title" class="about-section__headline font-display">
+                Zwei Wege in den Projektstart.
+              </h1>
+              <p class="about-section__subline">
+                Du kannst einen strukturierten Ersttermin anfragen oder dein Projekt direkt schriftlich skizzieren. Beides
+                fuehrt in denselben professionellen Prozess.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
+            <article class="pkg-card pkg-card--featured">
+              <div class="pkg-card__inner">
+                <div class="pkg-card__header">
+                  <p class="pkg-card__name font-display">Was fuer eine gute Anfrage hilft</p>
+                </div>
+                <ul class="pkg-card__list" aria-label="Hilfreiche Informationen fuer die Anfrage">
+                  <li class="pkg-card__list-item">Projektart oder Ausgangslage</li>
+                  <li class="pkg-card__list-item">Budgetrahmen und Zeitfenster</li>
+                  <li class="pkg-card__list-item">welcher Hebel zuerst geloest werden soll</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terminbuchung" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Kontaktwege</p>
+          <h2 class="packages-section__headline font-display">
+            Termin oder Formular. Klar statt kompliziert.
+          </h2>
+          <p class="packages-section__subline">
+            Waehle den Einstieg, der zu deiner Situation passt. Beide Wege landen in einer strukturierten Erstklaerung.
+          </p>
+        </div>
+
+        <div class="packages-section__grid">
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Terminweg</p>
+                <p class="pkg-card__tagline">Wenn du direkt die richtige Reihenfolge und die passenden Hebel klären willst.</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Terminweg Informationen">
+                <li class="pkg-card__list-item">geeignet fuer neue Projekte oder Relaunches</li>
+                <li class="pkg-card__list-item">fokussiert auf Zielbild, Scope und Prioritaet</li>
+                <li class="pkg-card__list-item">wechselt direkt in das Anfrageformular mit vorausgewaehlter Intention</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <a href="#kontaktformular" class="pkg-card__btn pkg-card__btn--featured"
+                  data-prefill-project="Erstgespraech" data-prefill-timeline="Innerhalb von 2-4 Wochen"
+                  data-prefill-message="Ich moechte einen strukturierten Ersttermin fuer mein Projekt anfragen."
+                  data-prefill-target="contact-project-type" aria-label="Termin anfragen">
+                  Termin anfragen
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Projektformular</p>
+                <p class="pkg-card__tagline">Wenn du dein Projekt lieber schriftlich vorstrukturierst.</p>
+              </div>
+              <ul class="pkg-card__list" aria-label="Projektformular Informationen">
+                <li class="pkg-card__list-item">Name, E-Mail und Projektart</li>
+                <li class="pkg-card__list-item">Budget- und Zeitrahmen</li>
+                <li class="pkg-card__list-item">Platz fuer Kontext, Ziele und offene Punkte</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <a href="#kontaktformular" class="pkg-card__btn" aria-label="Zum Formular springen">
+                  Zum Formular
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontaktformular" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-5xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">
+            Projektanfrage senden
+          </h2>
+          <p class="final-cta-section__subline">
+            Das Formular fuehrt im Testmodus auf die Danke-Seite. Die Struktur ist bereits fuer einen echten Formular- oder
+            CRM-Endpunkt vorbereitet.
+          </p>
+        </div>
+
+        <div class="contact-form-shell reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <h3 class="contact-form-shell__title font-display">Anfrageformular</h3>
+          <p id="contact-form-note" class="contact-form__hint">
+            E-Mail ist verpflichtend. Name, Projektart, Budget und Zeitplan helfen bei einer schnelleren Einordnung.
+          </p>
+
+          <form class="contact-form" method="POST" action="" data-contact-form data-success-href="danke.html"
+            aria-describedby="contact-form-note">
+            <div class="contact-form__grid">
+              <div class="contact-field">
+                <label for="contact-name">Name <span class="contact-field__meta">(optional)</span></label>
+                <input id="contact-name" class="contact-input" name="name" type="text" autocomplete="name" />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-email">E-Mail <span class="contact-field__meta">(Pflichtfeld)</span></label>
+                <input id="contact-email" class="contact-input" name="email" type="email" required autocomplete="email"
+                  inputmode="email" aria-required="true" />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-project-type">Projektart <span class="contact-field__meta">(optional)</span></label>
+                <select id="contact-project-type" class="contact-input" name="projectType">
+                  <option value="">Bitte waehlen</option>
+                  <option value="Erstgespraech">Erstgespraech</option>
+                  <option value="Webentwicklung">Webentwicklung</option>
+                  <option value="Branding">Branding</option>
+                  <option value="SEO und Marketing">SEO &amp; Marketing</option>
+                  <option value="Social Strategie">Social Strategie</option>
+                  <option value="Growth Strategie">Growth Strategie</option>
+                </select>
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-budget">Budget <span class="contact-field__meta">(optional)</span></label>
+                <select id="contact-budget" class="contact-input" name="budget">
+                  <option value="">Bitte waehlen</option>
+                  <option value="Unter 5.000 EUR">Unter 5.000 EUR</option>
+                  <option value="5.000 - 10.000 EUR">5.000 - 10.000 EUR</option>
+                  <option value="10.000 - 20.000 EUR">10.000 - 20.000 EUR</option>
+                  <option value="20.000 EUR und mehr">20.000 EUR und mehr</option>
+                </select>
+              </div>
+
+              <div class="contact-field contact-field--full">
+                <label for="contact-timeline">Zeitplan <span class="contact-field__meta">(optional)</span></label>
+                <select id="contact-timeline" class="contact-input" name="timeline">
+                  <option value="">Bitte waehlen</option>
+                  <option value="Sofort">Sofort</option>
+                  <option value="Innerhalb von 2-4 Wochen">Innerhalb von 2-4 Wochen</option>
+                  <option value="Innerhalb von 1-3 Monaten">Innerhalb von 1-3 Monaten</option>
+                  <option value="Noch offen">Noch offen</option>
+                </select>
+              </div>
+
+              <div class="contact-field contact-field--full">
+                <label for="contact-message">Nachricht <span class="contact-field__meta">(optional)</span></label>
+                <textarea id="contact-message" class="contact-input contact-textarea" name="message" rows="6"
+                  autocomplete="off"
+                  placeholder="Worum geht es, welche Herausforderung ist gerade am dringendsten und was soll sich durch das Projekt veraendern?"></textarea>
+              </div>
+            </div>
+
+            <div class="contact-form__actions">
+              <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit">
+                Anfrage senden
+              </button>
+            </div>
+          </form>
+
+          <p class="contact-form__success" data-contact-success role="status" aria-live="polite" tabindex="-1" hidden>
+            Vielen Dank, wir melden uns zeitnah.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
+    <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
+    <div class="site-footer__inner max-w-7xl mx-auto">
+      <div class="site-footer__grid">
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
+          <p class="site-footer__description">Kontaktseite mit Terminweg und Projektformular fuer eine klare Erstklaerung.</p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
+            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
+            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
+            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
+            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
+            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
+            <li><a class="site-footer__link" href="ueber-mich.html">Ueber mich</a></li>
+            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
+            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <script type="module" src="src/js/main.js"></script>
+</body>
+
+</html>

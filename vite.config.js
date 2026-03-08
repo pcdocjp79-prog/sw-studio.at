@@ -24,6 +24,7 @@ export default defineConfig({
         cookies: resolve(__dirname, "cookies.html"),
         branding: resolve(__dirname, "branding.html"),
         webentwicklung: resolve(__dirname, "webentwicklung.html"),
+        seoMarketing: resolve(__dirname, "seo-marketing.html"),
         marketing: resolve(__dirname, "marketing.html"),
         social: resolve(__dirname, "social.html"),
         growth: resolve(__dirname, "growth.html"),

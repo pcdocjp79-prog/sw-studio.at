@@ -4,78 +4,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Datenschutz | [STUDIO_NAME]</title>
+  <title>Datenschutz | Smart Web Studio</title>
   <meta name="description"
-    content="Datenschutzerklaerung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befuellung." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="Datenschutz | [STUDIO_NAME]" />
-  <meta property="og:description"
-    content="Datenschutzerklaerung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befuellung." />
-  <meta property="og:url" content="/datenschutz" />
-  <link rel="canonical" href="https://[STUDIO_DOMAIN]/datenschutz" />
+    content="Datenschutzerklärung von Smart Web Studio mit strukturierter Übersicht zu Verantwortlichkeit, Verarbeitungszwecken, Consent, Speicherdauer und Betroffenenrechten." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
-<body id="top" data-page="datenschutz" class="antialiased selection:bg-zinc-200 selection:text-black">
+<body id="top" data-page="datenschutz" data-mobile-sticky-cta="false"
+  class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
 
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Zur Startseite">
+      <a href="index.html" class="brand-link flex items-center gap-3">
         <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
-        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">
-          Smart Web Studio
-        </span>
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
       </a>
-
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
         aria-expanded="false" aria-controls="primary-nav">
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
       </button>
-
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Startseite</a>
-        <a href="index.html#kontakt"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="index.html#kontakt"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
-          Kontakt aufnehmen
-        </a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-
-      <a href="index.html#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">
-        Kontakt aufnehmen
-      </a>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
@@ -85,8 +56,8 @@
         <p class="legal-hero__eyebrow">Rechtliches</p>
         <h1 id="legal-headline" class="legal-hero__headline font-display">Datenschutzerklärung</h1>
         <p class="legal-hero__subline">
-          Diese Seite informiert strukturiert darüber, welche personenbezogenen Daten verarbeitet werden und zu welchen
-          Zwecken.
+          Diese Seite bündelt die datenschutzrelevanten Informationen für Smart Web Studio in einer klar gegliederten
+          Struktur. Die Platzhalter sind vor dem Livegang mit dem tatsächlichen Setup abzugleichen.
         </p>
       </section>
 
@@ -111,7 +82,7 @@
           <dl class="legal-definition-list">
             <div>
               <dt>Studio / Name</dt>
-              <dd>[STUDIO/NAME]</dd>
+              <dd>Smart Web Studio / [DEIN_NAME]</dd>
             </div>
             <div>
               <dt>Adresse</dt>
@@ -132,10 +103,10 @@
           <h2 id="zwecke-title" class="legal-section__title font-display">Zwecke der Verarbeitung</h2>
           <ul class="legal-list">
             <li>Bereitstellung und Betrieb dieser Website</li>
-            <li>Bearbeitung von Kontaktanfragen und Kommunikation mit Interessenten/Kunden</li>
+            <li>Bearbeitung von Kontaktanfragen und Kommunikation mit Interessenten oder Kunden</li>
             <li>Technische Stabilität, Sicherheit und Fehleranalyse</li>
             <li>Erfüllung gesetzlicher Aufbewahrungs- und Nachweispflichten</li>
-            <li>Einwilligungsbasierte Reichweitenmessung oder Marketing-Maßnahmen nur nach aktiver Zustimmung</li>
+            <li>Einwilligungsbasierte Statistik- oder Marketingmaßnahmen nur nach aktiver Zustimmung</li>
           </ul>
         </section>
 
@@ -143,10 +114,11 @@
           <h2 id="rechtsgrundlagen-title" class="legal-section__title font-display">Rechtsgrundlagen</h2>
           <p>
             Die konkrete Zuordnung der Rechtsgrundlagen muss anhand des tatsächlichen Setups erfolgen, zum Beispiel
-            Vertragsanbahnung oder Vertragserfüllung, berechtigtes Interesse, Einwilligung oder gesetzliche Pflichten.
+            über Vertragsanbahnung oder Vertragserfüllung, berechtigtes Interesse, Einwilligung oder gesetzliche
+            Pflichten.
           </p>
           <p class="legal-muted">
-            Hinweis: Diese Struktur dient als Platzhalter und stellt keine Rechtsberatung dar.
+            Hinweis: Diese Struktur dient als Vorlage und stellt keine Rechtsberatung dar.
           </p>
         </section>
 
@@ -154,16 +126,16 @@
           <h2 id="cookies-consent-title" class="legal-section__title font-display">Cookies &amp; Consent</h2>
           <p>
             Für nicht notwendige Cookies nutzt diese Website ein clientseitiges Consent-Interface. Deine Auswahl wird
-            lokal in deinem Browser gespeichert und kann jederzeit erneut geöffnet und geändert werden.
+            lokal im Browser gespeichert und kann jederzeit erneut geöffnet und geändert werden.
           </p>
           <ul class="legal-list">
-            <li>Notwendige Cookies: technisch erforderlich für Betrieb, Sicherheit und die Speicherung der Consent-Auswahl</li>
+            <li>Notwendige Cookies: technisch erforderlich für Betrieb, Sicherheit und Speicherung der Consent-Auswahl</li>
             <li>Statistik Cookies: optional und erst nach aktiver Zustimmung geladen</li>
             <li>Marketing Cookies: optional und erst nach aktiver Zustimmung geladen</li>
           </ul>
           <p>
-            Konkrete Anbieter- und Tool-Bezeichnungen werden auf dieser Seite ergänzt, sobald entsprechende Dienste
-            produktiv aktiviert werden.
+            Konkrete Anbieter- und Tool-Bezeichnungen müssen auf dieser Seite ergänzt werden, sobald entsprechende
+            Dienste produktiv eingesetzt werden.
           </p>
           <div class="legal-actions">
             <a class="legal-cta" href="cookies.html">Zur Cookie-Seite</a>
@@ -178,8 +150,8 @@
           <ul class="legal-list">
             <li>Hosting: [PROVIDER, SITZ/LAND]</li>
             <li>E-Mail-Dienst: [PROVIDER, SITZ/LAND]</li>
-            <li>Formular-/CRM-Dienst: [PROVIDER, SITZ/LAND]</li>
-            <li>[OPTIONAL: Consent-gesteuerte Analytics-/Marketing-Dienste, falls aktiv]</li>
+            <li>Formular- oder CRM-Dienst: [PROVIDER, SITZ/LAND]</li>
+            <li>[OPTIONAL: Consent-gesteuerte Analytics- oder Marketing-Dienste, falls aktiv]</li>
           </ul>
         </section>
 
@@ -213,8 +185,8 @@
           <h2 id="drittland-title" class="legal-section__title font-display">Drittlandtransfer</h2>
           <p>Derzeit erfolgt nach aktuellem Stand kein Drittlandtransfer außerhalb der EU oder des EWR.</p>
           <p class="legal-muted">
-            Falls Drittland-Dienste eingesetzt werden, müssen diese hier mit passender Grundlage und Schutzmaßnahmen
-            ergänzt werden.
+            Falls Drittland-Dienste eingesetzt werden, müssen diese hier mit passender Grundlage und
+            Schutzmaßnahmen ergänzt werden.
           </p>
         </section>
 
@@ -227,8 +199,8 @@
         </section>
 
         <aside class="legal-note reveal-on-scroll" role="note" aria-label="Wichtiger Hinweis">
-          Diese Vorlage muss mit deinem tatsächlichen Setup, den verwendeten Tools, Providern, Prozessen und
-          Rechtsgrundlagen befüllt und geprüft werden.
+          Diese Vorlage muss vor dem Livegang mit dem tatsächlichen Setup, den verwendeten Tools, Providern,
+          Prozessen und Rechtsgrundlagen abgeglichen werden.
         </aside>
       </div>
     </div>
@@ -236,62 +208,32 @@
 
   <footer id="site-footer" class="site-footer" role="contentinfo">
     <div id="contact" class="site-footer__anchor" aria-hidden="true"></div>
-    <div id="impressum" class="site-footer__anchor" aria-hidden="true"></div>
     <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
-
     <div class="site-footer__inner max-w-7xl mx-auto">
       <div class="site-footer__grid">
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
-          <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
-          <p class="site-footer__description">
-            Premium-Auftritte mit System fuer messbare Ergebnisse.
-          </p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
+          <p class="site-footer__description">Datenschutzinformationen mit sauberer Struktur, klarer Navigation und
+            direktem Verweis auf Consent-Einstellungen.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
-
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding &amp; Positionierung</a></li>
-            <li><a class="site-footer__link" href="marketing.html">Marketing &amp; Growth</a></li>
-            <li><a class="site-footer__link" href="index.html#approach">Growth &amp; Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
-
-        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Einstieg">
-          <h3 class="site-footer__heading">Einstieg</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="index.html#kontakt">Erstgespräch buchen</a></li>
-            <li><a class="site-footer__link" href="index.html#kontakt">Mini-Audit anfordern</a></li>
-            <li><a class="site-footer__link" href="index.html#process">Prozess</a></li>
-            <li><a class="site-footer__link" href="index.html#pricing">Pakete</a></li>
-          </ul>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list"></ul>
         </nav>
-
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum / Anbieterkennzeichnung</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
-            <li>
-              <a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings>
-                Cookie-Einstellungen
-              </a>
-            </li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
-
       <div class="site-footer__bottom" aria-label="Footer Abschluss">
-        <small class="site-footer__copyright">
-          &copy; 2026 Smart Web Studio. Alle Rechte vorbehalten.
-        </small>
-        <small class="site-footer__signature">
-          Made with clarity &amp; structure.
-        </small>
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
       </div>
     </div>
   </footer>

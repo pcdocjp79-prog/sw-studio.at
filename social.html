@@ -4,35 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social Media Strategie | Smart Web Studio</title>
+  <title>Social Strategie | Smart Web Studio</title>
   <meta name="description"
-    content="Content-Themen, Templates, Posting-System und Funnel-Logik für Social Media mit klarem Angebotsbezug." />
+    content="Social Strategie von Smart Web Studio: Themencluster, Content-Systeme und klare Übergänge von Aufmerksamkeit in Angebot und Anfrage." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
@@ -54,24 +36,16 @@
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
       </button>
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
-        <a href="leistungen.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
-        <a href="projekte.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
-        <a href="ablauf.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
-        <a href="preise.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
-        <a href="insights.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
-        <a href="kontakt.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="kontakt.html#terminbuchung"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
-          buchen</a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
@@ -81,34 +55,43 @@
         <div class="about-section__layout">
           <div class="about-section__text-col">
             <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">Social Media Strategie</p>
+              <p class="about-section__eyebrow">Social Strategie</p>
               <h1 id="social-hero-title" class="about-section__headline font-display">
-                Social Content braucht ein System, nicht nur Disziplin.
+                Social Content braucht Richtung, System und einen klaren Weg ins Angebot.
               </h1>
               <p class="about-section__subline">
-                Ich entwickle Themenfelder, Content-Templates, ein Posting-System und die Funnel-Logik dahinter, damit
-                Social Media nicht nur Aktivität zeigt, sondern Nachfrage vorbereitet.
+                Ich entwickle Themenfelder, Content-Formate und CTA-Übergänge so, dass Social Media nicht nur Aktivität
+                zeigt, sondern Vertrauen und Nachfrage vorbereitet.
               </p>
             </div>
             <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
               <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
-                aria-label="Social Strategie anfragen">
-                Social Strategie anfragen
-              </a>
+                aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+                aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
             </div>
+            <nav class="jump-nav reveal-on-scroll" aria-label="Sprungnavigation Social Strategie">
+              <ul class="jump-nav__list">
+                <li><a class="jump-nav__link" href="#problem">Problem</a></li>
+                <li><a class="jump-nav__link" href="#approach">Ansatz</a></li>
+                <li><a class="jump-nav__link" href="#deliverables">Lieferumfang</a></li>
+                <li><a class="jump-nav__link" href="#standards">Standards</a></li>
+                <li><a class="jump-nav__link" href="#related">Nächste Schritte</a></li>
+              </ul>
+            </nav>
           </div>
 
           <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
-            <article class="pkg-card pkg-card--featured">
+            <article class="pkg-card pkg-card--featured service-summary-card">
               <div class="pkg-card__inner">
                 <div class="pkg-card__header">
                   <p class="pkg-card__name font-display">Content System</p>
+                  <p class="pkg-card__tagline">Nicht mehr posten, sondern relevanter kommunizieren.</p>
                 </div>
-                <ul class="pkg-card__list" aria-label="Content System Bausteine">
-                  <li class="pkg-card__list-item">Themencluster für Expertenstatus und Nachfrage</li>
-                  <li class="pkg-card__list-item">Templates für schnellere Produktion</li>
-                  <li class="pkg-card__list-item">Posting-Rhythmus mit realistischem Aufwand</li>
-                  <li class="pkg-card__list-item">Übergang von Content zu Termin oder Anfrage</li>
+                <ul class="pkg-card__list">
+                  <li class="pkg-card__list-item">Themencluster aus Zielgruppe und Angebot</li>
+                  <li class="pkg-card__list-item">wiederverwendbare Formate und Templates</li>
+                  <li class="pkg-card__list-item">saubere Übergänge in Website, Kontakt oder Audit</li>
                 </ul>
               </div>
             </article>
@@ -117,44 +100,208 @@
       </div>
     </section>
 
-    <section class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+    <section id="problem" class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="approach-section__inner max-w-7xl mx-auto">
         <div class="approach-section__header reveal-on-scroll">
-          <p class="approach-section__eyebrow">Was enthalten ist</p>
-          <h2 class="approach-section__headline font-display">
-            Von Themen über Templates bis zum Funnel.
-          </h2>
+          <p class="approach-section__eyebrow">Problem</p>
+          <h2 class="approach-section__headline font-display">Ohne System wird Social schnell laut, aber nicht klar.</h2>
+          <p class="approach-section__subline">Dann fehlt der rote Faden zwischen Positionierung, Themen, Angeboten und
+            den nächsten Schritten für Interessenten.</p>
         </div>
         <div class="approach-section__grid">
           <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
             <span class="approach-card__ghost-num" aria-hidden="true">01</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">THEMEN</p>
-              <h3 class="approach-card__title font-display">Content Themen</h3>
-              <p class="approach-card__body">
-                Themenfelder werden direkt aus Positionierung, Fragen der Zielgruppe und Angebotslogik abgeleitet.
-              </p>
+              <h3 class="approach-card__title font-display">Content ohne Priorität</h3>
+              <p class="approach-card__body">Es wird gepostet, was gerade einfällt, nicht was Positionierung und Nachfrage
+                wirklich stärkt.</p>
             </div>
           </article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;">
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 90ms;">
             <span class="approach-card__ghost-num" aria-hidden="true">02</span>
             <div class="approach-card__inner">
-              <p class="approach-card__num">ASSETS</p>
-              <h3 class="approach-card__title font-display">Templates</h3>
-              <p class="approach-card__body">
-                Wiederverwendbare Formate machen Content-Produktion planbar statt jeden Post neu zu erfinden.
-              </p>
+              <p class="approach-card__num">KONSISTENZ</p>
+              <h3 class="approach-card__title font-display">Auftritt und Tonalität wirken uneinheitlich</h3>
+              <p class="approach-card__body">Dadurch entsteht kein belastbares Markenbild und keine professionelle
+                Wiedererkennbarkeit.</p>
             </div>
           </article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;">
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 180ms;">
             <span class="approach-card__ghost-num" aria-hidden="true">03</span>
             <div class="approach-card__inner">
-              <p class="approach-card__num">FLOW</p>
-              <h3 class="approach-card__title font-display">Posting System &amp; Funnel</h3>
-              <p class="approach-card__body">
-                Content führt in konkrete CTA-Schritte und wird nicht als isolierter Kanal behandelt.
-              </p>
+              <p class="approach-card__num">CTA</p>
+              <h3 class="approach-card__title font-display">Content endet ohne Richtung</h3>
+              <p class="approach-card__body">Wenn kein sauberer Übergang ins Angebot oder in die Website existiert, bleibt
+                Aufmerksamkeit ungenutzt.</p>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="process-section__inner max-w-7xl mx-auto">
+        <div class="process-section__header reveal-on-scroll">
+          <p class="process-section__eyebrow">Ansatz</p>
+          <h2 class="process-section__headline font-display">Social wird aus Positionierung und Angebotslogik gedacht.</h2>
+          <p class="process-section__subline">So entstehen Inhalte, die nicht nur Reichweite schaffen, sondern Vertrauen
+            aufbauen und in sinnvolle nächste Schritte führen.</p>
+        </div>
+        <ol class="process-section__steps" aria-label="Social Strategie Ansatz">
+          <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;"><span class="process-step__ghost-num"
+              aria-hidden="true">01</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">01</p>
+              <h3 class="process-step__title font-display">Themenfelder definieren</h3>
+              <p class="process-step__body">Was zahlt auf Positionierung, Expertise und Nachfrage ein?</p>
+            </div>
+          </li>
+          <li class="process-step reveal-on-scroll" style="--process-delay: 80ms;"><span class="process-step__ghost-num"
+              aria-hidden="true">02</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">02</p>
+              <h3 class="process-step__title font-display">Formate und Templates aufbauen</h3>
+              <p class="process-step__body">Damit Content-Produktion schneller, konsistenter und leichter skalierbar
+                wird.</p>
+            </div>
+          </li>
+          <li class="process-step reveal-on-scroll" style="--process-delay: 160ms;"><span class="process-step__ghost-num"
+              aria-hidden="true">03</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">03</p>
+              <h3 class="process-step__title font-display">CTA-Wege definieren</h3>
+              <p class="process-step__body">Content führt in Website, Kontakt, Mini-Audit oder Erstgespräch statt im Feed
+                zu enden.</p>
+            </div>
+          </li>
+          <li class="process-step reveal-on-scroll" style="--process-delay: 240ms;"><span class="process-step__ghost-num"
+              aria-hidden="true">04</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">04</p>
+              <h3 class="process-step__title font-display">Rhythmus realistisch planen</h3>
+              <p class="process-step__body">Das System muss zu Ressourcen, Team und Zielsetzung passen, sonst wird es
+                nicht durchgezogen.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="deliverables" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Lieferumfang</p>
+          <h2 class="packages-section__headline font-display">Was du konkret für Social, Content und Übergänge bekommst.
+          </h2>
+        </div>
+        <div class="packages-section__grid">
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Themen- und Redaktionslogik</p>
+                <p class="pkg-card__tagline">Für mehr Relevanz und weniger Zufall.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">Themencluster nach Zielgruppe und Angebot</li>
+                <li class="pkg-card__list-item">Prioritäten nach Funnel-Stufe</li>
+                <li class="pkg-card__list-item">klare Themenrolle pro Kanal</li>
+              </ul>
+            </div>
+          </article>
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Formate &amp; Templates</p>
+                <p class="pkg-card__tagline">Für schnellere Produktion und konsistenteren Auftritt.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">wiederverwendbare Content-Formate</li>
+                <li class="pkg-card__list-item">visuelle und textliche Leitplanken</li>
+                <li class="pkg-card__list-item">Grundlage für planbaren Output</li>
+              </ul>
+            </div>
+          </article>
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Übergang in die Anfrage</p>
+                <p class="pkg-card__tagline">Für Content, der auf Angebote einzahlt.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">CTA- und Landingpage-Logik</li>
+                <li class="pkg-card__list-item">Brücken in Website und Kontakt</li>
+                <li class="pkg-card__list-item">typischer Rahmen je nach Teamgröße und Content-Reife</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="standards" class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Standards</p>
+              <h2 class="about-section__headline font-display">Social muss machbar sein, nicht nur strategisch gut
+                klingen.</h2>
+              <p class="about-section__subline">Deshalb arbeite ich mit Systemen, die zum Team, zur Zielgruppe und zu den
+                tatsächlichen Ressourcen passen.</p>
+            </div>
+          </div>
+          <div class="about-section__blocks">
+            <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
+              <h3 class="about-block__title font-display">Angebotsnähe</h3>
+              <p class="about-block__body">Social Content muss auf Leistung, Expertise und Kontaktwege einzahlen.</p>
+            </div>
+            <div class="about-block reveal-on-scroll" style="--about-delay: 90ms;">
+              <h3 class="about-block__title font-display">Realistische Umsetzung</h3>
+              <p class="about-block__body">Kein Format-Overkill, sondern ein sauberer Rahmen, den man wirklich
+                durchhalten kann.</p>
+            </div>
+            <div class="about-block reveal-on-scroll" style="--about-delay: 180ms;">
+              <h3 class="about-block__title font-display">Konsistenz mit Marke und Website</h3>
+              <p class="about-block__body">Social wird nicht isoliert gedacht, sondern als Erweiterung des gesamten
+                Auftritts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="related" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Passende nächste Schritte</p>
+          <h2 class="packages-section__headline font-display">Social Strategie wird stärker, wenn Marke, Website und
+            Growth sauber anschließen.</h2>
+        </div>
+        <div class="packages-section__grid">
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <p class="proof-card__meta">Grundlage</p>
+            <h3 class="next-step-card__title font-display">Branding schärfen</h3>
+            <p class="next-step-card__text">Wenn die Botschaft noch nicht klar genug ist, bevor Themen und Inhalte
+              geplant werden.</p>
+            <div class="mt-5"><a href="branding.html" class="approach-section__btn"
+                aria-label="Leistungen ansehen">Leistungen ansehen</a></div>
+          </article>
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <p class="proof-card__meta">Zielseiten</p>
+            <h3 class="next-step-card__title font-display">Website und Landingpages ausrichten</h3>
+            <p class="next-step-card__text">Wenn Social-Anfragen später in eine sauberere Website-Struktur überführt
+              werden sollen.</p>
+            <div class="mt-5"><a href="webentwicklung.html" class="approach-section__btn"
+                aria-label="Leistungen ansehen">Leistungen ansehen</a></div>
+          </article>
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <p class="proof-card__meta">Skalierung</p>
+            <h3 class="next-step-card__title font-display">Growth Strategie ergänzen</h3>
+            <p class="next-step-card__text">Wenn Social-Aktivität in ein systematischeres Funnel- und Conversion-Setup
+              übergehen soll.</p>
+            <div class="mt-5"><a href="growth.html" class="approach-section__btn"
+                aria-label="Leistungen ansehen">Leistungen ansehen</a></div>
           </article>
         </div>
       </div>
@@ -163,13 +310,16 @@
     <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
         <div class="reveal-on-scroll">
-          <h2 class="final-cta-section__headline font-display">
-            Wenn Social nicht nur busy wirken, sondern Richtung geben soll.
+          <h2 class="final-cta-section__headline font-display">Wenn Social nicht nur präsent, sondern wirksam sein soll.
           </h2>
+          <p class="final-cta-section__subline">Dann beginnen wir mit einer klaren Themen- und Angebotslogik statt mit
+            dem nächsten spontanen Post.</p>
         </div>
         <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Termin buchen</a>
-          <a href="kontakt.html" class="final-cta-btn final-cta-btn--secondary">Projekt anfragen</a>
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
         </div>
       </div>
     </section>
@@ -183,37 +333,20 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">Social Media Strategie mit Themen, Templates und Funnel-Logik.</p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__description">Social Strategie mit Themenlogik, Templates und klaren Übergängen.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
-            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
-            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
-            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
-            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
-            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
-            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
-            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

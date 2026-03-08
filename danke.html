@@ -5,38 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Danke | Smart Web Studio</title>
-  <meta name="description" content="Danke-Seite nach der Kontaktanfrage bei Smart Web Studio." />
+  <meta name="description"
+    content="Bestätigung nach deiner Anfrage bei Smart Web Studio mit klaren nächsten Schritten, weiterer Orientierung und direkten Wegen zurück in Leistungen, Projekte und Erstgespräch." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
-<body id="top" data-page="danke" class="antialiased selection:bg-zinc-200 selection:text-black">
+<body id="top" data-page="danke" data-mobile-sticky-cta="false"
+  class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
 
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
@@ -53,57 +37,159 @@
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
       </button>
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
-        <a href="leistungen.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
-        <a href="projekte.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
-        <a href="ablauf.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
-        <a href="preise.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
-        <a href="insights.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
-        <a href="kontakt.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="kontakt.html#terminbuchung"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
-          buchen</a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
   <main class="relative pt-0 pb-0">
-    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
-        <div class="reveal-on-scroll">
-          <h1 class="final-cta-section__headline font-display">
-            Danke für deine Anfrage.
-          </h1>
-          <p class="final-cta-section__subline">
-            Deine Nachricht ist im Testfluss angekommen. Der nächste sinnvolle Schritt ist ein strukturierter Termin oder
-            ein Blick in die Projektlogik.
-          </p>
-        </div>
-        <div class="packages-section__grid reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <article class="pkg-card pkg-card--featured">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Nächster Schritt</p>
-                <p class="pkg-card__tagline">Wenn du direkt weitergehen willst.</p>
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="thanks-title">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Bestätigung</p>
+              <h1 id="thanks-title" class="about-section__headline font-display">Deine Anfrage ist angekommen.</h1>
+              <p class="about-section__subline">
+                Danke für dein Interesse an Smart Web Studio. Wenn deine Anfrage zum Fokus passt, erhältst du in der
+                Regel innerhalb von zwei Werktagen eine Rückmeldung mit dem nächsten sinnvollen Schritt.
+              </p>
+            </div>
+            <div class="chip-row reveal-on-scroll" style="--approach-delay: 80ms;">
+              <span class="contact-chip">Direkter Ansprechpartner</span>
+              <span class="contact-chip">Strukturierte Einordnung</span>
+              <span class="contact-chip">Kein anonymes Postfach</span>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 140ms;">
+            <article class="pkg-card pkg-card--featured">
+              <div class="pkg-card__inner">
+                <div class="pkg-card__header">
+                  <p class="pkg-card__name font-display">Was jetzt passiert</p>
+                  <p class="pkg-card__tagline">Der nächste Schritt bleibt klar und nachvollziehbar.</p>
+                </div>
+                <ul class="pkg-card__list" aria-label="Nächste Schritte nach der Anfrage">
+                  <li class="pkg-card__list-item">Anfrage wird auf Projektfit, Ziel und Priorität geprüft</li>
+                  <li class="pkg-card__list-item">du erhältst eine konkrete Rückmeldung statt einer Standardantwort</li>
+                  <li class="pkg-card__list-item">bei Bedarf starten wir direkt mit Erstgespräch oder Mini-Audit</li>
+                </ul>
               </div>
-              <ul class="pkg-card__list" aria-label="Nächste Schritte">
-                <li class="pkg-card__list-item">Terminwunsch strukturieren</li>
-                <li class="pkg-card__list-item">Projektlogik oder Preise ansehen</li>
-                <li class="pkg-card__list-item">Kontaktseite jederzeit erneut aufrufen</li>
-              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="next-steps-title">
+      <div class="process-section__inner max-w-7xl mx-auto">
+        <div class="process-section__header reveal-on-scroll">
+          <p class="process-section__eyebrow">Nächste Schritte</p>
+          <h2 id="next-steps-title" class="process-section__headline font-display">So geht es ab hier sinnvoll
+            weiter.</h2>
+        </div>
+
+        <div class="process-section__steps">
+          <article class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">01</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">SICHTUNG</p>
+              <h3 class="process-step__title font-display">Ausgangslage verstehen</h3>
+              <p class="process-step__body">Ich prüfe, ob es primär um Website, Positionierung, SEO oder einen
+                kombinierten Projektstart geht.</p>
+            </div>
+          </article>
+          <article class="process-step reveal-on-scroll" style="--process-delay: 100ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">02</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">EINORDNUNG</p>
+              <h3 class="process-step__title font-display">Nächsten Hebel priorisieren</h3>
+              <p class="process-step__body">Statt alles parallel zu starten, wird der wirksamste nächste Schritt
+                zuerst sortiert.</p>
+            </div>
+          </article>
+          <article class="process-step reveal-on-scroll" style="--process-delay: 200ms;">
+            <span class="process-step__ghost-num" aria-hidden="true">03</span>
+            <div class="process-step__inner">
+              <p class="process-step__num">RÜCKMELDUNG</p>
+              <h3 class="process-step__title font-display">Konkreter weiterer Weg</h3>
+              <p class="process-step__body">Je nach Situation geht es in ein Erstgespräch, ein Mini-Audit oder direkt
+                in die passende Leistungsseite zur Vorbereitung.</p>
             </div>
           </article>
         </div>
-        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 180ms;">
-          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Termin buchen</a>
-          <a href="projekte.html" class="final-cta-btn final-cta-btn--secondary">Projekte ansehen</a>
+      </div>
+    </section>
+
+    <section class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="while-waiting-title">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Währenddessen sinnvoll</p>
+          <h2 id="while-waiting-title" class="packages-section__headline font-display">Wenn du dich bis zur Rückmeldung
+            weiter orientieren willst.</h2>
+        </div>
+
+        <div class="next-step-grid md:grid-cols-3">
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <p class="proof-card__meta">Leistungen</p>
+            <h3 class="next-step-card__title font-display">Leistungswege verstehen</h3>
+            <p class="next-step-card__text">Wenn du genauer einordnen willst, ob eher Webentwicklung, Branding oder
+              SEO/Marketing im Vordergrund steht.</p>
+            <div class="mt-5">
+              <a href="leistungen.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
+
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <p class="proof-card__meta">Proof</p>
+            <h3 class="next-step-card__title font-display">Projektlogik ansehen</h3>
+            <p class="next-step-card__text">Wenn du sehen willst, wie Ausgangslage, Umsetzung und Ergebnis auf
+              Projektseite strukturiert werden.</p>
+            <div class="mt-5">
+              <a href="projekte.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
+            </div>
+          </article>
+
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <p class="proof-card__meta">Insights</p>
+            <h3 class="next-step-card__title font-display">Relevante Themenfelder prüfen</h3>
+            <p class="next-step-card__text">Wenn du vorab sehen willst, welche Website-, Branding- und SEO-Themen für
+              hochwertige Projekte besonders relevant sind.</p>
+            <div class="mt-5">
+              <a href="insights.html" class="cluster-link" aria-label="Insights ansehen">Insights ansehen</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">Wenn du parallel schon den nächsten Schritt fixieren
+            willst.</h2>
+          <p class="final-cta-section__subline">
+            Dann kannst du direkt ein Erstgespräch einplanen oder dich vorab noch einmal durch die Leistungen
+            orientieren.
+          </p>
+        </div>
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+          <a href="leistungen.html" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Leistungen ansehen">Leistungen ansehen</a>
         </div>
       </div>
     </section>
@@ -117,37 +203,21 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">Danke-Seite im Testfluss für Kontaktanfragen.</p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__description">Klare Bestätigung, strukturierte Rückmeldung und ein sinnvoller
+            weiterer Weg statt offener Schleifen.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
-            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
-            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
-            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
-            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
-            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
-            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
-            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

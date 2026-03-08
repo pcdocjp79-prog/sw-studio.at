@@ -1,1 +1,16 @@
-{ "cleanUrls": true, "trailingSlash": false }
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/marketing",
+      "destination": "/seo-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/marketing.html",
+      "destination": "/seo-marketing",
+      "permanent": true
+    }
+  ]
+}

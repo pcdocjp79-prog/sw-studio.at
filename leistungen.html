@@ -6,33 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leistungen | Smart Web Studio</title>
   <meta name="description"
-    content="Übersicht aller Leistungen von Smart Web Studio: Webentwicklung, Branding, SEO & Marketing, Social Media Strategie und Growth Strategie." />
+    content="Leistungen von Smart Web Studio: Webentwicklung, Branding, SEO & Marketing, Social Strategie und Growth Strategie für hochwertige, conversion-orientierte Auftritte." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
@@ -56,27 +38,18 @@
       </button>
 
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
-        <a href="leistungen.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
-        <a href="projekte.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
-        <a href="ablauf.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
-        <a href="preise.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
-        <a href="insights.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
-        <a href="kontakt.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="kontakt.html#terminbuchung"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
-          Termin buchen
-        </a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
 
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">
-        Termin buchen
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">
+        Erstgespräch buchen
       </a>
     </div>
   </header>
@@ -89,12 +62,19 @@
             <div class="about-section__header reveal-on-scroll">
               <p class="about-section__eyebrow">Leistungen</p>
               <h1 id="services-hero-title" class="about-section__headline font-display">
-                Alle Leistungen greifen in ein gemeinsames System.
+                Die richtige Leistung ist nicht die lauteste. Sie ist die zuerst wirksame.
               </h1>
               <p class="about-section__subline">
-                Je nach Ausgangslage braucht dein Projekt nicht mehr Leistung, sondern die richtige Reihenfolge aus Marke,
-                Website, Sichtbarkeit und Conversion.
+                Je nach Ausgangslage braucht dein Projekt zuerst Klarheit, Struktur, Sichtbarkeit oder einen nächsten
+                Skalierungsschritt. Deshalb greifen alle Leistungen in dieselbe strategische Logik.
               </p>
+            </div>
+
+            <div class="chip-row reveal-on-scroll">
+              <span class="contact-chip">Positionierung</span>
+              <span class="contact-chip">Websysteme</span>
+              <span class="contact-chip">Sichtbarkeit</span>
+              <span class="contact-chip">Growth</span>
             </div>
           </div>
 
@@ -102,13 +82,14 @@
             <article class="pkg-card pkg-card--featured">
               <div class="pkg-card__inner">
                 <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Was alle Projekte verbindet</p>
+                  <p class="pkg-card__name font-display">Was alle Leistungen verbindet</p>
+                  <p class="pkg-card__tagline">Nicht mehr Output, sondern mehr Richtung im Auftritt.</p>
                 </div>
                 <ul class="pkg-card__list" aria-label="Gemeinsame Grundlagen">
-                  <li class="pkg-card__list-item">klare Positionierung</li>
-                  <li class="pkg-card__list-item">saubere Seitenarchitektur</li>
-                  <li class="pkg-card__list-item">Conversion-orientierte CTA-Führung</li>
-                  <li class="pkg-card__list-item">skalierbarer Marketing- und Tracking-Rahmen</li>
+                  <li class="pkg-card__list-item">klare Positionierung und Angebotslogik</li>
+                  <li class="pkg-card__list-item">saubere Seitenarchitektur und Nutzerführung</li>
+                  <li class="pkg-card__list-item">Conversion-orientierte CTA-Hierarchie</li>
+                  <li class="pkg-card__list-item">messbare Struktur für Sichtbarkeit und Optimierung</li>
                 </ul>
               </div>
             </article>
@@ -122,82 +103,88 @@
         <div class="approach-section__header reveal-on-scroll">
           <p class="approach-section__eyebrow">Angebot</p>
           <h2 class="approach-section__headline font-display">
-            Fünf Leistungsbereiche für unterschiedliche Hebel.
+            Fünf Leistungsbereiche, sauber aufeinander abgestimmt.
           </h2>
+          <p class="approach-section__subline">
+            Jeder Bereich hat einen eigenen Fokus, aber dieselbe Aufgabe: mehr Klarheit, mehr Vertrauen und bessere
+            nächste Schritte im digitalen Auftritt.
+          </p>
         </div>
 
         <div class="approach-section__grid">
           <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;" data-card-link="webentwicklung.html"
-            role="link" tabindex="0" aria-label="Webentwicklung ansehen">
+            role="link" tabindex="0" aria-label="Leistungen ansehen">
             <span class="approach-card__ghost-num" aria-hidden="true">01</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">BUILD</p>
               <h3 class="approach-card__title font-display">Webentwicklung</h3>
               <p class="approach-card__body">
-                Landingpages, Business-Websites und skalierbare Systeme mit Performance und klarer Nutzerführung.
+                Für Unternehmen, die eine performante Website mit klarer Nutzerführung und starker Conversion-Basis
+                brauchen.
               </p>
-              <a href="webentwicklung.html" class="approach-section__btn" aria-label="Zur Seite Webentwicklung">
-                Webentwicklung
+              <a href="webentwicklung.html" class="approach-section__btn" aria-label="Leistungen ansehen">
+                Leistungen ansehen
               </a>
             </div>
           </article>
 
           <article class="approach-card reveal-on-scroll" style="--approach-delay: 80ms;" data-card-link="branding.html"
-            role="link" tabindex="0" aria-label="Branding ansehen">
+            role="link" tabindex="0" aria-label="Leistungen ansehen">
             <span class="approach-card__ghost-num" aria-hidden="true">02</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">BRAND</p>
               <h3 class="approach-card__title font-display">Branding</h3>
               <p class="approach-card__body">
-                Positionierung, Logo, Farben, Brand Guide und ein visuelles System für Website und Social.
+                Für Unternehmen, deren Auftritt professioneller, differenzierter und konsistenter wirken soll.
               </p>
-              <a href="branding.html" class="approach-section__btn" aria-label="Zur Seite Branding">
-                Branding
+              <a href="branding.html" class="approach-section__btn" aria-label="Leistungen ansehen">
+                Leistungen ansehen
               </a>
             </div>
           </article>
 
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 160ms;" data-card-link="marketing.html"
-            role="link" tabindex="0" aria-label="SEO und Marketing ansehen">
+          <article class="approach-card reveal-on-scroll" style="--approach-delay: 160ms;"
+            data-card-link="seo-marketing.html" role="link" tabindex="0" aria-label="Leistungen ansehen">
             <span class="approach-card__ghost-num" aria-hidden="true">03</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">SEARCH</p>
               <h3 class="approach-card__title font-display">SEO &amp; Marketing</h3>
               <p class="approach-card__body">
-                SEO-Struktur, Content-Logik, Tracking und Analyse für nachhaltige Sichtbarkeit.
+                Für Unternehmen, die Sichtbarkeit, Content-Struktur und Tracking endlich als ein System aufbauen wollen.
               </p>
-              <a href="marketing.html" class="approach-section__btn" aria-label="Zur Seite SEO und Marketing">
-                SEO &amp; Marketing
+              <a href="seo-marketing.html" class="approach-section__btn" aria-label="Leistungen ansehen">
+                Leistungen ansehen
               </a>
             </div>
           </article>
 
           <article class="approach-card reveal-on-scroll" style="--approach-delay: 240ms;" data-card-link="social.html"
-            role="link" tabindex="0" aria-label="Social Media Strategie ansehen">
+            role="link" tabindex="0" aria-label="Leistungen ansehen">
             <span class="approach-card__ghost-num" aria-hidden="true">04</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">SOCIAL</p>
-              <h3 class="approach-card__title font-display">Social Media Strategie</h3>
+              <h3 class="approach-card__title font-display">Social Strategie</h3>
               <p class="approach-card__body">
-                Themenplanung, Templates, Posting-System und Funnel-Logik für konsistente Content-Produktion.
+                Für Teams, die Content planbar, markenkonsistent und näher an Angebot und Nachfrage aufbauen möchten.
               </p>
-              <a href="social.html" class="approach-section__btn" aria-label="Zur Seite Social Strategie">
-                Social Strategie
+              <a href="social.html" class="approach-section__btn" aria-label="Leistungen ansehen">
+                Leistungen ansehen
               </a>
             </div>
           </article>
 
           <article class="approach-card reveal-on-scroll" style="--approach-delay: 320ms;" data-card-link="growth.html"
-            role="link" tabindex="0" aria-label="Growth Strategie ansehen">
+            role="link" tabindex="0" aria-label="Leistungen ansehen">
             <span class="approach-card__ghost-num" aria-hidden="true">05</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">GROWTH</p>
               <h3 class="approach-card__title font-display">Growth Strategie</h3>
               <p class="approach-card__body">
-                Funnel-Strategie, Conversion-Optimierung, Tracking und Experimente für die nächste Skalierungsstufe.
+                Für Unternehmen, die Nachfrage, Conversion und Optimierung systematisch auf die nächste Stufe bringen
+                wollen.
               </p>
-              <a href="growth.html" class="approach-section__btn" aria-label="Zur Seite Growth Strategie">
-                Growth Strategie
+              <a href="growth.html" class="approach-section__btn" aria-label="Leistungen ansehen">
+                Leistungen ansehen
               </a>
             </div>
           </article>
@@ -205,61 +192,129 @@
       </div>
     </section>
 
-    <section class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="process-section__inner max-w-7xl mx-auto">
-        <div class="process-section__header reveal-on-scroll">
-          <p class="process-section__eyebrow">Reihenfolge</p>
-          <h2 class="process-section__headline font-display">
-            Nicht jede Leistung kommt zuerst.
+    <section class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Entscheidungshilfe</p>
+          <h2 class="packages-section__headline font-display">
+            Welche Leistung zuerst Sinn ergibt, hängt von der Ausgangslage ab.
           </h2>
-          <p class="process-section__subline">
-            Deshalb beginnt jedes Projekt mit einer Analyse und führt nur in die Themen, die wirklich zuerst Wirkung
-            erzeugen.
+          <p class="packages-section__subline">
+            Nicht jedes Projekt startet bei derselben Stelle. Entscheidend ist, welcher Hebel zuerst Vertrauen,
+            Klarheit oder Nachfrage verbessert.
           </p>
         </div>
 
-        <ol class="process-section__steps" aria-label="Leistungslogik in vier Schritten">
-          <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">01</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">01</p>
-              <h3 class="process-step__title font-display">Analyse</h3>
-              <p class="process-step__body">
-                Zielbild, Angebot und vorhandene Assets werden sortiert.
+        <div class="packages-section__grid">
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Wenn der Auftritt zu unscharf ist</p>
+                <p class="pkg-card__tagline">Branding und Positionierung kommen zuerst.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">Angebot wirkt austauschbar</li>
+                <li class="pkg-card__list-item">Botschaften sind nicht präzise genug</li>
+                <li class="pkg-card__list-item">Design transportiert keine klare Wertigkeit</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <a href="branding.html" class="pkg-card__btn" aria-label="Leistungen ansehen">
+                  Leistungen ansehen
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Wenn die Website nicht sauber führt</p>
+                <p class="pkg-card__tagline">Webentwicklung und Struktur sind der erste Hebel.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">Zu viele Reibungspunkte im Nutzerweg</li>
+                <li class="pkg-card__list-item">Kein klarer Fokus auf Kontakt oder Anfrage</li>
+                <li class="pkg-card__list-item">Technik und Struktur bremsen Vertrauen</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <a href="webentwicklung.html" class="pkg-card__btn pkg-card__btn--featured"
+                  aria-label="Leistungen ansehen">
+                  Leistungen ansehen
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Wenn Nachfrage wachsen soll</p>
+                <p class="pkg-card__tagline">SEO, Content, Social oder Growth bauen darauf auf.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">Sichtbarkeit ist noch nicht sauber aufgebaut</li>
+                <li class="pkg-card__list-item">Content arbeitet nicht in Richtung Angebot</li>
+                <li class="pkg-card__list-item">Tracking oder Optimierung fehlen</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <a href="seo-marketing.html" class="pkg-card__btn" aria-label="Leistungen ansehen">
+                  Leistungen ansehen
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Nächste Wege</p>
+              <h2 class="about-section__headline font-display">
+                Leistungen verstehen, Projekte prüfen oder den Ablauf im Detail ansehen.
+              </h2>
+              <p class="about-section__subline">
+                Auf allen relevanten Seiten gibt es einen klaren nächsten Schritt. Keine Sackgassen, keine losen Enden.
               </p>
             </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 80ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">02</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">02</p>
-              <h3 class="process-step__title font-display">Priorisierung</h3>
-              <p class="process-step__body">
-                Es wird festgelegt, ob zuerst Positionierung, Website, Sichtbarkeit oder Growth den größten Hebel hat.
-              </p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 160ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">03</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">03</p>
-              <h3 class="process-step__title font-display">Umsetzung</h3>
-              <p class="process-step__body">
-                Die passende Kombination an Leistungen wird in eine saubere Projektlogik gebracht.
-              </p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 240ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">04</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">04</p>
-              <h3 class="process-step__title font-display">Skalierung</h3>
-              <p class="process-step__body">
-                Nach Launch folgen Tracking, Optimierung und der Ausbau in weitere Kanäle.
-              </p>
-            </div>
-          </li>
-        </ol>
+          </div>
+
+          <div class="next-step-grid">
+            <article class="next-step-card reveal-on-scroll" style="--about-delay: 0ms;">
+              <p class="proof-card__meta">Ablauf</p>
+              <h3 class="next-step-card__title font-display">Projektprozess verstehen</h3>
+              <p class="next-step-card__text">Wenn du sehen willst, wie Analyse, Strategie, Umsetzung und Launch
+                zusammenarbeiten.</p>
+              <div class="mt-5">
+                <a href="ablauf.html" class="cluster-link" aria-label="Ablauf ansehen">Ablauf ansehen</a>
+              </div>
+            </article>
+
+            <article class="next-step-card reveal-on-scroll" style="--about-delay: 90ms;">
+              <p class="proof-card__meta">Proof</p>
+              <h3 class="next-step-card__title font-display">Projektlogik prüfen</h3>
+              <p class="next-step-card__text">Wenn du zuerst sehen willst, wie Leistungen in Projekten und Case Studies
+                strukturiert werden.</p>
+              <div class="mt-5">
+                <a href="projekte.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
+              </div>
+            </article>
+
+            <article class="next-step-card reveal-on-scroll" style="--about-delay: 180ms;">
+              <p class="proof-card__meta">Kontakt</p>
+              <h3 class="next-step-card__title font-display">Passenden Einstieg klären</h3>
+              <p class="next-step-card__text">Wenn du unsicher bist, welcher Hebel zuerst Sinn ergibt, sortieren wir das
+                im Erstgespräch oder Mini-Audit.</p>
+              <div class="mt-5">
+                <a href="kontakt.html#kontaktformular" class="approach-section__btn"
+                  aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -267,16 +322,21 @@
       <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
         <div class="reveal-on-scroll">
           <h2 class="final-cta-section__headline font-display">
-            Du brauchst keinen Leistungskatalog. Du brauchst die richtige Kombination.
+            Du brauchst keinen Leistungskatalog. Du brauchst die richtige Reihenfolge.
           </h2>
+          <p class="final-cta-section__subline">
+            Wenn du wissen willst, welcher Hebel zuerst Wirkung bringt, starten wir mit einem klaren Gespräch oder einem
+            kompakten Mini-Audit.
+          </p>
         </div>
         <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
           <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
-            aria-label="Termin buchen">
-            Termin buchen
+            aria-label="Erstgespräch buchen">
+            Erstgespräch buchen
           </a>
-          <a href="preise.html" class="final-cta-btn final-cta-btn--secondary" aria-label="Preise ansehen">
-            Preise ansehen
+          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Mini-Audit anfordern">
+            Mini-Audit anfordern
           </a>
         </div>
       </div>
@@ -292,52 +352,25 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">
-            Strategische Leistungen für Unternehmen, die ihren Auftritt strukturiert von Marke bis Growth aufbauen wollen.
-          </p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__description">Leistungs-Hub für Strategie, Auftritt und Nachfrage.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
-
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
-            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
-            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
-
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
-            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
-            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
-            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
-            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
-            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
-
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
-
       <div class="site-footer__bottom" aria-label="Footer Abschluss">
-        <small class="site-footer__copyright">
-          &copy; 2026 Smart Web Studio.
-        </small>
-        <small class="site-footer__signature">
-          Built for clarity, structure and conversion.
-        </small>
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
       </div>
     </div>
   </footer>

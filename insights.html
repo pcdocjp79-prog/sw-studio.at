@@ -5,64 +5,281 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Insights | Smart Web Studio</title>
-  <meta name="description" content="Insights von Smart Web Studio: Themencluster zu Website, SEO und Branding statt erfundener Blogartikel." />
+  <meta name="description"
+    content="Insights von Smart Web Studio mit klaren Themenclustern zu Website, Branding sowie SEO und Marketing inklusive direkter Verknüpfung zu Leistungen, Projekten und Mini-Audit." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body id="top" data-page="insights" class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
+
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="index.html" class="brand-link flex items-center gap-3"><img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" /><span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart Web Studio</span></a>
-      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="primary-nav"><span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span></button>
-      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation"><a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a><a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a><a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a><a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a><a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a><a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a><a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a><a href="kontakt.html#terminbuchung" class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin buchen</a></nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="index.html" class="brand-link flex items-center gap-3">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
+      </nav>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
   <main class="relative pt-0 pb-0">
-    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="max-w-7xl mx-auto">
-        <div class="about-section__header reveal-on-scroll"><p class="about-section__eyebrow">Insights</p><h1 class="about-section__headline font-display">Themencluster statt erfundener Blogartikel.</h1><p class="about-section__subline">Diese Seite zeigt, welche Themen Smart Web Studio inhaltlich besetzt. Solange keine finalen Artikel freigegeben sind, bleiben es bewusst Themenfelder und keine Fake-Posts.</p></div>
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="insights-title">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Insights</p>
+              <h1 id="insights-title" class="about-section__headline font-display">Ein Themenbereich für hochwertige
+                Websites, starke Marken und klarere Nachfrage.</h1>
+              <p class="about-section__subline">
+                Keine generischen Blog-Container, sondern ein fokussierter Expertenbereich. Die Inhalte zeigen, welche
+                Fragen in Projekten wirklich über Klarheit, Vertrauen und Conversion entscheiden.
+              </p>
+            </div>
+            <div class="chip-row reveal-on-scroll" style="--approach-delay: 80ms;">
+              <span class="contact-chip">Website</span>
+              <span class="contact-chip">Branding</span>
+              <span class="contact-chip">SEO / Marketing</span>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll" style="--approach-delay: 140ms;">
+            <article class="pkg-card pkg-card--featured">
+              <div class="pkg-card__inner">
+                <div class="pkg-card__header">
+                  <p class="pkg-card__name font-display">Wie dieser Bereich gedacht ist</p>
+                  <p class="pkg-card__tagline">Jedes Thema führt direkt weiter in Leistung, Projekt oder Audit.</p>
+                </div>
+                <ul class="pkg-card__list" aria-label="Logik des Insights-Bereichs">
+                  <li class="pkg-card__list-item">Themencluster statt austauschbarer Blogoptik</li>
+                  <li class="pkg-card__list-item">relevante Fragestellungen mit direkter Projektübersetzung</li>
+                  <li class="pkg-card__list-item">klare nächste Schritte ohne Sackgassen</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="approach-section__inner max-w-7xl mx-auto">
-        <div class="approach-section__grid">
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;"><span class="approach-card__ghost-num" aria-hidden="true">01</span><div class="approach-card__inner"><p class="approach-card__num">WEBSITE</p><h2 class="approach-card__title font-display">Website Fehler</h2><p class="approach-card__body">Typische Strukturfehler, die Vertrauen, Geschwindigkeit und Conversion auf Unternehmensseiten ausbremsen.</p></div></article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;"><span class="approach-card__ghost-num" aria-hidden="true">02</span><div class="approach-card__inner"><p class="approach-card__num">SEO</p><h2 class="approach-card__title font-display">SEO Tipps</h2><p class="approach-card__body">Suchintention, Seitenarchitektur und Content-Logik für Unternehmen, die Sichtbarkeit sinnvoll aufbauen wollen.</p></div></article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;"><span class="approach-card__ghost-num" aria-hidden="true">03</span><div class="approach-card__inner"><p class="approach-card__num">BRAND</p><h2 class="approach-card__title font-display">Branding</h2><p class="approach-card__body">Positionierung, Markenbotschaft und Design-Systeme für einen Auftritt, der nicht austauschbar wirkt.</p></div></article>
+    <section class="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="filter-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="filter-surface reveal-on-scroll">
+          <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p class="section-kicker">Themenfilter</p>
+              <h2 id="filter-title" class="text-white font-display text-2xl sm:text-3xl">Insights nach Fokus
+                sortieren</h2>
+            </div>
+            <div class="case-filter" data-filter-group="insights" aria-label="Insights filtern">
+              <button type="button" class="case-filter__btn is-active" data-filter-value="all">Alle</button>
+              <button type="button" class="case-filter__btn" data-filter-value="website">Website</button>
+              <button type="button" class="case-filter__btn" data-filter-value="branding">Branding</button>
+              <button type="button" class="case-filter__btn" data-filter-value="seo">SEO / Marketing</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="cluster-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Themencluster</p>
+          <h2 id="cluster-title" class="packages-section__headline font-display">Die häufigsten Hebel, an denen
+            hochwertige Projekte gewinnen oder scheitern.</h2>
+        </div>
+
+        <div class="cluster-grid md:grid-cols-2 xl:grid-cols-3">
+          <article class="insight-cluster filterable-card reveal-on-scroll" data-filter-item="insights"
+            data-category="website" style="--pkg-delay: 0ms;">
+            <p class="cluster-meta">Website</p>
+            <h3 class="cluster-title font-display">Warum gut aussehende Websites trotzdem keine Anfragen auslösen</h3>
+            <p class="cluster-copy">Wenn Nutzen, Hierarchie und CTA-Struktur nicht sauber geführt werden, verliert selbst
+              ein hochwertiger Auftritt an Wirkung.</p>
+            <div class="chip-row mt-5">
+              <span class="category-chip">Conversion</span>
+              <span class="category-chip">Nutzerführung</span>
+            </div>
+            <div class="mt-5">
+              <a href="webentwicklung.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
+
+          <article class="insight-cluster filterable-card reveal-on-scroll" data-filter-item="insights"
+            data-category="website seo" style="--pkg-delay: 90ms;">
+            <p class="cluster-meta">Website / SEO</p>
+            <h3 class="cluster-title font-display">Seitenarchitektur vor Content-Masse</h3>
+            <p class="cluster-copy">Bevor Sichtbarkeit skaliert, müssen Zielseiten, interne Wege und Suchintention sauber
+              zusammenarbeiten.</p>
+            <div class="chip-row mt-5">
+              <span class="category-chip">Struktur</span>
+              <span class="category-chip">Zielseiten</span>
+            </div>
+            <div class="mt-5">
+              <a href="case-study.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
+            </div>
+          </article>
+
+          <article class="insight-cluster filterable-card reveal-on-scroll" data-filter-item="insights"
+            data-category="branding" style="--pkg-delay: 180ms;">
+            <p class="cluster-meta">Branding</p>
+            <h3 class="cluster-title font-display">Austauschbarer Auftritt trotz solidem Design</h3>
+            <p class="cluster-copy">Wenn Positionierung und Markenbotschaft nicht scharf genug sind, bleibt das Design
+              dekorativ statt differenzierend.</p>
+            <div class="chip-row mt-5">
+              <span class="category-chip">Positionierung</span>
+              <span class="category-chip">Botschaft</span>
+            </div>
+            <div class="mt-5">
+              <a href="branding.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
+
+          <article class="insight-cluster filterable-card reveal-on-scroll" data-filter-item="insights"
+            data-category="branding seo" style="--pkg-delay: 270ms;">
+            <p class="cluster-meta">Branding / SEO</p>
+            <h3 class="cluster-title font-display">Positionierung vor Content-Produktion klären</h3>
+            <p class="cluster-copy">Wer nicht präzise weiß, für wen er relevant ist, produziert schnell Sichtbarkeit ohne
+              klare Nachfragequalität.</p>
+            <div class="chip-row mt-5">
+              <span class="category-chip">Relevanz</span>
+              <span class="category-chip">Angebotsschärfung</span>
+            </div>
+            <div class="mt-5">
+              <a href="kontakt.html#kontaktformular" class="approach-section__btn"
+                aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+            </div>
+          </article>
+
+          <article class="insight-cluster filterable-card reveal-on-scroll" data-filter-item="insights"
+            data-category="seo" style="--pkg-delay: 360ms;">
+            <p class="cluster-meta">SEO / Marketing</p>
+            <h3 class="cluster-title font-display">SEO funktioniert erst mit klaren Conversion-Zielen</h3>
+            <p class="cluster-copy">Sichtbarkeit ist nur dann wertvoll, wenn Zielseiten, Botschaften und nächste Schritte
+              für die richtige Anfragequalität vorbereitet sind.</p>
+            <div class="chip-row mt-5">
+              <span class="category-chip">Sichtbarkeit</span>
+              <span class="category-chip">Messbarkeit</span>
+            </div>
+            <div class="mt-5">
+              <a href="seo-marketing.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
+
+          <article class="insight-cluster filterable-card reveal-on-scroll" data-filter-item="insights"
+            data-category="seo" style="--pkg-delay: 450ms;">
+            <p class="cluster-meta">SEO / Marketing</p>
+            <h3 class="cluster-title font-display">Besser priorisieren statt überall gleichzeitig optimieren</h3>
+            <p class="cluster-copy">Mini-Audit und saubere Priorisierung vermeiden Aktionismus und zeigen, welcher Hebel
+              jetzt wirklich Wirkung bringt.</p>
+            <div class="chip-row mt-5">
+              <span class="category-chip">Priorisierung</span>
+              <span class="category-chip">Audit</span>
+            </div>
+            <div class="mt-5">
+              <a href="kontakt.html#kontaktformular" class="approach-section__btn"
+                aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="transfer-title">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Direkter Transfer</p>
+          <h2 id="transfer-title" class="packages-section__headline font-display">Von Insight zu passender Leistung
+            ohne Umweg.</h2>
+        </div>
+
+        <div class="next-step-grid md:grid-cols-3">
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <p class="proof-card__meta">Website</p>
+            <h3 class="next-step-card__title font-display">Struktur, UX und Conversion</h3>
+            <p class="next-step-card__text">Wenn Inhalte zwar da sind, die Website aber zu wenig führt oder zu wenig
+              Vertrauen aufbaut.</p>
+            <div class="mt-5">
+              <a href="webentwicklung.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
+
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <p class="proof-card__meta">Branding</p>
+            <h3 class="next-step-card__title font-display">Positionierung und Auftritt schärfen</h3>
+            <p class="next-step-card__text">Wenn das Angebot zu wenig eigenständig wirkt oder die Botschaft noch nicht
+              klar genug trägt.</p>
+            <div class="mt-5">
+              <a href="branding.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
+
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <p class="proof-card__meta">SEO / Marketing</p>
+            <h3 class="next-step-card__title font-display">Sichtbarkeit mit Struktur aufbauen</h3>
+            <p class="next-step-card__text">Wenn Nachfrage nicht nur erzeugt, sondern sauber in qualifizierte Anfragen
+              übersetzt werden soll.</p>
+            <div class="mt-5">
+              <a href="seo-marketing.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
+                ansehen</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-4xl mx-auto text-center"><div class="reveal-on-scroll"><h2 class="final-cta-section__headline font-display">Wenn du ein Thema direkt im Projekt beantworten willst.</h2></div><div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;"><a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Termin buchen</a><a href="leistungen.html" class="final-cta-btn final-cta-btn--secondary">Leistungen ansehen</a></div></div>
+      <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">Wenn du ein Thema direkt auf dein Projekt übertragen
+            willst.</h2>
+          <p class="final-cta-section__subline">
+            Dann starten wir mit einem strukturierten Erstgespräch oder einem Mini-Audit und priorisieren die nächste
+            wirklich sinnvolle Maßnahme.
+          </p>
+        </div>
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -71,16 +288,37 @@
     <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
     <div class="site-footer__inner max-w-7xl mx-auto">
       <div class="site-footer__grid">
-        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title"><h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2><p class="site-footer__tagline">Marke. Website. Wachstum.</p><p class="site-footer__description">Expertise-Felder für Website, SEO und Branding.</p><p class="site-footer__meta">Standort: Vorarlberg / DACH</p></section>
-        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen"><h3 class="site-footer__heading">Leistungen</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li><li><a class="site-footer__link" href="branding.html">Branding</a></li><li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li><li><a class="site-footer__link" href="social.html">Social Strategie</a></li><li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li></ul></nav>
-        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation"><h3 class="site-footer__heading">Navigation</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="projekte.html">Projekte</a></li><li><a class="site-footer__link" href="case-study.html">Case Study</a></li><li><a class="site-footer__link" href="preise.html">Preise</a></li><li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li><li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li><li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li></ul></nav>
-        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches"><h3 class="site-footer__heading">Rechtliches</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="impressum.html">Impressum</a></li><li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li><li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li></ul></nav>
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
+          <p class="site-footer__description">Ein Expertenbereich mit klarer Themenlogik statt beliebiger Blog-Optik
+            und direkter Weiterführung in Leistung oder Kontakt.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
+        </section>
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list"></ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list"></ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list"></ul>
+        </nav>
       </div>
-      <div class="site-footer__bottom" aria-label="Footer Abschluss"><small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small><small class="site-footer__signature">Built for clarity, structure and conversion.</small></div>
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
+      </div>
     </div>
   </footer>
 
-  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen"><span aria-hidden="true">&uarr;</span></button>
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
   <script type="module" src="src/js/main.js"></script>
 </body>
 

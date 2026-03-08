@@ -6,33 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case Study | Smart Web Studio</title>
   <meta name="description"
-    content="Beispielhafte Case-Study-Struktur von Smart Web Studio. Transparente Projektlogik ohne erfundene Kundenzahlen." />
+    content="Anonymisierte Case Study von Smart Web Studio mit Ausgangslage, Ziel, Umsetzung und qualitativen Ergebnissen statt erfundener KPI-Werte." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
@@ -54,24 +36,16 @@
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
       </button>
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
-        <a href="leistungen.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
-        <a href="projekte.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
-        <a href="ablauf.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
-        <a href="preise.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
-        <a href="insights.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
-        <a href="kontakt.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="kontakt.html#terminbuchung"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
-          buchen</a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
@@ -86,8 +60,8 @@
                 Beispielhafte Projektstruktur statt erfundener Referenz.
               </h1>
               <p class="about-section__subline">
-                Diese Seite zeigt transparent, wie ein Projekt aufbereitet wird, wenn keine freigegebenen Kundendaten
-                veröffentlicht werden dürfen. Die Struktur ist realistisch. Die Kundendaten bleiben bewusst anonym.
+                Diese Case Study zeigt transparent, wie ein Projekt strategisch aufgebaut und in Wirkung übersetzt wird,
+                ohne reale Kundendaten oder künstlich erzeugte Zahlen zu veröffentlichen.
               </p>
             </div>
           </div>
@@ -95,12 +69,13 @@
             <article class="pkg-card pkg-card--featured">
               <div class="pkg-card__inner">
                 <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Transparenz</p>
+                  <p class="pkg-card__name font-display">Transparenz-Modell</p>
+                  <p class="pkg-card__tagline">Realistische Struktur, anonymisierte Projektdaten.</p>
                 </div>
-                <ul class="pkg-card__list" aria-label="Hinweise zur Case Study">
+                <ul class="pkg-card__list">
                   <li class="pkg-card__list-item">kein Kundename</li>
-                  <li class="pkg-card__list-item">keine erfundenen KPI-Werte</li>
-                  <li class="pkg-card__list-item">echte Denk- und Projektlogik</li>
+                  <li class="pkg-card__list-item">keine frei erfundenen KPI-Deltas</li>
+                  <li class="pkg-card__list-item">echte Denkweise hinter Positionierung, Website und Conversion</li>
                 </ul>
               </div>
             </article>
@@ -111,55 +86,119 @@
 
     <section class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="process-section__inner max-w-7xl mx-auto">
-        <ol class="process-section__steps" aria-label="Case Study Aufbau">
+        <ol class="process-section__steps" aria-label="Case Study Struktur">
           <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
             <span class="process-step__ghost-num" aria-hidden="true">01</span>
             <div class="process-step__inner">
               <p class="process-step__num">01</p>
               <h2 class="process-step__title font-display">Ausgangslage</h2>
-              <p class="process-step__body">
-                Die Marke wirkt unklar, das Angebot wird zu breit kommuniziert und die bestehende Website führt Besucher
-                nicht entschieden in die nächste Handlung.
-              </p>
+              <p class="process-step__body">Die Marke wirkt unklar, das Angebot wird zu breit kommuniziert und die
+                bestehende Website priorisiert weder Nutzerführung noch Kontaktweg sauber genug.</p>
             </div>
           </li>
-
           <li class="process-step reveal-on-scroll" style="--process-delay: 80ms;">
             <span class="process-step__ghost-num" aria-hidden="true">02</span>
             <div class="process-step__inner">
               <p class="process-step__num">02</p>
               <h2 class="process-step__title font-display">Ziel</h2>
-              <p class="process-step__body">
-                Ein klarer Auftritt soll Positionierung, Seitenstruktur und CTA-Führung so ordnen, dass aus Interesse
-                belastbare Projektanfragen werden.
-              </p>
+              <p class="process-step__body">Ein klarer Premium-Auftritt soll Angebot, Positionierung und CTA-Logik so
+                ordnen, dass aus Interesse belastbare Projektanfragen werden.</p>
             </div>
           </li>
-
           <li class="process-step reveal-on-scroll" style="--process-delay: 160ms;">
             <span class="process-step__ghost-num" aria-hidden="true">03</span>
             <div class="process-step__inner">
               <p class="process-step__num">03</p>
               <h2 class="process-step__title font-display">Umsetzung</h2>
-              <p class="process-step__body">
-                Messaging wird geschärft, die Seitenarchitektur neu gesetzt, Leistungen klar getrennt und der Kontaktfluss
-                auf Termin plus Formular ausgerichtet.
-              </p>
+              <p class="process-step__body">Messaging schärfen, Seitenarchitektur neu setzen, Leistungen trennen,
+                Kontaktpfade priorisieren und Gestaltung/Technik auf dieselbe Logik ausrichten.</p>
             </div>
           </li>
-
           <li class="process-step reveal-on-scroll" style="--process-delay: 240ms;">
             <span class="process-step__ghost-num" aria-hidden="true">04</span>
             <div class="process-step__inner">
               <p class="process-step__num">04</p>
               <h2 class="process-step__title font-display">Ergebnis</h2>
-              <p class="process-step__body">
-                Kein versprochenes Fantasie-Delta, sondern eine greifbare, strukturierte Website mit klaren Conversion-Wege
-                und professioneller Projektführung.
-              </p>
+              <p class="process-step__body">Eine Website, die professioneller wirkt, klarer führt und ein sauberes System
+                für Anfrage, Weiterentwicklung und qualitative Optimierung bildet.</p>
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="case-result-title">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Qualitative Ergebnisse</p>
+              <h2 id="case-result-title" class="about-section__headline font-display">
+                Die Wirkung zeigt sich hier in Klarheit, Führung und Wahrnehmung.
+              </h2>
+              <p class="about-section__subline">
+                Auch ohne veröffentlichbare Zahlen lässt sich sichtbar machen, was sich durch ein gutes System im
+                digitalen Auftritt verbessert.
+              </p>
+            </div>
+          </div>
+          <div class="result-grid">
+            <article class="result-card reveal-on-scroll" style="--about-delay: 0ms;">
+              <p class="result-card__meta">Auftritt</p>
+              <h3 class="result-card__title font-display">Klarere Positionierung im Markt</h3>
+              <p class="result-card__text">Der Nutzen wird schneller verständlich, die Marke wirkt fokussierter und das
+                Angebot präziser.</p>
+            </article>
+            <article class="result-card reveal-on-scroll" style="--about-delay: 90ms;">
+              <p class="result-card__meta">Website</p>
+              <h3 class="result-card__title font-display">Bessere Struktur und Nutzerführung</h3>
+              <p class="result-card__text">Inhalte, Leistungen und Kontaktwege folgen einer nachvollziehbaren Priorität
+                statt einer beliebigen Seitenfolge.</p>
+            </article>
+            <article class="result-card reveal-on-scroll" style="--about-delay: 180ms;">
+              <p class="result-card__meta">Prozess</p>
+              <h3 class="result-card__title font-display">Mehr Steuerbarkeit nach dem Launch</h3>
+              <p class="result-card__text">Tracking, CTA-Logik und das Fundament für weitere Optimierungen stehen von
+                Anfang an sauber.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="case-links-title">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Weiterführende Wege</p>
+          <h2 id="case-links-title" class="packages-section__headline font-display">
+            Vom Projektbeweis direkt in Leistung, Ablauf oder Erstgespräch.
+          </h2>
+        </div>
+        <div class="packages-section__grid">
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <p class="proof-card__meta">Leistung</p>
+            <h3 class="next-step-card__title font-display">Leistungen im Detail ansehen</h3>
+            <p class="next-step-card__text">Wenn du zuerst verstehen willst, welcher Hebel in deinem Projekt an erster
+              Stelle stehen sollte.</p>
+            <div class="mt-5"><a href="leistungen.html" class="approach-section__btn"
+                aria-label="Leistungen ansehen">Leistungen ansehen</a></div>
+          </article>
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <p class="proof-card__meta">Prozess</p>
+            <h3 class="next-step-card__title font-display">Ablauf im Detail prüfen</h3>
+            <p class="next-step-card__text">Wenn du sehen willst, wie Analyse, Positionierung und Umsetzung aufeinander
+              aufbauen.</p>
+            <div class="mt-5"><a href="ablauf.html" class="cluster-link"
+                aria-label="Ablauf ansehen">Ablauf ansehen</a></div>
+          </article>
+          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <p class="proof-card__meta">Kontakt</p>
+            <h3 class="next-step-card__title font-display">Ausgangslage direkt besprechen</h3>
+            <p class="next-step-card__text">Wenn du denselben Klarheitsgewinn für dein Projekt priorisieren möchtest.</p>
+            <div class="mt-5"><a href="kontakt.html#terminbuchung" class="approach-section__btn"
+                aria-label="Erstgespräch buchen">Erstgespräch buchen</a></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -167,12 +206,16 @@
       <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
         <div class="reveal-on-scroll">
           <h2 class="final-cta-section__headline font-display">
-            Wenn du dieselbe Klarheit in deinem Projekt willst.
+            Wenn du dieselbe Klarheit in deinem Projekt sehen willst.
           </h2>
+          <p class="final-cta-section__subline">Dann starten wir mit einem strukturierten Erstgespräch oder einem
+            Mini-Audit und priorisieren die richtigen Hebel ohne Umwege.</p>
         </div>
         <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Projekt starten</a>
-          <a href="kontakt.html" class="final-cta-btn final-cta-btn--secondary">Kontaktseite</a>
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
         </div>
       </div>
     </section>
@@ -186,37 +229,20 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">Case-Study-Struktur für transparente Projektkommunikation.</p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__description">Case Study mit transparenter Projektlogik und qualitativen Resultaten.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
-            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
-            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
-            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
-            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
-            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
-            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
-            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

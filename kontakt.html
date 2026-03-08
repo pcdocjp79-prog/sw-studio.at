@@ -6,38 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt | Smart Web Studio</title>
   <meta name="description"
-    content="Kontaktseite von Smart Web Studio mit Terminweg und Projektformular für strukturierte Anfragen." />
+    content="Kontaktseite von Smart Web Studio mit zwei klaren Einstiegen: Erstgespräch buchen oder Projektformular für einen strukturierten Projektstart." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
-<body id="top" data-page="kontakt" data-contact-success-path="danke.html"
+<body id="top" data-page="kontakt" data-contact-success-path="danke.html" data-mobile-sticky-cta="false"
   class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
 
@@ -48,36 +30,23 @@
         <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
           Web Studio</span>
       </a>
-
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
         aria-expanded="false" aria-controls="primary-nav">
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
       </button>
-
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
-        <a href="leistungen.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
-        <a href="projekte.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
-        <a href="ablauf.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
-        <a href="preise.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
-        <a href="insights.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
-        <a href="kontakt.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="#terminbuchung"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
-          buchen</a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-
-      <a href="#terminbuchung" class="nav-cta" aria-label="Termin buchen">
-        Termin buchen
-      </a>
+      <a href="#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
@@ -89,25 +58,24 @@
             <div class="about-section__header reveal-on-scroll">
               <p class="about-section__eyebrow">Kontakt</p>
               <h1 id="contact-hero-title" class="about-section__headline font-display">
-                Zwei Wege in den Projektstart.
+                Zwei klare Wege in den Projektstart.
               </h1>
               <p class="about-section__subline">
-                Du kannst einen strukturierten Ersttermin anfragen oder dein Projekt direkt schriftlich skizzieren. Beides
-                führt in denselben professionellen Prozess.
+                Du kannst direkt ein Erstgespräch buchen oder dein Projekt schriftlich skizzieren. Beide Wege landen in
+                einer strukturierten Einordnung statt in einem allgemeinen Kontaktpostfach.
               </p>
             </div>
           </div>
-
           <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
             <article class="pkg-card pkg-card--featured">
               <div class="pkg-card__inner">
                 <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Was für eine gute Anfrage hilft</p>
+                  <p class="pkg-card__name font-display">Was bei einer guten Anfrage hilft</p>
                 </div>
                 <ul class="pkg-card__list" aria-label="Hilfreiche Informationen für die Anfrage">
                   <li class="pkg-card__list-item">Projektart oder Ausgangslage</li>
-                  <li class="pkg-card__list-item">Budgetrahmen und Zeitfenster</li>
                   <li class="pkg-card__list-item">welcher Hebel zuerst gelöst werden soll</li>
+                  <li class="pkg-card__list-item">grober Zeitrahmen und vorhandene Grundlagen</li>
                 </ul>
               </div>
             </article>
@@ -119,12 +87,13 @@
     <section id="terminbuchung" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="packages-section__inner max-w-7xl mx-auto">
         <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Kontaktwege</p>
+          <p class="packages-section__eyebrow">Einstiege</p>
           <h2 class="packages-section__headline font-display">
-            Termin oder Formular. Klar statt kompliziert.
+            Erstgespräch oder Projektformular. Klar statt kompliziert.
           </h2>
           <p class="packages-section__subline">
-            Wähle den Einstieg, der zu deiner Situation passt. Beide Wege landen in einer strukturierten Erstklärung.
+            Wähle den Einstieg, der zu deiner Situation passt. Der Terminweg ist direkter, das Formular eignet sich für
+            detailliertere Vorabinformationen.
           </p>
         </div>
 
@@ -132,20 +101,21 @@
           <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 0ms;">
             <div class="pkg-card__inner">
               <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Terminweg</p>
-                <p class="pkg-card__tagline">Wenn du direkt die richtige Reihenfolge und die passenden Hebel klären willst.</p>
+                <p class="pkg-card__name font-display">Erstgespräch buchen</p>
+                <p class="pkg-card__tagline">Wenn du Prioritäten, Scope und sinnvolle Reihenfolge direkt klären willst.
+                </p>
               </div>
-              <ul class="pkg-card__list" aria-label="Terminweg Informationen">
-                <li class="pkg-card__list-item">geeignet für neue Projekte oder Relaunches</li>
-                <li class="pkg-card__list-item">fokussiert auf Zielbild, Scope und Priorität</li>
-                <li class="pkg-card__list-item">wechselt direkt in das Anfrageformular mit vorausgewählter Intention</li>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">ideal für neue Projekte oder Relaunches</li>
+                <li class="pkg-card__list-item">fokussiert auf Zielbild, Hebel und nächsten Schritt</li>
+                <li class="pkg-card__list-item">prefillt das Formular für eine schnelle Einordnung</li>
               </ul>
               <div class="pkg-card__footer">
                 <a href="#kontaktformular" class="pkg-card__btn pkg-card__btn--featured"
                   data-prefill-project="Erstgespräch" data-prefill-timeline="Innerhalb von 2-4 Wochen"
-                  data-prefill-message="Ich möchte einen strukturierten Ersttermin für mein Projekt anfragen."
-                  data-prefill-target="contact-project-type" aria-label="Termin anfragen">
-                  Termin anfragen
+                  data-prefill-message="Ich möchte ein strukturiertes Erstgespräch für mein Projekt anfragen."
+                  data-prefill-target="contact-project-type" aria-label="Erstgespräch buchen">
+                  Erstgespräch buchen
                 </a>
               </div>
             </div>
@@ -154,17 +124,20 @@
           <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 90ms;">
             <div class="pkg-card__inner">
               <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Projektformular</p>
-                <p class="pkg-card__tagline">Wenn du dein Projekt lieber schriftlich vorstrukturierst.</p>
+                <p class="pkg-card__name font-display">Projektformular / Mini-Audit</p>
+                <p class="pkg-card__tagline">Wenn du dein Projekt lieber zuerst strukturiert beschreiben willst.</p>
               </div>
-              <ul class="pkg-card__list" aria-label="Projektformular Informationen">
-                <li class="pkg-card__list-item">Name, E-Mail und Projektart</li>
-                <li class="pkg-card__list-item">Budget- und Zeitrahmen</li>
-                <li class="pkg-card__list-item">Platz für Kontext, Ziele und offene Punkte</li>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">geeignet für konkrete Ausgangslagen oder bestehende Websites</li>
+                <li class="pkg-card__list-item">hilft bei klarerer Vorqualifizierung</li>
+                <li class="pkg-card__list-item">kann als Mini-Audit-Anfrage vorbereitet werden</li>
               </ul>
               <div class="pkg-card__footer">
-                <a href="#kontaktformular" class="pkg-card__btn" aria-label="Zum Formular springen">
-                  Zum Formular
+                <a href="#kontaktformular" class="pkg-card__btn" data-prefill-project="Mini-Audit"
+                  data-prefill-timeline="Noch offen"
+                  data-prefill-message="Ich möchte ein Mini-Audit beziehungsweise eine strukturierte Ersteinschätzung für mein Projekt anfragen."
+                  data-prefill-target="contact-project-type" aria-label="Mini-Audit anfordern">
+                  Mini-Audit anfordern
                 </a>
               </div>
             </div>
@@ -174,90 +147,143 @@
     </section>
 
     <section id="kontaktformular" class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-5xl mx-auto text-center">
-        <div class="reveal-on-scroll">
-          <h2 class="final-cta-section__headline font-display">
-            Projektanfrage senden
-          </h2>
+      <div class="final-cta-section__inner max-w-7xl mx-auto">
+        <div class="reveal-on-scroll text-center max-w-3xl mx-auto">
+          <h2 class="final-cta-section__headline font-display">Projektanfrage senden</h2>
           <p class="final-cta-section__subline">
-            Das Formular führt im Testmodus auf die Danke-Seite. Die Struktur ist bereits für einen echten Formular- oder
-            CRM-Endpunkt vorbereitet.
+            Das Formular führt im aktuellen Testfluss auf die Danke-Seite. Inhaltlich ist es bereits auf einen echten
+            CRM- oder Formular-Endpunkt vorbereitet.
           </p>
         </div>
 
-        <div class="contact-form-shell reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <h3 class="contact-form-shell__title font-display">Anfrageformular</h3>
-          <p id="contact-form-note" class="contact-form__hint">
-            E-Mail ist verpflichtend. Name, Projektart, Budget und Zeitplan helfen bei einer schnelleren Einordnung.
-          </p>
+        <div class="contact-grid mt-12">
+          <div class="contact-panel reveal-on-scroll" style="--final-cta-delay: 100ms;">
+            <div class="contact-form-shell">
+              <h3 class="contact-form-shell__title font-display">Anfrageformular</h3>
+              <p id="contact-form-note" class="contact-form__hint">
+                E-Mail ist verpflichtend. Projektart, Zeitrahmen und kurze Ausgangslage helfen bei der schnelleren
+                Einordnung.
+              </p>
 
-          <form class="contact-form" method="POST" action="" data-contact-form data-success-href="danke.html"
-            aria-describedby="contact-form-note">
-            <div class="contact-form__grid">
-              <div class="contact-field">
-                <label for="contact-name">Name <span class="contact-field__meta">(optional)</span></label>
-                <input id="contact-name" class="contact-input" name="name" type="text" autocomplete="name" />
-              </div>
+              <form class="contact-form" method="POST" action="" data-contact-form data-success-href="danke.html"
+                aria-describedby="contact-form-note">
+                <div class="contact-form__section">
+                  <h4 class="contact-form__section-title font-display">Persönliche Daten</h4>
+                  <p class="contact-form__section-copy">Die Basis für Rückmeldung und Einordnung.</p>
+                  <div class="contact-form__grid">
+                    <div class="contact-field">
+                      <label for="contact-name">Name <span class="contact-field__meta">(optional)</span></label>
+                      <input id="contact-name" class="contact-input" name="name" type="text" autocomplete="name" />
+                    </div>
 
-              <div class="contact-field">
-                <label for="contact-email">E-Mail <span class="contact-field__meta">(Pflichtfeld)</span></label>
-                <input id="contact-email" class="contact-input" name="email" type="email" required autocomplete="email"
-                  inputmode="email" aria-required="true" />
-              </div>
+                    <div class="contact-field">
+                      <label for="contact-email">E-Mail <span class="contact-field__meta">(Pflichtfeld)</span></label>
+                      <input id="contact-email" class="contact-input" name="email" type="email" required
+                        autocomplete="email" inputmode="email" aria-required="true" />
+                    </div>
+                  </div>
+                </div>
 
-              <div class="contact-field">
-                <label for="contact-project-type">Projektart <span class="contact-field__meta">(optional)</span></label>
-                <select id="contact-project-type" class="contact-input" name="projectType">
-                  <option value="">Bitte wählen</option>
-                  <option value="Erstgespräch">Erstgespräch</option>
-                  <option value="Webentwicklung">Webentwicklung</option>
-                  <option value="Branding">Branding</option>
-                  <option value="SEO und Marketing">SEO &amp; Marketing</option>
-                  <option value="Social Strategie">Social Strategie</option>
-                  <option value="Growth Strategie">Growth Strategie</option>
-                </select>
-              </div>
+                <div class="contact-form__section">
+                  <h4 class="contact-form__section-title font-display">Projektdetails</h4>
+                  <p class="contact-form__section-copy">Welche Ausgangslage, welcher Zeithorizont und welcher Hebel
+                    zuerst relevant sind.</p>
+                  <div class="contact-form__grid">
+                    <div class="contact-field">
+                      <label for="contact-project-type">Projektart <span class="contact-field__meta">(optional)</span></label>
+                      <select id="contact-project-type" class="contact-input" name="projectType">
+                        <option value="">Bitte wählen</option>
+                        <option value="Erstgespräch">Erstgespräch</option>
+                        <option value="Mini-Audit">Mini-Audit</option>
+                        <option value="Webentwicklung">Webentwicklung</option>
+                        <option value="Branding">Branding</option>
+                        <option value="SEO und Marketing">SEO &amp; Marketing</option>
+                        <option value="Social Strategie">Social Strategie</option>
+                        <option value="Growth Strategie">Growth Strategie</option>
+                      </select>
+                    </div>
 
-              <div class="contact-field">
-                <label for="contact-budget">Budget <span class="contact-field__meta">(optional)</span></label>
-                <select id="contact-budget" class="contact-input" name="budget">
-                  <option value="">Bitte wählen</option>
-                  <option value="Unter 5.000 EUR">Unter 5.000 EUR</option>
-                  <option value="5.000 - 10.000 EUR">5.000 - 10.000 EUR</option>
-                  <option value="10.000 - 20.000 EUR">10.000 - 20.000 EUR</option>
-                  <option value="20.000 EUR und mehr">20.000 EUR und mehr</option>
-                </select>
-              </div>
+                    <div class="contact-field">
+                      <label for="contact-budget">Budget <span class="contact-field__meta">(optional)</span></label>
+                      <select id="contact-budget" class="contact-input" name="budget">
+                        <option value="">Bitte wählen</option>
+                        <option value="Unter 5.000 EUR">Unter 5.000 EUR</option>
+                        <option value="5.000 - 10.000 EUR">5.000 - 10.000 EUR</option>
+                        <option value="10.000 - 20.000 EUR">10.000 - 20.000 EUR</option>
+                        <option value="20.000 EUR und mehr">20.000 EUR und mehr</option>
+                      </select>
+                    </div>
 
-              <div class="contact-field contact-field--full">
-                <label for="contact-timeline">Zeitplan <span class="contact-field__meta">(optional)</span></label>
-                <select id="contact-timeline" class="contact-input" name="timeline">
-                  <option value="">Bitte wählen</option>
-                  <option value="Sofort">Sofort</option>
-                  <option value="Innerhalb von 2-4 Wochen">Innerhalb von 2-4 Wochen</option>
-                  <option value="Innerhalb von 1-3 Monaten">Innerhalb von 1-3 Monaten</option>
-                  <option value="Noch offen">Noch offen</option>
-                </select>
-              </div>
+                    <div class="contact-field">
+                      <label for="contact-timeline">Zeitplan <span class="contact-field__meta">(optional)</span></label>
+                      <select id="contact-timeline" class="contact-input" name="timeline">
+                        <option value="">Bitte wählen</option>
+                        <option value="Sofort">Sofort</option>
+                        <option value="Innerhalb von 2-4 Wochen">Innerhalb von 2-4 Wochen</option>
+                        <option value="Innerhalb von 1-3 Monaten">Innerhalb von 1-3 Monaten</option>
+                        <option value="Noch offen">Noch offen</option>
+                      </select>
+                    </div>
 
-              <div class="contact-field contact-field--full">
-                <label for="contact-message">Nachricht <span class="contact-field__meta">(optional)</span></label>
-                <textarea id="contact-message" class="contact-input contact-textarea" name="message" rows="6"
-                  autocomplete="off"
-                  placeholder="Worum geht es, welche Herausforderung ist gerade am dringendsten und was soll sich durch das Projekt verändern?"></textarea>
+                    <div class="contact-field">
+                      <label for="contact-website">Bestehende Website <span class="contact-field__meta">(optional)</span></label>
+                      <input id="contact-website" class="contact-input" name="website" type="url"
+                        placeholder="https://deine-website.de" inputmode="url" />
+                    </div>
+
+                    <div class="contact-field contact-field--full">
+                      <label for="contact-message">Ausgangslage / Nachricht <span
+                          class="contact-field__meta">(optional)</span></label>
+                      <textarea id="contact-message" class="contact-input contact-textarea" name="message" rows="6"
+                        autocomplete="off"
+                        placeholder="Worum geht es, welche Herausforderung ist gerade am dringendsten und was soll sich durch das Projekt verändern?"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-form__actions">
+                  <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit">
+                    Anfrage senden
+                  </button>
+                </div>
+              </form>
+
+              <p class="contact-form__success" data-contact-success role="status" aria-live="polite" tabindex="-1" hidden>
+                Vielen Dank, die Anfrage ist eingegangen.
+              </p>
+            </div>
+          </div>
+
+          <aside class="contact-aside reveal-on-scroll" style="--final-cta-delay: 180ms;">
+            <div class="grid gap-4">
+              <section>
+                <p class="section-kicker">Zusammenarbeit</p>
+                <h3 class="contact-aside__title font-display">Direkt, strukturiert und realistisch</h3>
+                <p class="contact-aside__text">Du arbeitest direkt mit mir. Keine Weitergabe an Zwischenstationen, keine
+                  lose Agentur-Kommunikation.</p>
+              </section>
+
+              <section>
+                <p class="section-kicker">Ablauf</p>
+                <h3 class="contact-aside__title font-display">Antwort in sinnvoller Zeit</h3>
+                <p class="contact-aside__text">Wenn die Anfrage zum Fokus passt, erhältst du in der Regel innerhalb von
+                  zwei Werktagen eine Rückmeldung mit dem nächsten sinnvollen Schritt.</p>
+              </section>
+
+              <section>
+                <p class="section-kicker">Fit</p>
+                <h3 class="contact-aside__title font-display">Fokus auf passende Projekte</h3>
+                <p class="contact-aside__text">Am stärksten wirke ich in Projekten, bei denen Klarheit, Qualität,
+                  Positionierung und Conversion eine echte Priorität haben.</p>
+              </section>
+
+              <div class="chip-row">
+                <span class="contact-chip">Direkter Ansprechpartner</span>
+                <span class="contact-chip">Strukturierter Prozess</span>
+                <span class="contact-chip">Realistischer Scope</span>
               </div>
             </div>
-
-            <div class="contact-form__actions">
-              <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit">
-                Anfrage senden
-              </button>
-            </div>
-          </form>
-
-          <p class="contact-form__success" data-contact-success role="status" aria-live="polite" tabindex="-1" hidden>
-            Vielen Dank, wir melden uns zeitnah.
-          </p>
+          </aside>
         </div>
       </div>
     </section>
@@ -271,37 +297,21 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">Kontaktseite mit Terminweg und Projektformular für eine klare Erstklärung.</p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__description">Kontaktseite mit klaren Einstiegen, besserer Vorqualifizierung und
+            strukturiertem Formularfluss.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
-            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
-            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
-            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
-            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
-            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
-            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
-            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

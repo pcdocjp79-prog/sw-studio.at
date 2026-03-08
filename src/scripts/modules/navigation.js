@@ -4,34 +4,39 @@ const BOOKING_HASH = "terminbuchung";
 const COOKIE_PATH = "cookies.html";
 const COOKIE_SETTINGS_HASH = "cookie-settings";
 const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
+const PRIMARY_CTA_LABEL = "Erstgespräch buchen";
+const SEO_MARKETING_PATH = "seo-marketing.html";
+const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
 
-const NAV_LINK_CLASS =
-  "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium";
-const NAV_MOBILE_CTA_CLASS = `${NAV_LINK_CLASS} nav-link--mobile-cta`;
+const NAV_LINK_CLASS = "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium";
 
 const GLOBAL_NAV_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
   { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
   { type: "page", path: "projekte.html", label: "Projekte", pageKey: "projekte" },
   { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
+  { type: "page", path: "ueber-mich.html", label: "Über mich", pageKey: "ueber-mich" },
   { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
   { type: "page", path: "insights.html", label: "Insights", pageKey: "insights" },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
 
 const FOOTER_NAVIGATION_LINKS = [
+  { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
+  { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
   { type: "page", path: "projekte.html", label: "Projekte", pageKey: "projekte" },
   { type: "page", path: "case-study.html", label: "Case Study", pageKey: "case-study" },
-  { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
   { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
   { type: "page", path: "ueber-mich.html", label: "Über mich", pageKey: "ueber-mich" },
+  { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
+  { type: "page", path: "insights.html", label: "Insights", pageKey: "insights" },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
 
 const FOOTER_SERVICE_LINKS = [
   { type: "page", path: "webentwicklung.html", label: "Webentwicklung", pageKey: "webentwicklung" },
   { type: "page", path: "branding.html", label: "Branding", pageKey: "branding" },
-  { type: "page", path: "marketing.html", label: "SEO & Marketing", pageKey: "marketing" },
+  { type: "page", path: SEO_MARKETING_PATH, label: "SEO & Marketing", pageKey: "seo-marketing" },
   { type: "page", path: "social.html", label: "Social Strategie", pageKey: "social" },
   { type: "page", path: "growth.html", label: "Growth Strategie", pageKey: "growth" },
 ];
@@ -43,25 +48,64 @@ const FOOTER_LEGAL_LINKS = [
   { type: "cookie-settings", path: COOKIE_SETTINGS_PATH, label: "Cookie-Einstellungen" },
 ];
 
+const FOOTER_BRAND = Object.freeze({
+  name: "Smart Web Studio",
+  tagline: "Marke. Website. Wachstum.",
+  description:
+    "Strategische Websites mit klarer Positionierung, sauberer Nutzerführung und einer Conversion-Architektur, die Vertrauen in Anfragen übersetzt.",
+  meta: "Direkter Ansprechpartner | Vorarlberg / DACH",
+  note:
+    "Direkte Zusammenarbeit, strukturierter Ablauf und Fokus auf passende Projekte.",
+});
+
 const PAGE_CONFIGS = {
-  home: { path: HOME_PATH, navCtaLabel: "Termin buchen" },
-  leistungen: { path: "leistungen.html", navCtaLabel: "Termin buchen" },
-  branding: { path: "branding.html", navCtaLabel: "Termin buchen" },
-  webentwicklung: { path: "webentwicklung.html", navCtaLabel: "Termin buchen" },
-  marketing: { path: "marketing.html", navCtaLabel: "Termin buchen" },
-  social: { path: "social.html", navCtaLabel: "Termin buchen" },
-  growth: { path: "growth.html", navCtaLabel: "Termin buchen" },
-  projekte: { path: "projekte.html", navCtaLabel: "Termin buchen" },
-  "case-study": { path: "case-study.html", navCtaLabel: "Termin buchen" },
-  ablauf: { path: "ablauf.html", navCtaLabel: "Termin buchen" },
-  preise: { path: "preise.html", navCtaLabel: "Termin buchen" },
-  "ueber-mich": { path: "ueber-mich.html", navCtaLabel: "Termin buchen" },
-  insights: { path: "insights.html", navCtaLabel: "Termin buchen" },
-  kontakt: { path: CONTACT_PATH, navCtaLabel: "Termin buchen" },
-  danke: { path: "danke.html", navCtaLabel: "Termin buchen" },
-  impressum: { path: "impressum.html", navCtaLabel: "Termin buchen" },
-  datenschutz: { path: "datenschutz.html", navCtaLabel: "Termin buchen" },
-  cookies: { path: COOKIE_PATH, navCtaLabel: "Termin buchen" },
+  home: { path: HOME_PATH, navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  leistungen: { path: "leistungen.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  branding: { path: "branding.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  webentwicklung: {
+    path: "webentwicklung.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  "seo-marketing": {
+    path: SEO_MARKETING_PATH,
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  social: { path: "social.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  growth: { path: "growth.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  projekte: { path: "projekte.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  "case-study": {
+    path: "case-study.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  ablauf: { path: "ablauf.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  preise: { path: "preise.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  "ueber-mich": {
+    path: "ueber-mich.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  insights: { path: "insights.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  kontakt: { path: CONTACT_PATH, navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
+  danke: { path: "danke.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
+  impressum: { path: "impressum.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
+  datenschutz: {
+    path: "datenschutz.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: false,
+  },
+  cookies: { path: COOKIE_PATH, navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
+  "marketing-legacy": {
+    path: "marketing.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: false,
+  },
+};
+
+const SLUG_ALIASES = {
+  marketing: "marketing-legacy",
 };
 
 const getCurrentPageKey = () => {
@@ -73,9 +117,10 @@ const getCurrentPageKey = () => {
   const rawPath = window.location.pathname.replace(/\\/g, "/").replace(/\/+$/, "");
   const slug = rawPath.split("/").pop() || "";
   const normalized = slug.replace(/\.html$/i, "");
+  const resolvedKey = SLUG_ALIASES[normalized] || normalized;
 
   if (!normalized || normalized === "index") return "home";
-  if (PAGE_CONFIGS[normalized]) return normalized;
+  if (PAGE_CONFIGS[resolvedKey]) return resolvedKey;
 
   return null;
 };
@@ -109,6 +154,15 @@ const getCookieSettingsTarget = () => {
   return configuredTarget || COOKIE_SETTINGS_PATH;
 };
 
+const shouldShowMobileStickyCta = (pageConfig) => {
+  const configuredValue = document.body?.dataset.mobileStickyCta?.trim();
+  if (configuredValue) {
+    return configuredValue !== "false";
+  }
+
+  return Boolean(pageConfig?.stickyMobileCta);
+};
+
 const isCurrentPageLink = (path, currentPagePath) => {
   const normalizedPath = (path || "").split("#")[0];
   return normalizedPath === currentPagePath;
@@ -125,6 +179,9 @@ const getResolvedHref = (link, runtimeConfig) => {
       if (link.path === COOKIE_PATH) {
         return runtimeConfig.cookiePageTarget || COOKIE_PATH;
       }
+      if (link.path === "marketing.html") {
+        return SEO_MARKETING_PATH;
+      }
       return link.path || HOME_PATH;
   }
 };
@@ -140,10 +197,12 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
     anchor.className = options.className;
   }
 
+  const normalizedLinkPath =
+    link.path === "marketing.html" ? SEO_MARKETING_PATH : link.path;
   const isCurrentPage =
     link.type === "page" &&
-    isCurrentPageLink(link.path, runtimeConfig.currentPagePath) &&
-    !String(link.path || "").includes("#");
+    isCurrentPageLink(normalizedLinkPath, runtimeConfig.currentPagePath) &&
+    !String(normalizedLinkPath || "").includes("#");
 
   if (isCurrentPage) {
     anchor.setAttribute("aria-current", "page");
@@ -168,12 +227,6 @@ const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
     );
   });
 
-  const mobileCta = document.createElement("a");
-  mobileCta.href = runtimeConfig.bookingTarget;
-  mobileCta.className = NAV_MOBILE_CTA_CLASS;
-  mobileCta.textContent = "Termin buchen";
-  fragment.appendChild(mobileCta);
-
   primaryNav.replaceChildren(fragment);
 };
 
@@ -194,21 +247,53 @@ const renderFooterList = (listElement, links, runtimeConfig) => {
   listElement.replaceChildren(fragment);
 };
 
-const syncFooterHeadings = (footer) => {
+const renderFooterBrand = (footer, runtimeConfig) => {
   if (!footer) return;
 
-  const entryHeading = footer.querySelector(
-    '[data-footer-group="entry"] .site-footer__heading'
-  );
-  if (entryHeading) {
-    entryHeading.textContent = "Navigation";
+  const brandColumn = footer.querySelector(".site-footer__column--brand");
+  if (!brandColumn) return;
+
+  const brandTitle = brandColumn.querySelector(".site-footer__brand");
+  const tagline = brandColumn.querySelector(".site-footer__tagline");
+  const description = brandColumn.querySelector(".site-footer__description");
+  const meta = brandColumn.querySelector(".site-footer__meta");
+
+  if (brandTitle) {
+    brandTitle.textContent = FOOTER_BRAND.name;
   }
+
+  if (tagline) {
+    tagline.textContent = FOOTER_BRAND.tagline;
+  }
+
+  if (description) {
+    description.textContent = FOOTER_BRAND.description;
+  }
+
+  if (meta) {
+    meta.textContent = FOOTER_BRAND.meta;
+  }
+
+  let footerNote = brandColumn.querySelector(".site-footer__note");
+  if (!footerNote) {
+    footerNote = document.createElement("p");
+    footerNote.className = "site-footer__note";
+    brandColumn.appendChild(footerNote);
+  }
+
+  footerNote.textContent = `${FOOTER_BRAND.note} `;
+
+  const noteLink = document.createElement("a");
+  noteLink.className = "site-footer__link";
+  noteLink.href = runtimeConfig.bookingTarget;
+  noteLink.textContent = PRIMARY_CTA_LABEL;
+  footerNote.appendChild(noteLink);
 };
 
 const renderFooterNavigation = (footer, runtimeConfig) => {
   if (!footer) return;
 
-  syncFooterHeadings(footer);
+  renderFooterBrand(footer, runtimeConfig);
 
   renderFooterList(
     footer.querySelector('[data-footer-group="services"] .site-footer__list'),
@@ -249,6 +334,10 @@ const updateBrandAndCtaLinks = (pageConfig, runtimeConfig) => {
 const normalizeStandaloneLinks = (runtimeConfig) => {
   document.querySelectorAll('a[href="/"]').forEach((link) => {
     link.href = HOME_PATH;
+  });
+
+  document.querySelectorAll('a[href="marketing.html"]').forEach((link) => {
+    link.href = SEO_MARKETING_PATH;
   });
 
   document
@@ -293,15 +382,49 @@ const initScrollToTop = (scrollToTopButton) => {
   window.addEventListener("resize", requestScrollToTopFrame);
 };
 
-const initTopNavScrollState = (topNav) => {
+const initTopNavScrollState = (topNav, glassNav) => {
   if (!topNav) return;
 
+  const topThreshold = 18;
+  const hideThreshold = 120;
+  const directionThreshold = 6;
+  let lastScrollY = Math.max(window.scrollY, 0);
   let ticking = false;
-  const topThreshold = 24;
+
+  const revealTopNav = () => {
+    topNav.classList.remove("is-hidden");
+    topNav.classList.add("is-revealed");
+  };
+
+  const resetTopNav = () => {
+    topNav.classList.remove("is-hidden");
+    topNav.classList.remove("is-revealed");
+  };
 
   const updateTopNavScrollState = () => {
     const currentScrollY = Math.max(window.scrollY, 0);
+    const delta = currentScrollY - lastScrollY;
+    const isScrollingDown = delta > directionThreshold;
+    const isScrollingUp = delta < -directionThreshold;
+    const isMobileNavOpen = Boolean(glassNav?.classList.contains("is-mobile-open"));
+
     topNav.classList.toggle("is-scrolled", currentScrollY > topThreshold);
+
+    if (isMobileNavOpen || currentScrollY <= topThreshold) {
+      resetTopNav();
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    if (isScrollingDown && currentScrollY > hideThreshold) {
+      topNav.classList.add("is-hidden");
+      topNav.classList.remove("is-revealed");
+    } else if (isScrollingUp || currentScrollY <= hideThreshold) {
+      revealTopNav();
+    }
+
+    lastScrollY = currentScrollY;
     ticking = false;
   };
 
@@ -319,12 +442,18 @@ const initTopNavScrollState = (topNav) => {
 const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
   if (!glassNav || !mobileNavToggle || !primaryNav) return;
 
-  const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
+  const mobileBreakpoint = window.matchMedia("(max-width: 1024px)");
+  const topNav = document.querySelector(".top-nav");
 
   const setMobileNavState = (isOpen) => {
     const open = Boolean(isOpen) && mobileBreakpoint.matches;
     glassNav.classList.toggle("is-mobile-open", open);
     mobileNavToggle.setAttribute("aria-expanded", String(open));
+
+    if (open && topNav) {
+      topNav.classList.remove("is-hidden");
+      topNav.classList.add("is-revealed");
+    }
 
     if (mobileBreakpoint.matches) {
       primaryNav.setAttribute("aria-hidden", String(!open));
@@ -474,6 +603,31 @@ const initActiveSectionObserver = (primaryNav) => {
   });
 };
 
+const renderMobileStickyCta = (pageConfig, runtimeConfig) => {
+  document.getElementById(MOBILE_STICKY_CTA_ID)?.remove();
+  document.body.classList.remove("has-mobile-sticky-cta");
+
+  if (!shouldShowMobileStickyCta(pageConfig)) return;
+
+  const stickyWrapper = document.createElement("div");
+  stickyWrapper.id = MOBILE_STICKY_CTA_ID;
+  stickyWrapper.className = "mobile-sticky-cta";
+
+  const stickyLabel = document.createElement("span");
+  stickyLabel.className = "mobile-sticky-cta__label";
+  stickyLabel.textContent = "Direkter Projektstart";
+
+  const stickyLink = document.createElement("a");
+  stickyLink.className = "mobile-sticky-cta__link";
+  stickyLink.href = runtimeConfig.bookingTarget;
+  stickyLink.textContent = PRIMARY_CTA_LABEL;
+  stickyLink.setAttribute("aria-label", PRIMARY_CTA_LABEL);
+
+  stickyWrapper.append(stickyLabel, stickyLink);
+  document.body.appendChild(stickyWrapper);
+  document.body.classList.add("has-mobile-sticky-cta");
+};
+
 export const initNavigation = () => {
   const topNav = document.querySelector(".top-nav");
   const glassNav = document.getElementById("glass-nav");
@@ -495,10 +649,11 @@ export const initNavigation = () => {
   updateBrandAndCtaLinks(pageConfig, runtimeConfig);
   renderPrimaryNavigation(primaryNav, runtimeConfig);
   renderFooterNavigation(footer, runtimeConfig);
+  renderMobileStickyCta(pageConfig, runtimeConfig);
   normalizeStandaloneLinks(runtimeConfig);
 
   initScrollToTop(scrollToTopButton);
-  initTopNavScrollState(topNav);
+  initTopNavScrollState(topNav, glassNav);
   initMobileNavigation(glassNav, mobileNavToggle, primaryNav);
   initActiveSectionObserver(primaryNav);
 };

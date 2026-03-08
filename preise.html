@@ -5,71 +5,203 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Preise | Smart Web Studio</title>
-  <meta name="description" content="Paket- und Preisrahmen von Smart Web Studio für Starter, Professional und Growth." />
+  <meta name="description"
+    content="Preise und Pakete von Smart Web Studio für Starter, Professional und Growth inklusive klarer Scope-Orientierung und Gesprächseinstieg." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body id="top" data-page="preise" class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
+
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="index.html" class="brand-link flex items-center gap-3"><img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" /><span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart Web Studio</span></a>
-      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="primary-nav"><span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span></button>
-      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation"><a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a><a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a><a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a><a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a><a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a><a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a><a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a><a href="kontakt.html#terminbuchung" class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin buchen</a></nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="index.html" class="brand-link flex items-center gap-3">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
+          Web Studio</span>
+      </a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
+      </nav>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
   <main class="relative pt-0 pb-0">
-    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="pricing-hero-title">
       <div class="max-w-7xl mx-auto">
         <div class="packages-section__header reveal-on-scroll">
           <p class="packages-section__eyebrow">Preise</p>
-          <h1 class="packages-section__headline font-display">Drei Pakete. Klarer Scope. Klarer Preisrahmen.</h1>
-          <p class="packages-section__subline">Die genauen Inhalte werden im Erstgespräch auf dein Projekt zugeschnitten. Die Preisrahmen helfen bei der Vorqualifizierung.</p>
+          <h1 id="pricing-hero-title" class="packages-section__headline font-display">
+            Drei Pakete für unterschiedliche Reifegrade, aber mit derselben Qualitätslogik.
+          </h1>
+          <p class="packages-section__subline">
+            Die Preisrahmen helfen bei der Orientierung. Das finale Setup richtet sich nach Ausgangslage, Umfang und der
+            Reihenfolge der sinnvollsten Hebel.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="packages-section py-0 lg:py-0 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+    <section class="packages-section py-0 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="pricing-grid-title">
       <div class="packages-section__inner max-w-7xl mx-auto">
+        <h2 id="pricing-grid-title" class="sr-only">Preispakete</h2>
         <div class="packages-section__grid">
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;"><div class="pkg-card__inner"><div class="pkg-card__header"><p class="pkg-card__name font-display">Starter</p><p class="pkg-card__tagline">Für einen professionellen Start mit sauberer Website-Basis.</p></div><ul class="pkg-card__list"><li class="pkg-card__list-item">Mini-Strategie und Seitenstruktur</li><li class="pkg-card__list-item">1-3 Seiten</li><li class="pkg-card__list-item">Basis-SEO und Setup</li></ul><div class="pkg-card__footer"><p class="pkg-card__price">ab <strong>EUR 3.900</strong> <span class="pkg-card__price-hint">Richtwert</span></p><a href="kontakt.html" class="pkg-card__btn">Starter anfragen</a></div></div></article>
-          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;"><div class="pkg-card__badge" aria-label="Empfohlen">Empfohlen</div><div class="pkg-card__inner"><div class="pkg-card__header"><p class="pkg-card__name font-display">Professional</p><p class="pkg-card__tagline">Für Unternehmen, die einen klaren Auftritt und ein Lead-System brauchen.</p></div><ul class="pkg-card__list"><li class="pkg-card__list-item">Positionierung und Messaging</li><li class="pkg-card__list-item">5-10 Seiten mit Conversion-Führung</li><li class="pkg-card__list-item">Performance plus Tracking-Vorbereitung</li></ul><div class="pkg-card__footer"><p class="pkg-card__price">ab <strong>EUR 8.900</strong> <span class="pkg-card__price-hint">Richtwert</span></p><a href="kontakt.html" class="pkg-card__btn pkg-card__btn--featured">Professional anfragen</a></div></div></article>
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;"><div class="pkg-card__inner"><div class="pkg-card__header"><p class="pkg-card__name font-display">Growth</p><p class="pkg-card__tagline">Für Unternehmen, die Nachfrage systematisch aufbauen und optimieren wollen.</p></div><ul class="pkg-card__list"><li class="pkg-card__list-item">Alles aus Professional</li><li class="pkg-card__list-item">SEO, Funnel und Content-Plan</li><li class="pkg-card__list-item">Reporting und Optimierungsrhythmus</li></ul><div class="pkg-card__footer"><p class="pkg-card__price">ab <strong>EUR 18.000</strong> <span class="pkg-card__price-hint">Richtwert</span></p><a href="kontakt.html" class="pkg-card__btn">Growth anfragen</a></div></div></article>
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Starter</p>
+                <p class="pkg-card__tagline">Für einen klaren, professionellen Start mit fokussiertem Umfang.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">kleines Website- oder Relaunch-Projekt</li>
+                <li class="pkg-card__list-item">saubere Struktur und klare CTA-Basis</li>
+                <li class="pkg-card__list-item">ideal für kompakte Unternehmensauftritte</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <p class="pkg-card__price">ab <strong>EUR 3.900</strong> <span class="pkg-card__price-hint">Richtwert</span>
+                </p>
+                <a href="kontakt.html#terminbuchung" class="pkg-card__btn" aria-label="Projekt besprechen">Projekt
+                  besprechen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
+            <div class="pkg-card__badge" aria-label="Empfohlen">Empfohlen</div>
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Professional</p>
+                <p class="pkg-card__tagline">Für Unternehmen, die Marke, Website und Conversion sauber aufstellen wollen.
+                </p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">Positionierung, Messaging und Website-Struktur</li>
+                <li class="pkg-card__list-item">mehrere Seiten mit klarer Nutzerführung</li>
+                <li class="pkg-card__list-item">ideal für hochwertige Lead- und Vertriebsauftritte</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <p class="pkg-card__price">ab <strong>EUR 8.900</strong> <span class="pkg-card__price-hint">Richtwert</span>
+                </p>
+                <a href="kontakt.html#terminbuchung" class="pkg-card__btn pkg-card__btn--featured"
+                  aria-label="Projekt besprechen">Projekt besprechen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;">
+            <div class="pkg-card__inner">
+              <div class="pkg-card__header">
+                <p class="pkg-card__name font-display">Growth</p>
+                <p class="pkg-card__tagline">Für Unternehmen mit Nachfrage-Aufbau, Optimierung und größerem
+                  Entwicklungsspielraum.</p>
+              </div>
+              <ul class="pkg-card__list">
+                <li class="pkg-card__list-item">stärkeres Setup für Funnel, Sichtbarkeit und Tracking</li>
+                <li class="pkg-card__list-item">mehr Komplexität, mehr Priorisierung, mehr System</li>
+                <li class="pkg-card__list-item">ideal für skalierbare Auftritte mit Optimierungsrhythmus</li>
+              </ul>
+              <div class="pkg-card__footer">
+                <p class="pkg-card__price">ab <strong>EUR 18.000</strong> <span
+                    class="pkg-card__price-hint">Richtwert</span></p>
+                <a href="kontakt.html#terminbuchung" class="pkg-card__btn" aria-label="Projekt besprechen">Projekt
+                  besprechen</a>
+              </div>
+            </div>
+          </article>
         </div>
-        <p class="packages-section__disclaimer reveal-on-scroll">Hinweis: Preise sind Richtwerte. Umfang, Inhalte und Zeitplan definieren das finale Angebot.</p>
+
+        <p class="packages-section__disclaimer reveal-on-scroll">Preise sind Richtwerte. Umfang, Prioritäten und
+          Projekttiefe definieren das finale Angebot.</p>
+      </div>
+    </section>
+
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="pricing-guide-title">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Orientierung</p>
+              <h2 id="pricing-guide-title" class="about-section__headline font-display">
+                Unsicher, welches Paket wirklich passt?
+              </h2>
+              <p class="about-section__subline">
+                Das ist normal. Oft ist nicht der größere Umfang richtig, sondern die klarere Reihenfolge. Im Gespräch
+                sortieren wir, welcher Hebel zuerst Sinn ergibt.
+              </p>
+            </div>
+          </div>
+
+          <div class="next-step-grid">
+            <article class="next-step-card reveal-on-scroll" style="--about-delay: 0ms;">
+              <p class="proof-card__meta">Wenn du Klarheit brauchst</p>
+              <h3 class="next-step-card__title font-display">Erstgespräch</h3>
+              <p class="next-step-card__text">Wir ordnen Ausgangslage, Prioritäten, Budgetrahmen und passenden
+                Leistungsstart.</p>
+              <div class="mt-5">
+                <a href="kontakt.html#terminbuchung" class="approach-section__btn"
+                  aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+              </div>
+            </article>
+            <article class="next-step-card reveal-on-scroll" style="--about-delay: 90ms;">
+              <p class="proof-card__meta">Wenn du schon Material hast</p>
+              <h3 class="next-step-card__title font-display">Mini-Audit</h3>
+              <p class="next-step-card__text">Ideal, wenn Website, Positionierung oder Sichtbarkeit schon da sind und
+                zuerst sortiert werden sollen.</p>
+              <div class="mt-5">
+                <a href="kontakt.html#kontaktformular" class="approach-section__btn"
+                  aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+              </div>
+            </article>
+            <article class="next-step-card reveal-on-scroll" style="--about-delay: 180ms;">
+              <p class="proof-card__meta">Wenn du erst Proof sehen willst</p>
+              <h3 class="next-step-card__title font-display">Projekte &amp; Case Study</h3>
+              <p class="next-step-card__text">Dort siehst du, wie Scope, Maßnahmen und qualitative Wirkung im Projekt
+                strukturiert werden.</p>
+              <div class="mt-5">
+                <a href="projekte.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
-        <div class="reveal-on-scroll"><h2 class="final-cta-section__headline font-display">Unsicher, welches Paket passt?</h2></div>
-        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;"><a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary">Termin buchen</a><a href="kontakt.html" class="final-cta-btn final-cta-btn--secondary">Projekt anfragen</a></div>
+        <div class="reveal-on-scroll">
+          <h2 class="final-cta-section__headline font-display">Wenn du den passenden Scope sauber einordnen willst.</h2>
+          <p class="final-cta-section__subline">Dann sprechen wir über Zielbild, Prioritäten und den sinnvollsten Start
+            statt direkt über die größte Lösung.</p>
+        </div>
+        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
+          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+        </div>
       </div>
     </section>
   </main>
@@ -79,16 +211,36 @@
     <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
     <div class="site-footer__inner max-w-7xl mx-auto">
       <div class="site-footer__grid">
-        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title"><h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2><p class="site-footer__tagline">Marke. Website. Wachstum.</p><p class="site-footer__description">Paketlogik für eine schnelle Vorqualifizierung.</p><p class="site-footer__meta">Standort: Vorarlberg / DACH</p></section>
-        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen"><h3 class="site-footer__heading">Leistungen</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li><li><a class="site-footer__link" href="branding.html">Branding</a></li><li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li><li><a class="site-footer__link" href="social.html">Social Strategie</a></li><li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li></ul></nav>
-        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation"><h3 class="site-footer__heading">Navigation</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="projekte.html">Projekte</a></li><li><a class="site-footer__link" href="case-study.html">Case Study</a></li><li><a class="site-footer__link" href="preise.html">Preise</a></li><li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li><li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li><li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li></ul></nav>
-        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches"><h3 class="site-footer__heading">Rechtliches</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="impressum.html">Impressum</a></li><li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li><li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li></ul></nav>
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
+          <p class="site-footer__description">Preispakete mit klarerem Scope und sauberer Gesprächsorientierung.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
+        </section>
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list"></ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list"></ul>
+        </nav>
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list"></ul>
+        </nav>
       </div>
-      <div class="site-footer__bottom" aria-label="Footer Abschluss"><small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small><small class="site-footer__signature">Built for clarity, structure and conversion.</small></div>
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
+      </div>
     </div>
   </footer>
 
-  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen"><span aria-hidden="true">&uarr;</span></button>
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
   <script type="module" src="src/js/main.js"></script>
 </body>
 

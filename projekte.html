@@ -6,33 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projekte | Smart Web Studio</title>
   <meta name="description"
-    content="Projektlogik und Case-Study-Struktur von Smart Web Studio. Transparente Projektbeispiele ohne erfundene Kundendaten." />
+    content="Projekte und Leistungsbeweise von Smart Web Studio: strukturierte Projektkarten, anonymisierte Case-Study-Logik und qualitative Ergebnisse statt erfundener Zahlen." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-            display: ["Geist", "sans-serif"],
-          },
-          colors: {
-            border: "rgba(255, 255, 255, 0.1)",
-            surface: "rgba(0, 0, 0, 0.3)",
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
@@ -54,24 +36,16 @@
         <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
       </button>
       <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
-        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
-        <a href="leistungen.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
-        <a href="projekte.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
-        <a href="ablauf.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
-        <a href="preise.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
-        <a href="insights.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
-        <a href="kontakt.html"
-          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
-        <a href="kontakt.html#terminbuchung"
-          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin
-          buchen</a>
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Start</a>
+        <a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Leistungen</a>
+        <a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Projekte</a>
+        <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
+        <a href="ueber-mich.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Über mich</a>
+        <a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Preise</a>
+        <a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Insights</a>
+        <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
     </div>
   </header>
 
@@ -83,11 +57,11 @@
             <div class="about-section__header reveal-on-scroll">
               <p class="about-section__eyebrow">Projekte</p>
               <h1 id="projects-hero-title" class="about-section__headline font-display">
-                Vertrauen durch Struktur statt erfundene Erfolgszahlen.
+                Leistungsbeweise ohne Showroom-Fassade, aber mit klarer Projektlogik.
               </h1>
               <p class="about-section__subline">
-                Solange keine freigegebenen Kundenreferenzen vorliegen, zeige ich Projektmuster, Deliverables und die
-                Denkweise dahinter. Transparent, sauber und ohne Showroom-Fassade.
+                Solange keine freigegebenen Kundendaten vorliegen, zeige ich transparent, wie Projekte aufgebaut,
+                priorisiert und qualitativ verbessert werden. Keine Fake-Zahlen. Keine Platzhalter-Testimonials.
               </p>
             </div>
           </div>
@@ -95,13 +69,13 @@
             <article class="pkg-card pkg-card--featured">
               <div class="pkg-card__inner">
                 <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Hinweis</p>
-                  <p class="pkg-card__tagline">Keine Fake-Testimonials. Keine frei erfundenen KPI-Slides.</p>
+                  <p class="pkg-card__name font-display">Was du hier siehst</p>
+                  <p class="pkg-card__tagline">Reale Projektformate statt frei erfundener Erfolgsslides.</p>
                 </div>
-                <ul class="pkg-card__list" aria-label="Projekt Hinweis">
-                  <li class="pkg-card__list-item">Projektkarten zeigen reale Projektformate</li>
-                  <li class="pkg-card__list-item">Ergebnisse werden als Deliverables beschrieben</li>
-                  <li class="pkg-card__list-item">Die Detailseite zeigt die Case-Study-Struktur transparent</li>
+                <ul class="pkg-card__list">
+                  <li class="pkg-card__list-item">Ausgangslage, Maßnahme und qualitative Wirkung</li>
+                  <li class="pkg-card__list-item">Anonymisierte Case-Study-Struktur</li>
+                  <li class="pkg-card__list-item">klare Verbindung zu Leistung, Prozess und Kontakt</li>
                 </ul>
               </div>
             </article>
@@ -110,54 +84,133 @@
       </div>
     </section>
 
-    <section class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="approach-section__inner max-w-7xl mx-auto">
-        <div class="approach-section__header reveal-on-scroll">
-          <p class="approach-section__eyebrow">Projektformate</p>
-          <h2 class="approach-section__headline font-display">
-            Drei typische Projektarten.
+    <section class="packages-section py-0 lg:py-0 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="project-filter-title">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="filter-surface reveal-on-scroll">
+          <p id="project-filter-title" class="section-kicker">Projektkategorien</p>
+          <div class="case-filter" data-filter-group="projects" data-filter-default="all">
+            <button class="case-filter__btn" type="button" data-filter-value="all">Alle</button>
+            <button class="case-filter__btn" type="button" data-filter-value="website">Website</button>
+            <button class="case-filter__btn" type="button" data-filter-value="branding">Branding</button>
+            <button class="case-filter__btn" type="button" data-filter-value="seo">SEO</button>
+            <button class="case-filter__btn" type="button" data-filter-value="growth">Growth</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages-section py-16 lg:py-24 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="project-grid-title">
+      <div class="packages-section__inner max-w-7xl mx-auto">
+        <div class="packages-section__header reveal-on-scroll">
+          <p class="packages-section__eyebrow">Projektmuster</p>
+          <h2 id="project-grid-title" class="packages-section__headline font-display">
+            Vier typische Projektarten mit klarer Maßnahme und nachvollziehbarer Wirkung.
           </h2>
         </div>
 
-        <div class="approach-section__grid">
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;" data-card-link="case-study.html"
-            role="link" tabindex="0" aria-label="Case Study öffnen">
-            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">BRAND + SITE</p>
-              <h3 class="approach-card__title font-display">Marken- und Website-Setup</h3>
-              <p class="approach-card__body">
-                Positionierung, Messaging und neue Website-Struktur für einen klareren Marktauftritt.
-              </p>
-              <a href="case-study.html" class="approach-section__btn">Case Study</a>
+        <div class="proof-grid md:grid-cols-2">
+          <article class="proof-card filterable-card reveal-on-scroll" data-filter-item="projects"
+            data-category="website branding" data-card-link="case-study.html" role="link" tabindex="0"
+            aria-label="Projekt ansehen">
+            <p class="proof-card__meta">Website + Branding</p>
+            <h3 class="proof-card__title font-display">Marken- und Website-Setup für ein spezialisiertes Angebot</h3>
+            <p class="proof-card__text"><strong>Ausgangslage:</strong> Das Angebot war stark, aber im Markt zu breit und
+              visuell uneinheitlich dargestellt.</p>
+            <p class="proof-card__text"><strong>Maßnahme:</strong> Positionierung schärfen, Website neu strukturieren,
+              Kontaktwege priorisieren und Design konsistent übersetzen.</p>
+            <p class="proof-card__text"><strong>Ergebnis:</strong> Klarerer Premium-Eindruck, bessere Nutzerführung und
+              ein professionellerer Weg von Interesse zu Anfrage.</p>
+            <div class="mt-5">
+              <a href="case-study.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
             </div>
           </article>
 
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;" data-card-link="case-study.html"
-            role="link" tabindex="0" aria-label="Case Study öffnen">
-            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">SITE + SEO</p>
-              <h3 class="approach-card__title font-display">Performance Website mit Nachfragefokus</h3>
-              <p class="approach-card__body">
-                Seitenarchitektur, Conversion-Wege und SEO-Grundlage werden auf Anfrage statt nur auf Reichweite gebaut.
-              </p>
-              <a href="case-study.html" class="approach-section__btn">Case Study</a>
+          <article class="proof-card filterable-card reveal-on-scroll" data-filter-item="projects"
+            data-category="website seo" data-card-link="case-study.html" role="link" tabindex="0"
+            aria-label="Projekt ansehen">
+            <p class="proof-card__meta">Website + SEO</p>
+            <h3 class="proof-card__title font-display">Relaunch mit stärkerer Conversion- und Sichtbarkeitsbasis</h3>
+            <p class="proof-card__text"><strong>Ausgangslage:</strong> Die Website hatte Inhalte, aber keine klare
+              Seitenlogik für Zielgruppen, Suchintention und Kontakt.</p>
+            <p class="proof-card__text"><strong>Maßnahme:</strong> Zielseiten priorisieren, interne Verlinkung anpassen,
+              Headings und CTA-Wege sauber aufeinander ausrichten.</p>
+            <p class="proof-card__text"><strong>Ergebnis:</strong> Bessere Orientierung, stärkere thematische Klarheit und
+              mehr Vertrauen entlang der wichtigsten Nutzerwege.</p>
+            <div class="mt-5">
+              <a href="case-study.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
             </div>
           </article>
 
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;" data-card-link="case-study.html"
-            role="link" tabindex="0" aria-label="Case Study öffnen">
-            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">GROWTH LAYER</p>
-              <h3 class="approach-card__title font-display">Growth- und Funnel-System</h3>
-              <p class="approach-card__body">
-                Tracking, Experimente und Funnel-Logik schaffen ein Setup für planbare Weiterentwicklung.
-              </p>
-              <a href="case-study.html" class="approach-section__btn">Case Study</a>
+          <article class="proof-card filterable-card reveal-on-scroll" data-filter-item="projects"
+            data-category="seo growth" data-card-link="case-study.html" role="link" tabindex="0"
+            aria-label="Projekt ansehen">
+            <p class="proof-card__meta">SEO + Growth</p>
+            <h3 class="proof-card__title font-display">Content- und Tracking-System für planbarere Optimierung</h3>
+            <p class="proof-card__text"><strong>Ausgangslage:</strong> Es gab einzelne Marketing-Maßnahmen, aber keine
+              belastbare Reihenfolge zwischen Themen, Zielseiten und Messpunkten.</p>
+            <p class="proof-card__text"><strong>Maßnahme:</strong> Themencluster priorisieren, Conversion-Events definieren
+              und Optimierungs-Backlog nach Wirkung sortieren.</p>
+            <p class="proof-card__text"><strong>Ergebnis:</strong> Klarere Entscheidungsgrundlagen, bessere Priorisierung
+              und ein ruhigeres, systematischeres Growth-Setup.</p>
+            <div class="mt-5">
+              <a href="case-study.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
             </div>
           </article>
+
+          <article class="proof-card filterable-card reveal-on-scroll" data-filter-item="projects"
+            data-category="growth website" data-card-link="case-study.html" role="link" tabindex="0"
+            aria-label="Projekt ansehen">
+            <p class="proof-card__meta">Growth + Website</p>
+            <h3 class="proof-card__title font-display">Optimierungs-Sprint für klarere Funnel- und Kontaktwege</h3>
+            <p class="proof-card__text"><strong>Ausgangslage:</strong> Die Nachfrage war vorhanden, doch Angebot,
+              Kontaktformular und CTA-Logik erzeugten unnötige Reibung.</p>
+            <p class="proof-card__text"><strong>Maßnahme:</strong> Funnel-Landkarte aufbauen, Kontaktwege entlasten,
+              Conversion-Hürden reduzieren und Hypothesen priorisieren.</p>
+            <p class="proof-card__text"><strong>Ergebnis:</strong> Weniger Reibung im Weg zur Anfrage und ein besser
+              steuerbares Setup für weitere Optimierungszyklen.</p>
+            <div class="mt-5">
+              <a href="case-study.html" class="approach-section__btn" aria-label="Projekt ansehen">Projekt ansehen</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="proof-title">
+      <div class="about-section__inner max-w-7xl mx-auto">
+        <div class="about-section__layout">
+          <div class="about-section__text-col">
+            <div class="about-section__header reveal-on-scroll">
+              <p class="about-section__eyebrow">Proof ohne Fake-Elemente</p>
+              <h2 id="proof-title" class="about-section__headline font-display">
+                Ergebnisse werden hier qualitativ gezeigt, nicht künstlich aufgeblasen.
+              </h2>
+              <p class="about-section__subline">
+                Statt frei erfundener Zahlen fokussiere ich auf die spürbaren Verbesserungen: klarere Positionierung,
+                strukturiertere Nutzerführung, professionellerer Eindruck und bessere nächste Schritte.
+              </p>
+            </div>
+          </div>
+          <div class="result-grid">
+            <article class="result-card reveal-on-scroll" style="--about-delay: 0ms;">
+              <p class="result-card__meta">Wahrnehmung</p>
+              <h3 class="result-card__title font-display">Mehr Klarheit im Marktauftritt</h3>
+              <p class="result-card__text">Angebot, Nutzen und Differenzierung werden schneller verständlich und dadurch
+                glaubwürdiger.</p>
+            </article>
+            <article class="result-card reveal-on-scroll" style="--about-delay: 90ms;">
+              <p class="result-card__meta">Nutzerführung</p>
+              <h3 class="result-card__title font-display">Weniger Reibung in den wichtigsten Wegen</h3>
+              <p class="result-card__text">Besucher sehen schneller, was relevant ist und welcher Schritt als nächstes
+                sinnvoll ist.</p>
+            </article>
+            <article class="result-card reveal-on-scroll" style="--about-delay: 180ms;">
+              <p class="result-card__meta">Prozess</p>
+              <h3 class="result-card__title font-display">Bessere Steuerbarkeit nach dem Launch</h3>
+              <p class="result-card__text">Struktur, Tracking und Prioritäten machen Weiterentwicklung ruhiger und
+                nachvollziehbarer.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -166,12 +219,16 @@
       <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
         <div class="reveal-on-scroll">
           <h2 class="final-cta-section__headline font-display">
-            Du willst sehen, wie ein Projekt strukturiert wird?
+            Wenn du sehen willst, wie dieselbe Klarheit in deinem Projekt aussehen kann.
           </h2>
+          <p class="final-cta-section__subline">Dann geh direkt in die Case Study oder wir sprechen über Ausgangslage,
+            Prioritäten und den sinnvollsten Einstieg.</p>
         </div>
         <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="case-study.html" class="final-cta-btn final-cta-btn--primary">Case Study ansehen</a>
-          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--secondary">Termin buchen</a>
+          <a href="case-study.html" class="final-cta-btn final-cta-btn--primary" aria-label="Projekt ansehen">Projekt
+            ansehen</a>
+          <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--secondary"
+            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
         </div>
       </div>
     </section>
@@ -185,37 +242,21 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">Projektlogik und Case-Study-Strukturen ohne erfundene Proof-Elemente.</p>
-          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+          <p class="site-footer__description">Projektmuster, Leistungsbeweise und qualitative Resultate ohne
+            Showroom-Fassade.</p>
+          <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
-            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
-            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
-            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
-            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
-            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
-            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
-            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
-            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
-            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
-            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li>
-          </ul>
+          <ul class="site-footer__list"></ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

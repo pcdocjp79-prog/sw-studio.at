@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cookie-Einstellungen | Smart Web Studio</title>
-  <meta name="description" content="Informative Cookie- und Consent-Seite für den Testausbau von Smart Web Studio." />
+  <meta name="description"
+    content="Cookie-Einstellungen, Consent-Management und Informationen zu den Cookie-Kategorien von Smart Web Studio." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
@@ -35,41 +36,136 @@
 
 <body id="top" data-page="cookies" class="antialiased selection:bg-zinc-200 selection:text-black">
   <div id="animated-background" aria-hidden="true"></div>
+
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="index.html" class="brand-link flex items-center gap-3"><img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" /><span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart Web Studio</span></a>
-      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="primary-nav"><span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span><span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span></button>
-      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation"><a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a><a href="leistungen.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a><a href="projekte.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a><a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a><a href="preise.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a><a href="insights.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a><a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a><a href="kontakt.html#terminbuchung" class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Termin buchen</a></nav>
-      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">Termin buchen</a>
+      <a href="index.html" class="brand-link flex items-center gap-3">
+        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">
+          Smart Web Studio
+        </span>
+      </a>
+
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
+        aria-expanded="false" aria-controls="primary-nav">
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--top" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--mid" aria-hidden="true"></span>
+        <span class="mobile-nav-toggle__line mobile-nav-toggle__line--bottom" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links flex items-center gap-1 sm:gap-2" aria-label="Hauptnavigation">
+        <a href="index.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Start</a>
+        <a href="leistungen.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Leistungen</a>
+        <a href="projekte.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Projekte</a>
+        <a href="ablauf.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Ablauf</a>
+        <a href="preise.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Preise</a>
+        <a href="insights.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Insights</a>
+        <a href="kontakt.html"
+          class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">Kontakt</a>
+        <a href="kontakt.html#terminbuchung"
+          class="nav-link nav-link--mobile-cta rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium">
+          Termin buchen
+        </a>
+      </nav>
+
+      <a href="kontakt.html#terminbuchung" class="nav-cta" aria-label="Termin buchen">
+        Termin buchen
+      </a>
     </div>
   </header>
 
-  <main class="legal-page">
+  <main class="legal-page" data-cookie-settings="page">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <section class="legal-hero" aria-labelledby="cookies-title">
+      <section class="legal-hero reveal-on-scroll" aria-labelledby="cookies-title">
         <p class="legal-hero__eyebrow">Cookie-Einstellungen</p>
-        <h1 id="cookies-title" class="legal-hero__headline font-display">Informative Consent-Seite im Testmodus</h1>
-        <p class="legal-hero__subline">Aktuell ist noch kein Consent-Tool integriert. Diese Seite dokumentiert den geplanten Umgang mit Cookies und Tracking für den finalen Ausbau.</p>
+        <h1 id="cookies-title" class="legal-hero__headline font-display">Cookies, Consent und deine Auswahl</h1>
+        <p class="legal-hero__subline">
+          Diese Website verwendet Cookies, um Funktionen bereitzustellen, die Nutzung zu analysieren und
+          Marketingmaßnahmen zu ermöglichen. Du kannst jederzeit selbst entscheiden, welche Kategorien du zulassen
+          möchtest.
+        </p>
+        <div class="cookie-page__status-row">
+          <p class="cookie-page__status" data-cookie-consent-summary>
+            Noch keine Auswahl gespeichert.
+          </p>
+          <div class="legal-actions">
+            <a class="legal-link" href="datenschutz.html">Datenschutz</a>
+            <a class="legal-link legal-link--button" href="cookies.html#cookie-settings" data-open-cookie-settings>
+              Cookie Einstellungen ändern
+            </a>
+          </div>
+        </div>
       </section>
 
       <div class="legal-content">
-        <section class="legal-section" aria-labelledby="required-title">
-          <h2 id="required-title" class="legal-section__title font-display">Notwendig</h2>
-          <p>Diese Kategorie deckt technisch notwendige Funktionen wie Navigation, Formularfluss und grundlegende Website-Funktionen ab.</p>
+        <section class="legal-section reveal-on-scroll" aria-labelledby="cookies-intro-title">
+          <h2 id="cookies-intro-title" class="legal-section__title font-display">Wie Consent auf dieser Website funktioniert</h2>
+          <p>
+            Deine Entscheidung wird lokal in deinem Browser gespeichert. Nicht notwendige Kategorien werden erst
+            geladen, nachdem du aktiv zugestimmt hast.
+          </p>
+          <p>
+            Die Consent-Auswahl kann jederzeit über den Footer-Link <strong>Cookie-Einstellungen</strong> oder über
+            den Button auf dieser Seite erneut geöffnet und angepasst werden.
+          </p>
         </section>
 
-        <section class="legal-section" aria-labelledby="stats-title">
-          <h2 id="stats-title" class="legal-section__title font-display">Statistik</h2>
-          <p>Hier würden später Analyse-Tools wie Reichweiten- oder Event-Tracking eingeordnet, sobald sie tatsächlich eingebunden werden.</p>
+        <section class="legal-section reveal-on-scroll" aria-labelledby="required-title">
+          <h2 id="required-title" class="legal-section__title font-display">Notwendige Cookies</h2>
+          <p>
+            Diese Cookies sind für den Betrieb der Website erforderlich und können nicht deaktiviert werden.
+          </p>
+          <p>
+            Dazu gehört insbesondere die Speicherung deiner Cookie-Auswahl sowie technische Basisfunktionen für
+            Navigation, Sicherheit und Formularabläufe.
+          </p>
         </section>
 
-        <section class="legal-section" aria-labelledby="marketing-title">
-          <h2 id="marketing-title" class="legal-section__title font-display">Marketing</h2>
-          <p>Tracking für Marketing und Retargeting bleibt deaktiviert, bis ein echter Consent-Banner mit granularer Zustimmung aktiv ist.</p>
+        <section class="legal-section reveal-on-scroll" aria-labelledby="stats-title">
+          <h2 id="stats-title" class="legal-section__title font-display">Statistik Cookies</h2>
+          <p>
+            Diese Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren.
+          </p>
+          <p>
+            Statistik-Skripte werden erst geladen, wenn du dieser Kategorie ausdrücklich zustimmst.
+          </p>
         </section>
 
-        <aside class="legal-note" role="note" aria-label="Hinweis">
-          Nach Integration eines Consent-Tools wird diese Seite durch eine echte Einstellungsoberfläche und die konkrete Anbieter-/Tool-Liste ergänzt.
+        <section class="legal-section reveal-on-scroll" aria-labelledby="marketing-title">
+          <h2 id="marketing-title" class="legal-section__title font-display">Marketing Cookies</h2>
+          <p>
+            Diese Cookies können verwendet werden, um Besuchern relevante Werbung anzuzeigen.
+          </p>
+          <p>
+            Marketing-Skripte bleiben standardmäßig deaktiviert und werden erst nach aktiver Zustimmung geladen.
+          </p>
+        </section>
+
+        <section id="cookie-settings" class="legal-section reveal-on-scroll" aria-labelledby="change-settings-title">
+          <h2 id="change-settings-title" class="legal-section__title font-display">Cookie Einstellungen ändern</h2>
+          <p>
+            Du kannst deine Auswahl jederzeit erneut öffnen, anpassen und speichern. Die Änderung gilt direkt für
+            zukünftige Ladevorgänge optionaler Kategorien.
+          </p>
+          <div class="legal-actions">
+            <a class="legal-cta" href="cookies.html#cookie-settings" data-open-cookie-settings>
+              Cookie Einstellungen ändern
+            </a>
+            <a class="legal-link" href="datenschutz.html">Zur Datenschutzerklärung</a>
+          </div>
+          <p class="legal-muted" data-cookie-consent-summary>
+            Noch keine Auswahl gespeichert.
+          </p>
+        </section>
+
+        <aside class="legal-note reveal-on-scroll" role="note" aria-label="Hinweis">
+          Zukünftige Statistik- oder Marketing-Dienste werden erst nach aktiver Zustimmung geladen und an dieser Stelle
+          transparent ergänzt.
         </aside>
       </div>
     </div>
@@ -80,16 +176,64 @@
     <div id="cookie-einstellungen" class="site-footer__anchor" aria-hidden="true"></div>
     <div class="site-footer__inner max-w-7xl mx-auto">
       <div class="site-footer__grid">
-        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title"><h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2><p class="site-footer__tagline">Marke. Website. Wachstum.</p><p class="site-footer__description">Informative Cookie- und Consent-Logik für den Testausbau.</p><p class="site-footer__meta">Standort: Vorarlberg / DACH</p></section>
-        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen"><h3 class="site-footer__heading">Leistungen</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li><li><a class="site-footer__link" href="branding.html">Branding</a></li><li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li><li><a class="site-footer__link" href="social.html">Social Strategie</a></li><li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li></ul></nav>
-        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation"><h3 class="site-footer__heading">Navigation</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="projekte.html">Projekte</a></li><li><a class="site-footer__link" href="case-study.html">Case Study</a></li><li><a class="site-footer__link" href="preise.html">Preise</a></li><li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li><li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li><li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li></ul></nav>
-        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches"><h3 class="site-footer__heading">Rechtliches</h3><ul class="site-footer__list"><li><a class="site-footer__link" href="impressum.html">Impressum</a></li><li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li><li><a class="site-footer__link" href="cookies.html">Cookie-Einstellungen</a></li></ul></nav>
+        <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
+          <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
+          <p class="site-footer__description">
+            Transparente Informationen zu Consent, Datenschutz und Cookie-Kategorien.
+          </p>
+          <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
+        </section>
+
+        <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
+          <h3 class="site-footer__heading">Leistungen</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
+            <li><a class="site-footer__link" href="marketing.html">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
+            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
+            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
+            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
+            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
+            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
+            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
+          <h3 class="site-footer__heading">Rechtliches</h3>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
+            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
+            <li>
+              <a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings>
+                Cookie-Einstellungen
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="site-footer__bottom" aria-label="Footer Abschluss"><small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small><small class="site-footer__signature">Built for clarity, structure and conversion.</small></div>
+
+      <div class="site-footer__bottom" aria-label="Footer Abschluss">
+        <small class="site-footer__copyright">&copy; 2026 Smart Web Studio.</small>
+        <small class="site-footer__signature">Built for clarity, structure and conversion.</small>
+      </div>
     </div>
   </footer>
 
-  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen"><span aria-hidden="true">&uarr;</span></button>
+  <button id="scroll-to-top" class="scroll-to-top-btn" type="button" aria-label="Nach oben scrollen">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
   <script type="module" src="src/js/main.js"></script>
 </body>
 

@@ -2,12 +2,12 @@ const HOME_PATH = "index.html";
 const CONTACT_PATH = "kontakt.html";
 const BOOKING_HASH = "terminbuchung";
 const COOKIE_PATH = "cookies.html";
+const COOKIE_SETTINGS_HASH = "cookie-settings";
+const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
 
 const NAV_LINK_CLASS =
   "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm sm:text-sm font-medium";
 const NAV_MOBILE_CTA_CLASS = `${NAV_LINK_CLASS} nav-link--mobile-cta`;
-const DEFAULT_COOKIE_NOTE =
-  "Consent-Tool noch nicht aktiv. Diese Seite beschreibt den geplanten Cookie- und Tracking-Setup.";
 
 const GLOBAL_NAV_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
@@ -39,7 +39,8 @@ const FOOTER_SERVICE_LINKS = [
 const FOOTER_LEGAL_LINKS = [
   { type: "page", path: "impressum.html", label: "Impressum", pageKey: "impressum" },
   { type: "page", path: "datenschutz.html", label: "Datenschutz", pageKey: "datenschutz" },
-  { type: "cookie", path: COOKIE_PATH, label: "Cookie-Einstellungen", pageKey: "cookies" },
+  { type: "page", path: COOKIE_PATH, label: "Cookies", pageKey: "cookies" },
+  { type: "cookie-settings", path: COOKIE_SETTINGS_PATH, label: "Cookie-Einstellungen" },
 ];
 
 const PAGE_CONFIGS = {
@@ -98,9 +99,14 @@ const getBookingTarget = () => {
     : `${CONTACT_PATH}#${BOOKING_HASH}`;
 };
 
-const getCookieTarget = () => {
+const getCookiePageTarget = () => {
   const configuredTarget = document.body?.dataset.cookieTarget?.trim();
   return configuredTarget || COOKIE_PATH;
+};
+
+const getCookieSettingsTarget = () => {
+  const configuredTarget = document.body?.dataset.cookieSettingsTarget?.trim();
+  return configuredTarget || COOKIE_SETTINGS_PATH;
 };
 
 const isCurrentPageLink = (path, currentPagePath) => {
@@ -110,12 +116,15 @@ const isCurrentPageLink = (path, currentPagePath) => {
 
 const getResolvedHref = (link, runtimeConfig) => {
   switch (link.type) {
-    case "cookie":
-      return runtimeConfig.cookieTarget;
+    case "cookie-settings":
+      return runtimeConfig.cookieSettingsTarget;
     case "section":
       return `#${link.id}`;
     case "page":
     default:
+      if (link.path === COOKIE_PATH) {
+        return runtimeConfig.cookiePageTarget || COOKIE_PATH;
+      }
       return link.path || HOME_PATH;
   }
 };
@@ -140,9 +149,9 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
     anchor.setAttribute("aria-current", "page");
   }
 
-  if (link.type === "cookie" && runtimeConfig.cookieIsPlaceholder) {
-    anchor.title = DEFAULT_COOKIE_NOTE;
-    anchor.setAttribute("data-placeholder-link", "cookie");
+  if (link.type === "cookie-settings") {
+    anchor.setAttribute("data-open-cookie-settings", "");
+    anchor.setAttribute("aria-haspopup", "dialog");
   }
 
   return anchor;
@@ -185,29 +194,6 @@ const renderFooterList = (listElement, links, runtimeConfig) => {
   listElement.replaceChildren(fragment);
 };
 
-const upsertCookiePlaceholderNote = (footer, runtimeConfig) => {
-  if (!footer) return;
-
-  const legalGroup = footer.querySelector('[data-footer-group="legal"]');
-  if (!legalGroup) return;
-
-  let note = legalGroup.querySelector("[data-cookie-placeholder]");
-
-  if (!runtimeConfig.cookieIsPlaceholder) {
-    note?.remove();
-    return;
-  }
-
-  if (!note) {
-    note = document.createElement("p");
-    note.className = "site-footer__note";
-    note.setAttribute("data-cookie-placeholder", "");
-    legalGroup.appendChild(note);
-  }
-
-  note.textContent = DEFAULT_COOKIE_NOTE;
-};
-
 const syncFooterHeadings = (footer) => {
   if (!footer) return;
 
@@ -241,8 +227,6 @@ const renderFooterNavigation = (footer, runtimeConfig) => {
     FOOTER_LEGAL_LINKS,
     runtimeConfig
   );
-
-  upsertCookiePlaceholderNote(footer, runtimeConfig);
 };
 
 const updateBrandAndCtaLinks = (pageConfig, runtimeConfig) => {
@@ -268,17 +252,13 @@ const normalizeStandaloneLinks = (runtimeConfig) => {
   });
 
   document
-    .querySelectorAll(`a[href="#cookie-einstellungen"], a[href="${COOKIE_PATH}"], a[href="${HOME_PATH}#cookie-einstellungen"]`)
+    .querySelectorAll(
+      `a[href="#cookie-einstellungen"], a[href="${HOME_PATH}#cookie-einstellungen"], a[href="${COOKIE_SETTINGS_PATH}"], a[data-open-cookie-settings]`
+    )
     .forEach((link) => {
-      link.href = runtimeConfig.cookieTarget;
-
-      if (runtimeConfig.cookieIsPlaceholder) {
-        link.title = DEFAULT_COOKIE_NOTE;
-        link.setAttribute("data-placeholder-link", "cookie");
-      } else {
-        link.removeAttribute("title");
-        link.removeAttribute("data-placeholder-link");
-      }
+      link.href = runtimeConfig.cookieSettingsTarget;
+      link.setAttribute("data-open-cookie-settings", "");
+      link.setAttribute("aria-haspopup", "dialog");
     });
 };
 
@@ -508,8 +488,8 @@ export const initNavigation = () => {
     currentPageKey,
     currentPagePath: getCurrentPagePath(currentPageKey),
     bookingTarget: getBookingTarget(),
-    cookieTarget: getCookieTarget(),
-    cookieIsPlaceholder: !document.querySelector("[data-cookie-settings]"),
+    cookiePageTarget: getCookiePageTarget(),
+    cookieSettingsTarget: getCookieSettingsTarget(),
   };
 
   updateBrandAndCtaLinks(pageConfig, runtimeConfig);

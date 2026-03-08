@@ -1,4 +1,5 @@
 import { initNavigation } from "../scripts/modules/navigation.js";
+import { initCookieConsent } from "../scripts/modules/cookieConsent.js";
 
 // Mark document as JS-enabled so CSS can apply progressive enhancement.
 document.documentElement.classList.add("js");
@@ -314,6 +315,7 @@ const initScrollFocusEffect = () => {
 
 initScrollFocusEffect();
 initNavigation();
+initCookieConsent();
 
 const cardLinkTargets = Array.from(document.querySelectorAll("[data-card-link]"));
 

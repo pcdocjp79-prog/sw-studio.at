@@ -6,26 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Datenschutz | [STUDIO_NAME]</title>
   <meta name="description"
-    content="Datenschutzerklärung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
+    content="Datenschutzerklaerung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befuellung." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:title" content="Datenschutz | [STUDIO_NAME]" />
   <meta property="og:description"
-    content="Datenschutzerklärung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befüllung." />
+    content="Datenschutzerklaerung von [STUDIO_NAME]. Strukturierte Vorlage mit Platzhaltern zur individuellen Befuellung." />
   <meta property="og:url" content="/datenschutz" />
   <link rel="canonical" href="https://[STUDIO_DOMAIN]/datenschutz" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
     rel="stylesheet" />
 
-  <!-- Iconify -->
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-  <!-- Tailwind -->
   <script>
     tailwind.config = {
       theme: {
@@ -44,8 +41,6 @@
     };
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Legacy CSS (stabil) -->
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
@@ -56,8 +51,9 @@
     <div id="glass-nav" class="glass-nav w-full">
       <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Zur Startseite">
         <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
-        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
-          Web Studio</span>
+        <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">
+          Smart Web Studio
+        </span>
       </a>
 
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
@@ -100,6 +96,7 @@
           <li><a class="legal-toc__link" href="#verantwortlicher">Verantwortlicher</a></li>
           <li><a class="legal-toc__link" href="#zwecke">Zwecke der Verarbeitung</a></li>
           <li><a class="legal-toc__link" href="#rechtsgrundlagen">Rechtsgrundlagen</a></li>
+          <li><a class="legal-toc__link" href="#cookies-consent">Cookies &amp; Consent</a></li>
           <li><a class="legal-toc__link" href="#empfaenger">Empfänger / Auftragsverarbeiter</a></li>
           <li><a class="legal-toc__link" href="#speicherdauer">Speicherdauer</a></li>
           <li><a class="legal-toc__link" href="#rechte">Betroffenenrechte</a></li>
@@ -138,19 +135,42 @@
             <li>Bearbeitung von Kontaktanfragen und Kommunikation mit Interessenten/Kunden</li>
             <li>Technische Stabilität, Sicherheit und Fehleranalyse</li>
             <li>Erfüllung gesetzlicher Aufbewahrungs- und Nachweispflichten</li>
-            <li>[OPTIONAL: Reichweitenmessung / Analytics nur falls tatsächlich aktiviert]</li>
+            <li>Einwilligungsbasierte Reichweitenmessung oder Marketing-Maßnahmen nur nach aktiver Zustimmung</li>
           </ul>
         </section>
 
         <section id="rechtsgrundlagen" class="legal-section reveal-on-scroll" aria-labelledby="rechtsgrundlagen-title">
           <h2 id="rechtsgrundlagen-title" class="legal-section__title font-display">Rechtsgrundlagen</h2>
           <p>
-            Die konkrete Zuordnung der Rechtsgrundlagen muss anhand des tatsächlichen Setups erfolgen (z. B.
-            Vertragsanbahnung/-erfüllung, berechtigtes Interesse, Einwilligung, gesetzliche Pflichten).
+            Die konkrete Zuordnung der Rechtsgrundlagen muss anhand des tatsächlichen Setups erfolgen, zum Beispiel
+            Vertragsanbahnung oder Vertragserfüllung, berechtigtes Interesse, Einwilligung oder gesetzliche Pflichten.
           </p>
           <p class="legal-muted">
             Hinweis: Diese Struktur dient als Platzhalter und stellt keine Rechtsberatung dar.
           </p>
+        </section>
+
+        <section id="cookies-consent" class="legal-section reveal-on-scroll" aria-labelledby="cookies-consent-title">
+          <h2 id="cookies-consent-title" class="legal-section__title font-display">Cookies &amp; Consent</h2>
+          <p>
+            Für nicht notwendige Cookies nutzt diese Website ein clientseitiges Consent-Interface. Deine Auswahl wird
+            lokal in deinem Browser gespeichert und kann jederzeit erneut geöffnet und geändert werden.
+          </p>
+          <ul class="legal-list">
+            <li>Notwendige Cookies: technisch erforderlich für Betrieb, Sicherheit und die Speicherung der Consent-Auswahl</li>
+            <li>Statistik Cookies: optional und erst nach aktiver Zustimmung geladen</li>
+            <li>Marketing Cookies: optional und erst nach aktiver Zustimmung geladen</li>
+          </ul>
+          <p>
+            Konkrete Anbieter- und Tool-Bezeichnungen werden auf dieser Seite ergänzt, sobald entsprechende Dienste
+            produktiv aktiviert werden.
+          </p>
+          <div class="legal-actions">
+            <a class="legal-cta" href="cookies.html">Zur Cookie-Seite</a>
+            <a class="legal-link legal-link--button" href="cookies.html#cookie-settings" data-open-cookie-settings>
+              Cookie-Einstellungen öffnen
+            </a>
+          </div>
         </section>
 
         <section id="empfaenger" class="legal-section reveal-on-scroll" aria-labelledby="empfaenger-title">
@@ -159,7 +179,7 @@
             <li>Hosting: [PROVIDER, SITZ/LAND]</li>
             <li>E-Mail-Dienst: [PROVIDER, SITZ/LAND]</li>
             <li>Formular-/CRM-Dienst: [PROVIDER, SITZ/LAND]</li>
-            <li>[OPTIONAL: Analytics-Dienst, falls aktiv]</li>
+            <li>[OPTIONAL: Consent-gesteuerte Analytics-/Marketing-Dienste, falls aktiv]</li>
           </ul>
         </section>
 
@@ -191,7 +211,7 @@
 
         <section id="drittlandtransfer" class="legal-section reveal-on-scroll" aria-labelledby="drittland-title">
           <h2 id="drittland-title" class="legal-section__title font-display">Drittlandtransfer</h2>
-          <p>Derzeit erfolgt nach aktuellem Stand kein Drittlandtransfer außerhalb der EU/des EWR.</p>
+          <p>Derzeit erfolgt nach aktuellem Stand kein Drittlandtransfer außerhalb der EU oder des EWR.</p>
           <p class="legal-muted">
             Falls Drittland-Dienste eingesetzt werden, müssen diese hier mit passender Grundlage und Schutzmaßnahmen
             ergänzt werden.
@@ -200,13 +220,15 @@
 
         <section id="kontakt-datenschutz" class="legal-section reveal-on-scroll" aria-labelledby="kontakt-data-title">
           <h2 id="kontakt-data-title" class="legal-section__title font-display">Kontakt Datenschutz</h2>
-          <p>Für datenschutzbezogene Anliegen: <a class="legal-link"
-              href="mailto:[DATENSCHUTZ@DEINE-DOMAIN.TLD]">[DATENSCHUTZ@DEINE-DOMAIN.TLD]</a></p>
+          <p>
+            Für datenschutzbezogene Anliegen:
+            <a class="legal-link" href="mailto:[DATENSCHUTZ@DEINE-DOMAIN.TLD]">[DATENSCHUTZ@DEINE-DOMAIN.TLD]</a>
+          </p>
         </section>
 
         <aside class="legal-note reveal-on-scroll" role="note" aria-label="Wichtiger Hinweis">
-          Diese Vorlage muss mit deinem tatsächlichen Setup (Tools, Provider, Prozesse, Rechtsgrundlagen) befüllt und
-          geprüft werden.
+          Diese Vorlage muss mit deinem tatsächlichen Setup, den verwendeten Tools, Providern, Prozessen und
+          Rechtsgrundlagen befüllt und geprüft werden.
         </aside>
       </div>
     </div>
@@ -223,7 +245,7 @@
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Strategie. Website. Wachstum.</p>
           <p class="site-footer__description">
-            Premium-Auftritte mit System – für messbare Ergebnisse.
+            Premium-Auftritte mit System fuer messbare Ergebnisse.
           </p>
           <p class="site-footer__meta">Standort: Vorarlberg / DACH</p>
         </section>
@@ -253,7 +275,12 @@
           <ul class="site-footer__list">
             <li><a class="site-footer__link" href="impressum.html">Impressum / Anbieterkennzeichnung</a></li>
             <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
-            <li><a class="site-footer__link" href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
+            <li>
+              <a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings>
+                Cookie-Einstellungen
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

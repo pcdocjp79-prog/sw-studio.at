@@ -24,7 +24,7 @@ const FOOTER_NAVIGATION_LINKS = [
   { type: "page", path: "case-study.html", label: "Case Study", pageKey: "case-study" },
   { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
   { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
-  { type: "page", path: "ueber-mich.html", label: "Ueber mich", pageKey: "ueber-mich" },
+  { type: "page", path: "ueber-mich.html", label: "Über mich", pageKey: "ueber-mich" },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
 

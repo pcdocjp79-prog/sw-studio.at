@@ -3562,6 +3562,10 @@ body.has-cookie-banner .scroll-to-top-btn {
   overflow: hidden;
 }
 
+body[data-page="preise"] .packages-section {
+  overflow: visible;
+}
+
 .packages-section::before {
   content: "";
   position: absolute;

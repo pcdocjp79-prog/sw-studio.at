@@ -4175,6 +4175,35 @@ body[data-page="preise"] .packages-section {
   outline-offset: 3px;
 }
 
+.about-section--next-steps .next-step-content {
+  display: grid;
+  gap: 2rem;
+}
+
+.about-section--next-steps .next-step-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.about-section--next-steps .next-step-actions__btn {
+  width: 100%;
+  justify-content: center;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .about-section--next-steps .next-step-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-section--next-steps .about-section__layout {
+    align-items: start;
+  }
+}
+
 /* Stagger for text blocks */
 .js .about-block.reveal-on-scroll {
   transition-delay: var(--about-delay, 0ms);

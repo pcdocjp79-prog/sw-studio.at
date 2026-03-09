@@ -1,7 +1,20 @@
 import { defineConfig } from "vite";
+import { copyFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
+const copyRootTailwindConfig = () => ({
+  name: "copy-root-tailwind-config",
+  apply: "build",
+  async writeBundle() {
+    await copyFile(
+      resolve(__dirname, "tailwind-config.js"),
+      resolve(__dirname, "dist", "tailwind-config.js")
+    );
+  },
+});
+
 export default defineConfig({
+  plugins: [copyRootTailwindConfig()],
   server: {
     host: true,
     port: 5173,

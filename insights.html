@@ -90,32 +90,22 @@
       </div>
     </section>
 
-    <section class="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="filter-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="filter-surface reveal-on-scroll">
-          <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p class="section-kicker">Themenfilter</p>
-              <h2 id="filter-title" class="text-white font-display text-2xl sm:text-3xl">Insights nach Fokus
-                sortieren</h2>
-            </div>
-            <div class="case-filter" data-filter-group="insights" aria-label="Insights filtern">
-              <button type="button" class="case-filter__btn is-active" data-filter-value="all">Alle</button>
-              <button type="button" class="case-filter__btn" data-filter-value="website">Website</button>
-              <button type="button" class="case-filter__btn" data-filter-value="branding">Branding</button>
-              <button type="button" class="case-filter__btn" data-filter-value="seo">SEO / Marketing</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="cluster-title">
+    <section class="insight-cluster-section py-16 lg:py-24 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="cluster-title">
       <div class="max-w-7xl mx-auto">
         <div class="packages-section__header reveal-on-scroll">
           <p class="packages-section__eyebrow">Themencluster</p>
           <h2 id="cluster-title" class="packages-section__headline font-display">Die häufigsten Hebel, an denen
             hochwertige Projekte gewinnen oder scheitern.</h2>
+        </div>
+
+        <div class="insight-filter-bar reveal-on-scroll" aria-label="Themenfilter">
+          <div class="case-filter" data-filter-group="insights" aria-label="Insights filtern">
+            <button type="button" class="case-filter__btn is-active" data-filter-value="all">Alle</button>
+            <button type="button" class="case-filter__btn" data-filter-value="website">Website</button>
+            <button type="button" class="case-filter__btn" data-filter-value="branding">Branding</button>
+            <button type="button" class="case-filter__btn" data-filter-value="seo">SEO / Marketing</button>
+          </div>
         </div>
 
         <div class="cluster-grid md:grid-cols-2 xl:grid-cols-3">

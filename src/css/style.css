@@ -3420,6 +3420,15 @@ body.has-cookie-banner .scroll-to-top-btn {
     pointer-events: none;
     z-index: 0;
   }
+
+  body[data-page="ablauf"] .process-section__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body[data-page="ablauf"] .process-section__steps::before {
+    left: 16.6667%;
+    right: 16.6667%;
+  }
 }
 
 /* Individual step */
@@ -3656,7 +3665,8 @@ body[data-page="preise"] .packages-section {
   align-items: start;
 }
 
-#conversion-paths .packages-section__grid {
+#conversion-paths .packages-section__grid,
+#terminbuchung .packages-section__grid {
   margin-inline: auto;
 }
 
@@ -3666,7 +3676,8 @@ body[data-page="preise"] .packages-section {
     align-items: stretch;
   }
 
-  #conversion-paths .packages-section__grid {
+  #conversion-paths .packages-section__grid,
+  #terminbuchung .packages-section__grid {
     grid-template-columns: repeat(2, minmax(20rem, 39rem));
     justify-content: center;
     gap: 1.25rem;
@@ -3740,7 +3751,8 @@ body[data-page="preise"] .packages-section {
   gap: 1.5rem;
 }
 
-#conversion-paths .pkg-card__inner {
+#conversion-paths .pkg-card__inner,
+#terminbuchung .pkg-card__inner {
   padding: clamp(1.35rem, 2.1vw, 1.9rem);
   gap: 1.15rem;
 }
@@ -3751,7 +3763,8 @@ body[data-page="preise"] .packages-section {
   gap: 0.4rem;
 }
 
-#conversion-paths .pkg-card__header {
+#conversion-paths .pkg-card__header,
+#terminbuchung .pkg-card__header {
   gap: 0.3rem;
 }
 
@@ -3784,7 +3797,8 @@ body[data-page="preise"] .packages-section {
   flex: 1 1 auto;
 }
 
-#conversion-paths .pkg-card__list {
+#conversion-paths .pkg-card__list,
+#terminbuchung .pkg-card__list {
   gap: 0.5rem;
 }
 
@@ -3818,7 +3832,8 @@ body[data-page="preise"] .packages-section {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-#conversion-paths .pkg-card__footer {
+#conversion-paths .pkg-card__footer,
+#terminbuchung .pkg-card__footer {
   gap: 0.75rem;
   padding-top: 0.8rem;
 }
@@ -4503,6 +4518,39 @@ body[data-page="preise"] .packages-section {
   gap: 0.65rem;
 }
 
+body[data-page="projekte"] .project-grid-section .packages-section__header {
+  margin-bottom: 1.5rem;
+}
+
+body[data-page="insights"] .insight-cluster-section .packages-section__header {
+  margin-bottom: 1.5rem;
+}
+
+body[data-page="projekte"] .project-filter-bar {
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+body[data-page="insights"] .insight-filter-bar {
+  margin-bottom: 2rem;
+}
+
+body[data-page="projekte"] .project-filter-bar__title {
+  margin: 0;
+  text-align: left;
+}
+
+body[data-page="projekte"] .project-filter-bar .case-filter {
+  gap: 0.9rem 1.1rem;
+  justify-content: center;
+}
+
+body[data-page="insights"] .insight-filter-bar .case-filter {
+  gap: 0.9rem 1.1rem;
+  justify-content: center;
+}
+
 .case-filter__btn {
   display: inline-flex;
   align-items: center;
@@ -4549,6 +4597,26 @@ body[data-page="preise"] .packages-section {
   .result-grid,
   .next-step-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body[data-page="projekte"] .project-filter-bar {
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr) minmax(10rem, 1fr);
+    align-items: center;
+    column-gap: 1.25rem;
+  }
+
+  body[data-page="projekte"] .project-filter-bar__title {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  body[data-page="projekte"] .project-filter-bar .case-filter {
+    grid-column: 2;
+    gap: 1rem 1.6rem;
+  }
+
+  body[data-page="insights"] .insight-filter-bar .case-filter {
+    gap: 1rem 1.6rem;
   }
 }
 

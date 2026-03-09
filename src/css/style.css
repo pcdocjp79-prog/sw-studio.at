@@ -3105,6 +3105,26 @@ body.has-cookie-banner .scroll-to-top-btn {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.75rem;
   }
+
+  body[data-page="leistungen"] #services .approach-section__grid {
+    --services-offer-gap: 1.75rem;
+  }
+
+  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(4),
+  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(5) {
+    grid-row: 2;
+    width: calc(150% + (var(--services-offer-gap) / 2));
+  }
+
+  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(4) {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(5) {
+    grid-column: 3;
+    justify-self: end;
+  }
 }
 
 /* Individual Card */

@@ -3529,6 +3529,12 @@ body[data-page="preise"] .packages-section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.section-surface--darkened {
+  background: rgba(8, 8, 12, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .approach-section.section-surface--global,
 .process-section.section-surface--global,
 .packages-section.section-surface--global,

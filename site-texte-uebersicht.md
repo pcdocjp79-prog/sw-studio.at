@@ -248,7 +248,7 @@ Damit deine Marke nicht nur gut aussieht, sondern wertiger, präziser und profes
 ### Section 2: Wenn deine Marke austauschbar wirkt, gewinnt oft der Preis statt die Qualität.
 - Einordnung: Problem | Fokus: Wenn deine Marke austauschbar wirkt, gewinnt oft der Preis statt die Qualität. | Kontext: Problem
 - ID: problem
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Problem
 
@@ -1061,7 +1061,7 @@ Tracking, Hypothesen und Experimente
 ### Section 2: Mehr Aktivität bringt wenig, wenn Hebel, Daten und Prioritäten fehlen.
 - Einordnung: Problem | Fokus: Mehr Aktivität bringt wenig, wenn Hebel, Daten und Prioritäten fehlen. | Kontext: Problem
 - ID: problem
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Problem
 
@@ -1947,7 +1947,7 @@ Anbindung an Website, Content und bestehende Arbeitslogik
 ### Section 2: Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität.
 - Einordnung: Problem | Fokus: Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität. | Kontext: KI Beratung
 - ID: problem
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Problem
 
@@ -2409,7 +2409,7 @@ AI
 KI Beratung
 
 Für Unternehmen, die KI sinnvoll in Website, Content und Prozesse integrieren wollen, ohne
-Qualität, Markenlogik und Verantwortung zu verwässern.
+Qualität, Markenlogik zu verwässern.
 
 Leistungen ansehen
 ```
@@ -2722,7 +2722,7 @@ Mini-Audit anfordern
 ## projekte.html
 
 - Seitentitel: Projekte | Smart Web Studio
-- Anzahl top-level Sections im Hauptinhalt: 4
+- Anzahl top-level Sections im Hauptinhalt: 3
 
 ### Section 1: Leistungsbeweise ohne Showroom-Fassade, aber mit klarer Projektlogik.
 - Einordnung: Einstieg / Intro | Fokus: Leistungsbeweise ohne Showroom-Fassade, aber mit klarer Projektlogik. | Kontext: Projekte
@@ -2840,9 +2840,10 @@ Projekt ansehen
 ```
 
 ### Section 3: Ergebnisse werden hier qualitativ gezeigt, nicht künstlich aufgeblasen.
-- Einordnung: Einordnung / Kontext | Fokus: Ergebnisse werden hier qualitativ gezeigt, nicht künstlich aufgeblasen. | Kontext: Proof ohne Fake-Elemente
+- Einordnung: Einordnung / Kontext + Abschluss / CTA | Fokus: Ergebnisse werden hier qualitativ gezeigt, nicht künstlich aufgeblasen. | Kontext: Proof ohne Fake-Elemente
 - ID: keine
-- CSS-Klasse: about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- Hinweis: Enthält auch den finalen CTA-Block (früher eigene `<section>`, jetzt `<div>` innerhalb dieser Section)
 ```text
 Proof ohne Fake-Elemente
 
@@ -2871,20 +2872,15 @@ Bessere Steuerbarkeit nach dem Launch
 
 Struktur, Tracking und Prioritäten machen Weiterentwicklung ruhiger und
 nachvollziehbarer.
-```
 
-### Section 4: Wenn du sehen willst, wie dieselbe Klarheit in deinem Projekt aussehen kann.
-- Einordnung: Abschluss / CTA | Fokus: Wenn du sehen willst, wie dieselbe Klarheit in deinem Projekt aussehen kann.
-- ID: keine
-- CSS-Klasse: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
-```text
+— CTA —
+
 Wenn du sehen willst, wie dieselbe Klarheit in deinem Projekt aussehen kann.
 
 Dann geh direkt in die Case Study oder wir sprechen über Ausgangslage,
 Prioritäten und den sinnvollsten Einstieg.
 
-Projekt
-ansehen
+Projekt ansehen
 
 Erstgespräch buchen
 ```
@@ -2940,7 +2936,7 @@ Damit Sichtbarkeit, Landingpages und Kontaktwege an derselben Conversion-Archite
 ### Section 2: Mehr Traffic löst keine unklare Angebotslogik.
 - Einordnung: Problem | Fokus: Mehr Traffic löst keine unklare Angebotslogik. | Kontext: Problem
 - ID: problem
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Problem
 
@@ -3195,7 +3191,7 @@ saubere Übergänge in Website, Kontakt oder Audit
 ### Section 2: Ohne System wird Social schnell laut, aber nicht klar.
 - Einordnung: Problem | Fokus: Ohne System wird Social schnell laut, aber nicht klar. | Kontext: Problem
 - ID: problem
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Problem
 
@@ -3434,7 +3430,7 @@ lege.
 - Einordnung: Fokus: Worauf ich in Projekten bewusst Wert
 lege. | Kontext: Arbeitsprinzipien
 - ID: keine
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--muted py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Arbeitsprinzipien
 
@@ -3598,7 +3594,7 @@ arbeiten.
 ### Section 2: Viele Websites sehen gut aus und verlieren trotzdem Momentum.
 - Einordnung: Problem | Fokus: Viele Websites sehen gut aus und verlieren trotzdem Momentum. | Kontext: Problem
 - ID: problem
-- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- CSS-Klasse: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Problem
 

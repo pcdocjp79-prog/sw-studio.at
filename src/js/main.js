@@ -368,39 +368,113 @@ const initContactForm = () => {
   if (!contactForm) return;
 
   const successMessage = document.querySelector("[data-contact-success]");
+  const errorMessage = document.querySelector("[data-contact-error]");
+  const submitButton = contactForm.querySelector('[type="submit"]');
   const successHref =
     contactForm.dataset.successHref?.trim() ||
     document.body?.dataset.contactSuccessPath?.trim() ||
     "";
-  const hasConfiguredEndpoint = () =>
-    (contactForm.getAttribute("action") || "").trim().length > 0;
+  const endpoint = (contactForm.getAttribute("action") || "").trim();
+  const defaultSubmitLabel = submitButton?.textContent?.trim() || "";
+  const loadingLabel =
+    submitButton?.dataset.loadingLabel?.trim() || "Wird gesendet...";
+  const setSubmittingState = (isSubmitting) => {
+    contactForm.setAttribute("aria-busy", String(isSubmitting));
 
-  contactForm.addEventListener("submit", (event) => {
-    if (hasConfiguredEndpoint()) return;
+    if (!submitButton) return;
+
+    submitButton.disabled = isSubmitting;
+    submitButton.textContent = isSubmitting
+      ? loadingLabel
+      : defaultSubmitLabel || submitButton.textContent;
+  };
+  const hideStatusMessage = (messageElement) => {
+    if (!messageElement || messageElement.hidden) return;
+    messageElement.hidden = true;
+  };
+  const showStatusMessage = (messageElement, messageText, { focus = false } = {}) => {
+    if (!messageElement) return;
+
+    messageElement.textContent = messageText;
+    messageElement.hidden = false;
+
+    if (focus) {
+      messageElement.focus({ preventScroll: true });
+    }
+  };
+
+  contactForm.addEventListener("submit", async (event) => {
+    if (!endpoint) return;
 
     event.preventDefault();
+    hideStatusMessage(successMessage);
+    hideStatusMessage(errorMessage);
 
     if (!contactForm.checkValidity()) {
+      showStatusMessage(
+        errorMessage,
+        "Bitte fuelle mindestens die Pflichtfelder Name und E-Mail korrekt aus."
+      );
       contactForm.reportValidity();
       return;
     }
 
-    contactForm.reset();
+    setSubmittingState(true);
 
-    if (successHref) {
-      window.location.href = successHref;
-      return;
-    }
+    try {
+      const formData = new FormData(contactForm);
+      const payload = Object.fromEntries(formData.entries());
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      let responseData = null;
 
-    if (successMessage) {
-      successMessage.hidden = false;
-      successMessage.focus({ preventScroll: true });
+      try {
+        responseData = await response.json();
+      } catch (_error) {
+        responseData = null;
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          responseData?.error ||
+            "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es spaeter erneut."
+        );
+      }
+
+      contactForm.reset();
+
+      if (successHref) {
+        window.location.href = successHref;
+        return;
+      }
+
+      showStatusMessage(
+        successMessage,
+        "Vielen Dank, die Anfrage ist eingegangen.",
+        { focus: true }
+      );
+    } catch (error) {
+      showStatusMessage(
+        errorMessage,
+        error instanceof Error && error.message
+          ? error.message
+          : "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es spaeter erneut.",
+        { focus: true }
+      );
+    } finally {
+      setSubmittingState(false);
     }
   });
 
   contactForm.addEventListener("input", () => {
-    if (!successMessage || successMessage.hidden) return;
-    successMessage.hidden = true;
+    hideStatusMessage(successMessage);
+    hideStatusMessage(errorMessage);
   });
 };
 

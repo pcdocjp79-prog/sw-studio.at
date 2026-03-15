@@ -2254,17 +2254,35 @@ body.has-cookie-banner .scroll-to-top-btn {
   line-height: 1.6;
 }
 
+.contact-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form__error,
 .contact-form__success {
   margin: 1rem 0 0;
-  border: 1px solid rgba(148, 242, 255, 0.34);
   border-radius: 0.8rem;
-  background: rgba(148, 242, 255, 0.09);
   color: rgba(232, 241, 252, 0.96);
   font-size: 0.9rem;
   line-height: 1.6;
   padding: 0.72rem 0.9rem;
 }
 
+.contact-form__error {
+  border: 1px solid rgba(255, 140, 140, 0.34);
+  background: rgba(255, 140, 140, 0.1);
+}
+
+.contact-form__success {
+  border: 1px solid rgba(148, 242, 255, 0.34);
+  background: rgba(148, 242, 255, 0.09);
+}
+
+.contact-form__error:focus-visible,
 .contact-form__success:focus-visible {
   outline: 2px solid rgba(98, 173, 255, 0.85);
   outline-offset: 2px;
@@ -2849,6 +2867,64 @@ body[data-page="preise"] .packages-section {
   overflow: visible;
 }
 
+body[data-page="preise"] .pricing-packages-section {
+  background: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  margin-bottom: clamp(2rem, 5vw, 3.75rem);
+}
+
+body[data-page="preise"] .pricing-packages-section::before {
+  content: none;
+}
+
+body[data-page="preise"] .pricing-packages-section .packages-section__inner {
+  position: relative;
+  margin-top: clamp(-1.15rem, -2.4vw, -2rem);
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  border: 1px solid rgba(186, 220, 255, 0.12);
+  border-radius: clamp(1.5rem, 3vw, 2.35rem);
+  background: linear-gradient(180deg, rgba(7, 11, 22, 0.34) 0%, rgba(7, 11, 22, 0.52) 100%);
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  box-shadow:
+    0 18px 42px rgba(2, 6, 23, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+body[data-page="preise"] .pricing-packages-section .packages-section__inner::before {
+  content: "";
+  position: absolute;
+  inset: -30% 42% 18% -12%;
+  background: radial-gradient(circle at center, rgba(103, 171, 255, 0.18) 0%, rgba(103, 171, 255, 0) 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-page="preise"] .pricing-packages-section .packages-section__inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(circle at 82% 18%, rgba(255, 128, 201, 0.16) 0%, rgba(255, 128, 201, 0) 46%);
+  opacity: 0.72;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-page="preise"] .pricing-packages-section .packages-section__inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="preise"] .pricing-packages-section .packages-section__disclaimer {
+  margin-bottom: 0;
+}
+
 .packages-section::before {
   content: "";
   position: absolute;
@@ -2974,7 +3050,7 @@ body[data-page="preise"] .packages-section {
   top: -0.75rem;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, rgba(148, 242, 255, 0.9), rgba(126, 112, 255, 0.9));
+  background: linear-gradient(90deg, rgb(148, 242, 255), rgb(126, 112, 255));
   color: #000;
   font-size: 0.65rem;
   font-weight: 700;
@@ -3535,8 +3611,28 @@ body[data-page="preise"] .packages-section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Matches the default about-section surface used by the home "Projekt-Teaser". */
+.section-surface--about-default {
+  background: rgba(8, 8, 12, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-surface--about-default::before {
+  content: "";
+  position: absolute;
+  inset: auto;
+  top: 0;
+  left: -15%;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(ellipse 60% 60% at 0% 50%, rgba(98, 173, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .approach-section.section-surface--global,
 .process-section.section-surface--global,
+.insight-cluster-section.section-surface--global,
 .packages-section.section-surface--global,
 .about-section.section-surface--global,
 .final-cta-section.section-surface--global {
@@ -3971,8 +4067,24 @@ body[data-page="projekte"] .project-grid-section .packages-section__header {
   margin-bottom: 1.5rem;
 }
 
+body[data-page="projekte"] .project-grid-section.section-surface--global::before {
+  content: none;
+}
+
 body[data-page="insights"] .insight-cluster-section .packages-section__header {
   margin-bottom: 1.5rem;
+}
+
+body[data-page="insights"] .insights-intro-section.section-surface--global::before {
+  content: none;
+}
+
+body[data-page="insights"] .insights-intro-section {
+  padding-bottom: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+body[data-page="insights"] .insight-cluster-section--merged {
+  padding-top: clamp(0.5rem, 2vw, 1.5rem);
 }
 
 body[data-page="projekte"] .project-filter-bar {
@@ -4700,6 +4812,36 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
   .site-footer__link:hover {
     transform: none;
     transition: none;
+  }
+}
+
+/* Insights header variant: inherits the global page background instead of using nav chrome. */
+.top-nav--global,
+.top-nav--global.is-scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .top-nav--global,
+  .top-nav--global.is-scrolled {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .top-nav--global,
+  .top-nav--global.is-scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
   }
 }
 

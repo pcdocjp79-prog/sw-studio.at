@@ -178,19 +178,25 @@
             <div class="contact-form-shell">
               <h3 class="contact-form-shell__title font-display">Anfrageformular</h3>
               <p id="contact-form-note" class="contact-form__hint">
-                E-Mail ist verpflichtend. Projektart, Zeitrahmen und kurze Ausgangslage helfen bei der schnelleren
-                Einordnung.
+                Name und E-Mail sind Pflichtfelder. Projektart, Zeitrahmen und kurze Ausgangslage helfen bei der
+                schnelleren Einordnung.
               </p>
 
-              <form class="contact-form" method="POST" action="" data-contact-form data-success-href="danke.html"
+              <form class="contact-form" method="POST" action="/api/contact" data-contact-form data-success-href="danke.html"
                 aria-describedby="contact-form-note">
+                <div class="contact-form__honeypot" aria-hidden="true">
+                  <label for="contact-company">Unternehmen</label>
+                  <input id="contact-company" class="contact-input" name="company" type="text" tabindex="-1"
+                    autocomplete="off" />
+                </div>
                 <div class="contact-form__section">
                   <h4 class="contact-form__section-title font-display">Persönliche Daten</h4>
                   <p class="contact-form__section-copy">Die Basis für Rückmeldung und Einordnung.</p>
                   <div class="contact-form__grid">
                     <div class="contact-field">
-                      <label for="contact-name">Name <span class="contact-field__meta">(optional)</span></label>
-                      <input id="contact-name" class="contact-input" name="name" type="text" autocomplete="name" />
+                      <label for="contact-name">Name <span class="contact-field__meta">(Pflichtfeld)</span></label>
+                      <input id="contact-name" class="contact-input" name="name" type="text" required
+                        autocomplete="name" aria-required="true" />
                     </div>
 
                     <div class="contact-field">
@@ -260,12 +266,16 @@
                 </div>
 
                 <div class="contact-form__actions">
-                  <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit">
+                  <button type="submit" class="final-cta-btn final-cta-btn--primary contact-form__submit"
+                    data-loading-label="Wird gesendet...">
                     Anfrage senden
                   </button>
                 </div>
               </form>
 
+              <p class="contact-form__error" data-contact-error role="alert" aria-live="assertive" tabindex="-1" hidden>
+                Bitte fuelle mindestens Name und E-Mail aus.
+              </p>
               <p class="contact-form__success" data-contact-success role="status" aria-live="polite" tabindex="-1" hidden>
                 Vielen Dank, die Anfrage ist eingegangen.
               </p>

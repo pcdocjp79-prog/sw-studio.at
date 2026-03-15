@@ -741,6 +741,101 @@ const initHeroStageInteraction = () => {
   resetTilt(true);
 };
 
+function initJumpNav() {
+  const nav = document.querySelector('.jump-nav--section');
+  if (!nav) return;
+
+  const topNav = document.querySelector('.top-nav');
+  const placeholder = document.createElement('div');
+  placeholder.className = 'jump-nav__placeholder';
+  placeholder.setAttribute('aria-hidden', 'true');
+  nav.before(placeholder);
+
+  const links = [...nav.querySelectorAll('.jump-nav__link')];
+  const sectionEntries = links
+    .map((link) => {
+      const href = link.getAttribute('href');
+      if (!href?.startsWith('#')) return null;
+
+      const section = document.querySelector(href);
+      if (!(section instanceof HTMLElement)) return null;
+
+      return {
+        href,
+        link,
+        section,
+      };
+    })
+    .filter(Boolean);
+
+  if (sectionEntries.length === 0) return;
+
+  const syncSectionOffset = () => {
+    const topNavBottom = Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
+    const dockedOffset = Math.max(topNavBottom - 4, 0);
+    nav.style.setProperty('--jump-nav-section-top', `${dockedOffset}px`);
+  };
+
+  const syncPlaceholderHeight = () => {
+    placeholder.style.height = nav.classList.contains('is-docked') ? `${nav.offsetHeight}px` : '0px';
+  };
+
+  const updateDockedState = () => {
+    const topNavBottom = Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
+    const placeholderTop = placeholder.getBoundingClientRect().top + window.scrollY;
+    const threshold = placeholderTop - topNavBottom - 8;
+    const shouldDock = window.scrollY >= threshold;
+    nav.classList.toggle('is-docked', shouldDock);
+    syncPlaceholderHeight();
+  };
+
+  const getScrollOffset = () => {
+    const topNavBottom = Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
+    return topNavBottom + nav.offsetHeight + 8;
+  };
+
+  const updateActiveLink = () => {
+    const offset = getScrollOffset() + 8;
+    let currentHref = sectionEntries[0]?.href || '';
+
+    sectionEntries.forEach((entry) => {
+      if (window.scrollY >= entry.section.offsetTop - offset) {
+        currentHref = entry.href;
+      }
+    });
+
+    sectionEntries.forEach((entry) => {
+      entry.link.classList.toggle('is-active', entry.href === currentHref);
+    });
+  };
+
+  sectionEntries.forEach((entry) => {
+    entry.link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const top = entry.section.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+      window.scrollTo({ top, behavior: 'smooth' });
+      sectionEntries.forEach((item) => {
+        item.link.classList.toggle('is-active', item.href === entry.href);
+      });
+      history.replaceState(null, '', entry.href);
+    });
+  });
+
+  syncSectionOffset();
+  updateDockedState();
+  updateActiveLink();
+  window.addEventListener('scroll', () => {
+    syncSectionOffset();
+    updateDockedState();
+    updateActiveLink();
+  }, { passive: true });
+  window.addEventListener('resize', () => {
+    syncSectionOffset();
+    updateDockedState();
+    updateActiveLink();
+  });
+}
+
 initAnimatedBackground();
 initRevealOnScroll();
 initScrollFocusEffect();
@@ -751,3 +846,4 @@ initContactForm();
 initProjectIntentButtons();
 initFilterGroups();
 initHeroStageInteraction();
+initJumpNav();

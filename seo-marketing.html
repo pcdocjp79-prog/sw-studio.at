@@ -15,7 +15,24 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script src="tailwind-config.js"></script>
+    <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
@@ -26,7 +43,7 @@
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
       <a href="index.html" class="brand-link flex items-center gap-3">
-        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <img src="assets/smart web stidio Logo T.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
         <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
           Web Studio</span>
       </a>
@@ -386,15 +403,37 @@
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list"></ul>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
+            <li><a class="site-footer__link" href="seo-marketing.html">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
+            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
+            <li><a class="site-footer__link" href="ki-beratung.html">KI Beratung</a></li>
+          </ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list"></ul>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="index.html">Start</a></li>
+            <li><a class="site-footer__link" href="leistungen.html">Leistungen</a></li>
+            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
+            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
+            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
+            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
+            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
+            <li><a class="site-footer__link" href="insights.html">Insights</a></li>
+            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
+          </ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list"></ul>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
+            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
+            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings aria-haspopup="dialog">Cookie-Einstellungen</a></li>
+          </ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

@@ -22,7 +22,7 @@
 - `webentwicklung.html`: Leistungsseite Webentwicklung
 - `impressum.html`: Impressum
 - `datenschutz.html`: Datenschutz
-- `tailwind-config.js`: Root-served Tailwind-CDN-Konfiguration fuer HTML-Static-Serving und Vite
+- Tailwind-CDN-Konfiguration wird direkt inline in den HTML-Entrypoints gesetzt
 - `src/js/main.js`: Aktives Frontend-Script
 - `src/css/style.css`: Aktives Stylesheet
 - `assets/`: Lokale statische Bilder (Logo, Portrait)

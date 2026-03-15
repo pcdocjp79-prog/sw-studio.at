@@ -450,6 +450,24 @@ const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
 
   const mobileBreakpoint = window.matchMedia("(max-width: 1024px)");
   const topNav = document.querySelector(".top-nav");
+  const primaryNavLinks = Array.from(primaryNav.querySelectorAll("a"));
+
+  const syncMobileNavAccessibility = (isOpen) => {
+    const canReachNav = !mobileBreakpoint.matches || Boolean(isOpen);
+
+    if ("inert" in primaryNav) {
+      primaryNav.inert = !canReachNav;
+    }
+
+    primaryNavLinks.forEach((link) => {
+      if (canReachNav) {
+        link.removeAttribute("tabindex");
+        return;
+      }
+
+      link.setAttribute("tabindex", "-1");
+    });
+  };
 
   const setMobileNavState = (isOpen) => {
     const open = Boolean(isOpen) && mobileBreakpoint.matches;
@@ -466,6 +484,8 @@ const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
     } else {
       primaryNav.removeAttribute("aria-hidden");
     }
+
+    syncMobileNavAccessibility(open);
   };
 
   mobileNavToggle.addEventListener("click", () => {
@@ -498,6 +518,7 @@ const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
       const isOpen = glassNav.classList.contains("is-mobile-open");
       mobileNavToggle.setAttribute("aria-expanded", String(isOpen));
       primaryNav.setAttribute("aria-hidden", String(!isOpen));
+      syncMobileNavAccessibility(isOpen);
       return;
     }
 

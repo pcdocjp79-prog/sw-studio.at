@@ -14,7 +14,24 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-  <script src="tailwind-config.js"></script>
+    <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Geist", "sans-serif"],
+          },
+          colors: {
+            border: "rgba(255, 255, 255, 0.1)",
+            surface: "rgba(0, 0, 0, 0.3)",
+          },
+        },
+      },
+    };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
@@ -25,7 +42,7 @@
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
       <a href="index.html" class="brand-link flex items-center gap-3">
-        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <img src="assets/smart web stidio Logo T.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
         <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
           Web Studio</span>
       </a>
@@ -50,7 +67,7 @@
   </header>
 
   <main class="relative pt-0 pb-0">
-    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="about-me-title">
+    <section class="about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="about-me-title">
       <div class="about-section__inner max-w-7xl mx-auto">
         <div class="about-section__layout">
           <div class="about-section__portrait-col reveal-on-scroll">
@@ -84,7 +101,7 @@
       </div>
     </section>
 
-    <section class="approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="principles-title">
+    <section class="approach-section section-surface--muted py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="principles-title">
       <div class="approach-section__inner max-w-7xl mx-auto">
         <div class="approach-section__header reveal-on-scroll">
           <p class="approach-section__eyebrow">Arbeitsprinzipien</p>
@@ -123,7 +140,7 @@
       </div>
     </section>
 
-    <section class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="work-style-title">
+    <section class="packages-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="work-style-title">
       <div class="packages-section__inner max-w-7xl mx-auto">
         <div class="packages-section__header reveal-on-scroll">
           <p class="packages-section__eyebrow">Zusammenarbeit</p>
@@ -155,7 +172,7 @@
       </div>
     </section>
 
-    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="quality-title">
+    <section class="about-section section-surface--muted py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="quality-title">
       <div class="about-section__inner max-w-7xl mx-auto">
         <div class="about-section__layout">
           <div class="about-section__text-col">
@@ -192,7 +209,7 @@
       </div>
     </section>
 
-    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
+    <section class="final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
       <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
         <div class="reveal-on-scroll">
           <h2 class="final-cta-section__headline font-display">Wenn du direkte Zusammenarbeit und klare Entscheidungen
@@ -223,15 +240,37 @@
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
           <h3 class="site-footer__heading">Leistungen</h3>
-          <ul class="site-footer__list"></ul>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="webentwicklung.html">Webentwicklung</a></li>
+            <li><a class="site-footer__link" href="branding.html">Branding</a></li>
+            <li><a class="site-footer__link" href="seo-marketing.html">SEO &amp; Marketing</a></li>
+            <li><a class="site-footer__link" href="social.html">Social Strategie</a></li>
+            <li><a class="site-footer__link" href="growth.html">Growth Strategie</a></li>
+            <li><a class="site-footer__link" href="ki-beratung.html">KI Beratung</a></li>
+          </ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="entry" aria-label="Footer-Navigation Navigation">
           <h3 class="site-footer__heading">Navigation</h3>
-          <ul class="site-footer__list"></ul>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="index.html">Start</a></li>
+            <li><a class="site-footer__link" href="leistungen.html">Leistungen</a></li>
+            <li><a class="site-footer__link" href="projekte.html">Projekte</a></li>
+            <li><a class="site-footer__link" href="case-study.html">Case Study</a></li>
+            <li><a class="site-footer__link" href="ablauf.html">Ablauf</a></li>
+            <li><a class="site-footer__link" href="ueber-mich.html">Über mich</a></li>
+            <li><a class="site-footer__link" href="preise.html">Preise</a></li>
+            <li><a class="site-footer__link" href="insights.html">Insights</a></li>
+            <li><a class="site-footer__link" href="kontakt.html">Kontakt</a></li>
+          </ul>
         </nav>
         <nav class="site-footer__column" data-footer-group="legal" aria-label="Footer-Navigation Rechtliches">
           <h3 class="site-footer__heading">Rechtliches</h3>
-          <ul class="site-footer__list"></ul>
+          <ul class="site-footer__list">
+            <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
+            <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
+            <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
+            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings aria-haspopup="dialog">Cookie-Einstellungen</a></li>
+          </ul>
         </nav>
       </div>
       <div class="site-footer__bottom" aria-label="Footer Abschluss">

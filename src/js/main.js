@@ -742,20 +742,20 @@ const initHeroStageInteraction = () => {
 };
 
 function initJumpNav() {
-  const nav = document.querySelector('.jump-nav--section');
+  const nav = document.querySelector(".jump-nav--section");
   if (!nav) return;
 
-  const topNav = document.querySelector('.top-nav');
-  const placeholder = document.createElement('div');
-  placeholder.className = 'jump-nav__placeholder';
-  placeholder.setAttribute('aria-hidden', 'true');
+  const topNav = document.querySelector(".top-nav");
+  const placeholder = document.createElement("div");
+  placeholder.className = "jump-nav__placeholder";
+  placeholder.setAttribute("aria-hidden", "true");
   nav.before(placeholder);
 
-  const links = [...nav.querySelectorAll('.jump-nav__link')];
+  const links = [...nav.querySelectorAll(".jump-nav__link")];
   const sectionEntries = links
     .map((link) => {
-      const href = link.getAttribute('href');
-      if (!href?.startsWith('#')) return null;
+      const href = link.getAttribute("href");
+      if (!href?.startsWith("#")) return null;
 
       const section = document.querySelector(href);
       if (!(section instanceof HTMLElement)) return null;
@@ -770,33 +770,46 @@ function initJumpNav() {
 
   if (sectionEntries.length === 0) return;
 
-  const syncSectionOffset = () => {
-    const topNavBottom = Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
+  let placeholderTop = 0;
+  let navHeight = nav.offsetHeight;
+  let ticking = false;
+
+  const getTopNavBottom = () =>
+    Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
+
+  const refreshMeasurements = () => {
+    placeholderTop = placeholder.getBoundingClientRect().top + window.scrollY;
+    navHeight = nav.offsetHeight;
+  };
+
+  const syncSectionOffset = (topNavBottom) => {
     const dockedOffset = Math.max(topNavBottom - 4, 0);
-    nav.style.setProperty('--jump-nav-section-top', `${dockedOffset}px`);
+    nav.style.setProperty("--jump-nav-section-top", `${dockedOffset}px`);
   };
 
   const syncPlaceholderHeight = () => {
-    placeholder.style.height = nav.classList.contains('is-docked') ? `${nav.offsetHeight}px` : '0px';
+    placeholder.style.height = nav.classList.contains("is-docked")
+      ? `${navHeight}px`
+      : "0px";
   };
 
-  const updateDockedState = () => {
-    const topNavBottom = Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
-    const placeholderTop = placeholder.getBoundingClientRect().top + window.scrollY;
+  const updateDockedState = (topNavBottom) => {
     const threshold = placeholderTop - topNavBottom - 8;
     const shouldDock = window.scrollY >= threshold;
-    nav.classList.toggle('is-docked', shouldDock);
+
+    if (nav.classList.contains("is-docked") !== shouldDock) {
+      nav.classList.toggle("is-docked", shouldDock);
+      navHeight = nav.offsetHeight;
+    }
+
     syncPlaceholderHeight();
   };
 
-  const getScrollOffset = () => {
-    const topNavBottom = Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
-    return topNavBottom + nav.offsetHeight + 8;
-  };
+  const getScrollOffset = (topNavBottom) => topNavBottom + navHeight + 8;
 
-  const updateActiveLink = () => {
-    const offset = getScrollOffset() + 8;
-    let currentHref = sectionEntries[0]?.href || '';
+  const updateActiveLink = (topNavBottom) => {
+    const offset = getScrollOffset(topNavBottom) + 8;
+    let currentHref = sectionEntries[0]?.href || "";
 
     sectionEntries.forEach((entry) => {
       if (window.scrollY >= entry.section.offsetTop - offset) {
@@ -805,35 +818,51 @@ function initJumpNav() {
     });
 
     sectionEntries.forEach((entry) => {
-      entry.link.classList.toggle('is-active', entry.href === currentHref);
+      entry.link.classList.toggle("is-active", entry.href === currentHref);
     });
   };
 
+  const syncJumpNavState = () => {
+    ticking = false;
+    const topNavBottom = getTopNavBottom();
+    syncSectionOffset(topNavBottom);
+    updateDockedState(topNavBottom);
+    updateActiveLink(topNavBottom);
+  };
+
+  const requestJumpNavSync = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(syncJumpNavState);
+  };
+
+  const refreshAndSyncJumpNav = () => {
+    refreshMeasurements();
+    requestJumpNavSync();
+  };
+
   sectionEntries.forEach((entry) => {
-    entry.link.addEventListener('click', (e) => {
+    entry.link.addEventListener("click", (e) => {
       e.preventDefault();
-      const top = entry.section.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+      const topNavBottom = getTopNavBottom();
+      const top =
+        entry.section.getBoundingClientRect().top +
+        window.scrollY -
+        getScrollOffset(topNavBottom);
+
       window.scrollTo({ top, behavior: 'smooth' });
       sectionEntries.forEach((item) => {
-        item.link.classList.toggle('is-active', item.href === entry.href);
+        item.link.classList.toggle("is-active", item.href === entry.href);
       });
-      history.replaceState(null, '', entry.href);
+      history.replaceState(null, "", entry.href);
     });
   });
 
-  syncSectionOffset();
-  updateDockedState();
-  updateActiveLink();
-  window.addEventListener('scroll', () => {
-    syncSectionOffset();
-    updateDockedState();
-    updateActiveLink();
-  }, { passive: true });
-  window.addEventListener('resize', () => {
-    syncSectionOffset();
-    updateDockedState();
-    updateActiveLink();
-  });
+  refreshMeasurements();
+  syncJumpNavState();
+  window.addEventListener("scroll", requestJumpNavSync, { passive: true });
+  window.addEventListener("resize", refreshAndSyncJumpNav);
+  window.addEventListener("load", refreshAndSyncJumpNav, { once: true });
 }
 
 initAnimatedBackground();

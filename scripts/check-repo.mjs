@@ -10,7 +10,8 @@ const HTML_FILES = fs
 const LEGACY_PAGES = new Set(["marketing.html"]);
 const ACTIVE_JS = "src/js/main.js";
 const ACTIVE_CSS = "src/css/style.css";
-const ACTIVE_TAILWIND_CONFIG = "tailwind-config.js";
+const TAILWIND_CDN_SRC = "https://cdn.tailwindcss.com";
+const TAILWIND_INLINE_MARKER = "window.tailwind.config";
 const DISALLOWED_REFS = new Set(["src/main.js", "src/styles/main.scss"]);
 
 const errors = [];
@@ -115,9 +116,9 @@ for (const file of HTML_FILES) {
       tag.attributes.get("type") === "module" &&
       tag.attributes.has("src")
   );
-  const tailwindConfigScripts = tags.filter(
+  const tailwindCdnScripts = tags.filter(
     (tag) =>
-      tag.name === "script" && tag.attributes.get("src") === ACTIVE_TAILWIND_CONFIG
+      tag.name === "script" && tag.attributes.get("src") === TAILWIND_CDN_SRC
   );
 
   if (!isLegacyPage) {
@@ -136,8 +137,12 @@ for (const file of HTML_FILES) {
       errors.push(`${file}: expected 1 active module entry reference, found ${activeJsCount}`);
     }
 
-    if (tailwindConfigScripts.length !== 1) {
-      errors.push(`${file}: expected 1 root tailwind config script, found ${tailwindConfigScripts.length}`);
+    if (!html.includes(TAILWIND_INLINE_MARKER)) {
+      errors.push(`${file}: missing inline tailwind config marker`);
+    }
+
+    if (tailwindCdnScripts.length !== 1) {
+      errors.push(`${file}: expected 1 Tailwind CDN script, found ${tailwindCdnScripts.length}`);
     }
 
     if (!/id="primary-nav"/.test(html)) {
@@ -184,20 +189,29 @@ for (const file of HTML_FILES) {
     }
   }
 
-  const filterGroups = Array.from(html.matchAll(/data-filter-group="([^"]+)"/g), (match) => match[1]);
-  for (const groupName of filterGroups) {
-    const filterButtons = (html.match(/data-filter-value="/g) || []).length;
-    const groupItems = (html.match(new RegExp(`data-filter-item="${groupName}"`, "g")) || []).length;
+  const filterGroups = Array.from(
+    html.matchAll(
+      /<([a-z0-9-]+)\b[^>]*data-filter-group="([^"]+)"[^>]*>([\s\S]*?)<\/\1>/gi
+    ),
+    (match) => ({
+      name: match[2],
+      content: match[3],
+    })
+  );
+
+  for (const group of filterGroups) {
+    const filterButtons = (group.content.match(/data-filter-value="/g) || []).length;
+    const groupItems =
+      (html.match(new RegExp(`data-filter-item="${group.name}"`, "g")) || []).length;
 
     if (filterButtons === 0) {
-      errors.push(`${file}: data-filter-group "${groupName}" has no filter buttons`);
+      errors.push(`${file}: data-filter-group "${group.name}" has no filter buttons`);
     }
 
     if (groupItems === 0) {
-      errors.push(`${file}: data-filter-group "${groupName}" has no matching items`);
+      errors.push(`${file}: data-filter-group "${group.name}" has no matching items`);
     }
   }
-
   for (const match of html.matchAll(/<([a-z0-9-]+)\b([^>]*)data-card-link="([^"]+)"([^>]*)>/gi)) {
     const fullTag = match[0];
     const target = match[3];
@@ -251,10 +265,6 @@ if (!idsByFile.get("cookies.html")?.has("cookie-settings")) {
 
 if (!(htmlByFile.get("cookies.html")?.includes("data-cookie-consent-summary"))) {
   errors.push("cookies.html: missing data-cookie-consent-summary hook");
-}
-
-if (!fileExists(ACTIVE_TAILWIND_CONFIG)) {
-  errors.push(`missing required root file "${ACTIVE_TAILWIND_CONFIG}"`);
 }
 
 if (!fileExists(ACTIVE_JS)) {

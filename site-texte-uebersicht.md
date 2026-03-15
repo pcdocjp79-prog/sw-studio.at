@@ -4,7 +4,7 @@ Hinweis: Navigation, Footer und Cookie-Consent werden teilweise per JavaScript g
 
 ## Wiederkehrende UI-Texte
 
-### Hauptnavigation (18 Seiten mit `src/js/main.js`)
+### Hauptnavigation (19 Seiten mit `src/js/main.js`)
 - Smart Web Studio
 - Start
 - Leistungen
@@ -16,13 +16,13 @@ Hinweis: Navigation, Footer und Cookie-Consent werden teilweise per JavaScript g
 - Kontakt
 - Erstgespräch buchen
 
-### Footer (18 Seiten mit `src/js/main.js`)
+### Footer (19 Seiten mit `src/js/main.js`)
 - Smart Web Studio
 - Marke. Website. Wachstum.
 - Strategische Websites mit klarer Positionierung, sauberer Nutzerführung und einer Conversion-Architektur, die Vertrauen in Anfragen übersetzt.
 - Direkter Ansprechpartner | Vorarlberg / DACH
 - Direkte Zusammenarbeit, strukturierter Ablauf und Fokus auf passende Projekte. Erstgespräch buchen
-- Leistungen: Webentwicklung, Branding, SEO & Marketing, Social Strategie, Growth Strategie
+- Leistungen: Webentwicklung, Branding, SEO & Marketing, Social Strategie, Growth Strategie, KI Beratung
 - Navigation: Start, Leistungen, Projekte, Case Study, Ablauf, Über mich, Preise, Insights, Kontakt
 - Rechtliches: Impressum, Datenschutz, Cookies, Cookie-Einstellungen
 - © 2026 Smart Web Studio.
@@ -32,7 +32,7 @@ Hinweis: Navigation, Footer und Cookie-Consent werden teilweise per JavaScript g
 - Direkter Projektstart
 - Erstgespräch buchen
 
-### Cookie-Banner / Cookie-Panel (18 Seiten mit `src/js/main.js`)
+### Cookie-Banner / Cookie-Panel (19 Seiten mit `src/js/main.js`)
 - Datenschutz & Consent
 - Cookie-Auswahl für Smart Web Studio
 - Diese Website verwendet Cookies, um Funktionen bereitzustellen, die Nutzung zu analysieren und Marketing zu ermöglichen. Du kannst selbst entscheiden, welche Kategorien du zulassen möchtest.
@@ -1902,6 +1902,231 @@ Erstgespräch buchen
 Mini-Audit anfordern
 ```
 
+## ki-beratung.html
+
+- Seitentitel: KI Beratung | Smart Web Studio
+- Anzahl top-level Sections im Hauptinhalt: 7
+
+### Section 1: KI sinnvoll einsetzen, ohne Qualität, Verantwortung und Markenlogik an Tools abzugeben.
+- Einordnung: Einstieg / Intro | Fokus: KI sinnvoll einsetzen, ohne Qualität, Verantwortung und Markenlogik an Tools abzugeben. | Kontext: KI Beratung
+- ID: keine
+- CSS-Klasse: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+KI Beratung
+
+KI sinnvoll einsetzen, ohne Qualität, Verantwortung und Markenlogik an Tools abzugeben.
+
+Ich ordne ein, wo KI in Recherche, Content, Struktur und internen Prozessen wirklich Tempo bringt und
+wo Priorisierung, Freigabe und Qualitätskontrolle bewusst menschlich bleiben sollten.
+
+KI Beratung anfragen
+
+Potenzial schildern
+
+Problem
+
+Ansatz
+
+Lieferumfang
+
+Standards
+
+Nächste Schritte
+
+Strategische KI-Einordnung
+
+Nicht mehr Tool-Output, sondern mehr Klarheit in Rollen, Einsatzfeldern und Qualität.
+
+sinnvolle Einsatzfelder statt blindem Tool-Aktionismus
+
+klare Guardrails für Tonalität, Freigaben und Verantwortung
+
+Anbindung an Website, Content und bestehende Arbeitslogik
+```
+
+### Section 2: Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität.
+- Einordnung: Problem | Fokus: Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität. | Kontext: KI Beratung
+- ID: problem
+- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Problem
+
+Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität.
+
+Dann entstehen Schnellschüsse, generische Inhalte und Prozesse, die auf den ersten Blick effizient wirken,
+aber langfristig Vertrauen, Konsistenz und Fokus kosten.
+
+AKTIONISMUS
+
+Zu viele Tools, kein klares Einsatzfeld
+
+KI wird ausprobiert, aber nicht entlang von Ziel, Prozess und Relevanz priorisiert.
+
+VERANTWORTUNG
+
+Freigaben und Qualitätsgrenzen sind unklar
+
+Niemand weiss sauber, was automatisiert werden darf und wo menschliche Kontrolle Pflicht bleibt.
+
+KONSISTENZ
+
+Output passt nicht sauber zu Marke, Website und Angebot
+
+Dann spart KI zwar Zeit, aber produziert Reibung in Tonalität, Nutzerführung und Vertriebslogik.
+```
+
+### Section 3: Erst die Logik klären, dann KI sauber in Arbeitsweise und Touchpoints übersetzen.
+- Einordnung: Prozess / Vorgehen | Fokus: Erst die Logik klären, dann KI sauber in Arbeitsweise und Touchpoints übersetzen. | Kontext: KI Beratung
+- ID: approach
+- CSS-Klasse: process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Ansatz
+
+Erst die Logik klären, dann KI sauber in Arbeitsweise und Touchpoints übersetzen.
+
+Ich sortiere nicht zuerst Tools, sondern Ausgangslage, Risiken, Prioritäten und die Stellen, an denen KI
+im Projekt wirklich Substanz bringt.
+
+01
+
+Ausgangslage und Zielbild prüfen
+
+Wo steht das Team heute, welche Reibung ist da und was soll durch KI konkret besser werden?
+
+02
+
+Einsatzfelder priorisieren
+
+Recherche, Struktur, Content, interne Prozesse oder Website-Module werden nach Nutzen und Risiko sortiert.
+
+03
+
+Guardrails und Rollen definieren
+
+Tonalität, Freigaben, Datenschutz, Verantwortung und Qualitätskontrolle werden verbindlich eingeordnet.
+
+04
+
+In Website, Content und Prozesse übersetzen
+
+Das Ergebnis ist ein realistisch nutzbares Setup statt einer losen Liste von Tools und Prompts.
+```
+
+### Section 4: Was du konkret für eine saubere KI-Arbeitsweise mitnimmst.
+- Einordnung: Lieferumfang | Fokus: Was du konkret für eine saubere KI-Arbeitsweise mitnimmst. | Kontext: KI Beratung
+- ID: deliverables
+- CSS-Klasse: packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Lieferumfang
+
+Was du konkret für eine saubere KI-Arbeitsweise mitnimmst.
+
+Strategische Einordnung
+
+Für Klarheit über die sinnvollsten Hebel statt Tool-Sammeln.
+
+Priorisierung relevanter KI-Einsatzfelder
+
+Einordnung nach Risiko, Nutzen und Prozessnähe
+
+Verbindung zu Angebot, Zielgruppe und Markenton
+
+KI-Leitplanken
+
+Für Freigaben, Tonalität und verlässliche Qualität im Alltag.
+
+klare Rollen für Erstellung, Prüfung und finale Freigabe
+
+Guardrails für Content, Website und interne Nutzung
+
+Grenzen dessen, was bewusst nicht automatisiert wird
+
+Umsetzbare Startpunkte
+
+Für einen realistischen Einstieg ohne Prozessbruch.
+
+empfohlene erste Anwendungsfälle mit geringer Reibung
+
+Anbindung an bestehende Website- und Content-Prozesse
+
+nächste Schritte für saubere Einführung und Iteration
+```
+
+### Section 5: Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Geschäft.
+- Einordnung: Standards | Fokus: Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Geschäft. | Kontext: KI Beratung
+- ID: standards
+- CSS-Klasse: about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Standards
+
+Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Geschäft.
+
+KI ist nur dann sinnvoll, wenn sie Zeit spart, ohne Marke, Vertrauensaufbau und Entscheidungsqualität
+zu beschädigen.
+
+Marke vor Mustertext
+
+Ich setze KI nicht so ein, dass Botschaften austauschbar oder beliebig wirken.
+
+Verantwortung bleibt klar
+
+Freigaben, Qualität und strategische Priorisierung werden nicht an das Tool delegiert.
+
+Nur dort beschleunigen, wo es wirklich hilft
+
+Tempo ist kein Selbstzweck. Entscheidend ist, ob Prozesse dadurch belastbarer und relevanter werden.
+```
+
+### Section 6: KI Beratung wirkt am stärksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
+- Einordnung: Verwandte Leistungen / nächste Schritte | Fokus: KI Beratung wirkt am stärksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind. | Kontext: KI Beratung
+- ID: related
+- CSS-Klasse: packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Passende nächste Schritte
+
+KI Beratung wirkt am stärksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
+
+Botschaft
+
+Positionierung schärfen
+
+Wenn KI-generierte Inhalte erst dann sinnvoll werden, wenn Angebot und Tonalität klarer geführt sind.
+
+Leistungen ansehen
+
+Struktur
+
+Website-System vorbereiten
+
+Wenn KI-gestützte Inhalte, Module und Nutzerwege in eine saubere Seitenlogik eingebettet werden sollen.
+
+Leistungen ansehen
+
+Nachfrage
+
+SEO & Marketing anbinden
+
+Wenn KI-gestützte Recherche, Content-Struktur und Sichtbarkeit sinnvoll in den Marktauftritt übersetzt
+werden sollen.
+
+Leistungen ansehen
+```
+
+### Section 7: Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zufällig arbeiten soll.
+- Einordnung: Abschluss / CTA | Fokus: Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zufällig arbeiten soll. | Kontext: KI Beratung
+- ID: keine
+- CSS-Klasse: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zufällig arbeiten soll.
+
+Dann beginnen wir mit einer strukturierten Einordnung und definieren zuerst Rollen, Guardrails und die
+Stellen, an denen KI tatsächlich Wirkung bringt.
+
+KI Beratung anfragen
+
+Potenzial schildern
+```
+
 ## kontakt.html
 
 - Seitentitel: Kontakt | Smart Web Studio
@@ -2076,7 +2301,7 @@ Realistischer Scope
 ## leistungen.html
 
 - Seitentitel: Leistungen | Smart Web Studio
-- Anzahl top-level Sections im Hauptinhalt: 5
+- Anzahl top-level Sections im Hauptinhalt: 6
 
 ### Section 1: Die richtige Leistung ist nicht die lauteste. Sie ist die zuerst wirksame.
 - Einordnung: Einstieg / Intro | Fokus: Die richtige Leistung ist nicht die lauteste. Sie ist die zuerst wirksame. | Kontext: Leistungen
@@ -2098,6 +2323,8 @@ Sichtbarkeit
 
 Growth
 
+KI-Einordnung
+
 Was alle Leistungen verbindet
 
 Nicht mehr Output, sondern mehr Richtung im Auftritt.
@@ -2111,14 +2338,14 @@ Conversion-orientierte CTA-Hierarchie
 messbare Struktur für Sichtbarkeit und Optimierung
 ```
 
-### Section 2: Fünf Leistungsbereiche, sauber aufeinander abgestimmt.
-- Einordnung: Leistungsübersicht | Fokus: Fünf Leistungsbereiche, sauber aufeinander abgestimmt. | Kontext: Angebot
+### Section 2: Sechs Leistungsbereiche, sauber aufeinander abgestimmt.
+- Einordnung: Leistungsübersicht | Fokus: Sechs Leistungsbereiche, sauber aufeinander abgestimmt. | Kontext: Angebot
 - ID: services
 - CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Angebot
 
-Fünf Leistungsbereiche, sauber aufeinander abgestimmt.
+Sechs Leistungsbereiche, sauber aufeinander abgestimmt.
 
 Jeder Bereich hat einen eigenen Fokus, aber dieselbe Aufgabe: mehr Klarheit, mehr Vertrauen und bessere
 nächste Schritte im digitalen Auftritt.
@@ -2174,12 +2401,23 @@ Für Unternehmen, die Nachfrage, Conversion und Optimierung systematisch auf die
 wollen.
 
 Leistungen ansehen
+
+06
+
+AI
+
+KI Beratung
+
+Für Unternehmen, die KI sinnvoll in Website, Content und Prozesse integrieren wollen, ohne
+Qualität, Markenlogik und Verantwortung zu verwässern.
+
+Leistungen ansehen
 ```
 
 ### Section 3: Welche Leistung zuerst Sinn ergibt, hängt von der Ausgangslage ab.
 - Einordnung: Pakete / Inhalte | Fokus: Welche Leistung zuerst Sinn ergibt, hängt von der Ausgangslage ab. | Kontext: Entscheidungshilfe
-- ID: keine
-- CSS-Klasse: packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- ID: services-decision
+- CSS-Klasse: packages-section packages-section--decision py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 ```text
 Entscheidungshilfe
 
@@ -2223,9 +2461,61 @@ Content arbeitet nicht in Richtung Angebot
 Tracking oder Optimierung fehlen
 
 Leistungen ansehen
+
+Wenn KI schon Thema ist, aber noch nicht sauber eingeordnet
+
+KI Beratung schafft Rollen, Prioritäten und sinnvolle Einsatzfelder.
+
+Tools werden ausprobiert, aber ohne klare Prozesslogik
+
+Tonalität, Qualität und Freigaben sind nicht sauber geregelt
+
+Website, Content und interne Abläufe greifen noch nicht zusammen
+
+Leistungen ansehen
 ```
 
-### Section 4: Leistungen verstehen, Projekte prüfen oder den Ablauf im Detail ansehen.
+### Section 4: KI beschleunigt Recherche, Struktur und Varianten.
+- Einordnung: Haltung / Methodik | Fokus: KI beschleunigt Recherche, Struktur und Varianten. | Kontext: Arbeitsweise mit KI
+- ID: arbeitsweise-mit-ki
+- CSS-Klasse: approach-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+```text
+Arbeitsweise mit KI
+
+KI beschleunigt Recherche, Struktur und Varianten.
+
+Ich nutze KI dort, wo sie Routinen verkürzt und Tempo schafft. Positionierung, Priorisierung,
+Tonalität und Qualitätskontrolle werden nicht ausgelagert, damit das Ergebnis nicht generisch
+wird, sondern sauber zum Angebot passt.
+
+VORBEREITUNG
+
+Schneller von Rohmaterial zu Struktur
+
+Themen, Seitenlogik, erste Wireframes und Textgrundlagen lassen sich früher sortieren, verdichten
+und auf Relevanz prüfen.
+
+ITERATION
+
+Varianten lassen sich früher testen
+
+Headlines, CTA-Richtungen, Seitenmodule und Content-Ideen können schneller gegeneinander geprüft
+und im Projekt geschärft werden.
+
+BERATUNG
+
+KI wird sinnvoll eingeordnet
+
+Ich prüfe, wo KI im Projekt wirklich Zeit spart und wo menschliche Entscheidung, Designgefühl
+und finale Freigabe bewusst vorne bleiben müssen.
+
+Wenn du KI nicht als Buzzword, sondern als sauberen Hebel für Website, Content und Prozesse
+einordnen willst.
+
+KI Beratung ansehen
+```
+
+### Section 5: Leistungen verstehen, Projekte prüfen oder den Ablauf im Detail ansehen.
 - Einordnung: Einordnung / Kontext | Fokus: Leistungen verstehen, Projekte prüfen oder den Ablauf im Detail ansehen. | Kontext: Nächste Wege
 - ID: keine
 - CSS-Klasse: about-section about-section--next-steps py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
@@ -2264,7 +2554,7 @@ Projekt ansehen
 Mini-Audit anfordern
 ```
 
-### Section 5: Du brauchst keinen Leistungskatalog. Du brauchst die richtige Reihenfolge.
+### Section 6: Du brauchst keinen Leistungskatalog. Du brauchst die richtige Reihenfolge.
 - Einordnung: Abschluss / CTA | Fokus: Du brauchst keinen Leistungskatalog. Du brauchst die richtige Reihenfolge.
 - ID: keine
 - CSS-Klasse: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section

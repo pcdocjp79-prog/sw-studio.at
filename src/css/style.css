@@ -2361,26 +2361,6 @@ body.has-cookie-banner .scroll-to-top-btn {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.75rem;
   }
-
-  body[data-page="leistungen"] #services .approach-section__grid {
-    --services-offer-gap: 1.75rem;
-  }
-
-  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(4),
-  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(5) {
-    grid-row: 2;
-    width: calc(150% + (var(--services-offer-gap) / 2));
-  }
-
-  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(4) {
-    grid-column: 1;
-    justify-self: start;
-  }
-
-  body[data-page="leistungen"] #services .approach-section__grid > .approach-card:nth-child(5) {
-    grid-column: 3;
-    justify-self: end;
-  }
 }
 
 /* Individual Card */
@@ -2931,6 +2911,10 @@ body[data-page="preise"] .packages-section {
   .packages-section__grid {
     grid-template-columns: repeat(3, 1fr);
     align-items: stretch;
+  }
+
+  body[data-page="leistungen"] #services-decision .packages-section__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   #conversion-paths .packages-section__grid,
@@ -3519,6 +3503,26 @@ body[data-page="preise"] .packages-section {
   z-index: 1;
   display: grid;
   gap: 2.5rem;
+}
+
+/* ============================================
+   SECTION SURFACE UTILITIES
+   ============================================ */
+
+.section-surface--muted {
+  background: rgba(8, 8, 12, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.approach-section.section-surface--global,
+.process-section.section-surface--global,
+.packages-section.section-surface--global,
+.about-section.section-surface--global,
+.final-cta-section.section-surface--global {
+  background: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }
 
 /* Headline – notably larger than other section headlines */

@@ -404,33 +404,94 @@ const initContactForm = () => {
   });
 };
 
+const CONTACT_PREFILL_STORAGE_KEY = "sws-contact-prefill";
+
 const initProjectIntentButtons = () => {
   const projectTypeField = document.querySelector('[name="projectType"]');
   const timelineField = document.querySelector('[name="timeline"]');
   const messageField = document.querySelector('[name="message"]');
   const supportedButtons = Array.from(document.querySelectorAll("[data-prefill-project]"));
+  const readStoredPrefill = () => {
+    try {
+      const rawValue = window.sessionStorage.getItem(CONTACT_PREFILL_STORAGE_KEY);
+      return rawValue ? JSON.parse(rawValue) : null;
+    } catch (_error) {
+      return null;
+    }
+  };
+  const writeStoredPrefill = (payload) => {
+    try {
+      window.sessionStorage.setItem(
+        CONTACT_PREFILL_STORAGE_KEY,
+        JSON.stringify(payload)
+      );
+    } catch (_error) {
+      // Ignore storage access issues and keep the default navigation flow.
+    }
+  };
+  const clearStoredPrefill = () => {
+    try {
+      window.sessionStorage.removeItem(CONTACT_PREFILL_STORAGE_KEY);
+    } catch (_error) {
+      // Ignore storage access issues and keep the default navigation flow.
+    }
+  };
+  const applyPrefillPayload = (payload) => {
+    if (!payload || typeof payload !== "object") return;
 
-  if (supportedButtons.length === 0 || !projectTypeField) return;
+    if (projectTypeField && payload.projectValue) {
+      projectTypeField.value = payload.projectValue;
+    }
+
+    if (timelineField && payload.timelineValue) {
+      timelineField.value = payload.timelineValue;
+    }
+
+    if (messageField && payload.messageValue && !messageField.value) {
+      messageField.value = payload.messageValue;
+    }
+  };
+  const isSamePageHref = (href) => {
+    if (!href || href.startsWith("#")) return true;
+
+    try {
+      const targetUrl = new URL(href, window.location.href);
+      const currentUrl = new URL(window.location.href);
+      return (
+        targetUrl.origin === currentUrl.origin &&
+        targetUrl.pathname === currentUrl.pathname &&
+        targetUrl.search === currentUrl.search
+      );
+    } catch (_error) {
+      return false;
+    }
+  };
+
+  if (projectTypeField) {
+    applyPrefillPayload(readStoredPrefill());
+    clearStoredPrefill();
+  }
+
+  if (supportedButtons.length === 0) return;
 
   supportedButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const projectValue = button.getAttribute("data-prefill-project") || "";
-      const timelineValue = button.getAttribute("data-prefill-timeline") || "";
-      const messageValue = button.getAttribute("data-prefill-message") || "";
+      const payload = {
+        projectValue: button.getAttribute("data-prefill-project") || "",
+        timelineValue: button.getAttribute("data-prefill-timeline") || "",
+        messageValue: button.getAttribute("data-prefill-message") || "",
+      };
       const targetId = button.getAttribute("data-prefill-target");
       const targetElement = targetId ? document.getElementById(targetId) : projectTypeField;
+      const buttonHref = button.getAttribute("href") || "";
+      const canApplyInPlace = Boolean(projectTypeField) && isSamePageHref(buttonHref);
 
-      if (projectValue) {
-        projectTypeField.value = projectValue;
+      if (!canApplyInPlace && payload.projectValue) {
+        writeStoredPrefill(payload);
+        return;
       }
 
-      if (timelineField && timelineValue) {
-        timelineField.value = timelineValue;
-      }
-
-      if (messageField && messageValue && !messageField.value) {
-        messageField.value = messageValue;
-      }
+      applyPrefillPayload(payload);
 
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth", block: "start" });

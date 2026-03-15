@@ -39,6 +39,7 @@ const FOOTER_SERVICE_LINKS = [
   { type: "page", path: SEO_MARKETING_PATH, label: "SEO & Marketing", pageKey: "seo-marketing" },
   { type: "page", path: "social.html", label: "Social Strategie", pageKey: "social" },
   { type: "page", path: "growth.html", label: "Growth Strategie", pageKey: "growth" },
+  { type: "page", path: "ki-beratung.html", label: "KI Beratung", pageKey: "ki-beratung" },
 ];
 
 const FOOTER_LEGAL_LINKS = [
@@ -74,6 +75,11 @@ const PAGE_CONFIGS = {
   },
   social: { path: "social.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
   growth: { path: "growth.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  "ki-beratung": {
+    path: "ki-beratung.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
   projekte: { path: "projekte.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
   "case-study": {
     path: "case-study.html",

@@ -17,6 +17,7 @@
 
 - `index.html`: Startseite
 - `branding.html`: Leistungsseite Branding
+- `ki-beratung.html`: Leistungsseite KI Beratung
 - `marketing.html`: Legacy-Redirect auf `seo-marketing.html`
 - `webentwicklung.html`: Leistungsseite Webentwicklung
 - `impressum.html`: Impressum

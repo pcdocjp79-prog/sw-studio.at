@@ -41,6 +41,7 @@ export default defineConfig({
         marketing: resolve(__dirname, "marketing.html"),
         social: resolve(__dirname, "social.html"),
         growth: resolve(__dirname, "growth.html"),
+        kiBeratung: resolve(__dirname, "ki-beratung.html"),
       },
     },
   },

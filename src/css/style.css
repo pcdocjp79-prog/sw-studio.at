@@ -2588,18 +2588,15 @@ body.has-cookie-banner .scroll-to-top-btn {
 
 .process-section {
   position: relative;
-  /* Slightly recessed background to visually separate from S3 */
-  background: rgba(8, 8, 12, 0.55);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
 }
 
-/* subtle warm glow in the background */
+/* subtle blue glow in the background */
 .process-section::before {
   content: "";
   position: absolute;
-  inset: -10% 5%;
-  background: radial-gradient(ellipse 60% 45% at 50% 55%, rgba(255, 84, 184, 0.04) 0%, transparent 70%);
+  inset: -15% 0;
+  background: radial-gradient(ellipse 65% 50% at 50% 50%, rgba(98, 173, 255, 0.05) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -2858,6 +2855,10 @@ body.has-cookie-banner .scroll-to-top-btn {
 .packages-section {
   position: relative;
   overflow: hidden;
+  /* Slightly recessed background to visually separate */
+  background: rgba(8, 8, 12, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 body[data-page="preise"] .packages-section {
@@ -2867,8 +2868,8 @@ body[data-page="preise"] .packages-section {
 .packages-section::before {
   content: "";
   position: absolute;
-  inset: -15% 0;
-  background: radial-gradient(ellipse 65% 50% at 50% 50%, rgba(98, 173, 255, 0.05) 0%, transparent 70%);
+  inset: -10% 5%;
+  background: radial-gradient(ellipse 60% 45% at 50% 55%, rgba(255, 84, 184, 0.04) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }

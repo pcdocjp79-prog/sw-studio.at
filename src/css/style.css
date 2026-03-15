@@ -3775,6 +3775,21 @@ body[data-page="preise"] .packages-section {
   transition: gap 220ms ease, padding 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
 }
 
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section .jump-nav__list {
+  border-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
 .jump-nav--section .jump-nav__list::-webkit-scrollbar {
   display: none;
 }
@@ -3810,6 +3825,60 @@ body[data-page="preise"] .packages-section {
   color: #62adff;
   border-color: transparent;
   box-shadow: none;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section .jump-nav__link {
+  color: rgba(228, 228, 231, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section .jump-nav__link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.26);
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section .jump-nav__link:focus-visible {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.26);
+  outline: 2px solid rgba(98, 173, 255, 0.85);
+  outline-offset: 3px;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section .jump-nav__link.is-active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
 }
 
 .jump-nav--section.is-docked {

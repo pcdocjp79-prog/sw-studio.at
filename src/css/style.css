@@ -2858,7 +2858,7 @@ body.has-cookie-banner .scroll-to-top-btn {
   position: relative;
   overflow: hidden;
   /* Slightly recessed background to visually separate */
-  background: rgba(8, 8, 12, 0.55);
+  background: rgba(8, 8, 12, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -3317,7 +3317,7 @@ body[data-page="preise"] .pricing-packages-section .packages-section__disclaimer
 
 .about-section {
   position: relative;
-  background: rgba(8, 8, 12, 0.5);
+  background: rgba(8, 8, 12, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
@@ -3599,21 +3599,15 @@ body[data-page="preise"] .pricing-packages-section .packages-section__disclaimer
    SECTION SURFACE UTILITIES
    ============================================ */
 
-.section-surface--muted {
-  background: rgba(8, 8, 12, 0.18);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 .section-surface--darkened {
-  background: rgba(8, 8, 12, 0.5);
+  background: rgba(8, 8, 12, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Matches the default about-section surface used by the home "Projekt-Teaser". */
 .section-surface--about-default {
-  background: rgba(8, 8, 12, 0.5);
+  background: rgba(8, 8, 12, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 

@@ -2,23 +2,58 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const HTML_FILES = fs
-  .readdirSync(ROOT)
-  .filter((name) => name.endsWith(".html"))
-  .sort();
-
+const HTML_SEARCH_IGNORED_DIRS = new Set([".git", ".github", "dist", "node_modules"]);
 const LEGACY_PAGES = new Set(["marketing.html"]);
 const ACTIVE_JS = "src/js/main.js";
 const ACTIVE_CSS = "src/css/style.css";
+const VITE_CONFIG_PATH = "vite.config.js";
+const VITE_INPUT_PATTERN = /resolve\(__dirname,\s*"([^"]+\.html)"\)/g;
 const TAILWIND_CDN_SRC = "https://cdn.tailwindcss.com";
 const TAILWIND_INLINE_MARKER = "window.tailwind.config";
 const DISALLOWED_REFS = new Set(["src/main.js", "src/styles/main.scss"]);
 
 const errors = [];
 
+const toPosixPath = (value) => value.split(path.sep).join("/");
+
+const collectHtmlFiles = (relativeDir = "") => {
+  const absoluteDir = relativeDir ? path.join(ROOT, relativeDir) : ROOT;
+  const entries = fs.readdirSync(absoluteDir, { withFileTypes: true });
+  const htmlFiles = [];
+
+  for (const entry of entries) {
+    const relativePath = relativeDir
+      ? path.join(relativeDir, entry.name)
+      : entry.name;
+
+    if (entry.isDirectory()) {
+      if (HTML_SEARCH_IGNORED_DIRS.has(entry.name)) {
+        continue;
+      }
+
+      htmlFiles.push(...collectHtmlFiles(relativePath));
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith(".html")) {
+      htmlFiles.push(toPosixPath(relativePath));
+    }
+  }
+
+  return htmlFiles.sort((left, right) => left.localeCompare(right));
+};
+
+const HTML_FILES = collectHtmlFiles();
+
 const readFile = (filePath) => fs.readFileSync(path.join(ROOT, filePath), "utf8");
 
 const fileExists = (targetPath) => fs.existsSync(path.resolve(ROOT, targetPath));
+
+const normalizeRuntimePath = (value) => {
+  const rawValue = (value || "").split("#")[0].split("?")[0].trim();
+  if (!rawValue) return "";
+  return path.posix.normalize(rawValue.replace(/\\/g, "/"));
+};
 
 const collectIds = (html) =>
   new Set(Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1]));
@@ -46,23 +81,62 @@ const collectTags = (html) =>
     attributes: parseAttributes(match[2]),
   }));
 
+const isExternalTarget = (value) =>
+  /^(?:[a-z]+:|\/\/)/i.test(value) ||
+  value.startsWith("mailto:") ||
+  value.startsWith("tel:");
+
+const getDocumentDirectoryPath = (filePath) => {
+  const directory = path.posix.dirname(filePath);
+  return directory === "." ? "/" : `/${directory.replace(/^\/+/, "")}/`;
+};
+
 const htmlByFile = new Map(HTML_FILES.map((file) => [file, readFile(file)]));
 const idsByFile = new Map(
   Array.from(htmlByFile.entries(), ([file, html]) => [file, collectIds(html)])
 );
+const basePathByFile = new Map(
+  Array.from(htmlByFile.entries(), ([file, html]) => {
+    const defaultBasePath = getDocumentDirectoryPath(file);
+    const baseHrefMatch = html.match(/<base\b[^>]*href="([^"]+)"/i);
+    const baseHref = baseHrefMatch?.[1]?.trim();
 
-const isExternalTarget = (value) =>
-  /^(?:[a-z]+:|\/\/)/i.test(value) || value.startsWith("mailto:") || value.startsWith("tel:");
+    if (!baseHref || isExternalTarget(baseHref) || baseHref.startsWith("#")) {
+      return [file, defaultBasePath];
+    }
 
-const normalizeLocalPath = (value) => value.split("#")[0].split("?")[0];
+    try {
+      const resolvedBasePath = new URL(
+        baseHref,
+        `https://example.test${defaultBasePath}`
+      ).pathname;
+      return [file, resolvedBasePath];
+    } catch (_error) {
+      return [file, defaultBasePath];
+    }
+  })
+);
+
+const resolveTargetPath = (sourceFile, target) => {
+  const [pathPart] = target.split("#");
+  const localPath = normalizeRuntimePath(pathPart);
+
+  if (!localPath || localPath.startsWith("/")) {
+    return localPath;
+  }
+
+  const basePath = basePathByFile.get(sourceFile) || getDocumentDirectoryPath(sourceFile);
+  const resolvedPath = new URL(localPath, `https://example.test${basePath}`).pathname;
+  return normalizeRuntimePath(resolvedPath.replace(/^\/+/, ""));
+};
 
 const ensureTargetExists = (sourceFile, target) => {
   if (!target || isExternalTarget(target) || target.startsWith("javascript:")) {
     return;
   }
 
-  const [pathPart, hashPart] = target.split("#");
-  const localPath = normalizeLocalPath(pathPart);
+  const [, hashPart] = target.split("#");
+  const localPath = resolveTargetPath(sourceFile, target);
 
   if (!localPath) {
     if (hashPart && !idsByFile.get(sourceFile)?.has(hashPart)) {
@@ -86,6 +160,26 @@ const ensureTargetExists = (sourceFile, target) => {
       errors.push(`${sourceFile}: missing target anchor "${target}"`);
     }
   }
+};
+
+const collectViteInputFiles = () => {
+  if (!fileExists(VITE_CONFIG_PATH)) {
+    errors.push(`missing required Vite config "${VITE_CONFIG_PATH}"`);
+    return new Set();
+  }
+
+  const viteConfigSource = readFile(VITE_CONFIG_PATH);
+  const viteInputs = new Set(
+    Array.from(viteConfigSource.matchAll(VITE_INPUT_PATTERN), (match) =>
+      normalizeRuntimePath(match[1])
+    )
+  );
+
+  if (viteInputs.size === 0) {
+    errors.push(`${VITE_CONFIG_PATH}: no HTML build inputs detected`);
+  }
+
+  return viteInputs;
 };
 
 for (const file of HTML_FILES) {
@@ -123,10 +217,10 @@ for (const file of HTML_FILES) {
 
   if (!isLegacyPage) {
     const activeCssCount = stylesheetLinks.filter(
-      (tag) => tag.attributes.get("href") === ACTIVE_CSS
+      (tag) => resolveTargetPath(file, tag.attributes.get("href")) === ACTIVE_CSS
     ).length;
     const activeJsCount = moduleScripts.filter(
-      (tag) => tag.attributes.get("src") === ACTIVE_JS
+      (tag) => resolveTargetPath(file, tag.attributes.get("src")) === ACTIVE_JS
     ).length;
 
     if (activeCssCount !== 1) {
@@ -212,6 +306,7 @@ for (const file of HTML_FILES) {
       errors.push(`${file}: data-filter-group "${group.name}" has no matching items`);
     }
   }
+
   for (const match of html.matchAll(/<([a-z0-9-]+)\b([^>]*)data-card-link="([^"]+)"([^>]*)>/gi)) {
     const fullTag = match[0];
     const target = match[3];
@@ -256,6 +351,20 @@ for (const file of HTML_FILES) {
 
   if (html.includes("data-hero-stage") && !html.includes("data-hero-stage-card")) {
     errors.push(`${file}: data-hero-stage is missing data-hero-stage-card`);
+  }
+}
+
+const viteInputFiles = collectViteInputFiles();
+
+for (const file of HTML_FILES) {
+  if (!viteInputFiles.has(file)) {
+    errors.push(`${VITE_CONFIG_PATH}: missing build input for "${file}"`);
+  }
+}
+
+for (const inputFile of viteInputFiles) {
+  if (!htmlByFile.has(inputFile)) {
+    errors.push(`${VITE_CONFIG_PATH}: build input "${inputFile}" has no matching HTML file`);
   }
 }
 

@@ -10,10 +10,47 @@ const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
 
 const NAV_LINK_CLASS = "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium";
 
+const PROJECT_DETAIL_LINKS = Object.freeze([
+  {
+    type: "page",
+    path: "projekte/website-branding-setup.html",
+    label: "Marken- & Website-Setup",
+    pageKey: "projekt-website-branding-setup",
+  },
+  {
+    type: "page",
+    path: "projekte/relaunch-seo.html",
+    label: "Relaunch & SEO",
+    pageKey: "projekt-relaunch-seo",
+  },
+  {
+    type: "page",
+    path: "projekte/content-tracking-system.html",
+    label: "Content- & Tracking-System",
+    pageKey: "projekt-content-tracking-system",
+  },
+  {
+    type: "page",
+    path: "projekte/funnel-optimierung.html",
+    label: "Funnel-Optimierung",
+    pageKey: "projekt-funnel-optimierung",
+  },
+]);
+
+const PROJECT_DETAIL_PAGE_KEYS = Object.freeze(
+  PROJECT_DETAIL_LINKS.map(({ pageKey }) => pageKey)
+);
+
 const GLOBAL_NAV_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
   { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
-  { type: "page", path: "projekte.html", label: "Projekte", pageKey: "projekte" },
+  {
+    type: "page",
+    path: "projekte.html",
+    label: "Projekte",
+    pageKey: "projekte",
+    matchPageKeys: PROJECT_DETAIL_PAGE_KEYS,
+  },
   { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
   { type: "page", path: "ueber-mich.html", label: "Über mich", pageKey: "ueber-mich" },
   { type: "page", path: "preise.html", label: "Preise", pageKey: "preise" },
@@ -25,6 +62,7 @@ const FOOTER_NAVIGATION_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
   { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
   { type: "page", path: "projekte.html", label: "Projekte", pageKey: "projekte" },
+  ...PROJECT_DETAIL_LINKS,
   { type: "page", path: "case-study.html", label: "Case Study", pageKey: "case-study" },
   { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
   { type: "page", path: "ueber-mich.html", label: "Über mich", pageKey: "ueber-mich" },
@@ -81,6 +119,26 @@ const PAGE_CONFIGS = {
     stickyMobileCta: true,
   },
   projekte: { path: "projekte.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
+  "projekt-website-branding-setup": {
+    path: "projekte/website-branding-setup.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  "projekt-relaunch-seo": {
+    path: "projekte/relaunch-seo.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  "projekt-content-tracking-system": {
+    path: "projekte/content-tracking-system.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
+  "projekt-funnel-optimierung": {
+    path: "projekte/funnel-optimierung.html",
+    navCtaLabel: PRIMARY_CTA_LABEL,
+    stickyMobileCta: true,
+  },
   "case-study": {
     path: "case-study.html",
     navCtaLabel: PRIMARY_CTA_LABEL,
@@ -112,6 +170,10 @@ const PAGE_CONFIGS = {
 
 const SLUG_ALIASES = {
   marketing: "marketing-legacy",
+  "website-branding-setup": "projekt-website-branding-setup",
+  "relaunch-seo": "projekt-relaunch-seo",
+  "content-tracking-system": "projekt-content-tracking-system",
+  "funnel-optimierung": "projekt-funnel-optimierung",
 };
 
 const getCurrentPageKey = () => {
@@ -169,9 +231,25 @@ const shouldShowMobileStickyCta = (pageConfig) => {
   return Boolean(pageConfig?.stickyMobileCta);
 };
 
-const isCurrentPageLink = (path, currentPagePath) => {
-  const normalizedPath = (path || "").split("#")[0];
-  return normalizedPath === currentPagePath;
+const normalizePagePath = (pathValue) => {
+  const normalizedPath = (pathValue || "").split("#")[0];
+  return normalizedPath === "marketing.html" ? SEO_MARKETING_PATH : normalizedPath;
+};
+
+const isCurrentPageLink = (link, runtimeConfig) => {
+  if (link.type !== "page") return false;
+
+  const normalizedLinkPath = normalizePagePath(link.path);
+  const normalizedCurrentPagePath = normalizePagePath(runtimeConfig.currentPagePath);
+
+  if (normalizedLinkPath && normalizedLinkPath === normalizedCurrentPagePath) {
+    return true;
+  }
+
+  return (
+    Array.isArray(link.matchPageKeys) &&
+    link.matchPageKeys.includes(runtimeConfig.currentPageKey)
+  );
 };
 
 const getResolvedHref = (link, runtimeConfig) => {
@@ -203,12 +281,10 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
     anchor.className = options.className;
   }
 
-  const normalizedLinkPath =
-    link.path === "marketing.html" ? SEO_MARKETING_PATH : link.path;
   const isCurrentPage =
     link.type === "page" &&
-    isCurrentPageLink(normalizedLinkPath, runtimeConfig.currentPagePath) &&
-    !String(normalizedLinkPath || "").includes("#");
+    isCurrentPageLink(link, runtimeConfig) &&
+    !String(normalizePagePath(link.path) || "").includes("#");
 
   if (isCurrentPage) {
     anchor.setAttribute("aria-current", "page");

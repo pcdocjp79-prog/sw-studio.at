@@ -1,4 +1,5 @@
 @import url('./typography.css');
+@import url('./grain-overlay.css');
 
 :root {
   --primary-color: #00d4ff;

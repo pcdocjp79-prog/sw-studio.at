@@ -12,10 +12,17 @@
   --nav-anchor-offset: clamp(5.4rem, 8.2vw, 6.8rem);
   --hero-background-height: 100vh;
   --hero-scroll-opacity: 1;
-  --hero-frame-scroll-blur: 0px;
   --hero-frame-scroll-opacity: 1;
   --hero-frame-scroll-scale: 1;
   --hero-frame-scroll-shift-y: 0px;
+  --hero-surface-scroll-blur: 0px;
+  --hero-surface-scroll-opacity: 1;
+  --hero-content-scroll-y: 0px;
+  --hero-content-scroll-opacity: 1;
+  --hero-content-scroll-blur: 0px;
+  --hero-border-scroll-opacity: 1;
+  --hero-veil-scroll-opacity: 0;
+  --hero-tilt-damping: 1;
 }
 
 @supports (height: 100svh) {
@@ -201,7 +208,7 @@ img {
   --hero-stage-rotate-y: 0deg;
   position: relative;
   opacity: var(--hero-scroll-opacity);
-  transition: opacity 340ms ease;
+  transition: opacity 360ms ease;
   will-change: opacity;
 }
 
@@ -281,8 +288,74 @@ img {
   position: absolute;
   inset: clamp(0.9rem, 2.2vw, 2rem);
   border-radius: clamp(0.7rem, 1.5vw, 1.2rem);
-  border: 1px solid rgba(212, 232, 255, 0.2);
-  background: linear-gradient(146deg,
+  border: 1px solid rgba(212, 232, 255, calc(0.2 * var(--hero-border-scroll-opacity)));
+  background: rgba(8, 13, 25, 0.14);
+  box-shadow:
+    0 26px 56px rgba(1, 4, 12, calc(0.42 * var(--hero-border-scroll-opacity))),
+    0 42px 78px rgba(2, 8, 22, calc(0.28 * var(--hero-border-scroll-opacity)));
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  isolation: isolate;
+  opacity: var(--hero-frame-scroll-opacity);
+  transform:
+    translate3d(0, var(--hero-frame-scroll-shift-y), 0)
+    scale(var(--hero-frame-scroll-scale))
+    perspective(1400px)
+    rotateX(calc(var(--hero-stage-rotate-x) * var(--hero-tilt-damping)))
+    rotateY(calc(var(--hero-stage-rotate-y) * var(--hero-tilt-damping)));
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+  will-change: transform, opacity, box-shadow, border-color;
+}
+
+.hero-stage__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(140% 110% at 50% -12%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 42%),
+    linear-gradient(180deg, rgba(4, 8, 18, 0) 0%, rgba(4, 8, 18, 0.12) 56%, rgba(3, 6, 14, 0.46) 100%);
+  opacity: var(--hero-veil-scroll-opacity);
+  pointer-events: none;
+  transition: opacity 320ms ease;
+  z-index: 2;
+}
+
+.hero-stage__frame::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--section2-border-angle),
+      rgba(148, 242, 255, 1),
+      rgba(126, 112, 255, 0.96),
+      rgba(255, 84, 184, 0.96),
+      rgba(178, 255, 245, 1),
+      rgba(148, 242, 255, 1));
+  animation: section2GlowSpin 6.5s linear infinite;
+  opacity: calc(0.92 * var(--hero-border-scroll-opacity));
+  filter: drop-shadow(0 0 14px rgba(185, 255, 248, 0.62));
+  transition: opacity 260ms ease, filter 260ms ease;
+  pointer-events: none;
+  z-index: 5;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.hero-stage__surface {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(146deg,
       rgba(255, 255, 255, 0.22) 0%,
       rgba(255, 255, 255, 0.12) 24%,
       rgba(31, 41, 66, 0.42) 62%,
@@ -290,26 +363,19 @@ img {
   backdrop-filter: blur(18px) saturate(138%);
   -webkit-backdrop-filter: blur(18px) saturate(138%);
   box-shadow:
-    0 26px 56px rgba(1, 4, 12, 0.42),
-    0 42px 78px rgba(2, 8, 22, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.38),
     inset 0 -24px 38px rgba(6, 12, 26, 0.34);
   overflow: hidden;
-  transform-style: preserve-3d;
-  opacity: var(--hero-frame-scroll-opacity);
-  filter: blur(var(--hero-frame-scroll-blur));
-  transform:
-    translate3d(0, var(--hero-frame-scroll-shift-y), 0) scale(var(--hero-frame-scroll-scale)) perspective(1400px) rotateX(var(--hero-stage-rotate-x)) rotateY(var(--hero-stage-rotate-y));
-  transition:
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 320ms ease,
-    opacity 300ms ease,
-    box-shadow 260ms ease,
-    border-color 260ms ease;
-  will-change: transform, filter, opacity, box-shadow;
+  opacity: var(--hero-surface-scroll-opacity);
+  filter: blur(var(--hero-surface-scroll-blur));
+  transform: translateZ(0);
+  transition: filter 320ms ease, opacity 300ms ease;
+  will-change: filter, opacity;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.hero-stage__frame::before {
+.hero-stage__surface::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -326,42 +392,16 @@ img {
   z-index: 0;
 }
 
-.hero-stage__frame::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  padding: 2px;
-  border-radius: inherit;
-  background: conic-gradient(from var(--section2-border-angle),
-      rgba(148, 242, 255, 1),
-      rgba(126, 112, 255, 0.96),
-      rgba(255, 84, 184, 0.96),
-      rgba(178, 255, 245, 1),
-      rgba(148, 242, 255, 1));
-  animation: section2GlowSpin 6.5s linear infinite;
-  opacity: 0.92;
-  filter: drop-shadow(0 0 14px rgba(185, 255, 248, 0.62));
-  transition: opacity 220ms ease, filter 220ms ease;
-  pointer-events: none;
-  z-index: 3;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-}
-
 .hero-stage.is-interactive .hero-stage__frame {
   transition-duration: 90ms;
-  border-color: rgba(228, 242, 255, 0.42);
+  border-color: rgba(228, 242, 255, calc(0.42 * var(--hero-border-scroll-opacity)));
   box-shadow:
-    0 30px 64px rgba(1, 4, 12, 0.54),
-    0 50px 94px rgba(2, 8, 22, 0.38),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -24px 38px rgba(3, 7, 16, 0.5);
+    0 30px 64px rgba(1, 4, 12, calc(0.54 * var(--hero-border-scroll-opacity))),
+    0 50px 94px rgba(2, 8, 22, calc(0.38 * var(--hero-border-scroll-opacity)));
 }
 
 .hero-stage.is-interactive .hero-stage__frame::after {
-  opacity: 1;
+  opacity: calc(1 * var(--hero-border-scroll-opacity));
   filter: drop-shadow(0 0 18px rgba(185, 255, 248, 0.95));
 }
 
@@ -380,7 +420,20 @@ img {
 }
 
 .hero-stage__glow {
-  display: none;
+  position: absolute;
+  inset: -14%;
+  background:
+    radial-gradient(circle at var(--hero-stage-pointer-x) var(--hero-stage-pointer-y),
+      rgba(168, 224, 255, 0.28) 0%,
+      rgba(168, 224, 255, 0) 34%),
+    radial-gradient(circle at 78% 20%, rgba(255, 125, 205, 0.18) 0%, rgba(255, 125, 205, 0) 36%),
+    radial-gradient(circle at 16% 84%, rgba(108, 180, 255, 0.18) 0%, rgba(108, 180, 255, 0) 34%);
+  opacity: calc(0.78 * var(--hero-surface-scroll-opacity));
+  mix-blend-mode: screen;
+  filter: blur(18px);
+  animation: heroStageAuraPulse 9.5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-stage__noise {
@@ -404,7 +457,14 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   gap: clamp(0.4rem, 1.1vw, 0.85rem);
-  transform: translate3d(0, 0, 34px);
+  opacity: var(--hero-content-scroll-opacity);
+  filter: blur(var(--hero-content-scroll-blur));
+  transform: translate3d(0, var(--hero-content-scroll-y), 34px);
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 280ms ease,
+    opacity 280ms ease;
+  will-change: transform, filter, opacity;
 }
 
 .hero-stage__eyebrow {
@@ -460,6 +520,28 @@ img {
   .hero-stage__frame {
     transform: none;
     transition: none;
+  }
+
+  .hero-stage__surface,
+  .hero-stage__content {
+    opacity: 1;
+    filter: none;
+    transition: none;
+  }
+
+  .hero-stage__content {
+    transform: translate3d(0, 0, 34px);
+  }
+
+  .hero-stage__frame::before,
+  .hero-stage__surface::before {
+    transition: none;
+  }
+
+  .hero-stage__glow {
+    animation: none;
+    opacity: 0.46;
+    filter: blur(12px);
   }
 
   .hero-stage__frame::after {

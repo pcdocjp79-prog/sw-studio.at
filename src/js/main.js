@@ -198,6 +198,20 @@ const initRevealOnScroll = () => {
   revealOnScrollElements.forEach((element) => element.classList.add("is-visible"));
 };
 
+const clampNumber = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+
+const interpolateNumber = (start, end, progress) =>
+  start + (end - start) * clampNumber(progress);
+
+const easeOutCubic = (value) => 1 - Math.pow(1 - clampNumber(value), 3);
+
+const easeInOutSine = (value) => -(Math.cos(Math.PI * clampNumber(value)) - 1) / 2;
+
+const getRangeProgress = (current, start, end) => {
+  const distance = Math.max(Math.abs(start - end), 0.0001);
+  return clampNumber((start - current) / distance);
+};
+
 const initScrollFocusEffect = () => {
   const scrollFocusSections = Array.from(document.querySelectorAll(".scroll-focus-section"));
   if (scrollFocusSections.length === 0) return;
@@ -213,22 +227,50 @@ const initScrollFocusEffect = () => {
     document.body.classList.add("has-fixed-hero-bg");
   }
 
-  const setHeroScrollFocusVisuals = (
-    frameBlur,
-    frameOpacity,
-    frameScale,
-    frameShiftY,
-    stageOpacity
-  ) => {
-    document.documentElement.style.setProperty("--hero-scroll-opacity", `${stageOpacity.toFixed(3)}`);
-    document.documentElement.style.setProperty("--hero-frame-scroll-blur", `${frameBlur.toFixed(2)}px`);
-    document.documentElement.style.setProperty("--hero-frame-scroll-opacity", `${frameOpacity.toFixed(3)}`);
-    document.documentElement.style.setProperty("--hero-frame-scroll-scale", `${frameScale.toFixed(3)}`);
-    document.documentElement.style.setProperty("--hero-frame-scroll-shift-y", `${frameShiftY.toFixed(2)}px`);
+  const setHeroScrollFocusVisuals = ({
+    stageOpacity = 1,
+    frameOpacity = 1,
+    frameScale = 1,
+    frameShiftY = 0,
+    surfaceBlur = 0,
+    surfaceOpacity = 1,
+    contentShiftY = 0,
+    contentOpacity = 1,
+    contentBlur = 0,
+    borderOpacity = 1,
+    veilOpacity = 0,
+    tiltDamping = 1,
+  }) => {
+    const targetStyle = heroStageForScrollFocus?.style || document.documentElement.style;
+    targetStyle.setProperty("--hero-scroll-opacity", `${stageOpacity.toFixed(3)}`);
+    targetStyle.setProperty("--hero-frame-scroll-opacity", `${frameOpacity.toFixed(3)}`);
+    targetStyle.setProperty("--hero-frame-scroll-scale", `${frameScale.toFixed(3)}`);
+    targetStyle.setProperty("--hero-frame-scroll-shift-y", `${frameShiftY.toFixed(2)}px`);
+    targetStyle.setProperty("--hero-surface-scroll-blur", `${surfaceBlur.toFixed(2)}px`);
+    targetStyle.setProperty("--hero-surface-scroll-opacity", `${surfaceOpacity.toFixed(3)}`);
+    targetStyle.setProperty("--hero-content-scroll-y", `${contentShiftY.toFixed(2)}px`);
+    targetStyle.setProperty("--hero-content-scroll-opacity", `${contentOpacity.toFixed(3)}`);
+    targetStyle.setProperty("--hero-content-scroll-blur", `${contentBlur.toFixed(2)}px`);
+    targetStyle.setProperty("--hero-border-scroll-opacity", `${borderOpacity.toFixed(3)}`);
+    targetStyle.setProperty("--hero-veil-scroll-opacity", `${veilOpacity.toFixed(3)}`);
+    targetStyle.setProperty("--hero-tilt-damping", `${tiltDamping.toFixed(3)}`);
   };
 
   const resetHeroScrollFocusVisuals = () => {
-    setHeroScrollFocusVisuals(0, 1, 1, 0, 1);
+    setHeroScrollFocusVisuals({
+      stageOpacity: 1,
+      frameOpacity: 1,
+      frameScale: 1,
+      frameShiftY: 0,
+      surfaceBlur: 0,
+      surfaceOpacity: 1,
+      contentShiftY: 0,
+      contentOpacity: 1,
+      contentBlur: 0,
+      borderOpacity: 1,
+      veilOpacity: 0,
+      tiltDamping: 1,
+    });
   };
 
   const shouldEnhanceHeroScroll = () =>
@@ -236,14 +278,17 @@ const initScrollFocusEffect = () => {
     desktopHeroEffectsQuery.matches &&
     !reducedMotion;
 
-  const getHeroBlurProgress = (viewportHeight) => {
-    if (!firstScrollFocusSection) return 0;
+  const getHeroPhaseProgress = (viewportHeight) => {
+    if (!firstScrollFocusSection) return null;
 
     const sectionRect = firstScrollFocusSection.getBoundingClientRect();
-    const startLine = viewportHeight;
-    const endLine = viewportHeight * 0.24;
-    const rawProgress = (startLine - sectionRect.top) / Math.max(startLine - endLine, 1);
-    return Math.min(1, Math.max(0, rawProgress));
+    const sectionTopRatio = sectionRect.top / Math.max(viewportHeight, 1);
+
+    return {
+      intro: getRangeProgress(sectionTopRatio, 0.96, 0.72),
+      recede: getRangeProgress(sectionTopRatio, 0.72, 0.34),
+      settle: getRangeProgress(sectionTopRatio, 0.34, 0.2),
+    };
   };
 
   const updateScrollFocusState = () => {
@@ -258,21 +303,75 @@ const initScrollFocusEffect = () => {
     }
 
     const viewportHeight = Math.max(window.innerHeight, 1);
-    const blurProgress = getHeroBlurProgress(viewportHeight);
-    const depthProgress = Math.min(1, Math.max(0, Math.pow(blurProgress, 1.55)));
-    const frameBlurAmount = 54 * depthProgress;
-    const frameOpacity = Math.max(0.66, 1 - depthProgress * 0.28);
-    const frameScale = Math.max(0.88, 1 - depthProgress * 0.12);
-    const frameShiftY = -46 * depthProgress;
-    const stageOpacity = Math.max(0.76, 1 - depthProgress * 0.22);
+    const heroPhaseProgress = getHeroPhaseProgress(viewportHeight);
 
-    setHeroScrollFocusVisuals(
-      frameBlurAmount,
-      frameOpacity,
+    if (!heroPhaseProgress) {
+      resetHeroScrollFocusVisuals();
+      return;
+    }
+
+    const introProgress = easeInOutSine(heroPhaseProgress.intro);
+    const recedeProgress = easeOutCubic(heroPhaseProgress.recede);
+    const settleProgress = easeInOutSine(heroPhaseProgress.settle);
+
+    let frameScale = interpolateNumber(1, 1.012, introProgress);
+    frameScale = interpolateNumber(frameScale, 1.078, recedeProgress);
+    frameScale = interpolateNumber(frameScale, 1.125, settleProgress);
+
+    let frameShiftY = interpolateNumber(0, -3, introProgress);
+    frameShiftY = interpolateNumber(frameShiftY, -12, recedeProgress);
+    frameShiftY = interpolateNumber(frameShiftY, -18, settleProgress);
+
+    let surfaceBlur = interpolateNumber(0, 1.6, introProgress);
+    surfaceBlur = interpolateNumber(surfaceBlur, 15.5, recedeProgress);
+    surfaceBlur = interpolateNumber(surfaceBlur, 23, settleProgress);
+
+    let surfaceOpacity = interpolateNumber(1, 0.988, introProgress);
+    surfaceOpacity = interpolateNumber(surfaceOpacity, 0.84, recedeProgress);
+    surfaceOpacity = interpolateNumber(surfaceOpacity, 0.72, settleProgress);
+
+    let contentShiftY = interpolateNumber(0, -2, introProgress);
+    contentShiftY = interpolateNumber(contentShiftY, -10, recedeProgress);
+    contentShiftY = interpolateNumber(contentShiftY, -14, settleProgress);
+
+    let contentOpacity = interpolateNumber(1, 0.93, introProgress);
+    contentOpacity = interpolateNumber(contentOpacity, 0.56, recedeProgress);
+    contentOpacity = interpolateNumber(contentOpacity, 0.38, settleProgress);
+
+    let contentBlur = interpolateNumber(0, 0.8, introProgress);
+    contentBlur = interpolateNumber(contentBlur, 7.4, recedeProgress);
+    contentBlur = interpolateNumber(contentBlur, 12, settleProgress);
+
+    let borderOpacity = interpolateNumber(1, 0.72, introProgress);
+    borderOpacity = interpolateNumber(borderOpacity, 0.16, recedeProgress);
+    borderOpacity = interpolateNumber(borderOpacity, 0.02, settleProgress);
+
+    let veilOpacity = interpolateNumber(0, 0.1, introProgress);
+    veilOpacity = interpolateNumber(veilOpacity, 0.44, recedeProgress);
+    veilOpacity = interpolateNumber(veilOpacity, 0.66, settleProgress);
+
+    let stageOpacity = interpolateNumber(1, 0.995, introProgress);
+    stageOpacity = interpolateNumber(stageOpacity, 0.89, recedeProgress);
+    stageOpacity = interpolateNumber(stageOpacity, 0.82, settleProgress);
+
+    let tiltDamping = interpolateNumber(1, 0.9, introProgress);
+    tiltDamping = interpolateNumber(tiltDamping, 0.48, recedeProgress);
+    tiltDamping = interpolateNumber(tiltDamping, 0.3, settleProgress);
+
+    setHeroScrollFocusVisuals({
+      stageOpacity,
+      frameOpacity: 1,
       frameScale,
       frameShiftY,
-      stageOpacity
-    );
+      surfaceBlur,
+      surfaceOpacity,
+      contentShiftY,
+      contentOpacity,
+      contentBlur,
+      borderOpacity,
+      veilOpacity,
+      tiltDamping,
+    });
   };
 
   const queueScrollFocusUpdate = () => {

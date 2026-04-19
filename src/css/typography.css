@@ -1,14 +1,46 @@
 /* =============================================
-   Typography System — Sans Serif
+   Typography System - Geist, Inter, JetBrains Mono
    Smart Web Studio
    ============================================= */
 
 /* Typografie-Variablen */
 :root {
-  --font-display: sans-serif;
-  --font-body: sans-serif;
+  --font-display: "Geist", "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   --tracking-tight: -0.04em;
   --tracking-display: -0.06em;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+p,
+li,
+span,
+.font-body {
+  font-family: var(--font-body);
+}
+
+.mono,
+.font-mono,
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
 }
 
 /* Globale Headline-Stile */
@@ -24,11 +56,17 @@ h2 {
   line-height: 1.05;
 }
 
-/* prefers-reduced-motion — bereits in style.css vorhanden,
-   hier nur als Fallback für typografische Transitions */
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+
+/* prefers-reduced-motion - bereits in style.css vorhanden,
+   hier nur als Fallback fuer typografische Transitions */
 @media (prefers-reduced-motion: reduce) {
   h1,
-  h2 {
+  h2,
+  h3 {
     transition: none !important;
   }
 }

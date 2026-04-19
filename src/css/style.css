@@ -3984,6 +3984,172 @@ body:is(
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
 }
 
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple {
+  padding: 0 1rem 0.45rem;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__list {
+  position: relative;
+  isolation: isolate;
+  gap: 0.92rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 100%),
+    rgba(12, 18, 30, 0.42);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  box-shadow:
+    0 18px 40px rgba(5, 10, 20, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  scroll-snap-type: x proximity;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__list::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px 48% 1px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__list > li {
+  scroll-snap-align: center;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__link {
+  position: relative;
+  min-height: 40px;
+  padding: 0 1.58rem;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition:
+    transform 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__link:hover,
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__link:focus-visible {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%);
+  color: #ffffff;
+  box-shadow:
+    0 10px 22px rgba(6, 10, 18, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__link:focus-visible {
+  outline: 2px solid rgba(142, 197, 255, 0.72);
+  outline-offset: 3px;
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple .jump-nav__link.is-active {
+  background: linear-gradient(180deg, rgba(118, 186, 255, 0.98) 0%, rgba(98, 173, 255, 0.96) 58%, rgba(72, 149, 235, 0.96) 100%);
+  color: #ffffff;
+  text-shadow: none;
+  box-shadow:
+    0 12px 26px rgba(12, 40, 78, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(45, 102, 170, 0.28);
+}
+
+body:is(
+    [data-page="branding"],
+    [data-page="growth"],
+    [data-page="ki-beratung"],
+    [data-page="seo-marketing"],
+    [data-page="social"],
+    [data-page="webentwicklung"]
+  ) .jump-nav--section.jump-nav--apple.is-docked .jump-nav__list {
+  border-color: rgba(255, 255, 255, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.1) 100%),
+    rgba(10, 15, 26, 0.62);
+  box-shadow:
+    0 22px 44px rgba(4, 8, 15, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
 .jump-nav--section.is-docked {
   position: fixed;
   top: var(--jump-nav-section-top, calc(var(--nav-anchor-offset) - 0.4rem));

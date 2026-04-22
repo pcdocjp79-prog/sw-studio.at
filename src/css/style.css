@@ -503,6 +503,7 @@ img {
   .hero-stage__content {
     max-width: 100%;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

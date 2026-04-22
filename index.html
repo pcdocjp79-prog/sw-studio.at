@@ -33,7 +33,9 @@
     };
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
   <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/css/hero-sphere.css" />
 </head>
 
 <body id="top" data-page="home" class="antialiased selection:bg-zinc-200 selection:text-black">
@@ -72,6 +74,10 @@
   </header>
 
   <main class="relative pt-0 pb-0">
+    <div class="hero-sphere" data-hero-sphere aria-hidden="true">
+      <canvas class="hero-sphere__canvas"></canvas>
+      <div class="hero-sphere__fallback" aria-hidden="true"></div>
+    </div>
     <div class="hero-scroll-stack max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
         <div class="hero-stage__viewport">
@@ -568,6 +574,7 @@
   </button>
 
   <script type="module" src="src/js/main.js"></script>
+  <script type="module" src="src/js/water-sphere.js"></script>
 </body>
 
 </html>

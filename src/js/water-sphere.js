@@ -235,11 +235,10 @@ async function initWaterSphere() {
 
   const desktopQuery = window.matchMedia("(min-width: 1024px)");
   const travelState = {
-    lastScrollY: window.scrollY || 0,
-    velocity: 0,
+    virtualScrollY: window.scrollY || 0,
     currentX: 0,
-    currentYDrift: 0,
   };
+  host.style.opacity = "";
 
   function resize() {
     const rect = host.getBoundingClientRect();
@@ -297,30 +296,29 @@ async function initWaterSphere() {
     mesh.rotation.y += dt * 0.04;
     mesh.rotation.x = Math.sin(uniforms.uTime.value * 0.12) * 0.04;
 
-    const dyScroll = window.scrollY - travelState.lastScrollY;
-    travelState.lastScrollY = window.scrollY;
-    travelState.velocity = travelState.velocity * 0.85 + dyScroll * 0.15;
-
     if (desktopQuery.matches) {
+      travelState.virtualScrollY = lerp(
+        travelState.virtualScrollY,
+        window.scrollY,
+        0.05
+      );
+
       const docEl = document.documentElement;
       const scrollable = Math.max(1, docEl.scrollHeight - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
-      const phase = Math.cos(progress * Math.PI * 7);
+      const virtualProgress = Math.min(
+        1,
+        Math.max(0, travelState.virtualScrollY / scrollable)
+      );
+      const phase = Math.cos(virtualProgress * Math.PI * 3);
       const vw = window.innerWidth;
       const sphereW = host.offsetWidth;
       const margin = vw * 0.04;
       const halfRange = Math.max(0, vw / 2 - sphereW / 2 - margin);
-      const targetX = phase * halfRange;
-      const maxDrift = 55;
-      const targetYDrift = Math.max(
-        -maxDrift,
-        Math.min(maxDrift, travelState.velocity * 1.4)
-      );
-      travelState.currentX = lerp(travelState.currentX, targetX, 0.11);
-      travelState.currentYDrift = lerp(travelState.currentYDrift, targetYDrift, 0.14);
-      host.style.transform = `translate(calc(-50% + ${travelState.currentX.toFixed(
-        2
-      )}px), calc(-50% + ${travelState.currentYDrift.toFixed(2)}px))`;
+      travelState.currentX = phase * halfRange;
+
+      const lagY = travelState.virtualScrollY - window.scrollY;
+
+      host.style.transform = `translate(calc(-50% + ${travelState.currentX.toFixed(2)}px), calc(-50% + ${lagY.toFixed(2)}px))`;
     }
 
     renderer.render(scene, camera);

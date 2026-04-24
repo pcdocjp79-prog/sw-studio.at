@@ -50,7 +50,7 @@ float snoise(vec3 v) {
 
 const VERTEX_SHADER = `
 uniform float uTime;
-uniform vec2  uPokeTrail;
+uniform vec2 uPokeTrail;
 uniform float uPokeDepth;
 
 varying vec3 vNormal;
@@ -75,8 +75,8 @@ void main() {
 
   vec2 screenXY = viewP.xy;
   float pokeDist = length(screenXY - uPokeTrail);
-  float frontFacing = smoothstep(-4.0, -2.2, viewP.z);
-  float poke = exp(-pokeDist * pokeDist * 5.0) * uPokeDepth * frontFacing;
+  float frontFacing = smoothstep(-14.0, -4.0, viewP.z);
+  float poke = exp(-pokeDist * pokeDist * 1.6) * uPokeDepth * frontFacing;
   disp -= poke;
 
   vec3 displaced = pos + normal * disp;
@@ -92,8 +92,8 @@ void main() {
 
   vec4 mv = modelViewMatrix * vec4(displaced, 1.0);
   vViewPos = -mv.xyz;
-  vNormal  = normalize(normalMatrix * newNormal);
-  vDisp    = disp;
+  vNormal = normalize(normalMatrix * newNormal);
+  vDisp = disp;
 
   gl_Position = projectionMatrix * mv;
 }
@@ -102,10 +102,10 @@ void main() {
 const FRAGMENT_SHADER = `
 precision highp float;
 
-uniform vec3  uColorDeep;
-uniform vec3  uColorShallow;
-uniform vec3  uColorRim;
-uniform vec3  uColorAccent;
+uniform vec3 uColorDeep;
+uniform vec3 uColorShallow;
+uniform vec3 uColorRim;
+uniform vec3 uColorAccent;
 uniform float uTime;
 
 varying vec3 vNormal;
@@ -121,15 +121,15 @@ void main() {
   float fres = pow(1.0 - max(dot(V, N), 0.0), 2.4);
 
   float depth = smoothstep(-0.2, 0.6, N.y + vDisp * 0.6);
-  vec3 base   = mix(uColorDeep, uColorShallow, depth);
+  vec3 base = mix(uColorDeep, uColorShallow, depth);
 
   vec3 lightDir = normalize(vec3(0.5, 0.85, 0.7));
-  vec3 halfDir  = normalize(lightDir + V);
-  float spec    = pow(max(dot(N, halfDir), 0.0), 56.0) * 0.4;
+  vec3 halfDir = normalize(lightDir + V);
+  float spec = pow(max(dot(N, halfDir), 0.0), 56.0) * 0.4;
 
-  float reflRaw  = snoise(N * 0.8 + vec3(uTime * 0.05, 0.0, 0.0));
+  float reflRaw = snoise(N * 0.8 + vec3(uTime * 0.05, 0.0, 0.0));
   float reflMask = smoothstep(0.62, 0.88, reflRaw);
-  vec3  reflCol  = mix(uColorRim, uColorAccent, 0.5 + 0.5 * sin(uTime * 0.1));
+  vec3 reflCol = mix(uColorRim, uColorAccent, 0.5 + 0.5 * sin(uTime * 0.1));
 
   vec3 color = base;
   color = mix(color, reflCol, reflMask * 0.55);
@@ -143,14 +143,110 @@ void main() {
 }
 `;
 
+const ORB_CONFIGS = {
+  desktop: [
+    {
+      key: "cyan-violet",
+      interactive: true,
+      colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
+      baseX: -0.84,
+      baseY: 0.78,
+      scale: 4.75,
+      depth: -3.6,
+      driftX: 0.12,
+      driftY: 0.07,
+      driftSpeed: 0.28,
+      driftPhase: 0.4,
+      rotationSpeed: 0.08,
+      pulse: 0.04,
+    },
+    {
+      key: "magenta",
+      colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
+      baseX: 0.84,
+      baseY: -0.68,
+      scale: 3.95,
+      depth: -4.2,
+      driftX: 0.08,
+      driftY: 0.12,
+      driftSpeed: 0.24,
+      driftPhase: 1.6,
+      rotationSpeed: 0.06,
+      pulse: 0.05,
+    },
+    {
+      key: "aqua",
+      colors: [0x0d2242, 0x9aefff, 0xd6fff7, 0x68b8ff],
+      baseX: -0.96,
+      baseY: -0.86,
+      scale: 1.55,
+      depth: -2.6,
+      driftX: 0.06,
+      driftY: 0.05,
+      driftSpeed: 0.42,
+      driftPhase: 2.2,
+      rotationSpeed: 0.11,
+      pulse: 0.06,
+    },
+    {
+      key: "blue",
+      colors: [0x13285c, 0x74c8ff, 0xcbf5ff, 0x7c75ff],
+      baseX: 0.74,
+      baseY: 0.42,
+      scale: 1.82,
+      depth: -2.9,
+      driftX: 0.05,
+      driftY: 0.08,
+      driftSpeed: 0.34,
+      driftPhase: 3.1,
+      rotationSpeed: 0.09,
+      pulse: 0.04,
+    },
+  ],
+  mobile: [
+    {
+      key: "cyan-violet",
+      interactive: true,
+      colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
+      baseX: -0.86,
+      baseY: 0.78,
+      scale: 3.6,
+      depth: -3.4,
+      driftX: 0.08,
+      driftY: 0.05,
+      driftSpeed: 0.24,
+      driftPhase: 0.4,
+      rotationSpeed: 0.06,
+      pulse: 0.03,
+    },
+    {
+      key: "magenta",
+      colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
+      baseX: 0.92,
+      baseY: -0.62,
+      scale: 2.85,
+      depth: -3.8,
+      driftX: 0.06,
+      driftY: 0.08,
+      driftSpeed: 0.2,
+      driftPhase: 1.6,
+      rotationSpeed: 0.05,
+      pulse: 0.035,
+    },
+  ],
+};
+
+const SCENE_HALF_HEIGHT = 5;
+const HOVER_PAD = 100;
+
 function hasWebGL() {
   try {
-    const c = document.createElement("canvas");
+    const canvas = document.createElement("canvas");
     return Boolean(
       window.WebGLRenderingContext &&
-      (c.getContext("webgl") || c.getContext("experimental-webgl"))
+      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
     );
-  } catch (_e) {
+  } catch (_error) {
     return false;
   }
 }
@@ -167,8 +263,28 @@ function waitForThree(timeoutMs = 4000) {
   });
 }
 
+function createOrbMaterial(THREE, config) {
+  const uniforms = {
+    uTime: { value: 0 },
+    uPokeTrail: { value: new THREE.Vector2(0, 0) },
+    uPokeDepth: { value: 0 },
+    uColorDeep: { value: new THREE.Color(config.colors[0]) },
+    uColorShallow: { value: new THREE.Color(config.colors[1]) },
+    uColorRim: { value: new THREE.Color(config.colors[2]) },
+    uColorAccent: { value: new THREE.Color(config.colors[3]) },
+  };
+
+  return new THREE.ShaderMaterial({
+    uniforms,
+    vertexShader: VERTEX_SHADER,
+    fragmentShader: FRAGMENT_SHADER,
+    transparent: true,
+    depthWrite: false,
+  });
+}
+
 async function initWaterSphere() {
-  const host = document.querySelector("[data-hero-sphere]");
+  const host = document.querySelector("[data-hero-orb-layer]");
   if (!host) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -188,8 +304,10 @@ async function initWaterSphere() {
     return;
   }
 
-  const canvas = host.querySelector(".hero-sphere__canvas");
+  const canvas = host.querySelector(".hero-stage__orb-canvas");
   if (!canvas) return;
+
+  document.body.classList.remove("no-webgl");
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -197,147 +315,194 @@ async function initWaterSphere() {
     antialias: true,
     powerPreference: "low-power",
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   renderer.setClearColor(0x000000, 0);
   if ("outputColorSpace" in renderer && THREE.SRGBColorSpace) {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
   }
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-  camera.position.set(0, 0, 3.2);
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 40);
+  camera.position.set(0, 0, 12);
   camera.lookAt(0, 0, 0);
 
-  const geometry = new THREE.IcosahedronGeometry(1, 64);
-
-  const uniforms = {
-    uTime:         { value: 0 },
-    uPokeTrail:    { value: new THREE.Vector2(0, 0) },
-    uPokeDepth:    { value: 0 },
-    uColorDeep:    { value: new THREE.Color(0x0b1a3a) },
-    uColorShallow: { value: new THREE.Color(0x5cc8ff) },
-    uColorRim:     { value: new THREE.Color(0xb8fff5) },
-    uColorAccent:  { value: new THREE.Color(0x8a6bff) },
-  };
-
-  const material = new THREE.ShaderMaterial({
-    uniforms,
-    vertexShader: VERTEX_SHADER,
-    fragmentShader: FRAGMENT_SHADER,
-    transparent: true,
-    depthWrite: false,
-  });
-
-  const mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
-
+  const desktopQuery = window.matchMedia("(min-width: 900px)");
   const pointerTarget = { x: 0, y: 0, hover: 0 };
+  const worldPointer = new THREE.Vector2(0, 0);
+  const travelState = { virtualScrollY: window.scrollY || 0 };
+  const orbEntries = [];
+  let geometry = null;
 
-  const desktopQuery = window.matchMedia("(min-width: 1024px)");
-  const travelState = {
-    virtualScrollY: window.scrollY || 0,
-    currentX: 0,
-  };
-  host.style.opacity = "";
+  const lerp = (start, end, amount) => start + (end - start) * amount;
+  const createGeometry = () =>
+    new THREE.IcosahedronGeometry(1, desktopQuery.matches ? 56 : 40);
 
-  function resize() {
-    const rect = host.getBoundingClientRect();
-    const w = Math.max(1, Math.round(rect.width));
-    const h = Math.max(1, Math.round(rect.height));
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
+  const setCameraFrustum = (width, height) => {
+    const aspect = width / Math.max(height, 1);
+    camera.top = SCENE_HALF_HEIGHT;
+    camera.bottom = -SCENE_HALF_HEIGHT;
+    camera.right = SCENE_HALF_HEIGHT * aspect;
+    camera.left = -SCENE_HALF_HEIGHT * aspect;
     camera.updateProjectionMatrix();
-  }
+  };
+
+  const rebuildOrbs = () => {
+    while (orbEntries.length > 0) {
+      const entry = orbEntries.pop();
+      scene.remove(entry.mesh);
+      entry.material.dispose();
+    }
+
+    if (geometry) {
+      geometry.dispose();
+    }
+    geometry = createGeometry();
+
+    const nextConfigs = desktopQuery.matches ? ORB_CONFIGS.desktop : ORB_CONFIGS.mobile;
+    nextConfigs.forEach((config, index) => {
+      const material = createOrbMaterial(THREE, config);
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.position.z = config.depth;
+      mesh.renderOrder = index;
+      scene.add(mesh);
+      orbEntries.push({ config, mesh, material });
+    });
+  };
+
+  const resize = () => {
+    const rect = host.getBoundingClientRect();
+    const width = Math.max(1, Math.round(rect.width));
+    const height = Math.max(1, Math.round(rect.height));
+    renderer.setSize(width, height, false);
+    setCameraFrustum(width, height);
+  };
+
   resize();
+  rebuildOrbs();
 
   if ("ResizeObserver" in window) {
-    const ro = new ResizeObserver(resize);
-    ro.observe(host);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(host);
   } else {
     window.addEventListener("resize", resize);
   }
 
-  const HOVER_PAD = 80;
-  window.addEventListener("pointermove", (e) => {
-    if (e.pointerType === "touch") return;
+  const updatePointer = (event) => {
+    if (event.pointerType === "touch") return;
+
     const rect = host.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
-    pointerTarget.x = x;
-    pointerTarget.y = y;
     const inside =
-      e.clientX >= rect.left - HOVER_PAD &&
-      e.clientX <= rect.right + HOVER_PAD &&
-      e.clientY >= rect.top - HOVER_PAD &&
-      e.clientY <= rect.bottom + HOVER_PAD;
+      event.clientX >= rect.left - HOVER_PAD &&
+      event.clientX <= rect.right + HOVER_PAD &&
+      event.clientY >= rect.top - HOVER_PAD &&
+      event.clientY <= rect.bottom + HOVER_PAD;
+
     pointerTarget.hover = inside ? 1 : 0;
-  }, { passive: true });
-  window.addEventListener("pointerout", (e) => {
-    if (!e.relatedTarget) pointerTarget.hover = 0;
+
+    const relativeX = ((event.clientX - rect.left) / Math.max(rect.width, 1)) * 2 - 1;
+    const relativeY = -((((event.clientY - rect.top) / Math.max(rect.height, 1)) * 2) - 1);
+    pointerTarget.x = Math.max(-1.4, Math.min(1.4, relativeX));
+    pointerTarget.y = Math.max(-1.4, Math.min(1.4, relativeY));
+  };
+
+  window.addEventListener("pointermove", updatePointer, { passive: true });
+  window.addEventListener("pointerout", (event) => {
+    if (!event.relatedTarget) pointerTarget.hover = 0;
   });
 
   const clock = new THREE.Clock();
   let running = false;
   let rafId = null;
+  let elapsedTime = 0;
 
-  function loop() {
+  const syncWorldPointer = () => {
+    worldPointer.x = pointerTarget.x * camera.right;
+    worldPointer.y = pointerTarget.y * camera.top;
+  };
+
+  const updateOrbTransforms = (time, delta) => {
+    syncWorldPointer();
+    travelState.virtualScrollY = lerp(travelState.virtualScrollY, window.scrollY, 0.045);
+
+    const docElement = document.documentElement;
+    const scrollable = Math.max(1, docElement.scrollHeight - window.innerHeight);
+    const scrollProgress = Math.min(1, Math.max(0, travelState.virtualScrollY / scrollable));
+    const globalDrift = Math.sin(scrollProgress * Math.PI * 2.5) * 0.12;
+
+    orbEntries.forEach((entry) => {
+      const { config, mesh, material } = entry;
+      const phase = time * config.driftSpeed + config.driftPhase;
+      const pulse = 1 + Math.sin(time * (config.driftSpeed * 1.6) + config.driftPhase) * config.pulse;
+      const driftX = Math.sin(phase) * config.driftX + globalDrift * (config.interactive ? 0.7 : 0.45);
+      const driftY = Math.cos(phase * 0.92) * config.driftY;
+
+      mesh.position.x = (config.baseX + driftX) * camera.right;
+      mesh.position.y = (config.baseY + driftY) * camera.top;
+      mesh.position.z = config.depth;
+      mesh.scale.setScalar(config.scale * pulse);
+      mesh.rotation.y += delta * config.rotationSpeed;
+      mesh.rotation.x = Math.sin(time * (config.driftSpeed * 0.85) + config.driftPhase) * 0.12;
+
+      material.uniforms.uTime.value = time;
+
+      if (config.interactive) {
+        material.uniforms.uPokeTrail.value.x = lerp(
+          material.uniforms.uPokeTrail.value.x,
+          worldPointer.x,
+          0.06
+        );
+        material.uniforms.uPokeTrail.value.y = lerp(
+          material.uniforms.uPokeTrail.value.y,
+          worldPointer.y,
+          0.06
+        );
+        material.uniforms.uPokeDepth.value = lerp(
+          material.uniforms.uPokeDepth.value,
+          pointerTarget.hover * (desktopQuery.matches ? 0.62 : 0.4),
+          pointerTarget.hover > 0 ? 0.04 : 0.02
+        );
+      } else {
+        material.uniforms.uPokeDepth.value = lerp(material.uniforms.uPokeDepth.value, 0, 0.08);
+      }
+    });
+  };
+
+  const loop = () => {
     if (!running) return;
-    const dt = clock.getDelta();
-    uniforms.uTime.value += dt;
-
-    const lerp = (a, b, t) => a + (b - a) * t;
-    uniforms.uPokeTrail.value.x = lerp(uniforms.uPokeTrail.value.x, pointerTarget.x, 0.05);
-    uniforms.uPokeTrail.value.y = lerp(uniforms.uPokeTrail.value.y, pointerTarget.y, 0.05);
-
-    const targetDepth = pointerTarget.hover * 0.35;
-    const depthRate = pointerTarget.hover > 0 ? 0.04 : 0.02;
-    uniforms.uPokeDepth.value = lerp(uniforms.uPokeDepth.value, targetDepth, depthRate);
-
-    mesh.rotation.y += dt * 0.04;
-    mesh.rotation.x = Math.sin(uniforms.uTime.value * 0.12) * 0.04;
-
-    if (desktopQuery.matches) {
-      travelState.virtualScrollY = lerp(
-        travelState.virtualScrollY,
-        window.scrollY,
-        0.05
-      );
-
-      const docEl = document.documentElement;
-      const scrollable = Math.max(1, docEl.scrollHeight - window.innerHeight);
-      const virtualProgress = Math.min(
-        1,
-        Math.max(0, travelState.virtualScrollY / scrollable)
-      );
-      const phase = Math.cos(virtualProgress * Math.PI * 3);
-      const vw = window.innerWidth;
-      const sphereW = host.offsetWidth;
-      const margin = vw * 0.04;
-      const halfRange = Math.max(0, vw / 2 - sphereW / 2 - margin);
-      travelState.currentX = phase * halfRange;
-
-      const lagY = travelState.virtualScrollY - window.scrollY;
-
-      host.style.transform = `translate(calc(-50% + ${travelState.currentX.toFixed(2)}px), calc(-50% + ${lagY.toFixed(2)}px))`;
-    }
-
+    const delta = clock.getDelta();
+    elapsedTime += delta;
+    updateOrbTransforms(elapsedTime, delta);
     renderer.render(scene, camera);
     rafId = requestAnimationFrame(loop);
-  }
+  };
 
-  function start() {
+  const start = () => {
     if (running) return;
     running = true;
+    clock.start();
     clock.getDelta();
     rafId = requestAnimationFrame(loop);
-  }
+  };
 
-  function stop() {
+  const stop = () => {
     running = false;
     if (rafId !== null) {
       cancelAnimationFrame(rafId);
       rafId = null;
     }
+    clock.stop();
+  };
+
+  if (typeof desktopQuery.addEventListener === "function") {
+    desktopQuery.addEventListener("change", () => {
+      rebuildOrbs();
+      resize();
+    });
+  } else if (typeof desktopQuery.addListener === "function") {
+    desktopQuery.addListener(() => {
+      rebuildOrbs();
+      resize();
+    });
   }
 
   start();
@@ -352,6 +517,7 @@ async function initWaterSphere() {
     stop();
     document.body.classList.add("no-webgl");
   };
+
   if (typeof reduceMotion.addEventListener === "function") {
     reduceMotion.addEventListener("change", handleReduceMotion);
   } else if (typeof reduceMotion.addListener === "function") {

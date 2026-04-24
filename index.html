@@ -74,47 +74,58 @@
   </header>
 
   <main class="relative pt-0 pb-0">
-    <div class="hero-sphere" data-hero-sphere aria-hidden="true">
-      <canvas class="hero-sphere__canvas"></canvas>
-      <div class="hero-sphere__fallback" aria-hidden="true"></div>
-    </div>
     <div class="hero-scroll-stack max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
         <div class="hero-stage__viewport">
+          <div class="hero-stage__orb-layer" data-hero-orb-layer aria-hidden="true">
+            <canvas class="hero-stage__orb-canvas"></canvas>
+            <div class="hero-stage__orb-fallback" aria-hidden="true">
+              <span class="hero-stage__orb hero-stage__orb--cyan-violet"></span>
+              <span class="hero-stage__orb hero-stage__orb--magenta"></span>
+              <span class="hero-stage__orb hero-stage__orb--aqua"></span>
+              <span class="hero-stage__orb hero-stage__orb--blue"></span>
+            </div>
+          </div>
           <div class="hero-stage__frame" data-hero-stage-card>
             <div class="hero-stage__surface" aria-hidden="true">
+              <div class="hero-stage__glow" aria-hidden="true"></div>
               <span class="hero-stage__noise" aria-hidden="true"></span>
               <div class="hero-stage__grid" aria-hidden="true"></div>
             </div>
 
             <div class="hero-stage__content">
-              <p class="hero-stage__eyebrow">Strategie, Design und Umsetzung aus einer Hand</p>
-              <h1 class="hero-stage__title">
-                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">High-End Websites</span> mit
-                  Klarheit.</span>
-                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Positionierung</span> mit
-                  Richtung.</span>
-                <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Conversion</span> mit
-                  System.</span>
-              </h1>
-              <p class="hero-stage__text">
-                Ich entwickle digitale Auftritte, die professionell wirken, sauber führen und qualifizierte Anfragen
-                wahrscheinlicher machen statt nur Aufmerksamkeit zu sammeln.
-              </p>
-              <div class="chip-row mt-6">
-                <span class="contact-chip">Direkter Ansprechpartner</span>
-                <span class="contact-chip">Klare Angebotslogik</span>
-                <span class="contact-chip">Performance & Struktur</span>
+              <div class="hero-stage__copy">
+                <p class="hero-stage__eyebrow">Strategie, Design und Umsetzung aus einer Hand</p>
+                <h1 class="hero-stage__title">
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">High-End Websites</span> mit
+                    Klarheit.</span>
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Positionierung</span> mit
+                    Richtung.</span>
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Conversion</span> mit
+                    System.</span>
+                </h1>
+                <p class="hero-stage__text">
+                  Ich entwickle digitale Auftritte, die professionell wirken, sauber führen und qualifizierte Anfragen
+                  wahrscheinlicher machen statt nur Aufmerksamkeit zu sammeln.
+                </p>
               </div>
-              <div class="final-cta-section__btns justify-start mt-8">
-                <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
-                  aria-label="Erstgespräch buchen">
-                  Erstgespräch buchen
-                </a>
-                <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
-                  aria-label="Mini-Audit anfordern">
-                  Mini-Audit anfordern
-                </a>
+
+              <div class="hero-stage__actions">
+                <div class="chip-row">
+                  <span class="contact-chip">Direkter Ansprechpartner</span>
+                  <span class="contact-chip">Klare Angebotslogik</span>
+                  <span class="contact-chip">Performance & Struktur</span>
+                </div>
+                <div class="final-cta-section__btns justify-start">
+                  <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
+                    aria-label="Erstgespräch buchen">
+                    Erstgespräch buchen
+                  </a>
+                  <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+                    aria-label="Mini-Audit anfordern">
+                    Mini-Audit anfordern
+                  </a>
+                </div>
               </div>
             </div>
           </div>

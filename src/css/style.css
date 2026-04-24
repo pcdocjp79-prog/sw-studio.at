@@ -29,6 +29,8 @@
   --hero-orb-magenta: #ff6fd8;
   --hero-orb-violet: #7c75ff;
   --hero-orb-blue: #68b8ff;
+  --orb-field-height: 200vh;
+  --orb-scroll-progress: 0;
 }
 
 @supports (height: 100svh) {
@@ -60,7 +62,7 @@ body::before {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   background-color: #18263b;
   background-image:
@@ -74,27 +76,40 @@ body::before {
   will-change: opacity, transform, background-position;
 }
 
-body.has-animated-bg::before {
-  opacity: 0.8;
-}
-
 #animated-background {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 420ms ease;
-}
-
-body.has-animated-bg #animated-background {
+  overflow: hidden;
   opacity: 1;
 }
 
-#animated-background canvas {
+.orb-parallax__canvas {
   display: block;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
+}
+
+.orb-parallax__fallback {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--orb-field-height);
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+  transform: translate3d(0, calc(var(--orb-scroll-progress) * -100vh), 0);
+  will-change: transform;
+}
+
+body.no-webgl .orb-parallax__canvas {
+  display: none;
+}
+
+body.no-webgl .orb-parallax__fallback {
+  display: block;
 }
 
 a {

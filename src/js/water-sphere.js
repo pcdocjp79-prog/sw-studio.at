@@ -226,6 +226,158 @@ const ORB_CONFIGS = {
       rotationSpeed: 0.09,
       pulse: 0.04,
     },
+    {
+      key: "cyan-violet-lower",
+      interactive: false,
+      colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
+      baseX: 0.62,
+      baseY: -1.35,
+      scale: 3.2,
+      depth: -3.8,
+      driftX: 0.1,
+      driftY: 0.08,
+      driftSpeed: 0.26,
+      driftPhase: 2.8,
+      rotationSpeed: 0.07,
+      pulse: 0.04,
+    },
+    {
+      key: "magenta-lower",
+      interactive: false,
+      colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
+      baseX: -0.78,
+      baseY: -2.05,
+      scale: 3.6,
+      depth: -4.0,
+      driftX: 0.09,
+      driftY: 0.1,
+      driftSpeed: 0.22,
+      driftPhase: 4.1,
+      rotationSpeed: 0.05,
+      pulse: 0.05,
+    },
+    {
+      key: "aqua-lower",
+      interactive: false,
+      colors: [0x0d2242, 0x9aefff, 0xd6fff7, 0x68b8ff],
+      baseX: 0.92,
+      baseY: -1.78,
+      scale: 1.45,
+      depth: -2.6,
+      driftX: 0.05,
+      driftY: 0.06,
+      driftSpeed: 0.38,
+      driftPhase: 5.4,
+      rotationSpeed: 0.1,
+      pulse: 0.05,
+    },
+    {
+      key: "blue-lower",
+      interactive: false,
+      colors: [0x13285c, 0x74c8ff, 0xcbf5ff, 0x7c75ff],
+      baseX: -0.22,
+      baseY: -2.55,
+      scale: 1.7,
+      depth: -2.9,
+      driftX: 0.06,
+      driftY: 0.07,
+      driftSpeed: 0.3,
+      driftPhase: 6.0,
+      rotationSpeed: 0.08,
+      pulse: 0.04,
+    },
+  ],
+  tablet: [
+    {
+      key: "cyan-violet",
+      interactive: false,
+      colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
+      baseX: -0.82,
+      baseY: 0.74,
+      scale: 4.0,
+      depth: -3.6,
+      driftX: 0.1,
+      driftY: 0.06,
+      driftSpeed: 0.26,
+      driftPhase: 0.4,
+      rotationSpeed: 0.07,
+      pulse: 0.04,
+    },
+    {
+      key: "magenta",
+      interactive: false,
+      colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
+      baseX: 0.86,
+      baseY: -0.62,
+      scale: 3.35,
+      depth: -4.0,
+      driftX: 0.07,
+      driftY: 0.1,
+      driftSpeed: 0.22,
+      driftPhase: 1.6,
+      rotationSpeed: 0.055,
+      pulse: 0.045,
+    },
+    {
+      key: "blue",
+      interactive: false,
+      colors: [0x13285c, 0x74c8ff, 0xcbf5ff, 0x7c75ff],
+      baseX: 0.68,
+      baseY: 0.36,
+      scale: 1.6,
+      depth: -2.9,
+      driftX: 0.05,
+      driftY: 0.07,
+      driftSpeed: 0.32,
+      driftPhase: 3.1,
+      rotationSpeed: 0.08,
+      pulse: 0.04,
+    },
+    {
+      key: "cyan-violet-lower",
+      interactive: false,
+      colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
+      baseX: 0.58,
+      baseY: -1.4,
+      scale: 2.8,
+      depth: -3.8,
+      driftX: 0.08,
+      driftY: 0.07,
+      driftSpeed: 0.24,
+      driftPhase: 2.8,
+      rotationSpeed: 0.06,
+      pulse: 0.04,
+    },
+    {
+      key: "magenta-lower",
+      interactive: false,
+      colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
+      baseX: -0.76,
+      baseY: -2.0,
+      scale: 3.1,
+      depth: -4.0,
+      driftX: 0.08,
+      driftY: 0.09,
+      driftSpeed: 0.2,
+      driftPhase: 4.1,
+      rotationSpeed: 0.05,
+      pulse: 0.045,
+    },
+    {
+      key: "aqua-lower",
+      interactive: false,
+      colors: [0x0d2242, 0x9aefff, 0xd6fff7, 0x68b8ff],
+      baseX: 0.2,
+      baseY: -2.5,
+      scale: 1.4,
+      depth: -2.7,
+      driftX: 0.05,
+      driftY: 0.06,
+      driftSpeed: 0.3,
+      driftPhase: 5.6,
+      rotationSpeed: 0.08,
+      pulse: 0.04,
+    },
   ],
   mobile: [
     {
@@ -258,10 +410,41 @@ const ORB_CONFIGS = {
       rotationSpeed: 0.05,
       pulse: 0.035,
     },
+    {
+      key: "cyan-violet-lower",
+      interactive: false,
+      colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
+      baseX: 0.52,
+      baseY: -1.5,
+      scale: 2.4,
+      depth: -3.6,
+      driftX: 0.07,
+      driftY: 0.07,
+      driftSpeed: 0.22,
+      driftPhase: 3.2,
+      rotationSpeed: 0.05,
+      pulse: 0.035,
+    },
+    {
+      key: "magenta-lower",
+      interactive: false,
+      colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
+      baseX: -0.78,
+      baseY: -2.1,
+      scale: 2.6,
+      depth: -3.8,
+      driftX: 0.07,
+      driftY: 0.08,
+      driftSpeed: 0.18,
+      driftPhase: 4.6,
+      rotationSpeed: 0.04,
+      pulse: 0.04,
+    },
   ],
 };
 
 const SCENE_HALF_HEIGHT = 5;
+const ORB_FIELD_MULTIPLIER = 2;
 const HOVER_PAD = 100;
 const ENABLE_ORB_HOVER = false;
 
@@ -311,7 +494,7 @@ function createOrbMaterial(THREE, config) {
 }
 
 async function initWaterSphere() {
-  const host = document.querySelector("[data-hero-orb-layer]");
+  const host = document.querySelector("[data-orb-parallax-layer]");
   if (!host) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -331,7 +514,7 @@ async function initWaterSphere() {
     return;
   }
 
-  const canvas = host.querySelector(".hero-stage__orb-canvas");
+  const canvas = host.querySelector(".orb-parallax__canvas");
   if (!canvas) return;
 
   document.body.classList.remove("no-webgl");
@@ -353,15 +536,22 @@ async function initWaterSphere() {
   camera.position.set(0, 0, 12);
   camera.lookAt(0, 0, 0);
 
-  const desktopQuery = window.matchMedia("(min-width: 900px)");
+  const desktopQuery = window.matchMedia("(min-width: 1200px)");
+  const tabletQuery = window.matchMedia("(min-width: 700px) and (max-width: 1199.98px)");
+  const getTier = () =>
+    desktopQuery.matches ? "desktop" : tabletQuery.matches ? "tablet" : "mobile";
+
   const pointerTarget = { x: 0, y: 0, inside: false, hasPointer: false };
   const worldPointer = new THREE.Vector2(0, 0);
   const orbEntries = [];
   let geometry = null;
 
   const lerp = (start, end, amount) => start + (end - start) * amount;
-  const createGeometry = () =>
-    new THREE.IcosahedronGeometry(1, desktopQuery.matches ? 56 : 40);
+  const createGeometry = () => {
+    const tier = getTier();
+    const detail = tier === "desktop" ? 56 : tier === "tablet" ? 46 : 36;
+    return new THREE.IcosahedronGeometry(1, detail);
+  };
 
   const setCameraFrustum = (width, height) => {
     const aspect = width / Math.max(height, 1);
@@ -384,7 +574,7 @@ async function initWaterSphere() {
     }
     geometry = createGeometry();
 
-    const nextConfigs = desktopQuery.matches ? ORB_CONFIGS.desktop : ORB_CONFIGS.mobile;
+    const nextConfigs = ORB_CONFIGS[getTier()] || ORB_CONFIGS.mobile;
     nextConfigs.forEach((config, index) => {
       const material = createOrbMaterial(THREE, config);
       const mesh = new THREE.Mesh(geometry, material);
@@ -403,9 +593,8 @@ async function initWaterSphere() {
   };
 
   const resize = () => {
-    const rect = host.getBoundingClientRect();
-    const width = Math.max(1, Math.round(rect.width));
-    const height = Math.max(1, Math.round(rect.height));
+    const width = Math.max(1, window.innerWidth);
+    const height = Math.max(1, window.innerHeight);
     renderer.setSize(width, height, false);
     setCameraFrustum(width, height);
   };
@@ -413,12 +602,7 @@ async function initWaterSphere() {
   resize();
   rebuildOrbs();
 
-  if ("ResizeObserver" in window) {
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(host);
-  } else {
-    window.addEventListener("resize", resize);
-  }
+  window.addEventListener("resize", resize);
 
   const updatePointer = (event) => {
     if (!ENABLE_ORB_HOVER) return;
@@ -471,6 +655,14 @@ async function initWaterSphere() {
     let hoveredEntry = null;
     let hoveredRatio = Number.POSITIVE_INFINITY;
 
+    const scrollState = window.__orbParallaxState;
+    const rawProgress = scrollState && typeof scrollState.progress === "number"
+      ? scrollState.progress
+      : 0;
+    const progress = Math.max(0, Math.min(1, rawProgress));
+    const scrollOffsetY =
+      progress * SCENE_HALF_HEIGHT * 2 * (ORB_FIELD_MULTIPLIER - 1);
+
     orbEntries.forEach((entry) => {
       const { config, mesh, material } = entry;
       const phase = time * config.driftSpeed + config.driftPhase;
@@ -479,7 +671,7 @@ async function initWaterSphere() {
       const driftY = Math.cos(phase * 0.92) * config.driftY;
 
       mesh.position.x = (config.baseX + driftX) * camera.right;
-      mesh.position.y = (config.baseY + driftY) * camera.top;
+      mesh.position.y = (config.baseY + driftY) * camera.top + scrollOffsetY;
       mesh.position.z = config.depth;
       mesh.scale.setScalar(config.scale * pulse);
       mesh.rotation.y += delta * config.rotationSpeed;
@@ -554,17 +746,18 @@ async function initWaterSphere() {
     clock.stop();
   };
 
-  if (typeof desktopQuery.addEventListener === "function") {
-    desktopQuery.addEventListener("change", () => {
-      rebuildOrbs();
-      resize();
-    });
-  } else if (typeof desktopQuery.addListener === "function") {
-    desktopQuery.addListener(() => {
-      rebuildOrbs();
-      resize();
-    });
-  }
+  const handleTierChange = () => {
+    rebuildOrbs();
+    resize();
+  };
+
+  [desktopQuery, tabletQuery].forEach((query) => {
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", handleTierChange);
+    } else if (typeof query.addListener === "function") {
+      query.addListener(handleTierChange);
+    }
+  });
 
   start();
 

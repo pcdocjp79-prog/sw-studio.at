@@ -39,7 +39,15 @@
 </head>
 
 <body id="top" data-page="home" class="antialiased selection:bg-zinc-200 selection:text-black">
-  <div id="animated-background" aria-hidden="true"></div>
+  <div id="animated-background" data-orb-parallax-layer aria-hidden="true">
+    <canvas class="orb-parallax__canvas"></canvas>
+    <div class="orb-parallax__fallback" aria-hidden="true">
+      <span class="hero-stage__orb hero-stage__orb--cyan-violet"></span>
+      <span class="hero-stage__orb hero-stage__orb--blue"></span>
+      <span class="hero-stage__orb hero-stage__orb--aqua"></span>
+      <span class="hero-stage__orb hero-stage__orb--magenta"></span>
+    </div>
+  </div>
 
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
@@ -77,15 +85,6 @@
     <div class="hero-scroll-stack max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <section id="hero-stage" class="hero-stage hero-stage--full-bleed animate-enter" data-hero-stage>
         <div class="hero-stage__viewport">
-          <div class="hero-stage__orb-layer" data-hero-orb-layer aria-hidden="true">
-            <canvas class="hero-stage__orb-canvas"></canvas>
-            <div class="hero-stage__orb-fallback" aria-hidden="true">
-              <span class="hero-stage__orb hero-stage__orb--cyan-violet"></span>
-              <span class="hero-stage__orb hero-stage__orb--magenta"></span>
-              <span class="hero-stage__orb hero-stage__orb--aqua"></span>
-              <span class="hero-stage__orb hero-stage__orb--blue"></span>
-            </div>
-          </div>
           <div class="hero-stage__frame" data-hero-stage-card>
             <div class="hero-stage__surface" aria-hidden="true">
               <div class="hero-stage__glow" aria-hidden="true"></div>

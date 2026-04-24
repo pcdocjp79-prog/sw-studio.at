@@ -52,6 +52,7 @@ const VERTEX_SHADER = `
 uniform float uTime;
 uniform vec2 uPokeTrail;
 uniform float uPokeDepth;
+uniform float uOrbScale;
 
 varying vec3 vNormal;
 varying vec3 vViewPos;
@@ -74,10 +75,22 @@ void main() {
   float disp = liquidDisp(pos);
 
   vec2 screenXY = viewP.xy;
-  float pokeDist = length(screenXY - uPokeTrail);
+  vec2 pokeDelta = (screenXY - uPokeTrail) / max(uOrbScale, 0.001);
   float frontFacing = smoothstep(-14.0, -4.0, viewP.z);
-  float poke = exp(-pokeDist * pokeDist * 1.6) * uPokeDepth * frontFacing;
-  disp -= poke;
+
+  float radial = length(pokeDelta);
+  float angle = atan(pokeDelta.y, pokeDelta.x);
+  float ripple = 0.72 + 0.28 * sin(angle * 6.0 + uTime * 1.3);
+  float coreImpact = exp(-radial * radial * 12.0);
+  float splashRing = exp(-pow(radial - 0.28, 2.0) * 40.0) * ripple;
+  float outerSpray = exp(-pow(radial - 0.52, 2.0) * 20.0) * (0.78 + 0.22 * sin(angle * 10.0 - uTime * 0.9));
+  float recoil = exp(-pow(radial - 0.16, 2.0) * 26.0);
+
+  float inwardCut = (coreImpact * 0.42 + recoil * 0.1) * uPokeDepth * frontFacing;
+  float outwardBurst = (splashRing * 0.28 + outerSpray * 0.12) * uPokeDepth * frontFacing;
+
+  disp -= inwardCut;
+  disp += outwardBurst;
 
   vec3 displaced = pos + normal * disp;
 
@@ -148,6 +161,8 @@ const ORB_CONFIGS = {
     {
       key: "cyan-violet",
       interactive: true,
+      hoverDepth: 0.2,
+      hoverRadius: 0.9,
       colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
       baseX: -0.84,
       baseY: 0.78,
@@ -162,6 +177,9 @@ const ORB_CONFIGS = {
     },
     {
       key: "magenta",
+      interactive: true,
+      hoverDepth: 0.18,
+      hoverRadius: 0.92,
       colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
       baseX: 0.84,
       baseY: -0.68,
@@ -176,6 +194,9 @@ const ORB_CONFIGS = {
     },
     {
       key: "aqua",
+      interactive: true,
+      hoverDepth: 0.16,
+      hoverRadius: 1.02,
       colors: [0x0d2242, 0x9aefff, 0xd6fff7, 0x68b8ff],
       baseX: -0.96,
       baseY: -0.86,
@@ -190,6 +211,9 @@ const ORB_CONFIGS = {
     },
     {
       key: "blue",
+      interactive: true,
+      hoverDepth: 0.17,
+      hoverRadius: 0.98,
       colors: [0x13285c, 0x74c8ff, 0xcbf5ff, 0x7c75ff],
       baseX: 0.74,
       baseY: 0.42,
@@ -206,7 +230,7 @@ const ORB_CONFIGS = {
   mobile: [
     {
       key: "cyan-violet",
-      interactive: true,
+      interactive: false,
       colors: [0x0e1d47, 0x77d2ff, 0xc7fff8, 0x8b6fff],
       baseX: -0.86,
       baseY: 0.78,
@@ -221,6 +245,7 @@ const ORB_CONFIGS = {
     },
     {
       key: "magenta",
+      interactive: false,
       colors: [0x29113a, 0xff77dc, 0xffd8fb, 0x8d6eff],
       baseX: 0.92,
       baseY: -0.62,
@@ -238,6 +263,7 @@ const ORB_CONFIGS = {
 
 const SCENE_HALF_HEIGHT = 5;
 const HOVER_PAD = 100;
+const ENABLE_ORB_HOVER = false;
 
 function hasWebGL() {
   try {
@@ -268,6 +294,7 @@ function createOrbMaterial(THREE, config) {
     uTime: { value: 0 },
     uPokeTrail: { value: new THREE.Vector2(0, 0) },
     uPokeDepth: { value: 0 },
+    uOrbScale: { value: 1 },
     uColorDeep: { value: new THREE.Color(config.colors[0]) },
     uColorShallow: { value: new THREE.Color(config.colors[1]) },
     uColorRim: { value: new THREE.Color(config.colors[2]) },
@@ -327,9 +354,8 @@ async function initWaterSphere() {
   camera.lookAt(0, 0, 0);
 
   const desktopQuery = window.matchMedia("(min-width: 900px)");
-  const pointerTarget = { x: 0, y: 0, hover: 0 };
+  const pointerTarget = { x: 0, y: 0, inside: false, hasPointer: false };
   const worldPointer = new THREE.Vector2(0, 0);
-  const travelState = { virtualScrollY: window.scrollY || 0 };
   const orbEntries = [];
   let geometry = null;
 
@@ -365,7 +391,14 @@ async function initWaterSphere() {
       mesh.position.z = config.depth;
       mesh.renderOrder = index;
       scene.add(mesh);
-      orbEntries.push({ config, mesh, material });
+      orbEntries.push({
+        config,
+        mesh,
+        material,
+        hoverStrength: 0,
+        hoverRadius: config.scale,
+        pokeTrail: new THREE.Vector2(0, 0),
+      });
     });
   };
 
@@ -388,6 +421,7 @@ async function initWaterSphere() {
   }
 
   const updatePointer = (event) => {
+    if (!ENABLE_ORB_HOVER) return;
     if (event.pointerType === "touch") return;
 
     const rect = host.getBoundingClientRect();
@@ -397,7 +431,8 @@ async function initWaterSphere() {
       event.clientY >= rect.top - HOVER_PAD &&
       event.clientY <= rect.bottom + HOVER_PAD;
 
-    pointerTarget.hover = inside ? 1 : 0;
+    pointerTarget.hasPointer = true;
+    pointerTarget.inside = inside;
 
     const relativeX = ((event.clientX - rect.left) / Math.max(rect.width, 1)) * 2 - 1;
     const relativeY = -((((event.clientY - rect.top) / Math.max(rect.height, 1)) * 2) - 1);
@@ -407,7 +442,16 @@ async function initWaterSphere() {
 
   window.addEventListener("pointermove", updatePointer, { passive: true });
   window.addEventListener("pointerout", (event) => {
-    if (!event.relatedTarget) pointerTarget.hover = 0;
+    if (!ENABLE_ORB_HOVER) return;
+    if (!event.relatedTarget) {
+      pointerTarget.inside = false;
+      pointerTarget.hasPointer = false;
+    }
+  });
+  window.addEventListener("blur", () => {
+    if (!ENABLE_ORB_HOVER) return;
+    pointerTarget.inside = false;
+    pointerTarget.hasPointer = false;
   });
 
   const clock = new THREE.Clock();
@@ -421,19 +465,17 @@ async function initWaterSphere() {
   };
 
   const updateOrbTransforms = (time, delta) => {
-    syncWorldPointer();
-    travelState.virtualScrollY = lerp(travelState.virtualScrollY, window.scrollY, 0.045);
-
-    const docElement = document.documentElement;
-    const scrollable = Math.max(1, docElement.scrollHeight - window.innerHeight);
-    const scrollProgress = Math.min(1, Math.max(0, travelState.virtualScrollY / scrollable));
-    const globalDrift = Math.sin(scrollProgress * Math.PI * 2.5) * 0.12;
+    if (ENABLE_ORB_HOVER) {
+      syncWorldPointer();
+    }
+    let hoveredEntry = null;
+    let hoveredRatio = Number.POSITIVE_INFINITY;
 
     orbEntries.forEach((entry) => {
       const { config, mesh, material } = entry;
       const phase = time * config.driftSpeed + config.driftPhase;
       const pulse = 1 + Math.sin(time * (config.driftSpeed * 1.6) + config.driftPhase) * config.pulse;
-      const driftX = Math.sin(phase) * config.driftX + globalDrift * (config.interactive ? 0.7 : 0.45);
+      const driftX = Math.sin(phase) * config.driftX;
       const driftY = Math.cos(phase * 0.92) * config.driftY;
 
       mesh.position.x = (config.baseX + driftX) * camera.right;
@@ -444,26 +486,45 @@ async function initWaterSphere() {
       mesh.rotation.x = Math.sin(time * (config.driftSpeed * 0.85) + config.driftPhase) * 0.12;
 
       material.uniforms.uTime.value = time;
+      material.uniforms.uOrbScale.value = config.scale * pulse;
+      entry.hoverRadius = config.scale * pulse * (config.hoverRadius || 0.94);
 
-      if (config.interactive) {
-        material.uniforms.uPokeTrail.value.x = lerp(
-          material.uniforms.uPokeTrail.value.x,
-          worldPointer.x,
-          0.06
-        );
-        material.uniforms.uPokeTrail.value.y = lerp(
-          material.uniforms.uPokeTrail.value.y,
-          worldPointer.y,
-          0.06
-        );
-        material.uniforms.uPokeDepth.value = lerp(
-          material.uniforms.uPokeDepth.value,
-          pointerTarget.hover * (desktopQuery.matches ? 0.62 : 0.4),
-          pointerTarget.hover > 0 ? 0.04 : 0.02
-        );
-      } else {
-        material.uniforms.uPokeDepth.value = lerp(material.uniforms.uPokeDepth.value, 0, 0.08);
+      if (
+        !ENABLE_ORB_HOVER ||
+        !desktopQuery.matches ||
+        !config.interactive ||
+        !pointerTarget.hasPointer ||
+        !pointerTarget.inside
+      ) {
+        return;
       }
+
+      const dx = worldPointer.x - mesh.position.x;
+      const dy = worldPointer.y - mesh.position.y;
+      const dist = Math.hypot(dx, dy);
+      const distRatio = dist / Math.max(entry.hoverRadius, 0.001);
+
+      if (distRatio <= 1 && distRatio < hoveredRatio) {
+        hoveredEntry = entry;
+        hoveredRatio = distRatio;
+      }
+    });
+
+    orbEntries.forEach((entry) => {
+      const { config, mesh, material, pokeTrail } = entry;
+      const isHovered = entry === hoveredEntry && desktopQuery.matches && config.interactive;
+      const targetTrailX = isHovered ? worldPointer.x : mesh.position.x;
+      const targetTrailY = isHovered ? worldPointer.y : mesh.position.y;
+      const targetDepth = isHovered ? (config.hoverDepth || 0.18) : 0;
+      const trailLerp = isHovered ? 0.22 : 0.1;
+      const depthLerp = isHovered ? 0.2 : 0.075;
+
+      pokeTrail.x = lerp(pokeTrail.x, targetTrailX, trailLerp);
+      pokeTrail.y = lerp(pokeTrail.y, targetTrailY, trailLerp);
+      entry.hoverStrength = lerp(entry.hoverStrength, targetDepth, depthLerp);
+
+      material.uniforms.uPokeTrail.value.copy(pokeTrail);
+      material.uniforms.uPokeDepth.value = entry.hoverStrength;
     });
   };
 

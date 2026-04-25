@@ -76,6 +76,59 @@ body::before {
   will-change: opacity, transform, background-position;
 }
 
+body[data-page="home"] {
+  background-color: #122033;
+}
+
+body[data-page="home"]::before {
+  background-color: #22324c;
+  background-image:
+    radial-gradient(132% 94% at 12% 0%, rgba(127, 190, 255, 0.68) 0%, rgba(0, 0, 0, 0) 60%),
+    radial-gradient(72% 64% at 88% 100%, rgba(255, 152, 214, 0.4) 0%, rgba(0, 0, 0, 0) 68%),
+    linear-gradient(180deg, rgba(88, 109, 152, 0.28) 0%, rgba(42, 58, 88, 0.34) 100%);
+}
+
+body[data-page="home"] .hero-stage__viewport {
+  background:
+    linear-gradient(180deg, rgba(14, 24, 39, 0.82) 0%, rgba(20, 31, 49, 0.9) 100%);
+}
+
+body[data-page="home"] .hero-stage__viewport::before {
+  background:
+    radial-gradient(120% 92% at 10% 0%, rgba(118, 185, 255, 0.26) 0%, rgba(118, 185, 255, 0) 54%),
+    radial-gradient(88% 72% at 100% 100%, rgba(255, 122, 218, 0.18) 0%, rgba(255, 122, 218, 0) 60%),
+    linear-gradient(180deg, rgba(34, 48, 76, 0.2) 0%, rgba(13, 22, 37, 0) 100%);
+}
+
+body[data-page="home"] .hero-stage__viewport::after {
+  background:
+    radial-gradient(70% 60% at 52% 48%, rgba(126, 193, 255, 0.11) 0%, rgba(126, 193, 255, 0) 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 28%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 62%, rgba(4, 10, 22, 0.18) 100%);
+}
+
+body[data-page="home"] .hero-stage__frame {
+  background: rgba(15, 25, 43, 0.24);
+  box-shadow:
+    0 24px 58px rgba(5, 12, 28, calc(0.28 * var(--hero-border-scroll-opacity))),
+    0 40px 84px rgba(8, 16, 34, calc(0.22 * var(--hero-border-scroll-opacity)));
+}
+
+body[data-page="home"] .trust-strip__item,
+body[data-page="home"] .approach-card {
+  background: rgba(20, 30, 49, 0.44);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 28px rgba(3, 10, 24, 0.16);
+}
+
+body[data-page="home"] .approach-section::before {
+  background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(132, 194, 255, 0.1) 0%, transparent 70%);
+}
+
+body[data-page="home"] .service-pillars-section::before {
+  background: radial-gradient(ellipse 65% 50% at 50% 52%, rgba(170, 236, 255, 0.09) 0%, transparent 72%);
+}
+
 #animated-background {
   position: fixed;
   inset: 0;

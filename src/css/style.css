@@ -4892,10 +4892,11 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
   body.has-fixed-hero-bg #hero-stage {
     position: relative;
     inset: auto;
-    width: 100%;
+    width: 100vw;
     height: auto;
     min-height: 0;
-    margin: 0;
+    margin-inline: calc(50% - 50vw);
+    padding-inline: 0;
     z-index: 0;
   }
 
@@ -4904,10 +4905,23 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
     min-height: clamp(260px, 72vw, 520px);
     padding-top: clamp(6.4rem, 16vw, 7.4rem);
     padding-bottom: clamp(1.1rem, 4vw, 1.8rem);
+    background: transparent;
+  }
+
+  body.has-fixed-hero-bg #hero-stage .hero-stage__viewport::before,
+  body.has-fixed-hero-bg #hero-stage .hero-stage__viewport::after {
+    content: none;
   }
 
   body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
     align-self: stretch;
+    box-shadow: none;
+  }
+
+  body.has-fixed-hero-bg #hero-stage .hero-stage__frame::after {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
   }
 
   .approach-section,

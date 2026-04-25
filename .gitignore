@@ -2,3 +2,8 @@ node_modules/
 dist/
 .vite/
 .DS_Store
+
+# Lighthouse-Reports (lokal, nicht committen)
+lighthouse-baseline.json
+lighthouse-*.json
+lighthouse-*.html

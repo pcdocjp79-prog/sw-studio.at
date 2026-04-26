@@ -4255,7 +4255,7 @@ body[data-page="home"] .process-section__btn {
   isolation: isolate;
   border: 1px solid transparent;
   background:
-    linear-gradient(180deg, rgba(26, 35, 63, 0.84) 0%, rgba(18, 27, 51, 0.72) 100%) padding-box,
+    linear-gradient(180deg, rgba(26, 35, 63, 0.42) 0%, rgba(18, 27, 51, 0.36) 100%) padding-box,
     linear-gradient(90deg, rgba(255, 84, 184, 0.92) 0%, rgba(155, 122, 255, 0.94) 50%, rgba(148, 242, 255, 0.94) 100%) border-box;
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
@@ -4302,7 +4302,7 @@ body[data-page="home"] .process-section__btn::after {
   background:
     radial-gradient(88% 140% at 18% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 54%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 42%);
-  opacity: 0.9;
+  opacity: 0.72;
   z-index: -1;
   pointer-events: none;
 }

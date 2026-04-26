@@ -393,6 +393,8 @@ const initScrollFocusEffect = () => {
 
   window.addEventListener("scroll", queueScrollFocusUpdate, { passive: true });
   window.addEventListener("resize", queueScrollFocusUpdate);
+  window.addEventListener("pageshow", queueScrollFocusUpdate);
+  window.addEventListener("load", queueScrollFocusUpdate, { once: true });
   queueScrollFocusUpdate();
 };
 
@@ -890,6 +892,35 @@ const initHeroStageIntro = () => {
   let introHasStarted = false;
   let introStartTimeoutId = null;
   let introFinishTimeoutId = null;
+
+  // Reload/Anchor/Back-Nav mid-page: Intro überspringen, damit Scroll-Blur sofort greift.
+  // Wird mehrfach aufgerufen, weil Browser-Scroll-Restoration je nach Cache-Zustand
+  // erst nach Script-Ausführung passiert (typisch bei F5 mit Cache und bfcache).
+  const skipIntroIfMidPage = () => {
+    if (introIsFinished) return;
+    if (window.scrollY <= 18) return;
+    if (introStartTimeoutId !== null) {
+      window.clearTimeout(introStartTimeoutId);
+      introStartTimeoutId = null;
+    }
+    if (introFinishTimeoutId !== null) {
+      window.clearTimeout(introFinishTimeoutId);
+      introFinishTimeoutId = null;
+    }
+    heroStageElement.classList.remove("animate-enter", "is-intro-ready", "is-intro-active");
+    heroStageElement.classList.add("is-intro-done");
+    introIsFinished = true;
+    window.dispatchEvent(new Event("scroll"));
+  };
+
+  skipIntroIfMidPage();
+  if (introIsFinished) {
+    window.addEventListener("pageshow", skipIntroIfMidPage);
+    return;
+  }
+
+  window.addEventListener("pageshow", skipIntroIfMidPage);
+  window.addEventListener("load", skipIntroIfMidPage, { once: true });
 
   heroStageElement.classList.add("is-intro-active");
 

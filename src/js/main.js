@@ -176,6 +176,7 @@ const initScrollFocusEffect = () => {
   const firstScrollFocusSection = scrollFocusSections[0] || null;
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const desktopHeroEffectsQuery = window.matchMedia("(min-width: 901px)");
+  const heroScrollActivationThreshold = 18;
   let reducedMotion = reducedMotionQuery.matches;
   let rafId = null;
 
@@ -234,6 +235,10 @@ const initScrollFocusEffect = () => {
     desktopHeroEffectsQuery.matches &&
     !reducedMotion;
 
+  const shouldHoldHeroAtRest = () =>
+    window.scrollY <= heroScrollActivationThreshold ||
+    heroStageForScrollFocus?.classList.contains("is-intro-active");
+
   const getHeroPhaseProgress = (viewportHeight) => {
     if (!firstScrollFocusSection) return null;
 
@@ -254,6 +259,11 @@ const initScrollFocusEffect = () => {
       scrollFocusSections.forEach((section) => {
         section.classList.add("is-visible");
       });
+      resetHeroScrollFocusVisuals();
+      return;
+    }
+
+    if (shouldHoldHeroAtRest()) {
       resetHeroScrollFocusVisuals();
       return;
     }
@@ -870,6 +880,81 @@ const initHeroStageInteraction = () => {
   resetTilt(true);
 };
 
+const initHeroStageIntro = () => {
+  const heroStageElement = document.querySelector("[data-hero-stage].animate-enter");
+  const heroStageCard = heroStageElement?.querySelector("[data-hero-stage-card]");
+  if (!heroStageElement || !heroStageCard) return;
+
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let introIsFinished = false;
+  let introHasStarted = false;
+  let introStartTimeoutId = null;
+  let introFinishTimeoutId = null;
+
+  heroStageElement.classList.add("is-intro-active");
+
+  const releaseIntroLock = () => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        heroStageElement.classList.remove("is-intro-active");
+      });
+    });
+  };
+
+  const finishIntro = () => {
+    if (introIsFinished) return;
+    introIsFinished = true;
+    if (introStartTimeoutId !== null) {
+      window.clearTimeout(introStartTimeoutId);
+    }
+    if (introFinishTimeoutId !== null) {
+      window.clearTimeout(introFinishTimeoutId);
+    }
+    heroStageElement.classList.remove("animate-enter", "is-intro-ready");
+    releaseIntroLock();
+  };
+
+  const startIntro = () => {
+    if (introHasStarted || introIsFinished) return;
+    introHasStarted = true;
+    heroStageElement.classList.add("is-intro-ready");
+    introFinishTimeoutId = window.setTimeout(finishIntro, 2600);
+  };
+
+  if (reducedMotionQuery.matches) {
+    heroStageElement.classList.remove("animate-enter", "is-intro-ready", "is-intro-active");
+    finishIntro();
+    return;
+  }
+
+  const heroFontPromise =
+    typeof document.fonts?.load === "function"
+      ? Promise.allSettled([
+          document.fonts.load('600 1em "Geist"'),
+          document.fonts.load('400 1em "Inter"'),
+        ])
+      : Promise.resolve();
+
+  introStartTimeoutId = window.setTimeout(startIntro, 1100);
+
+  heroFontPromise.then(() => {
+    if (introIsFinished || introHasStarted) return;
+    if (introStartTimeoutId !== null) {
+      window.clearTimeout(introStartTimeoutId);
+    }
+    startIntro();
+  });
+
+  heroStageCard.addEventListener(
+    "animationend",
+    (event) => {
+      if (event.animationName !== "heroStageCardIntro") return;
+      finishIntro();
+    },
+    { once: true }
+  );
+};
+
 function initJumpNav() {
   const nav = document.querySelector(".jump-nav--section");
   if (!nav) return;
@@ -997,6 +1082,7 @@ function initJumpNav() {
 initOrbParallax();
 initRevealOnScroll();
 initScrollFocusEffect();
+initHeroStageIntro();
 initNavigation();
 initCookieConsent();
 initCardLinks();

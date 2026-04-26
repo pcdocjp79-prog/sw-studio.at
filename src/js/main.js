@@ -3,6 +3,43 @@ import { initCookieConsent } from "../scripts/modules/cookieConsent.js";
 
 document.documentElement.classList.add("js");
 
+const SURFACE_REVEAL_SELECTOR = [
+  ".approach-card",
+  ".process-step",
+  ".pkg-card",
+  ".trust-strip__item",
+  ".insight-cluster",
+  ".proof-card",
+  ".result-card",
+  ".next-step-card",
+  ".contact-aside",
+].join(", ");
+
+const MEDIA_REVEAL_SELECTOR = [
+  ".about-section__portrait-col",
+  ".about-portrait",
+  ".about-portrait__frame",
+  ".about-portrait__img",
+].join(", ");
+
+const REVEAL_COMPLETE_SELECTOR = [
+  ".reveal-on-scroll--surface",
+  ".reveal-on-scroll--media",
+  ".about-block.reveal-on-scroll",
+].join(", ");
+
+const parseCssTimeToMs = (value) => {
+  const normalizedValue = value.trim();
+  if (!normalizedValue) return 0;
+  if (normalizedValue.endsWith("ms")) {
+    return Number.parseFloat(normalizedValue);
+  }
+  if (normalizedValue.endsWith("s")) {
+    return Number.parseFloat(normalizedValue) * 1000;
+  }
+  return Number.parseFloat(normalizedValue) || 0;
+};
+
 function initOrbParallax() {
   const host = document.querySelector("[data-orb-parallax-layer]");
   if (!host) return;
@@ -62,12 +99,45 @@ const initRevealOnScroll = () => {
   const revealOnScrollElements = document.querySelectorAll(".reveal-on-scroll");
   if (revealOnScrollElements.length === 0) return;
 
+  revealOnScrollElements.forEach((element) => {
+    if (
+      element.matches(MEDIA_REVEAL_SELECTOR) ||
+      element.querySelector(MEDIA_REVEAL_SELECTOR)
+    ) {
+      element.classList.add("reveal-on-scroll--media");
+      return;
+    }
+
+    if (
+      element.matches(SURFACE_REVEAL_SELECTOR) ||
+      element.querySelector(SURFACE_REVEAL_SELECTOR)
+    ) {
+      element.classList.add("reveal-on-scroll--surface");
+    }
+  });
+
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
+          const { target } = entry;
+          target.classList.add("is-visible");
+
+          if (target.matches(REVEAL_COMPLETE_SELECTOR)) {
+            const computedStyle = window.getComputedStyle(target);
+            const revealDelayMs = parseCssTimeToMs(
+              computedStyle.getPropertyValue("--reveal-delay")
+            );
+            const revealDurationMs = parseCssTimeToMs(
+              computedStyle.getPropertyValue("--reveal-duration")
+            );
+
+            window.setTimeout(() => {
+              target.classList.add("is-reveal-complete");
+            }, revealDelayMs + revealDurationMs + 140);
+          }
+
           observer.unobserve(entry.target);
         });
       },

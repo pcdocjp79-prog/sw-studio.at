@@ -1264,19 +1264,37 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
 }
 
 .reveal-on-scroll {
+  --reveal-delay: var(--approach-delay,
+      var(--process-delay,
+        var(--pkg-delay,
+          var(--about-delay,
+            var(--service-pillars-delay,
+              var(--final-cta-delay, 0ms))))));
+  --reveal-duration: 0.82s;
+  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-distance: 30px;
+  --reveal-scale: 1;
+  --reveal-blur: 0px;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter calc(var(--reveal-duration) + 80ms) var(--reveal-ease);
+  will-change: opacity, transform, filter;
 }
 
 .js .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
+  filter: blur(var(--reveal-blur));
+  transform: translate3d(0, var(--reveal-distance), 0) scale(var(--reveal-scale));
 }
 
 .reveal-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 .reveal-delay-1 { transition-delay: 0.1s; }
@@ -3829,7 +3847,21 @@ body[data-page="preise"] .pricing-packages-section .packages-section__disclaimer
   padding-left: 1.25rem;
   border-left: 2px solid rgba(148, 242, 255, 0.25);
   transition: border-color 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--about-delay, 0ms);
+}
+
+.about-block.reveal-on-scroll {
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter calc(var(--reveal-duration) + 80ms) var(--reveal-ease),
+    border-color 280ms ease;
+}
+
+.about-block.reveal-on-scroll.is-reveal-complete {
+  transition:
+    border-color 280ms ease,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 180ms ease;
 }
 
 .about-block:hover {
@@ -3926,8 +3958,12 @@ body[data-page="preise"] .pricing-packages-section .packages-section__disclaimer
 }
 
 /* Stagger for text blocks */
-.js .about-block.reveal-on-scroll {
+.js .about-block.reveal-on-scroll:not(.is-visible) {
   transition-delay: var(--about-delay, 0ms);
+}
+
+.js .about-block.reveal-on-scroll.is-visible {
+  transition-delay: 0ms;
 }
 
 /* Reduced motion */
@@ -5028,6 +5064,79 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
   }
 }
 
+.reveal-on-scroll--surface {
+  --reveal-duration: 0.98s;
+  --reveal-distance: 46px;
+  --reveal-scale: 0.965;
+  --reveal-blur: 10px;
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter calc(var(--reveal-duration) + 120ms) var(--reveal-ease),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    background-color 180ms ease;
+  will-change: opacity, transform, filter, box-shadow;
+}
+
+.reveal-on-scroll--surface.is-reveal-complete {
+  transition:
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    background-color 180ms ease,
+    filter 180ms ease;
+  will-change: transform, box-shadow, filter;
+}
+
+.reveal-on-scroll--media {
+  --reveal-duration: 1.08s;
+  --reveal-distance: 56px;
+  --reveal-scale: 0.94;
+  --reveal-blur: 14px;
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter calc(var(--reveal-duration) + 140ms) var(--reveal-ease);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll--media.is-reveal-complete {
+  transition:
+    transform 220ms var(--reveal-ease),
+    box-shadow 220ms ease,
+    filter 220ms var(--reveal-ease);
+  will-change: transform, filter;
+}
+
+.js .reveal-on-scroll:not(.is-visible) {
+  transition-delay: var(--reveal-delay);
+}
+
+.reveal-on-scroll.is-visible {
+  transition-delay: 0ms;
+}
+
+.reveal-on-scroll--media .about-portrait__frame {
+  transition:
+    transform calc(var(--reveal-duration) + 80ms) var(--reveal-ease),
+    box-shadow calc(var(--reveal-duration) + 80ms) ease,
+    filter calc(var(--reveal-duration) + 80ms) var(--reveal-ease);
+  will-change: transform, filter;
+}
+
+.js .reveal-on-scroll--media:not(.is-visible) .about-portrait__frame {
+  transform: scale(1.04);
+  filter: saturate(0.82) contrast(0.94);
+}
+
+.reveal-on-scroll--media.is-visible .about-portrait__frame {
+  transform: scale(1);
+  filter: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .approach-card,
   .process-step,
@@ -5074,6 +5183,12 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
   .next-step-card:hover::after,
   .contact-aside:hover::after {
     opacity: 0 !important;
+  }
+
+  .reveal-on-scroll--media .about-portrait__frame {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
 

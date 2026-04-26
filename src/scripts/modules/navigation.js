@@ -7,6 +7,7 @@ const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
 const PRIMARY_CTA_LABEL = "Erstgespräch buchen";
 const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
+const NAV_MOBILE_BREAKPOINT = 1024;
 
 const NAV_LINK_CLASS = "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium";
 
@@ -41,9 +42,47 @@ const PROJECT_DETAIL_PAGE_KEYS = Object.freeze(
   PROJECT_DETAIL_LINKS.map(({ pageKey }) => pageKey)
 );
 
+const SERVICE_DETAIL_LINKS = Object.freeze([
+  {
+    type: "page",
+    path: "webentwicklung.html",
+    label: "WEBENTWICKLUNG",
+    description:
+      "Individuelle codebasierte Websites mit klarer Nutzerfuehrung und Performance.",
+    pageKey: "webentwicklung",
+  },
+  {
+    type: "page",
+    path: SEO_MARKETING_PATH,
+    label: "SEO & MARKETING",
+    description:
+      "Mehr Sichtbarkeit, verstaendliche Angebotskommunikation und bessere Anfragen.",
+    pageKey: "seo-marketing",
+  },
+  {
+    type: "page",
+    path: "ki-beratung.html",
+    label: "KI & AUTOMATISIERUNG",
+    description:
+      "Praktische KI-Setups und Automatisierung fuer weniger manuelle Arbeit.",
+    pageKey: "ki-beratung",
+  },
+]);
+
+const SERVICE_DETAIL_PAGE_KEYS = Object.freeze(
+  SERVICE_DETAIL_LINKS.map(({ pageKey }) => pageKey)
+);
+
 const GLOBAL_NAV_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
-  { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
+  {
+    type: "page",
+    path: "leistungen.html",
+    label: "Leistungen",
+    pageKey: "leistungen",
+    matchPageKeys: SERVICE_DETAIL_PAGE_KEYS,
+    children: SERVICE_DETAIL_LINKS,
+  },
   {
     type: "page",
     path: "projekte.html",
@@ -270,6 +309,25 @@ const getResolvedHref = (link, runtimeConfig) => {
   }
 };
 
+const setCurrentPageState = (anchor, link, runtimeConfig, options = {}) => {
+  const isCurrentPage =
+    link.type === "page" &&
+    isCurrentPageLink(link, runtimeConfig) &&
+    !String(normalizePagePath(link.path) || "").includes("#");
+
+  if (options.addActiveClass) {
+    anchor.classList.toggle("is-active", isCurrentPage);
+  }
+
+  if (isCurrentPage) {
+    anchor.setAttribute("aria-current", "page");
+  } else {
+    anchor.removeAttribute("aria-current");
+  }
+
+  return isCurrentPage;
+};
+
 const createLinkElement = (link, runtimeConfig, options = {}) => {
   const anchor = document.createElement("a");
   const href = getResolvedHref(link, runtimeConfig);
@@ -281,14 +339,9 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
     anchor.className = options.className;
   }
 
-  const isCurrentPage =
-    link.type === "page" &&
-    isCurrentPageLink(link, runtimeConfig) &&
-    !String(normalizePagePath(link.path) || "").includes("#");
-
-  if (isCurrentPage) {
-    anchor.setAttribute("aria-current", "page");
-  }
+  setCurrentPageState(anchor, link, runtimeConfig, {
+    addActiveClass: Boolean(options.addActiveClass),
+  });
 
   if (link.type === "cookie-settings") {
     anchor.setAttribute("data-open-cookie-settings", "");
@@ -298,14 +351,93 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
   return anchor;
 };
 
+const createDropdownChildLink = (link, runtimeConfig) => {
+  const anchor = document.createElement("a");
+  const title = document.createElement("span");
+  const description = document.createElement("span");
+
+  anchor.href = getResolvedHref(link, runtimeConfig);
+  anchor.className = "nav-dropdown__item";
+
+  title.className = "nav-dropdown__item-title";
+  title.textContent = link.label;
+
+  description.className = "nav-dropdown__item-description";
+  description.textContent = link.description || "";
+
+  anchor.append(title, description);
+  setCurrentPageState(anchor, link, runtimeConfig, { addActiveClass: true });
+
+  return anchor;
+};
+
+const createDropdownNavigationItem = (link, runtimeConfig) => {
+  const wrapper = document.createElement("div");
+  const triggerRow = document.createElement("div");
+  const parentLink = createLinkElement(link, runtimeConfig, {
+    className: `${NAV_LINK_CLASS} nav-dropdown__link`,
+    addActiveClass: true,
+  });
+  const toggleButton = document.createElement("button");
+  const toggleIcon = document.createElement("span");
+  const panel = document.createElement("div");
+  const surface = document.createElement("div");
+  const panelId = `nav-dropdown-${link.pageKey || link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+  wrapper.className = "nav-dropdown";
+  wrapper.setAttribute("data-nav-dropdown", "");
+
+  triggerRow.className = "nav-dropdown__trigger-row";
+
+  toggleButton.type = "button";
+  toggleButton.className = "nav-dropdown__toggle";
+  toggleButton.setAttribute("data-nav-dropdown-toggle", "");
+  toggleButton.setAttribute("aria-expanded", "false");
+  toggleButton.setAttribute("aria-controls", panelId);
+  toggleButton.setAttribute("aria-label", `${link.label} Untermenue umschalten`);
+
+  toggleIcon.className = "nav-dropdown__chevron";
+  toggleIcon.setAttribute("aria-hidden", "true");
+  toggleButton.appendChild(toggleIcon);
+
+  panel.id = panelId;
+  panel.className = "nav-dropdown__panel";
+  panel.setAttribute("data-nav-dropdown-panel", "");
+  panel.hidden = true;
+
+  surface.className = "nav-dropdown__surface";
+
+  link.children?.forEach((childLink) => {
+    surface.appendChild(createDropdownChildLink(childLink, runtimeConfig));
+  });
+
+  panel.appendChild(surface);
+  triggerRow.append(parentLink, toggleButton);
+  wrapper.append(triggerRow, panel);
+
+  if (parentLink.classList.contains("is-active")) {
+    wrapper.classList.add("is-active");
+  }
+
+  return wrapper;
+};
+
 const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
   if (!primaryNav) return;
 
   const fragment = document.createDocumentFragment();
 
   GLOBAL_NAV_LINKS.forEach((link) => {
+    if (Array.isArray(link.children) && link.children.length > 0) {
+      fragment.appendChild(createDropdownNavigationItem(link, runtimeConfig));
+      return;
+    }
+
     fragment.appendChild(
-      createLinkElement(link, runtimeConfig, { className: NAV_LINK_CLASS })
+      createLinkElement(link, runtimeConfig, {
+        className: NAV_LINK_CLASS,
+        addActiveClass: true,
+      })
     );
   });
 
@@ -521,10 +653,131 @@ const initTopNavScrollState = (topNav, glassNav) => {
   updateTopNavScrollState();
 };
 
-const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
+const initPrimaryNavDropdowns = (primaryNav) => {
+  const dropdowns = Array.from(primaryNav?.querySelectorAll("[data-nav-dropdown]") || []);
+
+  if (dropdowns.length === 0) {
+    return {
+      closeAll: () => {},
+    };
+  }
+
+  const mobileBreakpoint = window.matchMedia(`(max-width: ${NAV_MOBILE_BREAKPOINT}px)`);
+
+  const setDropdownState = (dropdown, isOpen) => {
+    const toggleButton = dropdown.querySelector("[data-nav-dropdown-toggle]");
+    const panel = dropdown.querySelector("[data-nav-dropdown-panel]");
+
+    if (!toggleButton || !panel) return;
+
+    const open = Boolean(isOpen);
+    dropdown.classList.toggle("is-open", open);
+    toggleButton.setAttribute("aria-expanded", String(open));
+    panel.hidden = !open;
+  };
+
+  const closeAll = (exceptDropdown = null) => {
+    dropdowns.forEach((dropdown) => {
+      if (dropdown === exceptDropdown) return;
+      setDropdownState(dropdown, false);
+    });
+  };
+
+  dropdowns.forEach((dropdown) => {
+    const toggleButton = dropdown.querySelector("[data-nav-dropdown-toggle]");
+
+    if (!toggleButton) return;
+
+    let closeTimeoutId = null;
+
+    const clearCloseTimeout = () => {
+      if (closeTimeoutId === null) return;
+      window.clearTimeout(closeTimeoutId);
+      closeTimeoutId = null;
+    };
+
+    const scheduleClose = () => {
+      clearCloseTimeout();
+      closeTimeoutId = window.setTimeout(() => {
+        setDropdownState(dropdown, false);
+      }, 120);
+    };
+
+    const openDropdown = () => {
+      clearCloseTimeout();
+      closeAll(dropdown);
+      setDropdownState(dropdown, true);
+    };
+
+    toggleButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const isOpen = dropdown.classList.contains("is-open");
+      if (isOpen) {
+        clearCloseTimeout();
+        setDropdownState(dropdown, false);
+        return;
+      }
+
+      openDropdown();
+    });
+
+    dropdown.addEventListener("mouseenter", () => {
+      if (mobileBreakpoint.matches) return;
+      openDropdown();
+    });
+
+    dropdown.addEventListener("mouseleave", () => {
+      if (mobileBreakpoint.matches) return;
+      scheduleClose();
+    });
+
+    dropdown.addEventListener("focusin", () => {
+      if (mobileBreakpoint.matches) return;
+      openDropdown();
+    });
+
+    dropdown.addEventListener("focusout", (event) => {
+      if (mobileBreakpoint.matches) return;
+      if (dropdown.contains(event.relatedTarget)) return;
+      scheduleClose();
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (primaryNav?.contains(event.target)) return;
+    closeAll();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeAll();
+    }
+  });
+
+  const syncDropdownsToViewport = () => {
+    closeAll();
+  };
+
+  if (typeof mobileBreakpoint.addEventListener === "function") {
+    mobileBreakpoint.addEventListener("change", syncDropdownsToViewport);
+  } else if (typeof mobileBreakpoint.addListener === "function") {
+    mobileBreakpoint.addListener(syncDropdownsToViewport);
+  }
+
+  return { closeAll };
+};
+
+const initMobileNavigation = (
+  glassNav,
+  mobileNavToggle,
+  primaryNav,
+  closeNavDropdowns = () => {}
+) => {
   if (!glassNav || !mobileNavToggle || !primaryNav) return;
 
-  const mobileBreakpoint = window.matchMedia("(max-width: 1024px)");
+  const mobileBreakpoint = window.matchMedia(`(max-width: ${NAV_MOBILE_BREAKPOINT}px)`);
   const topNav = document.querySelector(".top-nav");
   const primaryNavLinks = Array.from(primaryNav.querySelectorAll("a"));
 
@@ -549,6 +802,10 @@ const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
     const open = Boolean(isOpen) && mobileBreakpoint.matches;
     glassNav.classList.toggle("is-mobile-open", open);
     mobileNavToggle.setAttribute("aria-expanded", String(open));
+
+    if (!open) {
+      closeNavDropdowns();
+    }
 
     if (open && topNav) {
       topNav.classList.remove("is-hidden");
@@ -756,6 +1013,7 @@ export const initNavigation = () => {
 
   initScrollToTop(scrollToTopButton);
   initTopNavScrollState(topNav, glassNav);
-  initMobileNavigation(glassNav, mobileNavToggle, primaryNav);
+  const navDropdownApi = initPrimaryNavDropdowns(primaryNav);
+  initMobileNavigation(glassNav, mobileNavToggle, primaryNav, navDropdownApi.closeAll);
   initActiveSectionObserver(primaryNav);
 };

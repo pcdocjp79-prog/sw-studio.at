@@ -135,6 +135,10 @@ body[data-page="home"] .approach-card {
   box-shadow: 0 10px 28px rgba(3, 10, 24, 0.16);
 }
 
+body[data-page="home"] #process .process-step {
+  background: rgba(20, 30, 49, 0.44);
+}
+
 body[data-page="home"] .approach-section::before {
   background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(132, 194, 255, 0.1) 0%, transparent 70%);
 }
@@ -5293,7 +5297,7 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
 #process .process-step.reveal-on-scroll.is-visible:hover {
   transform: none;
   border-color: rgba(255, 255, 255, 0.06);
-  background: rgba(16, 16, 22, 0.6);
+  background: rgba(20, 30, 49, 0.44);
   box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
   z-index: auto;
 }

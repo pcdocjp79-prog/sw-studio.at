@@ -1,0 +1,66 @@
+.chip-row--feature {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(0.55rem, 1vw, 0.8rem);
+  align-items: stretch;
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.feature-chip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.55rem;
+  background: rgba(255, 126, 194, 0.1);
+  border: 1px solid rgba(255, 126, 194, 0.18);
+  color: #ff7ec2;
+}
+
+.feature-chip__icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  stroke: currentColor;
+  fill: none;
+}
+
+.feature-chip__label {
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgba(236, 243, 252, 0.86);
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .chip-row--feature {
+    flex-wrap: wrap;
+  }
+
+  .feature-chip__label {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .chip-row--feature {
+    gap: 0.9rem;
+  }
+
+  .feature-chip {
+    gap: 0.6rem;
+  }
+
+  .feature-chip__icon {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+}

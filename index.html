@@ -17,6 +17,7 @@
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
 <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
+  <link rel="stylesheet" href="src/css/feature-chip.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -83,28 +84,45 @@
                     Klarheit.</span>
                   <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Marketing</span> mit
                     Richtung.</span>
-                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">KI</span> mit praktischem Nutzen.</span>
+                  <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">KI</span> mit Nutzen.</span>
                 </h1>
-                <p class="hero-stage__text">
-                  Ich entwickle codebasierte Websites, klare Marketing-Strukturen und praxisnahe KI-Setups für kleine Unternehmen, die digital professioneller auftreten und effizienter arbeiten möchten. Dabei geht es nicht nur um schönes Design, sondern um einen Auftritt, der verständlich erklärt, Vertrauen aufbaut, besser gefunden wird und passende Anfragen wahrscheinlicher macht.
-                </p>
               </div>
 
+              <p class="hero-stage__text">
+                Ich entwickle codebasierte Websites, klare Marketing-Strukturen und praxisnahe KI-Setups für kleine Unternehmen, die digital professioneller auftreten und effizienter arbeiten möchten. Dabei geht es nicht nur um schönes Design, sondern um einen Auftritt, der verständlich erklärt, Vertrauen aufbaut, besser gefunden wird und passende Anfragen wahrscheinlicher macht.
+              </p>
+
               <div class="hero-stage__actions">
-                <div class="chip-row">
-                  <span class="contact-chip">Direkter Ansprechpartner</span>
-                  <span class="contact-chip">Klare Angebotslogik</span>
-                  <span class="contact-chip">Performance & Struktur</span>
-                </div>
-                <div class="final-cta-section__btns justify-start">
-                  <a href="kontakt.html#terminbuchung" class="final-cta-btn final-cta-btn--primary"
-                    aria-label="Erstgespräch buchen">
-                    Erstgespräch buchen
-                  </a>
-                  <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
-                    aria-label="Mini-Audit anfordern">
-                    Mini-Audit anfordern
-                  </a>
+                <div class="chip-row chip-row--feature">
+                  <div class="feature-chip">
+                    <span class="feature-chip__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M4 21c0-4.42 3.58-8 8-8s8 3.58 8 8"></path>
+                      </svg>
+                    </span>
+                    <span class="feature-chip__label">Direkter Ansprechpartner</span>
+                  </div>
+                  <div class="feature-chip">
+                    <span class="feature-chip__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="6" y="4" width="12" height="17" rx="2"></rect>
+                        <path d="M9 4h6v3H9z"></path>
+                        <path d="M9 13l2 2 4-4"></path>
+                      </svg>
+                    </span>
+                    <span class="feature-chip__label">Klare Angebotslogik</span>
+                  </div>
+                  <div class="feature-chip">
+                    <span class="feature-chip__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 20V13"></path>
+                        <path d="M12 20V8"></path>
+                        <path d="M19 20V4"></path>
+                      </svg>
+                    </span>
+                    <span class="feature-chip__label">Performance & Struktur</span>
+                  </div>
                 </div>
               </div>
             </div>

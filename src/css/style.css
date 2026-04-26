@@ -112,6 +112,20 @@ body[data-page="home"] .hero-stage__frame {
   box-shadow:
     0 24px 58px rgba(5, 12, 28, calc(0.28 * var(--hero-border-scroll-opacity))),
     0 40px 84px rgba(8, 16, 34, calc(0.22 * var(--hero-border-scroll-opacity)));
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-page="home"] .hero-stage__content {
+  flex: 1 1 auto;
+}
+
+body[data-page="home"] .hero-stage__actions {
+  max-width: min(62rem, 100%);
+}
+
+body[data-page="home"] .hero-stage__text {
+  max-width: min(58rem, 100%);
 }
 
 body[data-page="home"] .trust-strip__item,

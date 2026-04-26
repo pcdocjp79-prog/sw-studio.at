@@ -5458,9 +5458,9 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
   --footer-bottom-border: rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: rgba(3, 5, 11, 0.6);
   background-image:
-    linear-gradient(180deg, rgba(7, 10, 18, 0.95) 0%, rgba(3, 5, 11, 0.99) 100%),
+    linear-gradient(180deg, rgba(7, 10, 18, 0.52) 0%, rgba(3, 5, 11, 0.66) 100%),
     radial-gradient(125% 150% at 2% 0%, rgba(98, 173, 255, 0.08) 0%, rgba(0, 0, 0, 0) 62%);
   border-top: 1px solid var(--footer-top-border);
   color: rgba(228, 232, 240, 0.8);

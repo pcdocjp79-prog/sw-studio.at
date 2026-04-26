@@ -911,6 +911,7 @@ const initHeroStageIntro = () => {
       window.clearTimeout(introFinishTimeoutId);
     }
     heroStageElement.classList.remove("animate-enter", "is-intro-ready");
+    heroStageElement.classList.add("is-intro-done");
     releaseIntroLock();
   };
 
@@ -918,6 +919,9 @@ const initHeroStageIntro = () => {
     if (introHasStarted || introIsFinished) return;
     introHasStarted = true;
     heroStageElement.classList.add("is-intro-ready");
+    window.setTimeout(() => {
+      heroStageElement.classList.add("is-intro-done");
+    }, 880);
     introFinishTimeoutId = window.setTimeout(finishIntro, 2600);
   };
 

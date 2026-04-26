@@ -752,7 +752,6 @@ export const initNavigation = () => {
   updateBrandAndCtaLinks(pageConfig, runtimeConfig);
   renderPrimaryNavigation(primaryNav, runtimeConfig);
   renderFooterNavigation(footer, runtimeConfig);
-  renderMobileStickyCta(pageConfig, runtimeConfig);
   normalizeStandaloneLinks(runtimeConfig);
 
   initScrollToTop(scrollToTopButton);

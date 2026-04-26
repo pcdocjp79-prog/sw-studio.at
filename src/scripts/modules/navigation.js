@@ -50,6 +50,7 @@ const SERVICE_DETAIL_LINKS = Object.freeze([
     description:
       "Individuelle codebasierte Websites mit klarer Nutzerfuehrung und Performance.",
     pageKey: "webentwicklung",
+    desktopColumn: "primary",
   },
   {
     type: "page",
@@ -58,6 +59,7 @@ const SERVICE_DETAIL_LINKS = Object.freeze([
     description:
       "Mehr Sichtbarkeit, verstaendliche Angebotskommunikation und bessere Anfragen.",
     pageKey: "seo-marketing",
+    desktopColumn: "primary",
   },
   {
     type: "page",
@@ -66,6 +68,34 @@ const SERVICE_DETAIL_LINKS = Object.freeze([
     description:
       "Praktische KI-Setups und Automatisierung fuer weniger manuelle Arbeit.",
     pageKey: "ki-beratung",
+    desktopColumn: "primary",
+  },
+  {
+    type: "page",
+    path: "branding.html",
+    label: "BRANDING",
+    description:
+      "Marke, Positionierung und ein konsistenter Auftritt mit klarer Wertigkeit.",
+    pageKey: "branding",
+    desktopColumn: "secondary",
+  },
+  {
+    type: "page",
+    path: "social.html",
+    label: "SOCIAL STRATEGIE",
+    description:
+      "Planbarer, markenkonsistenter Content naeher an Angebot und Nachfrage.",
+    pageKey: "social",
+    desktopColumn: "secondary",
+  },
+  {
+    type: "page",
+    path: "growth.html",
+    label: "GROWTH STRATEGIE",
+    description:
+      "Nachfrage, Conversion und Optimierung systematisch weiterentwickeln.",
+    pageKey: "growth",
+    desktopColumn: "secondary",
   },
 ]);
 
@@ -407,8 +437,30 @@ const createDropdownNavigationItem = (link, runtimeConfig) => {
 
   surface.className = "nav-dropdown__surface";
 
+  const groupedColumns = [];
+  const columnMap = new Map();
+
   link.children?.forEach((childLink) => {
-    surface.appendChild(createDropdownChildLink(childLink, runtimeConfig));
+    const columnKey = childLink.desktopColumn || "default";
+    let column = columnMap.get(columnKey);
+
+    if (!column) {
+      column = document.createElement("div");
+      column.className = "nav-dropdown__column";
+      column.setAttribute("data-nav-dropdown-column", columnKey);
+      columnMap.set(columnKey, column);
+      groupedColumns.push(column);
+    }
+
+    column.appendChild(createDropdownChildLink(childLink, runtimeConfig));
+  });
+
+  if (groupedColumns.length > 1) {
+    surface.classList.add("nav-dropdown__surface--split");
+  }
+
+  groupedColumns.forEach((column) => {
+    surface.appendChild(column);
   });
 
   panel.appendChild(surface);

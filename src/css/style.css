@@ -1520,7 +1520,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   position: absolute;
   top: calc(100% + 0.78rem);
   right: 0;
-  width: min(28rem, 78vw);
+  width: min(52rem, 86vw);
   z-index: 24;
 }
 
@@ -1540,6 +1540,17 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+
+.nav-dropdown__surface--split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.nav-dropdown__column {
+  display: grid;
+  gap: 0.55rem;
 }
 
 .nav-dropdown__item {
@@ -1800,6 +1811,15 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
       rgba(8, 18, 36, 0.84) 0%,
       rgba(12, 24, 48, 0.78) 100%
     );
+  }
+
+  .nav-dropdown__surface--split {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .nav-dropdown__column {
+    gap: 0.45rem;
   }
 
   .nav-dropdown__item {
@@ -3216,9 +3236,39 @@ body.has-cookie-banner .scroll-to-top-btn {
   margin-bottom: 0;
 }
 
+.additional-services-section {
+  position: relative;
+}
+
+.additional-services-section::before {
+  content: none;
+}
+
+.additional-services-section__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.additional-services-section__header {
+  max-width: 54rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.additional-services-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
 @media (min-width: 768px) {
   .services-panel-section__grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  .additional-services-section__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
   }
 }
@@ -4358,6 +4408,13 @@ body[data-page="preise"] .pricing-packages-section .packages-section__disclaimer
   z-index: 1;
   display: grid;
   gap: 2.5rem;
+}
+
+.final-cta-section__stack {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(4.5rem, 8vw, 7rem);
 }
 
 /* ============================================

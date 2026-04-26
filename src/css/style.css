@@ -572,6 +572,26 @@ img {
   color: rgba(182, 224, 255, 0.84);
 }
 
+.hero-stage__eyebrow--vertical {
+  position: absolute;
+  top: 50%;
+  right: clamp(0.9rem, 1.6vw, 1.6rem);
+  z-index: 6;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+  font-size: clamp(0.6rem, 0.74vw, 0.74rem);
+  letter-spacing: 0.32em;
+  color: rgba(208, 226, 246, 0.7);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .hero-stage__eyebrow--vertical {
+    display: none;
+  }
+}
+
 .hero-stage__title {
   margin: 0;
   font-family: var(--font-display);

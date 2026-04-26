@@ -5016,6 +5016,34 @@ body[data-page="insights"] .insight-filter-bar .case-filter {
   }
 }
 
+/* Full-width "Mehr erfahren" button in #featured-project */
+#featured-project .about-section__btn {
+  display: flex;
+  justify-self: stretch;
+  align-self: stretch;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Disable hover effects on the stacked cards in #featured-project (KI & Automatisierung) */
+#featured-project .pkg-card:hover,
+#featured-project .pkg-card.reveal-on-scroll.is-visible:hover,
+#featured-project .pkg-card--featured:hover {
+  transform: none;
+  border-color: rgba(148, 242, 255, 0.22);
+  background: rgba(18, 18, 26, 0.55);
+  box-shadow:
+    0 4px 28px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(148, 242, 255, 0.1),
+    inset 0 1px 0 rgba(148, 242, 255, 0.08);
+  z-index: auto;
+}
+
+#featured-project .pkg-card:hover::after {
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(185, 255, 248, 0.58));
+}
+
 /* ============================================
    MOBILE OPTIMIZATION PASS
    ============================================ */

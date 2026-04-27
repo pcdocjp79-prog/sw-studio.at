@@ -287,8 +287,8 @@ const initScrollFocusEffect = () => {
     frameShiftY = interpolateNumber(frameShiftY, -12, recedeProgress);
     frameShiftY = interpolateNumber(frameShiftY, -18, settleProgress);
 
-    let surfaceBlur = interpolateNumber(0, 1.6, introProgress);
-    surfaceBlur = interpolateNumber(surfaceBlur, 15.5, recedeProgress);
+    let surfaceBlur = interpolateNumber(0, 2.21, introProgress);
+    surfaceBlur = interpolateNumber(surfaceBlur, 14.35, recedeProgress);
     surfaceBlur = interpolateNumber(surfaceBlur, 23, settleProgress);
 
     let surfaceOpacity = interpolateNumber(1, 0.988, introProgress);
@@ -303,8 +303,8 @@ const initScrollFocusEffect = () => {
     contentOpacity = interpolateNumber(contentOpacity, 0.56, recedeProgress);
     contentOpacity = interpolateNumber(contentOpacity, 0.38, settleProgress);
 
-    let contentBlur = interpolateNumber(0, 0.8, introProgress);
-    contentBlur = interpolateNumber(contentBlur, 7.4, recedeProgress);
+    let contentBlur = interpolateNumber(0, 1.15, introProgress);
+    contentBlur = interpolateNumber(contentBlur, 7.49, recedeProgress);
     contentBlur = interpolateNumber(contentBlur, 12, settleProgress);
 
     let borderOpacity = interpolateNumber(1, 0.72, introProgress);

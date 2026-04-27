@@ -2,9 +2,9 @@
    nachdem die Karten-Intro-Animation abgeschlossen ist.
    Animationsstil orientiert sich an .reveal-on-scroll. */
 
-body[data-page="home"] .hero-stage.animate-enter .hero-stage__title,
-body[data-page="home"] .hero-stage.animate-enter .hero-stage__text,
-body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip {
+.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__title,
+.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__text,
+.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip {
   opacity: 0;
   transform: translate3d(0, 24px, 0);
   filter: blur(6px);
@@ -24,39 +24,39 @@ body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-c
   }
 }
 
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title,
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text,
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title,
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text,
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
   animation: heroContentReveal 0.82s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title {
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title {
   animation-delay: 0ms;
 }
 
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text {
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text {
   animation-delay: 240ms;
 }
 
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(1) {
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(1) {
   animation-delay: 480ms;
 }
 
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(2) {
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(2) {
   animation-delay: 620ms;
 }
 
-body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(3) {
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(3) {
   animation-delay: 760ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body[data-page="home"] .hero-stage.animate-enter .hero-stage__title,
-  body[data-page="home"] .hero-stage.animate-enter .hero-stage__text,
-  body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip,
-  body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title,
-  body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text,
-  body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
+  .js body[data-page="home"] .hero-stage.animate-enter .hero-stage__title,
+  .js body[data-page="home"] .hero-stage.animate-enter .hero-stage__text,
+  .js body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip,
+  .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title,
+  .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text,
+  .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
     animation: none !important;
     opacity: 1;
     transform: none;

@@ -8,14 +8,17 @@
   <meta name="description"
     content="Smart Web Studio entwickelt klare Positionierung, hochwertige Websites und strukturierte Conversion-Systeme für Unternehmen mit Anspruch." />
 
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
     href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
-<link rel="stylesheet" href="src/css/style.css" />
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script><link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/feature-chip.css" />
   <link rel="stylesheet" href="src/css/hero-text-reveal.css" />
@@ -23,6 +26,10 @@
 </head>
 
 <body id="top" data-page="home" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <script>
+    document.body.classList.add("has-fixed-hero-bg");
+  </script>
+
   <div id="animated-background" data-orb-parallax-layer aria-hidden="true">
     <canvas class="orb-parallax__canvas"></canvas>
     <div class="orb-parallax__fallback" aria-hidden="true">

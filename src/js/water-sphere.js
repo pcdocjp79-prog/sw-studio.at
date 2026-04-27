@@ -497,20 +497,25 @@ async function initWaterSphere() {
   const host = document.querySelector("[data-orb-parallax-layer]");
   if (!host) return;
 
+  const showFallback = () => {
+    document.body.classList.remove("webgl-ready");
+    document.body.classList.add("no-webgl");
+  };
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (reduceMotion.matches) {
-    document.body.classList.add("no-webgl");
+    showFallback();
     return;
   }
 
   if (!hasWebGL()) {
-    document.body.classList.add("no-webgl");
+    showFallback();
     return;
   }
 
   const THREE = await waitForThree();
   if (!THREE) {
-    document.body.classList.add("no-webgl");
+    showFallback();
     return;
   }
 
@@ -642,6 +647,7 @@ async function initWaterSphere() {
   let running = false;
   let rafId = null;
   let elapsedTime = 0;
+  let firstFrameRendered = false;
 
   const syncWorldPointer = () => {
     worldPointer.x = pointerTarget.x * camera.right;
@@ -726,6 +732,10 @@ async function initWaterSphere() {
     elapsedTime += delta;
     updateOrbTransforms(elapsedTime, delta);
     renderer.render(scene, camera);
+    if (!firstFrameRendered) {
+      firstFrameRendered = true;
+      document.body.classList.add("webgl-ready");
+    }
     rafId = requestAnimationFrame(loop);
   };
 
@@ -769,7 +779,7 @@ async function initWaterSphere() {
   const handleReduceMotion = (event) => {
     if (!event.matches) return;
     stop();
-    document.body.classList.add("no-webgl");
+    showFallback();
   };
 
   if (typeof reduceMotion.addEventListener === "function") {

@@ -1,0 +1,54 @@
+
+> smart-web-studio@0.1.0 dev
+> vite --host 127.0.0.1 --port 4173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m407[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4173[22m/[39m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mablauf.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/content-tracking-system.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mbranding.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mcase-study.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mcookies.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdanke.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdatenschutz.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mgrowth.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mimpressum.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2minsights.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mki-beratung.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mkontakt.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mleistungen.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mpreise.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mseo-marketing.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msocial.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mueber-mich.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mwebentwicklung.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/funnel-optimierung.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/relaunch-seo.html[22m
+[2m19:36:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/website-branding-setup.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mablauf.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mbranding.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mcase-study.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mcookies.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdanke.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdatenschutz.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mgrowth.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mimpressum.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/content-tracking-system.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2minsights.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mki-beratung.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mkontakt.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mleistungen.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mpreise.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mseo-marketing.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/funnel-optimierung.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/relaunch-seo.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mprojekte/website-branding-setup.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msocial.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mueber-mich.html[22m
+[2m19:36:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mwebentwicklung.html[22m

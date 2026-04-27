@@ -275,9 +275,9 @@ const initScrollFocusEffect = () => {
       return;
     }
 
-    const introProgress = easeInOutSine(heroPhaseProgress.intro);
-    const recedeProgress = easeOutCubic(heroPhaseProgress.recede);
-    const settleProgress = easeInOutSine(heroPhaseProgress.settle);
+    const introProgress = heroPhaseProgress.intro;
+    const recedeProgress = heroPhaseProgress.recede;
+    const settleProgress = heroPhaseProgress.settle;
 
     let frameScale = interpolateNumber(1, 1.012, introProgress);
     frameScale = interpolateNumber(frameScale, 1.078, recedeProgress);

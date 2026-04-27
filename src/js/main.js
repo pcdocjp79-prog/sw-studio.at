@@ -832,10 +832,19 @@ const initHeroStageInteraction = () => {
   window.addEventListener("scroll", requestCardRectUpdate, { passive: true });
 
   if (usesFixedBackgroundLayer) {
+    const heroTiltScrollGate = 32;
     window.addEventListener(
       "pointermove",
       (event) => {
         if (!canAnimate()) return;
+        if (heroStageElement.classList.contains("animate-enter")) {
+          handlePointerExit();
+          return;
+        }
+        if (window.scrollY > heroTiltScrollGate) {
+          handlePointerExit();
+          return;
+        }
         heroStageElement.classList.add("is-interactive");
         setPointerTarget(event);
       },

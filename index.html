@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/feature-chip.css" />
   <link rel="stylesheet" href="src/css/hero-text-reveal.css" />
+  <link rel="stylesheet" href="src/css/word-rotator.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -43,7 +44,7 @@
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
       <a href="index.html" class="brand-link flex items-center gap-3">
-        <img src="assets/sw-studio_logo.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
+        <img src="assets/LogoSmartWebStudio.png" alt="Smart Web Studio Logo" class="h-8 w-auto md:h-10" />
         <span class="font-display font-semibold text-base sm:text-lg md:text-xl tracking-[0.1em] text-[#62adff]">Smart
           Web Studio</span>
       </a>
@@ -94,7 +95,14 @@
               <div class="hero-stage__copy">
                 <h1 class="hero-stage__title">
                   <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">High-End Websites</span> mit
-                    Klarheit.</span>
+                    <span class="word-rotator"
+                      data-rotator-words="Klarheit.|Qualität.|Struktur."
+                      data-rotator-interval="3800"
+                      data-rotator-start-delay="3000"
+                      aria-label="Klarheit."><span class="word-rotator__sizer"
+                        aria-hidden="true">Klarheit.</span><span class="word-rotator__words"
+                        aria-hidden="true"><span
+                          class="word-rotator__word">Klarheit.</span></span></span></span>
                   <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Marketing</span> mit
                     Richtung.</span>
                   <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">KI</span> mit Nutzen.</span>
@@ -612,6 +620,7 @@
 
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/water-sphere.js?v=5"></script>
+  <script type="module" src="src/js/word-rotator.js"></script>
 </body>
 
 </html>

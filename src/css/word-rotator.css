@@ -1,0 +1,69 @@
+.word-rotator {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: inherit;
+}
+
+.word-rotator__sizer {
+  display: inline-block;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.word-rotator__words {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.word-rotator__word {
+  position: absolute;
+  inset: 0;
+  display: block;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.word-rotator__word--exit {
+  animation: word-rotator-exit 620ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.word-rotator__word--enter {
+  animation: word-rotator-enter 620ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes word-rotator-exit {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  to {
+    transform: translate3d(0, -110%, 0);
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+@keyframes word-rotator-enter {
+  from {
+    transform: translate3d(0, 110%, 0);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-rotator__word--exit,
+  .word-rotator__word--enter {
+    animation: none;
+  }
+}

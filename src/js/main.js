@@ -236,8 +236,7 @@ const initScrollFocusEffect = () => {
     !reducedMotion;
 
   const shouldHoldHeroAtRest = () =>
-    window.scrollY <= heroScrollActivationThreshold ||
-    heroStageForScrollFocus?.classList.contains("is-intro-active");
+    window.scrollY <= heroScrollActivationThreshold;
 
   const getHeroPhaseProgress = (viewportHeight) => {
     if (!firstScrollFocusSection) return null;
@@ -932,6 +931,10 @@ const initHeroStageIntro = () => {
     });
   };
 
+  const handleEarlyScroll = () => {
+    if (window.scrollY > 18) finishIntro();
+  };
+
   const finishIntro = () => {
     if (introIsFinished) return;
     introIsFinished = true;
@@ -941,10 +944,14 @@ const initHeroStageIntro = () => {
     if (introFinishTimeoutId !== null) {
       window.clearTimeout(introFinishTimeoutId);
     }
+    window.removeEventListener("scroll", handleEarlyScroll);
     heroStageElement.classList.remove("animate-enter", "is-intro-ready");
     heroStageElement.classList.add("is-intro-done");
     releaseIntroLock();
+    window.dispatchEvent(new Event("scroll"));
   };
+
+  window.addEventListener("scroll", handleEarlyScroll, { passive: true });
 
   const startIntro = () => {
     if (introHasStarted || introIsFinished) return;

@@ -447,6 +447,10 @@ const SCENE_HALF_HEIGHT = 5;
 const ORB_FIELD_MULTIPLIER = 2;
 const HOVER_PAD = 100;
 const ENABLE_ORB_HOVER = false;
+const ORB_DRIFT_TIME_SCALE = 0.46;
+const ORB_SURFACE_TIME_SCALE = 0.58;
+const ORB_ROTATION_TIME_SCALE = 0.55;
+const MAX_FRAME_DELTA = 1 / 30;
 
 function hasWebGL() {
   try {
@@ -658,6 +662,8 @@ async function initWaterSphere() {
     if (ENABLE_ORB_HOVER) {
       syncWorldPointer();
     }
+    const driftTime = time * ORB_DRIFT_TIME_SCALE;
+    const surfaceTime = time * ORB_SURFACE_TIME_SCALE;
     let hoveredEntry = null;
     let hoveredRatio = Number.POSITIVE_INFINITY;
 
@@ -671,8 +677,8 @@ async function initWaterSphere() {
 
     orbEntries.forEach((entry) => {
       const { config, mesh, material } = entry;
-      const phase = time * config.driftSpeed + config.driftPhase;
-      const pulse = 1 + Math.sin(time * (config.driftSpeed * 1.6) + config.driftPhase) * config.pulse;
+      const phase = driftTime * config.driftSpeed + config.driftPhase;
+      const pulse = 1 + Math.sin(driftTime * (config.driftSpeed * 1.6) + config.driftPhase) * config.pulse;
       const driftX = Math.sin(phase) * config.driftX;
       const driftY = Math.cos(phase * 0.92) * config.driftY;
 
@@ -680,10 +686,10 @@ async function initWaterSphere() {
       mesh.position.y = (config.baseY + driftY) * camera.top + scrollOffsetY;
       mesh.position.z = config.depth;
       mesh.scale.setScalar(config.scale * pulse);
-      mesh.rotation.y += delta * config.rotationSpeed;
-      mesh.rotation.x = Math.sin(time * (config.driftSpeed * 0.85) + config.driftPhase) * 0.12;
+      mesh.rotation.y += delta * ORB_ROTATION_TIME_SCALE * config.rotationSpeed;
+      mesh.rotation.x = Math.sin(driftTime * (config.driftSpeed * 0.85) + config.driftPhase) * 0.12;
 
-      material.uniforms.uTime.value = time;
+      material.uniforms.uTime.value = surfaceTime;
       material.uniforms.uOrbScale.value = config.scale * pulse;
       entry.hoverRadius = config.scale * pulse * (config.hoverRadius || 0.94);
 
@@ -728,7 +734,7 @@ async function initWaterSphere() {
 
   const loop = () => {
     if (!running) return;
-    const delta = clock.getDelta();
+    const delta = Math.min(clock.getDelta(), MAX_FRAME_DELTA);
     elapsedTime += delta;
     updateOrbTransforms(elapsedTime, delta);
     renderer.render(scene, camera);

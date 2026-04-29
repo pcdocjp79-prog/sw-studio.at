@@ -245,9 +245,9 @@ const initScrollFocusEffect = () => {
     const sectionTopRatio = sectionRect.top / Math.max(viewportHeight, 1);
 
     return {
-      intro: getRangeProgress(sectionTopRatio, 0.96, 0.72),
-      recede: getRangeProgress(sectionTopRatio, 0.72, 0.34),
-      settle: getRangeProgress(sectionTopRatio, 0.34, 0.2),
+      intro: getRangeProgress(sectionTopRatio, 0.96, 0.82),
+      recede: getRangeProgress(sectionTopRatio, 0.82, 0.66),
+      settle: getRangeProgress(sectionTopRatio, 0.66, 0.58),
     };
   };
 
@@ -287,37 +287,29 @@ const initScrollFocusEffect = () => {
     frameShiftY = interpolateNumber(frameShiftY, -12, recedeProgress);
     frameShiftY = interpolateNumber(frameShiftY, -18, settleProgress);
 
-    let surfaceBlur = interpolateNumber(0, 2.21, introProgress);
-    surfaceBlur = interpolateNumber(surfaceBlur, 14.35, recedeProgress);
-    surfaceBlur = interpolateNumber(surfaceBlur, 23, settleProgress);
+    const frameOpacity = 1;
 
-    let surfaceOpacity = interpolateNumber(1, 0.988, introProgress);
-    surfaceOpacity = interpolateNumber(surfaceOpacity, 0.84, recedeProgress);
-    surfaceOpacity = interpolateNumber(surfaceOpacity, 0.72, settleProgress);
+    const surfaceBlur = 0;
+    let surfaceOpacity = interpolateNumber(1, 0.96, introProgress);
+    surfaceOpacity = interpolateNumber(surfaceOpacity, 0.74, recedeProgress);
+    surfaceOpacity = interpolateNumber(surfaceOpacity, 0.5, settleProgress);
 
     let contentShiftY = interpolateNumber(0, -2, introProgress);
     contentShiftY = interpolateNumber(contentShiftY, -10, recedeProgress);
     contentShiftY = interpolateNumber(contentShiftY, -14, settleProgress);
 
-    let contentOpacity = interpolateNumber(1, 0.93, introProgress);
-    contentOpacity = interpolateNumber(contentOpacity, 0.56, recedeProgress);
-    contentOpacity = interpolateNumber(contentOpacity, 0.38, settleProgress);
+    const contentBlur = 0;
+    let contentOpacity = interpolateNumber(1, 0.85, introProgress);
+    contentOpacity = interpolateNumber(contentOpacity, 0.35, recedeProgress);
+    contentOpacity = interpolateNumber(contentOpacity, 0, settleProgress);
 
-    let contentBlur = interpolateNumber(0, 1.15, introProgress);
-    contentBlur = interpolateNumber(contentBlur, 7.49, recedeProgress);
-    contentBlur = interpolateNumber(contentBlur, 12, settleProgress);
+    let borderOpacity = interpolateNumber(1, 0.92, introProgress);
+    borderOpacity = interpolateNumber(borderOpacity, 0.68, recedeProgress);
+    borderOpacity = interpolateNumber(borderOpacity, 0.5, settleProgress);
 
-    let borderOpacity = interpolateNumber(1, 0.72, introProgress);
-    borderOpacity = interpolateNumber(borderOpacity, 0.16, recedeProgress);
-    borderOpacity = interpolateNumber(borderOpacity, 0.02, settleProgress);
+    const veilOpacity = 0;
 
-    let veilOpacity = interpolateNumber(0, 0.1, introProgress);
-    veilOpacity = interpolateNumber(veilOpacity, 0.44, recedeProgress);
-    veilOpacity = interpolateNumber(veilOpacity, 0.66, settleProgress);
-
-    let stageOpacity = interpolateNumber(1, 0.995, introProgress);
-    stageOpacity = interpolateNumber(stageOpacity, 0.89, recedeProgress);
-    stageOpacity = interpolateNumber(stageOpacity, 0.82, settleProgress);
+    const stageOpacity = 1;
 
     let tiltDamping = interpolateNumber(1, 0.9, introProgress);
     tiltDamping = interpolateNumber(tiltDamping, 0.48, recedeProgress);
@@ -325,7 +317,7 @@ const initScrollFocusEffect = () => {
 
     setHeroScrollFocusVisuals({
       stageOpacity,
-      frameOpacity: 1,
+      frameOpacity,
       frameScale,
       frameShiftY,
       surfaceBlur,

@@ -113,20 +113,29 @@ export default async function handler(req, res) {
     });
   }
 
-  const resendResponse = await fetch(RESEND_API_URL, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [toEmail],
-      subject: `Neue Anfrage ueber das Kontaktformular - ${payload.name}`,
-      text: buildPlainTextMail(payload),
-      reply_to: payload.email,
-    }),
-  });
+  let resendResponse;
+
+  try {
+    resendResponse = await fetch(RESEND_API_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [toEmail],
+        subject: `Neue Anfrage ueber das Kontaktformular - ${payload.name}`,
+        text: buildPlainTextMail(payload),
+        reply_to: payload.email,
+      }),
+    });
+  } catch (error) {
+    console.error("Resend request failed", error);
+    return json(res, 500, {
+      error: "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es spaeter erneut.",
+    });
+  }
 
   if (!resendResponse.ok) {
     const resendErrorText = await resendResponse.text();

@@ -13,7 +13,7 @@ Die Firma befindet sich im Aufbau — es gibt noch keine Kundenprojekte.
 
 - **Typ:** Statische Multi-Page Website (kein SPA, kein Framework)
 - **HTML:** 24 Seiten (20 Root, 4 in `/projekte/`)
-- **CSS:** `src/css/style.css` (Hauptstylesheet) + Tailwind via CDN
+- **CSS:** `src/css/style.css` (Hauptstylesheet) + `src/css/tailwind.css` via lokalem PostCSS/Tailwind-Build
 - **JS:** `src/js/main.js` (globale Logik) + `src/scripts/modules/` (Navigation, Cookies etc.)
 - **Build:** Vite (vorhanden, Seiten funktionieren aber auch als statisches HTML)
 - **Fonts:** Inter, Geist, JetBrains Mono (aktuell via Google Fonts)
@@ -71,7 +71,8 @@ DRAFT-MAIN/
 - Jede HTML-Seite hat ein `data-page`-Attribut (z.B. `data-page="home"`)
 - Navigation und Footer werden via `navigation.js` per JavaScript gerendert
 - Projekt-Unterseiten nutzen `<base href="../">` für korrekte Root-Links
-- Tailwind wird per CDN geladen und pro Seite inline konfiguriert
+- Tailwind wird lokal ueber `tailwind.config.js`, `postcss.config.js` und `src/css/tailwind.css` gebaut.
+- `tailwind.css` wird nach `style.css` geladen, damit Utilities die erwartete Cascade behalten.
 
 ---
 
@@ -109,7 +110,7 @@ DRAFT-MAIN/
 ### 5. Kein Framework-Wechsel
 - Die bestehende Struktur bleibt: HTML + CSS + Vanilla JS
 - Kein React, Vue, Svelte etc.
-- Tailwind bleibt via CDN
+- Tailwind bleibt lokal gebaut; kein Play-CDN und keine Inline-Tailwind-Konfiguration in den HTML-Dateien
 
 ### 6. Design-Qualität
 - Präzise Typografie, subtile Bewegung, viel Whitespace

@@ -85,127 +85,139 @@ Marketing aktivieren
 
 ### Spalte 1
 
-Strategie, Design und Umsetzung aus einer Hand
-High-End Websites mit Klarheit. Positionierung mit Richtung. Conversion mit System.
-Ich entwickle digitale Auftritte, die professionell wirken, sauber führen und qualifizierte Anfragen wahrscheinlicher machen statt nur Aufmerksamkeit zu sammeln.
-Direkter Ansprechpartner Klare Angebotslogik Performance & Struktur
-Erstgespräch buchen
-Mini-Audit anfordern
+High-End Websites mit Marketing mit Richtung. KI mit Nutzen.
+Ich entwickle codebasierte Websites, klare Marketing-Strukturen und praxisnahe KI-Setups für kleine Unternehmen, die digital professioneller auftreten und effizienter arbeiten möchten. Dabei geht es nicht nur um schönes Design, sondern um einen Auftritt, der verständlich erklärt, Vertrauen aufbaut, besser gefunden wird und passende Anfragen wahrscheinlicher macht.
+Direkter Ansprechpartner
+Klare Angebotslogik
+Performance & Struktur
 
 ### Spalte 2
 
 Klarheit
-Kein Agentur-Pingpong
-Strategie, Struktur und Umsetzung bleiben in einer Hand. Entscheidungen bleiben schnell und nachvollziehbar.
+Ein Ansprechpartner
+Strategie, Struktur und Umsetzung laufen direkt über eine Hand. Das spart Abstimmung und hält Entscheidungen klar.
 Qualität
 Websites mit Substanz
-Saubere Seitenarchitektur, klare CTAs, hochwertige Gestaltung und technische Qualität werden zusammen geplant.
+Gute Gestaltung, klare Seitenstruktur und saubere technische Umsetzung werden von Anfang an gemeinsam gedacht.
 Prozess
-Strukturiertes Vorgehen
-Von Analyse bis Launch bleibt sichtbar, was gerade entschieden wird und wie daraus der nächste Schritt entsteht.
-Conversion
-Fokus auf Wirkung
-Kein Showroom-Design ohne Richtung, sondern ein Auftritt, der Vertrauen, Relevanz und Kontaktwege sauber verbindet.
+Klarer Projektablauf
+Du weißt in jeder Phase, was gerade entsteht, was entschieden wird und was als Nächstes kommt.
+Wirkung
+Fokus auf Anfragen
+Die Website soll nicht nur gut aussehen, sondern Besucher gezielt zu Kontakt und Anfrage führen.
 
 ### Spalte 3
 
-Problem
-Viele Websites sehen hochwertig aus und verlieren trotzdem Anfragen.
-Wenn Positionierung, Nutzerführung und Conversion nicht sauber zusammenspielen, bleibt selbst ein schöner Auftritt nur digitale Oberfläche. Wachstum beginnt mit Klarheit, nicht mit mehr Design-Fläche.
-UNKLARER MARKTAUFTRITT
-Das Angebot wirkt zu breit oder austauschbar.
-Besucher verstehen nicht schnell genug, wofür du stehst, was dich differenziert und warum genau du die richtige Wahl bist.
-ZU VIELE REIBUNGSPUNKTE
-Nutzer finden keinen klaren nächsten Schritt.
-Fehlende Hierarchien, unklare Seitenlogik und generische CTAs machen aus Interesse keinen sauberen Weg in Kontakt, Audit oder Erstgespräch.
-SICHTBARKEIT OHNE SYSTEM
-Traffic trifft auf eine Website ohne Vertriebslogik.
-Dann wird nur Reibung skaliert. Strategie, Positionierung und Conversion-Architektur müssen zuerst stehen, bevor Sichtbarkeit wirklich arbeitet.
+Leistungen
+Drei Bereiche, die deinen digitalen Auftritt wirklich voranbringen.
+Website, Sichtbarkeit und KI greifen ineinander. Du bekommst keine Einzelleistung, sondern ein System, das funktioniert.
+WEBENTWICKLUNG
+Individuelle Websites ohne Baukasten
+Ich entwickle Websites mit Code statt Templates. Das bedeutet mehr Kontrolle, bessere Performance und eine Struktur, die genau zu deinem Angebot passt.
+Mehr erfahren
+SEO & MARKETING
+Sichtbarkeit, die zu Anfragen führt
+Ich sorge dafür, dass deine Website gefunden wird und Besucher verstehen, was du anbietest.
+Mehr erfahren
+KI & AUTOMATISIERUNG
+Prozesse vereinfachen und Zeit sparen
+Ich strukturiere den Einsatz von KI und Automatisierung so, dass daraus echte Entlastung entsteht: weniger manuelle Arbeit, konsistente Ergebnisse und klare Abläufe im Alltag.
+Mehr erfahren
 
 ### Spalte 4
 
-Leistungen
-Drei Kernhebel für einen Auftritt, der nicht nur gut aussieht.
-Jede Leistung ist auf Klarheit, Vertrauen und nächste Handlung ausgerichtet. Kein loses Baukasten-System, sondern ein sauber abgestimmter Vertriebsauftritt.
-WEBSYSTEM
 Webentwicklung
-Schnelle, strukturierte Websites mit sauberer Nutzerführung, klaren Conversion-Wegen und einer Technik, die dem Auftritt gerecht wird.
-Leistungen ansehen
-POSITIONIERUNG
-Branding
-Klare Positionierung, präzise Botschaften und ein professioneller Auftritt, der Wertigkeit aufbaut statt austauschbar zu wirken.
-Leistungen ansehen
-NACHFRAGE
-SEO & Marketing
-Sichtbarkeit, Content-Struktur und Tracking werden so geplant, dass Reichweite in qualifizierte Anfragen und bessere Entscheidungen übersetzt wird.
-Leistungen ansehen
+Moderne Websites, codebasiert umgesetzt und auf Sichtbarkeit, Vertrauen und Anfragen ausgerichtet.
+Ich erstelle Websites nicht als Baukasten-Fläche, sondern als sauberes digitales System: strukturiert geplant, modern umgesetzt, technisch performant und von Anfang an mit SEO-Grundlagen, klaren Kontaktwegen und KI-gestützter Effizienz gedacht.
+Ich brauche eine neue Website
+Ideal, wenn dein Unternehmen einen professionellen Auftritt braucht, der nicht nur gut aussieht, sondern Angebot, Vertrauen und Anfrage logisch verbindet. ist.
+Codebasierte Umsetzung statt starrem Baukasten-System
+Klare Seitenstruktur mit verständlicher Nutzerführung
+SEO-Grundlagen, Performance und Mobile-Optimierung
+Webentwicklung ansehen
+Ich möchte meine Website verbessern
+Ideal, wenn bereits eine Website vorhanden ist, aber Struktur, Sichtbarkeit, Ladezeit oder Anfragewege noch nicht sauber genug funktionieren.
+Analyse von Struktur, Technik, SEO und Conversion-Wegen
+Verbesserungen an Inhalt, Aufbau, Ladezeit und Kontaktführung
+KI-gestützte Beschleunigung bei Struktur, Textvarianten und Optimierung
+Website-Optimierung ansehen
 
 ### Spalte 5
 
-Projekt-Teaser
-Ein Projektbeweis, der auf Struktur statt auf Showeffekte setzt.
-Solange keine freigegebenen Kundendaten vorliegen, zeige ich nachvollziehbar, wie ein Projekt aufgebaut, priorisiert und in Wirkung übersetzt wird.
-Ausgangslage
-Unklare Positionierung, eine überladene Seitenstruktur und keine saubere Priorisierung der Kontaktwege.
-Ziel
-Ein klarer Premium-Auftritt, der Angebot, Vertrauen und nächste Handlung logisch zusammenführt.
-Umsetzung
-Messaging schärfen, Seitenarchitektur neu ordnen, Leistungen sauber trennen und CTAs konsequent führen.
-Ergebnis
-Mehr Klarheit im Auftritt, bessere Nutzerführung und ein Kontaktfluss, der professioneller und vertrauenswürdiger wirkt.
-Die komplette Struktur ist in der anonymisierten Case Study aufbereitet.
-Projekt ansehen
-Case Study Aufbau
-Anonymisiert, aber realistisch in Struktur und Denkweise.
-Ausgangslage, Marktbild und Reibungspunkte
-Zieldefinition und Priorisierung der Nutzerwege
-Umsetzung in Marke, Website und CTA-Architektur
-Qualitative Ergebnisse statt erfundener KPI-Slides
-ohne Fake-Proof transparente Projektsicht
-Projekt ansehen
+SEO & Marketing
+Sichtbarkeit entsteht nicht zufällig. Sie braucht Struktur, Inhalte und klare Messpunkte.
+Ich plane SEO und Marketing nicht als einzelne Maßnahme, sondern als System: passende Suchbegriffe, klare Zielseiten, verständliche Inhalte und Tracking, damit Reichweite nicht nur Besucher bringt, sondern bessere Anfragen vorbereitet.
+Mehr zu SEO & Marketing
+01
+Analyse
+Zuerst wird geprüft, wie dein aktueller Auftritt gefunden wird, welche Seiten vorhanden sind und wo Potenzial für bessere Sichtbarkeit, klarere Inhalte und stärkere Kontaktwege liegt.
+02
+Suchintention & Struktur
+Relevante Suchanfragen werden nach Zielgruppe, Angebot und Bedarf sortiert. Daraus entsteht eine klare Seiten- und Content-Struktur statt einzelner SEO-Texte ohne Richtung.
+03
+Content & Optimierung
+Bestehende oder neue Inhalte werden so aufgebaut, dass sie verständlich, relevant und suchmaschinenfreundlich sind. Headlines, Seitenaufbau, interne Links und CTAs arbeiten zusammen.
+04
+Tracking & Weiterentwicklung
+Kontaktwege, Klicks und wichtige Nutzeraktionen werden messbar gemacht. So wird sichtbar, welche Inhalte funktionieren und wo Seiten gezielt verbessert werden sollten.
 
 ### Spalte 6
 
-Ablauf
-Ein professioneller Prozess statt kreativer Black Box.
-Jedes Projekt folgt einer klaren Reihenfolge: zuerst Analyse und Positionierung, dann Struktur, Umsetzung und kontrollierter Launch.
-01
-Analyse
-Zielgruppe, Angebot, Wettbewerb und vorhandenes Setup werden strukturiert eingeordnet.
-02
-Positionierung & Struktur
-Botschaft, Seitenarchitektur, Nutzerwege und CTA-Hierarchie werden auf das Geschäftsziel ausgerichtet.
-03
-Design & Umsetzung
-Gestaltung, Inhalte und technische Umsetzung arbeiten auf dasselbe Ziel hin: Klarheit und Conversion.
-04
-Launch & Feinschliff
-Tracking, Kontaktwege und Übergabe werden sauber finalisiert, damit der Auftritt nicht nur live geht, sondern einsatzbereit ist.
+KI & Automatisierung
+KI sinnvoll einsetzen, ohne den Betrieb komplizierter zu machen.
+Viele kleine Unternehmen wissen, dass KI helfen kann, aber nicht genau wo sie anfangen sollen. Ich helfe dabei, bestehende Abläufe zu verstehen, passende Tools auszuwählen und einfache Automatisierungen so einzusetzen, dass sie im Alltag wirklich entlasten.
+Ausgangslage
+Viele Aufgaben laufen noch manuell: Informationen suchen, E-Mails beantworten, Inhalte vorbereiten, Dokumente sortieren oder wiederkehrende Schritte zwischen verschiedenen Tools erledigen. Gleichzeitig werden KI-Tools ausprobiert, ohne dass klar ist, wo sie wirklich Nutzen bringen.
+Ziel
+Ein verständliches KI- und Automatisierungs-Setup, das zu deinem Betrieb passt. Nicht möglichst viele Tools, sondern klare Anwendungsfälle, weniger Routinearbeit und bessere Unterstützung im Tagesgeschäft.
+Umsetzung
+Ich analysiere bestehende Abläufe, identifiziere einfache Hebel und zeige, wo die richtigen Tools sinnvoll eingesetzt werden können. Dabei geht es nicht um komplizierte IT-Projekte, sondern um praktische Verbesserungen für echte Arbeitsabläufe.
+Ergebnis
+Weniger manuelle Wiederholungen, schnellerer Zugriff auf Wissen, bessere Vorlagen, klarere Prozesse und ein Team, das KI nicht nur ausprobiert, sondern sinnvoll nutzen kann.
+Typische Einsatzbereiche
+Praktische Anwendungsfälle für kleine Betriebe und schlanke Teams.
+E-Mails, Antworten und Vorlagen schneller vorbereiten
+Inhalte für Website, Social Media oder Angebote strukturieren
+Wissen, Notizen und Dokumente besser nutzbar machen
+Wiederkehrende Abläufe vereinfachen und Zeit sparen
+Interne Prozesse klarer aufbauen und entlasten
+Einfache Automatisierungen zwischen bestehenden Tools schaffen
+Echtzeit-Reaktion auf Anfragen und Nutzerverhalten
+ohne Tool-Hype praxisnah statt theoretisch
+Passende Tools statt Tool-Chaos
+Je nach Bedarf mit Lösungen wie ChatGPT, Claude Code, NotebookLM oder n8n.
+Auswahl sinnvoller Tools je nach Aufgabe und Betriebsgröße
+Fokus auf Endanwender-Nutzen statt technischer Komplexität
+klare Einsatzbereiche statt wahllosem Ausprobieren
+einfache Einführung in den Arbeitsalltag
+verständliche Nutzung mit realem Mehrwert
+nur so viel KI und Automatisierung, wie wirklich sinnvoll ist
+Aufbau einfacher Vorlagen, Prompts und Arbeitsweisen für den Alltag
+klare Empfehlung, welche Tools bleiben – und welche du nicht brauchst
+ohne Tool-Chaos mehr Klarheit im Alltag
+Mehr erfahren
 
 ### Spalte 7
 
-Zwei klare Wege
-Jeder Besucher sollte sofort wissen, wie es für ihn weitergeht.
-Entweder zuerst Leistungen verstehen oder direkt über Ergebnisse und Projektlogik Vertrauen aufbauen.
-Ich möchte Leistungen verstehen
-Ideal, wenn du zuerst sehen willst, welcher Hebel für dein Projekt relevant ist.
-Übersicht der aktiven Leistungsbereiche
-Vertiefte Service-Seiten mit Vorgehen und Lieferumfang
-Klarer Übergang in Kontakt, Audit oder Erstgespräch
-Leistungen ansehen
-Ich möchte Ergebnisse sehen
-Ideal, wenn du erst Projektlogik, Proof und die Qualität der Umsetzung prüfen willst.
-Projektmuster und anonymisierte Leistungsbeweise
-Case Study mit Ausgangslage, Ziel, Umsetzung und Ergebnis
-Direkter Weg vom Proof in das Erstgespräch
-Projekt ansehen
-
-### Spalte 8
-
-Wenn dein Auftritt hochwertiger, klarer und wirksamer werden soll.
-Dann starten wir mit einem strukturierten Erstgespräch oder einem fokussierten Mini-Audit, damit sofort klar ist, welcher Schritt für dein Projekt zuerst Wirkung bringt.
+Weitere Leistungen
+Weitere Hebel für Marke, Content-System und planbares Wachstum.
+Diese Leistungen bauen auf den Kernbereichen Website, Sichtbarkeit und KI auf. Sie schärfen Positionierung, machen Inhalte konsistenter und helfen dabei, Nachfrage systematisch weiterzuentwickeln.
+BRANDING
+Ein Auftritt mit klarer Wertigkeit
+Für Unternehmen, die professioneller, differenzierter und konsistenter wirken wollen – mit einer Marke, die Angebot und Außenwirkung sauber zusammenführt.
+Mehr erfahren
+SOCIAL STRATEGIE
+Content mit mehr Richtung und Konstanz
+Für Teams, die Inhalte planbar, markenkonsistent und näher an Angebot und Nachfrage aufbauen möchten – statt Social Media nur nebenbei laufen zu lassen.
+Mehr erfahren
+GROWTH STRATEGIE
+Nachfrage systematisch weiterentwickeln
+Für Unternehmen, die Conversion, Optimierung und Nachfrage nicht dem Zufall überlassen wollen, sondern gezielt auf die nächste Stufe bringen möchten.
+Mehr erfahren
+Wenn dein digitaler Auftritt klarer, sichtbarer und effizienter arbeiten soll.
+Dann prüfen wir gemeinsam, wo dein aktueller Auftritt steht, welche Potenziale ungenutzt bleiben und welcher nächste Schritt zuerst sinnvoll ist — neue Website, bessere Sichtbarkeit oder KI-gestützte Optimierung.
 Erstgespräch buchen
-Mini-Audit anfordern
+Projekt einordnen lassen
 
 ## leistungen.html
 
@@ -249,7 +261,7 @@ Für Unternehmen, die Nachfrage, Conversion und Optimierung systematisch auf die
 Leistungen ansehen
 AI
 KI Beratung
-F&uuml;r Unternehmen, die KI sinnvoll in Website, Content und Prozesse integrieren wollen, ohne Qualit&auml;t, Markenlogik zu verw&auml;ssern.
+Für Unternehmen, die KI sinnvoll in Website, Content und Prozesse integrieren wollen, ohne Qualität, Markenlogik zu verwässern.
 Leistungen ansehen
 
 ### Spalte 3
@@ -276,27 +288,27 @@ Content arbeitet nicht in Richtung Angebot
 Tracking oder Optimierung fehlen
 Leistungen ansehen
 Wenn KI schon Thema ist, aber noch nicht sauber eingeordnet
-KI Beratung schafft Rollen, Priorit&auml;ten und sinnvolle Einsatzfelder.
+KI Beratung schafft Rollen, Prioritäten und sinnvolle Einsatzfelder.
 Tools werden ausprobiert, aber ohne klare Prozesslogik
-Tonalit&auml;t, Qualit&auml;t und Freigaben sind nicht sauber geregelt
-Website, Content und interne Abl&auml;ufe greifen noch nicht zusammen
+Tonalität, Qualität und Freigaben sind nicht sauber geregelt
+Website, Content und interne Abläufe greifen noch nicht zusammen
 Leistungen ansehen
 
 ### Spalte 4
 
 Arbeitsweise mit KI
 KI beschleunigt Recherche, Struktur und Varianten.
-Ich nutze KI dort, wo sie Routinen verk&uuml;rzt und Tempo schafft. Positionierung, Priorisierung, Tonalit&auml;t und Qualit&auml;tskontrolle werden nicht ausgelagert, damit das Ergebnis nicht generisch wird, sondern sauber zum Angebot passt.
+Ich nutze KI dort, wo sie Routinen verkürzt und Tempo schafft. Positionierung, Priorisierung, Tonalität und Qualitätskontrolle werden nicht ausgelagert, damit das Ergebnis nicht generisch wird, sondern sauber zum Angebot passt.
 VORBEREITUNG
 Schneller von Rohmaterial zu Struktur
-Themen, Seitenlogik, erste Wireframes und Textgrundlagen lassen sich fr&uuml;her sortieren, verdichten und auf Relevanz pr&uuml;fen.
+Themen, Seitenlogik, erste Wireframes und Textgrundlagen lassen sich früher sortieren, verdichten und auf Relevanz prüfen.
 ITERATION
-Varianten lassen sich fr&uuml;her testen
-Headlines, CTA-Richtungen, Seitenmodule und Content-Ideen k&ouml;nnen schneller gegeneinander gepr&uuml;ft und im Projekt gesch&auml;rft werden.
+Varianten lassen sich früher testen
+Headlines, CTA-Richtungen, Seitenmodule und Content-Ideen können schneller gegeneinander geprüft und im Projekt geschärft werden.
 BERATUNG
 KI wird sinnvoll eingeordnet
-Ich pr&uuml;fe, wo KI im Projekt wirklich Zeit spart und wo menschliche Entscheidung, Designgef&uuml;hl und finale Freigabe bewusst vorne bleiben m&uuml;ssen.
-Wenn du KI nicht als Buzzword, sondern als sauberen Hebel f&uuml;r Website, Content und Prozesse einordnen willst.
+Ich prüfe, wo KI im Projekt wirklich Zeit spart und wo menschliche Entscheidung, Designgefühl und finale Freigabe bewusst vorne bleiben müssen.
+Wenn du KI nicht als Buzzword, sondern als sauberen Hebel für Website, Content und Prozesse einordnen willst.
 KI Beratung ansehen
 
 ### Spalte 5
@@ -334,10 +346,10 @@ Ich entwickle digitale Auftritte, die hochwertig wirken, schnell laden und Besuc
 Erstgespräch buchen
 Mini-Audit anfordern
 Websystem
-Nicht nur sch&ouml;n, sondern klar aufgebaut und auf Anfrage ausgerichtet.
-saubere Seitenstruktur statt visueller &Uuml;berladung
-klare Nutzerf&uuml;hrung mit priorisierten CTA-Wegen
-performante Umsetzung f&uuml;r Mobile, Desktop und Launch
+Nicht nur schön, sondern klar aufgebaut und auf Anfrage ausgerichtet.
+saubere Seitenstruktur statt visueller Überladung
+klare Nutzerführung mit priorisierten CTA-Wegen
+performante Umsetzung für Mobile, Desktop und Launch
 Websystem statt digitaler Visitenkarte
 Struktur vor Effekten. Nutzerführung vor Zufall. Conversion vor Bauchgefühl.
 Technisch sauber, mobil stark und so aufgebaut, dass Vertrauen und Kontaktwege nicht gegeneinander arbeiten.
@@ -345,7 +357,7 @@ Problem
 Ansatz
 Lieferumfang
 Standards
-N&auml;chste Schritte
+Nächste Schritte
 
 ### Spalte 2
 
@@ -448,8 +460,8 @@ Mini-Audit anfordern
 Markenfundament
 Positionierung, Botschaft und Design arbeiten als ein System zusammen.
 klare Botschaften statt austauschbarer Aussagen
-visuelle Leitlinien f&uuml;r einen konsistenten Marktauftritt
-st&auml;rkere Wahrnehmung &uuml;ber Website, Social und Vertrieb hinweg
+visuelle Leitlinien für einen konsistenten Marktauftritt
+stärkere Wahrnehmung über Website, Social und Vertrieb hinweg
 Brand System
 Positionierung mit Fokus. Botschaft mit Richtung. Design mit Konsistenz.
 Damit deine Marke nicht nur gut aussieht, sondern wertiger, präziser und professioneller wirkt.
@@ -457,7 +469,7 @@ Problem
 Ansatz
 Lieferumfang
 Standards
-N&auml;chste Schritte
+Nächste Schritte
 
 ### Spalte 2
 
@@ -559,9 +571,9 @@ Erstgespräch buchen
 Mini-Audit anfordern
 Visibility System
 Sichtbarkeit wird an Angebotslogik, Content und Tracking gekoppelt.
-Suchintentionen sauber in Zielseiten und Themenfelder &uuml;bersetzt
+Suchintentionen sauber in Zielseiten und Themenfelder übersetzt
 Content mit klarer Priorisierung statt reiner Reichweite
-Tracking f&uuml;r bessere Entscheidungen entlang echter Kontaktwege
+Tracking für bessere Entscheidungen entlang echter Kontaktwege
 Search Intent, Content, Tracking
 Suchintention vor Tools. Content mit Richtung. Tracking für Entscheidungen.
 Damit Sichtbarkeit, Landingpages und Kontaktwege an derselben Conversion-Architektur arbeiten.
@@ -569,7 +581,7 @@ Problem
 Ansatz
 Lieferumfang
 Standards
-N&auml;chste Schritte
+Nächste Schritte
 
 ### Spalte 2
 
@@ -678,7 +690,7 @@ Problem
 Ansatz
 Lieferumfang
 Standards
-N&auml;chste Schritte
+Nächste Schritte
 
 ### Spalte 2
 
@@ -787,7 +799,7 @@ Problem
 Ansatz
 Lieferumfang
 Standards
-N&auml;chste Schritte
+Nächste Schritte
 
 ### Spalte 2
 
@@ -883,110 +895,110 @@ Mini-Audit anfordern
 ### Spalte 1
 
 KI Beratung
-KI sinnvoll einsetzen, ohne Qualit&auml;t, Verantwortung und Markenlogik an Tools abzugeben.
-Ich ordne ein, wo KI in Recherche, Content, Struktur und internen Prozessen wirklich Tempo bringt und wo Priorisierung, Freigabe und Qualit&auml;tskontrolle bewusst menschlich bleiben sollten.
+KI sinnvoll einsetzen, ohne Qualität, Verantwortung und Markenlogik an Tools abzugeben.
+Ich ordne ein, wo KI in Recherche, Content, Struktur und internen Prozessen wirklich Tempo bringt und wo Priorisierung, Freigabe und Qualitätskontrolle bewusst menschlich bleiben sollten.
 KI Beratung anfragen
 Potenzial schildern
 Strategische KI-Einordnung
-Nicht mehr Tool-Output, sondern mehr Klarheit in Rollen, Einsatzfeldern und Qualit&auml;t.
+Nicht mehr Tool-Output, sondern mehr Klarheit in Rollen, Einsatzfeldern und Qualität.
 sinnvolle Einsatzfelder statt blindem Tool-Aktionismus
-klare Guardrails f&uuml;r Tonalit&auml;t, Freigaben und Verantwortung
+klare Guardrails für Tonalität, Freigaben und Verantwortung
 Anbindung an Website, Content und bestehende Arbeitslogik
 KI mit Richtung
-Tempo dort, wo es hilft. Qualit&auml;t dort, wo sie gehalten werden muss. Klarheit statt Buzzword-Druck.
-KI wird nicht als Showeffekt verkauft, sondern als sauber eingeordneter Hebel f&uuml;r bessere Prozesse, bessere Inhalte und bessere Entscheidungen.
+Tempo dort, wo es hilft. Qualität dort, wo sie gehalten werden muss. Klarheit statt Buzzword-Druck.
+KI wird nicht als Showeffekt verkauft, sondern als sauber eingeordneter Hebel für bessere Prozesse, bessere Inhalte und bessere Entscheidungen.
 Problem
 Ansatz
 Lieferumfang
 Standards
-N&auml;chste Schritte
+Nächste Schritte
 
 ### Spalte 2
 
 Problem
-Viele Teams sprechen &uuml;ber KI, aber nicht &uuml;ber Priorit&auml;t, Verantwortung und Ergebnisqualit&auml;t.
-Dann entstehen Schnellsch&uuml;sse, generische Inhalte und Prozesse, die auf den ersten Blick effizient wirken, aber langfristig Vertrauen, Konsistenz und Fokus kosten.
+Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität.
+Dann entstehen Schnellschüsse, generische Inhalte und Prozesse, die auf den ersten Blick effizient wirken, aber langfristig Vertrauen, Konsistenz und Fokus kosten.
 AKTIONISMUS
 Zu viele Tools, kein klares Einsatzfeld
 KI wird ausprobiert, aber nicht entlang von Ziel, Prozess und Relevanz priorisiert.
 VERANTWORTUNG
-Freigaben und Qualit&auml;tsgrenzen sind unklar
+Freigaben und Qualitätsgrenzen sind unklar
 Niemand weiss sauber, was automatisiert werden darf und wo menschliche Kontrolle Pflicht bleibt.
 KONSISTENZ
 Output passt nicht sauber zu Marke, Website und Angebot
-Dann spart KI zwar Zeit, aber produziert Reibung in Tonalit&auml;t, Nutzerf&uuml;hrung und Vertriebslogik.
+Dann spart KI zwar Zeit, aber produziert Reibung in Tonalität, Nutzerführung und Vertriebslogik.
 
 ### Spalte 3
 
 Ansatz
-Erst die Logik kl&auml;ren, dann KI sauber in Arbeitsweise und Touchpoints &uuml;bersetzen.
-Ich sortiere nicht zuerst Tools, sondern Ausgangslage, Risiken, Priorit&auml;ten und die Stellen, an denen KI im Projekt wirklich Substanz bringt.
+Erst die Logik klären, dann KI sauber in Arbeitsweise und Touchpoints übersetzen.
+Ich sortiere nicht zuerst Tools, sondern Ausgangslage, Risiken, Prioritäten und die Stellen, an denen KI im Projekt wirklich Substanz bringt.
 01
-Ausgangslage und Zielbild pr&uuml;fen
+Ausgangslage und Zielbild prüfen
 Wo steht das Team heute, welche Reibung ist da und was soll durch KI konkret besser werden?
 02
 Einsatzfelder priorisieren
 Recherche, Struktur, Content, interne Prozesse oder Website-Module werden nach Nutzen und Risiko sortiert.
 03
 Guardrails und Rollen definieren
-Tonalit&auml;t, Freigaben, Datenschutz, Verantwortung und Qualit&auml;tskontrolle werden verbindlich eingeordnet.
+Tonalität, Freigaben, Datenschutz, Verantwortung und Qualitätskontrolle werden verbindlich eingeordnet.
 04
-In Website, Content und Prozesse &uuml;bersetzen
+In Website, Content und Prozesse übersetzen
 Das Ergebnis ist ein realistisch nutzbares Setup statt einer losen Liste von Tools und Prompts.
 
 ### Spalte 4
 
 Lieferumfang
-Was du konkret f&uuml;r eine saubere KI-Arbeitsweise mitnimmst.
+Was du konkret für eine saubere KI-Arbeitsweise mitnimmst.
 Strategische Einordnung
-F&uuml;r Klarheit &uuml;ber die sinnvollsten Hebel statt Tool-Sammeln.
+Für Klarheit über die sinnvollsten Hebel statt Tool-Sammeln.
 Priorisierung relevanter KI-Einsatzfelder
-Einordnung nach Risiko, Nutzen und Prozessn&auml;he
+Einordnung nach Risiko, Nutzen und Prozessnähe
 Verbindung zu Angebot, Zielgruppe und Markenton
 KI-Leitplanken
-F&uuml;r Freigaben, Tonalit&auml;t und verl&auml;ssliche Qualit&auml;t im Alltag.
-klare Rollen f&uuml;r Erstellung, Pr&uuml;fung und finale Freigabe
-Guardrails f&uuml;r Content, Website und interne Nutzung
+Für Freigaben, Tonalität und verlässliche Qualität im Alltag.
+klare Rollen für Erstellung, Prüfung und finale Freigabe
+Guardrails für Content, Website und interne Nutzung
 Grenzen dessen, was bewusst nicht automatisiert wird
 Umsetzbare Startpunkte
-F&uuml;r einen realistischen Einstieg ohne Prozessbruch.
-empfohlene erste Anwendungsf&auml;lle mit geringer Reibung
+Für einen realistischen Einstieg ohne Prozessbruch.
+empfohlene erste Anwendungsfälle mit geringer Reibung
 Anbindung an bestehende Website- und Content-Prozesse
-n&auml;chste Schritte f&uuml;r saubere Einf&uuml;hrung und Iteration
+nächste Schritte für saubere Einführung und Iteration
 
 ### Spalte 5
 
 Standards
-Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Gesch&auml;ft.
-KI ist nur dann sinnvoll, wenn sie Zeit spart, ohne Marke, Vertrauensaufbau und Entscheidungsqualit&auml;t zu besch&auml;digen.
+Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Geschäft.
+KI ist nur dann sinnvoll, wenn sie Zeit spart, ohne Marke, Vertrauensaufbau und Entscheidungsqualität zu beschädigen.
 Marke vor Mustertext
 Ich setze KI nicht so ein, dass Botschaften austauschbar oder beliebig wirken.
 Verantwortung bleibt klar
-Freigaben, Qualit&auml;t und strategische Priorisierung werden nicht an das Tool delegiert.
+Freigaben, Qualität und strategische Priorisierung werden nicht an das Tool delegiert.
 Nur dort beschleunigen, wo es wirklich hilft
 Tempo ist kein Selbstzweck. Entscheidend ist, ob Prozesse dadurch belastbarer und relevanter werden.
 
 ### Spalte 6
 
-Passende n&auml;chste Schritte
-KI Beratung wirkt am st&auml;rksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
+Passende nächste Schritte
+KI Beratung wirkt am stärksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
 Botschaft
-Positionierung sch&auml;rfen
-Wenn KI-generierte Inhalte erst dann sinnvoll werden, wenn Angebot und Tonalit&auml;t klarer gef&uuml;hrt sind.
+Positionierung schärfen
+Wenn KI-generierte Inhalte erst dann sinnvoll werden, wenn Angebot und Tonalität klarer geführt sind.
 Leistungen ansehen
 Struktur
 Website-System vorbereiten
-Wenn KI-gest&uuml;tzte Inhalte, Module und Nutzerwege in eine saubere Seitenlogik eingebettet werden sollen.
+Wenn KI-gestützte Inhalte, Module und Nutzerwege in eine saubere Seitenlogik eingebettet werden sollen.
 Leistungen ansehen
 Nachfrage
 SEO & Marketing anbinden
-Wenn KI-gest&uuml;tzte Recherche, Content-Struktur und Sichtbarkeit sinnvoll in den Marktauftritt &uuml;bersetzt werden sollen.
+Wenn KI-gestützte Recherche, Content-Struktur und Sichtbarkeit sinnvoll in den Marktauftritt übersetzt werden sollen.
 Leistungen ansehen
 
 ### Spalte 7
 
-Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zuf&auml;llig arbeiten soll.
-Dann beginnen wir mit einer strukturierten Einordnung und definieren zuerst Rollen, Guardrails und die Stellen, an denen KI tats&auml;chlich Wirkung bringt.
+Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zufällig arbeiten soll.
+Dann beginnen wir mit einer strukturierten Einordnung und definieren zuerst Rollen, Guardrails und die Stellen, an denen KI tatsächlich Wirkung bringt.
 KI Beratung anfragen
 Potenzial schildern
 

@@ -5,7 +5,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 ## 1. Projektueberblick
 
 - Website-Typ: statische Multi-Page-Website mit HTML-Entrypoints statt SPA-Routing.
-- Aktiver Frontend-Runtime-Pfad: `*.html` + `src/js/main.js` + `src/css/style.css`.
+- Aktiver Frontend-Runtime-Pfad: `*.html` + `src/js/main.js` + `src/css/style.css` + `src/css/tailwind.css`.
 - Build/Dev: Vite ist vorhanden, die Seiten funktionieren aber auch direkt als statische HTML-Dateien.
 - Gesamtumfang: 24 HTML-Seiten (20 Root-Seiten, 4 Projekt-Unterseiten).
 - API-Endpunkt: `POST /api/contact` ueber `api/contact.js`.
@@ -26,6 +26,9 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - `src/scripts/modules/navigation.js`: Navigation, Footer, Sticky-CTA, Link-Normalisierung
 - `src/scripts/modules/cookieConsent.js`: Cookie-Banner und Cookie-Settings-Panel
 - `src/css/style.css`: gesamtes Styling
+- `src/css/tailwind.css`: lokaler Tailwind/PostCSS-Entry
+- `src/js/water-sphere.js`: Home-Hero-WebGL-Sphere
+- `src/js/word-rotator.js`: Home-Hero-Textrotation
 - `api/contact.js`: Formular-Backend via Resend
 - `assets/`: Logo und Portraitbilder
 
@@ -34,9 +37,11 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 ### 3.1 Head-Aufbau
 
 - Fast alle Seiten laden Google Fonts mit `Inter`, `Geist` und `JetBrains Mono`.
-- Tailwind wird per CDN geladen und pro Seite inline konfiguriert.
-- Das globale Stylesheet ist `src/css/style.css` bzw. auf Projekt-Unterseiten `../src/css/style.css`.
+- Tailwind wird lokal ueber PostCSS/Vite aus `src/css/tailwind.css` gebaut; die HTML-Dateien enthalten keine Tailwind-CDN- oder Inline-Tailwind-Konfiguration mehr.
+- Das globale Styling besteht aus `src/css/style.css` und `src/css/tailwind.css`; auf Projekt-Unterseiten entsprechend `../src/css/style.css` und `../src/css/tailwind.css`.
+- `tailwind.css` wird nach den projektspezifischen Stylesheets geladen, damit Utility-Klassen die erwartete Cascade behalten.
 - Die Standardseiten laden am Ende `src/js/main.js`; Projekt-Unterseiten laden `../src/js/main.js`.
+- `index.html` laedt zusaetzlich `src/js/water-sphere.js?v=5` und `src/js/word-rotator.js`.
 - Die vier Projekt-Unterseiten setzen zusaetzlich `<base href="../" />`, damit Root-Links aus dem Unterordner korrekt funktionieren.
 
 ### 3.2 Body-/Runtime-Konventionen
@@ -170,7 +175,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - Filtergruppen: `data-filter-group` + `data-filter-value` + `data-filter-item` steuern die Filter fuer Projekte und Insights.
 - Hero-Interaction: die Hero-Stage reagiert auf Pointer-Bewegungen, solange `prefers-reduced-motion` das zulaesst.
 - Jump Nav: Seiten mit `.jump-nav--section` erhalten eine dockende Sprungnavigation mit aktiver Abschnittsmarkierung und Smooth Scroll.
-- 3D-Background: vorbereitet, aktuell aber deaktiviert, weil `animatedBackgroundModelPath` leer ist.
+- Home-Hero-WebGL: `index.html` nutzt `src/js/water-sphere.js?v=5` mit Three.js-CDN und CSS-Fallback-Orbs.
 
 ### 3.6 Kontaktformular-Backend (`api/contact.js`)
 
@@ -179,6 +184,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - Validierung: Name und E-Mail sind Pflicht; E-Mail und URL werden geprueft.
 - Honeypot: wenn `company` gesetzt ist, antwortet die API mit `{ ok: true }`, ohne Mail zu versenden.
 - Versanddienst: Resend ueber `https://api.resend.com/emails`
+- Resend-Netzwerkfehler werden abgefangen und als JSON-Fehler an das Frontend weitergegeben.
 - Benoetigte ENV-Variablen: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, optional `CONTACT_TO_EMAIL`
 - Fallback-Empfaenger ohne ENV: `pcdocjp79@gmail.com`
 
@@ -221,7 +227,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - data-page: home
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -627,7 +633,7 @@ Mini-Audit anfordern
 - data-page: leistungen
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -984,7 +990,7 @@ Mini-Audit anfordern
 - data-page: webentwicklung
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -1345,7 +1351,7 @@ Mini-Audit anfordern
 - data-page: branding
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -1706,7 +1712,7 @@ Mini-Audit anfordern
 - data-page: seo-marketing
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -2066,7 +2072,7 @@ Mini-Audit anfordern
 - data-page: social
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -2406,7 +2412,7 @@ Mini-Audit anfordern
 - data-page: growth
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -2751,7 +2757,7 @@ Mini-Audit anfordern
 - data-page: ki-beratung
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -3094,7 +3100,7 @@ Potenzial schildern
 - data-page: projekte
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -3322,7 +3328,7 @@ Erstgespräch buchen
 - data-page: projekt-website-branding-setup
 - body id: top
 - Base-HREF: ../
-- Stylesheets: `../src/css/style.css`
+- Stylesheets: `../src/css/style.css`, `../src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `../src/js/main.js`
 - Animated background Platzhalter: ja
@@ -3655,7 +3661,7 @@ Alle Projektarten
 - data-page: projekt-relaunch-seo
 - body id: top
 - Base-HREF: ../
-- Stylesheets: `../src/css/style.css`
+- Stylesheets: `../src/css/style.css`, `../src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `../src/js/main.js`
 - Animated background Platzhalter: ja
@@ -3989,7 +3995,7 @@ Alle Projektarten
 - data-page: projekt-content-tracking-system
 - body id: top
 - Base-HREF: ../
-- Stylesheets: `../src/css/style.css`
+- Stylesheets: `../src/css/style.css`, `../src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `../src/js/main.js`
 - Animated background Platzhalter: ja
@@ -4299,7 +4305,7 @@ Alle Projektarten
 - data-page: projekt-funnel-optimierung
 - body id: top
 - Base-HREF: ../
-- Stylesheets: `../src/css/style.css`
+- Stylesheets: `../src/css/style.css`, `../src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `../src/js/main.js`
 - Animated background Platzhalter: ja
@@ -4607,7 +4613,7 @@ Alle Projektarten
 - data-page: case-study
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -4838,7 +4844,7 @@ Mini-Audit anfordern
 - data-page: ablauf
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -5050,7 +5056,7 @@ Projekt ansehen
 - data-page: preise
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -5252,7 +5258,7 @@ Mini-Audit anfordern
 - data-page: ueber-mich
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -5459,7 +5465,7 @@ Leistungen ansehen
 - data-page: insights
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -5722,7 +5728,7 @@ Mini-Audit anfordern
 - data-page: kontakt
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -5950,7 +5956,7 @@ Realistischer Scope
 - data-page: danke
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -6149,7 +6155,7 @@ Leistungen ansehen
 - data-page: impressum
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -6318,7 +6324,7 @@ Rechtsverletzungen werden entsprechende Verweise geprüft und bei Bedarf entfern
 - data-page: datenschutz
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -6597,7 +6603,7 @@ Für datenschutzbezogene Anliegen:
 - data-page: cookies
 - body id: top
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
 - Modul-Script: `src/js/main.js`
 - Animated background Platzhalter: ja
@@ -6771,7 +6777,7 @@ Noch keine Auswahl gespeichert.
 - data-page: marketing-legacy
 - body id: -
 - Base-HREF: -
-- Stylesheets: `src/css/style.css`
+- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
 - Fonts: -
 - Modul-Script: -
 - Animated background Platzhalter: nein

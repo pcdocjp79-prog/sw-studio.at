@@ -6,6 +6,7 @@ const HTML_SEARCH_IGNORED_DIRS = new Set([".git", ".github", "dist", "node_modul
 const LEGACY_PAGES = new Set(["marketing.html"]);
 const ACTIVE_JS = "src/js/main.js";
 const ACTIVE_CSS = "src/css/style.css";
+const ACTIVE_TAILWIND_CSS = "src/css/tailwind.css";
 const VITE_CONFIG_PATH = "vite.config.js";
 const VITE_INPUT_PATTERN = /resolve\(__dirname,\s*"([^"]+\.html)"\)/g;
 const TAILWIND_CDN_SRC = "https://cdn.tailwindcss.com";
@@ -215,28 +216,45 @@ for (const file of HTML_FILES) {
       tag.name === "script" && tag.attributes.get("src") === TAILWIND_CDN_SRC
   );
 
+  const activeCssCount = stylesheetLinks.filter(
+    (tag) => resolveTargetPath(file, tag.attributes.get("href")) === ACTIVE_CSS
+  ).length;
+  const activeTailwindCssCount = stylesheetLinks.filter(
+    (tag) =>
+      resolveTargetPath(file, tag.attributes.get("href")) === ACTIVE_TAILWIND_CSS
+  ).length;
+
+  if (activeCssCount !== 1) {
+    errors.push(`${file}: expected 1 active stylesheet reference, found ${activeCssCount}`);
+  }
+
+  if (activeTailwindCssCount !== 1) {
+    errors.push(`${file}: expected 1 active Tailwind stylesheet reference, found ${activeTailwindCssCount}`);
+  }
+
+  if (stylesheetLinks.length > 0) {
+    const lastStylesheet = stylesheetLinks[stylesheetLinks.length - 1];
+    const lastStylesheetPath = resolveTargetPath(file, lastStylesheet.attributes.get("href"));
+    if (lastStylesheetPath !== ACTIVE_TAILWIND_CSS) {
+      errors.push(`${file}: tailwind.css must be the last stylesheet for the expected cascade`);
+    }
+  }
+
+  if (html.includes(TAILWIND_INLINE_MARKER)) {
+    errors.push(`${file}: contains removed inline Tailwind config marker`);
+  }
+
+  if (tailwindCdnScripts.length > 0) {
+    errors.push(`${file}: contains removed Tailwind CDN script`);
+  }
+
   if (!isLegacyPage) {
-    const activeCssCount = stylesheetLinks.filter(
-      (tag) => resolveTargetPath(file, tag.attributes.get("href")) === ACTIVE_CSS
-    ).length;
     const activeJsCount = moduleScripts.filter(
       (tag) => resolveTargetPath(file, tag.attributes.get("src")) === ACTIVE_JS
     ).length;
 
-    if (activeCssCount !== 1) {
-      errors.push(`${file}: expected 1 active stylesheet reference, found ${activeCssCount}`);
-    }
-
     if (activeJsCount !== 1) {
       errors.push(`${file}: expected 1 active module entry reference, found ${activeJsCount}`);
-    }
-
-    if (!html.includes(TAILWIND_INLINE_MARKER)) {
-      errors.push(`${file}: missing inline tailwind config marker`);
-    }
-
-    if (tailwindCdnScripts.length !== 1) {
-      errors.push(`${file}: expected 1 Tailwind CDN script, found ${tailwindCdnScripts.length}`);
     }
 
     if (!/id="primary-nav"/.test(html)) {
@@ -382,6 +400,10 @@ if (!fileExists(ACTIVE_JS)) {
 
 if (!fileExists(ACTIVE_CSS)) {
   errors.push(`missing required active stylesheet "${ACTIVE_CSS}"`);
+}
+
+if (!fileExists(ACTIVE_TAILWIND_CSS)) {
+  errors.push(`missing required active Tailwind stylesheet "${ACTIVE_TAILWIND_CSS}"`);
 }
 
 if (errors.length > 0) {

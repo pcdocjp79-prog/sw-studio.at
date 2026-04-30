@@ -1,105 +1,57 @@
 # Code Review Bugliste
 
-Erstellt am: 2026-04-23
+Aktualisiert am: 2026-04-30
 
-Diese Datei enthaelt die Ergebnisse der letzten vollstaendigen Code-Analyse.
-Sie ist absichtlich klar benannt, damit sie spaeter leicht wiedergefunden werden kann.
+Diese Datei fasst die zuletzt geprueften Findings zusammen. Behobene Punkte bleiben kurz sichtbar, damit spaeter nachvollziehbar ist, warum Code und Dokumentation geaendert wurden.
 
-## Wichtige Findings
+## Behoben im sicheren Cleanup
 
-### Hoch
+1. Repo-Check erwartete noch Tailwind-CDN
 
-1. Kontaktformular lokal nicht voll funktionsfaehig
+- `scripts/check-repo.mjs` prueft jetzt die lokale Tailwind/PostCSS-Architektur.
+- Erwartet werden `src/css/style.css` und `src/css/tailwind.css`; `tailwind.css` muss wegen der Utility-Cascade das letzte Stylesheet sein.
+- Tailwind Play-CDN und `window.tailwind.config` werden als entfernte Runtime-Altlasten gemeldet.
 
-- Das Formular ist fest auf `/api/contact` eingestellt.
-- Das Projekt nutzt lokal nur `vite`, aber keine erkennbare API-Emulation oder Proxy-Konfiguration fuer diesen Endpoint.
-- Dadurch ist der wichtigste Formular-Flow unter `npm run dev` bzw. einfachem statischem Serving sehr wahrscheinlich nicht voll nutzbar.
-- Relevante Stellen:
-  - `kontakt.html:185`
-  - `src/js/main.js:505`
-  - `vite.config.js:4`
-  - `README.md:34`
+2. API behandelte Resend-Netzwerkfehler nicht sauber
 
-### Mittel
+- `api/contact.js` faengt `fetch()`-Fehler beim Resend-Aufruf ab und antwortet weiter mit dem bestehenden JSON-Fehlertext.
+- Methode, Payload, ENV-Variablen und Erfolgsantworten bleiben unveraendert.
 
-2. API behandelt Netzwerkfehler beim Mailversand nicht sauber
+3. Toter Navigations- und CSS-Code
 
-- In `api/contact.js` wird nur `!resendResponse.ok` behandelt.
-- Wenn `fetch()` selbst fehlschlaegt, zum Beispiel bei DNS-, TLS- oder Timeout-Problemen, gibt es keinen sauber abgefangenen JSON-Fehlerpfad.
-- Das kann zu unklaren Fehlern im Frontend oder unsauberen Serverantworten fuehren.
-- Relevante Stelle:
-  - `api/contact.js:116`
+- `initActiveSectionObserver()` wurde entfernt, weil im Projekt kein `[data-nav-section]`-Markup existiert.
+- Ungenutzte CSS-Zweige fuer `.scroll-focus-section.is-visible.is-in-focus` und `.jump-nav--inline` wurden entfernt.
+- Die aktive Jump-Nav ueber `.jump-nav--section` bleibt unveraendert.
 
-3. Hero-Sphere laeuft weiter, obwohl sie mobil per CSS verborgen ist
+4. Tailwind-/Sass-Altlasten
 
-- Die WebGL-Sphere wird unter `1024px` per CSS ausgeblendet.
-- Das zugehoerige JavaScript laeuft aber weiter und verarbeitet weiterhin Pointer- und Render-Logik.
-- Das ist unnoetige Last fuer CPU/GPU und kann bei `0`-Breite oder `0`-Hoehe zu ungueltigen Koordinaten fuehren.
-- Relevante Stellen:
-  - `src/css/hero-sphere.css:47`
-  - `src/js/water-sphere.js:236`
-  - `src/js/water-sphere.js:261`
+- `tailwind-config.js` und abgeschlossene One-shot-Migrationsscripts wurden entfernt.
+- `sass` wurde aus `package.json`/`package-lock.json` entfernt; es gibt keine `.scss`/`.sass`-Quellen im Projekt.
 
-### Niedrig
+5. Textdoku-Entity-Decoding
 
-4. Exportskript decodiert HTML-Entities nur teilweise
+- `scripts/generate-site-text-doc.mjs` decodiert nun deutsche HTML-Entities wie `&uuml;`, `&auml;`, `&ouml;` und `&szlig;`.
+- `website-texte-komplett.md` wurde neu generiert.
 
-- Die generierte Textdokumentation enthaelt bereits Zeichenfolgen wie `&uuml;` statt echte Umlaute.
-- Ursache ist eine unvollstaendige Entity-Decodierung im Skript.
-- Relevante Stellen:
-  - `scripts/generate-site-text-doc.mjs:161`
-  - `website-texte-komplett.md:252`
+## Bewusst offen
 
-## Unnoetiger oder vermutlich toter Code
+1. Kontaktformular im reinen Vite-Dev-Server
 
-1. Unbenutzter Active-Section-Observer in der Navigation
+- `kontakt.html` sendet an `/api/contact`, was in der Produktion von Vercel bereitgestellt wird.
+- Der reine Vite-Dev-Server emuliert diese API-Route nicht. Fuer lokale End-to-End-Formulartests braucht es Vercel Dev oder eine eigene API-Proxy-Loesung.
 
-- `initActiveSectionObserver()` sucht nach `[data-nav-section]`.
-- Fuer diese Verwendung wurden in den Quell-HTML-Dateien keine aktiven Treffer gefunden.
-- Relevante Stelle:
-  - `src/scripts/modules/navigation.js:612`
+2. Three.js-Performance-Refactor
 
-2. Deaktiviertes 3D-Background-Feature bleibt im Runtime-Code enthalten
+- `index.html` laedt Three.js weiterhin per CDN und `src/js/water-sphere.js?v=5`.
+- Der groessere Refactor auf Vite-Bundling/Dynamic Import ist weiterhin ein separater Performance-Schritt.
 
-- `animatedBackgroundModelPath` ist leer.
-- Dadurch beendet sich die Funktion sofort, aber der Codepfad und der Platzhalter `#animated-background` bleiben im Projekt.
-- Relevante Stellen:
-  - `src/js/main.js:7`
-  - `src/js/main.js:12`
-  - `index.html:42`
+3. Grosse ungenutzte Assets
 
-3. Doppelte bzw. wahrscheinlich ungenutzte Tailwind-Konfigurationsdateien
-
-- Die aktive Tailwind-Konfiguration wird inline in den HTML-Dateien gesetzt.
-- Zusaetzlich existieren `tailwind.config.js` und `tailwind-config.js`.
-- Beide wirken derzeit redundant oder ungenutzt.
-- Relevante Stellen:
-  - `tailwind.config.js:1`
-  - `tailwind-config.js:1`
-  - `index.html:19`
-
-4. `sass` als Dependency ohne `.scss`-Dateien im Projekt
-
-- In `package.json` ist `sass` eingetragen.
-- Im Projekt wurden keine `.scss`-Dateien gefunden.
-- Relevante Stelle:
-  - `package.json:13`
-
-5. Wahrscheinlich ungenutzte CSS-Pfade
-
-- `.js .scroll-focus-section.is-visible.is-in-focus`
-- `.jump-nav--inline`
-- Fuer diese Selektoren wurden ausserhalb von `style.css` keine aktiven Verwendungen gefunden.
-- Relevante Stellen:
-  - `src/css/style.css:1000`
-  - `src/css/style.css:3909`
+- Die grossen Asset-Kandidaten bleiben im Repo und werden in diesem Cleanup nicht geloescht.
+- Vor dem Loeschen sollten Nutzung, Historie und ggf. Backup-Wert separat bestaetigt werden.
 
 ## Verifikation
 
-- `npm run check`: erfolgreich
-- `npm run build`: erfolgreich
-
-## Hinweis
-
-Am Projektcode selbst wurde waehrend dieser Analyse nichts geaendert.
-Diese Datei dient nur als gespeicherte Review-Notiz.
+- `npm run check`
+- `npm run build`
+- `npm ls --depth=0`

@@ -22,15 +22,17 @@
 - `webentwicklung.html`: Leistungsseite Webentwicklung
 - `impressum.html`: Impressum
 - `datenschutz.html`: Datenschutz
-- Tailwind-CDN-Konfiguration wird direkt inline in den HTML-Entrypoints gesetzt
 - `src/js/main.js`: Aktives Frontend-Script
-- `src/css/style.css`: Aktives Stylesheet
+- `src/js/water-sphere.js`: Home-Hero-WebGL-Sphere, aktuell via Three.js-CDN auf `index.html`
+- `src/css/style.css`: Aktives Hauptstylesheet
+- `src/css/tailwind.css`: Lokaler Tailwind/PostCSS-Entry; wird in HTML nach `style.css` geladen, damit Utilities die erwartete Cascade behalten
 - `assets/`: Lokale statische Bilder (Logo, Portrait)
 - `scripts/check-repo.mjs`: Repo-Basischeck fuer Entrypoints, Links, Assets und aktive Hooks
 
 ## Notes
 
-- The active runtime path is `*.html` + `src/js/main.js` + `src/css/style.css`.
-- The project works with `npm run dev` and also with simple static local serving of the root HTML files.
+- The active runtime path is `*.html` + `src/js/main.js` + `src/css/style.css` + `src/css/tailwind.css`.
+- Tailwind is built locally through PostCSS/Vite; there is no Tailwind Play-CDN or inline Tailwind config in runtime HTML.
+- `kontakt.html` posts to `/api/contact`, which is served by Vercel. The plain Vite dev server does not emulate that API route.
 - Internal page links point to `*.html` files for reliable local navigation, while canonicals and host redirects may still use clean URLs.
 

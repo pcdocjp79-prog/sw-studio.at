@@ -33,7 +33,7 @@
 5. In Vite ([vite.config.js](../vite.config.js)) wird PostCSS automatisch aufgerufen — keine extra Config nötig.
 6. Inline-`<script>tailwind.config = {...}</script>`-Block aus jeder HTML-Datei entfernen (24 Dateien).
 7. `<script src="https://cdn.tailwindcss.com"></script>` aus 23 HTML-Dateien entfernen.
-8. `<link rel="stylesheet" href="src/css/tailwind.css" />` in jeder HTML-Datei vor `style.css` einfügen.
+8. `<link rel="stylesheet" href="src/css/tailwind.css" />` in jeder HTML-Datei laden; aktueller Stand: `tailwind.css` steht am Ende von `<head>`, damit Utility-Klassen die urspruengliche CDN-Cascade behalten.
 9. Custom-Klassen, die wie Tailwind-Komponenten wirken (z. B. `hero-stage`, `scroll-focus-section`, `animate-enter`), in `@layer components` von `src/css/tailwind.css` migrieren — **bestehende `style.css` bleibt** als Quelle für Nicht-Tailwind-Styles (Keyframes, Variables, Reset).
 10. `npm run build` lokal — alle 24 Seiten visuell sichten (Hero, Sticky-CTA, Cookie-Banner, Footer).
 
@@ -44,7 +44,7 @@
 - `selection:bg-zinc-200`, `antialiased`, `has-fixed-hero-bg`, `has-mobile-sticky-cta` funktionieren weiter
 
 ### Open Risk
-- Falls Custom-Klassen mit Tailwind-Utilities kollidieren (Reihenfolge), `style.css` nach Tailwind laden.
+- Erledigt nach Phase 1: wegen CSS-Cascade steht `tailwind.css` nach `style.css` und weiteren Home-Stylesheets.
 
 ---
 

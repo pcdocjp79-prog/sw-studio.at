@@ -168,6 +168,13 @@ function decodeHtmlEntities(value) {
     lt: "<",
     gt: ">",
     nbsp: " ",
+    auml: "ä",
+    Auml: "Ä",
+    ouml: "ö",
+    Ouml: "Ö",
+    uuml: "ü",
+    Uuml: "Ü",
+    szlig: "ß",
     ndash: "-",
     mdash: "-",
     hellip: "...",
@@ -182,7 +189,7 @@ function decodeHtmlEntities(value) {
       return Number.isFinite(number) ? String.fromCodePoint(number) : match;
     }
 
-    return named[entity.toLowerCase()] ?? match;
+    return named[entity] ?? named[entity.toLowerCase()] ?? match;
   });
 }
 

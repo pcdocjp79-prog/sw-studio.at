@@ -40,61 +40,6 @@ const parseCssTimeToMs = (value) => {
   return Number.parseFloat(normalizedValue) || 0;
 };
 
-function initOrbParallax() {
-  const host = document.querySelector("[data-orb-parallax-layer]");
-  if (!host) return;
-
-  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const rootStyle = document.documentElement.style;
-  const state = { progress: 0 };
-  window.__orbParallaxState = state;
-  let rafId = null;
-
-  const computeProgress = () => {
-    const scrollable = Math.max(
-      document.documentElement.scrollHeight - window.innerHeight,
-      1
-    );
-    const raw = window.scrollY / scrollable;
-    return Math.max(0, Math.min(1, raw));
-  };
-
-  const applyProgress = (progress) => {
-    state.progress = progress;
-    rootStyle.setProperty("--orb-scroll-progress", progress.toFixed(4));
-  };
-
-  const updateParallax = () => {
-    rafId = null;
-    if (reduceMotionQuery.matches) {
-      applyProgress(0);
-      return;
-    }
-    applyProgress(computeProgress());
-  };
-
-  const queueUpdate = () => {
-    if (rafId !== null) return;
-    rafId = requestAnimationFrame(updateParallax);
-  };
-
-  window.addEventListener("scroll", queueUpdate, { passive: true });
-  window.addEventListener("resize", queueUpdate);
-  window.addEventListener("load", queueUpdate, { once: true });
-
-  const handleReduceMotionChange = () => {
-    queueUpdate();
-  };
-
-  if (typeof reduceMotionQuery.addEventListener === "function") {
-    reduceMotionQuery.addEventListener("change", handleReduceMotionChange);
-  } else if (typeof reduceMotionQuery.addListener === "function") {
-    reduceMotionQuery.addListener(handleReduceMotionChange);
-  }
-
-  updateParallax();
-}
-
 const initRevealOnScroll = () => {
   const revealOnScrollElements = document.querySelectorAll(".reveal-on-scroll");
   if (revealOnScrollElements.length === 0) return;
@@ -1122,7 +1067,6 @@ function initJumpNav() {
   window.addEventListener("load", refreshAndSyncJumpNav, { once: true });
 }
 
-initOrbParallax();
 initRevealOnScroll();
 initScrollFocusEffect();
 initHeroStageIntro();

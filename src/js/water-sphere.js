@@ -148,9 +148,10 @@ void main() {
   color = mix(color, reflCol, reflMask * 0.55);
   color = mix(color, uColorRim, fres * 0.85);
   color += spec;
+  color *= 1.18;
 
-  float alpha = 0.06 + fres * 0.55 + reflMask * 0.22 + spec * 0.9;
-  alpha = clamp(alpha, 0.0, 0.92);
+  float alpha = 0.16 + fres * 0.62 + reflMask * 0.3 + spec * 0.95;
+  alpha = clamp(alpha, 0.0, 1.0);
 
   gl_FragColor = vec4(color, alpha);
 }
@@ -444,7 +445,6 @@ const ORB_CONFIGS = {
 };
 
 const SCENE_HALF_HEIGHT = 5;
-const ORB_FIELD_MULTIPLIER = 2;
 const HOVER_PAD = 100;
 const ENABLE_ORB_HOVER = false;
 const ORB_DRIFT_TIME_SCALE = 0.46;
@@ -667,14 +667,6 @@ async function initWaterSphere() {
     let hoveredEntry = null;
     let hoveredRatio = Number.POSITIVE_INFINITY;
 
-    const scrollState = window.__orbParallaxState;
-    const rawProgress = scrollState && typeof scrollState.progress === "number"
-      ? scrollState.progress
-      : 0;
-    const progress = Math.max(0, Math.min(1, rawProgress));
-    const scrollOffsetY =
-      progress * SCENE_HALF_HEIGHT * 2 * (ORB_FIELD_MULTIPLIER - 1);
-
     orbEntries.forEach((entry) => {
       const { config, mesh, material } = entry;
       const phase = driftTime * config.driftSpeed + config.driftPhase;
@@ -683,7 +675,7 @@ async function initWaterSphere() {
       const driftY = Math.cos(phase * 0.92) * config.driftY;
 
       mesh.position.x = (config.baseX + driftX) * camera.right;
-      mesh.position.y = (config.baseY + driftY) * camera.top + scrollOffsetY;
+      mesh.position.y = (config.baseY + driftY) * camera.top;
       mesh.position.z = config.depth;
       mesh.scale.setScalar(config.scale * pulse);
       mesh.rotation.y += delta * ORB_ROTATION_TIME_SCALE * config.rotationSpeed;

@@ -923,7 +923,7 @@ const initHeroStageIntro = () => {
         ])
       : Promise.resolve();
 
-  introStartTimeoutId = window.setTimeout(startIntro, 1100);
+  introStartTimeoutId = window.setTimeout(startIntro, 150);
 
   heroFontPromise.then(() => {
     if (introIsFinished || introHasStarted) return;

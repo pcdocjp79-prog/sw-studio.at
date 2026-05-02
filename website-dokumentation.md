@@ -194,12 +194,12 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 | --- | --- | --- | ---: | --- |
 | index.html | home | Smart Web Studio \| High-End Websites mit Qualität | 7 | Standard |
 | leistungen.html | leistungen | Leistungen \| Smart Web Studio | 6 | Card-Links |
-| webentwicklung.html | webentwicklung | Webentwicklung \| Smart Web Studio | 7 | Jump-Nav |
-| branding.html | branding | Branding \| Smart Web Studio | 7 | Jump-Nav |
-| seo-marketing.html | seo-marketing | SEO & Marketing \| Smart Web Studio | 7 | Jump-Nav |
-| social.html | social | Social Strategie \| Smart Web Studio | 7 | Jump-Nav |
-| growth.html | growth | Growth Strategie \| Smart Web Studio | 7 | Jump-Nav |
-| ki-beratung.html | ki-beratung | KI Beratung \| Smart Web Studio | 7 | Jump-Nav, Prefill-CTA |
+| webentwicklung.html | webentwicklung | Webentwicklung \| Smart Web Studio | 6 | Jump-Nav |
+| branding.html | branding | Branding \| Smart Web Studio | 6 | Jump-Nav |
+| seo-marketing.html | seo-marketing | SEO & Marketing \| Smart Web Studio | 6 | Jump-Nav |
+| social.html | social | Social Strategie \| Smart Web Studio | 6 | Jump-Nav |
+| growth.html | growth | Growth Strategie \| Smart Web Studio | 6 | Jump-Nav |
+| ki-beratung.html | ki-beratung | KI Beratung \| Smart Web Studio | 6 | Jump-Nav, Prefill-CTA |
 | projekte.html | projekte | Projekte \| Smart Web Studio | 4 | Filter, Card-Links |
 | projekte/website-branding-setup.html | projekt-website-branding-setup | Marken- und Website-Setup \| Smart Web Studio | 7 | Base ../ |
 | projekte/relaunch-seo.html | projekt-relaunch-seo | Relaunch mit Conversion- und Sichtbarkeitsbasis \| Smart Web Studio | 7 | Base ../ |
@@ -997,7 +997,6 @@ Mini-Audit anfordern
 
 - `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `#problem` -> Problem
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
 - `#standards` -> Standards
@@ -1018,7 +1017,7 @@ ansehen
 
 #### Sprungnavigation
 
-- Sprungnavigation Webentwicklung: Problem -> #problem | Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
+- Sprungnavigation Webentwicklung: Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
 
 #### Filterlogik
 
@@ -1040,7 +1039,7 @@ ansehen
 - aria-labelledby: webdev-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Webentwicklung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#problem` (Problem), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1077,8 +1076,6 @@ Bauchgefühl.
 Technisch sauber, mobil stark und so aufgebaut, dass Vertrauen und Kontaktwege nicht gegeneinander
 arbeiten.
 
-- Problem
-
 - Ansatz
 
 - Lieferumfang
@@ -1088,52 +1085,7 @@ arbeiten.
 - Nächste Schritte
 ```
 
-##### Section 2: Viele Websites sehen gut aus und verlieren trotzdem Momentum.
-
-- ID: problem
-- aria-labelledby: webdev-problem-title
-- Klassen: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Problem
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Problem
-
-Viele Websites sehen gut aus und verlieren trotzdem Momentum.
-
-Wenn Struktur, Ladezeit, Nutzerführung und CTA-Logik nicht sauber zusammenspielen, entsteht kein
-professioneller Vertriebsauftritt, sondern Reibung.
-
-01
-
-REIBUNG
-
-Zu viele Wege, kein Fokus
-
-Besucher sehen viele Inhalte, aber keinen klaren priorisierten nächsten
-Schritt.
-
-02
-
-TECHNIK
-
-Langsam oder unübersichtlich
-
-Schwache Performance, unklare Inhalts-Hierarchien und inkonsistente Module
-bremsen Vertrauen und Lesbarkeit.
-
-03
-
-CONVERSION
-
-Die Website arbeitet nicht mit dem Angebot
-
-Dann bleibt Reichweite ungenutzt, weil die Seite weder Priorität noch klare
-Angebotslogik transportiert.
-```
-
-##### Section 3: Strategie vor Oberfläche. Seitenarchitektur vor Code.
+##### Section 2: Strategie vor Oberfläche. Seitenarchitektur vor Code.
 
 - ID: approach
 - aria-labelledby: webdev-approach-title
@@ -1189,7 +1141,7 @@ QA, Tracking, Responsiveness und CTA-Wege werden vor der Freigabe
 überprüft.
 ```
 
-##### Section 4: Was du konkret bekommst und was es im Ergebnis verbessert.
+##### Section 3: Was du konkret bekommst und was es im Ergebnis verbessert.
 
 - ID: deliverables
 - aria-labelledby: webdev-deliverables-title
@@ -1234,7 +1186,7 @@ Für einen Auftritt, der nicht nur fertig aussieht.
 - typischer Projektrahmen je nach Umfang und Seitenzahl
 ```
 
-##### Section 5: Performance ist kein Extra. Sie ist Teil des Standards.
+##### Section 4: Performance ist kein Extra. Sie ist Teil des Standards.
 
 - ID: standards
 - aria-labelledby: webdev-standards-title
@@ -1267,7 +1219,7 @@ Semantik, Headings, saubere interne Verlinkung und relevante Messpunkte werden
 direkt mitgedacht.
 ```
 
-##### Section 6: Webentwicklung wirkt am stärksten im Zusammenspiel mit den
+##### Section 5: Webentwicklung wirkt am stärksten im Zusammenspiel mit den
 richtigen Nachbarleistungen.
 
 - ID: related
@@ -1315,7 +1267,7 @@ Case Study zusammenlaufen.
 Projekt ansehen
 ```
 
-##### Section 7: Wenn deine Website nicht nur Eindruck, sondern Anfragen erzeugen soll.
+##### Section 6: Wenn deine Website nicht nur Eindruck, sondern Anfragen erzeugen soll.
 
 - ID: keine
 - aria-labelledby: keine
@@ -1358,7 +1310,6 @@ Mini-Audit anfordern
 
 - `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `#problem` -> Problem
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
 - `#standards` -> Standards
@@ -1379,7 +1330,7 @@ ansehen
 
 #### Sprungnavigation
 
-- Sprungnavigation Branding: Problem -> #problem | Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
+- Sprungnavigation Branding: Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
 
 #### Filterlogik
 
@@ -1401,7 +1352,7 @@ ansehen
 - aria-labelledby: branding-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Branding & Positionierung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#problem` (Problem), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1436,8 +1387,6 @@ Konsistenz.
 
 Damit deine Marke nicht nur gut aussieht, sondern wertiger, präziser und professioneller wirkt.
 
-- Problem
-
 - Ansatz
 
 - Lieferumfang
@@ -1447,53 +1396,7 @@ Damit deine Marke nicht nur gut aussieht, sondern wertiger, präziser und profes
 - Nächste Schritte
 ```
 
-##### Section 2: Wenn deine Marke austauschbar wirkt, gewinnt oft der Preis statt die Qualität.
-
-- ID: problem
-- aria-labelledby: branding-problem-title
-- Klassen: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Problem
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Problem
-
-Wenn deine Marke austauschbar wirkt, gewinnt oft der Preis statt die Qualität.
-
-Viele Unternehmen haben ein Logo und Farben, aber keine klare Positionierung. Ohne präzise Botschaft und
-konsistente Wahrnehmung bleibt der Auftritt erklärungsbedürftig.
-
-01
-
-POSITIONIERUNG
-
-Zu viele Aussagen, keine Priorität
-
-Besucher spüren nicht schnell genug, wofür du stehst und was dich
-differenziert.
-
-02
-
-WAHRNEHMUNG
-
-Der Auftritt wirkt nicht hochwertig genug
-
-Dann wird Wert nicht klar transportiert und der Markt vergleicht über Preis
-statt über Relevanz.
-
-03
-
-KONSISTENZ
-
-Website, Social und Präsentation erzählen nicht dieselbe
-Geschichte
-
-Inkonsequente Details schwächen Vertrauen und lassen starke Inhalte kleiner
-wirken als sie sind.
-```
-
-##### Section 3: Marke als System, nicht als lose Design-Entscheidung.
+##### Section 2: Marke als System, nicht als lose Design-Entscheidung.
 
 - ID: approach
 - aria-labelledby: branding-approach-title
@@ -1550,7 +1453,7 @@ Branding bleibt nicht im PDF, sondern wird in Website, Social und
 Angebotskommunikation belastbar anwendbar.
 ```
 
-##### Section 4: Was du im Ergebnis in der Hand hast.
+##### Section 3: Was du im Ergebnis in der Hand hast.
 
 - ID: deliverables
 - aria-labelledby: branding-deliverables-title
@@ -1595,7 +1498,7 @@ Damit die Marke nicht nur gedacht, sondern genutzt wird.
 - typischer Zeitrahmen je nach Reifegrad und Umfang
 ```
 
-##### Section 5: Branding soll nicht dekorieren. Es soll Klarheit und Wert spürbar machen.
+##### Section 4: Branding soll nicht dekorieren. Es soll Klarheit und Wert spürbar machen.
 
 - ID: standards
 - aria-labelledby: branding-standards-title
@@ -1628,7 +1531,7 @@ Jede stilistische Entscheidung muss die Positionierung stärken und nicht nur
 optisch gefallen.
 ```
 
-##### Section 6: Branding wirkt am stärksten, wenn Website und Nachfrage
+##### Section 5: Branding wirkt am stärksten, wenn Website und Nachfrage
 danach sauber anschließen.
 
 - ID: related
@@ -1676,7 +1579,7 @@ zusammenlaufen.
 Projekt ansehen
 ```
 
-##### Section 7: Wenn deine Marke hochwertiger, klarer und glaubwürdiger wirken soll.
+##### Section 6: Wenn deine Marke hochwertiger, klarer und glaubwürdiger wirken soll.
 
 - ID: keine
 - aria-labelledby: keine
@@ -1719,7 +1622,6 @@ Mini-Audit anfordern
 
 - `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `#problem` -> Problem
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
 - `#standards` -> Standards
@@ -1740,7 +1642,7 @@ ansehen
 
 #### Sprungnavigation
 
-- Sprungnavigation SEO und Marketing: Problem -> #problem | Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
+- Sprungnavigation SEO und Marketing: Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
 
 #### Filterlogik
 
@@ -1762,7 +1664,7 @@ ansehen
 - aria-labelledby: seo-marketing-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: SEO & Marketing
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#problem` (Problem), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1797,8 +1699,6 @@ Entscheidungen.
 
 Damit Sichtbarkeit, Landingpages und Kontaktwege an derselben Conversion-Architektur arbeiten.
 
-- Problem
-
 - Ansatz
 
 - Lieferumfang
@@ -1808,52 +1708,7 @@ Damit Sichtbarkeit, Landingpages und Kontaktwege an derselben Conversion-Archite
 - Nächste Schritte
 ```
 
-##### Section 2: Mehr Traffic löst keine unklare Angebotslogik.
-
-- ID: problem
-- aria-labelledby: keine
-- Klassen: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Problem
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Problem
-
-Mehr Traffic löst keine unklare Angebotslogik.
-
-Wenn Suchintention, Seitenstruktur und CTA-Führung nicht zusammenpassen, skaliert Reichweite nur Reibung
-statt relevanter Nachfrage.
-
-01
-
-SEO
-
-Keywords ohne Seitenlogik
-
-Dann entstehen Inhalte, die zwar Reichweite aufbauen, aber nicht sauber in
-Angebot und Anfrage führen.
-
-02
-
-CONTENT
-
-Content ohne Priorisierung
-
-Themen konkurrieren gegeneinander, statt eine klare Nachfrage- und
-Vertriebslogik zu unterstützen.
-
-03
-
-TRACKING
-
-Daten ohne Relevanz
-
-Reporting allein verbessert nichts, wenn keine sinnvollen Events und
-Entscheidungsfragen dahinterstehen.
-```
-
-##### Section 3: Sichtbarkeit wird entlang echter Nutzerfragen und Angebotsziele geplant.
+##### Section 2: Sichtbarkeit wird entlang echter Nutzerfragen und Angebotsziele geplant.
 
 - ID: approach
 - aria-labelledby: keine
@@ -1910,7 +1765,7 @@ Auf Basis echter Nutzungssignale werden Seiten, Inhalte und CTA-Pfade
 verbessert.
 ```
 
-##### Section 4: Was du im Ergebnis für Sichtbarkeit, Inhalte und Messbarkeit bekommst.
+##### Section 3: Was du im Ergebnis für Sichtbarkeit, Inhalte und Messbarkeit bekommst.
 
 - ID: deliverables
 - aria-labelledby: keine
@@ -1955,7 +1810,7 @@ Damit Entscheidungen auf Daten mit Aussagekraft basieren.
 - typischer Umsetzungsrahmen je nach Website-Reife und Umfang
 ```
 
-##### Section 5: Kein Vanity-Traffic. Keine Reports ohne Konsequenz.
+##### Section 4: Kein Vanity-Traffic. Keine Reports ohne Konsequenz.
 
 - ID: standards
 - aria-labelledby: keine
@@ -1988,7 +1843,7 @@ Sichtbarkeit wirkt am stärksten, wenn Auftritt, Angebot und Inhalte
 dieselbe Qualitätsstufe haben.
 ```
 
-##### Section 6: SEO & Marketing funktionieren am stärksten auf einem
+##### Section 5: SEO & Marketing funktionieren am stärksten auf einem
 klaren Fundament.
 
 - ID: related
@@ -2036,7 +1891,7 @@ passen.
 Insights ansehen
 ```
 
-##### Section 7: Wenn Sichtbarkeit sauber in qualifizierte Anfragen übersetzen soll.
+##### Section 6: Wenn Sichtbarkeit sauber in qualifizierte Anfragen übersetzen soll.
 
 - ID: keine
 - aria-labelledby: keine
@@ -2079,7 +1934,6 @@ Mini-Audit anfordern
 
 - `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `#problem` -> Problem
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
 - `#standards` -> Standards
@@ -2098,7 +1952,7 @@ Mini-Audit anfordern
 
 #### Sprungnavigation
 
-- Sprungnavigation Social Strategie: Problem -> #problem | Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
+- Sprungnavigation Social Strategie: Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
 
 #### Filterlogik
 
@@ -2120,7 +1974,7 @@ Mini-Audit anfordern
 - aria-labelledby: social-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Social Strategie
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#problem` (Problem), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2144,8 +1998,6 @@ Nicht mehr posten, sondern relevanter kommunizieren.
 
 - saubere Übergänge in Website, Kontakt oder Audit
 
-- Problem
-
 - Ansatz
 
 - Lieferumfang
@@ -2155,52 +2007,7 @@ Nicht mehr posten, sondern relevanter kommunizieren.
 - Nächste Schritte
 ```
 
-##### Section 2: Ohne System wird Social schnell laut, aber nicht klar.
-
-- ID: problem
-- aria-labelledby: keine
-- Klassen: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Problem
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Problem
-
-Ohne System wird Social schnell laut, aber nicht klar.
-
-Dann fehlt der rote Faden zwischen Positionierung, Themen, Angeboten und
-den nächsten Schritten für Interessenten.
-
-01
-
-THEMEN
-
-Content ohne Priorität
-
-Es wird gepostet, was gerade einfällt, nicht was Positionierung und Nachfrage
-wirklich stärkt.
-
-02
-
-KONSISTENZ
-
-Auftritt und Tonalität wirken uneinheitlich
-
-Dadurch entsteht kein belastbares Markenbild und keine professionelle
-Wiedererkennbarkeit.
-
-03
-
-CTA
-
-Content endet ohne Richtung
-
-Wenn kein sauberer Übergang ins Angebot oder in die Website existiert, bleibt
-Aufmerksamkeit ungenutzt.
-```
-
-##### Section 3: Social wird aus Positionierung und Angebotslogik gedacht.
+##### Section 2: Social wird aus Positionierung und Angebotslogik gedacht.
 
 - ID: approach
 - aria-labelledby: keine
@@ -2253,7 +2060,7 @@ Das System muss zu Ressourcen, Team und Zielsetzung passen, sonst wird es
 nicht durchgezogen.
 ```
 
-##### Section 4: Was du konkret für Social, Content und Übergänge bekommst.
+##### Section 3: Was du konkret für Social, Content und Übergänge bekommst.
 
 - ID: deliverables
 - aria-labelledby: keine
@@ -2298,7 +2105,7 @@ Für Content, der auf Angebote einzahlt.
 - typischer Rahmen je nach Teamgröße und Content-Reife
 ```
 
-##### Section 5: Social muss machbar sein, nicht nur strategisch gut
+##### Section 4: Social muss machbar sein, nicht nur strategisch gut
 klingen.
 
 - ID: standards
@@ -2332,7 +2139,7 @@ Social wird nicht isoliert gedacht, sondern als Erweiterung des gesamten
 Auftritts.
 ```
 
-##### Section 6: Social Strategie wird stärker, wenn Marke, Website und
+##### Section 5: Social Strategie wird stärker, wenn Marke, Website und
 Growth sauber anschließen.
 
 - ID: related
@@ -2376,7 +2183,7 @@ Wenn Social-Aktivität in ein systematischeres Funnel- und Conversion-Setup
 Leistungen ansehen
 ```
 
-##### Section 7: Wenn Social nicht nur präsent, sondern wirksam sein soll.
+##### Section 6: Wenn Social nicht nur präsent, sondern wirksam sein soll.
 
 - ID: keine
 - aria-labelledby: keine
@@ -2419,7 +2226,6 @@ Mini-Audit anfordern
 
 - `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `#problem` -> Problem
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
 - `#standards` -> Standards
@@ -2438,7 +2244,7 @@ Mini-Audit anfordern
 
 #### Sprungnavigation
 
-- Sprungnavigation Growth Strategie: Problem -> #problem | Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
+- Sprungnavigation Growth Strategie: Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
 
 #### Filterlogik
 
@@ -2460,7 +2266,7 @@ Mini-Audit anfordern
 - aria-labelledby: growth-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Growth Strategie
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#problem` (Problem), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2484,8 +2290,6 @@ Keine Taktik-Sammlung, sondern ein lernfähiges System.
 
 - Tracking, Hypothesen und Experimente
 
-- Problem
-
 - Ansatz
 
 - Lieferumfang
@@ -2495,52 +2299,7 @@ Keine Taktik-Sammlung, sondern ein lernfähiges System.
 - Nächste Schritte
 ```
 
-##### Section 2: Mehr Aktivität bringt wenig, wenn Hebel, Daten und Prioritäten fehlen.
-
-- ID: problem
-- aria-labelledby: keine
-- Klassen: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Problem
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Problem
-
-Mehr Aktivität bringt wenig, wenn Hebel, Daten und Prioritäten fehlen.
-
-Growth scheitert selten an Ideen, sondern an fehlender Reihenfolge. Ohne sauberes Fundament werden Experimente
-zu Zufall statt zu Lernfortschritt.
-
-01
-
-FUNNEL
-
-Einstiegspunkte greifen nicht ineinander
-
-Angebote, Kontaktwege und Folgeschritte stehen nebeneinander, statt
-gemeinsam Nachfrage zu führen.
-
-02
-
-DATA
-
-Es wird optimiert, ohne wirklich zu sehen, was wirkt
-
-Dann fehlen klare Prioritäten und jedes Experiment fühlt sich gleich
-wichtig an.
-
-03
-
-CRO
-
-Conversion-Reibung bleibt zu lange unangetastet
-
-Schon kleine Hürden in CTA, Angebot oder Formularlogik kosten messbar
-Vertrauen und Momentum.
-```
-
-##### Section 3: Growth beginnt mit der Frage, was zuerst den größten Hebel
+##### Section 2: Growth beginnt mit der Frage, was zuerst den größten Hebel
 hat.
 
 - ID: approach
@@ -2596,7 +2355,7 @@ Hypothesen, Learnings und nächste Iterationen werden dokumentiert statt im
 Tagesgeschäft zu verschwinden.
 ```
 
-##### Section 4: Was du konkret für Priorisierung, Optimierung und
+##### Section 3: Was du konkret für Priorisierung, Optimierung und
 Wachstumssystem bekommst.
 
 - ID: deliverables
@@ -2643,7 +2402,7 @@ Für systematische Weiterentwicklung statt Aktionismus.
 - typischer Rahmen je nach Setup-Reife und Team
 ```
 
-##### Section 5: Kein Growth-Theater ohne Fundament, Tracking und echte
+##### Section 4: Kein Growth-Theater ohne Fundament, Tracking und echte
 Lernschleifen.
 
 - ID: standards
@@ -2677,7 +2436,7 @@ Jedes Experiment braucht eine klare Hypothese und einen nachvollziehbaren
 nächsten Schritt.
 ```
 
-##### Section 6: Growth funktioniert am besten auf einem klaren technischen
+##### Section 5: Growth funktioniert am besten auf einem klaren technischen
 und inhaltlichen Fundament.
 
 - ID: related
@@ -2721,7 +2480,7 @@ zusammenlaufen.
 Projekt ansehen
 ```
 
-##### Section 7: Wenn Wachstum systematisch statt zufällig werden soll.
+##### Section 6: Wenn Wachstum systematisch statt zufällig werden soll.
 
 - ID: keine
 - aria-labelledby: keine
@@ -2764,7 +2523,6 @@ Mini-Audit anfordern
 
 - `kontakt.html#terminbuchung` -> KI Beratung anfragen (x2)
 - `kontakt.html#kontaktformular` -> Potenzial schildern (x2)
-- `#problem` -> Problem
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
 - `#standards` -> Standards
@@ -2783,7 +2541,7 @@ Mini-Audit anfordern
 
 #### Sprungnavigation
 
-- Sprungnavigation KI Beratung: Problem -> #problem | Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
+- Sprungnavigation KI Beratung: Ansatz -> #approach | Lieferumfang -> #deliverables | Standards -> #standards | Nächste Schritte -> #related
 
 #### Filterlogik
 
@@ -2808,7 +2566,7 @@ Mini-Audit anfordern
 - aria-labelledby: ai-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: KI Beratung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (KI Beratung anfragen), `kontakt.html#kontaktformular` (Potenzial schildern), `#problem` (Problem), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#terminbuchung` (KI Beratung anfragen), `kontakt.html#kontaktformular` (Potenzial schildern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2842,8 +2600,6 @@ Klarheit statt Buzzword-Druck.
 KI wird nicht als Showeffekt verkauft, sondern als sauber eingeordneter Hebel für bessere Prozesse,
 bessere Inhalte und bessere Entscheidungen.
 
-- Problem
-
 - Ansatz
 
 - Lieferumfang
@@ -2853,49 +2609,7 @@ bessere Inhalte und bessere Entscheidungen.
 - Nächste Schritte
 ```
 
-##### Section 2: Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität.
-
-- ID: problem
-- aria-labelledby: ai-problem-title
-- Klassen: approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Problem
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Problem
-
-Viele Teams sprechen über KI, aber nicht über Priorität, Verantwortung und Ergebnisqualität.
-
-Dann entstehen Schnellschüsse, generische Inhalte und Prozesse, die auf den ersten Blick effizient wirken,
-aber langfristig Vertrauen, Konsistenz und Fokus kosten.
-
-01
-
-AKTIONISMUS
-
-Zu viele Tools, kein klares Einsatzfeld
-
-KI wird ausprobiert, aber nicht entlang von Ziel, Prozess und Relevanz priorisiert.
-
-02
-
-VERANTWORTUNG
-
-Freigaben und Qualitätsgrenzen sind unklar
-
-Niemand weiss sauber, was automatisiert werden darf und wo menschliche Kontrolle Pflicht bleibt.
-
-03
-
-KONSISTENZ
-
-Output passt nicht sauber zu Marke, Website und Angebot
-
-Dann spart KI zwar Zeit, aber produziert Reibung in Tonalität, Nutzerführung und Vertriebslogik.
-```
-
-##### Section 3: Erst die Logik klären, dann KI sauber in Arbeitsweise und Touchpoints übersetzen.
+##### Section 2: Erst die Logik klären, dann KI sauber in Arbeitsweise und Touchpoints übersetzen.
 
 - ID: approach
 - aria-labelledby: ai-approach-title
@@ -2949,7 +2663,7 @@ In Website, Content und Prozesse übersetzen
 Das Ergebnis ist ein realistisch nutzbares Setup statt einer losen Liste von Tools und Prompts.
 ```
 
-##### Section 4: Was du konkret für eine saubere KI-Arbeitsweise mitnimmst.
+##### Section 3: Was du konkret für eine saubere KI-Arbeitsweise mitnimmst.
 
 - ID: deliverables
 - aria-labelledby: ai-deliverables-title
@@ -2994,7 +2708,7 @@ Für einen realistischen Einstieg ohne Prozessbruch.
 - nächste Schritte für saubere Einführung und Iteration
 ```
 
-##### Section 5: Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Geschäft.
+##### Section 4: Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Geschäft.
 
 - ID: standards
 - aria-labelledby: keine
@@ -3024,7 +2738,7 @@ Nur dort beschleunigen, wo es wirklich hilft
 Tempo ist kein Selbstzweck. Entscheidend ist, ob Prozesse dadurch belastbarer und relevanter werden.
 ```
 
-##### Section 6: KI Beratung wirkt am stärksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
+##### Section 5: KI Beratung wirkt am stärksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
 
 - ID: related
 - aria-labelledby: keine
@@ -3063,7 +2777,7 @@ Wenn KI-gestützte Recherche, Content-Struktur und Sichtbarkeit sinnvoll in den 
 Leistungen ansehen
 ```
 
-##### Section 7: Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zufällig arbeiten soll.
+##### Section 6: Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zufällig arbeiten soll.
 
 - ID: keine
 - aria-labelledby: keine

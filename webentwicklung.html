@@ -162,19 +162,19 @@
               </div>
 
               <fieldset class="configurator-fieldset">
-                <legend>Ziel</legend>
+                <legend>Typografie</legend>
                 <div class="configurator-choice-grid">
                   <label class="configurator-choice">
-                    <input type="radio" name="goal" value="qualified-leads" checked />
-                    <span>Anfragen qualifizieren</span>
+                    <input type="radio" name="typography" value="inter" checked />
+                    <span>Klar &amp; Modern (Inter)</span>
                   </label>
                   <label class="configurator-choice">
-                    <input type="radio" name="goal" value="premium-trust" />
-                    <span>Premium-Vertrauen aufbauen</span>
+                    <input type="radio" name="typography" value="geist" />
+                    <span>Editorial (Geist)</span>
                   </label>
                   <label class="configurator-choice">
-                    <input type="radio" name="goal" value="clarity-system" />
-                    <span>Angebot klar strukturieren</span>
+                    <input type="radio" name="typography" value="mono" />
+                    <span>Technisch (JetBrains Mono)</span>
                   </label>
                 </div>
               </fieldset>
@@ -199,6 +199,7 @@
                   </select>
                 </label>
               </div>
+              <p class="mt-2 text-xs text-white/50 italic">Dient zur Kalkulation deines Briefings.</p>
             </div>
 
             <div class="configurator-form__section">
@@ -206,6 +207,47 @@
                 <p class="configurator-form__step">02</p>
                 <h3 class="configurator-form__title font-display">Look &amp; Feel</h3>
               </div>
+
+              <fieldset class="configurator-fieldset">
+                <legend>Brand Identity</legend>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" data-brand-presets>
+                  <label class="configurator-choice">
+                    <input type="radio" name="brandPreset" value="monochrome-dark" checked />
+                    <span class="flex items-center gap-2">
+                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#0a0a0a"></span>
+                      Monochrome Dark
+                    </span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="brandPreset" value="clean-studio" />
+                    <span class="flex items-center gap-2">
+                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#fafaf7"></span>
+                      Clean Studio
+                    </span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="brandPreset" value="deep-blue" />
+                    <span class="flex items-center gap-2">
+                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#0b1a3d"></span>
+                      Deep Blue
+                    </span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="brandPreset" value="neon-cyber" />
+                    <span class="flex items-center gap-2">
+                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#39ffd0"></span>
+                      Neon Cyber
+                    </span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="brandPreset" value="soft-editorial" />
+                    <span class="flex items-center gap-2">
+                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#f1ece2"></span>
+                      Soft Editorial
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
 
               <fieldset class="configurator-fieldset">
                 <legend>Stilrichtung</legend>
@@ -235,14 +277,6 @@
                   </select>
                 </label>
                 <label class="configurator-field">
-                  <span>Akzent</span>
-                  <span class="configurator-color-control">
-                    <input class="configurator-color-control__input" type="color" name="accent" value="#62d6ff"
-                      aria-label="Akzentfarbe frei waehlen" />
-                    <span class="configurator-color-control__value" data-accent-value>#62d6ff</span>
-                  </span>
-                </label>
-                <label class="configurator-field">
                   <span>Dichte</span>
                   <input class="contact-input configurator-range" type="range" name="density" min="1" max="3" step="1"
                     value="2" />
@@ -253,6 +287,25 @@
             <div class="configurator-form__section">
               <div class="configurator-form__section-head">
                 <p class="configurator-form__step">03</p>
+                <h3 class="configurator-form__title font-display">Sektionen aufbauen</h3>
+              </div>
+
+              <p class="configurator-form__hint text-sm text-white/60 mb-3">
+                Fuege Module hinzu. In der Vorschau erscheinen beim Hover Controls fuer Reihenfolge, Theme und Loeschen.
+              </p>
+              <div class="configurator-add-controls flex flex-wrap gap-2" data-add-section-controls>
+                <button type="button" class="configurator-add-btn rounded-full border border-white/15 bg-white/5 hover:bg-white/10 px-4 py-2 text-sm transition" data-add-section="text">
+                  + Text-Modul
+                </button>
+                <button type="button" class="configurator-add-btn rounded-full border border-white/15 bg-white/5 hover:bg-white/10 px-4 py-2 text-sm transition" data-add-section="feature">
+                  + Feature-Modul
+                </button>
+              </div>
+            </div>
+
+            <div class="configurator-form__section">
+              <div class="configurator-form__section-head">
+                <p class="configurator-form__step">04</p>
                 <h3 class="configurator-form__title font-display">Konfiguration besprechen</h3>
               </div>
 
@@ -285,35 +338,17 @@
                 <span></span>
                 <span></span>
               </div>
-              <div class="configurator-preview__hero">
-                <p class="configurator-preview__eyebrow" data-preview-eyebrow>Service-Website</p>
-                <h3 class="configurator-preview__headline configurator-preview__headline--editable font-display"
-                  data-preview-title contenteditable="true" spellcheck="false" aria-label="Preview-Headline bearbeiten">
-                  Klare Website fuer qualifizierte Anfragen
-                </h3>
-                <p class="configurator-preview__copy" data-preview-copy>
-                  Ein fokussierter Auftritt, der Angebot, Vertrauen und naechsten Schritt sauber verbindet.
-                </p>
-                <div class="configurator-preview__actions" aria-hidden="true">
-                  <span>Erstgespraech</span>
-                  <span>Projekt einordnen</span>
-                </div>
-              </div>
-              <div class="configurator-preview__grid" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+              <div class="configurator-preview__sections" data-sections-root></div>
             </div>
 
             <dl class="configurator-summary" aria-label="Konfigurator-Zusammenfassung">
               <div>
-                <dt>Ziel</dt>
-                <dd data-summary-goal>Anfragen qualifizieren</dd>
+                <dt>Typografie</dt>
+                <dd data-summary-typography>Klar &amp; Modern (Inter)</dd>
               </div>
               <div>
-                <dt>Stil</dt>
-                <dd data-summary-style>Praezise &amp; dunkel</dd>
+                <dt>Brand</dt>
+                <dd data-summary-brand>Monochrome Dark</dd>
               </div>
               <div>
                 <dt>Umfang</dt>

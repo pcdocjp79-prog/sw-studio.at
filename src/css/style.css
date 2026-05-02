@@ -3302,9 +3302,11 @@ body[data-page="webentwicklung"] .configurator-preview__screen {
   padding: clamp(1rem, 2.2vw, 1.7rem);
   border: 1px solid color-mix(in srgb, var(--cfg-accent) 32%, rgba(255, 255, 255, 0.1));
   border-radius: var(--cfg-radius);
+  color: var(--preview-text, #f4f7fc);
+  font-family: var(--preview-font, "Inter", ui-sans-serif, system-ui, sans-serif);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--cfg-accent) 18%, transparent) 0%, rgba(255, 255, 255, 0) 34%),
-    linear-gradient(180deg, rgba(18, 26, 43, 0.96) 0%, rgba(5, 9, 17, 0.98) 100%);
+    linear-gradient(135deg, color-mix(in srgb, var(--cfg-accent) 14%, transparent) 0%, rgba(255, 255, 255, 0) 38%),
+    var(--preview-bg, linear-gradient(180deg, rgba(18, 26, 43, 0.96) 0%, rgba(5, 9, 17, 0.98) 100%));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.16),
     0 24px 58px rgba(0, 0, 0, 0.32);
@@ -3452,6 +3454,54 @@ body[data-page="webentwicklung"] .configurator-preview__grid span:nth-child(2) {
 
 body[data-page="webentwicklung"] .configurator-preview__grid span:nth-child(3) {
   animation-delay: -6s;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__sections {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+body[data-page="webentwicklung"] .configurator-block {
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+body[data-page="webentwicklung"] .configurator-block:hover {
+  border-color: color-mix(in srgb, var(--cfg-accent) 45%, currentColor);
+}
+
+body[data-page="webentwicklung"] .configurator-block__ctrl {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 18, 28, 0.78);
+  color: rgba(244, 247, 252, 0.92);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+body[data-page="webentwicklung"] .configurator-block__ctrl:hover:not([disabled]) {
+  background: var(--cfg-accent, #62d6ff);
+  color: #0b0f17;
+  border-color: var(--cfg-accent, #62d6ff);
+}
+
+body[data-page="webentwicklung"] .configurator-block__ctrl[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+body[data-page="webentwicklung"] .configurator-editable:focus {
+  outline: 2px solid color-mix(in srgb, var(--cfg-accent) 60%, transparent);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
 }
 
 body[data-page="webentwicklung"] .configurator-summary {

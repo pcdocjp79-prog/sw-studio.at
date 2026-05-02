@@ -3,6 +3,7 @@ const CONTACT_PREFILL_STORAGE_KEY = "sws-contact-prefill";
 const CONTACT_FORM_TARGET = "kontakt.html#kontaktformular";
 
 const FORM_FIELD_NAMES = new Set([
+  "industry",
   "typography",
   "styleDirection",
   "scope",
@@ -11,6 +12,12 @@ const FORM_FIELD_NAMES = new Set([
   "brandPreset",
   "density",
 ]);
+
+const INDUSTRY_OPTIONS = {
+  consulting: { label: "Consulting", image: "assets/hero-consulting.webp" },
+  tourismus: { label: "Tourismus", image: "assets/hero-tourismus.webp" },
+  gastronomie: { label: "Gastronomie", image: "assets/hero-gastronomie.webp" },
+};
 
 const TYPOGRAPHY_OPTIONS = {
   inter: {
@@ -90,6 +97,7 @@ const DENSITY_OPTIONS = { 1: "0.75rem", 2: "1rem", 3: "1.25rem" };
 const DENSITY_LABELS = { 1: "Ruhig / luftig", 2: "Ausgewogen", 3: "Verdichtet / detailreich" };
 
 const DEFAULT_FORM_STATE = Object.freeze({
+  industry: "consulting",
   typography: "inter",
   styleDirection: "precision-dark",
   scope: "service-site",
@@ -99,7 +107,8 @@ const DEFAULT_FORM_STATE = Object.freeze({
   density: "2",
 });
 
-const SECTION_TYPE_LABELS = { hero: "Hero", text: "Text", feature: "Feature" };
+const SECTION_TYPE_LABELS = { text: "Text", feature: "Feature" };
+const HERO_SECTION_ID = "hero";
 
 const setText = (element, value) => {
   if (element) element.textContent = value;
@@ -133,12 +142,9 @@ const getFormState = (form) => {
   return next;
 };
 
-const createInitialHeroSection = (formState) => {
+const createInitialHero = (formState) => {
   const scope = SCOPE_OPTIONS[formState.scope] || SCOPE_OPTIONS[DEFAULT_FORM_STATE.scope];
   return {
-    id: createSectionId(),
-    type: "hero",
-    theme: "brand",
     edited: { eyebrow: false, headline: false, copy: false },
     content: {
       eyebrow: scope.eyebrow,
@@ -178,77 +184,97 @@ const SECTION_FACTORIES = {
   feature: createFeatureSection,
 };
 
-const renderControls = (idx, total, theme) => `
-  <div class="absolute top-2 right-2 z-10 flex gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+const renderControls = (idx, total, theme, hideTheme = false) => `
+  <div class="absolute top-2 right-2 z-20 flex gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
     <button type="button" class="configurator-block__ctrl" data-section-action="up" ${idx === 0 ? "disabled" : ""} aria-label="Hoch">&uarr;</button>
     <button type="button" class="configurator-block__ctrl" data-section-action="down" ${idx === total - 1 ? "disabled" : ""} aria-label="Runter">&darr;</button>
-    <button type="button" class="configurator-block__ctrl" data-section-action="theme" aria-label="Theme wechseln" title="Theme: ${theme}">&#9680;</button>
+    ${hideTheme ? "" : `<button type="button" class="configurator-block__ctrl" data-section-action="theme" aria-label="Theme wechseln" title="Theme: ${theme}">&#9680;</button>`}
     <button type="button" class="configurator-block__ctrl" data-section-action="delete" aria-label="Loeschen">&times;</button>
   </div>`;
 
 const themeClasses = (theme) => {
-  if (theme === "light") return "bg-white text-black border-black/10";
-  if (theme === "dark") return "bg-zinc-900 text-white border-white/10";
-  return "bg-transparent border-current/20";
+  if (theme === "light") return "bg-white text-black";
+  if (theme === "dark") return "bg-zinc-900 text-white";
+  return "bg-transparent";
 };
 
-const editable = (section, field, value, classes = "") =>
+const editable = (sectionId, field, value, classes = "") =>
   `<span class="configurator-editable outline-none ${classes}" contenteditable="true" spellcheck="false"
-    data-editable data-section-id="${section.id}" data-field="${field}">${escapeHtml(value)}</span>`;
+    data-editable data-section-id="${sectionId}" data-field="${field}">${escapeHtml(value)}</span>`;
 
-const renderHero = (section) => `
-  <p class="text-[0.7rem] uppercase tracking-[0.18em] opacity-70 mb-2">
-    ${editable(section, "eyebrow", section.content.eyebrow)}
-  </p>
-  <h3 class="font-display text-2xl sm:text-3xl leading-tight mb-3">
-    ${editable(section, "headline", section.content.headline)}
-  </h3>
-  <p class="text-sm sm:text-base opacity-80 max-w-xl">
-    ${editable(section, "copy", section.content.copy, "block")}
-  </p>
-  <div class="mt-4 flex gap-2 text-xs opacity-70" aria-hidden="true">
-    <span class="px-3 py-1 rounded-full border border-current/40">Erstgespraech</span>
-    <span class="px-3 py-1 rounded-full opacity-60">Projekt einordnen</span>
-  </div>`;
+// Hero ist ein FESTER Anker - kein Bestandteil von state.sections.
+// Full-bleed: w-full min-h-[60vh], rounded-none, kein margin/border.
+// Drei Layer: Image (z-0), Overlay (z-0, gleicher inset-0), Content (z-10).
+const renderHero = (hero, globals = {}) => {
+  const industry =
+    INDUSTRY_OPTIONS[globals.industry] || INDUSTRY_OPTIONS[DEFAULT_FORM_STATE.industry];
+  return `
+    <section class="relative w-full min-h-[60vh] rounded-none m-0 border-0 overflow-hidden"
+      data-section-id="${HERO_SECTION_ID}" data-section-type="hero">
+      <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-[background-image] duration-300"
+        style="background-image:url('${industry.image}')" aria-hidden="true"></div>
+      <div class="absolute inset-0 z-0 bg-gradient-to-t from-gray-900/90 to-gray-900/40" aria-hidden="true"></div>
+      <div class="relative z-10 flex flex-col items-start justify-center h-full min-h-[60vh] px-12 py-16 text-white max-w-3xl">
+        <p class="text-[0.7rem] uppercase tracking-[0.2em] opacity-85 mb-3">
+          ${editable(HERO_SECTION_ID, "eyebrow", hero.content.eyebrow)}
+        </p>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl leading-tight mb-4 drop-shadow-sm">
+          ${editable(HERO_SECTION_ID, "headline", hero.content.headline)}
+        </h2>
+        <p class="text-base sm:text-lg opacity-90 max-w-xl">
+          ${editable(HERO_SECTION_ID, "copy", hero.content.copy, "block")}
+        </p>
+        <div class="mt-6 flex gap-2 text-xs opacity-90" aria-hidden="true">
+          <span class="px-3 py-1 rounded-full border border-white/40">Erstgespraech</span>
+          <span class="px-3 py-1 rounded-full opacity-70">Projekt einordnen</span>
+        </div>
+      </div>
+    </section>`;
+};
 
 const renderText = (section) => `
-  <h3 class="font-display text-xl sm:text-2xl mb-2">
-    ${editable(section, "headline", section.content.headline)}
-  </h3>
-  <p class="text-sm sm:text-base opacity-80 leading-relaxed">
-    ${editable(section, "body", section.content.body, "block")}
-  </p>`;
-
-const renderFeature = (section) => `
-  <h3 class="font-display text-xl sm:text-2xl mb-4">
-    ${editable(section, "headline", section.content.headline)}
-  </h3>
-  <div class="grid sm:grid-cols-3 gap-3">
-    ${section.content.items
-      .map(
-        (item, i) => `
-      <div class="rounded-xl border border-current/20 p-3">
-        <p class="font-display text-sm mb-1">
-          ${editable(section, `items.${i}.title`, item.title)}
-        </p>
-        <p class="text-xs opacity-75 leading-relaxed">
-          ${editable(section, `items.${i}.body`, item.body, "block")}
-        </p>
-      </div>`
-      )
-      .join("")}
+  <div class="mx-auto w-full max-w-3xl">
+    <h3 class="font-display text-2xl sm:text-3xl mb-3">
+      ${editable(section.id, "headline", section.content.headline)}
+    </h3>
+    <p class="text-base opacity-85 leading-relaxed">
+      ${editable(section.id, "body", section.content.body, "block")}
+    </p>
   </div>`;
 
-const SECTION_RENDERERS = { hero: renderHero, text: renderText, feature: renderFeature };
+const renderFeature = (section) => `
+  <div class="mx-auto w-full max-w-5xl">
+    <h3 class="font-display text-2xl sm:text-3xl mb-6">
+      ${editable(section.id, "headline", section.content.headline)}
+    </h3>
+    <div class="grid sm:grid-cols-3 gap-4">
+      ${section.content.items
+        .map(
+          (item, i) => `
+        <div class="border-t border-current/20 pt-4">
+          <p class="font-display text-base mb-1">
+            ${editable(section.id, `items.${i}.title`, item.title)}
+          </p>
+          <p class="text-sm opacity-80 leading-relaxed">
+            ${editable(section.id, `items.${i}.body`, item.body, "block")}
+          </p>
+        </div>`
+        )
+        .join("")}
+    </div>
+  </div>`;
 
+const SECTION_RENDERERS = { text: renderText, feature: renderFeature };
+
+// Module: full-width, kein border, kein rounded, kein margin. Theme-Klassen liefern bg/text.
 const renderSection = (section, idx, total) => {
   const inner = (SECTION_RENDERERS[section.type] || renderText)(section);
   return `
-    <article class="configurator-block group relative rounded-2xl border ${themeClasses(section.theme)} p-5 sm:p-6 transition-colors"
+    <section class="configurator-block group relative w-full m-0 border-0 rounded-none px-12 py-14 ${themeClasses(section.theme)} transition-colors"
       data-section-id="${section.id}" data-section-type="${section.type}" data-section-theme="${section.theme}">
       ${renderControls(idx, total, section.theme)}
       ${inner}
-    </article>`;
+    </section>`;
 };
 
 const setNestedField = (target, fieldPath, value) => {
@@ -264,23 +290,30 @@ const setNestedField = (target, fieldPath, value) => {
   return true;
 };
 
-const buildBriefingMessage = (formState, sections) => {
+const buildBriefingMessage = (formState, hero, sections) => {
   const typography = TYPOGRAPHY_OPTIONS[formState.typography] || TYPOGRAPHY_OPTIONS[DEFAULT_FORM_STATE.typography];
   const brand = BRAND_PRESETS[formState.brandPreset] || BRAND_PRESETS[DEFAULT_FORM_STATE.brandPreset];
   const style = STYLE_OPTIONS[formState.styleDirection] || STYLE_OPTIONS[DEFAULT_FORM_STATE.styleDirection];
   const scope = SCOPE_OPTIONS[formState.scope] || SCOPE_OPTIONS[DEFAULT_FORM_STATE.scope];
 
-  const sectionLines = sections.map((section, idx) => {
-    const themeLabel = section.theme === "light" ? "Light" : section.theme === "dark" ? "Dark" : "Brand";
-    const typeLabel = SECTION_TYPE_LABELS[section.type] || section.type;
-    const headline = normalizeEditableText(section.content?.headline || "");
-    const suffix = headline ? ` - "${headline}"` : "";
-    return `  ${idx + 1}. ${typeLabel} (${themeLabel})${suffix}`;
-  });
+  const heroHeadline = normalizeEditableText(hero?.content?.headline || "");
+  const sectionLines = [
+    `  1. Hero (fix)${heroHeadline ? ` - "${heroHeadline}"` : ""}`,
+    ...sections.map((section, idx) => {
+      const themeLabel = section.theme === "light" ? "Light" : section.theme === "dark" ? "Dark" : "Brand";
+      const typeLabel = SECTION_TYPE_LABELS[section.type] || section.type;
+      const headline = normalizeEditableText(section.content?.headline || "");
+      const suffix = headline ? ` - "${headline}"` : "";
+      return `  ${idx + 2}. ${typeLabel} (${themeLabel})${suffix}`;
+    }),
+  ];
+
+  const industry = INDUSTRY_OPTIONS[formState.industry] || INDUSTRY_OPTIONS[DEFAULT_FORM_STATE.industry];
 
   return [
     "Konfigurator-Entwurf:",
     "",
+    `- Branche: ${industry.label}`,
     `- Typografie: ${typography.label}`,
     `- Brand: ${brand.label} (BG ${brand.bg.toUpperCase()} / Text ${brand.text.toUpperCase()} / Accent ${brand.accent.toUpperCase()})`,
     `- Stil: ${style.label}`,
@@ -314,7 +347,8 @@ export const initConfigurator = (root) => {
   const initialFormState = getFormState(form);
   const internal = {
     form: { ...initialFormState },
-    sections: [createInitialHeroSection(initialFormState)],
+    hero: createInitialHero(initialFormState),
+    sections: [],
   };
 
   let renderRafId = null;
@@ -357,7 +391,7 @@ export const initConfigurator = (root) => {
   const deleteSection = (id) =>
     updateSectionsArray((arr) => {
       const i = arr.findIndex((s) => s.id === id);
-      if (i < 0 || arr.length <= 1) return;
+      if (i < 0) return;
       arr.splice(i, 1);
     });
 
@@ -405,9 +439,9 @@ export const initConfigurator = (root) => {
     setText(summaryScope, SCOPE_OPTIONS[f.scope]?.label || f.scope);
   };
 
-  const refreshFirstHeroFromGlobals = () => {
-    const hero = internal.sections[0];
-    if (!hero || hero.type !== "hero" || !hero.edited) return;
+  const refreshHeroFromGlobals = () => {
+    const hero = internal.hero;
+    if (!hero?.edited) return;
     const scope = SCOPE_OPTIONS[internal.form.scope] || SCOPE_OPTIONS[DEFAULT_FORM_STATE.scope];
     if (!hero.edited.eyebrow) hero.content.eyebrow = scope.eyebrow;
   };
@@ -421,7 +455,11 @@ export const initConfigurator = (root) => {
       : null;
     const focusedSectionId = activeEditable?.closest?.("[data-section-id]")?.dataset.sectionId;
 
-    const html = internal.sections.map((s, i) => renderSection(s, i, total)).join("");
+    const globals = { industry: internal.form.industry };
+    // Hero ZUERST hartcodiert oben rendern, danach die Module aus dem Array.
+    const heroHtml = renderHero(internal.hero, globals);
+    const modulesHtml = internal.sections.map((s, i) => renderSection(s, i, total)).join("");
+    const html = heroHtml + modulesHtml;
 
     if (focusedSectionId) {
       const newRoot = document.createElement("div");
@@ -445,7 +483,7 @@ export const initConfigurator = (root) => {
   };
 
   const renderAll = () => {
-    refreshFirstHeroFromGlobals();
+    refreshHeroFromGlobals();
     renderGlobals();
     renderSections();
   };
@@ -482,9 +520,18 @@ export const initConfigurator = (root) => {
     if (!target) return;
     const id = target.dataset.sectionId;
     const field = target.dataset.field;
+    const value = normalizeEditableText(target.textContent);
+
+    if (id === HERO_SECTION_ID) {
+      setNestedField(internal.hero.content, field, value);
+      if (internal.hero.edited && field in internal.hero.edited) {
+        internal.hero.edited[field] = true;
+      }
+      return;
+    }
+
     const section = internal.sections.find((s) => s.id === id);
     if (!section) return;
-    const value = normalizeEditableText(target.textContent);
     setNestedField(section.content, field, value);
     if (section.edited && field in section.edited) section.edited[field] = true;
   });
@@ -507,7 +554,7 @@ export const initConfigurator = (root) => {
     const payload = {
       projectValue: "Webentwicklung",
       timelineValue: "Noch offen",
-      messageValue: buildBriefingMessage(internal.form, internal.sections),
+      messageValue: buildBriefingMessage(internal.form, internal.hero, internal.sections),
     };
     try {
       window.sessionStorage.setItem(CONTACT_PREFILL_STORAGE_KEY, JSON.stringify(payload));
@@ -529,6 +576,21 @@ export const initConfigurator = (root) => {
 
   // CONFIGURATOR_VERSION marker kept for diagnostics in build output.
   void CONFIGURATOR_VERSION;
+
+  // Hero-Bilder aus den <link rel="preload" data-industry="..."> im <head> einlesen.
+  // Vorteil: Vite fingerprintet die URLs beim Build (cache-busting) und der Browser
+  // hat sie schon waehrend des HTML-Parsings angefordert - der Wechsel zwischen
+  // Industrie-Presets ist dadurch flackerfrei aus dem HTTP-Cache.
+  document.querySelectorAll('link[rel="preload"][data-industry]').forEach((link) => {
+    const key = link.dataset.industry;
+    if (INDUSTRY_OPTIONS[key]) INDUSTRY_OPTIONS[key].image = link.href;
+  });
+  // Defensive Image()-Preload als Fallback, falls die Preload-Links fehlen sollten.
+  for (const { image } of Object.values(INDUSTRY_OPTIONS)) {
+    const img = new Image();
+    img.decoding = "async";
+    img.src = image;
+  }
 
   renderAll();
 };

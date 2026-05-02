@@ -78,6 +78,31 @@ Strategischer Pivot: Statt statischer Preview-Sektionen verwaltet der Konfigurat
 - [Done] CSS: Preview-Screen verwendet `var(--preview-bg)` und `var(--preview-text)` mit Fallback auf bisherigen Gradient; Akzent-Glow wurde leicht reduziert, damit Brand-Presets sauber durchziehen.
 - [Done] Validierung: `node --check src/js/configurator.js`, `npm run check`, `npm run build` (Konfigurator-Chunk 11.06 kB, gzip 4.55 kB).
 
+## Branchen-Hero mit dynamischem Bild & Overlay (2026-05-02)
+
+- [Done] Branchen-Logik: Neuer Fieldset-Block `Branche` in Sektion 01 mit drei Radio-Buttons (`consulting` als Default, `tourismus`, `gastronomie`). State-Feld `industry` an `FORM_FIELD_NAMES` und `DEFAULT_FORM_STATE` angebunden.
+- [Done] `INDUSTRY_OPTIONS` Map in `configurator.js` haelt Label und Bildpfad pro Branche.
+- [Done] Hero-Render erweitert: drei gestapelte Layer im `relative`-Wrapper - (1) absolutes Bild-Layer mit `bg-cover bg-center bg-no-repeat` und `transition-[background-image]`, (2) Overlay-Layer `bg-gradient-to-t from-gray-900/90 to-gray-900/40`, (3) Content-Layer mit `relative z-10 text-white`. Die Controls liegen auf `z-20`, damit Hover-Aktionen nicht unter dem Overlay verschwinden.
+- [Done] Hero-Wrapper-Spezialfall: `renderSection` setzt fuer Hero-Sektionen `min-h-[18rem] overflow-hidden` und unterdrueckt die Theme-Klassen (Hero ist immer image-driven). Theme-Button wird auf Hero-Sektionen ausgeblendet (`hideTheme`-Flag).
+- [Done] Flackerfreies Bildwechseln: Drei `<link rel="preload" as="image" data-industry="...">` Tags in `webentwicklung.html` laden die Bilder bereits beim HTML-Parsing. Vorteil ueber blossen `Image()`-Preload: Vite fingerprintet die URLs beim Build (Cache-Busting via `hero-consulting-B2zqWrK2.webp` etc.) und kopiert sie sauber nach `dist/assets/`. Beim Init liest der Konfigurator die finalen URLs aus den `link.href`-Werten und ueberschreibt `INDUSTRY_OPTIONS[key].image`. Defensive `new Image()`-Schleife bleibt als Fallback.
+- [Done] Briefing-Payload um `Branche: <Label>` ergaenzt.
+- [Done] Validierung: `node --check src/js/configurator.js`, `npm run check`, `npm run build`. Build kopiert `hero-consulting-*.webp`, `hero-gastronomie-*.webp`, `hero-tourismus-*.webp` in `dist/assets/` (Konfigurator-Chunk 12.14 kB, gzip 4.97 kB).
+
+## Architektur-Fix: Hero als fester Anker, Full-Width-Preview (2026-05-02)
+
+Strategischer Pivot: Die Preview soll nach Browser-Window aussehen, nicht nach Baukasten. Hero wird aus dem sortierbaren Array herausgeloest und full-bleed gerendert, Module verlieren ihre Karten-Optik.
+
+- [Done] Hero-Anker: `internal.hero = { edited, content }` lebt jetzt OUTSIDE `internal.sections`. `createInitialHero` ersetzt `createInitialHeroSection`. Sections-Array startet leer.
+- [Done] Render-Pipeline: `renderSections()` rendert ZUERST `renderHero(internal.hero, globals)` und konkateniert danach die Modul-HTMLs. Hero ist somit hartcodiert oben, immer sichtbar, nicht verschiebbar/loeschbar.
+- [Done] Hero-Template full-bleed: `<section class="relative w-full min-h-[60vh] rounded-none m-0 border-0 overflow-hidden">` mit drei sauber gestapelten Layern - Image-Layer (`absolute inset-0 z-0 bg-cover bg-center bg-no-repeat`), Overlay-Layer (`absolute inset-0 z-0 bg-gradient-to-t from-gray-900/90 to-gray-900/40`, exakt selbe Maße), Content-Layer (`relative z-10 flex flex-col items-start justify-center h-full min-h-[60vh] px-12 py-16 text-white max-w-3xl`).
+- [Done] Hero-Editing: separate `data-section-id="hero"` Sentinel-ID. Input-Handler prueft `id === HERO_SECTION_ID` und schreibt direkt in `internal.hero.content` (mit `edited`-Flag). Survivor-Pattern beim Re-Render funktioniert weiterhin, weil Hero ebenfalls ein `[data-section-id]`-Attribut hat.
+- [Done] Modul-Templates ohne Margins/Borders/Rounded: `<section class="w-full m-0 border-0 rounded-none px-12 py-14 ${themeClasses}">`. Inneres Centering ueber `mx-auto w-full max-w-3xl` (Text) bzw. `max-w-5xl` (Feature). Feature-Items haben statt `rounded-xl border` jetzt nur `border-t border-current/20 pt-4` als editorial-stripe.
+- [Done] Theme-Klassen entkernt: `themeClasses` liefert nur noch `bg-white text-black` / `bg-zinc-900 text-white` / `bg-transparent` ohne Border, da Module jetzt grundsaetzlich kein border haben.
+- [Done] Preview-Container nahtlos: HTML-Klassen am Sections-Container `flex flex-col w-full h-full overflow-y-auto bg-transparent gap-0 p-0`. Topbar bekommt eigenes `px-4 py-3`. CSS-Regel `.configurator-preview__screen` umgestellt von `display: grid; padding: clamp(...); gap: var(--cfg-density)` auf `display: flex; flex-direction: column; padding: 0; gap: 0` (Border + Border-Radius + Hintergrund + `overflow:hidden` bleiben fuer den Browser-Frame-Look). Min-Height auf `clamp(28rem, 60vh, 44rem)` angehoben.
+- [Done] CSS aufgeraeumt: `.configurator-preview__sections` ist jetzt `flex: 1 1 auto; min-height: 0`. Hover-Border-Effekt am `.configurator-block` entfernt (passt nicht mehr zum borderless Layout).
+- [Done] Briefing-Payload: `buildBriefingMessage` nimmt `hero` als drittes Argument und listet Hero als fixe Position 1 (`1. Hero (fix) - "..."`), gefolgt von den Modulen ab Position 2.
+- [Done] Validierung: `node --check src/js/configurator.js`, `npm run check`, `npm run build` (Konfigurator-Chunk 12.65 kB, gzip 5.11 kB; Hero-Bilder weiterhin via `<link rel="preload">` fingerprintiert in `dist/assets/`).
+
 ## Nächster Schritt
 
-Browser-Review: Brand-Preset wechseln und sehen, dass Hintergrund/Schriftfarbe live wechseln. Typografie-Auswahl pruefen (Inter/Geist/JetBrains Mono). Theme-Toggle pro Sektion einmal durchklicken (brand -> light -> dark -> brand) und beobachten, dass die Klassen sofort wechseln. Neues Modul anlegen und sicherstellen, dass es unten erscheint. Briefing-Uebergabe an `kontakt.html` final pruefen.
+Browser-Review: pruefen, dass die Hero-Sektion oben Kante an Kante anliegt, das Hintergrundbild die volle Hero-Hoehe (60vh) ausfuellt, das Overlay den Bildbereich exakt deckt und Headline/Subline lesbar im Vordergrund sitzen. Module hinzufuegen und sehen, dass sie nahtlos unter dem Hero stapeln (kein sichtbarer Spalt, keine Card-Optik). Briefing-Uebergabe an `kontakt.html` final verifizieren (Hero als Position 1, Module ab Position 2).

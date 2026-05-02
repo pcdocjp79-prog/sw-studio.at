@@ -22,6 +22,9 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
+  <link rel="preload" as="image" href="assets/hero-consulting.webp" data-industry="consulting" />
+  <link rel="preload" as="image" href="assets/hero-tourismus.webp" data-industry="tourismus" />
+  <link rel="preload" as="image" href="assets/hero-gastronomie.webp" data-industry="gastronomie" />
 </head>
 
 <body id="top" data-page="webentwicklung" class="antialiased selection:bg-zinc-200 selection:text-black">
@@ -160,6 +163,24 @@
                 <p class="configurator-form__step">01</p>
                 <h3 class="configurator-form__title font-display">Projektlogik</h3>
               </div>
+
+              <fieldset class="configurator-fieldset">
+                <legend>Branche</legend>
+                <div class="configurator-choice-grid">
+                  <label class="configurator-choice">
+                    <input type="radio" name="industry" value="consulting" checked />
+                    <span>Consulting</span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="industry" value="tourismus" />
+                    <span>Tourismus</span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="industry" value="gastronomie" />
+                    <span>Gastronomie</span>
+                  </label>
+                </div>
+              </fieldset>
 
               <fieldset class="configurator-fieldset">
                 <legend>Typografie</legend>
@@ -333,12 +354,12 @@
 
           <aside class="configurator-preview" data-configurator-preview aria-label="Live-Vorschau">
             <div class="configurator-preview__screen">
-              <div class="configurator-preview__topbar" aria-hidden="true">
+              <div class="configurator-preview__topbar px-4 py-3" aria-hidden="true">
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
-              <div class="configurator-preview__sections" data-sections-root></div>
+              <div class="configurator-preview__sections flex flex-col w-full h-full overflow-y-auto bg-transparent gap-0 p-0" data-sections-root></div>
             </div>
 
             <dl class="configurator-summary" aria-label="Konfigurator-Zusammenfassung">

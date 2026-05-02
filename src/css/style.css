@@ -3295,11 +3295,11 @@ body[data-page="webentwicklung"] .configurator-preview {
 
 body[data-page="webentwicklung"] .configurator-preview__screen {
   position: relative;
-  min-height: clamp(25rem, 46vw, 38rem);
-  display: grid;
-  align-content: space-between;
-  gap: var(--cfg-density);
-  padding: clamp(1rem, 2.2vw, 1.7rem);
+  min-height: clamp(28rem, 60vh, 44rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
   border: 1px solid color-mix(in srgb, var(--cfg-accent) 32%, rgba(255, 255, 255, 0.1));
   border-radius: var(--cfg-radius);
   color: var(--preview-text, #f4f7fc);
@@ -3457,17 +3457,16 @@ body[data-page="webentwicklung"] .configurator-preview__grid span:nth-child(3) {
 }
 
 body[data-page="webentwicklung"] .configurator-preview__sections {
-  display: grid;
-  gap: 0.75rem;
-  align-content: start;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__topbar {
+  flex-shrink: 0;
 }
 
 body[data-page="webentwicklung"] .configurator-block {
-  transition: border-color 200ms ease, transform 200ms ease;
-}
-
-body[data-page="webentwicklung"] .configurator-block:hover {
-  border-color: color-mix(in srgb, var(--cfg-accent) 45%, currentColor);
+  transition: background-color 200ms ease;
 }
 
 body[data-page="webentwicklung"] .configurator-block__ctrl {

@@ -2945,6 +2945,620 @@ body.has-cookie-banner .scroll-to-top-btn {
 }
 
 /* ============================================
+   DESIGN CONFIGURATOR
+   ============================================ */
+
+body[data-page="webentwicklung"] .configurator-section {
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-page="webentwicklung"] .configurator-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 16px),
+    linear-gradient(180deg, rgba(98, 173, 255, 0.08) 0%, rgba(255, 255, 255, 0) 42%);
+  opacity: 0.46;
+}
+
+body[data-page="webentwicklung"] .configurator-section__inner {
+  position: relative;
+  display: grid;
+  gap: clamp(2.2rem, 4vw, 3.5rem);
+}
+
+body[data-page="webentwicklung"] .configurator-section__header {
+  display: grid;
+  gap: 1rem;
+  max-width: 54rem;
+}
+
+body[data-page="webentwicklung"] .configurator-section__eyebrow,
+body[data-page="webentwicklung"] .configurator-form__step {
+  margin: 0;
+  color: rgba(148, 242, 255, 0.92);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body[data-page="webentwicklung"] .configurator-section__headline {
+  margin: 0;
+  max-width: 13ch;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+body[data-page="webentwicklung"] .configurator-section__subline {
+  margin: 0;
+  max-width: 58ch;
+  color: rgba(228, 228, 231, 0.68);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+body[data-page="webentwicklung"] .configurator-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.1rem, 2.2vw, 1.6rem);
+  padding: clamp(0.85rem, 1.8vw, 1.2rem);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: clamp(1.15rem, 2.4vw, 1.8rem);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.035) 100%),
+    rgba(8, 13, 24, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+    0 28px 70px rgba(2, 7, 18, 0.28);
+  overflow: hidden;
+}
+
+body[data-page="webentwicklung"] .configurator-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(148, 242, 255, 0.1);
+  pointer-events: none;
+}
+
+body[data-page="webentwicklung"] .configurator-form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-form__section {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+  background: rgba(4, 8, 16, 0.42);
+}
+
+body[data-page="webentwicklung"] .configurator-form__section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+body[data-page="webentwicklung"] .configurator-form__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.08rem, 1.6vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+body[data-page="webentwicklung"] .configurator-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+body[data-page="webentwicklung"] .configurator-field,
+body[data-page="webentwicklung"] .configurator-fieldset {
+  display: grid;
+  gap: 0.48rem;
+  min-width: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-field--full {
+  grid-column: 1 / -1;
+}
+
+body[data-page="webentwicklung"] .configurator-field span,
+body[data-page="webentwicklung"] .configurator-fieldset legend {
+  margin: 0;
+  color: rgba(225, 232, 243, 0.92);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+body[data-page="webentwicklung"] .configurator-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+body[data-page="webentwicklung"] .configurator-choice {
+  position: relative;
+  min-width: 0;
+  min-height: 3.05rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.82rem;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(232, 239, 249, 0.82);
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+body[data-page="webentwicklung"] .configurator-choice input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+body[data-page="webentwicklung"] .configurator-choice span {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0.72rem 0.78rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+body[data-page="webentwicklung"] .configurator-choice:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+body[data-page="webentwicklung"] .configurator-choice:has(input:checked) {
+  border-color: rgba(148, 242, 255, 0.44);
+  background:
+    linear-gradient(180deg, rgba(98, 173, 255, 0.16) 0%, rgba(148, 242, 255, 0.075) 100%),
+    rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(148, 242, 255, 0.12);
+}
+
+body[data-page="webentwicklung"] .configurator-choice:has(input:focus-visible) {
+  outline: 2px solid rgba(98, 173, 255, 0.85);
+  outline-offset: 3px;
+}
+
+body[data-page="webentwicklung"] .configurator-range {
+  padding-inline: 0.2rem;
+  accent-color: rgba(98, 173, 255, 0.95);
+}
+
+body[data-page="webentwicklung"] .configurator-color-control {
+  min-height: 3.12rem;
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.42rem 0.55rem;
+  transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+body[data-page="webentwicklung"] .configurator-color-control:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body[data-page="webentwicklung"] .configurator-color-control:has(input:focus-visible) {
+  border-color: rgba(98, 173, 255, 0.8);
+  background: rgba(14, 20, 34, 0.9);
+  box-shadow: 0 0 0 3px rgba(98, 173, 255, 0.2);
+}
+
+body[data-page="webentwicklung"] .configurator-color-control__input {
+  flex: 0 0 auto;
+  width: 3.1rem;
+  height: 2.1rem;
+  border: 0;
+  border-radius: 0.62rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+body[data-page="webentwicklung"] .configurator-color-control__input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-color-control__input::-webkit-color-swatch {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.62rem;
+}
+
+body[data-page="webentwicklung"] .configurator-color-control__input::-moz-color-swatch {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.62rem;
+}
+
+body[data-page="webentwicklung"] .configurator-color-control__value {
+  color: rgba(231, 240, 252, 0.82);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+body[data-page="webentwicklung"] .configurator-form__note {
+  margin: 0;
+  color: rgba(205, 217, 236, 0.7);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+body[data-page="webentwicklung"] .configurator-handoff {
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-page="webentwicklung"] .configurator-handoff::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 120% at 10% 0%, rgba(148, 242, 255, 0.1) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+body[data-page="webentwicklung"] .configurator-handoff > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="webentwicklung"] .configurator-handoff__kicker {
+  margin: 0;
+  color: rgba(148, 242, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body[data-page="webentwicklung"] .configurator-handoff__text {
+  margin: 0;
+  max-width: 48ch;
+  color: rgba(226, 235, 248, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+body[data-page="webentwicklung"] .configurator-handoff__button {
+  width: fit-content;
+  border: 0;
+  box-shadow:
+    0 14px 32px rgba(4, 10, 24, 0.22),
+    0 0 18px rgba(148, 242, 255, 0.08);
+}
+
+body[data-page="webentwicklung"] .configurator-form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+body[data-page="webentwicklung"] .configurator-form__submit {
+  border: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-preview {
+  --preview-accent: #62d6ff;
+  --cfg-accent: var(--preview-accent);
+  --cfg-radius: 1.35rem;
+  --cfg-density: 1rem;
+  --cfg-contrast: 1.08;
+  --cfg-motion: 14s;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  min-width: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__screen {
+  position: relative;
+  min-height: clamp(25rem, 46vw, 38rem);
+  display: grid;
+  align-content: space-between;
+  gap: var(--cfg-density);
+  padding: clamp(1rem, 2.2vw, 1.7rem);
+  border: 1px solid color-mix(in srgb, var(--cfg-accent) 32%, rgba(255, 255, 255, 0.1));
+  border-radius: var(--cfg-radius);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--cfg-accent) 18%, transparent) 0%, rgba(255, 255, 255, 0) 34%),
+    linear-gradient(180deg, rgba(18, 26, 43, 0.96) 0%, rgba(5, 9, 17, 0.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 24px 58px rgba(0, 0, 0, 0.32);
+  filter: contrast(var(--cfg-contrast));
+  overflow: hidden;
+  transition: border-radius 260ms ease, border-color 260ms ease, filter 260ms ease;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.26;
+  pointer-events: none;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.42rem;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__topbar span {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+body[data-page="webentwicklung"] .configurator-preview__topbar span:first-child {
+  background: var(--cfg-accent);
+}
+
+body[data-page="webentwicklung"] .configurator-preview__hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--cfg-density);
+  max-width: 34rem;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__eyebrow {
+  margin: 0;
+  color: var(--cfg-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__headline {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 4.25rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__headline--editable {
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 0.65rem;
+  cursor: text;
+  outline: 1px solid transparent;
+  outline-offset: 0.22rem;
+  transition: outline-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__headline--editable:hover {
+  outline-color: color-mix(in srgb, var(--cfg-accent) 32%, rgba(255, 255, 255, 0.08));
+  background: rgba(255, 255, 255, 0.025);
+}
+
+body[data-page="webentwicklung"] .configurator-preview__headline--editable:focus {
+  outline: 0;
+  background: color-mix(in srgb, var(--cfg-accent) 10%, rgba(255, 255, 255, 0.035));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--cfg-accent) 42%, rgba(255, 255, 255, 0.1)),
+    0 0 26px color-mix(in srgb, var(--cfg-accent) 14%, transparent);
+}
+
+body[data-page="webentwicklung"] .configurator-preview__copy {
+  margin: 0;
+  max-width: 38ch;
+  color: rgba(234, 241, 250, 0.72);
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__actions span {
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.66rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__actions span:first-child {
+  border-color: color-mix(in srgb, var(--cfg-accent) 45%, rgba(255, 255, 255, 0.12));
+  background: color-mix(in srgb, var(--cfg-accent) 18%, rgba(255, 255, 255, 0.08));
+  color: #ffffff;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--cfg-density);
+}
+
+body[data-page="webentwicklung"] .configurator-preview__grid span {
+  min-height: clamp(4.8rem, 8vw, 7rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.95rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.035) 100%),
+    rgba(255, 255, 255, 0.03);
+  animation: configuratorPreviewPulse var(--cfg-motion) ease-in-out infinite;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__grid span:nth-child(2) {
+  animation-delay: -3s;
+}
+
+body[data-page="webentwicklung"] .configurator-preview__grid span:nth-child(3) {
+  animation-delay: -6s;
+}
+
+body[data-page="webentwicklung"] .configurator-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0;
+}
+
+body[data-page="webentwicklung"] .configurator-summary div {
+  min-width: 0;
+  padding: 0.82rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body[data-page="webentwicklung"] .configurator-summary dt {
+  color: rgba(172, 187, 209, 0.78);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body[data-page="webentwicklung"] .configurator-summary dd {
+  margin: 0.35rem 0 0;
+  color: rgba(244, 247, 252, 0.92);
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+@keyframes configuratorPreviewPulse {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+  }
+
+  50% {
+    border-color: color-mix(in srgb, var(--cfg-accent) 34%, rgba(255, 255, 255, 0.1));
+    transform: translateY(-3px);
+  }
+}
+
+@media (min-width: 1024px) {
+  body[data-page="webentwicklung"] .configurator-shell {
+    grid-template-columns: minmax(0, 0.96fr) minmax(23rem, 1.04fr);
+    align-items: start;
+  }
+
+  body[data-page="webentwicklung"] .configurator-preview {
+    position: sticky;
+    top: clamp(6.2rem, 8vw, 7.6rem);
+  }
+}
+
+@media (max-width: 900px) {
+  body[data-page="webentwicklung"] .configurator-section__headline {
+    max-width: 100%;
+  }
+
+  body[data-page="webentwicklung"] .configurator-form__grid,
+  body[data-page="webentwicklung"] .configurator-choice-grid,
+  body[data-page="webentwicklung"] .configurator-summary {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="webentwicklung"] .configurator-form__actions,
+  body[data-page="webentwicklung"] .configurator-form__submit,
+  body[data-page="webentwicklung"] .configurator-handoff__button {
+    width: 100%;
+  }
+
+  body[data-page="webentwicklung"] .configurator-preview__screen {
+    min-height: clamp(24rem, 92vw, 34rem);
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-page="webentwicklung"] .configurator-shell {
+    margin-inline: -0.2rem;
+    border-radius: 1rem;
+  }
+
+  body[data-page="webentwicklung"] .configurator-form__section {
+    border-radius: 0.86rem;
+  }
+
+  body[data-page="webentwicklung"] .configurator-preview__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="webentwicklung"] .configurator-choice,
+  body[data-page="webentwicklung"] .configurator-preview__screen,
+  body[data-page="webentwicklung"] .configurator-preview__grid span {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================
    SECTION 3 - APPROACH / SYSTEM
    ============================================ */
 

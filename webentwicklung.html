@@ -127,12 +127,200 @@
             aria-label="Sprungnavigation Webentwicklung">
             <ul class="jump-nav__list">
               <li><a class="jump-nav__link" href="#problem">Problem</a></li>
+              <li><a class="jump-nav__link" href="#design-konfigurator">Konfigurator</a></li>
               <li><a class="jump-nav__link" href="#approach">Ansatz</a></li>
               <li><a class="jump-nav__link" href="#deliverables">Lieferumfang</a></li>
               <li><a class="jump-nav__link" href="#standards">Standards</a></li>
               <li><a class="jump-nav__link" href="#related">N&auml;chste Schritte</a></li>
             </ul>
           </nav>
+        </div>
+      </div>
+    </section>
+
+    <section id="design-konfigurator"
+      class="configurator-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
+      aria-labelledby="configurator-title">
+      <div class="configurator-section__inner max-w-7xl mx-auto" data-configurator>
+        <div class="configurator-section__header reveal-on-scroll">
+          <p class="configurator-section__eyebrow">Design-Konfigurator</p>
+          <h2 id="configurator-title" class="configurator-section__headline font-display">
+            Skizziere dein Websystem und erhalte ein klares Briefing statt Bauchgef&uuml;hl.
+          </h2>
+          <p class="configurator-section__subline">
+            Waehle Ziel, Stil, Umfang und Rahmen. Die Vorschau reagiert sofort, und am Ende landet dein kompaktes
+            Projektbriefing direkt bei mir.
+          </p>
+        </div>
+
+        <div class="configurator-shell reveal-on-scroll">
+          <form class="configurator-form" data-configurator-form aria-describedby="configurator-form-note">
+            <div class="configurator-form__section">
+              <div class="configurator-form__section-head">
+                <p class="configurator-form__step">01</p>
+                <h3 class="configurator-form__title font-display">Projektlogik</h3>
+              </div>
+
+              <fieldset class="configurator-fieldset">
+                <legend>Ziel</legend>
+                <div class="configurator-choice-grid">
+                  <label class="configurator-choice">
+                    <input type="radio" name="goal" value="qualified-leads" checked />
+                    <span>Anfragen qualifizieren</span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="goal" value="premium-trust" />
+                    <span>Premium-Vertrauen aufbauen</span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="goal" value="clarity-system" />
+                    <span>Angebot klar strukturieren</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="configurator-form__grid">
+                <label class="configurator-field">
+                  <span>Zielgruppe</span>
+                  <select class="contact-input" name="audience">
+                    <option value="founders">Gruender und kleine Teams</option>
+                    <option value="local-business">Lokale Dienstleister</option>
+                    <option value="premium-service">Premium-Serviceanbieter</option>
+                    <option value="b2b-experts">B2B-Experten</option>
+                  </select>
+                </label>
+                <label class="configurator-field">
+                  <span>Umfang</span>
+                  <select class="contact-input" name="scope">
+                    <option value="landing">Fokussierte Landingpage</option>
+                    <option value="service-site" selected>Service-Website</option>
+                    <option value="content-system">Website mit Content-System</option>
+                    <option value="growth-platform">Wachstumsplattform</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="configurator-form__section">
+              <div class="configurator-form__section-head">
+                <p class="configurator-form__step">02</p>
+                <h3 class="configurator-form__title font-display">Look &amp; Feel</h3>
+              </div>
+
+              <fieldset class="configurator-fieldset">
+                <legend>Stilrichtung</legend>
+                <div class="configurator-choice-grid">
+                  <label class="configurator-choice">
+                    <input type="radio" name="styleDirection" value="precision-dark" checked />
+                    <span>Praezise &amp; dunkel</span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="styleDirection" value="editorial-light" />
+                    <span>Editorial &amp; hell</span>
+                  </label>
+                  <label class="configurator-choice">
+                    <input type="radio" name="styleDirection" value="signal-rich" />
+                    <span>Signalstark &amp; dynamisch</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="configurator-form__grid">
+                <label class="configurator-field">
+                  <span>Ton</span>
+                  <select class="contact-input" name="tone">
+                    <option value="calm" selected>Ruhig und wertig</option>
+                    <option value="direct">Direkt und klar</option>
+                    <option value="bold">Markant und selbstbewusst</option>
+                  </select>
+                </label>
+                <label class="configurator-field">
+                  <span>Akzent</span>
+                  <span class="configurator-color-control">
+                    <input class="configurator-color-control__input" type="color" name="accent" value="#62d6ff"
+                      aria-label="Akzentfarbe frei waehlen" />
+                    <span class="configurator-color-control__value" data-accent-value>#62d6ff</span>
+                  </span>
+                </label>
+                <label class="configurator-field">
+                  <span>Dichte</span>
+                  <input class="contact-input configurator-range" type="range" name="density" min="1" max="3" step="1"
+                    value="2" />
+                </label>
+              </div>
+            </div>
+
+            <div class="configurator-form__section">
+              <div class="configurator-form__section-head">
+                <p class="configurator-form__step">03</p>
+                <h3 class="configurator-form__title font-display">Konfiguration besprechen</h3>
+              </div>
+
+              <div class="configurator-handoff grid gap-5 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
+                <div class="grid gap-2">
+                  <p class="configurator-handoff__kicker">Naechster Schritt</p>
+                  <p class="configurator-handoff__text">
+                    Uebernimm deinen Entwurf ins Kontaktformular. Dort kannst du Kontaktdaten ergaenzen und die Anfrage
+                    bewusst final absenden.
+                  </p>
+                </div>
+
+                <button type="button" class="final-cta-btn final-cta-btn--primary configurator-handoff__button"
+                  data-configurator-handoff>
+                  Konfiguration uebernehmen &amp; besprechen
+                </button>
+              </div>
+
+              <p id="configurator-form-note" class="configurator-form__note">
+                Deine Auswahl wird lokal im Browser gespeichert und auf der Kontaktseite in das Nachrichtenfeld
+                uebernommen.
+              </p>
+            </div>
+          </form>
+
+          <aside class="configurator-preview" data-configurator-preview aria-label="Live-Vorschau">
+            <div class="configurator-preview__screen">
+              <div class="configurator-preview__topbar" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="configurator-preview__hero">
+                <p class="configurator-preview__eyebrow" data-preview-eyebrow>Service-Website</p>
+                <h3 class="configurator-preview__headline configurator-preview__headline--editable font-display"
+                  data-preview-title contenteditable="true" spellcheck="false" aria-label="Preview-Headline bearbeiten">
+                  Klare Website fuer qualifizierte Anfragen
+                </h3>
+                <p class="configurator-preview__copy" data-preview-copy>
+                  Ein fokussierter Auftritt, der Angebot, Vertrauen und naechsten Schritt sauber verbindet.
+                </p>
+                <div class="configurator-preview__actions" aria-hidden="true">
+                  <span>Erstgespraech</span>
+                  <span>Projekt einordnen</span>
+                </div>
+              </div>
+              <div class="configurator-preview__grid" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <dl class="configurator-summary" aria-label="Konfigurator-Zusammenfassung">
+              <div>
+                <dt>Ziel</dt>
+                <dd data-summary-goal>Anfragen qualifizieren</dd>
+              </div>
+              <div>
+                <dt>Stil</dt>
+                <dd data-summary-style>Praezise &amp; dunkel</dd>
+              </div>
+              <div>
+                <dt>Umfang</dt>
+                <dd data-summary-scope>Service-Website</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
       </div>
     </section>

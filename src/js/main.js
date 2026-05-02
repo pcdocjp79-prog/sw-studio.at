@@ -13,6 +13,7 @@ const SURFACE_REVEAL_SELECTOR = [
   ".result-card",
   ".next-step-card",
   ".contact-aside",
+  ".configurator-shell",
 ].join(", ");
 
 const MEDIA_REVEAL_SELECTOR = [
@@ -1067,6 +1068,20 @@ function initJumpNav() {
   window.addEventListener("load", refreshAndSyncJumpNav, { once: true });
 }
 
+const initPageSpecificModules = () => {
+  if (document.body?.dataset.page !== "webentwicklung") return;
+  const configuratorRoot = document.querySelector("[data-configurator]");
+  if (!configuratorRoot) return;
+
+  import("./configurator.js")
+    .then(({ initConfigurator }) => {
+      initConfigurator(configuratorRoot);
+    })
+    .catch((error) => {
+      console.error("Configurator module failed to load", error);
+    });
+};
+
 initRevealOnScroll();
 initScrollFocusEffect();
 initHeroStageIntro();
@@ -1078,3 +1093,4 @@ initProjectIntentButtons();
 initFilterGroups();
 initHeroStageInteraction();
 initJumpNav();
+initPageSpecificModules();

@@ -181,7 +181,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 
 - Erwartete Methode: `POST`
 - Erwarteter Payload: `name`, `email`, optional `projectType`, `budget`, `timeline`, `website`, `message`, `company` (Honeypot)
-- Validierung: Name und E-Mail sind Pflicht; E-Mail und URL werden geprueft.
+- Validierung: E-Mail ist Pflicht; E-Mail und URL werden geprueft. Name ist optional.
 - Honeypot: wenn `company` gesetzt ist, antwortet die API mit `{ ok: true }`, ohne Mail zu versenden.
 - Versanddienst: Resend ueber `https://api.resend.com/emails`
 - Resend-Netzwerkfehler werden abgefangen und als JSON-Fehler an das Frontend weitergegeben.
@@ -192,7 +192,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 
 | Datei | data-page | Titel | Top-Level-Sections | Besonderheiten |
 | --- | --- | --- | ---: | --- |
-| index.html | home | Smart Web Studio \| High-End Websites mit Struktur und Conversion | 8 | Card-Links |
+| index.html | home | Smart Web Studio \| High-End Websites mit Qualität | 7 | Standard |
 | leistungen.html | leistungen | Leistungen \| Smart Web Studio | 6 | Card-Links |
 | webentwicklung.html | webentwicklung | Webentwicklung \| Smart Web Studio | 7 | Jump-Nav |
 | branding.html | branding | Branding \| Smart Web Studio | 7 | Jump-Nav |
@@ -221,7 +221,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 
 ### index.html
 
-- Titel: Smart Web Studio | High-End Websites mit Struktur und Conversion
+- Titel: Smart Web Studio | High-End Websites mit Qualität
 - Meta-Description: Smart Web Studio entwickelt klare Positionierung, hochwertige Websites und strukturierte Conversion-Systeme für Unternehmen mit Anspruch.
 - Canonical: -
 - data-page: home
@@ -241,14 +241,17 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
-- `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `webentwicklung.html` -> Leistungen ansehen
-- `branding.html` -> Leistungen ansehen
-- `seo-marketing.html` -> Leistungen ansehen
-- `case-study.html` -> Projekt ansehen (x2)
-- `leistungen.html` -> Leistungen ansehen
-- `projekte.html` -> Projekt ansehen
+- `webentwicklung.html` -> Mehr erfahren (Webentwicklung)
+- `seo-marketing.html` -> Mehr erfahren (SEO)
+- `ki-beratung.html` -> Mehr erfahren (KI) (x2)
+- `leistungen.html` -> Webentwicklung ansehen
+- `projekte.html` -> Website-Optimierung ansehen
+- `seo-marketing.html` -> Mehr zu SEO & Marketing
+- `branding.html` -> Mehr erfahren (Branding)
+- `social.html` -> Mehr erfahren (Social)
+- `growth.html` -> Mehr erfahren (Growth)
+- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Projekt einordnen lassen
 
 #### Bilder im Hauptinhalt
 
@@ -256,9 +259,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 
 #### Klickbare Karten / data-card-link
 
-- `webentwicklung.html`
-- `branding.html`
-- `seo-marketing.html`
+- keine
 
 #### Sprungnavigation
 
@@ -278,40 +279,30 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 
 #### Top-Level-Sections im `<main>`
 
-##### Section 1: High-End Websites mit
-Klarheit.
-Positionierung mit
-Richtung.
-Conversion mit
-System.
+##### Section 1: High-End Websites mit Klarheit. Marketing mit Richtung. KI mit Nutzen.
 
 - ID: hero-stage
 - aria-labelledby: keine
 - Klassen: hero-stage hero-stage--full-bleed animate-enter
-- Eyebrow/Label: Strategie, Design und Umsetzung aus einer Hand
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Eyebrow/Label: Webentwicklung, Marketing und KI aus einer Hand (Marquee)
+- Interne Links in dieser Section: keine
 - Bilder in dieser Section: keine
 
 ```text
-Strategie, Design und Umsetzung aus einer Hand
+Webentwicklung, Marketing und KI aus einer Hand · Codebasierte Websites · SEO & Sichtbarkeit · KI für den Alltag · Automatisierung ohne Tool-Chaos · Digitale Klarheit für kleine Unternehmen · Struktur statt Zufall · Besser gefunden werden · Professioneller auftreten · Effizienter arbeiten
 
-High-End Websites mit
-Klarheit.
-Positionierung mit
-Richtung.
-Conversion mit
-System.
+High-End Websites mit Klarheit.
+Marketing mit Richtung.
+KI mit Nutzen.
 
-Ich entwickle digitale Auftritte, die professionell wirken, sauber führen und qualifizierte Anfragen
-wahrscheinlicher machen statt nur Aufmerksamkeit zu sammeln.
+Ich entwickle codebasierte Websites, klare Marketing-Strukturen und praxisnahe KI-Setups für kleine Unternehmen, die digital professioneller auftreten und effizienter arbeiten möchten.
+Dabei geht es nicht nur um schönes Design, sondern um einen Auftritt,
+der verständlich erklärt, Vertrauen aufbaut, besser gefunden wird
+und passende Anfragen wahrscheinlicher macht.
 
 Direkter Ansprechpartner
 Klare Angebotslogik
 Performance & Struktur
-
-Erstgespräch buchen
-
-Mini-Audit anfordern
 ```
 
 ##### Section 2: Vertrauensargumente
@@ -5765,13 +5756,16 @@ Mini-Audit anfordern
 
 #### Prefill-Buttons Richtung Kontaktformular
 
-- Erstgespräch buchen: href `#kontaktformular`, project `Erstgespräch`, timeline `Innerhalb von 2-4 Wochen`, target `contact-project-type`, message `Ich möchte ein strukturiertes Erstgespräch für mein Projekt anfragen.`
-- Mini-Audit anfordern: href `#kontaktformular`, project `Mini-Audit`, timeline `Noch offen`, target `contact-project-type`, message `Ich möchte ein Mini-Audit beziehungsweise eine strukturierte Ersteinschätzung für mein Projekt anfragen.`
+- keine
 
 #### Formulare
 
 - Formular 1: Methode `POST`, Action `/api/contact`, Success-HREF `danke.html`, aria-describedby `contact-form-note`
-- Feld `company`: Typ `text`, Label `Unternehmen`, Pflicht nein
+- Feld `company`: Typ `text`, Label `Unternehmen`, Pflicht nein (Honeypot)
+- Feld `name`: Typ `text`, Label `Name (optional)`, Pflicht nein
+- Feld `email`: Typ `email`, Label `E-Mail (Pflichtfeld)`, Pflicht ja
+- Feld `projectType`: Typ `select`, Label `Projektart (optional)`, Pflicht nein
+- Optionen fuer `projectType`: `Bitte wählen`, `Erstgespräch`, `Mini-Audit`, `Webentwicklung`, `Branding`, `SEO & Marketing`, `Social Strategie`, `Growth Strategie`, `KI Beratung`
 - Feld `budget`: Typ `select`, Label `Budget (optional)`, Pflicht nein
 - Optionen fuer `budget`: `Bitte wählen`, `Unter 5.000 EUR [Unter 5.000 EUR]`, `5.000 - 10.000 EUR [5.000 - 10.000 EUR]`, `10.000 - 20.000 EUR [10.000 - 20.000 EUR]`, `20.000 EUR und mehr [20.000 EUR und mehr]`
 - Feld `timeline`: Typ `select`, Label `Zeitplan (optional)`, Pflicht nein
@@ -5866,7 +5860,7 @@ CRM- oder Formular-Endpunkt vorbereitet.
 
 Anfrageformular
 
-Name und E-Mail sind Pflichtfelder. Projektart, Zeitrahmen und kurze Ausgangslage helfen bei der
+E-Mail ist verpflichtend. Projektart, Zeitrahmen und kurze Ausgangslage helfen bei der
 schnelleren Einordnung.
 
 Unternehmen
@@ -5875,7 +5869,7 @@ Persönliche Daten
 
 Die Basis für Rückmeldung und Einordnung.
 
-Name (Pflichtfeld)
+Name (optional)
 
 E-Mail (Pflichtfeld)
 

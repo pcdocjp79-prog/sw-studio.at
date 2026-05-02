@@ -5,6 +5,7 @@ const COOKIE_PATH = "cookies.html";
 const COOKIE_SETTINGS_HASH = "cookie-settings";
 const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
 const PRIMARY_CTA_LABEL = "Erstgespräch buchen";
+const BOOKING_CTA_META_LABEL = "Direkter Projektstart";
 const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
 const NAV_MOBILE_BREAKPOINT = 1024;
@@ -493,7 +494,37 @@ const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
     );
   });
 
+  fragment.appendChild(
+    createBookingCtaBlock(runtimeConfig, {
+      wrapperClass: "nav-links__cta",
+      metaClass: "nav-links__cta-meta",
+      linkClass: "nav-links__cta-btn",
+      wrapperAttrs: { "data-mobile-drawer-cta": "" },
+    })
+  );
+
   primaryNav.replaceChildren(fragment);
+};
+
+const createBookingCtaBlock = (runtimeConfig, options) => {
+  const wrapper = document.createElement("div");
+  wrapper.className = options.wrapperClass;
+  Object.entries(options.wrapperAttrs || {}).forEach(([key, value]) => {
+    wrapper.setAttribute(key, value);
+  });
+
+  const meta = document.createElement("span");
+  meta.className = options.metaClass;
+  meta.textContent = BOOKING_CTA_META_LABEL;
+
+  const link = document.createElement("a");
+  link.className = options.linkClass;
+  link.href = runtimeConfig.bookingTarget;
+  link.textContent = PRIMARY_CTA_LABEL;
+  link.setAttribute("aria-label", PRIMARY_CTA_LABEL);
+
+  wrapper.append(meta, link);
+  return wrapper;
 };
 
 const renderFooterList = (listElement, links, runtimeConfig) => {
@@ -870,6 +901,8 @@ const initMobileNavigation = (
       primaryNav.removeAttribute("aria-hidden");
     }
 
+    document.body.classList.toggle("has-mobile-nav-open", open);
+
     syncMobileNavAccessibility(open);
   };
 
@@ -924,21 +957,13 @@ const renderMobileStickyCta = (pageConfig, runtimeConfig) => {
 
   if (!shouldShowMobileStickyCta(pageConfig)) return;
 
-  const stickyWrapper = document.createElement("div");
+  const stickyWrapper = createBookingCtaBlock(runtimeConfig, {
+    wrapperClass: "mobile-sticky-cta",
+    metaClass: "mobile-sticky-cta__label",
+    linkClass: "mobile-sticky-cta__link",
+  });
   stickyWrapper.id = MOBILE_STICKY_CTA_ID;
-  stickyWrapper.className = "mobile-sticky-cta";
 
-  const stickyLabel = document.createElement("span");
-  stickyLabel.className = "mobile-sticky-cta__label";
-  stickyLabel.textContent = "Direkter Projektstart";
-
-  const stickyLink = document.createElement("a");
-  stickyLink.className = "mobile-sticky-cta__link";
-  stickyLink.href = runtimeConfig.bookingTarget;
-  stickyLink.textContent = PRIMARY_CTA_LABEL;
-  stickyLink.setAttribute("aria-label", PRIMARY_CTA_LABEL);
-
-  stickyWrapper.append(stickyLabel, stickyLink);
   document.body.appendChild(stickyWrapper);
   document.body.classList.add("has-mobile-sticky-cta");
 };

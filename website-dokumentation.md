@@ -42,6 +42,7 @@ Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-
 - Tailwind wird lokal ueber PostCSS/Vite aus `src/css/tailwind.css` gebaut; die HTML-Dateien enthalten keine Tailwind-CDN- oder Inline-Tailwind-Konfiguration mehr.
 - Das globale Styling besteht aus `src/css/style.css` und `src/css/tailwind.css`; auf Projekt-Unterseiten entsprechend `../src/css/style.css` und `../src/css/tailwind.css`.
 - `tailwind.css` wird nach den projektspezifischen Stylesheets geladen, damit Utility-Klassen die erwartete Cascade behalten.
+- `src/css/hero-text-reveal.css` wird auf `index.html` als **letztes** Stylesheet im `<head>` geladen (nach `tailwind.css`), damit der LCP-Fix fuer `.hero-stage__text` per Cascade-Reihenfolge greift (siehe Abschnitt 3.7).
 - Die Standardseiten laden am Ende `src/js/main.js`; Projekt-Unterseiten laden `../src/js/main.js`.
 - `index.html` laedt zusaetzlich `src/js/water-sphere.js?v=5` und `src/js/word-rotator.js`.
 - Die vier Projekt-Unterseiten setzen zusaetzlich `<base href="../" />`, damit Root-Links aus dem Unterordner korrekt funktionieren.
@@ -186,6 +187,20 @@ Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-
 - Resend-Netzwerkfehler werden abgefangen und als JSON-Fehler an das Frontend weitergegeben.
 - Benoetigte ENV-Variablen: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, optional `CONTACT_TO_EMAIL`
 - Fallback-Empfaenger ohne ENV: `pcdocjp79@gmail.com`
+
+### 3.7 LCP-Optimierung: Hero-Text Reveal (`src/css/hero-text-reveal.css`)
+
+Die Startseite hatte einen LCP-Render-Delay von ca. 3,2s, weil die Hero-Text-Animation an die Klasse `.is-intro-done` gebunden war. Diese Klasse wird erst gesetzt, nachdem die Three.js-WebGL-Sphere geladen und initialisiert ist. Der LCP-Kandidat (`.hero-stage__text`) blieb so lange unsichtbar (`opacity: 0`).
+
+Die Animations-Logik liegt isoliert in `src/css/hero-text-reveal.css`. Aktueller Stand:
+
+- `.hero-stage__text` ist **vollstaendig statisch**: `animation: none`, `opacity: 1`, `filter: none`, `transform: none`, `visibility: visible`, `will-change: auto` — alle mit `!important` und ueber den ID-Selektor `body#top[data-page="home"]`, um jede Cascade-Kollision aus `style.css` zu schlagen.
+- `.hero-stage__title` animiert weiter ueber `@keyframes heroContentReveal` (0,8s, `cubic-bezier(0.16, 1, 0.3, 1)`), aber **sofort beim First Paint** (Animation-Delay `0ms`, kein Warten auf `.is-intro-done`). Initialzustand `opacity: 1` / `filter: none` als Fail-safe, falls die Animation nicht laeuft.
+- `.hero-stage__actions .feature-chip` bleibt an die Karten-Intro gekoppelt (`.animate-enter` -> `.is-intro-done`), weil die Choreografie hier zur Three.js-Sphere passt. Delays: `480ms`, `620ms`, `760ms` fuer Chip 1/2/3.
+- `prefers-reduced-motion: reduce` deaktiviert alle Hero-Animationen vollstaendig.
+- Three.js (`https://unpkg.com/three@0.160.0/build/three.min.js`) ist in `index.html` mit `defer` eingebunden, damit das HTML-Parsing nicht blockiert wird.
+
+Erwartete Wirkung: LCP-Render-Delay des Hero-Texts liegt nahe `0ms`, da der Browser keinen Animations-Frame mehr abwartet.
 
 ## 4. Seiteninventar
 

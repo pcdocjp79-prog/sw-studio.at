@@ -1,15 +1,6 @@
-/* Hero Text Reveal — gestaffeltes Einblenden der Hero-Texte
-   nachdem die Karten-Intro-Animation abgeschlossen ist.
-   Animationsstil orientiert sich an .reveal-on-scroll. */
-
-.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__title,
-.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__text,
-.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip {
-  opacity: 0;
-  transform: translate3d(0, 24px, 0);
-  filter: blur(6px);
-  will-change: opacity, transform, filter;
-}
+/* Hero Text Reveal — LCP-kritischer Fließtext (.hero-stage__text) wird
+   komplett statisch ausgeliefert. Nur die Headline und die Feature-Chips
+   animieren. So bleibt der LCP-Render-Delay nahe 0ms. */
 
 @keyframes heroContentReveal {
   from {
@@ -24,18 +15,36 @@
   }
 }
 
-.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title,
-.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text,
-.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
-  animation: heroContentReveal 0.82s cubic-bezier(0.16, 1, 0.3, 1) both;
+/* LCP-Fix: Der Fließtext muss absolut statisch sein.
+   ID-Selektor #top erhöht die Spezifität gegenüber style.css. */
+.js body#top[data-page="home"] .hero-stage .hero-stage__text {
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  visibility: visible !important;
+  will-change: auto !important;
 }
 
-.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title {
+/* Die Headline darf animieren, da sie NICHT der LCP-Winner ist */
+.js body#top[data-page="home"] .hero-stage .hero-stage__title {
+  opacity: 1;
+  filter: none;
+  will-change: opacity, transform, filter;
+  animation: heroContentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0ms;
 }
 
-.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text {
-  animation-delay: 240ms;
+/* Feature-Chips: bleiben an die Karten-Intro gekoppelt */
+.js body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
+}
+
+.js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
+  animation: heroContentReveal 0.82s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip:nth-child(1) {
@@ -51,11 +60,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js body[data-page="home"] .hero-stage.animate-enter .hero-stage__title,
-  .js body[data-page="home"] .hero-stage.animate-enter .hero-stage__text,
+  .js body#top[data-page="home"] .hero-stage .hero-stage__title,
   .js body[data-page="home"] .hero-stage.animate-enter .hero-stage__actions .feature-chip,
-  .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__title,
-  .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__text,
   .js body[data-page="home"] .hero-stage.is-intro-done .hero-stage__actions .feature-chip {
     animation: none !important;
     opacity: 1;

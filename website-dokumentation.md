@@ -1,6 +1,6 @@
 # Website-Dokumentation: Smart Web Studio
 
-Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-mich.html` in `kontakt.html`). Diese Datei dokumentiert den aktuellen Stand der Website im Ordner `Draft-main` so, dass die Seite reproduzierbar nachgebaut werden kann. Grundlage sind die produktiven HTML-Seiten, die globale JavaScript-Logik und die API-/CSS-Dateien im Projekt.
+Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-mich.html` in `kontakt.html`; neuer Hero, persoenlicher Ueber-mich-Text und ueberarbeitete Arbeitsprinzipien auf `kontakt.html`; Page-Title auf "Kontakt" gekuerzt; Entfernung der Sections `Zusammenarbeit`, `Kontakt` und `Einstiege`; Buchungs-Anker projektweit von `#terminbuchung` auf `#kontaktformular` umgestellt, sodass alle CTAs `Erstgespräch buchen` / `Erstgespräch anfragen` / `Mini-Audit anfordern` / `Projekt einordnen lassen` / `Projekt besprechen` / `Relaunch anfragen` / `System aufbauen` / `Optimierung starten` / `KI Beratung anfragen` direkt zur Formular-Section springen). Diese Datei dokumentiert den aktuellen Stand der Website im Ordner `Draft-main` so, dass die Seite reproduzierbar nachgebaut werden kann. Grundlage sind die produktiven HTML-Seiten, die globale JavaScript-Logik und die API-/CSS-Dateien im Projekt.
 
 ## 1. Projektueberblick
 
@@ -160,7 +160,7 @@ Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-
 - Die Hauptnavigation wird bei Seitenstart neu gerendert; statisches HTML dient nur als Fallback.
 - Die vier Projekt-Unterseiten werden in der Navigation als Teil von `Projekte` behandelt; der Menuepunkt `Projekte` bleibt dort aktiv.
 - Die Brand-URL zeigt auf der Startseite nach `#top`, auf allen anderen Seiten nach `index.html`.
-- Die primaere CTA verweist standardmaessig auf `kontakt.html#terminbuchung`; auf `kontakt.html` verweist sie nur auf `#terminbuchung`.
+- Die primaere CTA verweist standardmaessig auf `kontakt.html#kontaktformular`; auf `kontakt.html` verweist sie nur auf `#kontaktformular`.
 - `marketing.html` wird intern immer auf `seo-marketing.html` normalisiert.
 - Links auf `cookies.html#cookie-settings` oeffnen nicht nur den Anker, sondern per `data-open-cookie-settings` das Cookie-Dialogpanel.
 - Der Footer-Brandtext wird runtime-seitig ueberschrieben. Die statischen Footertexte im HTML sind daher nicht die massgebliche Quelle.
@@ -223,7 +223,7 @@ Erwartete Wirkung: LCP-Render-Delay des Hero-Texts liegt nahe `0ms`, da der Brow
 | ablauf.html | ablauf | Ablauf \| Smart Web Studio | 4 | Standard |
 | preise.html | preise | Preise \| Smart Web Studio | 4 | Standard |
 | insights.html | insights | Insights \| Smart Web Studio | 4 | Filter |
-| kontakt.html | kontakt | Über mich & Kontakt \| Smart Web Studio | 6 | Prefill-CTA, Formular, Über-mich-Inhalte |
+| kontakt.html | kontakt | Kontakt \| Smart Web Studio | 4 | Formular, Über-mich-Inhalte, Hero mit CTA |
 | danke.html | danke | Danke \| Smart Web Studio | 4 | Standard |
 | impressum.html | impressum | Impressum \| Smart Web Studio | 6 | Standard |
 | datenschutz.html | datenschutz | Datenschutz \| Smart Web Studio | 10 | Standard |
@@ -307,7 +307,7 @@ Gesamteinsparung im Repository: ca. 7,6 MB. Die in `docs/perf-baseline.md` und `
 - `branding.html` -> Mehr erfahren (Branding)
 - `social.html` -> Mehr erfahren (Social)
 - `growth.html` -> Mehr erfahren (Growth)
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen
 - `kontakt.html#kontaktformular` -> Projekt einordnen lassen
 
 #### Bilder im Hauptinhalt
@@ -659,7 +659,7 @@ Projekt ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -705,7 +705,7 @@ Mini-Audit anfordern
 - `ablauf.html` -> Ablauf ansehen
 - `projekte.html` -> Projekt ansehen
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen
 
 #### Bilder im Hauptinhalt
 
@@ -1016,7 +1016,7 @@ Mini-Audit anfordern
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1052,7 +1052,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
@@ -1096,7 +1096,7 @@ ansehen
 - aria-labelledby: webdev-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Webentwicklung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1330,7 +1330,7 @@ Projekt ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1365,7 +1365,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
@@ -1409,7 +1409,7 @@ ansehen
 - aria-labelledby: branding-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Branding & Positionierung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1642,7 +1642,7 @@ Projekt ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1677,7 +1677,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
@@ -1721,7 +1721,7 @@ ansehen
 - aria-labelledby: seo-marketing-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: SEO & Marketing
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1954,7 +1954,7 @@ Insights ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -1989,7 +1989,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
@@ -2031,7 +2031,7 @@ Mini-Audit anfordern
 - aria-labelledby: social-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Social Strategie
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2246,7 +2246,7 @@ Leistungen ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2281,7 +2281,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
@@ -2323,7 +2323,7 @@ Mini-Audit anfordern
 - aria-labelledby: growth-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Growth Strategie
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2543,7 +2543,7 @@ Projekt ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2578,7 +2578,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> KI Beratung anfragen (x2)
+- `kontakt.html#kontaktformular` -> KI Beratung anfragen (x2)
 - `kontakt.html#kontaktformular` -> Potenzial schildern (x2)
 - `#approach` -> Ansatz
 - `#deliverables` -> Lieferumfang
@@ -2606,9 +2606,9 @@ Mini-Audit anfordern
 
 #### Prefill-Buttons Richtung Kontaktformular
 
-- KI Beratung anfragen: href `kontakt.html#terminbuchung`, project `KI Beratung`, timeline `Innerhalb von 2-4 Wochen`, target `-`, message `Ich möchte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und den passenden Einstieg klären.`
+- KI Beratung anfragen: href `kontakt.html#kontaktformular`, project `KI Beratung`, timeline `Innerhalb von 2-4 Wochen`, target `-`, message `Ich möchte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und den passenden Einstieg klären.`
 - Potenzial schildern: href `kontakt.html#kontaktformular`, project `KI Beratung`, timeline `Noch offen`, target `-`, message `Ich möchte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und suche eine strukturierte Ersteinschätzung.`
-- KI Beratung anfragen: href `kontakt.html#terminbuchung`, project `KI Beratung`, timeline `Innerhalb von 2-4 Wochen`, target `-`, message `Ich möchte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und den passenden Einstieg klären.`
+- KI Beratung anfragen: href `kontakt.html#kontaktformular`, project `KI Beratung`, timeline `Innerhalb von 2-4 Wochen`, target `-`, message `Ich möchte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und den passenden Einstieg klären.`
 - Potenzial schildern: href `kontakt.html#kontaktformular`, project `KI Beratung`, timeline `Noch offen`, target `-`, message `Ich möchte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und suche eine strukturierte Ersteinschätzung.`
 
 #### Formulare
@@ -2623,7 +2623,7 @@ Mini-Audit anfordern
 - aria-labelledby: ai-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: KI Beratung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (KI Beratung anfragen), `kontakt.html#kontaktformular` (Potenzial schildern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (KI Beratung anfragen), `kontakt.html#kontaktformular` (Potenzial schildern), `#approach` (Ansatz), `#deliverables` (Lieferumfang), `#standards` (Standards), `#related` (Nächste Schritte)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2840,7 +2840,7 @@ Leistungen ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (KI Beratung anfragen), `kontakt.html#kontaktformular` (Potenzial schildern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (KI Beratung anfragen), `kontakt.html#kontaktformular` (Potenzial schildern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -2882,7 +2882,7 @@ Potenzial schildern
 - `projekte/funnel-optimierung.html` -> Mehr zur Projektart
 - `case-study.html` -> Projekt
 ansehen
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen
 
 #### Bilder im Hauptinhalt
 
@@ -3068,7 +3068,7 @@ nachvollziehbarer.
 - Klassen: final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
 - Interne Links in dieser Section: `case-study.html` (Projekt
-ansehen), `kontakt.html#terminbuchung` (Erstgespräch buchen)
+ansehen), `kontakt.html#kontaktformular` (Erstgespräch buchen)
 - Bilder in dieser Section: keine
 
 ```text
@@ -3107,7 +3107,7 @@ Erstgespräch buchen
 - `projekte/relaunch-seo.html` -> Mehr zur Projektart
 - `projekte/content-tracking-system.html` -> Mehr zur Projektart
 - `projekte/funnel-optimierung.html` -> Mehr zur Projektart
-- `kontakt.html#terminbuchung` -> Projekt besprechen
+- `kontakt.html#kontaktformular` -> Projekt besprechen
 - `projekte.html` -> Alle Projektarten
 
 #### Bilder im Hauptinhalt
@@ -3402,7 +3402,7 @@ Mehr zur Projektart
 - aria-labelledby: keine
 - Klassen: final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Projekt besprechen), `projekte.html` (Alle Projektarten)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Projekt besprechen), `projekte.html` (Alle Projektarten)
 - Bilder in dieser Section: keine
 
 ```text
@@ -3440,7 +3440,7 @@ Alle Projektarten
 - `projekte/website-branding-setup.html` -> Mehr zur Projektart
 - `projekte/content-tracking-system.html` -> Mehr zur Projektart
 - `projekte/funnel-optimierung.html` -> Mehr zur Projektart
-- `kontakt.html#terminbuchung` -> Relaunch anfragen
+- `kontakt.html#kontaktformular` -> Relaunch anfragen
 - `projekte.html` -> Alle Projektarten
 
 #### Bilder im Hauptinhalt
@@ -3736,7 +3736,7 @@ Mehr zur Projektart
 - aria-labelledby: keine
 - Klassen: final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Relaunch anfragen), `projekte.html` (Alle Projektarten)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Relaunch anfragen), `projekte.html` (Alle Projektarten)
 - Bilder in dieser Section: keine
 
 ```text
@@ -3774,7 +3774,7 @@ Alle Projektarten
 - `projekte/website-branding-setup.html` -> Mehr zur Projektart
 - `projekte/relaunch-seo.html` -> Mehr zur Projektart
 - `projekte/funnel-optimierung.html` -> Mehr zur Projektart
-- `kontakt.html#terminbuchung` -> System aufbauen
+- `kontakt.html#kontaktformular` -> System aufbauen
 - `projekte.html` -> Alle Projektarten
 
 #### Bilder im Hauptinhalt
@@ -4046,7 +4046,7 @@ Mehr zur Projektart
 - aria-labelledby: keine
 - Klassen: final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (System aufbauen), `projekte.html` (Alle Projektarten)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (System aufbauen), `projekte.html` (Alle Projektarten)
 - Bilder in dieser Section: keine
 
 ```text
@@ -4084,7 +4084,7 @@ Alle Projektarten
 - `projekte/website-branding-setup.html` -> Mehr zur Projektart
 - `projekte/relaunch-seo.html` -> Mehr zur Projektart
 - `projekte/content-tracking-system.html` -> Mehr zur Projektart
-- `kontakt.html#terminbuchung` -> Optimierung starten
+- `kontakt.html#kontaktformular` -> Optimierung starten
 - `projekte.html` -> Alle Projektarten
 
 #### Bilder im Hauptinhalt
@@ -4354,7 +4354,7 @@ Mehr zur Projektart
 - aria-labelledby: keine
 - Klassen: final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Optimierung starten), `projekte.html` (Alle Projektarten)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Optimierung starten), `projekte.html` (Alle Projektarten)
 - Bilder in dieser Section: keine
 
 ```text
@@ -4391,7 +4391,7 @@ Alle Projektarten
 
 - `leistungen.html` -> Leistungen ansehen
 - `ablauf.html` -> Ablauf ansehen
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern
 
 #### Bilder im Hauptinhalt
@@ -4544,7 +4544,7 @@ Anfang an sauber.
 - aria-labelledby: case-links-title
 - Klassen: packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Weiterführende Wege
-- Interne Links in dieser Section: `leistungen.html` (Leistungen ansehen), `ablauf.html` (Ablauf ansehen), `kontakt.html#terminbuchung` (Erstgespräch buchen)
+- Interne Links in dieser Section: `leistungen.html` (Leistungen ansehen), `ablauf.html` (Ablauf ansehen), `kontakt.html#kontaktformular` (Erstgespräch buchen)
 - Bilder in dieser Section: keine
 
 ```text
@@ -4585,7 +4585,7 @@ Erstgespräch buchen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -4620,7 +4620,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen
 - `projekte.html` -> Projekt ansehen
 
 #### Bilder im Hauptinhalt
@@ -4797,7 +4797,7 @@ Besserer Launch
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `projekte.html` (Projekt ansehen)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `projekte.html` (Projekt ansehen)
 - Bilder in dieser Section: keine
 
 ```text
@@ -4832,10 +4832,10 @@ Projekt ansehen
 
 #### Interne Links im Hauptinhalt
 
-- `kontakt.html#terminbuchung` -> Projekt
+- `kontakt.html#kontaktformular` -> Projekt
 besprechen (x2)
-- `kontakt.html#terminbuchung` -> Projekt besprechen
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen (x2)
+- `kontakt.html#kontaktformular` -> Projekt besprechen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x2)
 - `projekte.html` -> Projekt ansehen
 
@@ -4889,8 +4889,8 @@ Reihenfolge der sinnvollsten Hebel.
 - aria-labelledby: pricing-grid-title
 - Klassen: packages-section pricing-packages-section py-0 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Starter
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Projekt
-besprechen), `kontakt.html#terminbuchung` (Projekt besprechen), `kontakt.html#terminbuchung` (Projekt
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Projekt
+besprechen), `kontakt.html#kontaktformular` (Projekt besprechen), `kontakt.html#kontaktformular` (Projekt
 besprechen)
 - Bilder in dieser Section: keine
 
@@ -4954,7 +4954,7 @@ Projekttiefe definieren das finale Angebot.
 - aria-labelledby: pricing-guide-title
 - Klassen: about-section about-section--next-steps py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Orientierung
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `projekte.html` (Projekt ansehen)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern), `projekte.html` (Projekt ansehen)
 - Bilder in dieser Section: keine
 
 ```text
@@ -4999,7 +4999,7 @@ Projekt ansehen
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -5042,7 +5042,7 @@ ansehen (x2)
 - `kontakt.html#kontaktformular` -> Mini-Audit anfordern (x3)
 - `seo-marketing.html` -> Leistungen
 ansehen (x2)
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen
 
 #### Bilder im Hauptinhalt
 
@@ -5261,7 +5261,7 @@ willst.
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `kontakt.html#kontaktformular` (Mini-Audit anfordern)
 - Bilder in dieser Section: keine
 
 ```text
@@ -5277,7 +5277,7 @@ Mini-Audit anfordern
 
 ### kontakt.html
 
-- Titel: Über mich & Kontakt | Smart Web Studio
+- Titel: Kontakt | Smart Web Studio
 - Meta-Description: Lerne Smart Web Studio kennen: direkte Zusammenarbeit, klare Arbeitsprinzipien und zwei Wege für deine Anfrage – Erstgespräch buchen oder Projektformular ausfüllen.
 - Canonical: -
 - data-page: kontakt
@@ -5290,7 +5290,7 @@ Mini-Audit anfordern
 - Scroll-to-top Button: ja
 - Cookie-Settings-Anker im Footer: ja
 - Legacy-Redirect: nein
-- Hinweis: Seit 2026-05-03 enthaelt diese Seite zusaetzlich die Inhalte der frueheren `ueber-mich.html` (Hero, Arbeitsprinzipien, Zusammenarbeit). Die Datei `ueber-mich.html` existiert nicht mehr.
+- Hinweis: Seit 2026-05-03 enthaelt diese Seite zusaetzlich die Inhalte der frueheren `ueber-mich.html` (Hero, Arbeitsprinzipien, Zusammenarbeit). Die Datei `ueber-mich.html` existiert nicht mehr. Mit dem Update vom 2026-05-03 wurde zusaetzlich ein eigener Page-Hero mit `<h1>` und CTA `Erstgespräch anfragen` (Ziel `#kontaktformular`) ergaenzt; der Ueber-mich-Block traegt seither nur noch ein `<h2>`. Der Ueber-mich-Text wurde zu einer persoenlichen Vorstellung (Jacek, IT-Projektmanager) erweitert, und die Arbeitsprinzipien-Section wurde auf "Wie ich Projekte denke, bevor wir starten." mit Intro-Text und neuen Kacheln ANALYSE / STRUKTUR / VERTRAUEN umgestellt. Der Browser-Title wurde von `Über mich & Kontakt | Smart Web Studio` auf `Kontakt | Smart Web Studio` gekuerzt. Mit einem weiteren Update vom 2026-05-03 wurden die drei Sections `Zusammenarbeit` (`work-style-title`, "Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups."), `Kontakt` (`contact-hero-title`, "Zwei klare Wege in den Projektstart.") und `Einstiege` (`#kontaktformular`, "Erstgespräch oder Projektformular. Klar statt kompliziert.") komplett entfernt. Der Anker `#kontaktformular` existiert auf dieser Seite nicht mehr; die seiteninterne Nav-CTA wurde auf `#kontaktformular` umgestellt. Cross-Page-Links auf `kontakt.html#kontaktformular` aus anderen Seiten (z.B. `index.html`, `leistungen.html`, Service- und Projektseiten) zielen damit weiterhin auf `kontakt.html`, scrollen aber nicht mehr zu einer Buchungssection, sondern landen oben auf der Seite.
 
 #### Body-Datenattribute
 
@@ -5300,8 +5300,7 @@ Mini-Audit anfordern
 
 #### Interne Links im Hauptinhalt
 
-- `#kontaktformular` -> Erstgespräch buchen
-- `#kontaktformular` -> Mini-Audit anfordern
+- `#kontaktformular` -> Erstgespräch anfragen (Page-Hero-CTA)
 
 #### Bilder im Hauptinhalt
 
@@ -5340,12 +5339,32 @@ Mini-Audit anfordern
 
 #### Top-Level-Sections im `<main>`
 
-##### Section 1: Du arbeitest direkt mit mir.
+##### Section 1: Lass uns klären, ob dein Projekt zu Smart Web Studio passt.
+
+- ID: keine
+- aria-labelledby: contact-page-hero-title
+- Klassen: pt-24 lg:pt-32 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- Eyebrow/Label: keiner
+- Hinweis: Page-Hero (`<h1>`) mit zentriertem Header (`approach-section__header` plus `mb-0`-Override fuer kompaktere Distanz zum Folge-Block) und CTA-Button (`approach-section__btn`).
+- Interne Links in dieser Section: `#kontaktformular` (Erstgespräch anfragen)
+- Bilder in dieser Section: keine
+
+```text
+Lass uns klären, ob dein Projekt zu Smart Web Studio passt.
+
+Ob neue Website, bessere digitale Sichtbarkeit oder KI-gestützte Automatisierung: Der erste Schritt ist ein
+klares Gespräch über Ziel, Ausgangslage und mögliche Umsetzung.
+
+Erstgespräch anfragen
+```
+
+##### Section 2: Du arbeitest direkt mit mir.
 
 - ID: keine
 - aria-labelledby: about-me-title
 - Klassen: about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Über mich
+- Hinweis: Headline ist seit 2026-05-03 ein `<h2>` (vorher `<h1>`), da Section 1 jetzt das `<h1>` traegt.
 - Interne Links in dieser Section: keine
 - Bilder in dieser Section: `assets/images/uebermich-720.webp` (Portrait des Gründers von Smart Web Studio)
 
@@ -5354,15 +5373,22 @@ Mini-Audit anfordern
 
 Du arbeitest direkt mit mir.
 
-Keine Agentur-Weitergabe, keine Zwischenebenen, kein unnötiges Projekt-Pingpong. Strategie, Struktur und
-Umsetzung bleiben in einer Hand, damit Entscheidungen klarer und Wege kürzer werden.
+Mein Name ist Jacek, ich bin IT-Projektmanager in einem großen Vorarlberger Unternehmen und bringe über
+10 Jahre Erfahrung in digitalen Lösungen, Prozessoptimierung und moderner Zusammenarbeit mit. In meiner
+Arbeit verbinde ich technisches Verständnis, strukturiertes Projektdenken und eine klare
+Umsetzungsperspektive.
+
+Smart Web Studio ist aus meiner Leidenschaft für digitale Produkte, moderne Websites und sinnvolle
+Automatisierung entstanden. Neben meiner beruflichen Tätigkeit unterstütze ich Unternehmen dabei,
+professionelle Webauftritte, digitale Strukturen und KI-gestützte Lösungen aufzubauen, die nicht nur
+gut aussehen, sondern im Alltag echten Nutzen bringen.
 
 Direkter Ansprechpartner
 Klare Deliverables
 Fokus auf passende Projekte
 ```
 
-##### Section 2: Worauf ich in Projekten bewusst Wert lege.
+##### Section 3: Wie ich Projekte denke, bevor wir starten.
 
 - ID: keine
 - aria-labelledby: principles-title
@@ -5374,143 +5400,42 @@ Fokus auf passende Projekte
 ```text
 Arbeitsprinzipien
 
-Worauf ich in Projekten bewusst Wert
-lege.
+Wie ich Projekte denke, bevor wir starten.
+
+Bevor es um Design, Technik oder einzelne Maßnahmen geht, möchte ich verstehen, was dein Unternehmen
+wirklich braucht. Für mich beginnt ein gutes Projekt nicht mit schnellen Versprechen, sondern mit Klarheit
+über Ziel, Ausgangslage und den sinnvollsten nächsten Schritt.
 
 01
 
-KLARHEIT
+ANALYSE
 
-Strategie vor Show
+Ausgangslage verstehen
 
-Ich denke Projekte zuerst in Zielgruppe, Angebot und Conversion, bevor
-Gestaltung überhaupt eine Rolle spielt.
+Ich nehme mir Zeit, dein Unternehmen, dein Angebot und deine digitale Ausgangssituation zu verstehen.
+Erst daraus entsteht eine Empfehlung, die fachlich sinnvoll und praktisch umsetzbar ist.
 
 02
 
-FOKUS
+STRUKTUR
 
-Weniger Schleifen, mehr Richtung
+Komplexität reduzieren
 
-Entscheidungen bleiben schnell, weil Konzept, Design und Technik nicht über
-mehrere Stellen verteilt sind.
+Durch meine Erfahrung im IT-Projektmanagement denke ich Projekte nicht nur kreativ, sondern auch
+strukturiert: mit klaren Prioritäten, nachvollziehbaren Schritten und einem realistischen Blick auf
+Aufwand und Nutzen.
 
 03
 
-QUALITÄT
+VERTRAUEN
 
-Marke, Website und Nachfrage greifen ineinander
+Direkte Zusammenarbeit
 
-Ich betrachte den digitalen Auftritt als Gesamtsystem statt als Sammlung
-einzelner Maßnahmen.
+Smart Web Studio ist bewusst persönlich aufgebaut. Du hast einen direkten Ansprechpartner, klare
+Kommunikation und eine ehrliche Einschätzung dazu, was für dein Projekt wirklich sinnvoll ist.
 ```
 
-##### Section 3: Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups.
-
-- ID: keine
-- aria-labelledby: work-style-title
-- Klassen: packages-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Zusammenarbeit
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Zusammenarbeit
-
-Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups.
-
-Kommunikation
-
-Direkt statt weitergereicht
-
-Die Person, die mit dir über Strategie spricht, denkt auch die Umsetzung und
-bewertet später die Wirkung.
-
-Prozess
-
-Strukturiert statt improvisiert
-
-Klare Deliverables, nachvollziehbare Phasen und ein transparenter Projektweg
-reduzieren Reibung für beide Seiten.
-
-Fit
-
-Lieber passend als beliebig
-
-Ich fokussiere auf Projekte, bei denen Klarheit, Qualität und strategische
-Umsetzung wirklich relevant sind.
-```
-
-##### Section 4: Zwei klare Wege in den Projektstart.
-
-- ID: keine
-- aria-labelledby: contact-hero-title
-- Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Kontakt
-- Hinweis: Die Headline wurde beim Merge von `<h1>` zu `<h2>` demoted, da `Section 1` jetzt das primaere `<h1>` der Seite traegt.
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Kontakt
-
-Zwei klare Wege in den Projektstart.
-
-Du kannst direkt ein Erstgespräch buchen oder dein Projekt schriftlich skizzieren. Beide Wege landen in
-einer strukturierten Einordnung statt in einem allgemeinen Kontaktpostfach.
-
-Was bei einer guten Anfrage hilft
-
-- Projektart oder Ausgangslage
-
-- welcher Hebel zuerst gelöst werden soll
-
-- grober Zeitrahmen und vorhandene Grundlagen
-```
-
-##### Section 5: Erstgespräch oder Projektformular. Klar statt kompliziert.
-
-- ID: terminbuchung
-- aria-labelledby: keine
-- Klassen: packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Einstiege
-- Interne Links in dieser Section: `#kontaktformular` (Erstgespräch buchen), `#kontaktformular` (Mini-Audit anfordern)
-- Bilder in dieser Section: keine
-
-```text
-Einstiege
-
-Erstgespräch oder Projektformular. Klar statt kompliziert.
-
-Wähle den Einstieg, der zu deiner Situation passt. Der Terminweg ist direkter, das Formular eignet sich für
-detailliertere Vorabinformationen.
-
-Erstgespräch buchen
-
-Wenn du Prioritäten, Scope und sinnvolle Reihenfolge direkt klären willst.
-
-- ideal für neue Projekte oder Relaunches
-
-- fokussiert auf Zielbild, Hebel und nächsten Schritt
-
-- prefillt das Formular für eine schnelle Einordnung
-
-Erstgespräch buchen
-
-Projektformular / Mini-Audit
-
-Wenn du dein Projekt lieber zuerst strukturiert beschreiben willst.
-
-- geeignet für konkrete Ausgangslagen oder bestehende Websites
-
-- hilft bei klarerer Vorqualifizierung
-
-- kann als Mini-Audit-Anfrage vorbereitet werden
-
-Mini-Audit anfordern
-```
-
-##### Section 6: Projektanfrage senden
+##### Section 4: Projektanfrage senden
 
 - ID: kontaktformular
 - aria-labelledby: keine
@@ -5636,7 +5561,7 @@ Realistischer Scope
 ansehen
 - `projekte.html` -> Projekt ansehen
 - `insights.html` -> Insights ansehen
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
+- `kontakt.html#kontaktformular` -> Erstgespräch buchen
 - `leistungen.html` -> Leistungen ansehen
 
 #### Bilder im Hauptinhalt
@@ -5794,7 +5719,7 @@ willst.
 - aria-labelledby: keine
 - Klassen: final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `leistungen.html` (Leistungen ansehen)
+- Interne Links in dieser Section: `kontakt.html#kontaktformular` (Erstgespräch buchen), `leistungen.html` (Leistungen ansehen)
 - Bilder in dieser Section: keine
 
 ```text

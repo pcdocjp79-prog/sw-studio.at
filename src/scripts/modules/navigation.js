@@ -1,6 +1,6 @@
 const HOME_PATH = "index.html";
 const CONTACT_PATH = "kontakt.html";
-const BOOKING_HASH = "terminbuchung";
+const BOOKING_HASH = "kontaktformular";
 const COOKIE_PATH = "cookies.html";
 const COOKIE_SETTINGS_HASH = "cookie-settings";
 const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;

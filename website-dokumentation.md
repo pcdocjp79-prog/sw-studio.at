@@ -1,13 +1,13 @@
 # Website-Dokumentation: Smart Web Studio
 
-Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website im Ordner `Draft-main` so, dass die Seite reproduzierbar nachgebaut werden kann. Grundlage sind die produktiven HTML-Seiten, die globale JavaScript-Logik und die API-/CSS-Dateien im Projekt.
+Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-mich.html` in `kontakt.html`). Diese Datei dokumentiert den aktuellen Stand der Website im Ordner `Draft-main` so, dass die Seite reproduzierbar nachgebaut werden kann. Grundlage sind die produktiven HTML-Seiten, die globale JavaScript-Logik und die API-/CSS-Dateien im Projekt.
 
 ## 1. Projektueberblick
 
 - Website-Typ: statische Multi-Page-Website mit HTML-Entrypoints statt SPA-Routing.
 - Aktiver Frontend-Runtime-Pfad: `*.html` + `src/js/main.js` + `src/css/style.css` + `src/css/tailwind.css`.
 - Build/Dev: Vite ist vorhanden, die Seiten funktionieren aber auch direkt als statische HTML-Dateien.
-- Gesamtumfang: 24 HTML-Seiten (20 Root-Seiten, 4 Projekt-Unterseiten).
+- Gesamtumfang: 23 HTML-Seiten (19 Root-Seiten, 4 Projekt-Unterseiten).
 - API-Endpunkt: `POST /api/contact` ueber `api/contact.js`.
 
 ## 2. Relevante Projektstruktur
@@ -18,7 +18,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - `projekte.html`: Projektuebersicht mit Filterlogik
 - `projekte/*.html`: vier Projekt-Unterseiten
 - `case-study.html`: anonymisierte Case Study
-- `ablauf.html`, `preise.html`, `ueber-mich.html`, `insights.html`, `kontakt.html`: Kernseiten
+- `ablauf.html`, `preise.html`, `insights.html`, `kontakt.html`: Kernseiten (`kontakt.html` enthaelt seit 2026-05-03 zusaetzlich die Ueber-mich-Inhalte)
 - `danke.html`: Erfolg-/Weiterleitungsseite nach Formularversand
 - `impressum.html`, `datenschutz.html`, `cookies.html`: rechtliche Seiten
 - `marketing.html`: Legacy-Redirect auf `seo-marketing.html`
@@ -60,7 +60,6 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - Leistungen
 - Projekte
 - Ablauf
-- Ueber mich
 - Preise
 - Insights
 - Kontakt
@@ -74,7 +73,7 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - Direkter Ansprechpartner | Vorarlberg / DACH
 - Direkte Zusammenarbeit, strukturierter Ablauf und Fokus auf passende Projekte. Erstgespraech buchen
 - Leistungen: Webentwicklung, Branding, SEO & Marketing, Social Strategie, Growth Strategie, KI Beratung
-- Navigation: Start, Leistungen, Projekte, Marken- & Website-Setup, Relaunch & SEO, Content- & Tracking-System, Funnel-Optimierung, Case Study, Ablauf, Ueber mich, Preise, Insights, Kontakt
+- Navigation: Start, Leistungen, Projekte, Marken- & Website-Setup, Relaunch & SEO, Content- & Tracking-System, Funnel-Optimierung, Case Study, Ablauf, Preise, Insights, Kontakt
 - Rechtliches: Impressum, Datenschutz, Cookies, Cookie-Einstellungen
 - (c) 2026 Smart Web Studio.
 - Built for clarity, structure and conversion.
@@ -118,7 +117,6 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - `leistungen.html` -> Leistungen
 - `projekte.html` -> Projekte
 - `ablauf.html` -> Ablauf
-- `ueber-mich.html` -> Ueber mich
 - `preise.html` -> Preise
 - `insights.html` -> Insights
 - `kontakt.html` -> Kontakt
@@ -143,7 +141,6 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 - `projekte/funnel-optimierung.html` -> Funnel-Optimierung
 - `case-study.html` -> Case Study
 - `ablauf.html` -> Ablauf
-- `ueber-mich.html` -> Ueber mich
 - `preise.html` -> Preise
 - `insights.html` -> Insights
 - `kontakt.html` -> Kontakt
@@ -208,9 +205,8 @@ Erstellt am 2026-03-21. Diese Datei dokumentiert den aktuellen Stand der Website
 | case-study.html | case-study | Case Study \| Smart Web Studio | 5 | Standard |
 | ablauf.html | ablauf | Ablauf \| Smart Web Studio | 4 | Standard |
 | preise.html | preise | Preise \| Smart Web Studio | 4 | Standard |
-| ueber-mich.html | ueber-mich | Über mich \| Smart Web Studio | 5 | Standard |
 | insights.html | insights | Insights \| Smart Web Studio | 4 | Filter |
-| kontakt.html | kontakt | Kontakt \| Smart Web Studio | 3 | Prefill-CTA, Formular |
+| kontakt.html | kontakt | Über mich & Kontakt \| Smart Web Studio | 6 | Prefill-CTA, Formular, Über-mich-Inhalte |
 | danke.html | danke | Danke \| Smart Web Studio | 4 | Standard |
 | impressum.html | impressum | Impressum \| Smart Web Studio | 6 | Standard |
 | datenschutz.html | datenschutz | Datenschutz \| Smart Web Studio | 10 | Standard |
@@ -4955,213 +4951,6 @@ Erstgespräch buchen
 Mini-Audit anfordern
 ```
 
-### ueber-mich.html
-
-- Titel: Über mich | Smart Web Studio
-- Meta-Description: Über Smart Web Studio: direkte Zusammenarbeit, klare Projektführung, hoher Qualitätsanspruch und ein bewusst fokussierter Ansatz für Marken, Websites und Wachstum.
-- Canonical: -
-- data-page: ueber-mich
-- body id: top
-- Base-HREF: -
-- Stylesheets: `src/css/style.css`, `src/css/tailwind.css`
-- Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`, `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap`
-- Modul-Script: `src/js/main.js`
-- Animated background Platzhalter: ja
-- Scroll-to-top Button: ja
-- Cookie-Settings-Anker im Footer: ja
-- Legacy-Redirect: nein
-
-#### Body-Datenattribute
-
-- `data-page` = `ueber-mich`
-
-#### Interne Links im Hauptinhalt
-
-- `kontakt.html#terminbuchung` -> Erstgespräch buchen
-- `leistungen.html` -> Leistungen ansehen
-
-#### Bilder im Hauptinhalt
-
-- `assets/uebermich-720.webp` (alt: Portrait des Gründers von Smart Web Studio)
-
-#### Klickbare Karten / data-card-link
-
-- keine
-
-#### Sprungnavigation
-
-- keine
-
-#### Filterlogik
-
-- keine
-
-#### Prefill-Buttons Richtung Kontaktformular
-
-- keine
-
-#### Formulare
-
-- keine
-
-#### Top-Level-Sections im `<main>`
-
-##### Section 1: Du arbeitest direkt mit mir.
-
-- ID: keine
-- aria-labelledby: about-me-title
-- Klassen: about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Über mich
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: `assets/uebermich-720.webp` (Portrait des Gründers von Smart Web Studio)
-
-```text
-Über mich
-
-Du arbeitest direkt mit mir.
-
-Keine Agentur-Weitergabe, keine Zwischenebenen, kein unnötiges Projekt-Pingpong. Strategie, Struktur und
-Umsetzung bleiben in einer Hand, damit Entscheidungen klarer und Wege kürzer werden.
-
-Direkter Ansprechpartner
-Klare Deliverables
-Fokus auf passende Projekte
-```
-
-##### Section 2: Worauf ich in Projekten bewusst Wert
-lege.
-
-- ID: keine
-- aria-labelledby: principles-title
-- Klassen: approach-section section-surface--about-default py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Arbeitsprinzipien
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Arbeitsprinzipien
-
-Worauf ich in Projekten bewusst Wert
-lege.
-
-01
-
-KLARHEIT
-
-Strategie vor Show
-
-Ich denke Projekte zuerst in Zielgruppe, Angebot und Conversion, bevor
-Gestaltung überhaupt eine Rolle spielt.
-
-02
-
-FOKUS
-
-Weniger Schleifen, mehr Richtung
-
-Entscheidungen bleiben schnell, weil Konzept, Design und Technik nicht über
-mehrere Stellen verteilt sind.
-
-03
-
-QUALITÄT
-
-Marke, Website und Nachfrage greifen ineinander
-
-Ich betrachte den digitalen Auftritt als Gesamtsystem statt als Sammlung
-einzelner Maßnahmen.
-```
-
-##### Section 3: Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups.
-
-- ID: keine
-- aria-labelledby: work-style-title
-- Klassen: packages-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Zusammenarbeit
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Zusammenarbeit
-
-Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups.
-
-Kommunikation
-
-Direkt statt weitergereicht
-
-Die Person, die mit dir über Strategie spricht, denkt auch die Umsetzung und
-bewertet später die Wirkung.
-
-Prozess
-
-Strukturiert statt improvisiert
-
-Klare Deliverables, nachvollziehbare Phasen und ein transparenter Projektweg
-reduzieren Reibung für beide Seiten.
-
-Fit
-
-Lieber passend als beliebig
-
-Ich fokussiere auf Projekte, bei denen Klarheit, Qualität und strategische
-Umsetzung wirklich relevant sind.
-```
-
-##### Section 4: Hochwertig heißt für mich: schön, nachvollziehbar und wirksam.
-
-- ID: keine
-- aria-labelledby: quality-title
-- Klassen: about-section section-surface--about-default py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: Qualitätsanspruch
-- Interne Links in dieser Section: keine
-- Bilder in dieser Section: keine
-
-```text
-Qualitätsanspruch
-
-Hochwertig heißt für mich: schön, nachvollziehbar und wirksam.
-
-Design ohne Klarheit bringt wenig. Strategie ohne saubere Umsetzung ebenso. Deshalb arbeite ich bewusst an
-der Schnittstelle aus Positionierung, Website und Conversion.
-
-Klare Prioritäten
-
-Nicht alles gleichzeitig, sondern der nächste Hebel mit der stärksten
-Wirkung.
-
-Saubere Umsetzung
-
-Responsiveness, Performance, Semantik und Hierarchie werden nicht nachträglich
-ergänzt, sondern von Anfang an mitgedacht.
-
-Strukturierte Zusammenarbeit
-
-Klare Deadlines, nachvollziehbare Entscheidungen und ein ruhiger Prozess statt
-hektischer Ad-hoc-Schleifen.
-```
-
-##### Section 5: Wenn du direkte Zusammenarbeit und klare Entscheidungen
-willst.
-
-- ID: keine
-- aria-labelledby: keine
-- Klassen: final-cta-section section-surface--global py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section
-- Eyebrow/Label: keine
-- Interne Links in dieser Section: `kontakt.html#terminbuchung` (Erstgespräch buchen), `leistungen.html` (Leistungen ansehen)
-- Bilder in dieser Section: keine
-
-```text
-Wenn du direkte Zusammenarbeit und klare Entscheidungen
-willst.
-
-Dann starten wir mit einem strukturierten Erstgespräch und schauen, welche
-Kombination aus Marke, Website und Nachfrage für dein Projekt passt.
-
-Erstgespräch buchen
-Leistungen ansehen
-```
-
 ### insights.html
 
 - Titel: Insights | Smart Web Studio
@@ -5427,8 +5216,8 @@ Mini-Audit anfordern
 
 ### kontakt.html
 
-- Titel: Kontakt | Smart Web Studio
-- Meta-Description: Kontaktseite von Smart Web Studio mit zwei klaren Einstiegen: Erstgespräch buchen oder Projektformular für einen strukturierten Projektstart.
+- Titel: Über mich & Kontakt | Smart Web Studio
+- Meta-Description: Lerne Smart Web Studio kennen: direkte Zusammenarbeit, klare Arbeitsprinzipien und zwei Wege für deine Anfrage – Erstgespräch buchen oder Projektformular ausfüllen.
 - Canonical: -
 - data-page: kontakt
 - body id: top
@@ -5440,6 +5229,7 @@ Mini-Audit anfordern
 - Scroll-to-top Button: ja
 - Cookie-Settings-Anker im Footer: ja
 - Legacy-Redirect: nein
+- Hinweis: Seit 2026-05-03 enthaelt diese Seite zusaetzlich die Inhalte der frueheren `ueber-mich.html` (Hero, Arbeitsprinzipien, Zusammenarbeit). Die Datei `ueber-mich.html` existiert nicht mehr.
 
 #### Body-Datenattribute
 
@@ -5454,7 +5244,7 @@ Mini-Audit anfordern
 
 #### Bilder im Hauptinhalt
 
-- keine
+- `assets/uebermich-720.webp` (alt: Portrait des Gründers von Smart Web Studio)
 
 #### Klickbare Karten / data-card-link
 
@@ -5489,12 +5279,114 @@ Mini-Audit anfordern
 
 #### Top-Level-Sections im `<main>`
 
-##### Section 1: Zwei klare Wege in den Projektstart.
+##### Section 1: Du arbeitest direkt mit mir.
+
+- ID: keine
+- aria-labelledby: about-me-title
+- Klassen: about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- Eyebrow/Label: Über mich
+- Interne Links in dieser Section: keine
+- Bilder in dieser Section: `assets/uebermich-720.webp` (Portrait des Gründers von Smart Web Studio)
+
+```text
+Über mich
+
+Du arbeitest direkt mit mir.
+
+Keine Agentur-Weitergabe, keine Zwischenebenen, kein unnötiges Projekt-Pingpong. Strategie, Struktur und
+Umsetzung bleiben in einer Hand, damit Entscheidungen klarer und Wege kürzer werden.
+
+Direkter Ansprechpartner
+Klare Deliverables
+Fokus auf passende Projekte
+```
+
+##### Section 2: Worauf ich in Projekten bewusst Wert lege.
+
+- ID: keine
+- aria-labelledby: principles-title
+- Klassen: approach-section section-surface--about-default py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- Eyebrow/Label: Arbeitsprinzipien
+- Interne Links in dieser Section: keine
+- Bilder in dieser Section: keine
+
+```text
+Arbeitsprinzipien
+
+Worauf ich in Projekten bewusst Wert
+lege.
+
+01
+
+KLARHEIT
+
+Strategie vor Show
+
+Ich denke Projekte zuerst in Zielgruppe, Angebot und Conversion, bevor
+Gestaltung überhaupt eine Rolle spielt.
+
+02
+
+FOKUS
+
+Weniger Schleifen, mehr Richtung
+
+Entscheidungen bleiben schnell, weil Konzept, Design und Technik nicht über
+mehrere Stellen verteilt sind.
+
+03
+
+QUALITÄT
+
+Marke, Website und Nachfrage greifen ineinander
+
+Ich betrachte den digitalen Auftritt als Gesamtsystem statt als Sammlung
+einzelner Maßnahmen.
+```
+
+##### Section 3: Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups.
+
+- ID: keine
+- aria-labelledby: work-style-title
+- Klassen: packages-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
+- Eyebrow/Label: Zusammenarbeit
+- Interne Links in dieser Section: keine
+- Bilder in dieser Section: keine
+
+```text
+Zusammenarbeit
+
+Warum Smart Web Studio bewusst anders arbeitet als klassische Agentur-Setups.
+
+Kommunikation
+
+Direkt statt weitergereicht
+
+Die Person, die mit dir über Strategie spricht, denkt auch die Umsetzung und
+bewertet später die Wirkung.
+
+Prozess
+
+Strukturiert statt improvisiert
+
+Klare Deliverables, nachvollziehbare Phasen und ein transparenter Projektweg
+reduzieren Reibung für beide Seiten.
+
+Fit
+
+Lieber passend als beliebig
+
+Ich fokussiere auf Projekte, bei denen Klarheit, Qualität und strategische
+Umsetzung wirklich relevant sind.
+```
+
+##### Section 4: Zwei klare Wege in den Projektstart.
 
 - ID: keine
 - aria-labelledby: contact-hero-title
 - Klassen: py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Kontakt
+- Hinweis: Die Headline wurde beim Merge von `<h1>` zu `<h2>` demoted, da `Section 1` jetzt das primaere `<h1>` der Seite traegt.
 - Interne Links in dieser Section: keine
 - Bilder in dieser Section: keine
 
@@ -5515,7 +5407,7 @@ Was bei einer guten Anfrage hilft
 - grober Zeitrahmen und vorhandene Grundlagen
 ```
 
-##### Section 2: Erstgespräch oder Projektformular. Klar statt kompliziert.
+##### Section 5: Erstgespräch oder Projektformular. Klar statt kompliziert.
 
 - ID: terminbuchung
 - aria-labelledby: keine
@@ -5557,7 +5449,7 @@ Wenn du dein Projekt lieber zuerst strukturiert beschreiben willst.
 Mini-Audit anfordern
 ```
 
-##### Section 3: Projektanfrage senden
+##### Section 6: Projektanfrage senden
 
 - ID: kontaktformular
 - aria-labelledby: keine
@@ -6533,7 +6425,7 @@ Noch keine Auswahl gespeichert.
 ## 6. Rekonstruktionshinweise
 
 - Wenn du die Website 1:1 nachbauen willst, beginne mit dem wiederkehrenden Layout: Head-Setup, Top-Navigation, Footer, Cookie-Banner, Scroll-to-top, Mobile-Sticky-CTA.
-- Danach reproduzierst du die Seitenstruktur in dieser Reihenfolge: Startseite, Leistungsuebersicht, sechs Service-Detailseiten, Projekte, vier Projekt-Unterseiten, Case Study, Ablauf, Preise, Ueber mich, Insights, Kontakt, Danke, Rechtliches, Redirect-Seite.
+- Danach reproduzierst du die Seitenstruktur in dieser Reihenfolge: Startseite, Leistungsuebersicht, sechs Service-Detailseiten, Projekte, vier Projekt-Unterseiten, Case Study, Ablauf, Preise, Insights, Kontakt (inkl. zusammengelegter Ueber-mich-Inhalte), Danke, Rechtliches, Redirect-Seite.
 - Fuer die Verlinkung ist entscheidend, dass globale Links nicht pro Seite individuell gepflegt werden, sondern zur Laufzeit von `navigation.js` normalisiert werden.
 - Fuer Projekt-Unterseiten muss `<base href="../" />` beruecksichtigt werden, damit Root-Links wie `kontakt.html` oder `index.html` aus dem Unterordner korrekt bleiben.
 - Das Kontaktformular ist funktional auf die API vorbereitet; ohne gesetzte Resend-ENV-Variablen antwortet der Endpoint mit einer Konfigurationsfehlermeldung.

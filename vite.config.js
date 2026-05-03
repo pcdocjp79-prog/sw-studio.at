@@ -15,7 +15,6 @@ export default defineConfig({
         caseStudy: resolve(__dirname, "case-study.html"),
         ablauf: resolve(__dirname, "ablauf.html"),
         preise: resolve(__dirname, "preise.html"),
-        ueberMich: resolve(__dirname, "ueber-mich.html"),
         insights: resolve(__dirname, "insights.html"),
         kontakt: resolve(__dirname, "kontakt.html"),
         danke: resolve(__dirname, "danke.html"),

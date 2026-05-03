@@ -382,6 +382,15 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
   return anchor;
 };
 
+const createMobileBookingNavItem = (runtimeConfig) => {
+  const anchor = document.createElement("a");
+  anchor.href = runtimeConfig.bookingTarget;
+  anchor.className = `${NAV_LINK_CLASS} nav-link--mobile-cta`;
+  anchor.textContent = PRIMARY_CTA_LABEL;
+  anchor.setAttribute("aria-label", PRIMARY_CTA_LABEL);
+  return anchor;
+};
+
 const createDropdownChildLink = (link, runtimeConfig) => {
   const anchor = document.createElement("a");
   const title = document.createElement("span");
@@ -494,6 +503,7 @@ const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
     );
   });
 
+  fragment.appendChild(createMobileBookingNavItem(runtimeConfig));
   primaryNav.replaceChildren(fragment);
 };
 

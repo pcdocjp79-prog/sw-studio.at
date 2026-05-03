@@ -5,7 +5,7 @@ const COOKIE_PATH = "cookies.html";
 const COOKIE_SETTINGS_HASH = "cookie-settings";
 const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
 const PRIMARY_CTA_LABEL = "Erstgespräch buchen";
-const BOOKING_CTA_META_LABEL = "Direkter Projektstart";
+const BOOKING_CTA_META_LABEL = "";
 const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
 const NAV_MOBILE_BREAKPOINT = 1024;
@@ -494,15 +494,6 @@ const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
     );
   });
 
-  fragment.appendChild(
-    createBookingCtaBlock(runtimeConfig, {
-      wrapperClass: "nav-links__cta",
-      metaClass: "nav-links__cta-meta",
-      linkClass: "nav-links__cta-btn",
-      wrapperAttrs: { "data-mobile-drawer-cta": "" },
-    })
-  );
-
   primaryNav.replaceChildren(fragment);
 };
 
@@ -513,9 +504,12 @@ const createBookingCtaBlock = (runtimeConfig, options) => {
     wrapper.setAttribute(key, value);
   });
 
-  const meta = document.createElement("span");
-  meta.className = options.metaClass;
-  meta.textContent = BOOKING_CTA_META_LABEL;
+  if (BOOKING_CTA_META_LABEL) {
+    const meta = document.createElement("span");
+    meta.className = options.metaClass;
+    meta.textContent = BOOKING_CTA_META_LABEL;
+    wrapper.appendChild(meta);
+  }
 
   const link = document.createElement("a");
   link.className = options.linkClass;
@@ -523,7 +517,7 @@ const createBookingCtaBlock = (runtimeConfig, options) => {
   link.textContent = PRIMARY_CTA_LABEL;
   link.setAttribute("aria-label", PRIMARY_CTA_LABEL);
 
-  wrapper.append(meta, link);
+  wrapper.appendChild(link);
   return wrapper;
 };
 

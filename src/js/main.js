@@ -13,6 +13,7 @@ const SURFACE_REVEAL_SELECTOR = [
   ".result-card",
   ".next-step-card",
   ".contact-aside",
+  ".contact-form-shell",
   ".configurator-shell",
 ].join(", ");
 
@@ -367,6 +368,8 @@ const initCardLinks = () => {
   });
 };
 
+const CONTACT_SUCCESS_STORAGE_KEY = "sws-contact-form-success";
+
 const initContactForm = () => {
   const contactForm = document.querySelector("[data-contact-form]");
   if (!contactForm) return;
@@ -380,8 +383,25 @@ const initContactForm = () => {
     "";
   const endpoint = (contactForm.getAttribute("action") || "").trim();
   const defaultSubmitLabel = submitButton?.textContent?.trim() || "";
+  const defaultSuccessText =
+    successMessage?.textContent?.trim() ||
+    "Ich pruefe deine Anfrage und melde mich mit einer ehrlichen Einschaetzung zum naechsten sinnvollen Schritt.";
   const loadingLabel =
     submitButton?.dataset.loadingLabel?.trim() || "Wird gesendet...";
+  const hasStoredSuccessState = () => {
+    try {
+      return window.localStorage.getItem(CONTACT_SUCCESS_STORAGE_KEY) === "true";
+    } catch (_error) {
+      return false;
+    }
+  };
+  const storeSuccessState = () => {
+    try {
+      window.localStorage.setItem(CONTACT_SUCCESS_STORAGE_KEY, "true");
+    } catch (_error) {
+      // Ignore storage access issues; the inline success state still works.
+    }
+  };
   const setSubmittingState = (isSubmitting) => {
     contactForm.setAttribute("aria-busy", String(isSubmitting));
 
@@ -407,11 +427,14 @@ const initContactForm = () => {
     }
   };
 
+  if (hasStoredSuccessState()) {
+    showStatusMessage(successMessage, defaultSuccessText);
+  }
+
   contactForm.addEventListener("submit", async (event) => {
     if (!endpoint) return;
 
     event.preventDefault();
-    hideStatusMessage(successMessage);
     hideStatusMessage(errorMessage);
 
     if (!contactForm.checkValidity()) {
@@ -452,17 +475,13 @@ const initContactForm = () => {
       }
 
       contactForm.reset();
+      storeSuccessState();
+      showStatusMessage(successMessage, defaultSuccessText, { focus: true });
 
       if (successHref) {
         window.location.href = successHref;
         return;
       }
-
-      showStatusMessage(
-        successMessage,
-        "Vielen Dank, die Anfrage ist eingegangen.",
-        { focus: true }
-      );
     } catch (error) {
       showStatusMessage(
         errorMessage,
@@ -477,9 +496,51 @@ const initContactForm = () => {
   });
 
   contactForm.addEventListener("input", () => {
-    hideStatusMessage(successMessage);
     hideStatusMessage(errorMessage);
   });
+};
+
+const initContactFormAnchorScroll = () => {
+  const contactSection = document.getElementById("kontaktformular");
+  const contactFormShell = contactSection?.querySelector(".contact-form-shell");
+  const scrollTarget = contactFormShell || contactSection;
+  if (!scrollTarget) return;
+
+  const scrollToForm = (behavior = "smooth") => {
+    scrollTarget.scrollIntoView({ behavior, block: "center" });
+  };
+
+  const isContactFormHref = (href) => {
+    if (!href) return false;
+
+    try {
+      const targetUrl = new URL(href, window.location.href);
+      const currentUrl = new URL(window.location.href);
+      return (
+        targetUrl.hash === "#kontaktformular" &&
+        targetUrl.origin === currentUrl.origin &&
+        targetUrl.pathname === currentUrl.pathname &&
+        targetUrl.search === currentUrl.search
+      );
+    } catch (_error) {
+      return href === "#kontaktformular";
+    }
+  };
+
+  document.querySelectorAll('a[href*="#kontaktformular"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href") || "";
+      if (!isContactFormHref(href)) return;
+
+      event.preventDefault();
+      window.history.pushState(null, "", "#kontaktformular");
+      scrollToForm();
+    });
+  });
+
+  if (window.location.hash === "#kontaktformular") {
+    window.requestAnimationFrame(() => scrollToForm("auto"));
+  }
 };
 
 const CONTACT_PREFILL_STORAGE_KEY = "sws-contact-prefill";
@@ -1089,6 +1150,7 @@ initNavigation();
 initCookieConsent();
 initCardLinks();
 initContactForm();
+initContactFormAnchorScroll();
 initProjectIntentButtons();
 initFilterGroups();
 initHeroStageInteraction();

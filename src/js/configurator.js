@@ -14,9 +14,9 @@ const FORM_FIELD_NAMES = new Set([
 ]);
 
 const INDUSTRY_OPTIONS = {
-  consulting: { label: "Consulting", image: "assets/hero-consulting.webp" },
-  tourismus: { label: "Tourismus", image: "assets/hero-tourismus.webp" },
-  gastronomie: { label: "Gastronomie", image: "assets/hero-gastronomie.webp" },
+  consulting: { label: "Consulting", image: "assets/images/hero-consulting.webp" },
+  tourismus: { label: "Tourismus", image: "assets/images/hero-tourismus.webp" },
+  gastronomie: { label: "Gastronomie", image: "assets/images/hero-gastronomie.webp" },
 };
 
 const TYPOGRAPHY_OPTIONS = {

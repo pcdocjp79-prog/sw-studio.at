@@ -219,7 +219,44 @@ Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-
 
 ### 5.0 Globale Bilder
 
-- Logo (Header, alle 24 HTML-Seiten): `assets/LogoSmartWebStudio.webp` (auf Projekt-Unterseiten via `<base href="../">` als `../assets/LogoSmartWebStudio.webp` referenziert).
+#### Verzeichnisstruktur
+
+Seit 2026-05-03 liegen alle inhaltlich genutzten Bilder gebündelt in `assets/images/`. Das vorherige flache Layout direkt unter `assets/` wurde aufgeräumt:
+
+- **Inhaltsbilder:** ausschließlich in `assets/images/` (Logo, Hero-Branchenbilder, Portrait-Varianten).
+- **Schriftarten:** weiterhin in `assets/fonts/` (lokal gehostete `.woff2`-Dateien, siehe `src/css/style.css`).
+- **Favicon:** `favicon.svg` verbleibt im Projekt-Root und wird in jeder HTML-Seite als `<link rel="icon" href="/favicon.svg">` eingebunden. Grund: Web-Standard-Konvention; Browser fragen `/favicon.ico` automatisch vom Root an. Die ebenfalls im `<head>` referenzierten Pfade `/favicon.ico` und `/apple-touch-icon.png` zeigen aktuell auf nicht vorhandene Dateien (Browser ignorieren das stillschweigend).
+- **Build-Output:** `dist/assets/` wird durch Vite generiert und beim nächsten `npm run build` mit den neuen Pfaden neu geschrieben — manuelle Pflege ist nicht erforderlich.
+
+#### Genutzte Bilder
+
+| Datei | Verwendung | Pfad-Variante |
+|---|---|---|
+| `LogoSmartWebStudio.webp` | Header-Logo auf allen 24 HTML-Seiten | `assets/images/...` (Root), `../assets/images/...` (Projekt-Unterseiten) |
+| `uebermich-480.webp` | `srcset` 480w in `kontakt.html` (About-Section) | `assets/images/...` |
+| `uebermich-720.webp` | `<img src>` und `srcset` 720w in `kontakt.html` (About-Section) | `assets/images/...` |
+| `uebermich-1024.webp` | `srcset` 1024w in `kontakt.html` (About-Section) | `assets/images/...` |
+| `hero-consulting.webp` | Hero-Branchen-Konfigurator in `webentwicklung.html` (Preload + Background) | `assets/images/...` (auch in `src/js/configurator.js`) |
+| `hero-tourismus.webp` | Hero-Branchen-Konfigurator in `webentwicklung.html` (Preload + Background) | `assets/images/...` (auch in `src/js/configurator.js`) |
+| `hero-gastronomie.webp` | Hero-Branchen-Konfigurator in `webentwicklung.html` (Preload + Background) | `assets/images/...` (auch in `src/js/configurator.js`) |
+| `favicon.svg` (Root) | `<link rel="icon">` auf allen Seiten | `/favicon.svg` (absolut) |
+
+#### Entfernte Bilder (Aufräumarbeit am 2026-05-03)
+
+Folgende Dateien waren projektweit nicht mehr referenziert und wurden gelöscht:
+
+- `assets/LogoSmartWebStudio.png` (308 KB) — vom WebP-Logo abgelöst.
+- `assets/LogoSmartWebStudio1.png` (1,4 MB) — zweite ungenutzte PNG-Variante.
+- `assets/sw-studio_logo.png` (113 KB) — historisches Logo, vor dem WebP-Refactor.
+- `assets/smart web stidio Logo T.png` (1,5 MB) — Tippfehler im Dateinamen, ungenutzt.
+- `assets/hero-cube-iridescent-v1.jpg` (170 KB) — alter Hero-Kandidat, kein Verweis mehr im Code.
+- `assets/hero-cube-iridescent-v1.png` (2,1 MB) — Backup zu obigem JPG.
+- `assets/uebermich.webP` (2,4 MB) — unkomprimierte Quelldatei; die responsiven 480/720/1024-Varianten reichen aus.
+
+Gesamteinsparung im Repository: ca. 7,6 MB. Die in `docs/perf-baseline.md` und `docs/perf-plan.md` als Löschkandidaten markierten Dateien sind damit vollständig entfernt.
+
+#### Logo-Konventionen
+
 - Format-Wechsel von PNG zu WebP: Die Dateigröße wurde gegenüber der vorherigen PNG-Variante um ca. 98% reduziert.
 - Im `<img>`-Tag des Logos werden keine `width`/`height`-Attribute mehr gesetzt; die WebP-Datei liegt in der korrekten Basisgröße vor und die Darstellung wird ausschließlich über die Tailwind-Klassen `h-8 w-auto md:h-10` skaliert.
 - Der umschließende `<a class="brand-link">` trägt zusätzlich `aria-label="Smart Web Studio - Zum Seitenanfang"`, damit Screenreader Linkname und Linkzweck eindeutig erfassen.
@@ -5253,7 +5290,7 @@ Mini-Audit anfordern
 
 #### Bilder im Hauptinhalt
 
-- `assets/uebermich-720.webp` (alt: Portrait des Gründers von Smart Web Studio)
+- `assets/images/uebermich-720.webp` (alt: Portrait des Gründers von Smart Web Studio; responsive Varianten 480w/720w/1024w via `srcset`)
 
 #### Klickbare Karten / data-card-link
 
@@ -5295,7 +5332,7 @@ Mini-Audit anfordern
 - Klassen: about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section
 - Eyebrow/Label: Über mich
 - Interne Links in dieser Section: keine
-- Bilder in dieser Section: `assets/uebermich-720.webp` (Portrait des Gründers von Smart Web Studio)
+- Bilder in dieser Section: `assets/images/uebermich-720.webp` (Portrait des Gründers von Smart Web Studio)
 
 ```text
 Über mich

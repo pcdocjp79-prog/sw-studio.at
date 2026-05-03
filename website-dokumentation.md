@@ -36,7 +36,9 @@ Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-
 
 ### 3.1 Head-Aufbau
 
-- Fast alle Seiten laden Google Fonts mit `Inter`, `Geist` und `JetBrains Mono`.
+- Alle HTML-Dateien sind als **UTF-8 ohne BOM** gespeichert. Das erste Element innerhalb von `<head>` ist immer `<meta charset="UTF-8" />` (vor `<base>`, `<meta name="viewport">`, Title und allen weiteren Tags), damit der Browser die Codierung erkennt, bevor andere Inhalte geparst werden.
+- Die Stylesheets `src/css/style.css` und `src/css/tailwind.css` beginnen mit `@charset "UTF-8";`. Diese Direktive muss zwingend in der ersten Zeile stehen (vor `@import`-Regeln und vor jedem Whitespace), sonst wird sie vom Browser ignoriert.
+- Die Schriftfamilien `Inter`, `Geist` und `JetBrains Mono` werden DSGVO-konform lokal aus `/assets/fonts/` geladen. Die `@font-face`-Regeln liegen in `src/css/style.css`. Es bestehen keine externen Verbindungen mehr zu `fonts.googleapis.com` oder `fonts.gstatic.com` (keine `<link rel="preconnect">`- oder `<link rel="stylesheet">`-Verweise auf Google-Server in den HTML-Dateien). Das lokale Hosting eliminiert externe DNS-Lookups und TLS-Handshakes zu Google-Servern, was die Time-to-First-Paint verkürzt; gleichzeitig ist die DSGVO-Konformität durch den vollständigen Verzicht auf Anfragen an Google-Server (keine Übermittlung von IP-Adressen oder User-Agents) jetzt vollständig gegeben.
 - Tailwind wird lokal ueber PostCSS/Vite aus `src/css/tailwind.css` gebaut; die HTML-Dateien enthalten keine Tailwind-CDN- oder Inline-Tailwind-Konfiguration mehr.
 - Das globale Styling besteht aus `src/css/style.css` und `src/css/tailwind.css`; auf Projekt-Unterseiten entsprechend `../src/css/style.css` und `../src/css/tailwind.css`.
 - `tailwind.css` wird nach den projektspezifischen Stylesheets geladen, damit Utility-Klassen die erwartete Cascade behalten.

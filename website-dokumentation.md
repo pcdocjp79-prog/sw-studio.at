@@ -217,6 +217,13 @@ Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-
 
 ## 5. Seiten im Detail
 
+### 5.0 Globale Bilder
+
+- Logo (Header, alle 24 HTML-Seiten): `assets/LogoSmartWebStudio.webp` (auf Projekt-Unterseiten via `<base href="../">` als `../assets/LogoSmartWebStudio.webp` referenziert).
+- Format-Wechsel von PNG zu WebP: Die Dateigröße wurde gegenüber der vorherigen PNG-Variante um ca. 98% reduziert.
+- Im `<img>`-Tag des Logos werden keine `width`/`height`-Attribute mehr gesetzt; die WebP-Datei liegt in der korrekten Basisgröße vor und die Darstellung wird ausschließlich über die Tailwind-Klassen `h-8 w-auto md:h-10` skaliert.
+- Der umschließende `<a class="brand-link">` trägt zusätzlich `aria-label="Smart Web Studio - Zum Seitenanfang"`, damit Screenreader Linkname und Linkzweck eindeutig erfassen.
+
 ### index.html
 
 - Titel: Smart Web Studio | High-End Websites mit Qualität

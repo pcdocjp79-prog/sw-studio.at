@@ -2,7 +2,6 @@
 export default {
   content: [
     "./*.html",
-    "./projekte/**/*.html",
     "./src/**/*.{js,css}",
   ],
   theme: {

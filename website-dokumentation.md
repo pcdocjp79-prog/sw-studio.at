@@ -2,6 +2,46 @@
 
 Erstellt am 2026-03-21. Aktualisiert am 2026-05-03 (Zusammenfuehrung von `ueber-mich.html` in `kontakt.html`; neuer Hero, persoenlicher Ueber-mich-Text und ueberarbeitete Arbeitsprinzipien auf `kontakt.html`; Page-Title auf "Kontakt" gekuerzt; Entfernung der Sections `Zusammenarbeit`, `Kontakt` und `Einstiege`; Buchungs-Anker projektweit von `#terminbuchung` auf `#kontaktformular` umgestellt, sodass alle CTAs `Erstgespräch buchen` / `Erstgespräch anfragen` / `Mini-Audit anfordern` / `Projekt einordnen lassen` / `Projekt besprechen` / `Relaunch anfragen` / `System aufbauen` / `Optimierung starten` / `KI Beratung anfragen` direkt zur Formular-Section springen). Diese Datei dokumentiert den aktuellen Stand der Website im Ordner `Draft-main` so, dass die Seite reproduzierbar nachgebaut werden kann. Grundlage sind die produktiven HTML-Seiten, die globale JavaScript-Logik und die API-/CSS-Dateien im Projekt.
 
+## Update 2026-05-04 — Entfernung von Seiten und Abhaengigkeiten
+
+Die folgenden Seiten wurden vollstaendig aus der Website entfernt:
+
+- `insights.html` (Insights-Hub)
+- `preise.html` (Preisuebersicht)
+- `case-study.html` (Case Study)
+- `projekte.html` (Projektuebersicht inkl. Filterbar)
+- `projekte/funnel-optimierung.html`
+- `projekte/content-tracking-system.html`
+- `projekte/relaunch-seo.html`
+- `projekte/website-branding-setup.html`
+- Der zugehoerige Unterordner `projekte/` wurde geloescht.
+
+Begleitende Aufraeumarbeiten:
+
+- `src/scripts/modules/navigation.js`
+  - `PROJECT_DETAIL_LINKS`, `PROJECT_DETAIL_PAGE_KEYS` entfernt.
+  - Aus `GLOBAL_NAV_LINKS` die Eintraege `Projekte`, `Preise`, `Insights` entfernt — die Hauptnavigation enthaelt nur noch Start, Leistungen, Ablauf, Kontakt (plus den Erstgespraech-CTA und das Leistungen-Dropdown).
+  - Aus `FOOTER_NAVIGATION_LINKS` die Eintraege `Projekte`, alle vier Projekt-Detail-Links, `Case Study`, `Preise` und `Insights` entfernt.
+  - Aus `PAGE_CONFIGS` die Keys `projekte`, `projekt-website-branding-setup`, `projekt-relaunch-seo`, `projekt-content-tracking-system`, `projekt-funnel-optimierung`, `case-study`, `preise`, `insights` entfernt.
+  - Aus `SLUG_ALIASES` die Aliasse fuer die vier Projekt-Slugs entfernt; der Marketing-Legacy-Alias bleibt erhalten.
+- `vite.config.js`: Die Rollup-Inputs `projekte`, `caseStudy`, `preise`, `insights` und alle vier `projektWebsiteBranding` / `projektRelaunchSeo` / `projektContentTracking` / `projektFunnelOptimierung` Eintraege entfernt.
+- `tailwind.config.js`: Den Glob `./projekte/**/*.html` aus `content` entfernt.
+- HTML-Fallback-Navigation (statisch in jeder Seite, vor JS-Render): In allen 14 verbleibenden Seiten (`index.html`, `leistungen.html`, `webentwicklung.html`, `branding.html`, `seo-marketing.html`, `social.html`, `growth.html`, `ki-beratung.html`, `ablauf.html`, `kontakt.html`, `danke.html`, `impressum.html`, `datenschutz.html`, `cookies.html`) wurden die Anker `Projekte`, `Preise`, `Insights` aus `<nav id="primary-nav">` und die Footer-Eintraege `Projekte`, `Case Study`, `Preise`, `Insights` aus `<nav data-footer-group="entry">` entfernt.
+- Inline-Verweise auf entfernte Seiten:
+  - `index.html`: Der Pkg-Card-Button `Website-Optimierung ansehen` zeigt jetzt auf `leistungen.html` statt `projekte.html`.
+  - `ablauf.html`: Der sekundaere Final-CTA `Projekt ansehen` (→ `projekte.html`) wurde entfernt; der primaere `Erstgespraech buchen` bleibt.
+  - `branding.html`: Die `next-step-card` `Projektstruktur ansehen` (→ `case-study.html`) wurde entfernt.
+  - `danke.html`: Die zwei Cluster-Cards `Projektlogik ansehen` (→ `projekte.html`) und `Relevante Themenfelder pruefen` (→ `insights.html`) wurden entfernt.
+  - `growth.html`: Die `next-step-card` `Projektmuster ansehen` (→ `projekte.html`) wurde entfernt.
+  - `leistungen.html`: Der `about-block` `Projektlogik pruefen` und der `next-step-actions` Button `Projekt ansehen` (→ `projekte.html`) wurden entfernt.
+  - `seo-marketing.html`: Die `next-step-card` `Insights und Projekte ansehen` (→ `insights.html`) wurde entfernt.
+  - `webentwicklung.html`: Die `next-step-card` `Beispiel-Projekt ansehen` (→ `case-study.html`) wurde entfernt.
+- Toter Code, der bewusst belassen wurde:
+  - In `src/css/style.css` existieren noch CSS-Bloecke, die per `body[data-page="preise|projekte|insights"]` gescoped sind (~23 Selektoren). Sie matchen ohne die Seiten nichts, brechen aber auch nichts und werden bei einem spaeteren Style-Cleanup entfernt.
+  - In `src/js/main.js` bleibt der Selektor `.insight-cluster` im `SURFACE_REVEAL_SELECTOR`. Er ist ohne `insights.html` ein No-Op und wird bei einer spaeteren JS-Bereinigung entfernt.
+
+Auswirkungen auf die Hauptnavigation: vorher 8 Punkte (Start, Leistungen, Projekte, Ablauf, Preise, Insights, Kontakt + CTA), jetzt 5 Punkte (Start, Leistungen, Ablauf, Kontakt + CTA). Der Footer-Block `Navigation` ist entsprechend auf 4 Eintraege reduziert.
+
 ## 1. Projektueberblick
 
 - Website-Typ: statische Multi-Page-Website mit HTML-Entrypoints statt SPA-Routing.

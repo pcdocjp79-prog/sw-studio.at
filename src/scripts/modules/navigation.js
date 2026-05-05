@@ -1,11 +1,12 @@
 const HOME_PATH = "index.html";
 const CONTACT_PATH = "kontakt.html";
-const BOOKING_HASH = "kontaktformular";
+const CONFIGURATOR_PATH = "webentwicklung.html";
+const CONFIGURATOR_HASH = "design-konfigurator";
 const COOKIE_PATH = "cookies.html";
 const COOKIE_SETTINGS_HASH = "cookie-settings";
 const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
-const PRIMARY_CTA_LABEL = "Erstgespräch buchen";
-const BOOKING_CTA_META_LABEL = "";
+const PRIMARY_CTA_LABEL = "Konfigurator starten";
+const PRIMARY_CTA_META_LABEL = "";
 const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
 const NAV_MOBILE_BREAKPOINT = 1024;
@@ -189,13 +190,13 @@ const getCurrentPagePath = (currentPageKey) => {
   return !slug || slug === "/" ? HOME_PATH : slug;
 };
 
-const getBookingTarget = () => {
-  const configuredTarget = document.body?.dataset.bookingTarget?.trim();
+const getPrimaryCtaTarget = () => {
+  const configuredTarget = document.body?.dataset.primaryCtaTarget?.trim();
   if (configuredTarget) return configuredTarget;
 
-  return getCurrentPageKey() === "kontakt"
-    ? `#${BOOKING_HASH}`
-    : `${CONTACT_PATH}#${BOOKING_HASH}`;
+  return getCurrentPageKey() === "webentwicklung"
+    ? `#${CONFIGURATOR_HASH}`
+    : `${CONFIGURATOR_PATH}#${CONFIGURATOR_HASH}`;
 };
 
 const getCookiePageTarget = () => {
@@ -298,9 +299,9 @@ const createLinkElement = (link, runtimeConfig, options = {}) => {
   return anchor;
 };
 
-const createMobileBookingNavItem = (runtimeConfig) => {
+const createMobilePrimaryCtaNavItem = (runtimeConfig) => {
   const anchor = document.createElement("a");
-  anchor.href = runtimeConfig.bookingTarget;
+  anchor.href = runtimeConfig.primaryCtaTarget;
   anchor.className = `${NAV_LINK_CLASS} nav-link--mobile-cta`;
   anchor.textContent = PRIMARY_CTA_LABEL;
   anchor.setAttribute("aria-label", PRIMARY_CTA_LABEL);
@@ -419,27 +420,27 @@ const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
     );
   });
 
-  fragment.appendChild(createMobileBookingNavItem(runtimeConfig));
+  fragment.appendChild(createMobilePrimaryCtaNavItem(runtimeConfig));
   primaryNav.replaceChildren(fragment);
 };
 
-const createBookingCtaBlock = (runtimeConfig, options) => {
+const createPrimaryCtaBlock = (runtimeConfig, options) => {
   const wrapper = document.createElement("div");
   wrapper.className = options.wrapperClass;
   Object.entries(options.wrapperAttrs || {}).forEach(([key, value]) => {
     wrapper.setAttribute(key, value);
   });
 
-  if (BOOKING_CTA_META_LABEL) {
+  if (PRIMARY_CTA_META_LABEL) {
     const meta = document.createElement("span");
     meta.className = options.metaClass;
-    meta.textContent = BOOKING_CTA_META_LABEL;
+    meta.textContent = PRIMARY_CTA_META_LABEL;
     wrapper.appendChild(meta);
   }
 
   const link = document.createElement("a");
   link.className = options.linkClass;
-  link.href = runtimeConfig.bookingTarget;
+  link.href = runtimeConfig.primaryCtaTarget;
   link.textContent = PRIMARY_CTA_LABEL;
   link.setAttribute("aria-label", PRIMARY_CTA_LABEL);
 
@@ -502,7 +503,7 @@ const renderFooterBrand = (footer, runtimeConfig) => {
 
   const noteLink = document.createElement("a");
   noteLink.className = "site-footer__link";
-  noteLink.href = runtimeConfig.bookingTarget;
+  noteLink.href = runtimeConfig.primaryCtaTarget;
   noteLink.textContent = PRIMARY_CTA_LABEL;
   footerNote.appendChild(noteLink);
 };
@@ -542,7 +543,7 @@ const updateBrandAndCtaLinks = (pageConfig, runtimeConfig) => {
   }
 
   if (navCta && pageConfig) {
-    navCta.href = runtimeConfig.bookingTarget;
+    navCta.href = runtimeConfig.primaryCtaTarget;
     navCta.textContent = pageConfig.navCtaLabel;
     navCta.setAttribute("aria-label", pageConfig.navCtaLabel);
   }
@@ -877,7 +878,7 @@ const renderMobileStickyCta = (pageConfig, runtimeConfig) => {
 
   if (!shouldShowMobileStickyCta(pageConfig)) return;
 
-  const stickyWrapper = createBookingCtaBlock(runtimeConfig, {
+  const stickyWrapper = createPrimaryCtaBlock(runtimeConfig, {
     wrapperClass: "mobile-sticky-cta",
     metaClass: "mobile-sticky-cta__label",
     linkClass: "mobile-sticky-cta__link",
@@ -901,7 +902,7 @@ export const initNavigation = () => {
   const runtimeConfig = {
     currentPageKey,
     currentPagePath: getCurrentPagePath(currentPageKey),
-    bookingTarget: getBookingTarget(),
+    primaryCtaTarget: getPrimaryCtaTarget(),
     cookiePageTarget: getCookiePageTarget(),
     cookieSettingsTarget: getCookieSettingsTarget(),
   };

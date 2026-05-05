@@ -8,9 +8,6 @@ const SURFACE_REVEAL_SELECTOR = [
   ".process-step",
   ".pkg-card",
   ".trust-strip__item",
-  ".insight-cluster",
-  ".proof-card",
-  ".result-card",
   ".next-step-card",
   ".contact-aside",
   ".contact-form-shell",
@@ -644,58 +641,6 @@ const initProjectIntentButtons = () => {
   });
 };
 
-const initFilterGroups = () => {
-  const filterGroups = Array.from(document.querySelectorAll("[data-filter-group]"));
-  if (filterGroups.length === 0) return;
-
-  filterGroups.forEach((groupElement) => {
-    const groupName = groupElement.getAttribute("data-filter-group");
-    if (!groupName) return;
-
-    const buttons = Array.from(
-      groupElement.querySelectorAll("[data-filter-value]")
-    );
-    const items = Array.from(
-      document.querySelectorAll(`[data-filter-item="${groupName}"]`)
-    );
-
-    if (buttons.length === 0 || items.length === 0) return;
-
-    const setFilter = (value) => {
-      const normalizedValue = value || "all";
-
-      buttons.forEach((button) => {
-        const isActive = button.getAttribute("data-filter-value") === normalizedValue;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-
-      items.forEach((item) => {
-        const categories = (item.getAttribute("data-category") || "")
-          .split(/\s+/)
-          .filter(Boolean);
-        const matches =
-          normalizedValue === "all" || categories.includes(normalizedValue);
-
-        item.hidden = !matches;
-        item.classList.toggle("is-hidden", !matches);
-      });
-    };
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        setFilter(button.getAttribute("data-filter-value"));
-      });
-    });
-
-    setFilter(
-      groupElement.getAttribute("data-filter-default") ||
-        buttons[0]?.getAttribute("data-filter-value") ||
-        "all"
-    );
-  });
-};
-
 const initHeroStageInteraction = () => {
   const heroStageElement = document.querySelector("[data-hero-stage]");
   const heroStageCard = heroStageElement?.querySelector("[data-hero-stage-card]");
@@ -1152,7 +1097,6 @@ initCardLinks();
 initContactForm();
 initContactFormAnchorScroll();
 initProjectIntentButtons();
-initFilterGroups();
 initHeroStageInteraction();
 initJumpNav();
 initPageSpecificModules();

@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 const SIMPLEX_NOISE_GLSL = `
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -512,19 +514,7 @@ function hasWebGL() {
   }
 }
 
-function waitForThree(timeoutMs = 4000) {
-  return new Promise((resolve) => {
-    const start = performance.now();
-    const tick = () => {
-      if (window.THREE) return resolve(window.THREE);
-      if (performance.now() - start > timeoutMs) return resolve(null);
-      requestAnimationFrame(tick);
-    };
-    tick();
-  });
-}
-
-function createOrbMaterial(THREE, config) {
+function createOrbMaterial(config) {
   const uniforms = {
     uTime: { value: 0 },
     uPokeTrail: { value: new THREE.Vector2(0, 0) },
@@ -561,12 +551,6 @@ async function initWaterSphere() {
   }
 
   if (!hasWebGL()) {
-    showFallback();
-    return;
-  }
-
-  const THREE = await waitForThree();
-  if (!THREE) {
     showFallback();
     return;
   }
@@ -633,7 +617,7 @@ async function initWaterSphere() {
 
     const nextConfigs = ORB_CONFIGS[getTier()] || ORB_CONFIGS.mobile;
     nextConfigs.forEach((config, index) => {
-      const material = createOrbMaterial(THREE, config);
+      const material = createOrbMaterial(config);
       const mesh = new THREE.Mesh(geometry, material);
       mesh.position.z = config.depth;
       mesh.renderOrder = index;

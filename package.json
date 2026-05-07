@@ -16,5 +16,8 @@
     "tailwindcss": "^3.4.19",
     "vite": "^5.4.8",
     "vite-plugin-beasties": "^0.4.2"
+  },
+  "dependencies": {
+    "three": "^0.184.0"
   }
 }

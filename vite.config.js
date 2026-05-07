@@ -1,11 +1,24 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
+import { beasties } from "vite-plugin-beasties";
 
 export default defineConfig({
   server: {
     host: true,
     port: 5173,
   },
+  plugins: [
+    beasties({
+      options: {
+        preload: "swap",
+        pruneSource: false,
+        reduceInlineStyles: false,
+        mergeStylesheets: false,
+        inlineFonts: false,
+        logLevel: "info",
+      },
+    }),
+  ],
   build: {
     rollupOptions: {
       input: {

@@ -12,11 +12,11 @@ Die Firma befindet sich im Aufbau — es gibt noch keine Kundenprojekte.
 ## Tech-Stack
 
 - **Typ:** Statische Multi-Page Website (kein SPA, kein Framework)
-- **HTML:** 24 Seiten (20 Root, 4 in `/projekte/`)
+- **HTML:** 15 Seiten (alle in der Projekt-Wurzel)
 - **CSS:** `src/css/style.css` (Hauptstylesheet) + `src/css/tailwind.css` via lokalem PostCSS/Tailwind-Build
 - **JS:** `src/js/main.js` (globale Logik) + `src/scripts/modules/` (Navigation, Cookies etc.)
-- **Build:** Vite (vorhanden, Seiten funktionieren aber auch als statisches HTML)
-- **Fonts:** Inter, Geist, JetBrains Mono (aktuell via Google Fonts)
+- **Build:** Vite + `vite-plugin-beasties` (Critical-CSS-Inlining beim Production-Build)
+- **Fonts:** Inter, Geist, JetBrains Mono — lokal in `assets/fonts/` (DSGVO-konform, kein Google CDN)
 - **Deployment:** Vercel
 - **API:** `api/contact.js` (Kontaktformular via Resend)
 
@@ -32,37 +32,42 @@ DRAFT-MAIN/
 ├── social.html                 # Service-Detail
 ├── growth.html                 # Service-Detail
 ├── ki-beratung.html            # Service-Detail
-├── projekte.html               # Projektübersicht
-├── projekte/                   # Projekt-Unterseiten (nutzen <base href="../">)
-│   ├── content-tracking-system.html
-│   ├── funnel-optimierung.html
-│   ├── relaunch-seo.html
-│   └── website-branding-setup.html
-├── case-study.html
-├── ablauf.html
-├── preise.html
-├── ueber-mich.html
-├── insights.html
+├── ablauf.html                 # Projektablauf
 ├── kontakt.html
-├── danke.html
+├── danke.html                  # Bestätigungsseite nach Formular
 ├── impressum.html
 ├── datenschutz.html
 ├── cookies.html
 ├── marketing.html              # Legacy-Redirect → seo-marketing.html
 ├── src/
 │   ├── css/
-│   │   └── style.css           # ← Haupt-Stylesheet
+│   │   ├── style.css           # ← Haupt-Stylesheet
+│   │   ├── tailwind.css        # @tailwind-Direktiven (Build-Eingang)
+│   │   ├── typography.css      # via @import in style.css
+│   │   ├── grain-overlay.css   # via @import in style.css
+│   │   ├── hero-sphere.css     # nur in index.html
+│   │   ├── hero-text-reveal.css # nur in index.html
+│   │   ├── word-rotator.css    # nur in index.html
+│   │   └── feature-chip.css    # nur in index.html
 │   ├── js/
-│   │   └── main.js             # ← Globale Interaktionslogik
+│   │   ├── main.js             # ← Globale Interaktionslogik (auf allen Seiten)
+│   │   ├── water-sphere.js     # WebGL-Hero-Sphere (nur index.html, Three.js via CDN)
+│   │   ├── word-rotator.js     # Hero-Textrotation (nur index.html)
+│   │   └── configurator.js     # Lazy via dynamic import (nur webentwicklung.html)
 │   └── scripts/
 │       └── modules/
 │           ├── navigation.js   # Nav, Footer, Sticky-CTA, Link-Normalisierung
 │           └── cookieConsent.js # Cookie-Banner + Panel
-├── assets/                     # Logo, Portraitbilder
+├── assets/
+│   ├── fonts/                  # Inter, Geist, JetBrains Mono (.woff2)
+│   └── images/                 # Logo, Hero-Branchenbilder, Portraits
 ├── api/
 │   └── contact.js              # Formular-Backend (Resend)
 ├── docs/
 │   └── upgrade-plan.md         # ← Der Upgrade-Plan (lies diesen!)
+├── tailwind.config.js
+├── postcss.config.js
+├── vite.config.js              # inkl. Beasties-Plugin
 └── CLAUDE.md                   # ← Diese Datei
 ```
 
@@ -70,9 +75,9 @@ DRAFT-MAIN/
 
 - Jede HTML-Seite hat ein `data-page`-Attribut (z.B. `data-page="home"`)
 - Navigation und Footer werden via `navigation.js` per JavaScript gerendert
-- Projekt-Unterseiten nutzen `<base href="../">` für korrekte Root-Links
-- Tailwind wird lokal ueber `tailwind.config.js`, `postcss.config.js` und `src/css/tailwind.css` gebaut.
-- `tailwind.css` wird nach `style.css` geladen, damit Utilities die erwartete Cascade behalten.
+- Tailwind wird lokal über `tailwind.config.js`, `postcss.config.js` und `src/css/tailwind.css` gebaut
+- `tailwind.css` wird nach `style.css` geladen, damit Utilities die erwartete Cascade behalten
+- Im Production-Build extrahiert Beasties pro Seite das Critical CSS automatisch und inlined es in den `<head>`. Restliches CSS wird via `preload` + `onload`-Swap async nachgeladen. Im Dev-Server (`npm run dev`) ist Beasties NICHT aktiv — CSS bleibt dort render-blocking
 
 ---
 

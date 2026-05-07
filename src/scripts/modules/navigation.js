@@ -600,49 +600,17 @@ const initScrollToTop = (scrollToTopButton) => {
   window.addEventListener("resize", requestScrollToTopFrame);
 };
 
-const initTopNavScrollState = (topNav, glassNav) => {
+const initTopNavScrollState = (topNav) => {
   if (!topNav) return;
 
   const topThreshold = 18;
-  const hideThreshold = 120;
-  const directionThreshold = 6;
-  let lastScrollY = Math.max(window.scrollY, 0);
   let ticking = false;
-
-  const revealTopNav = () => {
-    topNav.classList.remove("is-hidden");
-    topNav.classList.add("is-revealed");
-  };
-
-  const resetTopNav = () => {
-    topNav.classList.remove("is-hidden");
-    topNav.classList.remove("is-revealed");
-  };
 
   const updateTopNavScrollState = () => {
     const currentScrollY = Math.max(window.scrollY, 0);
-    const delta = currentScrollY - lastScrollY;
-    const isScrollingDown = delta > directionThreshold;
-    const isScrollingUp = delta < -directionThreshold;
-    const isMobileNavOpen = Boolean(glassNav?.classList.contains("is-mobile-open"));
-
     topNav.classList.toggle("is-scrolled", currentScrollY > topThreshold);
-
-    if (isMobileNavOpen || currentScrollY <= topThreshold) {
-      resetTopNav();
-      lastScrollY = currentScrollY;
-      ticking = false;
-      return;
-    }
-
-    if (isScrollingDown && currentScrollY > hideThreshold) {
-      topNav.classList.add("is-hidden");
-      topNav.classList.remove("is-revealed");
-    } else if (isScrollingUp || currentScrollY <= hideThreshold) {
-      revealTopNav();
-    }
-
-    lastScrollY = currentScrollY;
+    topNav.classList.remove("is-hidden");
+    topNav.classList.remove("is-revealed");
     ticking = false;
   };
 
@@ -913,7 +881,7 @@ export const initNavigation = () => {
   normalizeStandaloneLinks(runtimeConfig);
 
   initScrollToTop(scrollToTopButton);
-  initTopNavScrollState(topNav, glassNav);
+  initTopNavScrollState(topNav);
   const navDropdownApi = initPrimaryNavDropdowns(primaryNav);
   initMobileNavigation(glassNav, mobileNavToggle, primaryNav, navDropdownApi.closeAll);
 };

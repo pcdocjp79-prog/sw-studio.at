@@ -7,3 +7,18 @@ dist/
 lighthouse-baseline.json
 lighthouse-*.json
 lighthouse-*.html
+
+# Projektinterne Dokumentation, Notizen und Arbeitsmaterialien
+/CHANGELOG.md
+/CLAUDE.md
+/CODE-REVIEW-BUGLISTE.md
+/DESIGN-REFERENCE.md
+/README.md
+/kontaktformular-mailversand-plan.md
+/site-texte-uebersicht.md
+/website-dokumentation.md
+/website-texte-komplett.md
+
+# Interne Planungs- und Prompt-Dateien
+/docs/
+/prompts/

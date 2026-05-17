@@ -56,80 +56,201 @@
   </header>
 
   <main class="webdev-page relative pt-0 pb-0">
-    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="webdev-hero-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="about-section__layout about-section__layout--service-hero">
-          <div class="about-section__text-col">
-            <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">Webentwicklung</p>
-              <h1 id="webdev-hero-title" class="about-section__headline font-display">
-                Webentwicklung für klare, schnelle und wirksame Websites
-              </h1>
-              <p class="about-section__subline">
-                Ich entwickle Websites für Selbstständige und kleine Unternehmen, die nicht nur gut aussehen, sondern
-                verständlich aufgebaut sind, schnell laden und Anfragen ermöglichen.
-              </p>
-            </div>
-            <div class="final-cta-section__btns webdev-hero-btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
-              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
+    <section class="webdev-hero scroll-focus-section" aria-labelledby="webdev-hero-title">
+      <div class="webdev-container webdev-container--wide">
+        <div class="webdev-hero__grid">
+          <div class="webdev-hero__copy reveal-on-scroll">
+            <p class="webdev-eyebrow">Webentwicklung</p>
+            <h1 id="webdev-hero-title" class="webdev-hero__title font-display">
+              Websites, die klar erklären, schnell laden und Anfragen bringen.
+            </h1>
+            <p class="webdev-hero__text">
+              Ich entwickle professionelle Websites für Unternehmen, die online verständlich auftreten, Vertrauen aufbauen und aus Besuchern echte Anfragen machen wollen.
+            </p>
+            <div class="webdev-hero__actions">
+              <a href="kontakt.html#kontaktformular" class="webdev-btn webdev-btn--primary"
                 aria-label="Website-Projekt anfragen">Website-Projekt anfragen</a>
-              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+              <a href="kontakt.html#kontaktformular" class="webdev-btn webdev-btn--secondary"
                 aria-label="Kostenlose Ersteinschätzung">Kostenlose Ersteinschätzung</a>
             </div>
           </div>
 
-          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
-            <article class="pkg-card pkg-card--featured service-summary-card">
-              <div class="pkg-card__inner">
-                <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Websites mit Plan</p>
-                  <p class="pkg-card__tagline">Klar aufgebaut, schnell geladen und auf Anfragen ausgerichtet.</p>
-                </div>
-                <ul class="pkg-card__list">
-                  <li class="pkg-card__list-item">Strategie, Design und Umsetzung aus einer Hand</li>
-                  <li class="pkg-card__list-item">SEO- und Performance-Basis inklusive</li>
-                  <li class="pkg-card__list-item">direkte Zusammenarbeit ohne Agentur-Overhead</li>
-                </ul>
+          <aside class="webdev-audit-card reveal-on-scroll" style="--webdev-card-delay: 120ms;" aria-label="Website Audit Vorschau">
+            <div class="webdev-audit-card__top">
+              <span class="webdev-audit-card__dot"></span>
+              <span class="webdev-audit-card__dot"></span>
+              <span class="webdev-audit-card__dot"></span>
+              <span class="webdev-audit-card__url">smart-audit / startseite</span>
+            </div>
+            <div class="webdev-audit-card__body">
+              <div>
+                <p class="webdev-audit-card__label">Klarer Aufbau statt Website-Chaos</p>
+                <h2 class="webdev-audit-card__title font-display">Klar im Angebot, überzeugend im Argument, direkt im Kontakt.</h2>
               </div>
-            </article>
+              <div class="webdev-audit-score" aria-label="Performance Score 99 von 100">
+                <span>99</span>
+                <small>/100</small>
+              </div>
+              <div class="webdev-audit-bars" aria-hidden="true">
+                <span style="--bar-width: 94%"></span>
+                <span style="--bar-width: 82%"></span>
+                <span style="--bar-width: 76%"></span>
+              </div>
+              <dl class="webdev-audit-metrics">
+                <div>
+                  <dt>Ladezeit</dt>
+                  <dd>0.9s</dd>
+                </div>
+                <div>
+                  <dt>CTA-Führung</dt>
+                  <dd>klar</dd>
+                </div>
+                <div>
+                  <dt>SEO-Basis</dt>
+                  <dd>sauber</dd>
+                </div>
+              </dl>
+              <ul class="webdev-audit-checks">
+                <li>klare Struktur und Nutzerführung</li>
+                <li>schnelle Ladezeiten und mobile Optimierung</li>
+                <li>SEO-Basis und saubere Technik</li>
+                <li>direkte Zusammenarbeit ohne Agentur-Overhead</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="webdev-problem scroll-focus-section" aria-labelledby="webdev-problem-title">
+      <div class="webdev-container">
+        <div class="webdev-problem__grid">
+          <div class="webdev-problem__copy reveal-on-scroll">
+            <p class="webdev-eyebrow">Das Problem</p>
+            <h2 id="webdev-problem-title" class="webdev-section-title font-display">Viele Websites sehen okay aus, funktionieren aber nicht gut genug.</h2>
+            <p class="webdev-problem__text">
+              Eine Website muss mehr leisten als gut aussehen. Sie muss dein Angebot verständlich machen, Vertrauen
+              aufbauen, technisch sauber laufen und Besucher zur nächsten Handlung führen.
+            </p>
           </div>
+          <div class="webdev-problem__signal reveal-on-scroll" style="--webdev-card-delay: 120ms;" aria-label="Website Diagnose">
+            <div class="webdev-problem__signal-top">
+              <span class="webdev-problem__signal-label">Diagnose</span>
+              <span class="webdev-problem__signal-status">Audit offen</span>
+            </div>
+            <div class="webdev-problem__signal-score">
+              <span>3</span>
+              <small>kritische Bremsen</small>
+            </div>
+            <div class="webdev-problem__signal-row" style="--signal-level: 42%;">
+              <div>
+                <span>Verständlichkeit</span>
+                <strong>unklar</strong>
+              </div>
+              <i aria-hidden="true"></i>
+            </div>
+            <div class="webdev-problem__signal-row" style="--signal-level: 36%;">
+              <div>
+                <span>Struktur</span>
+                <strong>bricht ab</strong>
+              </div>
+              <i aria-hidden="true"></i>
+            </div>
+            <div class="webdev-problem__signal-row" style="--signal-level: 30%;">
+              <div>
+                <span>Anfrageweg</span>
+                <strong>zu leise</strong>
+              </div>
+              <i aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="webdev-problem-cards">
+          <article class="webdev-problem-card webdev-problem-card--wide reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+            <span class="webdev-problem-card__num">01</span>
+            <h3>Unklare Botschaft</h3>
+            <p>Besucher verstehen nicht schnell genug, was du anbietest und warum es relevant ist.</p>
+          </article>
+          <article class="webdev-problem-card webdev-problem-card--wide reveal-on-scroll" style="--webdev-card-delay: 90ms;">
+            <span class="webdev-problem-card__num">02</span>
+            <h3>Schwache Struktur</h3>
+            <p>Inhalte sind vorhanden, aber nicht so geordnet, dass sie Orientierung geben und Entscheidungen erleichtern.</p>
+          </article>
+          <article class="webdev-problem-card reveal-on-scroll" style="--webdev-card-delay: 180ms;">
+            <span class="webdev-problem-card__num">03</span>
+            <h3>Langsame Ladezeiten</h3>
+            <p>Zu große Bilder, unnötige Skripte oder technische Altlasten bremsen die Website aus.</p>
+          </article>
+          <article class="webdev-problem-card reveal-on-scroll" style="--webdev-card-delay: 270ms;">
+            <span class="webdev-problem-card__num">04</span>
+            <h3>Zu wenig Anfragefokus</h3>
+            <p>Der Weg zur Kontaktaufnahme ist nicht klar genug sichtbar oder fühlt sich für Besucher zu unverbindlich an.</p>
+          </article>
         </div>
       </div>
     </section>
     <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-services-title">
       <div class="webdev-container">
-        <div class="webdev-section-head reveal-on-scroll">
+        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
           <p class="webdev-eyebrow">Leistungsbereiche</p>
-          <h2 id="webdev-services-title" class="webdev-section-title font-display">Vier Bereiche, die zusammen eine belastbare Website ergeben.</h2>
+          <h2 id="webdev-services-title" class="webdev-section-title font-display">Alles, was eine moderne Website wirklich braucht.</h2>
+          <p class="webdev-section-intro">
+            Ich verbinde Struktur, Gestaltung und technische Umsetzung zu einer Website, die nicht nur modern wirkt,
+            sondern im Alltag funktioniert.
+          </p>
         </div>
-        <div class="webdev-service-stack">
-          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
-            <span class="webdev-service-block__num">01</span>
-            <div>
-              <h3 class="font-display">Website-Konzeption</h3>
-              <p>Struktur, Zielgruppe, Seitenaufbau, Inhalte und Nutzerführung werden vor der Gestaltung geklärt.</p>
-            </div>
+        <div class="webdev-services-grid">
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+            <span class="webdev-service-card__num">01</span>
+            <h3 class="font-display">Website-Konzeption</h3>
+            <p>
+              Bevor gestaltet oder programmiert wird, klären wir Ziel, Zielgruppe, Seitenstruktur und Inhalte. So
+              entsteht eine Website mit klarer Richtung statt beliebiger Einzelseiten.
+            </p>
+            <ul>
+              <li>Zielgruppe und Angebotslogik</li>
+              <li>Seitenstruktur und Nutzerführung</li>
+              <li>Inhaltsplanung und Prioritäten</li>
+            </ul>
           </article>
-          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
-            <span class="webdev-service-block__num">02</span>
-            <div>
-              <h3 class="font-display">Webdesign &amp; UX</h3>
-              <p>Klare Gestaltung, mobile Darstellung, verständliche Navigation und eine visuelle Hierarchie, die Orientierung gibt.</p>
-            </div>
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 90ms;">
+            <span class="webdev-service-card__num">02</span>
+            <h3 class="font-display">Webdesign &amp; UX</h3>
+            <p>
+              Das Design sorgt für Orientierung, Vertrauen und einen professionellen ersten Eindruck. Mobile Nutzung,
+              Lesbarkeit und klare Handlungswege stehen dabei im Mittelpunkt.
+            </p>
+            <ul>
+              <li>responsive Gestaltung</li>
+              <li>klare visuelle Hierarchie</li>
+              <li>verständliche Navigation und CTAs</li>
+            </ul>
           </article>
-          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
-            <span class="webdev-service-block__num">03</span>
-            <div>
-              <h3 class="font-display">Technische Umsetzung</h3>
-              <p>Saubere Entwicklung, schnelle Ladezeiten, wartbare Struktur und responsive Umsetzung für alle wichtigen Geräte.</p>
-            </div>
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 180ms;">
+            <span class="webdev-service-card__num">03</span>
+            <h3 class="font-display">Technische Umsetzung</h3>
+            <p>
+              Die Website wird sauber, wartbar und performant umgesetzt. Der Fokus liegt auf einer stabilen technischen
+              Basis, die langfristig erweitert werden kann.
+            </p>
+            <ul>
+              <li>saubere Code-Struktur</li>
+              <li>schnelle Ladezeiten</li>
+              <li>wartbare Komponenten</li>
+            </ul>
           </article>
-          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
-            <span class="webdev-service-block__num">04</span>
-            <div>
-              <h3 class="font-display">SEO &amp; Performance-Basis</h3>
-              <p>Meta-Daten, Überschriftenstruktur, technische SEO-Grundlagen, Core Web Vitals und Bildoptimierung.</p>
-            </div>
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 270ms;">
+            <span class="webdev-service-card__num">04</span>
+            <h3 class="font-display">SEO &amp; Performance-Basis</h3>
+            <p>
+              Damit deine Website nicht nur gut aussieht, sondern auch gefunden und schnell geladen wird, werden
+              technische SEO-Grundlagen von Anfang an mitgedacht.
+            </p>
+            <ul>
+              <li>Meta-Daten und Überschriftenstruktur</li>
+              <li>Bildoptimierung und Ladezeit</li>
+              <li>semantischer Aufbau</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -142,41 +263,77 @@
           <h2 id="webdev-projects-title" class="webdev-section-title font-display">Wenn eine Website klarer, schneller oder anfragefähiger werden soll.</h2>
         </div>
         <div class="webdev-usecase-grid">
-          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 0ms;">
             <h3>Neue Unternehmenswebsite</h3>
-            <p><strong>Ausgangslage:</strong> Es gibt noch keinen belastbaren Auftritt.</p>
-            <p><strong>Ziel:</strong> Angebot, Zielgruppe und Kontaktweg verständlich machen.</p>
-            <p><strong>Ergebnis:</strong> Eine klare Website mit sauberer Struktur und Anfragefokus.</p>
+            <p><span>Ausgangslage</span> Es gibt noch keinen belastbaren Auftritt.</p>
+            <p><span>Lösung</span> Angebot, Zielgruppe und Kontaktweg werden verständlich aufgebaut.</p>
+            <p><span>Ergebnis</span> Eine klare Website mit sauberer Struktur und Anfragefokus.</p>
           </article>
-          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 80ms;">
             <h3>Website-Relaunch</h3>
-            <p><strong>Ausgangslage:</strong> Die bestehende Website wirkt unklar, langsam oder nicht mehr passend.</p>
-            <p><strong>Ziel:</strong> Inhalte, Gestaltung und Technik neu ordnen.</p>
-            <p><strong>Ergebnis:</strong> Ein ruhigerer Auftritt mit besserer Führung und moderner Basis.</p>
+            <p><span>Ausgangslage</span> Die bestehende Website wirkt unklar, langsam oder nicht mehr passend.</p>
+            <p><span>Lösung</span> Inhalte, Gestaltung und Technik werden neu geordnet.</p>
+            <p><span>Ergebnis</span> Ein ruhigerer Auftritt mit besserer Führung und moderner Basis.</p>
           </article>
-          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
-            <h3>Landingpage für ein konkretes Angebot</h3>
-            <p><strong>Ausgangslage:</strong> Ein Angebot braucht eine eigene, fokussierte Seite.</p>
-            <p><strong>Ziel:</strong> Nutzen, Ablauf und Anfragegrund schnell erklären.</p>
-            <p><strong>Ergebnis:</strong> Eine Seite mit klarer Argumentation und eindeutiger CTA-Führung.</p>
+          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+            <h3>Landingpage für ein Angebot</h3>
+            <p><span>Ausgangslage</span> Ein Angebot braucht eine eigene, fokussierte Seite.</p>
+            <p><span>Lösung</span> Nutzen, Ablauf und Anfragegrund werden schnell erfassbar.</p>
+            <p><span>Ergebnis</span> Eine Seite mit klarer Argumentation und eindeutiger CTA-Führung.</p>
           </article>
-          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 0ms;">
             <h3>Performance- und SEO-Optimierung</h3>
-            <p><strong>Ausgangslage:</strong> Ladezeiten, Struktur oder technische SEO bremsen die Website.</p>
-            <p><strong>Ziel:</strong> Messbare technische Schwächen beheben.</p>
-            <p><strong>Ergebnis:</strong> Schnellere Ladezeiten, sauberere Semantik und bessere Indexierbarkeit.</p>
+            <p><span>Ausgangslage</span> Ladezeiten, Struktur oder technische SEO bremsen die Website.</p>
+            <p><span>Lösung</span> Messbare technische Schwächen werden priorisiert behoben.</p>
+            <p><span>Ergebnis</span> Schnellere Ladezeiten, sauberere Semantik und bessere Indexierbarkeit.</p>
           </article>
-          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 80ms;">
             <h3>Technische Erweiterungen</h3>
-            <p><strong>Ausgangslage:</strong> Die Website braucht neue Funktionen oder bessere Pflegewege.</p>
-            <p><strong>Ziel:</strong> Erweiterungen sauber in die bestehende Struktur einbauen.</p>
-            <p><strong>Ergebnis:</strong> Mehr Funktion, ohne die Website unnötig schwer zu machen.</p>
+            <p><span>Ausgangslage</span> Die Website braucht neue Funktionen oder bessere Pflegewege.</p>
+            <p><span>Lösung</span> Erweiterungen werden schlank in die bestehende Struktur eingebaut.</p>
+            <p><span>Ergebnis</span> Mehr Funktion, ohne die Website unnötig schwer zu machen.</p>
           </article>
-          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
-            <h3>Automatisierungen rund um Website und Kundenanfragen</h3>
-            <p><strong>Ausgangslage:</strong> Anfragen oder wiederkehrende Schritte kosten zu viel Zeit.</p>
-            <p><strong>Ziel:</strong> Formulare, Übergaben und einfache Abläufe besser verbinden.</p>
-            <p><strong>Ergebnis:</strong> Weniger manuelle Arbeit und klarere Prozesse nach der Anfrage.</p>
+          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+            <h3>Automatisierungen rund um Anfragen</h3>
+            <p><span>Ausgangslage</span> Anfragen oder wiederkehrende Schritte kosten zu viel Zeit.</p>
+            <p><span>Lösung</span> Formulare, Übergaben und einfache Abläufe werden besser verbunden.</p>
+            <p><span>Ergebnis</span> Weniger manuelle Arbeit und klarere Prozesse nach der Anfrage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-measure-title">
+      <div class="webdev-container">
+        <div class="webdev-section-head reveal-on-scroll">
+          <p class="webdev-eyebrow">Qualitätsmaßstab</p>
+          <h2 id="webdev-measure-title" class="webdev-section-title font-display">Woran ich eine gute Website messe.</h2>
+        </div>
+        <div class="webdev-measure-grid">
+          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+            <span>01</span>
+            <h3>Verständlichkeit</h3>
+            <p>Ist in wenigen Sekunden klar, was angeboten wird, für wen es ist und warum es relevant ist?</p>
+          </article>
+          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 80ms;">
+            <span>02</span>
+            <h3>Geschwindigkeit</h3>
+            <p>Lädt die Seite schnell genug, besonders mobil und bei normalen Verbindungen?</p>
+          </article>
+          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+            <span>03</span>
+            <h3>Anfrageführung</h3>
+            <p>Sind Kontaktwege sichtbar, eindeutig und an den richtigen Stellen platziert?</p>
+          </article>
+          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 240ms;">
+            <span>04</span>
+            <h3>Technische Sauberkeit</h3>
+            <p>Sind Struktur, Semantik, Bilder, Metadaten und responsive Verhalten belastbar umgesetzt?</p>
+          </article>
+          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 320ms;">
+            <span>05</span>
+            <h3>Pflegbarkeit</h3>
+            <p>Kann die Website langfristig verbessert werden, ohne jedes Mal neu gebaut werden zu müssen?</p>
           </article>
         </div>
       </div>
@@ -192,13 +349,49 @@
             klare Schritte von der ersten Analyse bis zur fertigen Website.
           </p>
         </div>
-        <ol class="webdev-process-list">
-          <li class="process-step reveal-on-scroll"><span>01</span><strong>Analyse &amp; Zielklärung</strong></li>
-          <li class="process-step reveal-on-scroll"><span>02</span><strong>Struktur &amp; Inhalte</strong></li>
-          <li class="process-step reveal-on-scroll"><span>03</span><strong>Designrichtung</strong></li>
-          <li class="process-step reveal-on-scroll"><span>04</span><strong>Umsetzung</strong></li>
-          <li class="process-step reveal-on-scroll"><span>05</span><strong>SEO- und Performance-Check</strong></li>
-          <li class="process-step reveal-on-scroll"><span>06</span><strong>Übergabe oder laufende Betreuung</strong></li>
+        <ol class="webdev-timeline">
+          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+            <span>01</span>
+            <div>
+              <h3>Analyse &amp; Zielklärung</h3>
+              <p>Wir klären Angebot, Zielgruppe, Ausgangslage und was die Website konkret leisten soll.</p>
+            </div>
+          </li>
+          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 80ms;">
+            <span>02</span>
+            <div>
+              <h3>Struktur &amp; Inhalte</h3>
+              <p>Seitenlogik, Kernbotschaften, Kontaktwege und notwendige Inhalte werden geordnet.</p>
+            </div>
+          </li>
+          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+            <span>03</span>
+            <div>
+              <h3>Designrichtung</h3>
+              <p>Die Gestaltung wird auf Vertrauen, Lesbarkeit, mobile Nutzung und Conversion ausgerichtet.</p>
+            </div>
+          </li>
+          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 240ms;">
+            <span>04</span>
+            <div>
+              <h3>Umsetzung</h3>
+              <p>Die Website wird sauber entwickelt, responsiv umgesetzt und technisch schlank gehalten.</p>
+            </div>
+          </li>
+          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 320ms;">
+            <span>05</span>
+            <div>
+              <h3>SEO- und Performance-Check</h3>
+              <p>Vor dem Livegang prüfe ich Ladezeit, Struktur, Meta-Daten, Bilder und wichtige Kontaktpunkte.</p>
+            </div>
+          </li>
+          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 400ms;">
+            <span>06</span>
+            <div>
+              <h3>Übergabe oder Betreuung</h3>
+              <p>Du bekommst eine klare Übergabe oder eine laufende Betreuung für Pflege und Verbesserung.</p>
+            </div>
+          </li>
         </ol>
       </div>
     </section>
@@ -209,7 +402,7 @@
           <div class="reveal-on-scroll">
             <p class="webdev-eyebrow">Warum Smart Web Studio</p>
             <h2 id="webdev-why-title" class="webdev-section-title font-display">
-              Für Unternehmen, die eine professionelle Website brauchen, aber keine große Agentur.
+              Professionelle Website, direkte Zusammenarbeit, kein Agentur-Overhead.
             </h2>
           </div>
           <ul class="webdev-why-list reveal-on-scroll">
@@ -231,31 +424,31 @@
           <h2 id="webdev-faq-title" class="webdev-section-title font-display">Kurze Antworten auf häufige Fragen.</h2>
         </div>
         <div class="webdev-faq-list">
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 0ms;">
             <summary>Was kostet eine Website?</summary>
             <p>Das hängt von Umfang, Inhalt, Funktionen und gewünschter Betreuung ab. Nach der Ersteinschätzung bekommst du einen klaren Rahmen statt einer Pauschalzahl ohne Kontext.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 70ms;">
             <summary>Wie lange dauert die Umsetzung?</summary>
             <p>Kleine Seiten können oft in wenigen Wochen umgesetzt werden. Relaunches oder Websites mit mehr Inhalt brauchen mehr Vorlauf für Struktur, Texte und Abstimmung.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 140ms;">
             <summary>Ist SEO enthalten?</summary>
             <p>Eine SEO-Basis ist enthalten: saubere Überschriften, Meta-Daten, technische Grundlagen, interne Verlinkung und Performance-Blick. Laufender SEO-Content ist ein eigenes Thema.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 210ms;">
             <summary>Kann ich Inhalte später selbst bearbeiten?</summary>
             <p>Ja, wenn das für dein Projekt sinnvoll ist. Dann wird die Website so aufgebaut, dass wichtige Inhalte ohne Entwicklerzugriff gepflegt werden können.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 280ms;">
             <summary>Arbeitest du mit WordPress?</summary>
             <p>Ja, wenn WordPress zur Ausgangslage passt. Wenn eine schlankere technische Lösung sinnvoller ist, bespreche ich das offen vor Projektstart.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 350ms;">
             <summary>Bietest du Wartung an?</summary>
             <p>Ja. Wartung kann je nach System Updates, technische Kontrolle, kleinere Anpassungen und laufende Verbesserung umfassen.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 420ms;">
             <summary>Kannst du auch bestehende Websites verbessern?</summary>
             <p>Ja. Oft reicht bereits eine gezielte Verbesserung von Struktur, Ladezeit, SEO-Grundlagen oder Kontaktwegen, bevor ein kompletter Relaunch nötig ist.</p>
           </details>

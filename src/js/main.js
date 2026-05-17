@@ -1245,6 +1245,92 @@ const initWebdevQualityScores = () => {
   observer.observe(root);
 };
 
+const initWebdevWhyCount = () => {
+  const counters = Array.from(document.querySelectorAll("[data-webdev-why-count]"));
+  if (counters.length === 0) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const duration = 1700;
+
+  const drawCounter = (counter, score) => {
+    const value = counter.querySelector("[data-count-value]");
+    const progressCircle = counter.querySelector("[data-count-progress]");
+    const radius = Number(progressCircle?.getAttribute("r") || 50);
+    const circumference = 2 * Math.PI * radius;
+    const normalizedScore = clampNumber(score / 100);
+
+    if (value) {
+      value.textContent = String(Math.round(score));
+    }
+
+    if (progressCircle) {
+      progressCircle.style.strokeDasharray = `${circumference}`;
+      progressCircle.style.strokeDashoffset = `${circumference * (1 - normalizedScore)}`;
+    }
+  };
+
+  const animateCounter = (counter) => {
+    const targetScore = Number(counter.dataset.score || 100);
+    let startTime = null;
+
+    const animate = (timestamp) => {
+      startTime ??= timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = easeOutCubic(Math.min(elapsed / duration, 1));
+      const currentScore = targetScore * progress;
+
+      drawCounter(counter, currentScore);
+
+      if (elapsed < duration) {
+        requestAnimationFrame(animate);
+        return;
+      }
+
+      drawCounter(counter, targetScore);
+    };
+
+    requestAnimationFrame(animate);
+  };
+
+  const startCounter = (counter) => {
+    if (counter.dataset.countStarted === "true") return;
+
+    counter.dataset.countStarted = "true";
+    const targetScore = Number(counter.dataset.score || 100);
+
+    if (reducedMotion) {
+      drawCounter(counter, targetScore);
+      return;
+    }
+
+    drawCounter(counter, 0);
+    animateCounter(counter);
+  };
+
+  counters.forEach((counter) => drawCounter(counter, 0));
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    counters.forEach(startCounter);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        startCounter(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.45,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+};
+
 const initCodeClosingTypewriter = () => {
   const root = document.querySelector("[data-code-closing-typewriter]");
   if (!root) return;
@@ -1375,5 +1461,6 @@ initProjectIntentButtons();
 initHeroStageInteraction();
 initJumpNav();
 initWebdevQualityScores();
+initWebdevWhyCount();
 initCodeClosingTypewriter();
 initPageSpecificModules();

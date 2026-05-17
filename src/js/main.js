@@ -1074,6 +1074,281 @@ function initJumpNav() {
   window.addEventListener("load", refreshAndSyncJumpNav, { once: true });
 }
 
+const initWebdevQualityScores = () => {
+  const root = document.querySelector("[data-webdev-quality]");
+  if (!root) return;
+
+  const metrics = Array.from(root.querySelectorAll(".webdev-quality__metric"));
+  if (metrics.length === 0) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const duration = 1900;
+  const flipResetDelay = 6000;
+  const flipResetTimers = new WeakMap();
+
+  const getScoreColor = (score) => {
+    if (score >= 90) return "#19e28d";
+    if (score >= 50) return "#ffb84d";
+    return "#ff5c7a";
+  };
+
+  const drawMetric = (metric, score) => {
+    const scoreValue = metric.querySelector("[data-score-value]");
+    const progressCircle = metric.querySelector(".webdev-quality__progress");
+    const targetScore = Number(metric.dataset.score || 100);
+    const radius = Number(progressCircle?.getAttribute("r") || 50);
+    const circumference = 2 * Math.PI * radius;
+    const normalizedScore = clampNumber(score / 100);
+    const color = getScoreColor(score);
+
+    if (scoreValue) {
+      scoreValue.textContent = String(Math.round(score));
+      scoreValue.style.color = color;
+    }
+
+    if (progressCircle) {
+      progressCircle.style.strokeDasharray = `${circumference}`;
+      progressCircle.style.strokeDashoffset = `${circumference * (1 - normalizedScore)}`;
+      progressCircle.style.stroke = color;
+    }
+
+    if (Math.round(score) >= targetScore && scoreValue && progressCircle) {
+      scoreValue.style.color = "#19e28d";
+      progressCircle.style.stroke = "#19e28d";
+    }
+  };
+
+  const animateMetric = (metric) => {
+    const targetScore = Number(metric.dataset.score || 100);
+    let startTime = null;
+
+    const animate = (timestamp) => {
+      startTime ??= timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = easeOutCubic(Math.min(elapsed / duration, 1));
+      const currentScore = targetScore * progress;
+
+      drawMetric(metric, currentScore);
+
+      if (elapsed < duration) {
+        requestAnimationFrame(animate);
+        return;
+      }
+
+      drawMetric(metric, targetScore);
+    };
+
+    const delay = parseCssTimeToMs(window.getComputedStyle(metric).getPropertyValue("--metric-delay"));
+    window.setTimeout(() => requestAnimationFrame(animate), delay);
+  };
+
+  const startScores = () => {
+    root.classList.add("is-animated");
+
+    metrics.forEach((metric) => {
+      const targetScore = Number(metric.dataset.score || 100);
+
+      if (reducedMotion) {
+        drawMetric(metric, targetScore);
+        return;
+      }
+
+      drawMetric(metric, 0);
+      animateMetric(metric);
+    });
+  };
+
+  metrics.forEach((metric) => {
+    const resetMetricFlip = () => {
+      metric.classList.remove("is-flipped");
+      metric.setAttribute("aria-pressed", "false");
+
+      const existingTimer = flipResetTimers.get(metric);
+      if (existingTimer) {
+        window.clearTimeout(existingTimer);
+        flipResetTimers.delete(metric);
+      }
+    };
+
+    const toggleMetric = () => {
+      const isFlipped = !metric.classList.contains("is-flipped");
+
+      if (!isFlipped) {
+        resetMetricFlip();
+        return;
+      }
+
+      metric.classList.add("is-flipped");
+      metric.setAttribute("aria-pressed", String(isFlipped));
+
+      const existingTimer = flipResetTimers.get(metric);
+      if (existingTimer) {
+        window.clearTimeout(existingTimer);
+      }
+
+      const resetTimer = window.setTimeout(resetMetricFlip, flipResetDelay);
+      flipResetTimers.set(metric, resetTimer);
+    };
+
+    metric.addEventListener("click", toggleMetric);
+    metric.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleMetric();
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const flipResetObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) return;
+          metrics.forEach((metric) => {
+            metric.classList.remove("is-flipped");
+            metric.setAttribute("aria-pressed", "false");
+
+            const existingTimer = flipResetTimers.get(metric);
+            if (existingTimer) {
+              window.clearTimeout(existingTimer);
+              flipResetTimers.delete(metric);
+            }
+          });
+        });
+      },
+      {
+        threshold: 0.08,
+      }
+    );
+
+    flipResetObserver.observe(root);
+  }
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    startScores();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        startScores();
+        observer.disconnect();
+      });
+    },
+    {
+      threshold: 0.35,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  observer.observe(root);
+};
+
+const initCodeClosingTypewriter = () => {
+  const root = document.querySelector("[data-code-closing-typewriter]");
+  if (!root) return;
+
+  const lines = Array.from(root.querySelectorAll(".webdev-code-closing__line"));
+  if (lines.length === 0) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let hasStarted = false;
+
+  if (reducedMotion) {
+    root.classList.add("is-typewriter-ready");
+    return;
+  }
+
+  const wrapTextNodes = (element) => {
+    const childNodes = Array.from(element.childNodes);
+
+    childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent || "";
+        const fragment = document.createDocumentFragment();
+
+        Array.from(text).forEach((character) => {
+          const characterSpan = document.createElement("span");
+          characterSpan.className = "webdev-code-closing__char";
+          characterSpan.textContent = character;
+          fragment.appendChild(characterSpan);
+        });
+
+        element.replaceChild(fragment, node);
+        return;
+      }
+
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        wrapTextNodes(node);
+      }
+    });
+  };
+
+  lines.forEach((line) => wrapTextNodes(line));
+
+  const characters = Array.from(root.querySelectorAll(".webdev-code-closing__char"));
+  const cursor = document.createElement("span");
+  cursor.className = "webdev-code-closing__cursor";
+
+  const startTyping = () => {
+    if (hasStarted) return;
+    hasStarted = true;
+    root.classList.add("is-typewriter-ready");
+
+    if (characters.length === 0) return;
+
+    let characterIndex = 0;
+
+    const typeNextCharacter = () => {
+      const character = characters[characterIndex];
+
+      if (!character) {
+        return;
+      }
+
+      character.classList.add("is-visible");
+      character.after(cursor);
+      characterIndex += 1;
+
+      if (characterIndex >= characters.length) {
+        return;
+      }
+
+      let delay = 24 + Math.random() * 24;
+      if ([".", ",", "!", "?"].includes(character.textContent || "")) {
+        delay += 220;
+      }
+
+      window.setTimeout(typeNextCharacter, delay);
+    };
+
+    characters[0].before(cursor);
+    window.setTimeout(typeNextCharacter, 280);
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    startTyping();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        startTyping();
+        observer.disconnect();
+      });
+    },
+    {
+      threshold: 0.35,
+      rootMargin: "0px 0px -8% 0px",
+    }
+  );
+
+  observer.observe(root);
+};
+
 const initPageSpecificModules = () => {
   if (document.body?.dataset.page !== "webentwicklung") return;
   const configuratorRoot = document.querySelector("[data-configurator]");
@@ -1099,4 +1374,6 @@ initContactFormAnchorScroll();
 initProjectIntentButtons();
 initHeroStageInteraction();
 initJumpNav();
+initWebdevQualityScores();
+initCodeClosingTypewriter();
 initPageSpecificModules();

@@ -75,49 +75,51 @@
             </div>
           </div>
 
-          <aside class="webdev-audit-card reveal-on-scroll" style="--webdev-card-delay: 120ms;" aria-label="Website Audit Vorschau">
-            <div class="webdev-audit-card__top">
-              <span class="webdev-audit-card__dot"></span>
-              <span class="webdev-audit-card__dot"></span>
-              <span class="webdev-audit-card__dot"></span>
-              <span class="webdev-audit-card__url">smart-audit / startseite</span>
-            </div>
-            <div class="webdev-audit-card__body">
-              <div>
-                <p class="webdev-audit-card__label">Klarer Aufbau statt Website-Chaos</p>
-                <h2 class="webdev-audit-card__title font-display">Klar im Angebot, überzeugend im Argument, direkt im Kontakt.</h2>
+          <div class="webdev-audit-card-shell reveal-on-scroll" style="--webdev-card-delay: 120ms;">
+            <aside class="webdev-audit-card" data-webdev-audit-card aria-label="Website Audit Vorschau">
+              <div class="webdev-audit-card__top">
+                <span class="webdev-audit-card__dot"></span>
+                <span class="webdev-audit-card__dot"></span>
+                <span class="webdev-audit-card__dot"></span>
+                <span class="webdev-audit-card__url">smart-audit / startseite</span>
               </div>
-              <div class="webdev-audit-score" aria-label="Performance Score 99 von 100">
-                <span>99</span>
-                <small>/100</small>
+              <div class="webdev-audit-card__body">
+                <div>
+                  <p class="webdev-audit-card__label">Klarer Aufbau statt Website-Chaos</p>
+                  <h2 class="webdev-audit-card__title font-display">Klar im Angebot, überzeugend im Argument, direkt im Kontakt.</h2>
+                </div>
+                <div class="webdev-audit-score" aria-label="Performance Score 100 von 100">
+                  <span data-webdev-audit-score>0</span>
+                  <small>/100</small>
+                </div>
+                <div class="webdev-audit-bars" aria-hidden="true">
+                  <span style="--bar-width: 94%"></span>
+                  <span style="--bar-width: 82%"></span>
+                  <span style="--bar-width: 76%"></span>
+                </div>
+                <dl class="webdev-audit-metrics">
+                  <div>
+                    <dt>Ladezeit</dt>
+                    <dd>0.9s</dd>
+                  </div>
+                  <div>
+                    <dt>CTA-Führung</dt>
+                    <dd>klar</dd>
+                  </div>
+                  <div>
+                    <dt>SEO-Basis</dt>
+                    <dd>sauber</dd>
+                  </div>
+                </dl>
+                <ul class="webdev-audit-checks">
+                  <li>klare Struktur und Nutzerführung</li>
+                  <li>schnelle Ladezeiten und mobile Optimierung</li>
+                  <li>SEO-Basis und saubere Technik</li>
+                  <li>direkte Zusammenarbeit ohne Agentur-Overhead</li>
+                </ul>
               </div>
-              <div class="webdev-audit-bars" aria-hidden="true">
-                <span style="--bar-width: 94%"></span>
-                <span style="--bar-width: 82%"></span>
-                <span style="--bar-width: 76%"></span>
-              </div>
-              <dl class="webdev-audit-metrics">
-                <div>
-                  <dt>Ladezeit</dt>
-                  <dd>0.9s</dd>
-                </div>
-                <div>
-                  <dt>CTA-Führung</dt>
-                  <dd>klar</dd>
-                </div>
-                <div>
-                  <dt>SEO-Basis</dt>
-                  <dd>sauber</dd>
-                </div>
-              </dl>
-              <ul class="webdev-audit-checks">
-                <li>klare Struktur und Nutzerführung</li>
-                <li>schnelle Ladezeiten und mobile Optimierung</li>
-                <li>SEO-Basis und saubere Technik</li>
-                <li>direkte Zusammenarbeit ohne Agentur-Overhead</li>
-              </ul>
-            </div>
-          </aside>
+            </aside>
+          </div>
         </div>
       </div>
     </section>

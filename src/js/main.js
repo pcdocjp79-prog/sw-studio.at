@@ -1074,6 +1074,136 @@ function initJumpNav() {
   window.addEventListener("load", refreshAndSyncJumpNav, { once: true });
 }
 
+const initWebdevAuditCard = () => {
+  const card = document.querySelector("[data-webdev-audit-card]");
+  if (!card) return;
+
+  const shell = card.closest(".webdev-audit-card-shell") || card;
+  const scoreValue = card.querySelector("[data-webdev-audit-score]");
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const targetScore = 100;
+  const duration = 2000;
+  let scoreStarted = false;
+  let scoreFrameId = null;
+
+  const getScoreColor = (score) => {
+    if (score >= 100) return "#4ade80";
+    if (score >= 60) return "#ffb84d";
+    return "#ff5c7a";
+  };
+
+  const drawScore = (score) => {
+    if (!scoreValue) return;
+    const roundedScore = Math.round(score);
+    scoreValue.textContent = String(roundedScore);
+    scoreValue.parentElement?.style.setProperty("--audit-score-color", getScoreColor(roundedScore));
+  };
+
+  const animateScore = () => {
+    if (!scoreValue || scoreStarted) return;
+    scoreStarted = true;
+
+    if (reducedMotionQuery.matches) {
+      drawScore(targetScore);
+      return;
+    }
+
+    let startTime = null;
+
+    const step = (timestamp) => {
+      startTime ??= timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = clampNumber(elapsed / duration);
+      const easedProgress = 1 - Math.pow(1 - progress, 4);
+
+      drawScore(targetScore * easedProgress);
+
+      if (progress < 1) {
+        scoreFrameId = requestAnimationFrame(step);
+        return;
+      }
+
+      drawScore(targetScore);
+      scoreFrameId = null;
+    };
+
+    scoreFrameId = requestAnimationFrame(step);
+  };
+
+  drawScore(reducedMotionQuery.matches ? targetScore : 0);
+
+  if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) {
+    animateScore();
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          window.setTimeout(animateScore, 360);
+          observer.disconnect();
+        });
+      },
+      {
+        threshold: 0.45,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    observer.observe(shell);
+  }
+
+  const resetTilt = () => {
+    card.classList.remove("is-tilting");
+    card.style.setProperty("--audit-tilt-x", "0deg");
+    card.style.setProperty("--audit-tilt-y", "0deg");
+  };
+
+  const canTilt = () => finePointerQuery.matches && !reducedMotionQuery.matches;
+
+  card.addEventListener(
+    "pointermove",
+    (event) => {
+      if (!canTilt()) return;
+
+      const rect = card.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const rotateX = ((event.clientY - centerY) / Math.max(rect.height / 2, 1)) * -7;
+      const rotateY = ((event.clientX - centerX) / Math.max(rect.width / 2, 1)) * 7;
+
+      card.classList.add("is-tilting");
+      card.style.setProperty("--audit-tilt-x", `${rotateX.toFixed(2)}deg`);
+      card.style.setProperty("--audit-tilt-y", `${rotateY.toFixed(2)}deg`);
+    },
+    { passive: true }
+  );
+
+  card.addEventListener("pointerleave", resetTilt);
+  card.addEventListener("pointercancel", resetTilt);
+
+  const handleMotionPreferenceChange = () => {
+    if (scoreFrameId !== null) {
+      cancelAnimationFrame(scoreFrameId);
+      scoreFrameId = null;
+    }
+
+    if (reducedMotionQuery.matches) {
+      drawScore(targetScore);
+    }
+
+    resetTilt();
+  };
+
+  if (typeof reducedMotionQuery.addEventListener === "function") {
+    reducedMotionQuery.addEventListener("change", handleMotionPreferenceChange);
+    finePointerQuery.addEventListener("change", resetTilt);
+  } else if (typeof reducedMotionQuery.addListener === "function") {
+    reducedMotionQuery.addListener(handleMotionPreferenceChange);
+    finePointerQuery.addListener(resetTilt);
+  }
+};
+
 const initWebdevQualityScores = () => {
   const root = document.querySelector("[data-webdev-quality]");
   if (!root) return;
@@ -1460,6 +1590,7 @@ initContactFormAnchorScroll();
 initProjectIntentButtons();
 initHeroStageInteraction();
 initJumpNav();
+initWebdevAuditCard();
 initWebdevQualityScores();
 initWebdevWhyCount();
 initCodeClosingTypewriter();

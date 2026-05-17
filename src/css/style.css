@@ -1384,9 +1384,28 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   .js .reveal-on-scroll.is-visible,
   .webdev-quality__metric,
   .webdev-quality__metric-inner,
-  .webdev-quality__face {
+  .webdev-quality__face,
+  .webdev-audit-card-shell,
+  .webdev-audit-card__dot:first-child,
+  .webdev-audit-bars span::before,
+  .webdev-audit-metrics div,
+  .webdev-audit-checks li {
     opacity: 1 !important;
+    animation: none !important;
     transition: none !important;
+  }
+
+  .webdev-audit-card {
+    transform: none !important;
+  }
+
+  .webdev-audit-bars span::before {
+    width: var(--bar-width) !important;
+  }
+
+  .webdev-audit-metrics div,
+  .webdev-audit-checks li {
+    transform: none !important;
   }
 
   .webdev-quality__metric {
@@ -7352,6 +7371,10 @@ body[data-page="webentwicklung"] #animated-background {
   max-width: 38rem;
 }
 
+.webdev-why-bento__item--main .webdev-why-text {
+  margin-top: clamp(1.65rem, 3vw, 2.45rem);
+}
+
 .webdev-why-bento__bolt {
   position: absolute;
   top: clamp(1rem, 3vw, 2rem);
@@ -7703,7 +7726,19 @@ body[data-page="webentwicklung"] #animated-background {
   margin-top: clamp(1.55rem, 3vw, 2.25rem);
 }
 
+.webdev-audit-card-shell {
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  perspective: 1200px;
+}
+
+.webdev-audit-card-shell.is-visible {
+  animation: webdevAuditFloat 6.2s ease-in-out 1.05s infinite;
+}
+
 .webdev-audit-card {
+  --audit-tilt-x: 0deg;
+  --audit-tilt-y: 0deg;
   position: relative;
   width: min(100%, 30rem);
   margin-inline: auto;
@@ -7712,7 +7747,16 @@ body[data-page="webentwicklung"] #animated-background {
   border-radius: 1.1rem;
   background:
     linear-gradient(180deg, rgba(20, 30, 49, 0.64), rgba(18, 18, 26, 0.58));
-  box-shadow: 0 18px 46px rgba(3, 10, 24, 0.22);
+  box-shadow:
+    0 18px 46px rgba(3, 10, 24, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: rotateX(var(--audit-tilt-x)) rotateY(var(--audit-tilt-y));
+  transform-style: preserve-3d;
+  transition:
+    transform 160ms ease-out,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+  will-change: transform;
 }
 
 .webdev-audit-card::before {
@@ -7725,6 +7769,32 @@ body[data-page="webentwicklung"] #animated-background {
   background-size: 28px 28px;
   mask-image: linear-gradient(180deg, black, transparent 76%);
   pointer-events: none;
+}
+
+.webdev-audit-card::after {
+  content: "";
+  position: absolute;
+  inset: -35% -55%;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.12), transparent 62%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-34%) rotate(8deg);
+  transition: opacity 260ms ease, transform 780ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-audit-card:hover,
+.webdev-audit-card.is-tilting {
+  border-color: rgba(186, 214, 255, 0.36);
+  box-shadow:
+    0 24px 58px rgba(3, 10, 24, 0.32),
+    0 0 24px rgba(142, 232, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+}
+
+.webdev-audit-card:hover::after,
+.webdev-audit-card.is-tilting::after {
+  opacity: 1;
+  transform: translateX(34%) rotate(8deg);
 }
 
 .webdev-audit-card__top {
@@ -7744,6 +7814,12 @@ body[data-page="webentwicklung"] #animated-background {
   height: 0.58rem;
   border-radius: 999px;
   background: rgba(174, 230, 255, 0.52);
+}
+
+.webdev-audit-card__dot:first-child {
+  background: #4ade80;
+  box-shadow: 0 0 0 rgba(74, 222, 128, 0.55);
+  animation: webdevAuditPulse 2.2s ease-out infinite;
 }
 
 .webdev-audit-card__dot:nth-child(2) {
@@ -7772,6 +7848,7 @@ body[data-page="webentwicklung"] #animated-background {
   display: grid;
   gap: 1.1rem;
   padding: clamp(1.15rem, 3.5vw, 1.7rem);
+  transform: translateZ(18px);
 }
 
 .webdev-audit-card__label,
@@ -7795,21 +7872,43 @@ body[data-page="webentwicklung"] #animated-background {
 }
 
 .webdev-audit-score {
+  --audit-score-color: #ff5c7a;
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 0.35rem;
   width: max-content;
+  overflow: hidden;
   border: 1px solid rgba(174, 230, 255, 0.24);
   border-radius: 0.75rem;
   padding: 0.65rem 0.85rem;
   background: rgba(174, 230, 255, 0.08);
 }
 
+.webdev-audit-score::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 10%, rgba(255, 255, 255, 0.08), transparent 62%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.webdev-audit-card:hover .webdev-audit-score::before {
+  opacity: 1;
+}
+
 .webdev-audit-score span {
+  position: relative;
   color: #ffffff;
   font-family: "JetBrains Mono", monospace;
   font-size: clamp(2.25rem, 8vw, 3.35rem);
   line-height: 0.9;
+  background: linear-gradient(180deg, #ffffff 5%, var(--audit-score-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 16px color-mix(in srgb, var(--audit-score-color), transparent 64%);
 }
 
 .webdev-audit-score small {
@@ -7832,10 +7931,27 @@ body[data-page="webentwicklung"] #animated-background {
 .webdev-audit-bars span::before {
   content: "";
   display: block;
-  width: var(--bar-width);
+  width: 0;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #8ee8ff, #ff9fdd);
+  background: linear-gradient(90deg, #8ee8ff, #8e9bff, #ff9fdd);
+  box-shadow: 0 0 12px rgba(142, 232, 255, 0.34);
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span::before {
+  animation: webdevAuditFillBar 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(1)::before {
+  animation-delay: 0.42s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(2)::before {
+  animation-delay: 0.56s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(3)::before {
+  animation-delay: 0.7s;
 }
 
 .webdev-audit-metrics {
@@ -7852,6 +7968,29 @@ body[data-page="webentwicklung"] #animated-background {
   background: rgba(255, 255, 255, 0.055);
 }
 
+.webdev-audit-metrics div,
+.webdev-audit-checks li {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div,
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li {
+  animation: webdevAuditItemIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(2) {
+  animation-delay: 0.62s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(3) {
+  animation-delay: 0.74s;
+}
+
 .webdev-audit-metrics dt {
   color: rgba(215, 226, 242, 0.58);
   font-size: 0.72rem;
@@ -7862,6 +8001,18 @@ body[data-page="webentwicklung"] #animated-background {
   color: #ffffff;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.webdev-audit-metrics div:nth-child(1) dd {
+  color: #4ade80;
+}
+
+.webdev-audit-metrics div:nth-child(2) dd {
+  color: #8ee8ff;
+}
+
+.webdev-audit-metrics div:nth-child(3) dd {
+  color: #ff9fdd;
 }
 
 .webdev-audit-checks {
@@ -7888,6 +8039,71 @@ body[data-page="webentwicklung"] #animated-background {
   margin-top: 0.5rem;
   border-radius: 999px;
   background: #8ee8ff;
+  box-shadow: 0 0 12px rgba(142, 232, 255, 0.72);
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(1) {
+  animation-delay: 0.86s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(2) {
+  animation-delay: 0.98s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(3) {
+  animation-delay: 1.1s;
+}
+
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(4) {
+  animation-delay: 1.22s;
+}
+
+@keyframes webdevAuditFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes webdevAuditFillBar {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: var(--bar-width);
+    opacity: 1;
+  }
+}
+
+@keyframes webdevAuditItemIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes webdevAuditPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55);
+  }
+
+  72% {
+    box-shadow: 0 0 0 7px rgba(74, 222, 128, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
 }
 
 .webdev-problem {
@@ -8222,7 +8438,7 @@ body[data-page="webentwicklung"] #animated-background {
 .js .webdev-quality.reveal-on-scroll,
 .js .webdev-code-closing.reveal-on-scroll,
 .js .webdev-timeline__item.reveal-on-scroll,
-.js .webdev-audit-card.reveal-on-scroll,
+.js .webdev-audit-card-shell.reveal-on-scroll,
 .js .webdev-problem__signal.reveal-on-scroll,
 .js .webdev-faq.reveal-on-scroll,
 .js .webdev-final__inner.reveal-on-scroll {

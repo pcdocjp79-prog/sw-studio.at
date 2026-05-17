@@ -1,11 +1,10 @@
 const HOME_PATH = "index.html";
 const CONTACT_PATH = "kontakt.html";
-const CONFIGURATOR_PATH = "webentwicklung.html";
-const CONFIGURATOR_HASH = "design-konfigurator";
+const CONTACT_FORM_HASH = "kontaktformular";
 const COOKIE_PATH = "cookies.html";
 const COOKIE_SETTINGS_HASH = "cookie-settings";
 const COOKIE_SETTINGS_PATH = `${COOKIE_PATH}#${COOKIE_SETTINGS_HASH}`;
-const PRIMARY_CTA_LABEL = "Konfigurator starten";
+const PRIMARY_CTA_LABEL = "Projekt anfragen";
 const PRIMARY_CTA_META_LABEL = "";
 const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
@@ -194,9 +193,7 @@ const getPrimaryCtaTarget = () => {
   const configuredTarget = document.body?.dataset.primaryCtaTarget?.trim();
   if (configuredTarget) return configuredTarget;
 
-  return getCurrentPageKey() === "webentwicklung"
-    ? `#${CONFIGURATOR_HASH}`
-    : `${CONFIGURATOR_PATH}#${CONFIGURATOR_HASH}`;
+  return `${CONTACT_PATH}#${CONTACT_FORM_HASH}`;
 };
 
 const getCookiePageTarget = () => {

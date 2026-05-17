@@ -1,33 +1,43 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <title>Webentwicklung | Smart Web Studio</title>
+  <title>Webentwicklung für Selbstständige und kleine Unternehmen | Smart Web Studio</title>
   <meta name="description"
-    content="Webentwicklung von Smart Web Studio: performante Websites mit klarer Nutzerführung, hochwertigem Design und sauberer Conversion-Architektur." />
+    content="Klare, schnelle und wartbare Websites für Selbstständige, lokale Dienstleister und kleine Unternehmen. Webentwicklung mit Struktur, SEO-Basis und direkter Zusammenarbeit." />
 
   <script>
     document.documentElement.classList.add("js");
   </script>
   <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
-  <link rel="preload" as="image" href="assets/images/hero-consulting.webp" data-industry="consulting" />
-  <link rel="preload" as="image" href="assets/images/hero-tourismus.webp" data-industry="tourismus" />
-  <link rel="preload" as="image" href="assets/images/hero-gastronomie.webp" data-industry="gastronomie" />
 </head>
 
 <body id="top" data-page="webentwicklung" class="antialiased selection:bg-zinc-200 selection:text-black">
-  <div id="animated-background" aria-hidden="true"></div>
+  <script>
+    document.body.classList.add("has-fixed-hero-bg");
+  </script>
+
+  <div id="animated-background" data-orb-parallax-layer aria-hidden="true">
+    <canvas class="orb-parallax__canvas"></canvas>
+    <div class="orb-parallax__fallback" aria-hidden="true">
+      <span class="hero-stage__orb hero-stage__orb--cyan-violet"></span>
+      <span class="hero-stage__orb hero-stage__orb--blue"></span>
+      <span class="hero-stage__orb hero-stage__orb--aqua"></span>
+      <span class="hero-stage__orb hero-stage__orb--magenta"></span>
+    </div>
+  </div>
 
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Smart Web Studio - Zum Seitenanfang">
-        <img src="assets/images/LogoSmartWebStudio.webp" alt="Smart Web Studio Logo" width="150" height="96" decoding="async" class="h-8 w-auto md:h-10" />
-        <span class="brand-wordmark">Smart
-          Web Studio</span>
+      <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Smart Web Studio - Zur Startseite">
+        <img src="assets/images/LogoSmartWebStudio.webp" alt="Smart Web Studio Logo" width="150" height="96"
+          decoding="async" class="h-8 w-auto md:h-10" />
+        <span class="brand-wordmark">Smart Web Studio</span>
       </a>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
         aria-expanded="false" aria-controls="primary-nav">
@@ -41,12 +51,11 @@
         <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
         <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-      <a href="#design-konfigurator" class="nav-cta" aria-label="Konfigurator starten">Konfigurator starten</a>
+      <a href="kontakt.html#kontaktformular" class="nav-cta" aria-label="Website-Projekt anfragen">Projekt anfragen</a>
     </div>
   </header>
 
-
-  <main class="relative pt-0 pb-0">
+  <main class="webdev-page relative pt-0 pb-0">
     <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="webdev-hero-title">
       <div class="max-w-7xl mx-auto">
         <div class="about-section__layout about-section__layout--service-hero">
@@ -54,562 +63,215 @@
             <div class="about-section__header reveal-on-scroll">
               <p class="about-section__eyebrow">Webentwicklung</p>
               <h1 id="webdev-hero-title" class="about-section__headline font-display">
-                Websites mit Struktur, Klarheit und einer Conversion-Logik, die zum Angebot passt.
+                Webentwicklung für klare, schnelle und wirksame Websites
               </h1>
               <p class="about-section__subline">
-                Ich entwickle digitale Auftritte, die hochwertig wirken, schnell laden und Besucher sauber in Anfrage,
-                Erstgespräch oder nächsten Schritt führen.
+                Ich entwickle Websites für Selbstständige und kleine Unternehmen, die nicht nur gut aussehen, sondern
+                verständlich aufgebaut sind, schnell laden und Anfragen ermöglichen.
               </p>
             </div>
-
-            <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
+            <div class="final-cta-section__btns webdev-hero-btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
               <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
-                aria-label="Erstgespräch buchen">
-                Erstgespräch buchen
-              </a>
+                aria-label="Website-Projekt anfragen">Website-Projekt anfragen</a>
               <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
-                aria-label="Mini-Audit anfordern">
-                Mini-Audit anfordern
-              </a>
+                aria-label="Kostenlose Ersteinschätzung">Kostenlose Ersteinschätzung</a>
             </div>
-
           </div>
 
           <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
             <article class="pkg-card pkg-card--featured service-summary-card">
               <div class="pkg-card__inner">
                 <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Websystem</p>
-                  <p class="pkg-card__tagline">Nicht nur sch&ouml;n, sondern klar aufgebaut und auf Anfrage ausgerichtet.</p>
+                  <p class="pkg-card__name font-display">Websites mit Plan</p>
+                  <p class="pkg-card__tagline">Klar aufgebaut, schnell geladen und auf Anfragen ausgerichtet.</p>
                 </div>
                 <ul class="pkg-card__list">
-                  <li class="pkg-card__list-item">saubere Seitenstruktur statt visueller &Uuml;berladung</li>
-                  <li class="pkg-card__list-item">klare Nutzerf&uuml;hrung mit priorisierten CTA-Wegen</li>
-                  <li class="pkg-card__list-item">performante Umsetzung f&uuml;r Mobile, Desktop und Launch</li>
+                  <li class="pkg-card__list-item">Strategie, Design und Umsetzung aus einer Hand</li>
+                  <li class="pkg-card__list-item">SEO- und Performance-Basis inklusive</li>
+                  <li class="pkg-card__list-item">direkte Zusammenarbeit ohne Agentur-Overhead</li>
                 </ul>
               </div>
             </article>
-            <div class="hero-stage hidden" aria-hidden="true">
-              <div class="hero-stage__viewport">
-                <div class="hero-stage__frame">
-                  <span class="hero-stage__noise" aria-hidden="true"></span>
-                  <span class="hero-stage__glow" aria-hidden="true"></span>
-                  <div class="hero-stage__grid" aria-hidden="true"></div>
-                  <div class="hero-stage__content">
-                    <p class="hero-stage__eyebrow">Websystem statt digitaler Visitenkarte</p>
-                    <p class="hero-stage__title font-display">
-                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Struktur</span> vor
-                        Effekten.</span>
-                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Nutzerführung</span> vor
-                        Zufall.</span>
-                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Conversion</span> vor
-                        Bauchgefühl.</span>
-                    </p>
-                    <p class="hero-stage__text">
-                      Technisch sauber, mobil stark und so aufgebaut, dass Vertrauen und Kontaktwege nicht gegeneinander
-                      arbeiten.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-          <nav class="jump-nav jump-nav--section jump-nav--apple"
-            aria-label="Sprungnavigation Webentwicklung">
-            <ul class="jump-nav__list">
-              <li><a class="jump-nav__link" href="#problem">Problem</a></li>
-              <li><a class="jump-nav__link" href="#design-konfigurator">Konfigurator</a></li>
-              <li><a class="jump-nav__link" href="#approach">Ansatz</a></li>
-              <li><a class="jump-nav__link" href="#deliverables">Lieferumfang</a></li>
-              <li><a class="jump-nav__link" href="#standards">Standards</a></li>
-              <li><a class="jump-nav__link" href="#related">N&auml;chste Schritte</a></li>
-            </ul>
-          </nav>
         </div>
       </div>
     </section>
-
-    <section id="design-konfigurator"
-      class="configurator-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="configurator-title">
-      <div class="configurator-section__inner max-w-7xl mx-auto" data-configurator>
-        <div class="configurator-section__header reveal-on-scroll">
-          <p class="configurator-section__eyebrow">Design-Konfigurator</p>
-          <h2 id="configurator-title" class="configurator-section__headline font-display">
-            Skizziere dein Websystem und erhalte ein klares Briefing statt Bauchgef&uuml;hl.
-          </h2>
-          <p class="configurator-section__subline">
-            Waehle Ziel, Stil, Umfang und Rahmen. Die Vorschau reagiert sofort, und am Ende landet dein kompaktes
-            Projektbriefing direkt bei mir.
-          </p>
+    <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-services-title">
+      <div class="webdev-container">
+        <div class="webdev-section-head reveal-on-scroll">
+          <p class="webdev-eyebrow">Leistungsbereiche</p>
+          <h2 id="webdev-services-title" class="webdev-section-title font-display">Vier Bereiche, die zusammen eine belastbare Website ergeben.</h2>
         </div>
-
-        <div class="configurator-shell reveal-on-scroll">
-          <form class="configurator-form" data-configurator-form aria-describedby="configurator-form-note">
-            <div class="configurator-form__section">
-              <div class="configurator-form__section-head">
-                <p class="configurator-form__step">01</p>
-                <h3 class="configurator-form__title font-display">Projektlogik</h3>
-              </div>
-
-              <fieldset class="configurator-fieldset">
-                <legend>Branche</legend>
-                <div class="configurator-choice-grid">
-                  <label class="configurator-choice">
-                    <input type="radio" name="industry" value="consulting" checked />
-                    <span>Consulting</span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="industry" value="tourismus" />
-                    <span>Tourismus</span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="industry" value="gastronomie" />
-                    <span>Gastronomie</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              <fieldset class="configurator-fieldset">
-                <legend>Typografie</legend>
-                <div class="configurator-choice-grid">
-                  <label class="configurator-choice">
-                    <input type="radio" name="typography" value="inter" checked />
-                    <span>Klar &amp; Modern (Inter)</span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="typography" value="geist" />
-                    <span>Editorial (Geist)</span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="typography" value="mono" />
-                    <span>Technisch (JetBrains Mono)</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              <div class="configurator-form__grid">
-                <label class="configurator-field">
-                  <span>Zielgruppe</span>
-                  <select class="contact-input" name="audience">
-                    <option value="founders">Gruender und kleine Teams</option>
-                    <option value="local-business">Lokale Dienstleister</option>
-                    <option value="premium-service">Premium-Serviceanbieter</option>
-                    <option value="b2b-experts">B2B-Experten</option>
-                  </select>
-                </label>
-                <label class="configurator-field">
-                  <span>Umfang</span>
-                  <select class="contact-input" name="scope">
-                    <option value="landing">Fokussierte Landingpage</option>
-                    <option value="service-site" selected>Service-Website</option>
-                    <option value="content-system">Website mit Content-System</option>
-                    <option value="growth-platform">Wachstumsplattform</option>
-                  </select>
-                </label>
-              </div>
-              <p class="mt-2 text-xs text-white/50 italic">Dient zur Kalkulation deines Briefings.</p>
-            </div>
-
-            <div class="configurator-form__section">
-              <div class="configurator-form__section-head">
-                <p class="configurator-form__step">02</p>
-                <h3 class="configurator-form__title font-display">Look &amp; Feel</h3>
-              </div>
-
-              <fieldset class="configurator-fieldset">
-                <legend>Brand Identity</legend>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" data-brand-presets>
-                  <label class="configurator-choice">
-                    <input type="radio" name="brandPreset" value="monochrome-dark" checked />
-                    <span class="flex items-center gap-2">
-                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#0a0a0a"></span>
-                      Monochrome Dark
-                    </span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="brandPreset" value="clean-studio" />
-                    <span class="flex items-center gap-2">
-                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#fafaf7"></span>
-                      Clean Studio
-                    </span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="brandPreset" value="deep-blue" />
-                    <span class="flex items-center gap-2">
-                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#0b1a3d"></span>
-                      Deep Blue
-                    </span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="brandPreset" value="neon-cyber" />
-                    <span class="flex items-center gap-2">
-                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#39ffd0"></span>
-                      Neon Cyber
-                    </span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="brandPreset" value="soft-editorial" />
-                    <span class="flex items-center gap-2">
-                      <span class="inline-block h-3 w-3 rounded-full ring-1 ring-white/20" style="background:#f1ece2"></span>
-                      Soft Editorial
-                    </span>
-                  </label>
-                </div>
-              </fieldset>
-
-              <fieldset class="configurator-fieldset">
-                <legend>Stilrichtung</legend>
-                <div class="configurator-choice-grid">
-                  <label class="configurator-choice">
-                    <input type="radio" name="styleDirection" value="precision-dark" checked />
-                    <span>Praezise &amp; dunkel</span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="styleDirection" value="editorial-light" />
-                    <span>Editorial &amp; hell</span>
-                  </label>
-                  <label class="configurator-choice">
-                    <input type="radio" name="styleDirection" value="signal-rich" />
-                    <span>Signalstark &amp; dynamisch</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              <div class="configurator-form__grid">
-                <label class="configurator-field">
-                  <span>Ton</span>
-                  <select class="contact-input" name="tone">
-                    <option value="calm" selected>Ruhig und wertig</option>
-                    <option value="direct">Direkt und klar</option>
-                    <option value="bold">Markant und selbstbewusst</option>
-                  </select>
-                </label>
-                <label class="configurator-field">
-                  <span>Dichte</span>
-                  <input class="contact-input configurator-range" type="range" name="density" min="1" max="3" step="1"
-                    value="2" />
-                </label>
-              </div>
-            </div>
-
-            <div class="configurator-form__section">
-              <div class="configurator-form__section-head">
-                <p class="configurator-form__step">03</p>
-                <h3 class="configurator-form__title font-display">Sektionen aufbauen</h3>
-              </div>
-
-              <p class="configurator-form__hint text-sm text-white/60 mb-3">
-                Fuege Module hinzu. In der Vorschau erscheinen beim Hover Controls fuer Reihenfolge, Theme und Loeschen.
-              </p>
-              <div class="configurator-add-controls flex flex-wrap gap-2" data-add-section-controls>
-                <button type="button" class="configurator-add-btn rounded-full border border-white/15 bg-white/5 hover:bg-white/10 px-4 py-2 text-sm transition" data-add-section="text">
-                  + Text-Modul
-                </button>
-                <button type="button" class="configurator-add-btn rounded-full border border-white/15 bg-white/5 hover:bg-white/10 px-4 py-2 text-sm transition" data-add-section="feature">
-                  + Feature-Modul
-                </button>
-              </div>
-            </div>
-
-            <div class="configurator-form__section">
-              <div class="configurator-form__section-head">
-                <p class="configurator-form__step">04</p>
-                <h3 class="configurator-form__title font-display">Konfiguration besprechen</h3>
-              </div>
-
-              <div class="configurator-handoff grid gap-5 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
-                <div class="grid gap-2">
-                  <p class="configurator-handoff__kicker">Naechster Schritt</p>
-                  <p class="configurator-handoff__text">
-                    Uebernimm deinen Entwurf ins Kontaktformular. Dort kannst du Kontaktdaten ergaenzen und die Anfrage
-                    bewusst final absenden.
-                  </p>
-                </div>
-
-                <button type="button" class="final-cta-btn final-cta-btn--primary configurator-handoff__button"
-                  data-configurator-handoff>
-                  Konfiguration uebernehmen &amp; besprechen
-                </button>
-              </div>
-
-              <p id="configurator-form-note" class="configurator-form__note">
-                Deine Auswahl wird lokal im Browser gespeichert und auf der Kontaktseite in das Nachrichtenfeld
-                uebernommen.
-              </p>
-            </div>
-          </form>
-
-          <aside class="configurator-preview" data-configurator-preview aria-label="Live-Vorschau">
-            <div class="configurator-preview__screen">
-              <div class="configurator-preview__topbar px-4 py-3" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="configurator-preview__sections flex flex-col w-full h-full overflow-y-auto bg-transparent gap-0 p-0" data-sections-root></div>
-            </div>
-
-            <dl class="configurator-summary" aria-label="Konfigurator-Zusammenfassung">
-              <div>
-                <dt>Typografie</dt>
-                <dd data-summary-typography>Klar &amp; Modern (Inter)</dd>
-              </div>
-              <div>
-                <dt>Brand</dt>
-                <dd data-summary-brand>Monochrome Dark</dd>
-              </div>
-              <div>
-                <dt>Umfang</dt>
-                <dd data-summary-scope>Service-Website</dd>
-              </div>
-            </dl>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="problem"
-      class="approach-section section-surface--darkened py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="webdev-problem-title">
-      <div class="approach-section__inner max-w-7xl mx-auto">
-        <div class="approach-section__header reveal-on-scroll">
-          <p class="approach-section__eyebrow">Problem</p>
-          <h2 id="webdev-problem-title" class="approach-section__headline font-display">
-            Viele Websites sehen gut aus und verlieren trotzdem Momentum.
-          </h2>
-          <p class="approach-section__subline">
-            Wenn Struktur, Ladezeit, Nutzerführung und CTA-Logik nicht sauber zusammenspielen, entsteht kein
-            professioneller Vertriebsauftritt, sondern Reibung.
-          </p>
-        </div>
-        <div class="approach-section__grid">
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">REIBUNG</p>
-              <h3 class="approach-card__title font-display">Zu viele Wege, kein Fokus</h3>
-              <p class="approach-card__body">Besucher sehen viele Inhalte, aber keinen klaren priorisierten nächsten
-                Schritt.</p>
+        <div class="webdev-service-stack">
+          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
+            <span class="webdev-service-block__num">01</span>
+            <div>
+              <h3 class="font-display">Website-Konzeption</h3>
+              <p>Struktur, Zielgruppe, Seitenaufbau, Inhalte und Nutzerführung werden vor der Gestaltung geklärt.</p>
             </div>
           </article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 90ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">TECHNIK</p>
-              <h3 class="approach-card__title font-display">Langsam oder unübersichtlich</h3>
-              <p class="approach-card__body">Schwache Performance, unklare Inhalts-Hierarchien und inkonsistente Module
-                bremsen Vertrauen und Lesbarkeit.</p>
+          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
+            <span class="webdev-service-block__num">02</span>
+            <div>
+              <h3 class="font-display">Webdesign &amp; UX</h3>
+              <p>Klare Gestaltung, mobile Darstellung, verständliche Navigation und eine visuelle Hierarchie, die Orientierung gibt.</p>
             </div>
           </article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 180ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
-            <div class="approach-card__inner">
-              <p class="approach-card__num">CONVERSION</p>
-              <h3 class="approach-card__title font-display">Die Website arbeitet nicht mit dem Angebot</h3>
-              <p class="approach-card__body">Dann bleibt Reichweite ungenutzt, weil die Seite weder Priorität noch klare
-                Angebotslogik transportiert.</p>
+          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
+            <span class="webdev-service-block__num">03</span>
+            <div>
+              <h3 class="font-display">Technische Umsetzung</h3>
+              <p>Saubere Entwicklung, schnelle Ladezeiten, wartbare Struktur und responsive Umsetzung für alle wichtigen Geräte.</p>
+            </div>
+          </article>
+          <article class="webdev-service-block trust-strip__item reveal-on-scroll">
+            <span class="webdev-service-block__num">04</span>
+            <div>
+              <h3 class="font-display">SEO &amp; Performance-Basis</h3>
+              <p>Meta-Daten, Überschriftenstruktur, technische SEO-Grundlagen, Core Web Vitals und Bildoptimierung.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="approach" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="webdev-approach-title">
-      <div class="process-section__inner max-w-7xl mx-auto">
-        <div class="process-section__header reveal-on-scroll">
-          <p class="process-section__eyebrow">Ansatz</p>
-          <h2 id="webdev-approach-title" class="process-section__headline font-display">
-            Strategie vor Oberfläche. Seitenarchitektur vor Code.
-          </h2>
-          <p class="process-section__subline">
-            Bevor umgesetzt wird, definiere ich Ziel, Nutzerweg, Angebotslogik und CTA-Struktur. Erst dann bekommt die
-            Website ihre visuelle und technische Form.
+    <section class="webdev-section webdev-section--muted scroll-focus-section" aria-labelledby="webdev-projects-title">
+      <div class="webdev-container">
+        <div class="webdev-section-head reveal-on-scroll">
+          <p class="webdev-eyebrow">Typische Projekte</p>
+          <h2 id="webdev-projects-title" class="webdev-section-title font-display">Wenn eine Website klarer, schneller oder anfragefähiger werden soll.</h2>
+        </div>
+        <div class="webdev-usecase-grid">
+          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+            <h3>Neue Unternehmenswebsite</h3>
+            <p><strong>Ausgangslage:</strong> Es gibt noch keinen belastbaren Auftritt.</p>
+            <p><strong>Ziel:</strong> Angebot, Zielgruppe und Kontaktweg verständlich machen.</p>
+            <p><strong>Ergebnis:</strong> Eine klare Website mit sauberer Struktur und Anfragefokus.</p>
+          </article>
+          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+            <h3>Website-Relaunch</h3>
+            <p><strong>Ausgangslage:</strong> Die bestehende Website wirkt unklar, langsam oder nicht mehr passend.</p>
+            <p><strong>Ziel:</strong> Inhalte, Gestaltung und Technik neu ordnen.</p>
+            <p><strong>Ergebnis:</strong> Ein ruhigerer Auftritt mit besserer Führung und moderner Basis.</p>
+          </article>
+          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+            <h3>Landingpage für ein konkretes Angebot</h3>
+            <p><strong>Ausgangslage:</strong> Ein Angebot braucht eine eigene, fokussierte Seite.</p>
+            <p><strong>Ziel:</strong> Nutzen, Ablauf und Anfragegrund schnell erklären.</p>
+            <p><strong>Ergebnis:</strong> Eine Seite mit klarer Argumentation und eindeutiger CTA-Führung.</p>
+          </article>
+          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+            <h3>Performance- und SEO-Optimierung</h3>
+            <p><strong>Ausgangslage:</strong> Ladezeiten, Struktur oder technische SEO bremsen die Website.</p>
+            <p><strong>Ziel:</strong> Messbare technische Schwächen beheben.</p>
+            <p><strong>Ergebnis:</strong> Schnellere Ladezeiten, sauberere Semantik und bessere Indexierbarkeit.</p>
+          </article>
+          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+            <h3>Technische Erweiterungen</h3>
+            <p><strong>Ausgangslage:</strong> Die Website braucht neue Funktionen oder bessere Pflegewege.</p>
+            <p><strong>Ziel:</strong> Erweiterungen sauber in die bestehende Struktur einbauen.</p>
+            <p><strong>Ergebnis:</strong> Mehr Funktion, ohne die Website unnötig schwer zu machen.</p>
+          </article>
+          <article class="webdev-usecase trust-strip__item reveal-on-scroll">
+            <h3>Automatisierungen rund um Website und Kundenanfragen</h3>
+            <p><strong>Ausgangslage:</strong> Anfragen oder wiederkehrende Schritte kosten zu viel Zeit.</p>
+            <p><strong>Ziel:</strong> Formulare, Übergaben und einfache Abläufe besser verbinden.</p>
+            <p><strong>Ergebnis:</strong> Weniger manuelle Arbeit und klarere Prozesse nach der Anfrage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-process-title">
+      <div class="webdev-container">
+        <div class="webdev-process-intro reveal-on-scroll">
+          <p class="webdev-eyebrow">Arbeitsweise</p>
+          <h2 id="webdev-process-title" class="webdev-section-title font-display">So läuft die Zusammenarbeit.</h2>
+          <p>
+            Du arbeitest direkt mit mir. Keine unnötigen Abstimmungsschleifen, keine aufgeblasenen Prozesse, sondern
+            klare Schritte von der ersten Analyse bis zur fertigen Website.
           </p>
         </div>
-
-        <ol class="process-section__steps" aria-label="Ansatz in vier Schritten">
-          <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">01</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">01</p>
-              <h3 class="process-step__title font-display">Zielbild klären</h3>
-              <p class="process-step__body">Was soll die Website konkret auslösen und welches Angebot steht im Fokus?
-              </p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 80ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">02</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">02</p>
-              <h3 class="process-step__title font-display">Seitenarchitektur bauen</h3>
-              <p class="process-step__body">Inhalte, Module, Hierarchien und Kontaktpfade werden sauber priorisiert.</p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 160ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">03</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">03</p>
-              <h3 class="process-step__title font-display">Design und Entwicklung verzahnen</h3>
-              <p class="process-step__body">Gestaltung und Technik greifen ineinander, statt sich gegenseitig zu
-                blockieren.</p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 240ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">04</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">04</p>
-              <h3 class="process-step__title font-display">Launch sauber vorbereiten</h3>
-              <p class="process-step__body">QA, Tracking, Responsiveness und CTA-Wege werden vor der Freigabe
-                überprüft.</p>
-            </div>
-          </li>
+        <ol class="webdev-process-list">
+          <li class="process-step reveal-on-scroll"><span>01</span><strong>Analyse &amp; Zielklärung</strong></li>
+          <li class="process-step reveal-on-scroll"><span>02</span><strong>Struktur &amp; Inhalte</strong></li>
+          <li class="process-step reveal-on-scroll"><span>03</span><strong>Designrichtung</strong></li>
+          <li class="process-step reveal-on-scroll"><span>04</span><strong>Umsetzung</strong></li>
+          <li class="process-step reveal-on-scroll"><span>05</span><strong>SEO- und Performance-Check</strong></li>
+          <li class="process-step reveal-on-scroll"><span>06</span><strong>Übergabe oder laufende Betreuung</strong></li>
         </ol>
       </div>
     </section>
 
-    <section id="deliverables" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="webdev-deliverables-title">
-      <div class="packages-section__inner max-w-7xl mx-auto">
-        <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Lieferumfang</p>
-          <h2 id="webdev-deliverables-title" class="packages-section__headline font-display">
-            Was du konkret bekommst und was es im Ergebnis verbessert.
-          </h2>
-        </div>
-
-        <div class="packages-section__grid">
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Strukturiertes Websystem</p>
-                <p class="pkg-card__tagline">Für klare Hierarchien und eine ruhigere Nutzerführung.</p>
-              </div>
-              <ul class="pkg-card__list">
-                <li class="pkg-card__list-item">Seitenstruktur und Modul-Logik</li>
-                <li class="pkg-card__list-item">klare CTA-Hierarchie</li>
-                <li class="pkg-card__list-item">responsive Umsetzung für Desktop und Mobile</li>
-              </ul>
-            </div>
-          </article>
-          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Technisches Fundament</p>
-                <p class="pkg-card__tagline">Für Performance, Wartbarkeit und sauberen Betrieb.</p>
-              </div>
-              <ul class="pkg-card__list">
-                <li class="pkg-card__list-item">performante Frontend-Umsetzung</li>
-                <li class="pkg-card__list-item">saubere semantische Struktur</li>
-                <li class="pkg-card__list-item">Tracking- und SEO-Grundlage</li>
-              </ul>
-            </div>
-          </article>
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Launch-Bereitschaft</p>
-                <p class="pkg-card__tagline">Für einen Auftritt, der nicht nur fertig aussieht.</p>
-              </div>
-              <ul class="pkg-card__list">
-                <li class="pkg-card__list-item">Qualitätssicherung vor dem Go-live</li>
-                <li class="pkg-card__list-item">klare Übergabe und nächste Schritte</li>
-                <li class="pkg-card__list-item">typischer Projektrahmen je nach Umfang und Seitenzahl</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="standards"
-      class="about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="webdev-standards-title">
-      <div class="about-section__inner max-w-7xl mx-auto">
-        <div class="about-section__layout">
-          <div class="about-section__text-col">
-            <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">Qualitätsstandards</p>
-              <h2 id="webdev-standards-title" class="about-section__headline font-display">
-                Performance ist kein Extra. Sie ist Teil des Standards.
-              </h2>
-              <p class="about-section__subline">
-                Gute Webentwicklung bedeutet nicht nur, dass etwas funktioniert. Sie muss schnell, verständlich,
-                wartbar und im Alltag belastbar sein.
-              </p>
-            </div>
+    <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-why-title">
+      <div class="webdev-container">
+        <div class="webdev-why-grid">
+          <div class="reveal-on-scroll">
+            <p class="webdev-eyebrow">Warum Smart Web Studio</p>
+            <h2 id="webdev-why-title" class="webdev-section-title font-display">
+              Für Unternehmen, die eine professionelle Website brauchen, aber keine große Agentur.
+            </h2>
           </div>
-
-          <div class="about-section__blocks">
-            <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
-              <h3 class="about-block__title font-display">Saubere Struktur</h3>
-              <p class="about-block__body">Klare Inhalts-Hierarchien, sinnvolle Komponenten und eine umsetzbare
-                Seitenlogik statt unübersichtlicher Einzelscreens.</p>
-            </div>
-            <div class="about-block reveal-on-scroll" style="--about-delay: 90ms;">
-              <h3 class="about-block__title font-display">Performance &amp; Responsiveness</h3>
-              <p class="about-block__body">Mobil muss die Website nicht nur funktionieren, sondern sich leicht, ruhig und
-                professionell anfühlen.</p>
-            </div>
-            <div class="about-block reveal-on-scroll" style="--about-delay: 180ms;">
-              <h3 class="about-block__title font-display">SEO- und Tracking-Basis</h3>
-              <p class="about-block__body">Semantik, Headings, saubere interne Verlinkung und relevante Messpunkte werden
-                direkt mitgedacht.</p>
-            </div>
-          </div>
+          <ul class="webdev-why-list reveal-on-scroll">
+            <li>direkter Ansprechpartner</li>
+            <li>verständliche Beratung</li>
+            <li>klare Struktur statt Design-Spielerei</li>
+            <li>technische Umsetzung mit Blick auf SEO</li>
+            <li>pragmatische Lösungen für kleine Budgets</li>
+            <li>langfristig wartbare Website</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="related" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="packages-section__inner max-w-7xl mx-auto">
-        <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Passende nächste Schritte</p>
-          <h2 class="packages-section__headline font-display">Webentwicklung wirkt am stärksten im Zusammenspiel mit den
-            richtigen Nachbarleistungen.</h2>
+    <section class="webdev-section webdev-section--muted scroll-focus-section" aria-labelledby="webdev-faq-title">
+      <div class="webdev-container">
+        <div class="webdev-section-head reveal-on-scroll">
+          <p class="webdev-eyebrow">FAQ</p>
+          <h2 id="webdev-faq-title" class="webdev-section-title font-display">Kurze Antworten auf häufige Fragen.</h2>
         </div>
-        <div class="packages-section__grid">
-          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
-            <p class="proof-card__meta">Vor dem Build</p>
-            <h3 class="next-step-card__title font-display">Branding schärfen</h3>
-            <p class="next-step-card__text">Wenn Positionierung und Botschaft zuerst klarer werden müssen, bevor die
-              Website übersetzt wird.</p>
-            <div class="mt-5">
-              <a href="branding.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
-                ansehen</a>
-            </div>
-          </article>
-          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 90ms;">
-            <p class="proof-card__meta">Nach dem Launch</p>
-            <h3 class="next-step-card__title font-display">SEO &amp; Marketing aufbauen</h3>
-            <p class="next-step-card__text">Wenn Sichtbarkeit, Content-Struktur und Tracking die Website gezielt weiter
-              treiben sollen.</p>
-            <div class="mt-5">
-              <a href="seo-marketing.html" class="approach-section__btn" aria-label="Leistungen ansehen">Leistungen
-                ansehen</a>
-            </div>
-          </article>
+        <div class="webdev-faq-list">
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Was kostet eine Website?</summary>
+            <p>Das hängt von Umfang, Inhalt, Funktionen und gewünschter Betreuung ab. Nach der Ersteinschätzung bekommst du einen klaren Rahmen statt einer Pauschalzahl ohne Kontext.</p>
+          </details>
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Wie lange dauert die Umsetzung?</summary>
+            <p>Kleine Seiten können oft in wenigen Wochen umgesetzt werden. Relaunches oder Websites mit mehr Inhalt brauchen mehr Vorlauf für Struktur, Texte und Abstimmung.</p>
+          </details>
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Ist SEO enthalten?</summary>
+            <p>Eine SEO-Basis ist enthalten: saubere Überschriften, Meta-Daten, technische Grundlagen, interne Verlinkung und Performance-Blick. Laufender SEO-Content ist ein eigenes Thema.</p>
+          </details>
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Kann ich Inhalte später selbst bearbeiten?</summary>
+            <p>Ja, wenn das für dein Projekt sinnvoll ist. Dann wird die Website so aufgebaut, dass wichtige Inhalte ohne Entwicklerzugriff gepflegt werden können.</p>
+          </details>
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Arbeitest du mit WordPress?</summary>
+            <p>Ja, wenn WordPress zur Ausgangslage passt. Wenn eine schlankere technische Lösung sinnvoller ist, bespreche ich das offen vor Projektstart.</p>
+          </details>
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Bietest du Wartung an?</summary>
+            <p>Ja. Wartung kann je nach System Updates, technische Kontrolle, kleinere Anpassungen und laufende Verbesserung umfassen.</p>
+          </details>
+          <details class="webdev-faq trust-strip__item reveal-on-scroll">
+            <summary>Kannst du auch bestehende Websites verbessern?</summary>
+            <p>Ja. Oft reicht bereits eine gezielte Verbesserung von Struktur, Ladezeit, SEO-Grundlagen oder Kontaktwegen, bevor ein kompletter Relaunch nötig ist.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
-        <div class="reveal-on-scroll">
-          <h2 class="final-cta-section__headline font-display">
-            Wenn deine Website nicht nur Eindruck, sondern Anfragen erzeugen soll.
-          </h2>
-          <p class="final-cta-section__subline">
-            Dann beginnen wir mit einer strukturierten Einordnung deines Auftritts und entscheiden danach über Scope,
-            Reihenfolge und sinnvolle Hebel.
+    <section class="webdev-final scroll-focus-section" aria-labelledby="webdev-final-title">
+      <div class="webdev-container webdev-container--narrow">
+        <div class="webdev-final__inner reveal-on-scroll">
+          <h2 id="webdev-final-title" class="webdev-section-title font-display">Du willst wissen, ob deine Website klar genug ist?</h2>
+          <p>
+            Ich schaue auf Struktur, Verständlichkeit, Ladezeit, SEO-Grundlagen und den Weg zur Anfrage. Danach weißt du,
+            ob kleine Verbesserungen reichen oder ein Relaunch sinnvoller ist.
           </p>
-        </div>
-        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
-            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
-          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
-            aria-label="Mini-Audit anfordern">Mini-Audit anfordern</a>
+          <a href="kontakt.html#kontaktformular" class="webdev-btn webdev-btn--primary">Website einschätzen lassen</a>
         </div>
       </div>
     </section>
@@ -652,7 +314,8 @@
             <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
             <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
             <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
-            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings aria-haspopup="dialog">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings
+                aria-haspopup="dialog">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
       </div>
@@ -667,6 +330,7 @@
     <span aria-hidden="true">&uarr;</span>
   </button>
 
+  <script type="module" src="src/js/water-sphere.js"></script>
   <script type="module" src="src/js/main.js"></script>
 </body>
 

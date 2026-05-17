@@ -1385,6 +1385,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   .webdev-quality__metric,
   .webdev-quality__metric-inner,
   .webdev-quality__face,
+  .webdev-hero__copy,
   .webdev-audit-card-shell,
   .webdev-audit-card__dot:first-child,
   .webdev-audit-bars span::before,
@@ -7703,6 +7704,12 @@ body[data-page="webentwicklung"] #animated-background {
   max-width: 48rem;
 }
 
+.js .webdev-hero__copy {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  animation: webdevHeroContentIn 0.82s cubic-bezier(0.16, 1, 0.3, 1) 120ms forwards;
+}
+
 .webdev-hero__title {
   max-width: 12ch;
   color: #ffffff;
@@ -7730,6 +7737,13 @@ body[data-page="webentwicklung"] #animated-background {
   width: min(100%, 30rem);
   margin-inline: auto;
   perspective: 1200px;
+}
+
+.js .webdev-hero .webdev-audit-card-shell {
+  opacity: 0;
+  animation:
+    webdevHeroCardIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 240ms forwards,
+    webdevAuditFloat 6.2s ease-in-out 1.15s infinite;
 }
 
 .webdev-audit-card-shell.is-visible {
@@ -7938,19 +7952,23 @@ body[data-page="webentwicklung"] #animated-background {
   box-shadow: 0 0 12px rgba(142, 232, 255, 0.34);
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-bars span::before {
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span::before,
+.webdev-hero .webdev-audit-card-shell .webdev-audit-bars span::before {
   animation: webdevAuditFillBar 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(1)::before {
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(1)::before,
+.webdev-hero .webdev-audit-card-shell .webdev-audit-bars span:nth-child(1)::before {
   animation-delay: 0.42s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(2)::before {
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(2)::before,
+.webdev-hero .webdev-audit-card-shell .webdev-audit-bars span:nth-child(2)::before {
   animation-delay: 0.56s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(3)::before {
+.webdev-audit-card-shell.is-visible .webdev-audit-bars span:nth-child(3)::before,
+.webdev-hero .webdev-audit-card-shell .webdev-audit-bars span:nth-child(3)::before {
   animation-delay: 0.7s;
 }
 
@@ -7975,19 +7993,24 @@ body[data-page="webentwicklung"] #animated-background {
 }
 
 .webdev-audit-card-shell.is-visible .webdev-audit-metrics div,
-.webdev-audit-card-shell.is-visible .webdev-audit-checks li {
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li,
+.webdev-hero .webdev-audit-card-shell .webdev-audit-metrics div,
+.webdev-hero .webdev-audit-card-shell .webdev-audit-checks li {
   animation: webdevAuditItemIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(1) {
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(1),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-metrics div:nth-child(1) {
   animation-delay: 0.5s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(2) {
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(2),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-metrics div:nth-child(2) {
   animation-delay: 0.62s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(3) {
+.webdev-audit-card-shell.is-visible .webdev-audit-metrics div:nth-child(3),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-metrics div:nth-child(3) {
   animation-delay: 0.74s;
 }
 
@@ -8042,20 +8065,46 @@ body[data-page="webentwicklung"] #animated-background {
   box-shadow: 0 0 12px rgba(142, 232, 255, 0.72);
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(1) {
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(1),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-checks li:nth-child(1) {
   animation-delay: 0.86s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(2) {
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(2),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-checks li:nth-child(2) {
   animation-delay: 0.98s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(3) {
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(3),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-checks li:nth-child(3) {
   animation-delay: 1.1s;
 }
 
-.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(4) {
+.webdev-audit-card-shell.is-visible .webdev-audit-checks li:nth-child(4),
+.webdev-hero .webdev-audit-card-shell .webdev-audit-checks li:nth-child(4) {
   animation-delay: 1.22s;
+}
+
+@keyframes webdevHeroContentIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes webdevHeroCardIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes webdevAuditFloat {

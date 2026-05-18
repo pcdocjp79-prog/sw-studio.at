@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/webdev-service-accordion.css" />
+  <link rel="stylesheet" href="src/css/webdev-problem-stack.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -69,10 +70,8 @@
               Ich entwickle professionelle Websites für Unternehmen, die online verständlich auftreten, Vertrauen aufbauen und aus Besuchern echte Anfragen machen wollen.
             </p>
             <div class="webdev-hero__actions">
-              <a href="kontakt.html#kontaktformular" class="webdev-btn webdev-btn--primary"
+              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
                 aria-label="Website-Projekt anfragen">Website-Projekt anfragen</a>
-              <a href="kontakt.html#kontaktformular" class="webdev-btn webdev-btn--secondary"
-                aria-label="Kostenlose Ersteinschätzung">Kostenlose Ersteinschätzung</a>
             </div>
           </div>
 
@@ -136,59 +135,102 @@
               aufbauen, technisch sauber laufen und Besucher zur nächsten Handlung führen.
             </p>
           </div>
-          <div class="webdev-problem__signal reveal-on-scroll" style="--webdev-card-delay: 120ms;" aria-label="Website Diagnose">
-            <div class="webdev-problem__signal-top">
-              <span class="webdev-problem__signal-label">Diagnose</span>
-              <span class="webdev-problem__signal-status">Audit offen</span>
+          <div class="webdev-problem-stack reveal-on-scroll" style="--webdev-card-delay: 120ms;" data-webdev-problem-stack aria-label="Die 4 größten Website-Probleme">
+            <div class="webdev-problem-stack__cards">
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--message" type="button" data-problem-card data-problem-index="0">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--blue" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                      <path d="M12 17h.01"></path>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 1 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Unklare Botschaft</strong>
+                  <span>Besucher verstehen nicht schnell genug, was du anbietest und warum es relevant ist.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Website Audit</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--structure" type="button" data-problem-card data-problem-index="1">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--violet" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="3" y="3" width="6" height="6" rx="1"></rect>
+                      <rect x="15" y="15" width="6" height="6" rx="1"></rect>
+                      <path d="M9 6h6v9"></path>
+                      <path d="M15 9h-3"></path>
+                      <rect x="3" y="15" width="6" height="6" rx="1"></rect>
+                      <path d="M9 18h6"></path>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 2 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Schwache Struktur</strong>
+                  <span>Inhalte sind vorhanden, aber nicht so geordnet, dass sie Orientierung geben und Entscheidungen erleichtern.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Website Audit</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--speed" type="button" data-problem-card data-problem-index="2">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--rose" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 6v6l4 2"></path>
+                      <circle cx="12" cy="12" r="1"></circle>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 3 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Langsame Ladezeiten</strong>
+                  <span>Zu große Bilder, unnötige Skripte oder technische Altlasten bremsen die Website aus.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Website Audit</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--focus" type="button" data-problem-card data-problem-index="3">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--mint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <circle cx="12" cy="12" r="6"></circle>
+                      <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 4 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Zu wenig Anfragefokus</strong>
+                  <span>Der Weg zur Kontaktaufnahme ist nicht klar genug sichtbar oder fühlt sich für Besucher zu unverbindlich an.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Website Audit</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
             </div>
-            <div class="webdev-problem__signal-score">
-              <span>3</span>
-              <small>kritische Bremsen</small>
-            </div>
-            <div class="webdev-problem__signal-row" style="--signal-level: 42%;">
-              <div>
-                <span>Verständlichkeit</span>
-                <strong>unklar</strong>
-              </div>
-              <i aria-hidden="true"></i>
-            </div>
-            <div class="webdev-problem__signal-row" style="--signal-level: 36%;">
-              <div>
-                <span>Struktur</span>
-                <strong>bricht ab</strong>
-              </div>
-              <i aria-hidden="true"></i>
-            </div>
-            <div class="webdev-problem__signal-row" style="--signal-level: 30%;">
-              <div>
-                <span>Anfrageweg</span>
-                <strong>zu leise</strong>
-              </div>
-              <i aria-hidden="true"></i>
+            <div class="webdev-problem-stack__dots" aria-label="Aktives Website-Problem">
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
             </div>
           </div>
-        </div>
-        <div class="webdev-problem-cards">
-          <article class="webdev-problem-card webdev-problem-card--wide reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span class="webdev-problem-card__num">01</span>
-            <h3>Unklare Botschaft</h3>
-            <p>Besucher verstehen nicht schnell genug, was du anbietest und warum es relevant ist.</p>
-          </article>
-          <article class="webdev-problem-card webdev-problem-card--wide reveal-on-scroll" style="--webdev-card-delay: 90ms;">
-            <span class="webdev-problem-card__num">02</span>
-            <h3>Schwache Struktur</h3>
-            <p>Inhalte sind vorhanden, aber nicht so geordnet, dass sie Orientierung geben und Entscheidungen erleichtern.</p>
-          </article>
-          <article class="webdev-problem-card reveal-on-scroll" style="--webdev-card-delay: 180ms;">
-            <span class="webdev-problem-card__num">03</span>
-            <h3>Langsame Ladezeiten</h3>
-            <p>Zu große Bilder, unnötige Skripte oder technische Altlasten bremsen die Website aus.</p>
-          </article>
-          <article class="webdev-problem-card reveal-on-scroll" style="--webdev-card-delay: 270ms;">
-            <span class="webdev-problem-card__num">04</span>
-            <h3>Zu wenig Anfragefokus</h3>
-            <p>Der Weg zur Kontaktaufnahme ist nicht klar genug sichtbar oder fühlt sich für Besucher zu unverbindlich an.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -713,6 +755,7 @@
   <script type="module" src="src/js/water-sphere.js"></script>
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/webdev-service-accordion.js"></script>
+  <script type="module" src="src/js/webdev-problem-stack.js"></script>
 </body>
 
 </html>

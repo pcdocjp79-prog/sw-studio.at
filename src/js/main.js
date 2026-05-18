@@ -11,7 +11,6 @@ const SURFACE_REVEAL_SELECTOR = [
   ".next-step-card",
   ".contact-aside",
   ".contact-form-shell",
-  ".configurator-shell",
 ].join(", ");
 
 const MEDIA_REVEAL_SELECTOR = [
@@ -1565,20 +1564,6 @@ const initCodeClosingTypewriter = () => {
   observer.observe(root);
 };
 
-const initPageSpecificModules = () => {
-  if (document.body?.dataset.page !== "webentwicklung") return;
-  const configuratorRoot = document.querySelector("[data-configurator]");
-  if (!configuratorRoot) return;
-
-  import("./configurator.js")
-    .then(({ initConfigurator }) => {
-      initConfigurator(configuratorRoot);
-    })
-    .catch((error) => {
-      console.error("Configurator module failed to load", error);
-    });
-};
-
 initRevealOnScroll();
 initScrollFocusEffect();
 initHeroStageIntro();
@@ -1594,4 +1579,3 @@ initWebdevAuditCard();
 initWebdevQualityScores();
 initWebdevWhyCount();
 initCodeClosingTypewriter();
-initPageSpecificModules();

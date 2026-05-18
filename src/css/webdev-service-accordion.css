@@ -19,6 +19,7 @@
 }
 
 .webdev-service-panel {
+  --section2-border-angle: 0deg;
   position: relative;
   flex: 1 1 0%;
   min-width: 0;
@@ -39,6 +40,31 @@
   will-change: flex, transform, opacity;
 }
 
+.webdev-service-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--section2-border-angle),
+      rgba(148, 242, 255, 1),
+      rgba(126, 112, 255, 0.96),
+      rgba(255, 84, 184, 0.96),
+      rgba(178, 255, 245, 1),
+      rgba(148, 242, 255, 1));
+  opacity: 0;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--panel-accent) 38%, transparent));
+  pointer-events: none;
+  transition:
+    opacity 520ms ease,
+    filter 520ms ease;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
 .js .webdev-service-panel {
   opacity: 0;
   transform: translateX(-44px);
@@ -55,10 +81,16 @@
 
 .webdev-service-panel.is-active {
   flex: 7 1 0%;
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.18);
   box-shadow:
     0 22px 68px rgba(0, 0, 0, 0.48),
     0 0 24px color-mix(in srgb, var(--panel-accent) 24%, transparent);
+}
+
+.webdev-service-panel.is-active::after {
+  opacity: 0.95;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--panel-accent) 56%, transparent));
+  animation: section2GlowSpin 6.5s linear infinite;
 }
 
 .webdev-service-panel__media,
@@ -283,9 +315,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .webdev-service-panel,
+  .webdev-service-panel::after,
   .webdev-service-panel__media,
   .webdev-service-panel__shade,
   .webdev-service-panel__copy {
+    animation: none !important;
     transition-duration: 0.01ms !important;
   }
 }

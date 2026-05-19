@@ -9026,15 +9026,19 @@ body[data-page="webentwicklung"] #animated-background {
   .js .webdev-project-stack {
     display: block;
     width: min(100%, 39rem);
-    height: clamp(26rem, 52vh, 31rem);
+    height: clamp(27.5rem, 56vh, 33rem);
     justify-self: end;
   }
 
   .js .webdev-project-stack .webdev-usecase {
     position: absolute;
     inset: 0;
+    display: grid;
+    grid-template-rows: auto repeat(3, minmax(0, 1fr));
+    align-content: stretch;
+    gap: clamp(0.9rem, 1.45vh, 1.12rem);
     min-height: 100%;
-    padding: clamp(1.55rem, 2.4vw, 2.05rem);
+    padding: clamp(1.7rem, 2.5vw, 2.2rem);
     transform:
       translate3d(0, var(--project-card-y, 0), var(--project-card-z, 0))
       rotate(var(--project-card-rotate, 0deg))
@@ -9042,6 +9046,30 @@ body[data-page="webentwicklung"] #animated-background {
     transform-style: preserve-3d;
     will-change: transform;
     pointer-events: var(--project-card-events, none);
+  }
+
+  .js .webdev-project-stack .webdev-usecase h3 {
+    align-self: start;
+    margin: 0;
+    font-size: clamp(1.24rem, 1.9vw, 1.58rem);
+    line-height: 1.12;
+  }
+
+  .js .webdev-project-stack .webdev-usecase p {
+    align-self: start;
+    gap: 0.34rem;
+    margin: 0;
+    color: rgba(231, 239, 250, 0.8);
+    font-size: clamp(0.94rem, 1.02vw, 1rem);
+    line-height: 1.58;
+  }
+
+  .js .webdev-project-stack .webdev-usecase p + p {
+    margin-top: 0;
+  }
+
+  .js .webdev-project-stack .webdev-usecase span:not(.webdev-usecase__num) {
+    font-size: 0.7rem;
   }
 
   .js .webdev-project-stack .webdev-usecase.is-active {

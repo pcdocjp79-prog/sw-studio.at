@@ -3315,40 +3315,6 @@ body.has-cookie-banner .scroll-to-top-btn {
   z-index: 1;
 }
 
-.services-panel-section__inner::before,
-.services-panel-section__inner::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.services-panel-section__inner::before {
-  left: 6%;
-  top: 10%;
-  width: clamp(18rem, 30vw, 34rem);
-  height: clamp(14rem, 22vw, 24rem);
-  background: radial-gradient(circle at 38% 40%,
-      rgba(118, 185, 255, 0.2) 0%,
-      rgba(118, 185, 255, 0.08) 35%,
-      rgba(118, 185, 255, 0) 74%);
-  filter: blur(30px);
-  opacity: 0.8;
-}
-
-.services-panel-section__inner::after {
-  right: 2%;
-  top: 34%;
-  width: clamp(20rem, 33vw, 38rem);
-  height: clamp(16rem, 26vw, 29rem);
-  background: radial-gradient(circle at 60% 42%,
-      rgba(255, 122, 218, 0.16) 0%,
-      rgba(255, 122, 218, 0.07) 34%,
-      rgba(255, 122, 218, 0) 74%);
-  filter: blur(34px);
-  opacity: 0.72;
-}
-
 .services-panel-section__header {
   max-width: 52rem;
   margin: 0 auto 4rem;
@@ -4453,11 +4419,9 @@ body[data-page="home"] #process .process-section__header {
 .final-cta-section {
   position: relative;
   overflow: hidden;
-  /* faint separator gradient at the top */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* very subtle centered glow */
 .final-cta-section::before {
   content: "";
   position: absolute;
@@ -4518,6 +4482,14 @@ body[data-page="home"] #process .process-section__header {
   background: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
+}
+
+.approach-section.section-surface--global::before,
+.process-section.section-surface--global::before,
+.packages-section.section-surface--global::before,
+.about-section.section-surface--global::before,
+.final-cta-section.section-surface--global::before {
+  content: none;
 }
 
 /* Headline – notably larger than other section headlines */
@@ -6465,12 +6437,6 @@ body[data-page="webentwicklung"] #animated-background {
   line-height: 1.72;
 }
 
-.webdev-section--muted {
-  background: rgba(8, 8, 12, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 .webdev-usecase-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -7461,22 +7427,11 @@ body[data-page="webentwicklung"] #animated-background {
 .webdev-problem {
   position: relative;
   padding: clamp(3.5rem, 7vw, 5.8rem) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(8, 8, 12, 0.4);
   overflow: hidden;
 }
 
 .webdev-problem::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  height: auto;
-  background:
-    radial-gradient(ellipse 60% 45% at 50% 55%, rgba(255, 84, 184, 0.04) 0%, transparent 70%);
-  filter: none;
-  opacity: 1;
-  pointer-events: none;
+  content: none;
 }
 
 .webdev-problem .webdev-container {
@@ -7821,11 +7776,6 @@ body[data-page="webentwicklung"] #animated-background {
   color: #ffffff;
   font-size: clamp(2rem, 4.7vw, 4.2rem);
   line-height: 1.02;
-}
-
-.webdev-section--muted {
-  background: rgba(8, 8, 12, 0.4);
-  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .webdev-section-intro {

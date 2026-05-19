@@ -7982,6 +7982,25 @@ body[data-page="webentwicklung"] #animated-background {
   gap: 1rem;
 }
 
+.webdev-projects-layout {
+  display: grid;
+  gap: clamp(1.8rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.webdev-projects-copy {
+  align-self: center;
+}
+
+.webdev-projects-copy .webdev-section-intro {
+  max-width: 34rem;
+}
+
+.webdev-project-stack {
+  position: relative;
+  perspective: 1200px;
+}
+
 .webdev-usecase {
   --section2-border-angle: 0deg;
   position: relative;
@@ -8033,7 +8052,27 @@ body[data-page="webentwicklung"] #animated-background {
   z-index: 1;
 }
 
+.webdev-usecase__num {
+  position: absolute;
+  top: clamp(1rem, 2vw, 1.4rem);
+  right: clamp(1rem, 2vw, 1.4rem);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.3rem;
+  min-height: 1.35rem;
+  border: 1px solid rgba(186, 214, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(8, 13, 24, 0.72);
+  color: rgba(231, 239, 250, 0.64);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+}
+
 .webdev-usecase h3 {
+  padding-right: 3rem;
   min-height: 0;
   margin-bottom: 0.2rem;
 }
@@ -8072,6 +8111,29 @@ body[data-page="webentwicklung"] #animated-background {
 .webdev-usecase:hover::after {
   opacity: 1;
   filter: drop-shadow(0 0 18px rgba(185, 255, 248, 0.95));
+}
+
+.webdev-project-stack .webdev-usecase::after {
+  background: var(--project-card-accent, conic-gradient(from var(--section2-border-angle),
+      rgba(148, 242, 255, 1),
+      rgba(126, 112, 255, 0.96),
+      rgba(255, 84, 184, 0.96),
+      rgba(178, 255, 245, 1),
+      rgba(148, 242, 255, 1)));
+  animation: none;
+  opacity: 0.86;
+  filter: drop-shadow(0 0 16px rgba(98, 173, 255, 0.28));
+}
+
+.webdev-project-stack .webdev-usecase::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: calc(1.25rem - 1px);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(148, 242, 255, 0.13), transparent 38%),
+    linear-gradient(180deg, rgba(7, 11, 21, 0.98), rgba(8, 13, 24, 0.96));
 }
 
 .webdev-usecase:nth-child(2)::after,
@@ -8935,6 +8997,57 @@ body[data-page="webentwicklung"] #animated-background {
     margin-top: 0;
   }
 
+  .js .webdev-projects-scroll {
+    min-height: calc(100vh + 420vh);
+    padding: 0;
+  }
+
+  .js .webdev-projects-scroll .webdev-container {
+    position: sticky;
+    top: 0;
+    display: grid;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: clamp(5rem, 8vw, 7rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .webdev-projects-layout {
+    grid-template-columns: minmax(0, 0.82fr) minmax(28rem, 1fr);
+  }
+
+  .webdev-projects-copy {
+    position: sticky;
+    top: 8rem;
+    align-self: center;
+  }
+
+  .js .webdev-project-stack {
+    display: block;
+    width: min(100%, 39rem);
+    height: clamp(26rem, 52vh, 31rem);
+    justify-self: end;
+  }
+
+  .js .webdev-project-stack .webdev-usecase {
+    position: absolute;
+    inset: 0;
+    min-height: 100%;
+    padding: clamp(1.55rem, 2.4vw, 2.05rem);
+    transform:
+      translate3d(0, var(--project-card-y, 0), var(--project-card-z, 0))
+      rotate(var(--project-card-rotate, 0deg))
+      scale(var(--project-card-scale, 1));
+    transform-style: preserve-3d;
+    opacity: var(--project-card-opacity, 1);
+    will-change: transform, opacity;
+    pointer-events: var(--project-card-events, none);
+  }
+
+  .js .webdev-project-stack .webdev-usecase.is-active {
+    --project-card-events: auto;
+  }
+
   .webdev-services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -8960,7 +9073,7 @@ body[data-page="webentwicklung"] #animated-background {
     min-height: 15rem;
   }
 
-  .webdev-usecase-grid {
+  .webdev-usecase-grid:not(.webdev-project-stack) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -9024,6 +9137,34 @@ body[data-page="webentwicklung"] #animated-background {
 
   .webdev-usecase h3 {
     min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .webdev-projects-scroll {
+    min-height: auto;
+    padding: clamp(3.8rem, 7vw, 6.4rem) 0;
+  }
+
+  .js .webdev-projects-scroll .webdev-container {
+    position: relative;
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .js .webdev-project-stack {
+    display: grid;
+    width: auto;
+    height: auto;
+  }
+
+  .js .webdev-project-stack .webdev-usecase {
+    position: relative;
+    inset: auto;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 

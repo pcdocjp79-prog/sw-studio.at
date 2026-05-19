@@ -539,9 +539,10 @@
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-projects-title">
+    <section class="webdev-section scroll-focus-section webdev-projects-scroll" aria-labelledby="webdev-projects-title" data-webdev-project-stack>
       <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
+        <div class="webdev-projects-layout">
+        <div class="webdev-section-head webdev-section-head--stacked webdev-projects-copy reveal-on-scroll">
           <p class="webdev-eyebrow">Typische Projekte</p>
           <h2 id="webdev-projects-title" class="webdev-section-title font-display">Wenn deine Website klarer, schneller oder professioneller werden soll.</h2>
           <p class="webdev-section-intro">
@@ -549,43 +550,50 @@
             wirklich braucht.
           </p>
         </div>
-        <div class="webdev-usecase-grid">
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+        <div class="webdev-usecase-grid webdev-project-stack" aria-label="Typische Webentwicklungsprojekte">
+          <article class="webdev-usecase" data-project-card style="--project-card-accent: linear-gradient(135deg, #ff5fb8, #8057ff 50%, #4ba3e3);">
+            <span class="webdev-usecase__num">01</span>
             <h3>Neue Unternehmenswebsite</h3>
             <p><span>Ausgangslage</span> Du brauchst einen professionellen Webauftritt, der dein Angebot klar erklärt.</p>
             <p><span>Lösung</span> Ich entwickle Struktur, Design und Umsetzung von Grund auf.</p>
             <p><span>Ergebnis</span> Eine Website, die Vertrauen schafft und gezielt zu Anfragen führt.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 80ms;">
+          <article class="webdev-usecase" data-project-card style="--project-card-accent: linear-gradient(135deg, #2868ff, #6c63ff);">
+            <span class="webdev-usecase__num">02</span>
             <h3>Website-Relaunch</h3>
             <p><span>Ausgangslage</span> Deine bestehende Website wirkt veraltet, unklar oder technisch schwerfällig.</p>
             <p><span>Lösung</span> Inhalte, Gestaltung und Technik werden neu geordnet.</p>
             <p><span>Ergebnis</span> Ein moderner Auftritt mit besserer Nutzerführung und sauberer Basis.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+          <article class="webdev-usecase" data-project-card style="--project-card-accent: linear-gradient(135deg, #4ce6ff, #3188ff 48%, #4738c9);">
+            <span class="webdev-usecase__num">03</span>
             <h3>Landingpage für ein Angebot</h3>
             <p><span>Ausgangslage</span> Ein konkretes Angebot braucht eine eigene, fokussierte Seite.</p>
             <p><span>Lösung</span> Nutzen, Ablauf, Einwände und Anfrageweg werden klar aufgebaut.</p>
             <p><span>Ergebnis</span> Eine Landingpage, die schneller erklärt und gezielter konvertiert.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+          <article class="webdev-usecase" data-project-card style="--project-card-accent: linear-gradient(135deg, #8f5cff, #ff5fb8 48%, #4c1d95);">
+            <span class="webdev-usecase__num">04</span>
             <h3>Performance- und SEO-Optimierung</h3>
             <p><span>Ausgangslage</span> Deine Website lädt langsam oder ist technisch nicht sauber aufgebaut.</p>
             <p><span>Lösung</span> Ich verbessere Ladezeit, Struktur, Meta-Daten, Bilder und technische Grundlagen.</p>
             <p><span>Ergebnis</span> Eine schnellere, sauberere und besser indexierbare Website.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 80ms;">
+          <article class="webdev-usecase" data-project-card style="--project-card-accent: linear-gradient(135deg, #3fe7cf, #2578ff);">
+            <span class="webdev-usecase__num">05</span>
             <h3>Technische Erweiterungen</h3>
             <p><span>Ausgangslage</span> Die Website braucht neue Funktionen oder bessere Pflegewege.</p>
             <p><span>Lösung</span> Erweiterungen werden so eingebaut, dass die Seite übersichtlich und wartbar bleibt.</p>
             <p><span>Ergebnis</span> Mehr Funktion, ohne unnötige Komplexität.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+          <article class="webdev-usecase" data-project-card style="--project-card-accent: linear-gradient(135deg, #4ba3e3, #6257ff 50%, #b05cff);">
+            <span class="webdev-usecase__num">06</span>
             <h3>Automatisierungen rund um Anfragen</h3>
             <p><span>Ausgangslage</span> Kontaktanfragen oder wiederkehrende Abläufe kosten zu viel Zeit.</p>
             <p><span>Lösung</span> Formulare, Benachrichtigungen und einfache Übergaben werden besser verbunden.</p>
             <p><span>Ergebnis</span> Weniger manuelle Arbeit und klarere Prozesse nach der Anfrage.</p>
           </article>
+        </div>
         </div>
       </div>
     </section>
@@ -756,6 +764,7 @@
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/webdev-service-accordion.js"></script>
   <script type="module" src="src/js/webdev-problem-stack.js"></script>
+  <script type="module" src="src/js/webdev-project-stack.js"></script>
 </body>
 
 </html>

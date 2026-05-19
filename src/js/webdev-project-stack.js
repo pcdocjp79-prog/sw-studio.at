@@ -43,6 +43,7 @@ const initWebdevProjectStack = () => {
   if (!root) return;
 
   const cards = Array.from(root.querySelectorAll("[data-project-card]"));
+  const cta = root.querySelector("[data-project-stack-cta]");
   if (cards.length < 2) return;
 
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -60,6 +61,15 @@ const initWebdevProjectStack = () => {
       card.classList.remove("is-active");
       card.removeAttribute("aria-hidden");
     });
+
+    if (cta) {
+      cta.style.removeProperty("--project-cta-opacity");
+      cta.style.removeProperty("--project-cta-y");
+      cta.style.removeProperty("--project-cta-scale");
+      cta.style.removeProperty("--project-cta-events");
+      cta.classList.remove("is-visible");
+      cta.removeAttribute("aria-hidden");
+    }
   };
 
   const render = () => {
@@ -91,6 +101,17 @@ const initWebdevProjectStack = () => {
       card.classList.toggle("is-active", isActive);
       card.setAttribute("aria-hidden", currentStep > index ? "true" : "false");
     });
+
+    if (cta) {
+      const ctaProgress = clamp(scaledProgress - (cards.length - 1));
+      const ctaVisible = ctaProgress > 0.05;
+
+      cta.style.setProperty("--project-cta-opacity", ctaProgress.toFixed(3));
+      cta.style.setProperty("--project-cta-y", `${((1 - ctaProgress) * 22).toFixed(2)}px`);
+      cta.style.setProperty("--project-cta-scale", (0.97 + ctaProgress * 0.03).toFixed(3));
+      cta.classList.toggle("is-visible", ctaVisible);
+      cta.setAttribute("aria-hidden", ctaVisible ? "false" : "true");
+    }
   };
 
   const requestRender = () => {

@@ -8001,6 +8001,65 @@ body[data-page="webentwicklung"] #animated-background {
   perspective: 1200px;
 }
 
+.webdev-project-stack__cta {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(1.05rem, 2.1vw, 1.45rem);
+  align-content: stretch;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1.15rem;
+  background: linear-gradient(145deg, rgba(24, 35, 56, 0.54) 0%, rgba(11, 17, 30, 0.68) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 18px 42px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: clamp(1.55rem, 2.8vw, 2.25rem);
+}
+
+.webdev-project-stack__cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(80% 120% at 0% 0%, rgba(148, 242, 255, 0.11) 0%, rgba(148, 242, 255, 0) 50%),
+    radial-gradient(80% 120% at 100% 100%, rgba(255, 84, 184, 0.06) 0%, rgba(255, 84, 184, 0) 56%);
+  opacity: 0.78;
+}
+
+.webdev-project-stack__cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.webdev-project-stack__cta h3 {
+  max-width: 100%;
+  margin: 0;
+  color: #f7fbff;
+  text-shadow: 0 0 22px rgba(148, 242, 255, 0.14);
+  font-size: clamp(1.72rem, 3.1vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.webdev-project-stack__cta p {
+  align-self: center;
+  max-width: 36rem;
+  margin: 0;
+  color: rgba(231, 239, 250, 0.82);
+  font-size: clamp(0.98rem, 1.2vw, 1.06rem);
+  line-height: 1.7;
+}
+
+.webdev-project-stack__cta .final-cta-btn {
+  justify-self: start;
+  width: fit-content;
+  margin-top: 0;
+}
+
 .webdev-usecase {
   --section2-border-angle: 0deg;
   position: relative;
@@ -9076,6 +9135,22 @@ body[data-page="webentwicklung"] #animated-background {
     --project-card-events: auto;
   }
 
+  .js .webdev-project-stack__cta {
+    position: absolute;
+    inset: 0;
+    min-height: 100%;
+    opacity: var(--project-cta-opacity, 0);
+    transform: translate3d(0, var(--project-cta-y, 22px), 0) scale(var(--project-cta-scale, 0.97));
+    transition:
+      opacity 220ms ease,
+      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: var(--project-cta-events, none);
+  }
+
+  .js .webdev-project-stack__cta.is-visible {
+    --project-cta-events: auto;
+  }
+
   .webdev-services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -9190,6 +9265,12 @@ body[data-page="webentwicklung"] #animated-background {
   .js .webdev-project-stack .webdev-usecase {
     position: relative;
     inset: auto;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .js .webdev-project-stack__cta {
+    opacity: 1;
     transform: none;
     pointer-events: auto;
   }

@@ -6,7 +6,6 @@ const getCardState = (index, activeStep) => {
     return {
       y: depth * 14,
       z: depth * -15,
-      opacity: Math.max(1 - depth * 0.15, 0.4),
       scale: 1 - depth * 0.03,
       rotate: depth * -2.5,
     };
@@ -16,7 +15,6 @@ const getCardState = (index, activeStep) => {
     return {
       y: 0,
       z: 0,
-      opacity: 1,
       scale: 1,
       rotate: 0,
     };
@@ -25,7 +23,6 @@ const getCardState = (index, activeStep) => {
   return {
     y: -820,
     z: 0,
-    opacity: 0,
     scale: 0.95,
     rotate: -10,
     isReleased: true,
@@ -37,7 +34,6 @@ const interpolate = (start, end, progress) => start + (end - start) * progress;
 const interpolateState = (fromState, toState, progress) => ({
   y: interpolate(fromState.y, toState.y, progress),
   z: interpolate(fromState.z, toState.z, progress),
-  opacity: interpolate(fromState.opacity, toState.opacity, progress),
   scale: interpolate(fromState.scale, toState.scale, progress),
   rotate: interpolate(fromState.rotate, toState.rotate, progress),
 });
@@ -57,7 +53,6 @@ const initWebdevProjectStack = () => {
     cards.forEach((card) => {
       card.style.removeProperty("--project-card-y");
       card.style.removeProperty("--project-card-z");
-      card.style.removeProperty("--project-card-opacity");
       card.style.removeProperty("--project-card-scale");
       card.style.removeProperty("--project-card-rotate");
       card.style.removeProperty("--project-card-events");
@@ -90,12 +85,11 @@ const initWebdevProjectStack = () => {
       const isActive = Math.round(scaledProgress) === index;
       card.style.setProperty("--project-card-y", `${state.y.toFixed(2)}px`);
       card.style.setProperty("--project-card-z", `${state.z}px`);
-      card.style.setProperty("--project-card-opacity", state.opacity.toFixed(3));
       card.style.setProperty("--project-card-scale", state.scale.toFixed(3));
       card.style.setProperty("--project-card-rotate", `${state.rotate.toFixed(3)}deg`);
       card.style.zIndex = String((cards.length - index) * 10);
       card.classList.toggle("is-active", isActive);
-      card.setAttribute("aria-hidden", state.opacity < 0.08 ? "true" : "false");
+      card.setAttribute("aria-hidden", currentStep > index ? "true" : "false");
     });
   };
 

@@ -8114,13 +8114,14 @@ body[data-page="webentwicklung"] #animated-background {
 }
 
 .webdev-project-stack .webdev-usecase::after {
-  background: var(--project-card-accent, conic-gradient(from var(--section2-border-angle),
+  background: conic-gradient(from var(--section2-border-angle),
+      var(--project-card-accent-stops,
       rgba(148, 242, 255, 1),
       rgba(126, 112, 255, 0.96),
       rgba(255, 84, 184, 0.96),
       rgba(178, 255, 245, 1),
       rgba(148, 242, 255, 1)));
-  animation: none;
+  animation: section2GlowSpin 7.5s linear infinite;
   opacity: 0.86;
   filter: drop-shadow(0 0 16px rgba(98, 173, 255, 0.28));
 }
@@ -9039,8 +9040,7 @@ body[data-page="webentwicklung"] #animated-background {
       rotate(var(--project-card-rotate, 0deg))
       scale(var(--project-card-scale, 1));
     transform-style: preserve-3d;
-    opacity: var(--project-card-opacity, 1);
-    will-change: transform, opacity;
+    will-change: transform;
     pointer-events: var(--project-card-events, none);
   }
 
@@ -9163,7 +9163,6 @@ body[data-page="webentwicklung"] #animated-background {
     position: relative;
     inset: auto;
     transform: none;
-    opacity: 1;
     pointer-events: auto;
   }
 }

@@ -38,6 +38,16 @@ const interpolateState = (fromState, toState, progress) => ({
   rotate: interpolate(fromState.rotate, toState.rotate, progress),
 });
 
+const setStyleProperty = (element, property, value) => {
+  if (element.style.getPropertyValue(property) === value) return;
+  element.style.setProperty(property, value);
+};
+
+const setAttributeValue = (element, attribute, value) => {
+  if (element.getAttribute(attribute) === value) return;
+  element.setAttribute(attribute, value);
+};
+
 const initWebdevProjectStack = () => {
   const root = document.querySelector("[data-webdev-project-stack]");
   if (!root) return;
@@ -49,6 +59,9 @@ const initWebdevProjectStack = () => {
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const desktopQuery = window.matchMedia("(min-width: 900px)");
   let rafId = null;
+  let measureRafId = null;
+  let sectionTop = 0;
+  let scrollableDistance = 1;
 
   const resetCards = () => {
     cards.forEach((card) => {
@@ -72,6 +85,19 @@ const initWebdevProjectStack = () => {
     }
   };
 
+  const refreshMeasurements = () => {
+    measureRafId = null;
+    const sectionRect = root.getBoundingClientRect();
+    sectionTop = sectionRect.top + window.scrollY;
+    scrollableDistance = Math.max(root.offsetHeight - window.innerHeight, 1);
+    requestRender();
+  };
+
+  const requestMeasurementRefresh = () => {
+    if (measureRafId !== null) return;
+    measureRafId = window.requestAnimationFrame(refreshMeasurements);
+  };
+
   const render = () => {
     rafId = null;
 
@@ -80,9 +106,7 @@ const initWebdevProjectStack = () => {
       return;
     }
 
-    const sectionRect = root.getBoundingClientRect();
-    const scrollableDistance = Math.max(sectionRect.height - window.innerHeight, 1);
-    const progress = clamp((sectionRect.top * -1) / scrollableDistance);
+    const progress = clamp((window.scrollY - sectionTop) / scrollableDistance);
     const totalIntervals = cards.length;
     const scaledProgress = progress * totalIntervals;
     const currentStep = Math.min(Math.floor(scaledProgress), totalIntervals);
@@ -93,24 +117,24 @@ const initWebdevProjectStack = () => {
       const toState = getCardState(index, Math.min(currentStep + 1, totalIntervals));
       const state = interpolateState(fromState, toState, stepProgress);
       const isActive = Math.round(scaledProgress) === index;
-      card.style.setProperty("--project-card-y", `${state.y.toFixed(2)}px`);
-      card.style.setProperty("--project-card-z", `${state.z}px`);
-      card.style.setProperty("--project-card-scale", state.scale.toFixed(3));
-      card.style.setProperty("--project-card-rotate", `${state.rotate.toFixed(3)}deg`);
-      card.style.zIndex = String((cards.length - index) * 10);
+      setStyleProperty(card, "--project-card-y", `${state.y.toFixed(2)}px`);
+      setStyleProperty(card, "--project-card-z", `${state.z}px`);
+      setStyleProperty(card, "--project-card-scale", state.scale.toFixed(3));
+      setStyleProperty(card, "--project-card-rotate", `${state.rotate.toFixed(3)}deg`);
+      setStyleProperty(card, "z-index", String((cards.length - index) * 10));
       card.classList.toggle("is-active", isActive);
-      card.setAttribute("aria-hidden", currentStep > index ? "true" : "false");
+      setAttributeValue(card, "aria-hidden", currentStep > index ? "true" : "false");
     });
 
     if (cta) {
       const ctaProgress = clamp(scaledProgress - (cards.length - 1));
       const ctaVisible = ctaProgress > 0.05;
 
-      cta.style.setProperty("--project-cta-opacity", ctaProgress.toFixed(3));
-      cta.style.setProperty("--project-cta-y", `${((1 - ctaProgress) * 22).toFixed(2)}px`);
-      cta.style.setProperty("--project-cta-scale", (0.97 + ctaProgress * 0.03).toFixed(3));
+      setStyleProperty(cta, "--project-cta-opacity", ctaProgress.toFixed(3));
+      setStyleProperty(cta, "--project-cta-y", `${((1 - ctaProgress) * 22).toFixed(2)}px`);
+      setStyleProperty(cta, "--project-cta-scale", (0.97 + ctaProgress * 0.03).toFixed(3));
       cta.classList.toggle("is-visible", ctaVisible);
-      cta.setAttribute("aria-hidden", ctaVisible ? "false" : "true");
+      setAttributeValue(cta, "aria-hidden", ctaVisible ? "false" : "true");
     }
   };
 
@@ -120,11 +144,12 @@ const initWebdevProjectStack = () => {
   };
 
   window.addEventListener("scroll", requestRender, { passive: true });
-  window.addEventListener("resize", requestRender);
-  reducedMotionQuery.addEventListener?.("change", requestRender);
-  desktopQuery.addEventListener?.("change", requestRender);
+  window.addEventListener("resize", requestMeasurementRefresh);
+  window.addEventListener("load", requestMeasurementRefresh, { once: true });
+  reducedMotionQuery.addEventListener?.("change", requestMeasurementRefresh);
+  desktopQuery.addEventListener?.("change", requestMeasurementRefresh);
 
-  render();
+  refreshMeasurements();
 };
 
 initWebdevProjectStack();

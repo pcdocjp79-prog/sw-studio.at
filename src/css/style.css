@@ -3249,35 +3249,6 @@ body.has-cookie-banner .scroll-to-top-btn {
   color: rgba(228, 228, 231, 0.7);
 }
 
-.approach-section__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 2.25rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 260ms ease, border-color 260ms ease, transform 260ms ease, box-shadow 260ms ease;
-}
-
-.approach-section__btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
-}
-
-.approach-section__btn:focus-visible {
-  outline: 2px solid rgba(98, 173, 255, 0.85);
-  outline-offset: 3px;
-}
-
 .service-pillars-section {
   position: relative;
   padding-inline: clamp(1rem, 3vw, 3.5rem);
@@ -3383,13 +3354,6 @@ body.has-cookie-banner .scroll-to-top-btn {
   flex: 1 1 auto;
 }
 
-.service-pillars-card__btn {
-  margin-top: auto;
-  align-self: center;
-  padding: 0.72rem 1.35rem;
-  font-size: 0.84rem;
-}
-
 .js .service-pillars-panel.reveal-on-scroll {
   transition-delay: var(--service-pillars-delay, 0ms);
 }
@@ -3403,9 +3367,7 @@ body.has-cookie-banner .scroll-to-top-btn {
 @media (prefers-reduced-motion: reduce) {
 
   .approach-card,
-  .approach-card:hover,
-  .approach-section__btn,
-  .approach-section__btn:hover {
+  .approach-card:hover {
     transition: none;
     transform: none;
   }
@@ -3633,91 +3595,6 @@ body[data-page="home"] #process .process-section__header {
   color: rgba(228, 228, 231, 0.68);
 }
 
-.process-section__btn {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  max-width: 100%;
-  min-height: 44px;
-  padding: 0.85rem clamp(1.4rem, 3vw, 2.25rem);
-  border-radius: 999px;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(180deg, rgba(26, 35, 63, 0.84) 0%, rgba(18, 27, 51, 0.72) 100%) padding-box,
-    linear-gradient(90deg, rgba(255, 84, 184, 0.92) 0%, rgba(155, 122, 255, 0.94) 50%, rgba(148, 242, 255, 0.94) 100%) border-box;
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 16px 36px rgba(5, 11, 28, 0.22),
-    0 0 0 1px rgba(255, 255, 255, 0.03);
-  transition:
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 260ms ease,
-    filter 260ms ease;
-}
-
-.process-section__btn::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(90deg,
-      rgba(255, 84, 184, 0.34) 0%,
-      rgba(155, 122, 255, 0.3) 52%,
-      rgba(148, 242, 255, 0.36) 100%);
-  filter: blur(16px);
-  opacity: 0.78;
-  transition: opacity 260ms ease, filter 260ms ease, transform 260ms ease;
-  z-index: -2;
-  pointer-events: none;
-}
-
-.process-section__btn::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background:
-    radial-gradient(88% 140% at 18% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 54%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 42%);
-  opacity: 0.9;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.process-section__btn:hover {
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 22px 44px rgba(7, 13, 31, 0.3),
-    0 0 22px rgba(148, 242, 255, 0.12),
-    0 0 18px rgba(255, 84, 184, 0.1);
-  filter: brightness(1.03);
-}
-
-.process-section__btn:hover::before {
-  opacity: 0.96;
-  filter: blur(18px);
-  transform: scale(1.015);
-}
-
-.process-section__btn:focus-visible {
-  outline: 2px solid rgba(98, 173, 255, 0.85);
-  outline-offset: 3px;
-}
-
 /* Scroll-reveal stagger */
 .js .process-step.reveal-on-scroll {
   transition-delay: var(--process-delay, 0ms);
@@ -3727,9 +3604,7 @@ body[data-page="home"] #process .process-section__header {
 @media (prefers-reduced-motion: reduce) {
 
   .process-step,
-  .process-step:hover,
-  .process-section__btn,
-  .process-section__btn:hover {
+  .process-step:hover {
     transition: none;
     transform: none;
   }
@@ -4005,46 +3880,6 @@ body[data-page="home"] #process .process-section__header {
   margin-left: 0.25rem;
 }
 
-/* Per-card CTA button */
-.pkg-card__btn {
-  display: block;
-  text-align: center;
-  padding: 0.75rem 1.25rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  font-size: 0.88rem;
-  font-weight: 500;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background 240ms ease, border-color 240ms ease, transform 240ms ease;
-}
-
-.pkg-card__btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.32);
-  transform: translateY(-1px);
-}
-
-.pkg-card__btn:focus-visible {
-  outline: 2px solid rgba(98, 173, 255, 0.85);
-  outline-offset: 3px;
-}
-
-/* Featured button */
-.pkg-card__btn--featured {
-  background: rgba(148, 242, 255, 0.1);
-  border-color: rgba(148, 242, 255, 0.3);
-  color: rgba(148, 242, 255, 0.97);
-}
-
-.pkg-card__btn--featured:hover {
-  background: rgba(148, 242, 255, 0.18);
-  border-color: rgba(148, 242, 255, 0.55);
-}
-
 /* Disclaimer */
 .packages-section__disclaimer {
   margin: 0.5rem auto 3.5rem;
@@ -4129,8 +3964,6 @@ body[data-page="home"] #process .process-section__header {
 
   .pkg-card,
   .pkg-card:hover,
-  .pkg-card__btn,
-  .pkg-card__btn:hover,
   .packages-section__btn,
   .packages-section__btn:hover {
     transition: none;
@@ -4332,36 +4165,6 @@ body[data-page="home"] #process .process-section__header {
   max-width: 42ch;
 }
 
-.about-section__btn {
-  display: inline-flex;
-  justify-self: start;
-  align-self: start;
-  width: fit-content;
-  padding: 0.78rem 1.35rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 260ms ease, border-color 260ms ease, transform 260ms ease, box-shadow 260ms ease;
-}
-
-.about-section__btn:hover {
-  background: rgba(255, 255, 255, 0.13);
-  border-color: rgba(255, 255, 255, 0.38);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
-}
-
-.about-section__btn:focus-visible {
-  outline: 2px solid rgba(98, 173, 255, 0.85);
-  outline-offset: 3px;
-}
-
 .about-section--next-steps .next-step-content {
   display: grid;
   gap: 2rem;
@@ -4371,12 +4174,6 @@ body[data-page="home"] #process .process-section__header {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-}
-
-.about-section--next-steps .next-step-actions__btn {
-  width: 100%;
-  justify-content: center;
-  padding-inline: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -4404,9 +4201,7 @@ body[data-page="home"] #process .process-section__header {
 @media (prefers-reduced-motion: reduce) {
 
   .about-block,
-  .about-block:hover,
-  .about-section__btn,
-  .about-section__btn:hover {
+  .about-block:hover {
     transition: none;
     transform: none;
   }
@@ -4567,11 +4362,7 @@ body[data-page="home"] #process .process-section__header {
   outline-offset: 3px;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .approach-section__btn,
-body:is([data-page="home"], [data-page="webentwicklung"]) .pkg-card__btn,
-body:is([data-page="home"], [data-page="webentwicklung"]) .about-section__btn,
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn,
-body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn {
+body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn {
   position: relative;
   isolation: isolate;
   border: 1px solid transparent;
@@ -4591,11 +4382,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn 
     filter 260ms ease;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .approach-section__btn::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .pkg-card__btn::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .about-section__btn::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn::before {
+body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::before {
   content: "";
   position: absolute;
   inset: -1px;
@@ -4611,11 +4398,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn:
   pointer-events: none;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .approach-section__btn::after,
-body:is([data-page="home"], [data-page="webentwicklung"]) .pkg-card__btn::after,
-body:is([data-page="home"], [data-page="webentwicklung"]) .about-section__btn::after,
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::after,
-body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn::after {
+body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::after {
   content: "";
   position: absolute;
   inset: 1px;
@@ -4628,11 +4411,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn:
   pointer-events: none;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .approach-section__btn:hover,
-body:is([data-page="home"], [data-page="webentwicklung"]) .pkg-card__btn:hover,
-body:is([data-page="home"], [data-page="webentwicklung"]) .about-section__btn:hover,
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover,
-body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn:hover {
+body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover {
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow:
@@ -4643,11 +4422,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn:
   filter: brightness(1.03);
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .approach-section__btn:hover::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .pkg-card__btn:hover::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .about-section__btn:hover::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover::before,
-body:is([data-page="home"], [data-page="webentwicklung"]) .process-section__btn:hover::before {
+body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover::before {
   opacity: 0.96;
   filter: blur(18px);
   transform: scale(1.015);
@@ -5538,15 +5313,6 @@ body:is(
   }
 }
 
-/* Full-width "Mehr erfahren" button in #featured-project */
-#featured-project .about-section__btn {
-  display: flex;
-  justify-self: stretch;
-  align-self: stretch;
-  width: 100%;
-  justify-content: center;
-}
-
 /* Disable hover effects on the stacked cards in #featured-project (KI & Automatisierung) */
 #featured-project .pkg-card:hover,
 #featured-project .pkg-card.reveal-on-scroll.is-visible:hover,
@@ -5697,10 +5463,6 @@ body:is(
 
   .nav-links .nav-link,
   .mobile-nav-toggle,
-  .pkg-card__btn,
-  .approach-section__btn,
-  .process-section__btn,
-  .about-section__btn,
   .packages-section__btn,
   .final-cta-btn {
     min-height: 44px;
@@ -6289,44 +6051,6 @@ body[data-page="webentwicklung"] #animated-background {
   white-space: normal;
 }
 
-.webdev-btn {
-  display: inline-flex;
-  min-height: 3.1rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0.85rem 1.25rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.15;
-  text-align: center;
-  text-decoration: none;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
-}
-
-.webdev-btn--primary {
-  border: 1px solid rgba(174, 230, 255, 0.88);
-  background: linear-gradient(135deg, rgba(174, 230, 255, 0.96), rgba(255, 159, 221, 0.88));
-  color: #07101c;
-  box-shadow: 0 18px 46px rgba(0, 212, 255, 0.14);
-}
-
-.webdev-btn--secondary {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(20, 30, 49, 0.46);
-  color: #f8fbff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.webdev-btn:hover {
-  transform: translateY(-2px);
-}
-
-.webdev-btn:focus-visible {
-  outline: 2px solid rgba(174, 230, 255, 0.95);
-  outline-offset: 4px;
-}
-
 .webdev-hero__panel {
   position: relative;
   overflow: hidden;
@@ -6382,7 +6106,7 @@ body[data-page="webentwicklung"] #animated-background {
 
 .webdev-stance__inner p,
 .webdev-process-intro p,
-.webdev-final p {
+.webdev-final p:not(.webdev-eyebrow):not(.webdev-final__microcopy) {
   color: rgba(230, 237, 247, 0.78);
   font-size: clamp(1.04rem, 1.7vw, 1.18rem);
   line-height: 1.75;
@@ -6865,8 +6589,36 @@ body[data-page="webentwicklung"] #animated-background {
 
 .webdev-final__inner {
   display: grid;
-  justify-items: start;
+  justify-items: center;
   gap: 1.25rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.webdev-final__inner .webdev-section-title,
+.webdev-final__inner p:not(.webdev-eyebrow):not(.webdev-final__microcopy) {
+  max-width: 56rem;
+}
+
+.webdev-final__inner .webdev-eyebrow {
+  margin-bottom: 0;
+}
+
+.webdev-final .final-cta-btn {
+  margin-top: 0.35rem;
+}
+
+.webdev-final .final-cta-btn + .webdev-final__microcopy {
+  margin-top: -0.55rem;
+}
+
+.webdev-final .webdev-final__microcopy {
+  margin: 0;
+  color: rgba(231, 239, 250, 0.76);
+  font-size: clamp(0.8125rem, 1vw, 0.875rem);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
 }
 
 @media (min-width: 640px) {
@@ -6925,8 +6677,7 @@ body[data-page="webentwicklung"] #animated-background {
   }
 
   .webdev-hero-btns .final-cta-btn,
-  .webdev-actions .final-cta-btn,
-  .webdev-btn {
+  .webdev-actions .final-cta-btn {
     width: 100%;
   }
 }
@@ -8985,11 +8736,7 @@ body[data-page="webentwicklung"] #animated-background {
 }
 
 .webdev-final__inner {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: clamp(1.3rem, 4vw, 2.1rem);
-  background: rgba(20, 30, 49, 0.44);
-  box-shadow: 0 10px 28px rgba(3, 10, 24, 0.16);
+  max-width: 62rem;
 }
 
 @media (min-width: 700px) {
@@ -9229,7 +8976,7 @@ body[data-page="webentwicklung"] #animated-background {
     grid-template-columns: 1fr;
   }
 
-  .webdev-btn {
+  .webdev-final .final-cta-btn {
     width: 100%;
     min-height: 3rem;
   }

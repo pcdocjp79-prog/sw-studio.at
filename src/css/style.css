@@ -6949,6 +6949,17 @@ body[data-page="webentwicklung"] #animated-background {
   color: rgba(231, 239, 250, 0.68);
 }
 
+.webdev-audit-score__caption {
+  margin-left: 0.5rem;
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(174, 230, 255, 0.24);
+  color: rgba(174, 230, 255, 0.86);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .webdev-audit-bars {
   display: grid;
   gap: 0.55rem;

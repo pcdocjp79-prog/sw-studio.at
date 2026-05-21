@@ -182,7 +182,15 @@ body:is([data-page="home"], [data-page="webentwicklung"]) {
   background-color: #122033;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"])::before {
+body[data-page="home"]::before {
+  background-color: #0b1426;
+  background-image:
+    radial-gradient(132% 94% at 12% 0%, rgba(58, 137, 228, 0.42) 0%, rgba(0, 0, 0, 0) 60%),
+    radial-gradient(72% 64% at 88% 100%, rgba(245, 128, 202, 0.42) 0%, rgba(0, 0, 0, 0) 68%),
+    linear-gradient(180deg, rgba(72, 94, 136, 0.24) 0%, rgba(32, 48, 78, 0.36) 100%);
+}
+
+body[data-page="webentwicklung"]::before {
   background-color: #22324c;
   background-image:
     radial-gradient(132% 94% at 12% 0%, rgba(127, 190, 255, 0.68) 0%, rgba(0, 0, 0, 0) 60%),
@@ -202,7 +210,25 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .hero-stage__viewport:
     linear-gradient(180deg, rgba(34, 48, 76, 0.2) 0%, rgba(13, 22, 37, 0) 100%);
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .hero-stage__viewport::after {
+body[data-page="home"] .hero-stage__viewport {
+  background:
+    linear-gradient(180deg, rgba(12, 22, 38, 0.84) 0%, rgba(17, 29, 48, 0.74) 60%, rgba(17, 29, 48, 0) 100%);
+}
+
+body[data-page="home"] .hero-stage__viewport::before {
+  background:
+    radial-gradient(120% 92% at 10% 0%, rgba(105, 174, 255, 0.22) 0%, rgba(105, 174, 255, 0) 54%),
+    radial-gradient(88% 72% at 100% 100%, rgba(255, 112, 212, 0.2) 0%, rgba(255, 112, 212, 0) 60%),
+    linear-gradient(180deg, rgba(28, 43, 72, 0.18) 0%, rgba(13, 22, 37, 0) 100%);
+}
+
+body[data-page="home"] .hero-stage__viewport::after {
+  background:
+    radial-gradient(70% 60% at 52% 48%, rgba(104, 178, 248, 0.08) 0%, rgba(104, 178, 248, 0) 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.008) 0%, rgba(255, 255, 255, 0) 28%);
+}
+
+body[data-page="webentwicklung"] .hero-stage__viewport::after {
   background:
     radial-gradient(70% 60% at 52% 48%, rgba(126, 193, 255, 0.11) 0%, rgba(126, 193, 255, 0) 70%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 28%);
@@ -1324,7 +1350,7 @@ img {
 }
 
 body.has-fixed-hero-bg::before {
-  opacity: 0.26;
+  opacity: 0.4;
 }
 
 body.has-fixed-hero-bg .hero-scroll-stack {

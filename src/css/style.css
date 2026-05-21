@@ -147,7 +147,28 @@ html {
 }
 
 body {
-  background-color: #07101c;
+  /* Standard page background: used by all non-technical pages. */
+  --site-bg-color: #122033;
+  --site-bg-layer-color: #0b1426;
+  --site-bg-layer-image:
+    radial-gradient(132% 94% at 12% 0%, rgba(58, 137, 228, 0.42) 0%, rgba(0, 0, 0, 0) 60%),
+    radial-gradient(72% 64% at 88% 100%, rgba(245, 128, 202, 0.42) 0%, rgba(0, 0, 0, 0) 68%),
+    linear-gradient(180deg, rgba(72, 94, 136, 0.24) 0%, rgba(32, 48, 78, 0.36) 100%);
+  --site-bg-layer-size: 140% 140%, 132% 132%, 100% 100%;
+  --site-bg-layer-position: 10% 6%, 90% 96%, 50% 0%;
+  --site-bg-layer-opacity: 0.6;
+  --site-fixed-hero-bg-opacity: 0.6;
+  --site-hero-viewport-bg:
+    linear-gradient(180deg, rgba(12, 22, 38, 0.84) 0%, rgba(17, 29, 48, 0.74) 60%, rgba(17, 29, 48, 0) 100%);
+  --site-hero-viewport-before:
+    radial-gradient(120% 92% at 10% 0%, rgba(105, 174, 255, 0.22) 0%, rgba(105, 174, 255, 0) 54%),
+    radial-gradient(88% 72% at 100% 100%, rgba(255, 112, 212, 0.2) 0%, rgba(255, 112, 212, 0) 60%),
+    linear-gradient(180deg, rgba(28, 43, 72, 0.18) 0%, rgba(13, 22, 37, 0) 100%);
+  --site-hero-viewport-after:
+    radial-gradient(70% 60% at 52% 48%, rgba(104, 178, 248, 0.08) 0%, rgba(104, 178, 248, 0) 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.008) 0%, rgba(255, 255, 255, 0) 28%);
+
+  background-color: var(--site-bg-color);
   position: relative;
   color: var(--text-color);
   font-family: var(--font-main);
@@ -166,72 +187,37 @@ body::before {
   left: 0;
   z-index: -2;
   pointer-events: none;
-  background-color: #18263b;
-  background-image:
-    radial-gradient(130% 90% at 12% 0%, rgba(103, 171, 255, 0.62) 0%, rgba(0, 0, 0, 0) 58%),
-    radial-gradient(70% 60% at 88% 100%, rgba(255, 128, 201, 0.42) 0%, rgba(0, 0, 0, 0) 68%),
-    linear-gradient(180deg, rgba(58, 73, 108, 0.32) 0%, rgba(24, 34, 56, 0.42) 100%);
-  background-size: 140% 140%, 132% 132%, 100% 100%;
-  background-position: 10% 6%, 90% 96%, 50% 0%;
+  background-color: var(--site-bg-layer-color);
+  background-image: var(--site-bg-layer-image);
+  background-size: var(--site-bg-layer-size);
+  background-position: var(--site-bg-layer-position);
   background-repeat: no-repeat;
+  opacity: var(--site-bg-layer-opacity);
   animation: heroStageAmbientFlow 28s ease-in-out infinite alternate;
   will-change: opacity, transform, background-position;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) {
-  background-color: #122033;
-}
-
-body[data-page="home"]::before {
-  background-color: #0b1426;
-  background-image:
-    radial-gradient(132% 94% at 12% 0%, rgba(58, 137, 228, 0.42) 0%, rgba(0, 0, 0, 0) 60%),
-    radial-gradient(72% 64% at 88% 100%, rgba(245, 128, 202, 0.42) 0%, rgba(0, 0, 0, 0) 68%),
-    linear-gradient(180deg, rgba(72, 94, 136, 0.24) 0%, rgba(32, 48, 78, 0.36) 100%);
-}
-
-body[data-page="webentwicklung"]::before {
-  background-color: #22324c;
-  background-image:
-    radial-gradient(132% 94% at 12% 0%, rgba(127, 190, 255, 0.68) 0%, rgba(0, 0, 0, 0) 60%),
-    radial-gradient(72% 64% at 88% 100%, rgba(255, 152, 214, 0.4) 0%, rgba(0, 0, 0, 0) 68%),
-    linear-gradient(180deg, rgba(88, 109, 152, 0.28) 0%, rgba(42, 58, 88, 0.34) 100%);
+/* Technical/legal background variant. */
+body:is([data-page="datenschutz"], [data-page="impressum"], [data-page="cookies"], [data-page="marketing-legacy"]) {
+  --site-bg-color: #07101c;
+  --site-bg-layer-color: #18263b;
+  --site-bg-layer-image:
+    radial-gradient(130% 90% at 12% 0%, rgba(103, 171, 255, 0.62) 0%, rgba(0, 0, 0, 0) 58%),
+    radial-gradient(70% 60% at 88% 100%, rgba(255, 128, 201, 0.42) 0%, rgba(0, 0, 0, 0) 68%),
+    linear-gradient(180deg, rgba(58, 73, 108, 0.32) 0%, rgba(24, 34, 56, 0.42) 100%);
+  --site-bg-layer-opacity: 1;
 }
 
 body:is([data-page="home"], [data-page="webentwicklung"]) .hero-stage__viewport {
-  background:
-    linear-gradient(180deg, rgba(14, 24, 39, 0.82) 0%, rgba(20, 31, 49, 0.72) 60%, rgba(20, 31, 49, 0) 100%);
+  background: var(--site-hero-viewport-bg);
 }
 
 body:is([data-page="home"], [data-page="webentwicklung"]) .hero-stage__viewport::before {
-  background:
-    radial-gradient(120% 92% at 10% 0%, rgba(118, 185, 255, 0.26) 0%, rgba(118, 185, 255, 0) 54%),
-    radial-gradient(88% 72% at 100% 100%, rgba(255, 122, 218, 0.18) 0%, rgba(255, 122, 218, 0) 60%),
-    linear-gradient(180deg, rgba(34, 48, 76, 0.2) 0%, rgba(13, 22, 37, 0) 100%);
+  background: var(--site-hero-viewport-before);
 }
 
-body[data-page="home"] .hero-stage__viewport {
-  background:
-    linear-gradient(180deg, rgba(12, 22, 38, 0.84) 0%, rgba(17, 29, 48, 0.74) 60%, rgba(17, 29, 48, 0) 100%);
-}
-
-body[data-page="home"] .hero-stage__viewport::before {
-  background:
-    radial-gradient(120% 92% at 10% 0%, rgba(105, 174, 255, 0.22) 0%, rgba(105, 174, 255, 0) 54%),
-    radial-gradient(88% 72% at 100% 100%, rgba(255, 112, 212, 0.2) 0%, rgba(255, 112, 212, 0) 60%),
-    linear-gradient(180deg, rgba(28, 43, 72, 0.18) 0%, rgba(13, 22, 37, 0) 100%);
-}
-
-body[data-page="home"] .hero-stage__viewport::after {
-  background:
-    radial-gradient(70% 60% at 52% 48%, rgba(104, 178, 248, 0.08) 0%, rgba(104, 178, 248, 0) 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.008) 0%, rgba(255, 255, 255, 0) 28%);
-}
-
-body[data-page="webentwicklung"] .hero-stage__viewport::after {
-  background:
-    radial-gradient(70% 60% at 52% 48%, rgba(126, 193, 255, 0.11) 0%, rgba(126, 193, 255, 0) 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 28%);
+body:is([data-page="home"], [data-page="webentwicklung"]) .hero-stage__viewport::after {
+  background: var(--site-hero-viewport-after);
 }
 
 body:is([data-page="home"], [data-page="webentwicklung"]) .hero-stage__frame {
@@ -271,6 +257,14 @@ body[data-page="home"] .approach-section::before {
 
 body[data-page="home"] .service-pillars-section::before {
   background: radial-gradient(ellipse 65% 50% at 50% 52%, rgba(170, 236, 255, 0.09) 0%, transparent 72%);
+}
+
+body[data-page="ablauf"] main > section {
+  background: transparent;
+}
+
+body[data-page="ablauf"] main > section::before {
+  content: none;
 }
 
 #animated-background {
@@ -1350,7 +1344,7 @@ img {
 }
 
 body.has-fixed-hero-bg::before {
-  opacity: 0.4;
+  opacity: var(--site-fixed-hero-bg-opacity);
 }
 
 body.has-fixed-hero-bg .hero-scroll-stack {
@@ -5986,25 +5980,6 @@ body:is(
   }
 }
 
-/* Webentwicklung Leistungsseite */
-body[data-page="webentwicklung"] {
-  background-color: #122033;
-  color: var(--text-color);
-}
-
-body[data-page="webentwicklung"]::before {
-  background-color: #22324c;
-  background-image:
-    radial-gradient(132% 94% at 12% 0%, rgba(127, 190, 255, 0.68) 0%, rgba(0, 0, 0, 0) 60%),
-    radial-gradient(72% 64% at 88% 100%, rgba(255, 152, 214, 0.4) 0%, rgba(0, 0, 0, 0) 68%),
-    linear-gradient(180deg, rgba(88, 109, 152, 0.28) 0%, rgba(42, 58, 88, 0.34) 100%);
-  animation: heroStageAmbientFlow 28s ease-in-out infinite alternate;
-}
-
-body[data-page="webentwicklung"] #animated-background {
-  opacity: 1;
-}
-
 .webdev-page {
   position: relative;
   overflow: clip;
@@ -6706,25 +6681,6 @@ body[data-page="webentwicklung"] #animated-background {
   .webdev-actions .final-cta-btn {
     width: 100%;
   }
-}
-
-/* Webentwicklung 2026 refresh */
-body[data-page="webentwicklung"] {
-  background-color: #122033;
-}
-
-body[data-page="webentwicklung"]::before {
-  background-color: #22324c;
-  background-image:
-    radial-gradient(132% 94% at 12% 0%, rgba(127, 190, 255, 0.68) 0%, rgba(0, 0, 0, 0) 60%),
-    radial-gradient(72% 64% at 88% 100%, rgba(255, 152, 214, 0.4) 0%, rgba(0, 0, 0, 0) 68%),
-    linear-gradient(180deg, rgba(88, 109, 152, 0.28) 0%, rgba(42, 58, 88, 0.34) 100%);
-  background-size: 140% 140%, 132% 132%, 100% 100%;
-  animation: heroStageAmbientFlow 28s ease-in-out infinite alternate;
-}
-
-body[data-page="webentwicklung"] #animated-background {
-  opacity: 1;
 }
 
 .webdev-page {

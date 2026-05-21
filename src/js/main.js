@@ -949,130 +949,6 @@ const initHeroStageIntro = () => {
   );
 };
 
-function initJumpNav() {
-  const nav = document.querySelector(".jump-nav--section");
-  if (!nav) return;
-
-  const topNav = document.querySelector(".top-nav");
-  const placeholder = document.createElement("div");
-  placeholder.className = "jump-nav__placeholder";
-  placeholder.setAttribute("aria-hidden", "true");
-  nav.before(placeholder);
-
-  const links = [...nav.querySelectorAll(".jump-nav__link")];
-  const sectionEntries = links
-    .map((link) => {
-      const href = link.getAttribute("href");
-      if (!href?.startsWith("#")) return null;
-
-      const section = document.querySelector(href);
-      if (!(section instanceof HTMLElement)) return null;
-
-      return {
-        href,
-        link,
-        section,
-      };
-    })
-    .filter(Boolean);
-
-  if (sectionEntries.length === 0) return;
-
-  let placeholderTop = 0;
-  let navHeight = nav.offsetHeight;
-  let ticking = false;
-
-  const getTopNavBottom = () =>
-    Math.max(topNav?.getBoundingClientRect().bottom || 0, 0);
-
-  const refreshMeasurements = () => {
-    placeholderTop = placeholder.getBoundingClientRect().top + window.scrollY;
-    navHeight = nav.offsetHeight;
-  };
-
-  const syncSectionOffset = (topNavBottom) => {
-    const dockedOffset = Math.max(topNavBottom - 4, 0);
-    nav.style.setProperty("--jump-nav-section-top", `${dockedOffset}px`);
-  };
-
-  const syncPlaceholderHeight = () => {
-    placeholder.style.height = nav.classList.contains("is-docked")
-      ? `${navHeight}px`
-      : "0px";
-  };
-
-  const updateDockedState = (topNavBottom) => {
-    const threshold = placeholderTop - topNavBottom - 8;
-    const shouldDock = window.scrollY >= threshold;
-
-    if (nav.classList.contains("is-docked") !== shouldDock) {
-      nav.classList.toggle("is-docked", shouldDock);
-      navHeight = nav.offsetHeight;
-    }
-
-    syncPlaceholderHeight();
-  };
-
-  const getScrollOffset = (topNavBottom) => topNavBottom + navHeight + 8;
-
-  const updateActiveLink = (topNavBottom) => {
-    const offset = getScrollOffset(topNavBottom) + 8;
-    let currentHref = sectionEntries[0]?.href || "";
-
-    sectionEntries.forEach((entry) => {
-      if (window.scrollY >= entry.section.offsetTop - offset) {
-        currentHref = entry.href;
-      }
-    });
-
-    sectionEntries.forEach((entry) => {
-      entry.link.classList.toggle("is-active", entry.href === currentHref);
-    });
-  };
-
-  const syncJumpNavState = () => {
-    ticking = false;
-    const topNavBottom = getTopNavBottom();
-    syncSectionOffset(topNavBottom);
-    updateDockedState(topNavBottom);
-    updateActiveLink(topNavBottom);
-  };
-
-  const requestJumpNavSync = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(syncJumpNavState);
-  };
-
-  const refreshAndSyncJumpNav = () => {
-    refreshMeasurements();
-    requestJumpNavSync();
-  };
-
-  sectionEntries.forEach((entry) => {
-    entry.link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const topNavBottom = getTopNavBottom();
-      const top =
-        entry.section.getBoundingClientRect().top +
-        window.scrollY -
-        getScrollOffset(topNavBottom);
-
-      window.scrollTo({ top, behavior: 'smooth' });
-      sectionEntries.forEach((item) => {
-        item.link.classList.toggle("is-active", item.href === entry.href);
-      });
-      history.replaceState(null, "", entry.href);
-    });
-  });
-
-  refreshMeasurements();
-  syncJumpNavState();
-  window.addEventListener("scroll", requestJumpNavSync, { passive: true });
-  window.addEventListener("resize", refreshAndSyncJumpNav);
-  window.addEventListener("load", refreshAndSyncJumpNav, { once: true });
-}
-
 const initWebdevAuditCard = () => {
   const card = document.querySelector("[data-webdev-audit-card]");
   if (!card) return;
@@ -1574,7 +1450,6 @@ initContactForm();
 initContactFormAnchorScroll();
 initProjectIntentButtons();
 initHeroStageInteraction();
-initJumpNav();
 initWebdevAuditCard();
 initWebdevQualityScores();
 initWebdevWhyCount();

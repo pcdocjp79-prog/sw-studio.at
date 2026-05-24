@@ -5,19 +5,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <title>KI Beratung | Smart Web Studio</title>
+  <title>KI &amp; Automatisierung f&uuml;r Unternehmen | Smart Web Studio</title>
   <meta name="description"
-    content="KI Beratung von Smart Web Studio: strategische Einordnung, sinnvolle Einsatzfelder, klare Prozesslogik und Qualit&auml;tskontrolle f&uuml;r Unternehmen, die KI wirksam statt beliebig einsetzen wollen." />
+    content="KI und Automatisierung mit echtem Nutzen: Wissen zug&auml;nglich machen, Routinearbeit reduzieren und mit einem intelligenten Zweiten Gehirn schneller entscheiden." />
 
   <script>
     document.documentElement.classList.add("js");
   </script>
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
+  <link rel="stylesheet" href="src/css/ki-automatisierung.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
 <body id="top" data-page="ki-beratung" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <script>
+    document.body.classList.add("has-fixed-hero-bg");
+  </script>
+
   <div id="animated-background" data-orb-parallax-layer aria-hidden="true">
     <canvas class="orb-parallax__canvas"></canvas>
     <div class="orb-parallax__fallback" aria-hidden="true">
@@ -30,10 +35,10 @@
 
   <header class="top-nav sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-1">
     <div id="glass-nav" class="glass-nav w-full">
-      <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Smart Web Studio - Zum Seitenanfang">
-        <img src="assets/images/LogoSmartWebStudio.webp" alt="Smart Web Studio Logo" width="150" height="96" decoding="async" class="h-8 w-auto md:h-10" />
-        <span class="brand-wordmark">Smart
-          Web Studio</span>
+      <a href="index.html" class="brand-link flex items-center gap-3" aria-label="Smart Web Studio - Zur Startseite">
+        <img src="assets/images/LogoSmartWebStudio.webp" alt="Smart Web Studio Logo" width="150" height="96"
+          decoding="async" class="h-8 w-auto md:h-10" />
+        <span class="brand-wordmark">Smart Web Studio</span>
       </a>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-label="Navigation umschalten"
         aria-expanded="false" aria-controls="primary-nav">
@@ -47,284 +52,256 @@
         <a href="ablauf.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Ablauf</a>
         <a href="kontakt.html" class="nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium">Kontakt</a>
       </nav>
-      <a href="kontakt.html#kontaktformular" class="nav-cta" aria-label="Projekt anfragen">Projekt anfragen</a>
+      <a href="kontakt.html#kontaktformular" class="nav-cta" aria-label="Potenzialgespr&auml;ch anfragen">Projekt anfragen</a>
     </div>
   </header>
 
-
-  <main class="relative pt-0 pb-0">
-    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="ai-hero-title">
-      <div class="max-w-7xl mx-auto">
-        <div class="about-section__layout about-section__layout--service-hero">
-          <div class="about-section__text-col">
-            <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">KI Beratung</p>
-              <h1 id="ai-hero-title" class="about-section__headline font-display">
-                KI sinnvoll einsetzen, ohne Qualit&auml;t, Verantwortung und Markenlogik an Tools abzugeben.
-              </h1>
-              <p class="about-section__subline">
-                Ich ordne ein, wo KI in Recherche, Content, Struktur und internen Prozessen wirklich Tempo bringt und
-                wo Priorisierung, Freigabe und Qualit&auml;tskontrolle bewusst menschlich bleiben sollten.
-              </p>
-            </div>
-
-            <div class="final-cta-section__btns reveal-on-scroll justify-start" style="--final-cta-delay: 100ms;">
+  <main class="webdev-page ai-page relative pt-0 pb-0">
+    <section class="webdev-hero scroll-focus-section" aria-labelledby="ai-hero-title">
+      <div class="webdev-container webdev-container--wide">
+        <div class="webdev-hero__grid">
+          <div class="webdev-hero__copy">
+            <p class="webdev-eyebrow">KI &amp; Automatisierung</p>
+            <h1 id="ai-hero-title" class="webdev-hero__title font-display">
+              Weniger suchen. Weniger wiederholen. <span class="ai-text-accent">Mehr wissen.</span>
+            </h1>
+            <p class="webdev-hero__text">
+              KI ist dann wertvoll, wenn sie Zeit zur&uuml;ckgibt: Wissen sofort auffindbar macht, fehleranf&auml;llige
+              Routinen abnimmt und deinem Team den Kopf f&uuml;r Entscheidungen und echte Arbeit freih&auml;lt.
+            </p>
+            <div class="webdev-hero__actions">
               <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
-                data-prefill-project="KI Beratung" data-prefill-timeline="Innerhalb von 2-4 Wochen"
-                data-prefill-message="Ich m&ouml;chte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und den passenden Einstieg kl&auml;ren."
-                aria-label="KI Beratung anfragen">
-                KI Beratung anfragen
-              </a>
-              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
                 data-prefill-project="KI Beratung" data-prefill-timeline="Noch offen"
-                data-prefill-message="Ich m&ouml;chte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und suche eine strukturierte Ersteinsch&auml;tzung."
-                aria-label="Potenzial schildern">
-                Potenzial schildern
+                data-prefill-message="Ich m&ouml;chte in einem Potenzialgespr&auml;ch kl&auml;ren, wo KI und Automatisierung in meinem Unternehmen sofort Zeit sparen k&ouml;nnen.">
+                Potenzialgespr&auml;ch buchen
+              </a>
+              <a href="#second-brain" class="final-cta-btn final-cta-btn--secondary">
+                Zweites Gehirn entdecken
               </a>
             </div>
-
           </div>
 
-          <div class="reveal-on-scroll" style="--approach-delay: 120ms;">
-            <article class="pkg-card pkg-card--featured service-summary-card">
-              <div class="pkg-card__inner">
-                <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Strategische KI-Einordnung</p>
-                  <p class="pkg-card__tagline">Nicht mehr Tool-Output, sondern mehr Klarheit in Rollen, Einsatzfeldern und Qualit&auml;t.</p>
-                </div>
-                <ul class="pkg-card__list">
-                  <li class="pkg-card__list-item">sinnvolle Einsatzfelder statt blindem Tool-Aktionismus</li>
-                  <li class="pkg-card__list-item">klare Guardrails f&uuml;r Tonalit&auml;t, Freigaben und Verantwortung</li>
-                  <li class="pkg-card__list-item">Anbindung an Website, Content und bestehende Arbeitslogik</li>
-                </ul>
+          <div class="ai-knowledge-shell">
+            <aside class="ai-knowledge-card" data-webdev-audit-card
+              aria-label="Vorschau eines intelligent vernetzten Wissenssystems">
+              <div class="ai-knowledge-card__top">
+                <span></span><span></span><span></span>
+                <p>knowledge / connected</p>
               </div>
+              <div class="ai-knowledge-card__body">
+                <p class="ai-card-label">ZWEITES GEHIRN</p>
+                <h2 class="font-display">Eine Frage. Eine klare Antwort.</h2>
+                <div class="ai-knowledge-map" aria-hidden="true">
+                  <span class="ai-node ai-node--source ai-node--mail">E-Mails</span>
+                  <span class="ai-node ai-node--source ai-node--docs">Dokumente</span>
+                  <span class="ai-node ai-node--source ai-node--team">Erfahrung</span>
+                  <span class="ai-node ai-node--core">Wissen</span>
+                  <span class="ai-node ai-node--answer">Antwort</span>
+                  <span class="ai-line ai-line--one"></span>
+                  <span class="ai-line ai-line--two"></span>
+                  <span class="ai-line ai-line--three"></span>
+                  <span class="ai-line ai-line--answer"></span>
+                </div>
+                <p class="ai-knowledge-card__prompt">"Was wurde beim letzten Projekt entschieden?"</p>
+                <p class="ai-knowledge-card__result">
+                  Richtige Information gefunden. Kontext verkn&uuml;pft. Entscheidung vorbereitet.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="webdev-section ai-problem scroll-focus-section" aria-labelledby="ai-problem-title">
+      <div class="webdev-container">
+        <div class="ai-problem__grid">
+          <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
+            <p class="webdev-eyebrow">Das eigentliche Problem</p>
+            <h2 id="ai-problem-title" class="webdev-section-title font-display">
+              Unternehmenswissen existiert. Aber oft nicht dort, wo es gebraucht wird.
+            </h2>
+            <p class="webdev-section-intro">
+              Entscheidungen liegen in alten E-Mails, Abl&auml;ufe in verstreuten Dokumenten und wertvolle Erfahrung
+              nur im Kopf einzelner Mitarbeitender. Geht jemand, geht h&auml;ufig auch ein Teil dieses Wissens.
+            </p>
+          </div>
+          <div class="ai-fragments reveal-on-scroll" aria-label="Typische Orte verstreuten Wissens">
+            <article class="ai-fragment ai-fragment--mail">
+              <span>E-MAIL</span>
+              <h3>Absprachen</h3>
+              <p>Wichtige Entscheidungen sind in Threads verborgen.</p>
             </article>
-            <div class="hero-stage hidden" aria-hidden="true">
-              <div class="hero-stage__viewport">
-                <div class="hero-stage__frame">
-                  <span class="hero-stage__noise" aria-hidden="true"></span>
-                  <span class="hero-stage__glow" aria-hidden="true"></span>
-                  <div class="hero-stage__grid" aria-hidden="true"></div>
-                  <div class="hero-stage__content">
-                    <p class="hero-stage__eyebrow">KI mit Richtung</p>
-                    <p class="hero-stage__title font-display">
-                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Tempo</span> dort, wo es hilft.</span>
-                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Qualit&auml;t</span> dort, wo sie gehalten werden muss.</span>
-                      <span class="block sm:whitespace-nowrap"><span class="hero-word-accent">Klarheit</span> statt Buzzword-Druck.</span>
-                    </p>
-                    <p class="hero-stage__text">
-                      KI wird nicht als Showeffekt verkauft, sondern als sauber eingeordneter Hebel f&uuml;r bessere Prozesse,
-                      bessere Inhalte und bessere Entscheidungen.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <article class="ai-fragment ai-fragment--drive">
+              <span>ORDNER</span>
+              <h3>Dateien</h3>
+              <p>Versionen und Vorlagen werden mehrfach gesucht.</p>
+            </article>
+            <article class="ai-fragment ai-fragment--team">
+              <span>TEAM</span>
+              <h3>Erfahrung</h3>
+              <p>Know-how bleibt an einzelne Personen gebunden.</p>
+            </article>
+            <article class="ai-fragment ai-fragment--loss">
+              <span>FOLGE</span>
+              <h3>Zeitverlust</h3>
+              <p>Antworten dauern l&auml;nger, Fehler wiederholen sich.</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="approach" class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="ai-approach-title">
-      <div class="process-section__inner max-w-7xl mx-auto">
-        <div class="process-section__header reveal-on-scroll">
-          <p class="process-section__eyebrow">Ansatz</p>
-          <h2 id="ai-approach-title" class="process-section__headline font-display">
-            Erst die Logik kl&auml;ren, dann KI sauber in Arbeitsweise und Touchpoints &uuml;bersetzen.
+    <section id="second-brain" class="webdev-section ai-brain scroll-focus-section" aria-labelledby="ai-brain-title">
+      <div class="webdev-container">
+        <article class="ai-brain-feature reveal-on-scroll">
+          <div class="ai-brain-feature__intro">
+            <p class="webdev-eyebrow">Fokus-L&ouml;sung / Zweites Gehirn</p>
+            <h2 id="ai-brain-title" class="webdev-section-title font-display">
+              Wissen, das nicht nur gespeichert ist. Sondern antwortet.
+            </h2>
+            <p>
+              Ein Zweites Gehirn bringt das Wissen deines Unternehmens an einen Ort, vernetzt Zusammenh&auml;nge und
+              macht es per KI direkt nutzbar. Statt Ordner zu durchsuchen oder dieselben Fragen mehrfach zu stellen,
+              findet dein Team sofort die Information, die f&uuml;r die n&auml;chste Aufgabe oder Entscheidung z&auml;hlt.
+            </p>
+          </div>
+
+          <div class="ai-brain-feature__outcomes" aria-label="Wirkung eines Zweiten Gehirns">
+            <article>
+              <span class="ai-outcome__num">01</span>
+              <h3 class="font-display">Sofort Antworten finden</h3>
+              <p>Fragen zu Projekten, Abl&auml;ufen oder Entscheidungen lassen sich ohne langes Suchen kl&auml;ren.</p>
+            </article>
+            <article>
+              <span class="ai-outcome__num">02</span>
+              <h3 class="font-display">Wissen erhalten</h3>
+              <p>Erfahrung bleibt zug&auml;nglich, auch wenn Rollen wechseln oder Mitarbeitende das Unternehmen verlassen.</p>
+            </article>
+            <article>
+              <span class="ai-outcome__num">03</span>
+              <h3 class="font-display">Schneller entscheiden</h3>
+              <p>Wer den relevanten Kontext sofort vor sich hat, kann sicherer handeln und Abstimmungen verk&uuml;rzen.</p>
+            </article>
+            <article>
+              <span class="ai-outcome__num">04</span>
+              <h3 class="font-display">Kopf frei bekommen</h3>
+              <p>Weniger Nachfragen und Sucharbeit bedeuten mehr Fokus f&uuml;r Kunden, Qualit&auml;t und Wachstum.</p>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="webdev-section scroll-focus-section" aria-labelledby="ai-scenarios-title">
+      <div class="webdev-container">
+        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
+          <p class="webdev-eyebrow">Anwendungsfelder</p>
+          <h2 id="ai-scenarios-title" class="webdev-section-title font-display">
+            Ein starker erster Fokus. Ein System, das mit deinem Bedarf wachsen kann.
           </h2>
-          <p class="process-section__subline">
-            Ich sortiere nicht zuerst Tools, sondern Ausgangslage, Risiken, Priorit&auml;ten und die Stellen, an denen KI
-            im Projekt wirklich Substanz bringt.
+          <p class="webdev-section-intro">
+            Das Zweite Gehirn steht aktuell im Mittelpunkt. Weitere Automatisierungen werden dort sinnvoll, wo sie
+            konkret Zeit sparen, Informationen strukturieren oder wiederkehrende Arbeit verl&auml;sslicher machen.
           </p>
         </div>
-
-        <ol class="process-section__steps" aria-label="KI Beratung Ansatz in vier Schritten">
-          <li class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">01</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">01</p>
-              <h3 class="process-step__title font-display">Ausgangslage und Zielbild pr&uuml;fen</h3>
-              <p class="process-step__body">Wo steht das Team heute, welche Reibung ist da und was soll durch KI konkret besser werden?</p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 80ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">02</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">02</p>
-              <h3 class="process-step__title font-display">Einsatzfelder priorisieren</h3>
-              <p class="process-step__body">Recherche, Struktur, Content, interne Prozesse oder Website-Module werden nach Nutzen und Risiko sortiert.</p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 160ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">03</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">03</p>
-              <h3 class="process-step__title font-display">Guardrails und Rollen definieren</h3>
-              <p class="process-step__body">Tonalit&auml;t, Freigaben, Datenschutz, Verantwortung und Qualit&auml;tskontrolle werden verbindlich eingeordnet.</p>
-            </div>
-          </li>
-          <li class="process-step reveal-on-scroll" style="--process-delay: 240ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">04</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">04</p>
-              <h3 class="process-step__title font-display">In Website, Content und Prozesse &uuml;bersetzen</h3>
-              <p class="process-step__body">Das Ergebnis ist ein realistisch nutzbares Setup statt einer losen Liste von Tools und Prompts.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="deliverables" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="ai-deliverables-title">
-      <div class="packages-section__inner max-w-7xl mx-auto">
-        <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Lieferumfang</p>
-          <h2 id="ai-deliverables-title" class="packages-section__headline font-display">
-            Was du konkret f&uuml;r eine saubere KI-Arbeitsweise mitnimmst.
-          </h2>
-        </div>
-
-        <div class="packages-section__grid">
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 0ms;">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Strategische Einordnung</p>
-                <p class="pkg-card__tagline">F&uuml;r Klarheit &uuml;ber die sinnvollsten Hebel statt Tool-Sammeln.</p>
-              </div>
-              <ul class="pkg-card__list">
-                <li class="pkg-card__list-item">Priorisierung relevanter KI-Einsatzfelder</li>
-                <li class="pkg-card__list-item">Einordnung nach Risiko, Nutzen und Prozessn&auml;he</li>
-                <li class="pkg-card__list-item">Verbindung zu Angebot, Zielgruppe und Markenton</li>
-              </ul>
-            </div>
+        <div class="ai-scenarios" aria-label="KI- und Automatisierungsszenarien">
+          <article class="ai-scenario ai-scenario--featured reveal-on-scroll">
+            <p class="ai-scenario__status">Aktueller Fokus</p>
+            <span class="ai-scenario__num">01 / SECOND BRAIN</span>
+            <h3 class="font-display">Zweites Gehirn f&uuml;r Unternehmenswissen</h3>
+            <p>
+              Ein zentraler Zugang zu Wissen, der Zusammenh&auml;nge sichtbar macht und relevante Antworten
+              bereitstellt, wenn dein Team sie braucht.
+            </p>
+            <ul>
+              <li>Weniger Suchzeit im Alltag</li>
+              <li>Wissen bleibt trotz Wechsel erhalten</li>
+              <li>Schnellere Einarbeitung und Entscheidungen</li>
+            </ul>
           </article>
-          <article class="pkg-card pkg-card--featured reveal-on-scroll" style="--pkg-delay: 90ms;">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">KI-Leitplanken</p>
-                <p class="pkg-card__tagline">F&uuml;r Freigaben, Tonalit&auml;t und verl&auml;ssliche Qualit&auml;t im Alltag.</p>
-              </div>
-              <ul class="pkg-card__list">
-                <li class="pkg-card__list-item">klare Rollen f&uuml;r Erstellung, Pr&uuml;fung und finale Freigabe</li>
-                <li class="pkg-card__list-item">Guardrails f&uuml;r Content, Website und interne Nutzung</li>
-                <li class="pkg-card__list-item">Grenzen dessen, was bewusst nicht automatisiert wird</li>
-              </ul>
-            </div>
+          <article class="ai-scenario reveal-on-scroll" style="--ai-delay: 80ms;">
+            <p class="ai-scenario__status ai-scenario__status--next">Erweiterbares Feld</p>
+            <span class="ai-scenario__num">02 / PROZESSE</span>
+            <h3 class="font-display">Prozess-Automatisierung</h3>
+            <p>Wiederkehrende &Uuml;bergaben, Erinnerungen und Standardaufgaben so organisieren, dass weniger manuell liegen bleibt.</p>
           </article>
-          <article class="pkg-card reveal-on-scroll" style="--pkg-delay: 180ms;">
-            <div class="pkg-card__inner">
-              <div class="pkg-card__header">
-                <p class="pkg-card__name font-display">Umsetzbare Startpunkte</p>
-                <p class="pkg-card__tagline">F&uuml;r einen realistischen Einstieg ohne Prozessbruch.</p>
-              </div>
-              <ul class="pkg-card__list">
-                <li class="pkg-card__list-item">empfohlene erste Anwendungsf&auml;lle mit geringer Reibung</li>
-                <li class="pkg-card__list-item">Anbindung an bestehende Website- und Content-Prozesse</li>
-                <li class="pkg-card__list-item">n&auml;chste Schritte f&uuml;r saubere Einf&uuml;hrung und Iteration</li>
-              </ul>
-            </div>
+          <article class="ai-scenario reveal-on-scroll" style="--ai-delay: 160ms;">
+            <p class="ai-scenario__status ai-scenario__status--next">Erweiterbares Feld</p>
+            <span class="ai-scenario__num">03 / KOMMUNIKATION</span>
+            <h3 class="font-display">KI-gest&uuml;tzte Kundenkommunikation</h3>
+            <p>Anfragen schneller einordnen und Antworten vorbereiten, ohne den pers&ouml;nlichen Ton aus der Hand zu geben.</p>
+          </article>
+          <article class="ai-scenario reveal-on-scroll" style="--ai-delay: 240ms;">
+            <p class="ai-scenario__status ai-scenario__status--next">Erweiterbares Feld</p>
+            <span class="ai-scenario__num">04 / DATEN</span>
+            <h3 class="font-display">Automatisierte Datenauswertung</h3>
+            <p>Wichtige Signale aus Berichten oder Anfragen schneller erkennen und als Grundlage f&uuml;r Entscheidungen nutzen.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="standards"
-      class="about-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="about-section__inner max-w-7xl mx-auto">
-        <div class="about-section__layout">
-          <div class="about-section__text-col">
-            <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">Standards</p>
-              <h2 class="about-section__headline font-display">
-                Kein KI-Theater ohne Kontext, Kontrolle und Anschluss an das reale Gesch&auml;ft.
-              </h2>
-              <p class="about-section__subline">
-                KI ist nur dann sinnvoll, wenn sie Zeit spart, ohne Marke, Vertrauensaufbau und Entscheidungsqualit&auml;t
-                zu besch&auml;digen.
-              </p>
-            </div>
+    <section class="webdev-section ai-approach scroll-focus-section" aria-labelledby="ai-approach-title">
+      <div class="webdev-container">
+        <div class="ai-approach__layout">
+          <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
+            <p class="webdev-eyebrow">Mein Ansatz</p>
+            <h2 id="ai-approach-title" class="webdev-section-title font-display">
+              Kein beliebiger KI-Bot. Ein sinnvoller Hebel f&uuml;r deinen Alltag.
+            </h2>
+            <p class="webdev-section-intro">
+              Wir starten nicht mit einem Tool, sondern mit der Frage: Wo geht heute unn&ouml;tig Zeit verloren?
+              Erst danach entsteht ein System, das zu deinem Team, deinen Abl&auml;ufen und deiner Verantwortung passt.
+            </p>
           </div>
-          <div class="about-section__blocks">
-            <div class="about-block reveal-on-scroll" style="--about-delay: 0ms;">
-              <h3 class="about-block__title font-display">Marke vor Mustertext</h3>
-              <p class="about-block__body">Ich setze KI nicht so ein, dass Botschaften austauschbar oder beliebig wirken.</p>
-            </div>
-            <div class="about-block reveal-on-scroll" style="--about-delay: 90ms;">
-              <h3 class="about-block__title font-display">Verantwortung bleibt klar</h3>
-              <p class="about-block__body">Freigaben, Qualit&auml;t und strategische Priorisierung werden nicht an das Tool delegiert.</p>
-            </div>
-            <div class="about-block reveal-on-scroll" style="--about-delay: 180ms;">
-              <h3 class="about-block__title font-display">Nur dort beschleunigen, wo es wirklich hilft</h3>
-              <p class="about-block__body">Tempo ist kein Selbstzweck. Entscheidend ist, ob Prozesse dadurch belastbarer und relevanter werden.</p>
-            </div>
-          </div>
+          <ol class="ai-approach__steps reveal-on-scroll" aria-label="Vorgehen bei KI und Automatisierung">
+            <li>
+              <span>01</span>
+              <div>
+                <h3 class="font-display">Engp&auml;sse sichtbar machen</h3>
+                <p>Wir identifizieren Sucharbeit, Wissensl&uuml;cken und Routinen, die im Alltag wirklich bremsen.</p>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <h3 class="font-display">Nutzen priorisieren</h3>
+                <p>Wir w&auml;hlen die Anwendung, die schnell Wirkung bringt und organisatorisch sinnvoll umsetzbar ist.</p>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <h3 class="font-display">System einf&uuml;hren</h3>
+                <p>Die L&ouml;sung wird verst&auml;ndlich implementiert, mit klaren Regeln f&uuml;r Qualit&auml;t und Nutzung.</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section id="related" class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="packages-section__inner max-w-7xl mx-auto">
-        <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Passende n&auml;chste Schritte</p>
-          <h2 class="packages-section__headline font-display">
-            KI Beratung wirkt am st&auml;rksten, wenn Marke, Website und Nachfrage sauber angeschlossen sind.
+    <section class="webdev-final scroll-focus-section" aria-labelledby="ai-final-title">
+      <div class="webdev-container">
+        <div class="webdev-final__inner reveal-on-scroll">
+          <p class="webdev-eyebrow">N&auml;chster Schritt</p>
+          <h2 id="ai-final-title" class="webdev-section-title font-display">
+            Wo k&ouml;nnte Automatisierung in deinem Unternehmen sofort helfen?
           </h2>
-        </div>
-        <div class="packages-section__grid">
-          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
-            <p class="proof-card__meta">Botschaft</p>
-            <h3 class="next-step-card__title font-display">Positionierung sch&auml;rfen</h3>
-            <p class="next-step-card__text">Wenn KI-generierte Inhalte erst dann sinnvoll werden, wenn Angebot und Tonalit&auml;t klarer gef&uuml;hrt sind.</p>
-            <div class="mt-5">
-              <a href="branding.html" class="final-cta-btn final-cta-btn--primary" aria-label="Leistungen ansehen">Leistungen ansehen</a>
-            </div>
-          </article>
-          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 90ms;">
-            <p class="proof-card__meta">Struktur</p>
-            <h3 class="next-step-card__title font-display">Website-System vorbereiten</h3>
-            <p class="next-step-card__text">Wenn KI-gest&uuml;tzte Inhalte, Module und Nutzerwege in eine saubere Seitenlogik eingebettet werden sollen.</p>
-            <div class="mt-5">
-              <a href="webentwicklung.html" class="final-cta-btn final-cta-btn--primary" aria-label="Leistungen ansehen">Leistungen ansehen</a>
-            </div>
-          </article>
-          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 180ms;">
-            <p class="proof-card__meta">Nachfrage</p>
-            <h3 class="next-step-card__title font-display">SEO &amp; Marketing anbinden</h3>
-            <p class="next-step-card__text">Wenn KI-gest&uuml;tzte Recherche, Content-Struktur und Sichtbarkeit sinnvoll in den Marktauftritt &uuml;bersetzt werden sollen.</p>
-            <div class="mt-5">
-              <a href="seo-marketing.html" class="final-cta-btn final-cta-btn--primary" aria-label="Leistungen ansehen">Leistungen ansehen</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-3xl mx-auto text-center">
-        <div class="reveal-on-scroll">
-          <h2 class="final-cta-section__headline font-display">
-            Wenn KI in deinem Auftritt und in deinen Prozessen sinnvoll statt zuf&auml;llig arbeiten soll.
-          </h2>
-          <p class="final-cta-section__subline">
-            Dann beginnen wir mit einer strukturierten Einordnung und definieren zuerst Rollen, Guardrails und die
-            Stellen, an denen KI tats&auml;chlich Wirkung bringt.
+          <p>
+            In einem unverbindlichen Potenzialgespr&auml;ch schauen wir auf deine Abl&auml;ufe, dein Wissen und deine
+            wiederkehrenden Aufgaben. Du bekommst eine ehrliche Einsch&auml;tzung, ob ein Zweites Gehirn oder ein anderer
+            sinnvoller Automatisierungsansatz der richtige Start ist.
           </p>
-        </div>
-        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
-            data-prefill-project="KI Beratung" data-prefill-timeline="Innerhalb von 2-4 Wochen"
-            data-prefill-message="Ich m&ouml;chte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und den passenden Einstieg kl&auml;ren."
-            aria-label="KI Beratung anfragen">
-            KI Beratung anfragen
-          </a>
-          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
-            data-prefill-project="KI Beratung" data-prefill-timeline="Noch offen"
-            data-prefill-message="Ich m&ouml;chte KI sinnvoll in Website, Content oder interne Arbeitsweise einordnen und suche eine strukturierte Ersteinsch&auml;tzung."
-            aria-label="Potenzial schildern">
-            Potenzial schildern
-          </a>
+          <div class="webdev-hero__actions">
+            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
+              data-prefill-project="KI Beratung" data-prefill-timeline="Noch offen"
+              data-prefill-message="Ich m&ouml;chte in einem unverbindlichen Potenzialgespr&auml;ch herausfinden, wo Automatisierung in meinem Unternehmen sofort helfen kann.">
+              Potenzialgespr&auml;ch buchen
+            </a>
+          </div>
+          <p class="webdev-final__microcopy">Unverbindlich. Klar eingeordnet. Ohne Tool-Verkaufsdruck.</p>
         </div>
       </div>
     </section>
@@ -338,7 +315,7 @@
         <section class="site-footer__column site-footer__column--brand" aria-labelledby="footer-brand-title">
           <h2 id="footer-brand-title" class="site-footer__brand font-display">Smart Web Studio</h2>
           <p class="site-footer__tagline">Marke. Website. Wachstum.</p>
-          <p class="site-footer__description">KI Beratung mit klaren Einsatzfeldern, Guardrails und Anschluss an Website, Content und Prozesse.</p>
+          <p class="site-footer__description">KI &amp; Automatisierung f&uuml;r nutzbares Wissen, weniger Routine und klarere Entscheidungen.</p>
           <p class="site-footer__meta">Vorarlberg / DACH</p>
         </section>
         <nav class="site-footer__column" data-footer-group="services" aria-label="Footer-Navigation Leistungen">
@@ -367,7 +344,8 @@
             <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
             <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
             <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
-            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings aria-haspopup="dialog">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings
+                aria-haspopup="dialog">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
       </div>
@@ -382,8 +360,8 @@
     <span aria-hidden="true">&uarr;</span>
   </button>
 
-  <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/water-sphere.js"></script>
+  <script type="module" src="src/js/main.js"></script>
 </body>
 
 </html>

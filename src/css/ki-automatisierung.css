@@ -1,0 +1,576 @@
+.ai-page .webdev-hero__title {
+  max-width: 12ch;
+  font-size: clamp(2.75rem, 6.7vw, 5.9rem);
+}
+
+.ai-page .webdev-section-title {
+  max-width: 21ch;
+}
+
+.ai-text-accent {
+  color: #94f2ff;
+  text-shadow: 0 0 34px rgba(107, 222, 255, 0.24);
+}
+
+.ai-knowledge-shell {
+  perspective: 1200px;
+}
+
+.js .ai-knowledge-shell {
+  opacity: 0;
+  animation: aiCardIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 240ms forwards;
+}
+
+.ai-knowledge-card {
+  --audit-tilt-x: 0deg;
+  --audit-tilt-y: 0deg;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 242, 255, 0.2);
+  border-radius: clamp(1.3rem, 3vw, 1.75rem);
+  background:
+    radial-gradient(circle at 80% 15%, rgba(76, 230, 255, 0.13), transparent 33%),
+    radial-gradient(circle at 8% 90%, rgba(128, 87, 255, 0.13), transparent 40%),
+    rgba(7, 13, 25, 0.9);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: rotateX(var(--audit-tilt-x)) rotateY(var(--audit-tilt-y));
+  transform-style: preserve-3d;
+  transition:
+    transform 160ms ease-out,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.ai-knowledge-card::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: -35% -55%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.11), transparent 62%);
+  transform: translateX(-34%) rotate(8deg);
+  transition: opacity 260ms ease, transform 780ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-knowledge-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 242, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.035) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(circle, #000 20%, transparent 75%);
+}
+
+.ai-knowledge-card:hover,
+.ai-knowledge-card.is-tilting {
+  border-color: rgba(186, 214, 255, 0.36);
+  box-shadow:
+    0 34px 88px rgba(0, 0, 0, 0.39),
+    0 0 26px rgba(142, 232, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+}
+
+.ai-knowledge-card:hover::before,
+.ai-knowledge-card.is-tilting::before {
+  opacity: 1;
+  transform: translateX(34%) rotate(8deg);
+}
+
+.ai-knowledge-card__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 0.8rem 1rem;
+}
+
+.ai-knowledge-card__top span {
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 50%;
+  background: rgba(231, 239, 250, 0.3);
+}
+
+.ai-knowledge-card__top span:first-child {
+  background: rgba(255, 95, 184, 0.76);
+}
+
+.ai-knowledge-card__top p {
+  margin: 0 0 0 auto;
+  color: rgba(231, 239, 250, 0.52);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+}
+
+.ai-knowledge-card__body {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.15rem, 3vw, 1.55rem);
+  transform: translateZ(18px);
+}
+
+.ai-card-label,
+.ai-scenario__num {
+  margin: 0;
+  color: rgba(148, 242, 255, 0.88);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.ai-knowledge-card__body h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+  line-height: 1.12;
+}
+
+.ai-knowledge-map {
+  position: relative;
+  height: 13.5rem;
+  margin: 0.45rem 0;
+}
+
+.ai-node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-width: 4.4rem;
+  min-height: 2.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.45rem 0.65rem;
+  color: rgba(235, 244, 255, 0.8);
+  background: #111a2d;
+  font-size: 0.67rem;
+}
+
+.ai-node--mail {
+  left: 0;
+  top: 0.75rem;
+}
+
+.ai-node--docs {
+  left: 0;
+  top: 5.6rem;
+}
+
+.ai-node--team {
+  left: 0;
+  bottom: 0.5rem;
+}
+
+.ai-node--core {
+  left: 44%;
+  top: 5.25rem;
+  min-width: 4.8rem;
+  border-color: rgba(148, 242, 255, 0.5);
+  color: #fff;
+  background: rgba(148, 242, 255, 0.13);
+  box-shadow: 0 0 22px rgba(148, 242, 255, 0.2);
+}
+
+.ai-node--answer {
+  right: 0;
+  top: 5.25rem;
+  border-color: rgba(86, 241, 190, 0.45);
+  color: #dbfff5;
+  background: rgba(63, 231, 207, 0.12);
+}
+
+.ai-line {
+  position: absolute;
+  z-index: 1;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(148, 242, 255, 0.08), rgba(148, 242, 255, 0.55));
+}
+
+.ai-line--one {
+  left: 4.2rem;
+  top: 2rem;
+  width: 7.4rem;
+  transform: rotate(30deg);
+}
+
+.ai-line--two {
+  left: 4.2rem;
+  top: 6.62rem;
+  width: 6.6rem;
+}
+
+.ai-line--three {
+  left: 4.2rem;
+  top: 11.3rem;
+  width: 7.4rem;
+  transform: rotate(-30deg);
+}
+
+.ai-line--answer {
+  left: calc(44% + 4.65rem);
+  top: 6.62rem;
+  right: 4.4rem;
+  background: linear-gradient(90deg, rgba(148, 242, 255, 0.58), rgba(86, 241, 190, 0.68));
+}
+
+.ai-knowledge-card__prompt,
+.ai-knowledge-card__result {
+  margin: 0;
+  border-radius: 0.75rem;
+  padding: 0.72rem 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.ai-knowledge-card__prompt {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(231, 239, 250, 0.68);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.ai-knowledge-card__result {
+  border: 1px solid rgba(63, 231, 207, 0.19);
+  color: #e2fff7;
+  background: rgba(63, 231, 207, 0.07);
+}
+
+.ai-problem__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.ai-problem .webdev-section-head,
+.ai-approach .webdev-section-head {
+  margin-bottom: 0;
+}
+
+.ai-fragments {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ai-fragment {
+  position: relative;
+  min-height: 10.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1.05rem;
+  padding: 1rem;
+  background: rgba(9, 15, 28, 0.58);
+}
+
+.ai-fragment--loss {
+  border-color: rgba(255, 95, 184, 0.22);
+  background: rgba(255, 95, 184, 0.06);
+}
+
+.ai-fragment span {
+  color: rgba(148, 242, 255, 0.74);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.ai-fragment--loss span {
+  color: rgba(255, 132, 201, 0.9);
+}
+
+.ai-fragment h3 {
+  margin: 1.8rem 0 0.45rem;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+}
+
+.ai-fragment p {
+  margin: 0;
+  color: rgba(231, 239, 250, 0.67);
+  font-size: 0.86rem;
+  line-height: 1.54;
+}
+
+.ai-brain-feature {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 3.75rem);
+  border: 1px solid rgba(148, 242, 255, 0.21);
+  border-radius: clamp(1.35rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 4vw, 3.2rem);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(148, 242, 255, 0.13), transparent 32%),
+    radial-gradient(circle at 100% 100%, rgba(128, 87, 255, 0.13), transparent 28%),
+    #070e1a;
+  box-shadow: 0 34px 88px rgba(0, 0, 0, 0.3);
+}
+
+.ai-brain-feature__intro p:not(.webdev-eyebrow) {
+  max-width: 43rem;
+  margin: 1.4rem 0 0;
+  color: rgba(231, 239, 250, 0.79);
+  font-size: clamp(1rem, 1.45vw, 1.13rem);
+  line-height: 1.72;
+}
+
+.ai-brain-feature__outcomes {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ai-brain-feature__outcomes article {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.ai-outcome__num {
+  display: block;
+  margin-bottom: 1.05rem;
+  color: #94f2ff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.ai-brain-feature__outcomes h3 {
+  margin: 0 0 0.5rem;
+  color: #fff;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+}
+
+.ai-brain-feature__outcomes p {
+  margin: 0;
+  color: rgba(231, 239, 250, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.ai-scenarios {
+  display: grid;
+  gap: 1rem;
+}
+
+.ai-scenario {
+  position: relative;
+  overflow: hidden;
+  min-height: 16rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1.2rem;
+  padding: clamp(1.15rem, 3vw, 1.5rem);
+  background: rgba(9, 15, 28, 0.56);
+  transition: border-color 240ms ease, transform 240ms ease, background 240ms ease;
+}
+
+.js .ai-scenario.reveal-on-scroll:not(.is-visible) {
+  transition-delay: var(--ai-delay, 0ms);
+}
+
+.ai-scenario--featured {
+  border-color: rgba(148, 242, 255, 0.28);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(148, 242, 255, 0.13), transparent 34%),
+    rgba(9, 15, 28, 0.8);
+}
+
+.ai-scenario__status {
+  display: inline-flex;
+  margin: 0 0 2rem;
+  border: 1px solid rgba(148, 242, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.38rem 0.65rem;
+  color: #d7fbff;
+  background: rgba(148, 242, 255, 0.09);
+  font-size: 0.7rem;
+}
+
+.ai-scenario__status--next {
+  border-color: rgba(255, 255, 255, 0.11);
+  color: rgba(231, 239, 250, 0.58);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ai-scenario h3 {
+  margin: 0.85rem 0 0.7rem;
+  color: #fff;
+  font-size: clamp(1.25rem, 2vw, 1.58rem);
+  line-height: 1.2;
+}
+
+.ai-scenario p:not(.ai-scenario__status) {
+  margin: 0;
+  color: rgba(231, 239, 250, 0.7);
+  font-size: 0.93rem;
+  line-height: 1.64;
+}
+
+.ai-scenario ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-scenario li {
+  display: flex;
+  gap: 0.6rem;
+  color: rgba(231, 239, 250, 0.79);
+  font-size: 0.88rem;
+}
+
+.ai-scenario li::before {
+  content: "";
+  flex: none;
+  width: 0.38rem;
+  height: 0.38rem;
+  margin-top: 0.48rem;
+  border-radius: 50%;
+  background: #94f2ff;
+  box-shadow: 0 0 10px rgba(148, 242, 255, 0.58);
+}
+
+.ai-approach__layout {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.ai-approach__steps {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-approach__steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  background: rgba(9, 15, 28, 0.55);
+}
+
+.ai-approach__steps li > span {
+  color: #94f2ff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.ai-approach__steps h3 {
+  margin: 0 0 0.5rem;
+  color: #fff;
+  font-size: clamp(1.07rem, 2vw, 1.28rem);
+}
+
+.ai-approach__steps p {
+  margin: 0;
+  color: rgba(231, 239, 250, 0.69);
+  font-size: 0.91rem;
+  line-height: 1.62;
+}
+
+@keyframes aiCardIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) rotateX(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotateX(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ai-scenario:hover {
+    border-color: rgba(148, 242, 255, 0.23);
+    background: rgba(14, 22, 39, 0.72);
+    transform: translateY(-3px);
+  }
+}
+
+@media (min-width: 780px) {
+  .ai-brain-feature__outcomes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ai-scenarios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .ai-problem__grid,
+  .ai-approach__layout {
+    grid-template-columns: minmax(0, 0.96fr) minmax(23rem, 0.76fr);
+  }
+
+  .ai-brain-feature {
+    grid-template-columns: minmax(20rem, 0.85fr) minmax(24rem, 1fr);
+    align-items: start;
+  }
+
+  .ai-scenarios {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ai-scenario--featured {
+    grid-column: span 4;
+    grid-row: span 2;
+    min-height: 24rem;
+  }
+
+  .ai-scenario:not(.ai-scenario--featured) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 460px) {
+  .ai-fragments {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ai-knowledge-map {
+    transform: scale(0.92);
+    transform-origin: left center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .ai-knowledge-shell {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  .ai-scenario,
+  .ai-scenario:hover {
+    transition-duration: 0.01ms !important;
+    transform: none;
+  }
+
+  .ai-knowledge-card,
+  .ai-knowledge-card:hover,
+  .ai-knowledge-card.is-tilting {
+    transform: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ai-knowledge-card::before {
+    display: none;
+  }
+}

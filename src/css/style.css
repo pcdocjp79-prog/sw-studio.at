@@ -1416,8 +1416,14 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
     transition: none !important;
   }
 
-  .webdev-audit-card {
+  .hero-tilt-card {
     transform: none !important;
+    transition: none !important;
+  }
+
+  .webdev-audit-card::after {
+    opacity: 0 !important;
+    transition: none !important;
   }
 
   .webdev-audit-bars span::before {
@@ -6389,9 +6395,19 @@ body[data-page="home"] #process .process-section__header {
   animation: webdevAuditFloat 6.2s ease-in-out 1.05s infinite;
 }
 
+.hero-tilt-card {
+  --hero-tilt-x: 0deg;
+  --hero-tilt-y: 0deg;
+  transform: rotateX(var(--hero-tilt-x)) rotateY(var(--hero-tilt-y));
+  transform-style: preserve-3d;
+  transition:
+    transform 160ms ease-out,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+  will-change: transform;
+}
+
 .webdev-audit-card {
-  --audit-tilt-x: 0deg;
-  --audit-tilt-y: 0deg;
   position: relative;
   width: min(100%, 30rem);
   margin-inline: auto;
@@ -6403,13 +6419,6 @@ body[data-page="home"] #process .process-section__header {
   box-shadow:
     0 18px 46px rgba(3, 10, 24, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: rotateX(var(--audit-tilt-x)) rotateY(var(--audit-tilt-y));
-  transform-style: preserve-3d;
-  transition:
-    transform 160ms ease-out,
-    border-color 260ms ease,
-    box-shadow 260ms ease;
-  will-change: transform;
 }
 
 .webdev-audit-card::before {

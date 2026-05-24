@@ -949,14 +949,59 @@ const initHeroStageIntro = () => {
   );
 };
 
-const initWebdevAuditCard = () => {
-  const card = document.querySelector("[data-webdev-audit-card]");
-  if (!card) return;
+const initHeroTiltCards = () => {
+  const cards = Array.from(document.querySelectorAll("[data-hero-tilt-card]"));
+  if (cards.length === 0) return;
 
-  const shell = card.closest(".webdev-audit-card-shell") || card;
-  const scoreValue = card.querySelector("[data-webdev-audit-score]");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const resetTilt = (card) => {
+    card.classList.remove("is-tilting");
+    card.style.setProperty("--hero-tilt-x", "0deg");
+    card.style.setProperty("--hero-tilt-y", "0deg");
+  };
+  const resetAllTilts = () => cards.forEach((card) => resetTilt(card));
+  const canTilt = () => finePointerQuery.matches && !reducedMotionQuery.matches;
+
+  cards.forEach((card) => {
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!canTilt()) return;
+
+        const rect = card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const rotateX = ((event.clientY - centerY) / Math.max(rect.height / 2, 1)) * -7;
+        const rotateY = ((event.clientX - centerX) / Math.max(rect.width / 2, 1)) * 7;
+
+        card.classList.add("is-tilting");
+        card.style.setProperty("--hero-tilt-x", `${rotateX.toFixed(2)}deg`);
+        card.style.setProperty("--hero-tilt-y", `${rotateY.toFixed(2)}deg`);
+      },
+      { passive: true }
+    );
+
+    card.addEventListener("pointerleave", () => resetTilt(card));
+    card.addEventListener("pointercancel", () => resetTilt(card));
+  });
+
+  if (typeof reducedMotionQuery.addEventListener === "function") {
+    reducedMotionQuery.addEventListener("change", resetAllTilts);
+    finePointerQuery.addEventListener("change", resetAllTilts);
+  } else if (typeof reducedMotionQuery.addListener === "function") {
+    reducedMotionQuery.addListener(resetAllTilts);
+    finePointerQuery.addListener(resetAllTilts);
+  }
+};
+
+const initWebdevAuditScore = () => {
+  const card = document.querySelector("[data-webdev-audit-card]");
+  const scoreValue = card?.querySelector("[data-webdev-audit-score]");
+  if (!card || !scoreValue) return;
+
+  const shell = card.closest(".webdev-audit-card-shell") || card;
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const targetScore = 100;
   const duration = 2000;
   let scoreStarted = false;
@@ -1028,35 +1073,6 @@ const initWebdevAuditCard = () => {
     observer.observe(shell);
   }
 
-  const resetTilt = () => {
-    card.classList.remove("is-tilting");
-    card.style.setProperty("--audit-tilt-x", "0deg");
-    card.style.setProperty("--audit-tilt-y", "0deg");
-  };
-
-  const canTilt = () => finePointerQuery.matches && !reducedMotionQuery.matches;
-
-  card.addEventListener(
-    "pointermove",
-    (event) => {
-      if (!canTilt()) return;
-
-      const rect = card.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const rotateX = ((event.clientY - centerY) / Math.max(rect.height / 2, 1)) * -7;
-      const rotateY = ((event.clientX - centerX) / Math.max(rect.width / 2, 1)) * 7;
-
-      card.classList.add("is-tilting");
-      card.style.setProperty("--audit-tilt-x", `${rotateX.toFixed(2)}deg`);
-      card.style.setProperty("--audit-tilt-y", `${rotateY.toFixed(2)}deg`);
-    },
-    { passive: true }
-  );
-
-  card.addEventListener("pointerleave", resetTilt);
-  card.addEventListener("pointercancel", resetTilt);
-
   const handleMotionPreferenceChange = () => {
     if (scoreFrameId !== null) {
       cancelAnimationFrame(scoreFrameId);
@@ -1067,15 +1083,12 @@ const initWebdevAuditCard = () => {
       drawScore(targetScore);
     }
 
-    resetTilt();
   };
 
   if (typeof reducedMotionQuery.addEventListener === "function") {
     reducedMotionQuery.addEventListener("change", handleMotionPreferenceChange);
-    finePointerQuery.addEventListener("change", resetTilt);
   } else if (typeof reducedMotionQuery.addListener === "function") {
     reducedMotionQuery.addListener(handleMotionPreferenceChange);
-    finePointerQuery.addListener(resetTilt);
   }
 };
 
@@ -1450,7 +1463,8 @@ initContactForm();
 initContactFormAnchorScroll();
 initProjectIntentButtons();
 initHeroStageInteraction();
-initWebdevAuditCard();
+initHeroTiltCards();
+initWebdevAuditScore();
 initWebdevQualityScores();
 initWebdevWhyCount();
 initCodeClosingTypewriter();

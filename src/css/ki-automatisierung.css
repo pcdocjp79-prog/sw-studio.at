@@ -22,8 +22,6 @@
 }
 
 .ai-knowledge-card {
-  --audit-tilt-x: 0deg;
-  --audit-tilt-y: 0deg;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(148, 242, 255, 0.2);
@@ -35,12 +33,6 @@
   box-shadow:
     0 28px 80px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: rotateX(var(--audit-tilt-x)) rotateY(var(--audit-tilt-y));
-  transform-style: preserve-3d;
-  transition:
-    transform 160ms ease-out,
-    border-color 260ms ease,
-    box-shadow 260ms ease;
 }
 
 .ai-knowledge-card::before {
@@ -561,13 +553,6 @@
   .ai-scenario:hover {
     transition-duration: 0.01ms !important;
     transform: none;
-  }
-
-  .ai-knowledge-card,
-  .ai-knowledge-card:hover,
-  .ai-knowledge-card.is-tilting {
-    transform: none !important;
-    transition-duration: 0.01ms !important;
   }
 
   .ai-knowledge-card::before {

@@ -7,7 +7,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <title>SEO &amp; Marketing für kleine Unternehmen | Smart Web Studio</title>
   <meta name="description"
-    content="SEO &amp; Marketing für kleine Unternehmen in Vorarlberg und DACH: klare Inhalte, bessere Sichtbarkeit, lokale Auffindbarkeit und Website-Strukturen, die zu Anfragen führen." />
+    content="SEO und Marketing mit klarer Struktur: bessere Sichtbarkeit, verständliche Inhalte und Anfragewege für Unternehmen in Vorarlberg und DACH." />
   <link rel="canonical" href="/seo-marketing" />
 
   <script>
@@ -15,10 +15,16 @@
   </script>
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
+  <link rel="stylesheet" href="src/css/webdev-problem-stack.css" />
+  <link rel="stylesheet" href="src/css/seo-marketing.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
 <body id="top" data-page="seo-marketing" class="antialiased selection:bg-zinc-200 selection:text-black">
+  <script>
+    document.body.classList.add("has-fixed-hero-bg");
+  </script>
+
   <div id="animated-background" data-orb-parallax-layer aria-hidden="true">
     <canvas class="orb-parallax__canvas"></canvas>
     <div class="orb-parallax__fallback" aria-hidden="true">
@@ -52,63 +58,48 @@
     </div>
   </header>
 
-  <main class="webdev-page relative pt-0 pb-0">
-    <section class="webdev-hero scroll-focus-section" aria-labelledby="seo-marketing-title">
+  <main class="webdev-page seo-page relative pt-0 pb-0">
+    <section class="webdev-hero scroll-focus-section" aria-labelledby="seo-hero-title">
       <div class="webdev-container webdev-container--wide">
         <div class="webdev-hero__grid">
           <div class="webdev-hero__copy">
             <p class="webdev-eyebrow">SEO &amp; Marketing</p>
-            <h1 id="seo-marketing-title" class="webdev-hero__title font-display">
-              Mehr Sichtbarkeit für Unternehmen, die online professionell gefunden werden möchten.
+            <h1 id="seo-hero-title" class="webdev-hero__title font-display">
+              Deine Website steht. Jetzt muss sie gefunden, verstanden und angefragt werden.
             </h1>
             <p class="webdev-hero__text">
-              Ich entwickle SEO- und Marketing-Strukturen für kleine Unternehmen, die nicht einfach nur mehr Besucher
-              wollen, sondern die richtigen Menschen erreichen möchten: mit klaren Inhalten, besseren Suchsignalen und
-              einer Website, die Vertrauen aufbaut.
+              Eine professionelle Website ist die Grundlage. SEO und Marketing sorgen dafür, dass die richtigen Menschen
+              dein Unternehmen finden, dein Angebot verstehen und gezielt Kontakt aufnehmen.
             </p>
             <div class="webdev-hero__actions">
-              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary">SEO &amp; Marketing anfragen</a>
-              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary">Website prüfen lassen</a>
+              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary">Website prüfen lassen</a>
+              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary">SEO &amp; Marketing anfragen</a>
             </div>
           </div>
 
           <div class="webdev-audit-card-shell">
-            <aside class="webdev-audit-card" aria-label="SEO und Marketing Fokusbereiche">
+            <aside class="webdev-audit-card seo-journey-card" data-webdev-audit-card aria-label="Search to Request Journey">
               <div class="webdev-audit-card__top">
                 <span class="webdev-audit-card__dot"></span>
                 <span class="webdev-audit-card__dot"></span>
                 <span class="webdev-audit-card__dot"></span>
-                <span class="webdev-audit-card__url">visibility / struktur</span>
+                <span class="webdev-audit-card__url">search / request</span>
               </div>
               <div class="webdev-audit-card__body">
                 <div>
-                  <p class="webdev-audit-card__label">Online sichtbar</p>
-                  <h2 class="webdev-audit-card__title font-display">Klar positioniert. Messbar verbessert.</h2>
+                  <p class="webdev-audit-card__label">Search &rarr; Request Journey</p>
+                  <h2 class="webdev-audit-card__title font-display">Von der Suche zur Entscheidung.</h2>
                 </div>
-                <p class="webdev-section-intro">
-                  Deine Website soll nicht nur existieren. Sie soll gefunden werden, verständlich erklären, warum dein
-                  Angebot relevant ist, und Besucher Schritt für Schritt zur Anfrage führen.
+                <ol class="seo-journey" aria-label="Schritte von der Suchanfrage bis zur Anfrage">
+                  <li class="seo-journey__step"><span>01</span>Suchanfrage</li>
+                  <li class="seo-journey__step"><span>02</span>Website-Besuch</li>
+                  <li class="seo-journey__step"><span>03</span>Verständnis</li>
+                  <li class="seo-journey__step"><span>04</span>Vertrauen</li>
+                  <li class="seo-journey__step"><span>05</span>Anfrage</li>
+                </ol>
+                <p class="seo-journey-card__intro">
+                  SEO ist nicht nur Sichtbarkeit. Es ist die Verbindung zwischen Suche, Inhalt und Entscheidung.
                 </p>
-                <dl class="webdev-audit-metrics">
-                  <div>
-                    <dt>Suche</dt>
-                    <dd>relevant</dd>
-                  </div>
-                  <div>
-                    <dt>Content</dt>
-                    <dd>klar</dd>
-                  </div>
-                  <div>
-                    <dt>Anfrage</dt>
-                    <dd>gezielt</dd>
-                  </div>
-                </dl>
-                <ul class="webdev-audit-checks">
-                  <li>Suchbegriffe &amp; Suchintention</li>
-                  <li>Angebotsseiten &amp; Content-Struktur</li>
-                  <li>lokale Sichtbarkeit</li>
-                  <li>Kontaktwege, Tracking &amp; Optimierung</li>
-                </ul>
               </div>
             </aside>
           </div>
@@ -116,96 +107,153 @@
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-why-title">
+    <section class="webdev-section webdev-problem scroll-focus-section" aria-labelledby="seo-problem-title">
       <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Warum SEO &amp; Marketing</p>
-          <h2 id="seo-why-title" class="webdev-section-title font-display">
-            Gute Sichtbarkeit beginnt nicht bei Google. Sie beginnt bei Klarheit.
-          </h2>
-          <p class="webdev-section-intro">
-            Viele Unternehmen investieren in eine Website, Social Media oder Werbung, ohne dass vorher klar ist, welche
-            Botschaft, welche Seiten und welche Kontaktwege wirklich funktionieren sollen.
-          </p>
-          <p class="webdev-section-intro">
-            Das Ergebnis: Inhalte sind vorhanden, aber sie arbeiten nicht zusammen. Die Website wird gefunden, aber nicht
-            verstanden. Besucher sehen das Angebot, erkennen aber nicht schnell genug, warum sie Kontakt aufnehmen sollten.
-          </p>
-        </div>
-        <ol class="webdev-process-list reveal-on-scroll" aria-label="Zentrale Fragen für SEO und Marketing">
-          <li><span>01</span><strong>Was sucht dein Kunde?</strong></li>
-          <li><span>02</span><strong>Was muss er verstehen?</strong></li>
-          <li><span>03</span><strong>Welche Seite beantwortet seine Frage?</strong></li>
-          <li><span>04</span><strong>Wie wird daraus eine qualifizierte Anfrage?</strong></li>
-        </ol>
-        <div class="webdev-stance">
-          <div class="webdev-stance__inner reveal-on-scroll">
-            <p><strong>Nicht mehr Marketing nach Gefühl.</strong> Sondern ein klarer Aufbau aus Sichtbarkeit, Vertrauen und Anfragefokus.</p>
+        <div class="webdev-problem__grid">
+          <div class="webdev-problem__copy reveal-on-scroll">
+            <p class="webdev-eyebrow">Typische Probleme</p>
+            <h2 id="seo-problem-title" class="webdev-section-title font-display">
+              Warum viele Websites online sind, aber trotzdem nicht gut genug funktionieren.
+            </h2>
+          </div>
+          <div class="webdev-problem-stack reveal-on-scroll" style="--webdev-card-delay: 120ms;"
+            data-webdev-problem-stack aria-label="Vier typische SEO- und Marketing-Probleme">
+            <div class="webdev-problem-stack__cards">
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--message" type="button"
+                data-problem-card data-problem-index="0">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--blue" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <circle cx="11" cy="11" r="7"></circle>
+                      <path d="m20 20-4-4"></path>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 1 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Nicht sichtbar genug</strong>
+                  <span>Die Website existiert, erscheint aber nicht dort, wo potenzielle Kunden tatsächlich suchen.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>SEO Audit</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--structure" type="button"
+                data-problem-card data-problem-index="1">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--violet" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M4 6h16M4 12h10M4 18h7"></path>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 2 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Zu allgemein formuliert</strong>
+                  <span>Besucher erkennen nicht schnell genug, was angeboten wird und warum dein Unternehmen relevant ist.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Content Klarheit</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--speed" type="button"
+                data-problem-card data-problem-index="2">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--rose" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M5 12h13"></path>
+                      <path d="m13 6 6 6-6 6"></path>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 3 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Kein klarer Anfrageweg</strong>
+                  <span>Kontaktmöglichkeiten sind vorhanden, aber die Website führt Besucher nicht aktiv zur Anfrage.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Conversion Weg</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--focus" type="button"
+                data-problem-card data-problem-index="3">
+                <span class="webdev-problem-stack__topline">
+                  <span class="webdev-problem-stack__icon webdev-problem-stack__icon--mint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M8 6h13M3 6h.01M8 12h13M3 12h.01M8 18h13M3 18h.01"></path>
+                    </svg>
+                  </span>
+                  <span class="webdev-problem-stack__counter">Problem 4 von 4</span>
+                </span>
+                <span class="webdev-problem-stack__body">
+                  <strong>Inhalte ohne Struktur</strong>
+                  <span>Texte, Seiten und Themen arbeiten nicht zusammen und erzeugen keine klare Orientierung.</span>
+                </span>
+                <span class="webdev-problem-stack__footer">
+                  <span>Seitenlogik</span>
+                  <span class="webdev-problem-stack__next">Weiter</span>
+                </span>
+              </button>
+            </div>
+            <div class="webdev-problem-stack__dots" aria-label="Aktives Problem">
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="webdev-problem-stack__dot" data-problem-dot></span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-improve-title">
+    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-journey-title">
       <div class="webdev-container">
         <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Was sich verbessern soll</p>
-          <h2 id="seo-improve-title" class="webdev-section-title font-display">Dein Online-Auftritt soll drei Dinge besser machen.</h2>
-        </div>
-        <div class="webdev-measure-grid">
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span>01</span>
-            <h3>Gefunden werden</h3>
-            <p>Deine Website soll für relevante Suchanfragen sichtbar werden: nicht für beliebige Klicks, sondern für Themen, die zu deinem Angebot, deiner Region und deiner Zielgruppe passen.</p>
-          </article>
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 80ms;">
-            <span>02</span>
-            <h3>Verstanden werden</h3>
-            <p>Besucher sollen schnell erkennen, was du anbietest, für wen es gedacht ist und warum dein Unternehmen die richtige Wahl sein kann.</p>
-          </article>
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 160ms;">
-            <span>03</span>
-            <h3>Angefragt werden</h3>
-            <p>Sichtbarkeit bringt nur dann etwas, wenn daraus Kontakt entsteht. Deshalb werden Inhalte, Seitenstruktur und Call-to-Actions so aufgebaut, dass der nächste Schritt klar ist.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-approach-title">
-      <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Mein Ansatz</p>
-          <h2 id="seo-approach-title" class="webdev-section-title font-display">SEO, Content und Marketing werden nicht getrennt betrachtet.</h2>
+          <p class="webdev-eyebrow">Wie SEO wirklich funktioniert</p>
+          <h2 id="seo-journey-title" class="webdev-section-title font-display">Von der Suchanfrage bis zur Anfrage.</h2>
           <p class="webdev-section-intro">
-            SEO bringt Besucher auf die Website. Content erklärt dein Angebot. Marketing macht daraus eine klare Entscheidung.
-            Wenn diese Bereiche getrennt geplant werden, entstehen Lücken: gute Rankings ohne Anfragen, schöne Texte ohne
-            Suchbezug oder Traffic ohne messbaren Nutzen.
+            SEO und Marketing funktionieren nicht isoliert. Gute Sichtbarkeit entsteht dann, wenn Inhalte, Struktur und
+            Nutzerführung logisch zusammenarbeiten.
           </p>
-          <p class="webdev-section-intro">Ich verbinde diese Bereiche zu einer klaren Struktur, die zu deinem Unternehmen passt.</p>
         </div>
-        <div class="webdev-services-grid">
-          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span class="webdev-service-card__num">Klassisch</span>
-            <h3>Einzelmaßnahmen ohne Gesamtbild</h3>
-            <ul>
-              <li>einzelne SEO-Maßnahmen ohne Gesamtbild</li>
-              <li>Keywords ohne klare Seitenstrategie</li>
-              <li>Blogideen ohne Bezug zum Angebot</li>
-              <li>Reports ohne konkrete nächste Schritte</li>
-              <li>Marketing, das gut klingt, aber wenig erklärt</li>
-            </ul>
+        <div class="seo-timeline reveal-on-scroll" aria-label="Search Journey in fünf Schritten">
+          <article class="seo-timeline__step">
+            <span class="seo-timeline__num">01</span>
+            <div class="seo-timeline__content">
+              <h3 class="font-display">Suchen</h3>
+              <p>Welche Fragen, Probleme und Begriffe deine Zielgruppe wirklich verwendet.</p>
+            </div>
           </article>
-          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 90ms;">
-            <span class="webdev-service-card__num">Smart Web Studio</span>
-            <h3>Eine klare Verbindung aus Angebot, Suche und Website</h3>
-            <ul>
-              <li>klare Verbindung aus Angebot, Suche und Website</li>
-              <li>Seitenstruktur entlang echter Kundenfragen</li>
-              <li>Content, der Vertrauen aufbaut</li>
-              <li>lokale Sichtbarkeit mit regionalem Fokus</li>
-              <li>nachvollziehbare Maßnahmen statt Tool-Chaos</li>
-            </ul>
+          <article class="seo-timeline__step">
+            <span class="seo-timeline__num">02</span>
+            <div class="seo-timeline__content">
+              <h3 class="font-display">Finden</h3>
+              <p>Welche Seiten für diese Suchanfragen sichtbar sein sollten.</p>
+            </div>
+          </article>
+          <article class="seo-timeline__step">
+            <span class="seo-timeline__num">03</span>
+            <div class="seo-timeline__content">
+              <h3 class="font-display">Verstehen</h3>
+              <p>Welche Inhalte Besucher brauchen, um dein Angebot schnell einordnen zu können.</p>
+            </div>
+          </article>
+          <article class="seo-timeline__step">
+            <span class="seo-timeline__num">04</span>
+            <div class="seo-timeline__content">
+              <h3 class="font-display">Vertrauen</h3>
+              <p>Welche Aussagen, Strukturen und Informationen Sicherheit geben.</p>
+            </div>
+          </article>
+          <article class="seo-timeline__step">
+            <span class="seo-timeline__num">05</span>
+            <div class="seo-timeline__content">
+              <h3 class="font-display">Anfragen</h3>
+              <p>Wie Besucher logisch und ohne Umwege zur Kontaktaufnahme geführt werden.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -214,92 +262,66 @@
     <section class="webdev-section scroll-focus-section" aria-labelledby="seo-services-title">
       <div class="webdev-container">
         <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Leistungsbereiche</p>
-          <h2 id="seo-services-title" class="webdev-section-title font-display">SEO &amp; Marketing mit Fokus auf Struktur, Inhalt und Wirkung.</h2>
+          <p class="webdev-eyebrow">Was ich verbessere</p>
+          <h2 id="seo-services-title" class="webdev-section-title font-display">SEO &amp; Marketing mit Fokus auf Klarheit, Sichtbarkeit und Anfrageführung.</h2>
           <p class="webdev-section-intro">
-            Du bekommst keine isolierte Keyword-Liste und keine allgemeinen Marketing-Tipps. Ich erstelle eine klare Grundlage,
-            mit der deine Website besser gefunden, besser verstanden und gezielter genutzt werden kann.
+            Du bekommst keine isolierten SEO-Maßnahmen und keine allgemeinen Marketing-Floskeln. Ziel ist eine Website,
+            die verständlicher kommuniziert, besser gefunden wird und Besucher gezielter zur Anfrage führt.
           </p>
         </div>
-        <div class="webdev-services-grid">
+        <div class="seo-bento" aria-label="Leistungsbereiche SEO und Marketing">
           <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span class="webdev-service-card__num">01</span>
-            <h3>SEO-Grundlage</h3>
-            <p>SEO-Basis für eine besser verständliche Website.</p>
+            <span class="webdev-service-card__num">01 / SEO-BASIS</span>
+            <h3 class="font-display">Suchlogik &amp; SEO-Basis</h3>
+            <p>Ich prüfe, wonach deine Zielgruppe sucht und welche Seiten dafür sichtbar sein sollten.</p>
             <ul>
-              <li>Seitentitel, Meta-Beschreibungen und Überschriftenstruktur</li>
-              <li>saubere Seitenlogik und interne Verlinkung</li>
-              <li>URL-Struktur und klare Themenbereiche</li>
+              <li>Suchbegriffe &amp; Themenstruktur</li>
+              <li>Meta-Titel &amp; Seitenstruktur</li>
+              <li>interne Verlinkung</li>
               <li>technische SEO-Basics</li>
-              <li>Ladezeit, mobile Nutzung und Indexierbarkeit</li>
-              <li>erste Prioritäten für schnelle Verbesserungen</li>
+              <li>mobile Optimierung</li>
+              <li>Indexierbarkeit &amp; Ladezeit</li>
             </ul>
           </article>
-          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 90ms;">
-            <span class="webdev-service-card__num">02</span>
-            <h3>Content &amp; Angebotsseiten</h3>
-            <p>Texte, die nicht nur gut klingen, sondern erklären.</p>
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 80ms;">
+            <span class="webdev-service-card__num">02 / CONTENT</span>
+            <h3 class="font-display">Angebotsseiten &amp; Inhalte</h3>
+            <p>Texte und Inhalte werden so aufgebaut, dass Besucher schneller verstehen, was du anbietest.</p>
             <ul>
-              <li>Struktur für Leistungsseiten</li>
-              <li>bessere Website-Texte mit klarem Nutzen</li>
-              <li>Inhalte entlang echter Kundenfragen</li>
-              <li>klare Abschnitte für Vertrauen, Angebot und Entscheidung</li>
-              <li>Content-Ideen für Ratgeber, Landingpages oder lokale Themen</li>
-              <li>weniger Floskeln, mehr konkrete Aussagekraft</li>
+              <li>klare Leistungsseiten</li>
+              <li>verständliche Website-Texte</li>
+              <li>Inhalte entlang echter Fragen</li>
+              <li>Vertrauensaufbau</li>
+              <li>klare Nutzenkommunikation</li>
+              <li>weniger Floskeln</li>
             </ul>
           </article>
-          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 180ms;">
-            <span class="webdev-service-card__num">03</span>
-            <h3>Lokale Sichtbarkeit</h3>
-            <p>Besser gefunden werden, wo deine Kunden suchen.</p>
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 160ms;">
+            <span class="webdev-service-card__num">03 / LOKAL</span>
+            <h3 class="font-display">Lokale Sichtbarkeit</h3>
+            <p>Für Unternehmen, die regional professioneller gefunden werden möchten.</p>
             <ul>
-              <li>regionale Suchbegriffe und Themen</li>
-              <li>lokale Landingpage-Struktur</li>
-              <li>Empfehlungen für Google Business Profile Inhalte</li>
-              <li>Standort-, Leistungs- und Zielgruppenbezug</li>
+              <li>lokale Suchbegriffe</li>
+              <li>regionale Landingpages</li>
+              <li>Google Business Empfehlungen</li>
+              <li>Standortbezug</li>
               <li>lokale Vertrauenselemente</li>
-              <li>klare Positionierung für Vorarlberg / DACH</li>
+              <li>Vorarlberg / DACH Fokus</li>
             </ul>
           </article>
-          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 270ms;">
-            <span class="webdev-service-card__num">04</span>
-            <h3>Marketing-Struktur</h3>
-            <p>Ein klarer Plan statt einzelner Marketing-Ideen.</p>
+          <article class="webdev-service-card reveal-on-scroll" style="--webdev-card-delay: 240ms;">
+            <span class="webdev-service-card__num">04 / CONVERSION</span>
+            <h3 class="font-display">Anfrageführung</h3>
+            <p>Besucher sollen schneller verstehen, was der nächste Schritt ist.</p>
             <ul>
-              <li>Prioritätenplan für Website und Inhalte</li>
-              <li>klare Botschaften für Zielgruppen</li>
-              <li>sinnvolle Call-to-Actions</li>
-              <li>einfache Content-Richtung</li>
-              <li>bessere Verbindung zwischen Website, SEO und Social Media</li>
-              <li>Maßnahmen, die zu deinem Unternehmen passen</li>
+              <li>klare Call-to-Actions</li>
+              <li>bessere Kontaktwege</li>
+              <li>logische Seitenführung</li>
+              <li>weniger Ablenkung</li>
+              <li>klare Nutzerführung</li>
+              <li>mehr Fokus auf Handlung</li>
             </ul>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-note-title">
-      <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Wichtig zu wissen</p>
-          <h2 id="seo-note-title" class="webdev-section-title font-display">Ich verspreche keine Platz-1-Rankings.</h2>
-          <p class="webdev-section-intro">
-            Ich baue die Grundlage, damit Sichtbarkeit realistisch wachsen kann. Seriöse SEO-Arbeit funktioniert nicht über
-            geheime Tricks. Entscheidend ist, dass Inhalte, Struktur und Nutzerführung sauber aufgebaut sind.
-          </p>
-        </div>
-        <ul class="webdev-why-list reveal-on-scroll">
-          <li>klare Inhalte</li>
-          <li>gute Seitenstruktur</li>
-          <li>relevante Suchintention</li>
-          <li>bessere Nutzerführung</li>
-          <li>regionale Positionierung</li>
-          <li>nachvollziehbare Optimierung</li>
-        </ul>
-        <div class="webdev-stance">
-          <div class="webdev-stance__inner reveal-on-scroll">
-            <p><strong>Das Ziel ist nicht, einfach mehr Traffic zu erzeugen.</strong> Das Ziel ist, dass die richtigen Besucher schneller verstehen, warum dein Angebot relevant ist.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -308,138 +330,56 @@
       <div class="webdev-container">
         <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
           <p class="webdev-eyebrow">Ideal für</p>
-          <h2 id="seo-ideal-title" class="webdev-section-title font-display">Für Unternehmen, die online professioneller auftreten und besser gefunden werden möchten.</h2>
+          <h2 id="seo-ideal-title" class="webdev-section-title font-display">
+            Für Unternehmen, die online professioneller wirken und gezielter gefunden werden möchten.
+          </h2>
         </div>
-        <div class="webdev-usecase-grid">
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span class="webdev-usecase__num">01</span>
-            <h3>Kleine Unternehmen</h3>
-            <p>Du möchtest online sichtbarer werden, hast aber keine klare SEO- oder Marketing-Struktur.</p>
+        <div class="seo-trust-strip reveal-on-scroll" aria-label="Ideal für diese Unternehmen">
+          <article class="seo-trust-card">
+            <strong>Kleine Unternehmen</strong>
+            <p>Du möchtest sichtbarer werden, aber ohne kompliziertes Marketing-Chaos.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 70ms;">
-            <span class="webdev-usecase__num">02</span>
-            <h3>Dienstleister</h3>
-            <p>Du brauchst bessere Leistungsseiten, die dein Angebot verständlich erklären und Vertrauen schaffen.</p>
+          <article class="seo-trust-card">
+            <strong>Dienstleister</strong>
+            <p>Du brauchst bessere Leistungsseiten, die dein Angebot klar erklären.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 140ms;">
-            <span class="webdev-usecase__num">03</span>
-            <h3>Lokale Anbieter</h3>
-            <p>Du möchtest in deiner Region besser gefunden werden und professioneller wirken.</p>
+          <article class="seo-trust-card">
+            <strong>Lokale Anbieter</strong>
+            <p>Du möchtest in deiner Region professioneller auftreten und besser gefunden werden.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 210ms;">
-            <span class="webdev-usecase__num">04</span>
-            <h3>Bestehende Websites</h3>
-            <p>Deine Website ist online, aber Texte, Struktur, Sichtbarkeit oder Kontaktwege funktionieren noch nicht stark genug.</p>
+          <article class="seo-trust-card">
+            <strong>Bestehende Websites</strong>
+            <p>Deine Website ist online, aber Sichtbarkeit, Struktur oder Anfragewege funktionieren noch nicht stark genug.</p>
           </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 280ms;">
-            <span class="webdev-usecase__num">05</span>
-            <h3>Neue Websites</h3>
-            <p>Du möchtest SEO und Marketing von Anfang an sauber mitdenken, statt später alles nachzubessern.</p>
+          <article class="seo-trust-card">
+            <strong>Neue Websites</strong>
+            <p>SEO und Marketing sollen von Anfang an sauber mitgedacht werden.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-process-title">
+    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-expectation-title">
       <div class="webdev-container">
-        <div class="webdev-process-intro reveal-on-scroll">
-          <p class="webdev-eyebrow">Zusammenarbeit</p>
-          <h2 id="seo-process-title" class="webdev-section-title font-display">Ein klarer Ablauf, damit aus Analyse echte Verbesserung wird.</h2>
-        </div>
-        <div class="webdev-usecase-grid" aria-label="Ablauf SEO und Marketing Zusammenarbeit">
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span class="webdev-usecase__num">01</span>
-            <h3>Verstehen</h3>
-            <p>Wir schauen uns dein Unternehmen, deine Zielgruppe, deine Website und dein aktuelles Marketing an.</p>
-          </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 70ms;">
-            <span class="webdev-usecase__num">02</span>
-            <h3>Sortieren</h3>
-            <p>Ich analysiere, welche Seiten, Inhalte, Suchbegriffe und Kontaktwege wirklich relevant sind.</p>
-          </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 140ms;">
-            <span class="webdev-usecase__num">03</span>
-            <h3>Priorisieren</h3>
-            <p>Du bekommst eine klare Empfehlung, welche Maßnahmen zuerst umgesetzt werden sollten.</p>
-          </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 210ms;">
-            <span class="webdev-usecase__num">04</span>
-            <h3>Umsetzen</h3>
-            <p>Texte, Seitenstruktur, SEO-Basics und Marketing-Elemente werden gezielt verbessert.</p>
-          </article>
-          <article class="webdev-usecase reveal-on-scroll" style="--webdev-card-delay: 280ms;">
-            <span class="webdev-usecase__num">05</span>
-            <h3>Weiterentwickeln</h3>
-            <p>Nach der Umsetzung können Inhalte, Kontaktwege und Sichtbarkeit weiter optimiert werden.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-result-title">
-      <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Was du am Ende hast</p>
-          <h2 id="seo-result-title" class="webdev-section-title font-display">Eine bessere Grundlage für Sichtbarkeit, Vertrauen und qualifizierte Anfragen.</h2>
-        </div>
-        <div class="webdev-measure-grid">
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span>01</span>
-            <h3>Klare Seitenstruktur</h3>
-            <p>Deine Website zeigt besser, welche Leistungen du anbietest und welche Seiten wofür zuständig sind.</p>
-          </article>
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 80ms;">
-            <span>02</span>
-            <h3>Bessere Texte</h3>
-            <p>Deine Inhalte erklären verständlicher, was dein Angebot ausmacht und warum es relevant ist.</p>
-          </article>
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 160ms;">
-            <span>03</span>
-            <h3>Relevantere Suchsignale</h3>
-            <p>Suchbegriffe, Themen und Seiten werden sauberer miteinander verbunden.</p>
-          </article>
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 240ms;">
-            <span>04</span>
-            <h3>Stärkerer Anfragefokus</h3>
-            <p>Besucher werden klarer zur nächsten Handlung geführt.</p>
-          </article>
-          <article class="webdev-measure reveal-on-scroll" style="--webdev-card-delay: 320ms;">
-            <span>05</span>
-            <h3>Mehr Sicherheit</h3>
-            <p>Du weißt, welche SEO- und Marketing-Maßnahmen wirklich sinnvoll sind und was warten kann.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-faq-title">
-      <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
-          <p class="webdev-eyebrow">Häufige Fragen</p>
-          <h2 id="seo-faq-title" class="webdev-section-title font-display">Häufige Fragen zu SEO &amp; Marketing.</h2>
-        </div>
-        <div class="webdev-faq-list">
-          <details class="webdev-faq reveal-on-scroll">
-            <summary>Wie schnell sieht man Ergebnisse bei SEO?</summary>
-            <p>SEO braucht Zeit. Manche Änderungen können schneller wirken, andere benötigen mehrere Wochen oder Monate. Wichtig ist, dass die Grundlage sauber aufgebaut wird und die Maßnahmen sinnvoll priorisiert sind.</p>
-          </details>
-          <details class="webdev-faq reveal-on-scroll">
-            <summary>Kannst du garantieren, dass ich bei Google auf Platz 1 komme?</summary>
-            <p>Nein. Seriös wäre das nicht. Ich kann keine Platzierung garantieren. Ich kann aber deine Website so verbessern, dass Inhalte, Struktur, Technik und Nutzerführung deutlich sauberer aufgestellt sind.</p>
-          </details>
-          <details class="webdev-faq reveal-on-scroll">
-            <summary>Brauche ich regelmäßig neue Blogartikel?</summary>
-            <p>Nicht immer. Für viele kleine Unternehmen ist es zuerst wichtiger, die bestehenden Leistungsseiten klar und vollständig aufzubauen. Neue Inhalte sind nur dann sinnvoll, wenn sie echte Fragen beantworten und zum Angebot passen.</p>
-          </details>
-          <details class="webdev-faq reveal-on-scroll">
-            <summary>Ist SEO auch für kleine Unternehmen sinnvoll?</summary>
-            <p>Ja, besonders wenn dein Angebot lokal oder regional gesucht wird. Wichtig ist aber, dass SEO realistisch und passend zum Unternehmen geplant wird.</p>
-          </details>
-          <details class="webdev-faq reveal-on-scroll">
-            <summary>Machst du auch Werbung oder Social Media?</summary>
-            <p>Ich kann dir helfen, eine sinnvolle Marketing-Struktur aufzubauen. Der Fokus liegt auf SEO, Website-Inhalten, lokaler Sichtbarkeit und Anfrageführung.</p>
-          </details>
-        </div>
+        <article class="seo-expectation reveal-on-scroll">
+          <p class="webdev-eyebrow">Wichtig zu wissen</p>
+          <h2 id="seo-expectation-title" class="webdev-section-title font-display">Ich verspreche keine Platz-1-Rankings.</h2>
+          <p class="seo-expectation__text">
+            Seriöse SEO-Arbeit funktioniert nicht über Tricks oder kurzfristige Manipulationen. Entscheidend ist eine
+            saubere Grundlage aus Struktur, Inhalt, Nutzerführung und relevanten Themen.
+          </p>
+          <ul class="seo-expectation__tags" aria-label="Grundlagen realistischer SEO-Arbeit">
+            <li>klare Inhalte</li>
+            <li>saubere Seitenstruktur</li>
+            <li>relevante Themen</li>
+            <li>bessere Nutzerführung</li>
+            <li>lokale Positionierung</li>
+            <li>nachvollziehbare Optimierung</li>
+          </ul>
+          <p class="seo-expectation__statement">
+            Das Ziel ist nicht einfach mehr Traffic. Das Ziel ist, dass die richtigen Besucher schneller verstehen, warum dein Angebot relevant ist.
+          </p>
+        </article>
       </div>
     </section>
 
@@ -449,12 +389,12 @@
           <p class="webdev-eyebrow">Nächster Schritt</p>
           <h2 id="seo-final-title" class="webdev-section-title font-display">Möchtest du wissen, warum deine Website noch nicht genug Anfragen bringt?</h2>
           <p>
-            Dann schauen wir gemeinsam auf deine Website, deine Inhalte und deine aktuelle Sichtbarkeit. Du bekommst eine klare
-            Einschätzung, welche Maßnahmen wirklich sinnvoll sind und wo dein Online-Auftritt aktuell Potenzial verliert.
+            Dann schauen wir gemeinsam auf deine Website, deine Inhalte und deine aktuelle Sichtbarkeit. Du bekommst eine
+            klare Einschätzung, welche Maßnahmen wirklich sinnvoll sind und wo dein Online-Auftritt aktuell Potenzial verliert.
           </p>
           <div class="webdev-hero__actions">
-            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary">SEO &amp; Marketing anfragen</a>
-            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary">Mini-Audit anfordern</a>
+            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary">Website prüfen lassen</a>
+            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary">SEO &amp; Marketing anfragen</a>
           </div>
         </div>
       </div>
@@ -498,7 +438,8 @@
             <li><a class="site-footer__link" href="impressum.html">Impressum</a></li>
             <li><a class="site-footer__link" href="datenschutz.html">Datenschutz</a></li>
             <li><a class="site-footer__link" href="cookies.html">Cookies</a></li>
-            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings aria-haspopup="dialog">Cookie-Einstellungen</a></li>
+            <li><a class="site-footer__link" href="cookies.html#cookie-settings" data-open-cookie-settings
+                aria-haspopup="dialog">Cookie-Einstellungen</a></li>
           </ul>
         </nav>
       </div>
@@ -513,8 +454,9 @@
     <span aria-hidden="true">&uarr;</span>
   </button>
 
-  <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/water-sphere.js"></script>
+  <script type="module" src="src/js/main.js"></script>
+  <script type="module" src="src/js/webdev-problem-stack.js"></script>
 </body>
 
 </html>

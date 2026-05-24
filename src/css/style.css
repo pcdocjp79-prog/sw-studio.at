@@ -4382,7 +4382,7 @@ body[data-page="home"] #process .process-section__header {
   outline-offset: 3px;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn {
+body:is([data-page="home"], [data-page="webentwicklung"], [data-page="seo-marketing"]) .final-cta-btn {
   position: relative;
   isolation: isolate;
   border: 1px solid transparent;
@@ -4402,7 +4402,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn {
     filter 260ms ease;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::before {
+body:is([data-page="home"], [data-page="webentwicklung"], [data-page="seo-marketing"]) .final-cta-btn::before {
   content: "";
   position: absolute;
   inset: -1px;
@@ -4418,7 +4418,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::before
   pointer-events: none;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::after {
+body:is([data-page="home"], [data-page="webentwicklung"], [data-page="seo-marketing"]) .final-cta-btn::after {
   content: "";
   position: absolute;
   inset: 1px;
@@ -4431,7 +4431,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn::after 
   pointer-events: none;
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover {
+body:is([data-page="home"], [data-page="webentwicklung"], [data-page="seo-marketing"]) .final-cta-btn:hover {
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow:
@@ -4442,7 +4442,7 @@ body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover {
   filter: brightness(1.03);
 }
 
-body:is([data-page="home"], [data-page="webentwicklung"]) .final-cta-btn:hover::before {
+body:is([data-page="home"], [data-page="webentwicklung"], [data-page="seo-marketing"]) .final-cta-btn:hover::before {
   opacity: 0.96;
   filter: blur(18px);
   transform: scale(1.015);

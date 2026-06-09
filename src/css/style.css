@@ -381,6 +381,18 @@ img {
   font-family: var(--font-display);
 }
 
+.section-title-accent--cyan,
+.seo-accent--cyan {
+  color: #94f2ff;
+  text-shadow: 0 0 16px rgba(148, 242, 255, 0.25);
+}
+
+.section-title-accent--magenta,
+.seo-accent--magenta {
+  color: #ff7ec2;
+  text-shadow: 0 0 16px rgba(255, 126, 194, 0.25);
+}
+
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;

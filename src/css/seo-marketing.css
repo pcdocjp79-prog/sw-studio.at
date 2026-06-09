@@ -7,6 +7,17 @@
   max-width: 19ch;
 }
 
+/* Akzent-Wörter in Titeln — zwei Markenfarben, pro Section wechselnd */
+.seo-accent--cyan {
+  color: #94f2ff;
+  text-shadow: 0 0 16px rgba(148, 242, 255, 0.25);
+}
+
+.seo-accent--magenta {
+  color: #ff7ec2;
+  text-shadow: 0 0 16px rgba(255, 126, 194, 0.25);
+}
+
 .seo-journey-card__intro {
   margin: 0;
   color: rgba(231, 239, 250, 0.72);

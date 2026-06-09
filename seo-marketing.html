@@ -223,6 +223,10 @@
         <div class="seo-flow" data-seo-flow>
           <!-- Linke Spalte: klickbare Phasen -->
           <div class="seo-flow__steps reveal-on-scroll">
+            <div class="seo-flow__rail" aria-hidden="true">
+              <span class="seo-flow__rail-fill" data-flow-fill></span>
+            </div>
+
             <div class="seo-flow__step is-active" data-flow-step="1">
               <button class="seo-flow__trigger" type="button" data-flow-trigger="1" aria-expanded="true" aria-controls="seo-flow-detail-1">
                 <span class="seo-flow__icon">
@@ -325,7 +329,7 @@
           </div>
 
           <!-- Rechte Spalte: illustrativer Viewer (rein dekorativ) -->
-          <div class="seo-flow__viewer" aria-hidden="true">
+          <div class="seo-flow__viewer reveal-on-scroll" data-flow-viewer aria-hidden="true">
             <div class="seo-flow__chrome">
               <div class="seo-flow__dots"><span></span><span></span><span></span></div>
               <span class="seo-flow__module" data-flow-module>MODUL_01</span>
@@ -334,7 +338,7 @@
             <div class="seo-flow__stage">
               <!-- Szene 1: Themen-Karte -->
               <div class="seo-flow__scene is-active" data-flow-scene="1">
-                <p class="seo-flow__scene-label">SEMANTISCHE THEMEN-KARTE</p>
+                <p class="seo-flow__scene-label" data-flow-pop style="--i: 0;">SEMANTISCHE THEMEN-KARTE</p>
                 <div class="seo-nodes">
                   <svg class="seo-nodes__lines" preserveAspectRatio="none">
                     <line x1="50%" y1="50%" x2="18%" y2="16%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
@@ -342,24 +346,24 @@
                     <line x1="50%" y1="50%" x2="24%" y2="84%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
                     <line x1="50%" y1="50%" x2="80%" y2="82%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
                   </svg>
-                  <span class="seo-node seo-node--center">Dein Thema</span>
-                  <span class="seo-node seo-node--a">Fragen</span>
-                  <span class="seo-node seo-node--b">Begriffe</span>
-                  <span class="seo-node seo-node--c">Probleme</span>
-                  <span class="seo-node seo-node--d">Kontext</span>
+                  <span class="seo-node seo-node--center" data-flow-pop style="--i: 1;">Dein Thema</span>
+                  <span class="seo-node seo-node--a" data-flow-pop style="--i: 2;">Fragen</span>
+                  <span class="seo-node seo-node--b" data-flow-pop style="--i: 3;">Begriffe</span>
+                  <span class="seo-node seo-node--c" data-flow-pop style="--i: 4;">Probleme</span>
+                  <span class="seo-node seo-node--d" data-flow-pop style="--i: 5;">Kontext</span>
                 </div>
-                <p class="seo-flow__scene-foot">Themen-Cluster statt einzelne Keywords.</p>
+                <p class="seo-flow__scene-foot" data-flow-pop style="--i: 6;">Themen-Cluster statt einzelne Keywords.</p>
               </div>
 
               <!-- Szene 2: Seitenstruktur -->
               <div class="seo-flow__scene" data-flow-scene="2">
-                <p class="seo-flow__scene-label">SEITENSTRUKTUR &amp; META</p>
-                <div class="seo-serp">
+                <p class="seo-flow__scene-label" data-flow-pop style="--i: 0;">SEITENSTRUKTUR &amp; META</p>
+                <div class="seo-serp" data-flow-pop style="--i: 1;">
                   <span class="seo-serp__url">smart-web-studio.at › seo-marketing</span>
                   <span class="seo-serp__title">SEO &amp; Marketing für kleine Unternehmen</span>
                   <span class="seo-serp__desc">Bessere Sichtbarkeit durch klare Struktur, verständliche Inhalte und saubere Technik.</span>
                 </div>
-                <ul class="seo-tree">
+                <ul class="seo-tree" data-flow-pop style="--i: 2;">
                   <li>Startseite
                     <ul>
                       <li>Leistungen
@@ -374,43 +378,44 @@
 
               <!-- Szene 3: Leseführung / Wireframe -->
               <div class="seo-flow__scene" data-flow-scene="3">
-                <p class="seo-flow__scene-label">LESEFÜHRUNG</p>
-                <div class="seo-wire">
+                <p class="seo-flow__scene-label" data-flow-pop style="--i: 0;">LESEFÜHRUNG</p>
+                <div class="seo-wire" data-flow-pop style="--i: 1;">
                   <span class="seo-wire__h"></span>
                   <span class="seo-wire__h seo-wire__h--short"></span>
                   <span class="seo-wire__line"></span>
                   <span class="seo-wire__line seo-wire__line--short"></span>
                   <span class="seo-wire__cta">Anfrage senden</span>
                   <svg class="seo-wire__path" preserveAspectRatio="none" viewBox="0 0 300 200">
-                    <path d="M24 30 L270 30 L40 95 L210 95 L40 165"/>
+                    <path d="M28 34 L272 34 L44 100 L214 100 L44 168"/>
+                    <circle class="seo-wire__dot" cx="44" cy="168" r="6"/>
                   </svg>
                 </div>
-                <p class="seo-flow__scene-foot">Klare Hierarchie, logische Blickführung.</p>
+                <p class="seo-flow__scene-foot" data-flow-pop style="--i: 2;">Klare Hierarchie, logische Blickführung.</p>
               </div>
 
               <!-- Szene 4: Vertrauens-Signale -->
               <div class="seo-flow__scene" data-flow-scene="4">
-                <p class="seo-flow__scene-label">VERTRAUENS-SIGNALE</p>
+                <p class="seo-flow__scene-label" data-flow-pop style="--i: 0;">VERTRAUENS-SIGNALE</p>
                 <ul class="seo-trust-checklist">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Klare, ehrliche Aussagen</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Transparente Informationen</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Nachvollziehbare Struktur</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Seriöse Vertrauenselemente</li>
+                  <li data-flow-pop style="--i: 1;"><span class="seo-trust-check" style="--i: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg></span> Klare, ehrliche Aussagen</li>
+                  <li data-flow-pop style="--i: 2;"><span class="seo-trust-check" style="--i: 1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg></span> Transparente Informationen</li>
+                  <li data-flow-pop style="--i: 3;"><span class="seo-trust-check" style="--i: 2;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg></span> Nachvollziehbare Struktur</li>
+                  <li data-flow-pop style="--i: 4;"><span class="seo-trust-check" style="--i: 3;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg></span> Seriöse Vertrauenselemente</li>
                 </ul>
-                <p class="seo-flow__scene-foot">Sicherheit ohne übertriebene Versprechen.</p>
+                <p class="seo-flow__scene-foot" data-flow-pop style="--i: 5;">Sicherheit ohne übertriebene Versprechen.</p>
               </div>
 
               <!-- Szene 5: Weg zur Anfrage -->
               <div class="seo-flow__scene" data-flow-scene="5">
-                <p class="seo-flow__scene-label">WEG ZUR ANFRAGE</p>
+                <p class="seo-flow__scene-label" data-flow-pop style="--i: 0;">WEG ZUR ANFRAGE</p>
                 <div class="seo-funnel">
-                  <span class="seo-funnel__step">Besuch über die Suche</span>
-                  <span class="seo-funnel__bar"></span>
-                  <span class="seo-funnel__step">Schnelle Orientierung</span>
-                  <span class="seo-funnel__bar"></span>
-                  <span class="seo-funnel__step seo-funnel__step--cta">Klarer Call-to-Action</span>
-                  <span class="seo-funnel__bar"></span>
-                  <span class="seo-funnel__step seo-funnel__step--goal">Qualifizierte Anfrage</span>
+                  <span class="seo-funnel__step" data-flow-pop style="--i: 1;">Besuch über die Suche</span>
+                  <span class="seo-funnel__bar" data-flow-pop style="--i: 2;"></span>
+                  <span class="seo-funnel__step" data-flow-pop style="--i: 3;">Schnelle Orientierung</span>
+                  <span class="seo-funnel__bar" data-flow-pop style="--i: 4;"></span>
+                  <span class="seo-funnel__step seo-funnel__step--cta" data-flow-pop style="--i: 5;">Klarer Call-to-Action</span>
+                  <span class="seo-funnel__bar" data-flow-pop style="--i: 6;"></span>
+                  <span class="seo-funnel__step seo-funnel__step--goal" data-flow-pop style="--i: 7;">Qualifizierte Anfrage</span>
                 </div>
               </div>
             </div>

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/webdev-problem-stack.css" />
   <link rel="stylesheet" href="src/css/seo-marketing.css" />
+  <link rel="stylesheet" href="src/css/seo-flow.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -219,42 +220,201 @@
             Nutzerführung logisch zusammenarbeiten.
           </p>
         </div>
-        <div class="seo-timeline reveal-on-scroll" aria-label="Search Journey in fünf Schritten">
-          <article class="seo-timeline__step">
-            <span class="seo-timeline__num">01</span>
-            <div class="seo-timeline__content">
-              <h3 class="font-display">Suchen</h3>
-              <p>Welche Fragen, Probleme und Begriffe deine Zielgruppe wirklich verwendet.</p>
+        <div class="seo-flow" data-seo-flow>
+          <!-- Linke Spalte: klickbare Phasen -->
+          <div class="seo-flow__steps reveal-on-scroll">
+            <div class="seo-flow__step is-active" data-flow-step="1">
+              <button class="seo-flow__trigger" type="button" data-flow-trigger="1" aria-expanded="true" aria-controls="seo-flow-detail-1">
+                <span class="seo-flow__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+                <span class="seo-flow__head">
+                  <span class="seo-flow__phase">Phase 01</span>
+                  <span class="seo-flow__title">Suchen</span>
+                  <span class="seo-flow__short">Welche Fragen, Probleme und Begriffe deine Zielgruppe wirklich verwendet.</span>
+                </span>
+              </button>
+              <div class="seo-flow__detail" id="seo-flow-detail-1" role="region" aria-label="Suchen – Details">
+                <div class="seo-flow__detail-inner">
+                  <p class="seo-flow__subtitle">Suchintention &amp; Themen</p>
+                  <p class="seo-flow__long">Bevor Inhalte entstehen, klären wir, wonach deine Zielgruppe wirklich sucht – welche Fragen, Probleme und Begriffe sie verwendet. Daraus entsteht eine Themenstruktur, die zu echten Suchanfragen passt, statt nur einzelne Keywords abzuarbeiten.</p>
+                  <span class="seo-flow__focus"><b>Fokus</b> Themen statt einzelne Keywords</span>
+                </div>
+              </div>
             </div>
-          </article>
-          <article class="seo-timeline__step">
-            <span class="seo-timeline__num">02</span>
-            <div class="seo-timeline__content">
-              <h3 class="font-display">Finden</h3>
-              <p>Welche Seiten für diese Suchanfragen sichtbar sein sollten.</p>
+
+            <div class="seo-flow__step" data-flow-step="2">
+              <button class="seo-flow__trigger" type="button" data-flow-trigger="2" aria-expanded="false" aria-controls="seo-flow-detail-2">
+                <span class="seo-flow__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v3M6 16v-1.5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1V16"/></svg>
+                </span>
+                <span class="seo-flow__head">
+                  <span class="seo-flow__phase">Phase 02</span>
+                  <span class="seo-flow__title">Finden</span>
+                  <span class="seo-flow__short">Welche Seiten für diese Suchanfragen sichtbar sein sollten.</span>
+                </span>
+              </button>
+              <div class="seo-flow__detail" id="seo-flow-detail-2" role="region" aria-label="Finden – Details">
+                <div class="seo-flow__detail-inner">
+                  <p class="seo-flow__subtitle">Struktur &amp; Sichtbarkeit</p>
+                  <p class="seo-flow__long">Dann legen wir fest, welche Seite für welche Suchanfrage sichtbar sein soll. Eine saubere Seitenstruktur, klare Meta-Angaben und eine logische interne Verlinkung sorgen dafür, dass Suchmaschine und Besucher schneller die richtige Seite finden.</p>
+                  <span class="seo-flow__focus"><b>Fokus</b> Klare Struktur, saubere Technik</span>
+                </div>
+              </div>
             </div>
-          </article>
-          <article class="seo-timeline__step">
-            <span class="seo-timeline__num">03</span>
-            <div class="seo-timeline__content">
-              <h3 class="font-display">Verstehen</h3>
-              <p>Welche Inhalte Besucher brauchen, um dein Angebot schnell einordnen zu können.</p>
+
+            <div class="seo-flow__step" data-flow-step="3">
+              <button class="seo-flow__trigger" type="button" data-flow-trigger="3" aria-expanded="false" aria-controls="seo-flow-detail-3">
+                <span class="seo-flow__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </span>
+                <span class="seo-flow__head">
+                  <span class="seo-flow__phase">Phase 03</span>
+                  <span class="seo-flow__title">Verstehen</span>
+                  <span class="seo-flow__short">Welche Inhalte Besucher brauchen, um dein Angebot schnell einordnen zu können.</span>
+                </span>
+              </button>
+              <div class="seo-flow__detail" id="seo-flow-detail-3" role="region" aria-label="Verstehen – Details">
+                <div class="seo-flow__detail-inner">
+                  <p class="seo-flow__subtitle">Inhalt &amp; Nutzerführung</p>
+                  <p class="seo-flow__long">Besucher lesen nicht, sie scannen. Inhalte werden so aufgebaut, dass dein Angebot in wenigen Sekunden einzuordnen ist – über klare visuelle Hierarchie, verständliche Nutzenkommunikation und eine logische Leseführung statt Textwüsten.</p>
+                  <span class="seo-flow__focus"><b>Fokus</b> In Sekunden verständlich</span>
+                </div>
+              </div>
             </div>
-          </article>
-          <article class="seo-timeline__step">
-            <span class="seo-timeline__num">04</span>
-            <div class="seo-timeline__content">
-              <h3 class="font-display">Vertrauen</h3>
-              <p>Welche Aussagen, Strukturen und Informationen Sicherheit geben.</p>
+
+            <div class="seo-flow__step" data-flow-step="4">
+              <button class="seo-flow__trigger" type="button" data-flow-trigger="4" aria-expanded="false" aria-controls="seo-flow-detail-4">
+                <span class="seo-flow__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+                </span>
+                <span class="seo-flow__head">
+                  <span class="seo-flow__phase">Phase 04</span>
+                  <span class="seo-flow__title">Vertrauen</span>
+                  <span class="seo-flow__short">Welche Aussagen, Strukturen und Informationen Sicherheit geben.</span>
+                </span>
+              </button>
+              <div class="seo-flow__detail" id="seo-flow-detail-4" role="region" aria-label="Vertrauen – Details">
+                <div class="seo-flow__detail-inner">
+                  <p class="seo-flow__subtitle">Sicherheit &amp; Glaubwürdigkeit</p>
+                  <p class="seo-flow__long">Vertrauen entscheidet, ob aus Interesse eine Anfrage wird. Klare Aussagen, transparente Informationen und nachvollziehbare Strukturen geben Besuchern Sicherheit – ohne übertriebene Versprechen oder Tricks.</p>
+                  <span class="seo-flow__focus"><b>Fokus</b> Transparent &amp; nachvollziehbar</span>
+                </div>
+              </div>
             </div>
-          </article>
-          <article class="seo-timeline__step">
-            <span class="seo-timeline__num">05</span>
-            <div class="seo-timeline__content">
-              <h3 class="font-display">Anfragen</h3>
-              <p>Wie Besucher logisch und ohne Umwege zur Kontaktaufnahme geführt werden.</p>
+
+            <div class="seo-flow__step" data-flow-step="5">
+              <button class="seo-flow__trigger" type="button" data-flow-trigger="5" aria-expanded="false" aria-controls="seo-flow-detail-5">
+                <span class="seo-flow__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg>
+                </span>
+                <span class="seo-flow__head">
+                  <span class="seo-flow__phase">Phase 05</span>
+                  <span class="seo-flow__title">Anfragen</span>
+                  <span class="seo-flow__short">Wie Besucher logisch und ohne Umwege zur Kontaktaufnahme geführt werden.</span>
+                </span>
+              </button>
+              <div class="seo-flow__detail" id="seo-flow-detail-5" role="region" aria-label="Anfragen – Details">
+                <div class="seo-flow__detail-inner">
+                  <p class="seo-flow__subtitle">Conversion &amp; Kontaktweg</p>
+                  <p class="seo-flow__long">Am Ende zählt der nächste Schritt. Besucher werden ohne Umwege zur Kontaktaufnahme geführt – mit klaren Call-to-Actions, weniger Ablenkung und einem logischen Weg von der Information zur Anfrage.</p>
+                  <span class="seo-flow__focus"><b>Fokus</b> Klarer Weg zur Anfrage</span>
+                </div>
+              </div>
             </div>
-          </article>
+          </div>
+
+          <!-- Rechte Spalte: illustrativer Viewer (rein dekorativ) -->
+          <div class="seo-flow__viewer" aria-hidden="true">
+            <div class="seo-flow__chrome">
+              <div class="seo-flow__dots"><span></span><span></span><span></span></div>
+              <span class="seo-flow__module" data-flow-module>MODUL_01</span>
+              <span style="width:2.6rem"></span>
+            </div>
+            <div class="seo-flow__stage">
+              <!-- Szene 1: Themen-Karte -->
+              <div class="seo-flow__scene is-active" data-flow-scene="1">
+                <p class="seo-flow__scene-label">SEMANTISCHE THEMEN-KARTE</p>
+                <div class="seo-nodes">
+                  <svg class="seo-nodes__lines" preserveAspectRatio="none">
+                    <line x1="50%" y1="50%" x2="18%" y2="16%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
+                    <line x1="50%" y1="50%" x2="82%" y2="18%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
+                    <line x1="50%" y1="50%" x2="24%" y2="84%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
+                    <line x1="50%" y1="50%" x2="80%" y2="82%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 5"/>
+                  </svg>
+                  <span class="seo-node seo-node--center">Dein Thema</span>
+                  <span class="seo-node seo-node--a">Fragen</span>
+                  <span class="seo-node seo-node--b">Begriffe</span>
+                  <span class="seo-node seo-node--c">Probleme</span>
+                  <span class="seo-node seo-node--d">Kontext</span>
+                </div>
+                <p class="seo-flow__scene-foot">Themen-Cluster statt einzelne Keywords.</p>
+              </div>
+
+              <!-- Szene 2: Seitenstruktur -->
+              <div class="seo-flow__scene" data-flow-scene="2">
+                <p class="seo-flow__scene-label">SEITENSTRUKTUR &amp; META</p>
+                <div class="seo-serp">
+                  <span class="seo-serp__url">smart-web-studio.at › seo-marketing</span>
+                  <span class="seo-serp__title">SEO &amp; Marketing für kleine Unternehmen</span>
+                  <span class="seo-serp__desc">Bessere Sichtbarkeit durch klare Struktur, verständliche Inhalte und saubere Technik.</span>
+                </div>
+                <ul class="seo-tree">
+                  <li>Startseite
+                    <ul>
+                      <li>Leistungen
+                        <ul>
+                          <li class="is-target">SEO &amp; Marketing</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Szene 3: Leseführung / Wireframe -->
+              <div class="seo-flow__scene" data-flow-scene="3">
+                <p class="seo-flow__scene-label">LESEFÜHRUNG</p>
+                <div class="seo-wire">
+                  <span class="seo-wire__h"></span>
+                  <span class="seo-wire__h seo-wire__h--short"></span>
+                  <span class="seo-wire__line"></span>
+                  <span class="seo-wire__line seo-wire__line--short"></span>
+                  <span class="seo-wire__cta">Anfrage senden</span>
+                  <svg class="seo-wire__path" preserveAspectRatio="none" viewBox="0 0 300 200">
+                    <path d="M24 30 L270 30 L40 95 L210 95 L40 165"/>
+                  </svg>
+                </div>
+                <p class="seo-flow__scene-foot">Klare Hierarchie, logische Blickführung.</p>
+              </div>
+
+              <!-- Szene 4: Vertrauens-Signale -->
+              <div class="seo-flow__scene" data-flow-scene="4">
+                <p class="seo-flow__scene-label">VERTRAUENS-SIGNALE</p>
+                <ul class="seo-trust-checklist">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Klare, ehrliche Aussagen</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Transparente Informationen</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Nachvollziehbare Struktur</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg> Seriöse Vertrauenselemente</li>
+                </ul>
+                <p class="seo-flow__scene-foot">Sicherheit ohne übertriebene Versprechen.</p>
+              </div>
+
+              <!-- Szene 5: Weg zur Anfrage -->
+              <div class="seo-flow__scene" data-flow-scene="5">
+                <p class="seo-flow__scene-label">WEG ZUR ANFRAGE</p>
+                <div class="seo-funnel">
+                  <span class="seo-funnel__step">Besuch über die Suche</span>
+                  <span class="seo-funnel__bar"></span>
+                  <span class="seo-funnel__step">Schnelle Orientierung</span>
+                  <span class="seo-funnel__bar"></span>
+                  <span class="seo-funnel__step seo-funnel__step--cta">Klarer Call-to-Action</span>
+                  <span class="seo-funnel__bar"></span>
+                  <span class="seo-funnel__step seo-funnel__step--goal">Qualifizierte Anfrage</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -491,6 +651,7 @@
   <script type="module" src="src/js/water-sphere.js"></script>
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/webdev-problem-stack.js"></script>
+  <script type="module" src="src/js/seo-flow.js"></script>
 </body>
 
 </html>

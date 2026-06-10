@@ -11,6 +11,56 @@
       "source": "/marketing.html",
       "destination": "/seo-marketing",
       "permanent": true
+    },
+    {
+      "source": "/leistungen",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/leistungen.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ablauf",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ablauf.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/branding",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/branding.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/social",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/social.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/growth",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/growth.html",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

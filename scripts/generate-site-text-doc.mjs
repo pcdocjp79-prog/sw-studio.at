@@ -6,12 +6,8 @@ const OUTPUT_FILE = path.join(ROOT, "website-texte-komplett.md");
 
 const PAGE_ORDER = [
   "index.html",
-  "leistungen.html",
   "webentwicklung.html",
-  "branding.html",
   "seo-marketing.html",
-  "social.html",
-  "growth.html",
   "ki-beratung.html",
   "projekte.html",
   "projekte/website-branding-setup.html",
@@ -19,7 +15,6 @@ const PAGE_ORDER = [
   "projekte/content-tracking-system.html",
   "projekte/funnel-optimierung.html",
   "case-study.html",
-  "ablauf.html",
   "preise.html",
   "insights.html",
   "kontakt.html",

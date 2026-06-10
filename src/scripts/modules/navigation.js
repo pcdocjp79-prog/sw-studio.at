@@ -10,96 +10,39 @@ const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
 const NAV_MOBILE_BREAKPOINT = 1024;
 
-const NAV_LINK_CLASS = "nav-link rounded-full px-3 sm:px-5 py-1.5 text-sm font-medium";
-
-const SERVICE_DETAIL_LINKS = Object.freeze([
-  {
-    type: "page",
-    path: "webentwicklung.html",
-    label: "WEBENTWICKLUNG",
-    description:
-      "Individuelle codebasierte Websites mit klarer Nutzerfuehrung und Performance.",
-    pageKey: "webentwicklung",
-    desktopColumn: "primary",
-  },
-  {
-    type: "page",
-    path: SEO_MARKETING_PATH,
-    label: "SEO & MARKETING",
-    description:
-      "Mehr Sichtbarkeit, verstaendliche Angebotskommunikation und bessere Anfragen.",
-    pageKey: "seo-marketing",
-    desktopColumn: "primary",
-  },
-  {
-    type: "page",
-    path: "ki-beratung.html",
-    label: "KI & AUTOMATISIERUNG",
-    description:
-      "Praktische KI-Setups und Automatisierung fuer weniger manuelle Arbeit.",
-    pageKey: "ki-beratung",
-    desktopColumn: "primary",
-  },
-  {
-    type: "page",
-    path: "branding.html",
-    label: "BRANDING",
-    description:
-      "Marke, Positionierung und ein konsistenter Auftritt mit klarer Wertigkeit.",
-    pageKey: "branding",
-    desktopColumn: "secondary",
-  },
-  {
-    type: "page",
-    path: "social.html",
-    label: "SOCIAL STRATEGIE",
-    description:
-      "Planbarer, markenkonsistenter Content naeher an Angebot und Nachfrage.",
-    pageKey: "social",
-    desktopColumn: "secondary",
-  },
-  {
-    type: "page",
-    path: "growth.html",
-    label: "GROWTH STRATEGIE",
-    description:
-      "Nachfrage, Conversion und Optimierung systematisch weiterentwickeln.",
-    pageKey: "growth",
-    desktopColumn: "secondary",
-  },
-]);
-
-const SERVICE_DETAIL_PAGE_KEYS = Object.freeze(
-  SERVICE_DETAIL_LINKS.map(({ pageKey }) => pageKey)
-);
+const NAV_LINK_CLASS = "nav-link";
 
 const GLOBAL_NAV_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
   {
     type: "page",
-    path: "leistungen.html",
-    label: "Leistungen",
-    pageKey: "leistungen",
-    matchPageKeys: SERVICE_DETAIL_PAGE_KEYS,
-    children: SERVICE_DETAIL_LINKS,
+    path: "webentwicklung.html",
+    label: "Webentwicklung",
+    pageKey: "webentwicklung",
   },
-  { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
+  {
+    type: "page",
+    path: SEO_MARKETING_PATH,
+    label: "SEO & Marketing",
+    pageKey: "seo-marketing",
+  },
+  {
+    type: "page",
+    path: "ki-beratung.html",
+    label: "KI-Leistungen",
+    pageKey: "ki-beratung",
+  },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
 
 const FOOTER_NAVIGATION_LINKS = [
   { type: "page", path: HOME_PATH, label: "Start", pageKey: "home" },
-  { type: "page", path: "leistungen.html", label: "Leistungen", pageKey: "leistungen" },
-  { type: "page", path: "ablauf.html", label: "Ablauf", pageKey: "ablauf" },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
 
 const FOOTER_SERVICE_LINKS = [
   { type: "page", path: "webentwicklung.html", label: "Webentwicklung", pageKey: "webentwicklung" },
-  { type: "page", path: "branding.html", label: "Branding", pageKey: "branding" },
   { type: "page", path: SEO_MARKETING_PATH, label: "SEO & Marketing", pageKey: "seo-marketing" },
-  { type: "page", path: "social.html", label: "Social Strategie", pageKey: "social" },
-  { type: "page", path: "growth.html", label: "Growth Strategie", pageKey: "growth" },
   { type: "page", path: "ki-beratung.html", label: "KI Beratung", pageKey: "ki-beratung" },
 ];
 
@@ -122,8 +65,6 @@ const FOOTER_BRAND = Object.freeze({
 
 const PAGE_CONFIGS = {
   home: { path: HOME_PATH, navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
-  leistungen: { path: "leistungen.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
-  branding: { path: "branding.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
   webentwicklung: {
     path: "webentwicklung.html",
     navCtaLabel: PRIMARY_CTA_LABEL,
@@ -134,14 +75,11 @@ const PAGE_CONFIGS = {
     navCtaLabel: PRIMARY_CTA_LABEL,
     stickyMobileCta: true,
   },
-  social: { path: "social.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
-  growth: { path: "growth.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
   "ki-beratung": {
     path: "ki-beratung.html",
     navCtaLabel: PRIMARY_CTA_LABEL,
     stickyMobileCta: true,
   },
-  ablauf: { path: "ablauf.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: true },
   kontakt: { path: CONTACT_PATH, navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
   danke: { path: "danke.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
   impressum: { path: "impressum.html", navCtaLabel: PRIMARY_CTA_LABEL, stickyMobileCta: false },
@@ -305,110 +243,12 @@ const createMobilePrimaryCtaNavItem = (runtimeConfig) => {
   return anchor;
 };
 
-const createDropdownChildLink = (link, runtimeConfig) => {
-  const anchor = document.createElement("a");
-  const title = document.createElement("span");
-  const description = document.createElement("span");
-
-  anchor.href = getResolvedHref(link, runtimeConfig);
-  anchor.className = "nav-dropdown__item";
-
-  title.className = "nav-dropdown__item-title";
-  title.textContent = link.label;
-
-  description.className = "nav-dropdown__item-description";
-  description.textContent = link.description || "";
-
-  anchor.append(title, description);
-  setCurrentPageState(anchor, link, runtimeConfig, { addActiveClass: true });
-
-  return anchor;
-};
-
-const createDropdownNavigationItem = (link, runtimeConfig) => {
-  const wrapper = document.createElement("div");
-  const triggerRow = document.createElement("div");
-  const parentLink = createLinkElement(link, runtimeConfig, {
-    className: `${NAV_LINK_CLASS} nav-dropdown__link`,
-    addActiveClass: true,
-  });
-  const toggleButton = document.createElement("button");
-  const toggleIcon = document.createElement("span");
-  const panel = document.createElement("div");
-  const surface = document.createElement("div");
-  const panelId = `nav-dropdown-${link.pageKey || link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
-
-  wrapper.className = "nav-dropdown";
-  wrapper.setAttribute("data-nav-dropdown", "");
-
-  triggerRow.className = "nav-dropdown__trigger-row";
-
-  toggleButton.type = "button";
-  toggleButton.className = "nav-dropdown__toggle";
-  toggleButton.setAttribute("data-nav-dropdown-toggle", "");
-  toggleButton.setAttribute("aria-expanded", "false");
-  toggleButton.setAttribute("aria-controls", panelId);
-  toggleButton.setAttribute("aria-label", `${link.label} Untermenue umschalten`);
-
-  toggleIcon.className = "nav-dropdown__chevron";
-  toggleIcon.setAttribute("aria-hidden", "true");
-  toggleButton.appendChild(toggleIcon);
-
-  panel.id = panelId;
-  panel.className = "nav-dropdown__panel";
-  panel.setAttribute("data-nav-dropdown-panel", "");
-  panel.hidden = true;
-
-  surface.className = "nav-dropdown__surface";
-
-  const groupedColumns = [];
-  const columnMap = new Map();
-
-  link.children?.forEach((childLink) => {
-    const columnKey = childLink.desktopColumn || "default";
-    let column = columnMap.get(columnKey);
-
-    if (!column) {
-      column = document.createElement("div");
-      column.className = "nav-dropdown__column";
-      column.setAttribute("data-nav-dropdown-column", columnKey);
-      columnMap.set(columnKey, column);
-      groupedColumns.push(column);
-    }
-
-    column.appendChild(createDropdownChildLink(childLink, runtimeConfig));
-  });
-
-  if (groupedColumns.length > 1) {
-    surface.classList.add("nav-dropdown__surface--split");
-  }
-
-  groupedColumns.forEach((column) => {
-    surface.appendChild(column);
-  });
-
-  panel.appendChild(surface);
-  triggerRow.append(parentLink, toggleButton);
-  wrapper.append(triggerRow, panel);
-
-  if (parentLink.classList.contains("is-active")) {
-    wrapper.classList.add("is-active");
-  }
-
-  return wrapper;
-};
-
 const renderPrimaryNavigation = (primaryNav, runtimeConfig) => {
   if (!primaryNav) return;
 
   const fragment = document.createDocumentFragment();
 
   GLOBAL_NAV_LINKS.forEach((link) => {
-    if (Array.isArray(link.children) && link.children.length > 0) {
-      fragment.appendChild(createDropdownNavigationItem(link, runtimeConfig));
-      return;
-    }
-
     fragment.appendChild(
       createLinkElement(link, runtimeConfig, {
         className: NAV_LINK_CLASS,
@@ -622,128 +462,7 @@ const initTopNavScrollState = (topNav) => {
   updateTopNavScrollState();
 };
 
-const initPrimaryNavDropdowns = (primaryNav) => {
-  const dropdowns = Array.from(primaryNav?.querySelectorAll("[data-nav-dropdown]") || []);
-
-  if (dropdowns.length === 0) {
-    return {
-      closeAll: () => {},
-    };
-  }
-
-  const mobileBreakpoint = window.matchMedia(`(max-width: ${NAV_MOBILE_BREAKPOINT}px)`);
-
-  const setDropdownState = (dropdown, isOpen) => {
-    const toggleButton = dropdown.querySelector("[data-nav-dropdown-toggle]");
-    const panel = dropdown.querySelector("[data-nav-dropdown-panel]");
-
-    if (!toggleButton || !panel) return;
-
-    const open = Boolean(isOpen);
-    dropdown.classList.toggle("is-open", open);
-    toggleButton.setAttribute("aria-expanded", String(open));
-    panel.hidden = !open;
-  };
-
-  const closeAll = (exceptDropdown = null) => {
-    dropdowns.forEach((dropdown) => {
-      if (dropdown === exceptDropdown) return;
-      setDropdownState(dropdown, false);
-    });
-  };
-
-  dropdowns.forEach((dropdown) => {
-    const toggleButton = dropdown.querySelector("[data-nav-dropdown-toggle]");
-
-    if (!toggleButton) return;
-
-    let closeTimeoutId = null;
-
-    const clearCloseTimeout = () => {
-      if (closeTimeoutId === null) return;
-      window.clearTimeout(closeTimeoutId);
-      closeTimeoutId = null;
-    };
-
-    const scheduleClose = () => {
-      clearCloseTimeout();
-      closeTimeoutId = window.setTimeout(() => {
-        setDropdownState(dropdown, false);
-      }, 120);
-    };
-
-    const openDropdown = () => {
-      clearCloseTimeout();
-      closeAll(dropdown);
-      setDropdownState(dropdown, true);
-    };
-
-    toggleButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-
-      const isOpen = dropdown.classList.contains("is-open");
-      if (isOpen) {
-        clearCloseTimeout();
-        setDropdownState(dropdown, false);
-        return;
-      }
-
-      openDropdown();
-    });
-
-    dropdown.addEventListener("mouseenter", () => {
-      if (mobileBreakpoint.matches) return;
-      openDropdown();
-    });
-
-    dropdown.addEventListener("mouseleave", () => {
-      if (mobileBreakpoint.matches) return;
-      scheduleClose();
-    });
-
-    dropdown.addEventListener("focusin", () => {
-      if (mobileBreakpoint.matches) return;
-      openDropdown();
-    });
-
-    dropdown.addEventListener("focusout", (event) => {
-      if (mobileBreakpoint.matches) return;
-      if (dropdown.contains(event.relatedTarget)) return;
-      scheduleClose();
-    });
-  });
-
-  document.addEventListener("click", (event) => {
-    if (primaryNav?.contains(event.target)) return;
-    closeAll();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeAll();
-    }
-  });
-
-  const syncDropdownsToViewport = () => {
-    closeAll();
-  };
-
-  if (typeof mobileBreakpoint.addEventListener === "function") {
-    mobileBreakpoint.addEventListener("change", syncDropdownsToViewport);
-  } else if (typeof mobileBreakpoint.addListener === "function") {
-    mobileBreakpoint.addListener(syncDropdownsToViewport);
-  }
-
-  return { closeAll };
-};
-
-const initMobileNavigation = (
-  glassNav,
-  mobileNavToggle,
-  primaryNav,
-  closeNavDropdowns = () => {}
-) => {
+const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
   if (!glassNav || !mobileNavToggle || !primaryNav) return;
 
   const mobileBreakpoint = window.matchMedia(`(max-width: ${NAV_MOBILE_BREAKPOINT}px)`);
@@ -771,10 +490,6 @@ const initMobileNavigation = (
     const open = Boolean(isOpen) && mobileBreakpoint.matches;
     glassNav.classList.toggle("is-mobile-open", open);
     mobileNavToggle.setAttribute("aria-expanded", String(open));
-
-    if (!open) {
-      closeNavDropdowns();
-    }
 
     if (open && topNav) {
       topNav.classList.remove("is-hidden");
@@ -837,6 +552,82 @@ const initMobileNavigation = (
   }
 };
 
+const initNavUnderline = (primaryNav) => {
+  if (!primaryNav) return;
+
+  const desktopBreakpoint = window.matchMedia(`(min-width: ${NAV_MOBILE_BREAKPOINT + 1}px)`);
+  const underline = document.createElement("span");
+  underline.className = "nav-underline";
+  underline.setAttribute("aria-hidden", "true");
+  primaryNav.appendChild(underline);
+
+  let isVisible = false;
+
+  const positionUnderline = (link, options = {}) => {
+    const styles = window.getComputedStyle(link);
+    const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+    const paddingRight = parseFloat(styles.paddingRight) || 0;
+    const width = Math.max(link.offsetWidth - paddingLeft - paddingRight, 0);
+
+    if (options.immediate) {
+      underline.style.transition = "none";
+    }
+
+    underline.style.transform = `translateX(${link.offsetLeft + paddingLeft}px)`;
+    underline.style.width = `${width}px`;
+
+    if (options.immediate) {
+      // Reflow erzwingen, damit die Position ohne Animation gesetzt wird
+      void underline.offsetWidth;
+      underline.style.transition = "";
+    }
+
+    underline.classList.add("is-visible");
+    isVisible = true;
+  };
+
+  const showForLink = (link) => {
+    if (!desktopBreakpoint.matches || !link) return;
+    // Aus dem unsichtbaren Zustand direkt einblenden statt quer zu sliden
+    positionUnderline(link, { immediate: !isVisible });
+  };
+
+  const restoreToActive = (options = {}) => {
+    if (!desktopBreakpoint.matches) return;
+    const activeLink = primaryNav.querySelector("a.nav-link.is-active");
+
+    if (activeLink) {
+      positionUnderline(activeLink, options);
+      return;
+    }
+
+    underline.classList.remove("is-visible");
+    isVisible = false;
+  };
+
+  primaryNav
+    .querySelectorAll("a.nav-link:not(.nav-link--mobile-cta)")
+    .forEach((link) => {
+      link.addEventListener("mouseenter", () => showForLink(link));
+      link.addEventListener("focusin", () => showForLink(link));
+    });
+
+  primaryNav.addEventListener("mouseleave", () => restoreToActive());
+  primaryNav.addEventListener("focusout", (event) => {
+    if (primaryNav.contains(event.relatedTarget)) return;
+    restoreToActive();
+  });
+
+  window.addEventListener("resize", () => restoreToActive({ immediate: true }));
+
+  if (document.fonts?.ready) {
+    // Nach dem Font-Laden neu messen, sonst stimmt die Breite nicht
+    document.fonts.ready.then(() => restoreToActive({ immediate: true }));
+  }
+
+  restoreToActive({ immediate: true });
+};
+
 const renderMobileStickyCta = (pageConfig, runtimeConfig) => {
   document.getElementById(MOBILE_STICKY_CTA_ID)?.remove();
   document.body.classList.remove("has-mobile-sticky-cta");
@@ -879,6 +670,6 @@ export const initNavigation = () => {
 
   initScrollToTop(scrollToTopButton);
   initTopNavScrollState(topNav);
-  const navDropdownApi = initPrimaryNavDropdowns(primaryNav);
-  initMobileNavigation(glassNav, mobileNavToggle, primaryNav, navDropdownApi.closeAll);
+  initNavUnderline(primaryNav);
+  initMobileNavigation(glassNav, mobileNavToggle, primaryNav);
 };

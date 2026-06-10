@@ -612,7 +612,7 @@
   color: rgba(231, 239, 250, 0.82);
   white-space: nowrap;
   backdrop-filter: blur(4px);
-  animation: seoFlowNodeFloat 6s ease-in-out infinite;
+  animation: seoFlowNodeFloat 6s ease-in-out var(--seo-node-float-delay, 0s) infinite;
 }
 
 .seo-node--center {
@@ -648,10 +648,32 @@
   70%, 100% { opacity: 0; transform: scale(1.45); }
 }
 
-.seo-node--a { top: 18%; left: 20%; --seo-node-z: 30px; animation-delay: -1s; }
-.seo-node--b { top: 22%; left: 82%; --seo-node-z: 44px; animation-delay: -2.5s; }
-.seo-node--c { top: 82%; left: 24%; --seo-node-z: 24px; animation-delay: -3.2s; }
-.seo-node--d { top: 80%; left: 80%; --seo-node-z: 38px; animation-delay: -4s; }
+.seo-node--a { top: 18%; left: 20%; --seo-node-z: 30px; --seo-node-float-delay: -1s; }
+.seo-node--b { top: 22%; left: 82%; --seo-node-z: 44px; --seo-node-float-delay: -2.5s; }
+.seo-node--c { top: 82%; left: 24%; --seo-node-z: 24px; --seo-node-float-delay: -3.2s; }
+.seo-node--d { top: 80%; left: 80%; --seo-node-z: 38px; --seo-node-float-delay: -4s; }
+
+/* WICHTIG: Die generische Pop-Animation (data-flow-pop) endet mit
+   "transform: none" und würde das Zentrier-Transform der Bubbles dauerhaft
+   überschreiben. Deshalb bekommen die Bubbles hier eine eigene Kombination:
+   Pop liefert nur das Fade-in, Float behält translate(-50%, -50%). */
+.seo-flow__scene.is-active .seo-node {
+  animation:
+    seoFlowPop 600ms var(--seo-flow-ease) calc(var(--i, 0) * 70ms + 120ms) both,
+    seoFlowNodeFloat 6s ease-in-out var(--seo-node-float-delay, 0s) infinite;
+}
+
+.seo-flow__scene.is-active .seo-node--center {
+  animation:
+    seoFlowPop 600ms var(--seo-flow-ease) calc(var(--i, 0) * 70ms + 120ms) both,
+    seoFlowNodeFloatCenter 5s ease-in-out infinite;
+}
+
+/* Beim Ausblenden der Szene zentriert bleiben (kein Sprung) */
+.seo-flow__scene.is-leaving .seo-node {
+  animation: none;
+  transform: translate(-50%, -50%) translateZ(var(--seo-node-z, 20px));
+}
 
 @keyframes seoFlowNodeFloat {
   0%, 100% {
@@ -1181,9 +1203,12 @@
   }
 
   .seo-flow__detail { transition: none; }
+
+  /* Bubbles müssen auch ohne Animation zentriert bleiben */
   .seo-node--center,
   .seo-node {
-    animation: none;
+    animation: none !important;
+    transform: translate(-50%, -50%) !important;
   }
 
   .seo-wire__path path,

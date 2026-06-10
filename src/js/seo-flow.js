@@ -9,6 +9,7 @@ const initSeoFlow = () => {
   const triggers = Array.from(root.querySelectorAll("[data-flow-trigger]"));
   const scenes = Array.from(root.querySelectorAll("[data-flow-scene]"));
   const moduleLabel = root.querySelector("[data-flow-module]");
+  const ticks = Array.from(root.querySelectorAll("[data-flow-ticks] span"));
   const fill = root.querySelector("[data-flow-fill]");
   const rail = root.querySelector(".seo-flow__rail");
   const stepsWrap = root.querySelector(".seo-flow__steps");
@@ -85,6 +86,10 @@ const initSeoFlow = () => {
     });
 
     if (moduleLabel) moduleLabel.textContent = `MODUL_${String(next).padStart(2, "0")}`;
+
+    ticks.forEach((tick, index) => {
+      tick.classList.toggle("is-on", index < next);
+    });
 
     window.requestAnimationFrame(() => updateFill(next));
   };

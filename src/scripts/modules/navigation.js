@@ -503,6 +503,7 @@ const initMobileNavigation = (glassNav, mobileNavToggle, primaryNav) => {
     }
 
     document.body.classList.toggle("has-mobile-nav-open", open);
+    document.documentElement.classList.toggle("has-mobile-nav-open", open);
 
     syncMobileNavAccessibility(open);
   };

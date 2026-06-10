@@ -9,6 +9,10 @@
   --ai-text-soft: rgba(231, 239, 250, 0.58);
 }
 
+.ai-hero .webdev-eyebrow {
+  --eyebrow-color: #ff7ec2;
+}
+
 .ai-page .webdev-hero__title {
   max-width: 13ch;
 }

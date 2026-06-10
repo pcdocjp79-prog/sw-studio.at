@@ -1786,7 +1786,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   .nav-link--mobile-cta {
     display: inline-flex;
     width: 100%;
-    color: rgba(142, 232, 255, 0.95);
+    color: #ff7ec2;
   }
 
   .glass-nav.is-mobile-open {
@@ -5221,9 +5221,10 @@ body[data-page="home"] #process .process-section__header {
     text-underline-offset: 0.5em;
   }
 
-  /* CTA im Drawer — Text wie die anderen Punkte, Schriftfarbe wie der Unterstrich */
+  /* CTA im Drawer — Text wie die anderen Punkte, Schriftfarbe im Magenta-Akzent */
   .nav-links > a.nav-link.nav-link--mobile-cta {
-    color: rgba(142, 232, 255, 0.95);
+    color: #ff7ec2;
+    text-shadow: 0 0 16px rgba(255, 126, 194, 0.25);
   }
 
   .nav-links > a.nav-link.nav-link--mobile-cta:active {

@@ -3169,6 +3169,10 @@ body.has-cookie-banner .scroll-to-top-btn {
   margin: 0;
 }
 
+.service-pillars-panel .trust-strip__eyebrow {
+  align-self: center;
+}
+
 .service-pillars-panel .trust-strip__text {
   flex: 1 1 auto;
 }

@@ -28,9 +28,9 @@ const GLOBAL_NAV_LINKS = [
   },
   {
     type: "page",
-    path: "ki-beratung.html",
+    path: "ki-leistungen.html",
     label: "KI-Leistungen",
-    pageKey: "ki-beratung",
+    pageKey: "ki-leistungen",
   },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
@@ -43,7 +43,7 @@ const FOOTER_NAVIGATION_LINKS = [
 const FOOTER_SERVICE_LINKS = [
   { type: "page", path: "webentwicklung.html", label: "Webentwicklung", pageKey: "webentwicklung" },
   { type: "page", path: SEO_MARKETING_PATH, label: "SEO & Marketing", pageKey: "seo-marketing" },
-  { type: "page", path: "ki-beratung.html", label: "KI Beratung", pageKey: "ki-beratung" },
+  { type: "page", path: "ki-leistungen.html", label: "KI Leistungen", pageKey: "ki-leistungen" },
 ];
 
 const FOOTER_LEGAL_LINKS = [
@@ -75,8 +75,8 @@ const PAGE_CONFIGS = {
     navCtaLabel: PRIMARY_CTA_LABEL,
     stickyMobileCta: true,
   },
-  "ki-beratung": {
-    path: "ki-beratung.html",
+  "ki-leistungen": {
+    path: "ki-leistungen.html",
     navCtaLabel: PRIMARY_CTA_LABEL,
     stickyMobileCta: true,
   },
@@ -97,6 +97,7 @@ const PAGE_CONFIGS = {
 };
 
 const SLUG_ALIASES = {
+  "ki-beratung": "ki-leistungen",
   marketing: "marketing-legacy",
 };
 

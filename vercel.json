@@ -13,6 +13,16 @@
       "permanent": true
     },
     {
+      "source": "/ki-beratung",
+      "destination": "/ki-leistungen",
+      "permanent": true
+    },
+    {
+      "source": "/ki-beratung.html",
+      "destination": "/ki-leistungen",
+      "permanent": true
+    },
+    {
       "source": "/leistungen",
       "destination": "/",
       "permanent": true

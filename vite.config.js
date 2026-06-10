@@ -31,6 +31,7 @@ export default defineConfig({
         webentwicklung: resolve(__dirname, "webentwicklung.html"),
         seoMarketing: resolve(__dirname, "seo-marketing.html"),
         marketing: resolve(__dirname, "marketing.html"),
+        kiLeistungen: resolve(__dirname, "ki-leistungen.html"),
         kiBeratung: resolve(__dirname, "ki-beratung.html"),
       },
     },

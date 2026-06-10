@@ -1788,12 +1788,11 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
     justify-content: center;
     width: 100%;
     background: linear-gradient(
-      135deg,
-      rgba(98, 173, 255, 0.22),
-      rgba(142, 232, 255, 0.12)
+      90deg,
+      rgba(142, 232, 255, 0.95) 0%,
+      rgba(98, 173, 255, 0.9) 100%
     );
-    border-color: rgba(98, 173, 255, 0.45);
-    color: #ffffff;
+    color: #06121f;
   }
 
   .glass-nav.is-mobile-open {
@@ -5226,6 +5225,28 @@ body[data-page="home"] #process .process-section__header {
     text-decoration-thickness: 2px;
     text-decoration-color: rgba(142, 232, 255, 0.9);
     text-underline-offset: 0.5em;
+  }
+
+  /* CTA im Drawer — gleiche Farbe wie der Unterstrich */
+  .nav-links > a.nav-link.nav-link--mobile-cta {
+    margin-top: 1.25rem;
+    justify-content: center;
+    text-align: center;
+    padding: 1.05rem 1.15rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      rgba(142, 232, 255, 0.95) 0%,
+      rgba(98, 173, 255, 0.9) 100%
+    );
+    color: #06121f;
+    text-shadow: none;
+    box-shadow: 0 0 18px rgba(142, 232, 255, 0.35);
+  }
+
+  .nav-links > a.nav-link.nav-link--mobile-cta:active {
+    color: #06121f;
+    transform: scale(0.985);
   }
 
   .nav-links__cta {

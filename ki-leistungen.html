@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/ki-automatisierung.css" />
+  <link rel="stylesheet" href="src/css/ai-brain-visual.css" />
+  <link rel="stylesheet" href="src/css/ai-code-visual.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -89,7 +91,7 @@
 
           <div class="ai-orbit-shell">
             <aside class="ai-orbit-card hero-tilt-card" data-hero-tilt-card
-              aria-label="Abstraktes Glassmorphism-Visual mit vernetzten KI-Knoten">
+              aria-label="Abstraktes KI-Visual mit vernetzten Knoten, Code-Animation und leuchtender Gehirn-Grafik">
               <div class="ai-orbit-card__scene" aria-hidden="true">
                 <span class="ai-orbit-card__grid"></span>
                 <span class="ai-orbit-card__halo ai-orbit-card__halo--outer"></span>
@@ -109,8 +111,12 @@
                 <span class="ai-orbit-line ai-orbit-line--six"></span>
                 <span class="ai-orbit-card__pulse ai-orbit-card__pulse--one"></span>
                 <span class="ai-orbit-card__pulse ai-orbit-card__pulse--two"></span>
-                <span class="ai-orbit-card__glass ai-orbit-card__glass--top"></span>
-                <span class="ai-orbit-card__glass ai-orbit-card__glass--bottom"></span>
+                <div class="ai-orbit-card__glass ai-code-visual ai-orbit-card__glass--top" data-ai-code-visual>
+                  <pre class="ai-code-visual__pre"><code><span data-ai-code-output></span><span class="ai-code-visual__cursor"></span></code></pre>
+                </div>
+                <div class="ai-orbit-card__glass ai-brain-visual ai-orbit-card__glass--bottom" data-ai-brain-visual>
+                  <span class="ai-brain-visual__fallback" aria-hidden="true"></span>
+                </div>
               </div>
             </aside>
           </div>
@@ -516,6 +522,8 @@
   </button>
 
   <script type="module" src="src/js/water-sphere.js"></script>
+  <script type="module" src="src/js/ai-brain-visual.js"></script>
+  <script type="module" src="src/js/ai-code-visual.js"></script>
   <script type="module" src="src/js/main.js"></script>
 </body>
 

@@ -854,6 +854,13 @@ body[data-page="home"] .hero-stage__title-rotatorline {
   text-wrap: balance;
 }
 
+/* "KI" in der Sub-Headline: gescopte Magenta-Lila-Variante (warmes Pink raus).
+   Globale .section-title-accent--magenta bleibt für alle anderen Bereiche unverändert. */
+.hero-stage__subtitle .section-title-accent--magenta {
+  color: #c264f2;
+  text-shadow: 0 0 16px rgba(194, 100, 242, 0.3);
+}
+
 @media (max-width: 640px) {
   body[data-page="home"] .hero-stage__title {
     font-size: clamp(1.95rem, 8.2vw, 2.75rem);

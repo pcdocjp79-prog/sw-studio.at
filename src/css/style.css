@@ -818,6 +818,53 @@ img {
   color: rgba(228, 235, 244, 0.82);
 }
 
+/* === Home-Hero: vergrößerte Headline + Sub-Headline ===
+   Auf data-page="home" gescoped, damit die identische Hero auf
+   webentwicklung.html unverändert bleibt. */
+body[data-page="home"] .hero-stage__copy {
+  max-width: min(60rem, 100%);
+  gap: clamp(0.7rem, 1.5vw, 1.1rem);
+}
+
+body[data-page="home"] .hero-stage__title {
+  font-size: clamp(2.35rem, 5vw, 4.85rem);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+body[data-page="home"] .hero-stage__title-lead,
+body[data-page="home"] .hero-stage__title-rotatorline {
+  display: block;
+}
+
+body[data-page="home"] .hero-stage__title-rotatorline {
+  margin-top: clamp(0.12rem, 0.5vw, 0.4rem);
+}
+
+.hero-stage__subtitle {
+  margin: clamp(0.6rem, 1.5vw, 1.05rem) 0 0;
+  max-width: min(46rem, 100%);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.95vw, 1.95rem);
+  line-height: 1.16;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  color: rgba(226, 234, 244, 0.72);
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  body[data-page="home"] .hero-stage__title {
+    font-size: clamp(1.95rem, 8.2vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  body[data-page="home"] .hero-stage__subtitle {
+    font-size: clamp(1.05rem, 4.6vw, 1.35rem);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-stage--full-bleed {
     padding-inline: 0;

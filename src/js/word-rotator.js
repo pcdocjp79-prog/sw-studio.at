@@ -57,6 +57,13 @@ function initWordRotator() {
 
     updateSizer();
 
+    // Fonts laden async (v.a. in Production): sobald die echte Display-Schrift
+    // bereit ist, neu vermessen — sonst basiert die Box-Breite auf der
+    // Fallback-Schrift und das breiteste Wort wird rechts abgeschnitten.
+    if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === "function") {
+      document.fonts.ready.then(() => updateSizer());
+    }
+
     let resizeTimeoutId = null;
     window.addEventListener("resize", () => {
       window.clearTimeout(resizeTimeoutId);

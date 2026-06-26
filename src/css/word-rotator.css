@@ -10,6 +10,9 @@
   visibility: hidden;
   pointer-events: none;
   white-space: nowrap;
+  /* Mini-Puffer rechts: schützt den letzten Glyphen (z. B. den Punkt)
+     vor Sub-Pixel-Clipping durch overflow: hidden der Words-Box. */
+  padding-right: 0.08em;
 }
 
 .word-rotator__words {

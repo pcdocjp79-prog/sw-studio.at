@@ -28,9 +28,9 @@ const GLOBAL_NAV_LINKS = [
   },
   {
     type: "page",
-    path: "ki-leistungen.html",
+    path: "ki-automatisierung.html",
     label: "KI & AUTOMATISIERUNG",
-    pageKey: "ki-leistungen",
+    pageKey: "ki-automatisierung",
   },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
 ];
@@ -43,7 +43,7 @@ const FOOTER_NAVIGATION_LINKS = [
 const FOOTER_SERVICE_LINKS = [
   { type: "page", path: "webentwicklung.html", label: "Webentwicklung", pageKey: "webentwicklung" },
   { type: "page", path: SEO_MARKETING_PATH, label: "SEO & Marketing", pageKey: "seo-marketing" },
-  { type: "page", path: "ki-leistungen.html", label: "KI & AUTOMATISIERUNG", pageKey: "ki-leistungen" },
+  { type: "page", path: "ki-automatisierung.html", label: "KI & AUTOMATISIERUNG", pageKey: "ki-automatisierung" },
 ];
 
 const FOOTER_LEGAL_LINKS = [
@@ -75,8 +75,8 @@ const PAGE_CONFIGS = {
     navCtaLabel: PRIMARY_CTA_LABEL,
     stickyMobileCta: true,
   },
-  "ki-leistungen": {
-    path: "ki-leistungen.html",
+  "ki-automatisierung": {
+    path: "ki-automatisierung.html",
     navCtaLabel: PRIMARY_CTA_LABEL,
     stickyMobileCta: true,
   },
@@ -97,7 +97,8 @@ const PAGE_CONFIGS = {
 };
 
 const SLUG_ALIASES = {
-  "ki-beratung": "ki-leistungen",
+  "ki-leistungen": "ki-automatisierung",
+  "ki-beratung": "ki-automatisierung",
   marketing: "marketing-legacy",
 };
 
@@ -394,6 +395,10 @@ const normalizeStandaloneLinks = (runtimeConfig) => {
 
   document.querySelectorAll('a[href="marketing.html"]').forEach((link) => {
     link.href = SEO_MARKETING_PATH;
+  });
+
+  document.querySelectorAll('a[href="ki-leistungen.html"]').forEach((link) => {
+    link.href = "ki-automatisierung.html";
   });
 
   document

@@ -3,7 +3,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const HTML_SEARCH_IGNORED_DIRS = new Set([".git", ".github", "dist", "node_modules"]);
-const LEGACY_PAGES = new Set(["marketing.html", "ki-beratung.html"]);
+const LEGACY_PAGES = new Set(["marketing.html", "ki-beratung.html", "ki-leistungen.html"]);
 const ACTIVE_JS = "src/js/main.js";
 const ACTIVE_CSS = "src/css/style.css";
 const ACTIVE_TAILWIND_CSS = "src/css/tailwind.css";

@@ -14,12 +14,22 @@
     },
     {
       "source": "/ki-beratung",
-      "destination": "/ki-leistungen",
+      "destination": "/ki-automatisierung",
       "permanent": true
     },
     {
       "source": "/ki-beratung.html",
-      "destination": "/ki-leistungen",
+      "destination": "/ki-automatisierung",
+      "permanent": true
+    },
+    {
+      "source": "/ki-leistungen",
+      "destination": "/ki-automatisierung",
+      "permanent": true
+    },
+    {
+      "source": "/ki-leistungen.html",
+      "destination": "/ki-automatisierung",
       "permanent": true
     },
     {

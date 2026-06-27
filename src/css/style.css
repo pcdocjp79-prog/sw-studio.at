@@ -1154,7 +1154,7 @@ body[data-page="home"] .hero-stage__title-rotatorline {
   pointer-events: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .hero-floating-object {
     --hero-object-shift-x: clamp(14px, 4vw, 40px);
     --hero-object-shift-y: clamp(10px, 2.2vw, 22px);
@@ -1897,7 +1897,7 @@ body.has-fixed-hero-bg #hero-stage .hero-stage__frame {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1181px) {
   .mobile-nav-toggle {
     display: none !important;
   }
@@ -5202,8 +5202,8 @@ body[data-page="home"] #process .process-section__header {
   }
 }
 
-/* Mobile nav — fullscreen drawer (<=1024px) */
-@media (max-width: 1024px) {
+/* Mobile nav — fullscreen drawer (<=1180px) */
+@media (max-width: 1180px) {
   .mobile-nav-toggle {
     position: relative;
     z-index: 70;
@@ -5400,7 +5400,7 @@ body[data-page="home"] #process .process-section__header {
   }
 }
 
-@media (max-width: 1024px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 1180px) and (prefers-reduced-motion: reduce) {
   .nav-links,
   .glass-nav.is-mobile-open .nav-links,
   .glass-nav.is-mobile-open .nav-links > *,

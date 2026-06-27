@@ -8,7 +8,7 @@ const PRIMARY_CTA_LABEL = "Projekt anfragen";
 const PRIMARY_CTA_META_LABEL = "";
 const SEO_MARKETING_PATH = "seo-marketing.html";
 const MOBILE_STICKY_CTA_ID = "mobile-sticky-cta";
-const NAV_MOBILE_BREAKPOINT = 1024;
+const NAV_MOBILE_BREAKPOINT = 1180;
 
 const NAV_LINK_CLASS = "nav-link";
 
@@ -29,7 +29,7 @@ const GLOBAL_NAV_LINKS = [
   {
     type: "page",
     path: "ki-leistungen.html",
-    label: "KI-Leistungen",
+    label: "KI & AUTOMATISIERUNG",
     pageKey: "ki-leistungen",
   },
   { type: "page", path: CONTACT_PATH, label: "Kontakt", pageKey: "kontakt" },
@@ -43,7 +43,7 @@ const FOOTER_NAVIGATION_LINKS = [
 const FOOTER_SERVICE_LINKS = [
   { type: "page", path: "webentwicklung.html", label: "Webentwicklung", pageKey: "webentwicklung" },
   { type: "page", path: SEO_MARKETING_PATH, label: "SEO & Marketing", pageKey: "seo-marketing" },
-  { type: "page", path: "ki-leistungen.html", label: "KI Leistungen", pageKey: "ki-leistungen" },
+  { type: "page", path: "ki-leistungen.html", label: "KI & AUTOMATISIERUNG", pageKey: "ki-leistungen" },
 ];
 
 const FOOTER_LEGAL_LINKS = [

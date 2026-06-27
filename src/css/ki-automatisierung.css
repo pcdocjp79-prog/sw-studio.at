@@ -645,6 +645,35 @@
   line-height: 1.6;
 }
 
+.ai-offer-card__back-copy {
+  margin: 0;
+  color: rgba(242, 247, 255, 0.88);
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
+.ai-offer-card__back-list {
+  display: grid;
+  gap: 0.72rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-offer-card__back-list li {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding-top: 0.72rem;
+  color: var(--ai-text-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.ai-offer-card__back-list strong {
+  color: var(--ai-heading);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
 .ai-offer-item__cta {
   width: 100%;
   max-width: 100%;

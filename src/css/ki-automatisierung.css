@@ -492,11 +492,72 @@
   gap: 1rem;
 }
 
-.ai-offer-card {
+/* Wrapper: Flip-Karte + darunter platzierter CTA-Button */
+.ai-offer-item {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+/* Karte wird zum 3D-Flip-Container (Klick dreht sie um) */
+.ai-offer-card {
+  flex: 1 1 auto;
+  display: grid;
+  padding: 0;
+  perspective: 1400px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ai-offer-card:focus-visible {
+  outline: 2px solid rgba(148, 242, 255, 0.85);
+  outline-offset: 4px;
+}
+
+.ai-offer-card__inner {
+  position: relative;
+  display: grid;
+  min-height: clamp(14rem, 24vw, 16rem);
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 720ms cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.ai-offer-card.is-flipped .ai-offer-card__inner {
+  transform: rotateY(180deg);
+}
+
+.ai-offer-card__face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
   padding: clamp(1.35rem, 3vw, 1.75rem);
+  border-radius: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.ai-offer-card__face--back {
+  justify-content: flex-start;
+  gap: 1.1rem;
+  transform: rotateY(180deg);
+}
+
+.ai-offer-card__flip-hint {
+  margin-top: auto;
+  padding-top: 0.4rem;
+  color: rgba(255, 184, 126, 0.86);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.ai-offer-card__face--back .ai-offer-card__flip-hint {
+  margin-top: auto;
 }
 
 .ai-offer-card--featured {
@@ -568,24 +629,26 @@
 }
 
 .ai-offer-card__meta dt {
-  color: rgba(255, 184, 126, 0.86);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
+  margin-bottom: 0.1rem;
+  color: var(--ai-heading);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 600;
-  letter-spacing: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .ai-offer-card__meta dd {
   margin: 0;
   color: var(--ai-text-soft);
-  font-size: 0.88rem;
-  line-height: 1.58;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-.ai-offer-card .final-cta-btn {
+.ai-offer-item__cta {
   width: 100%;
   max-width: 100%;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 /* ============================================================
@@ -856,7 +919,7 @@
    REVEAL STAGGER
    ============================================================ */
 .js .ai-insight-card.reveal-on-scroll:not(.is-visible),
-.js .ai-offer-card.reveal-on-scroll:not(.is-visible),
+.js .ai-offer-item.reveal-on-scroll:not(.is-visible),
 .js .ai-usecase-card.reveal-on-scroll:not(.is-visible) {
   transition-delay: var(--ai-delay, 0ms);
 }
@@ -978,7 +1041,7 @@
     align-items: stretch;
   }
 
-  .ai-offer-card--featured {
+  .ai-offer-item--featured {
     transform: translateY(-1rem);
   }
 

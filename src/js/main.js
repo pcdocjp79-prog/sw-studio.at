@@ -1263,6 +1263,71 @@ const initWebdevQualityScores = () => {
   observer.observe(root);
 };
 
+const initAiOfferFlip = () => {
+  const stack = document.querySelector("[data-ai-offer-stack]");
+  if (!stack) return;
+
+  const cards = Array.from(stack.querySelectorAll(".ai-offer-flip"));
+  if (cards.length === 0) return;
+
+  const flipResetDelay = 10000;
+  const flipResetTimers = new WeakMap();
+
+  const resetCard = (card) => {
+    card.classList.remove("is-flipped");
+    card.setAttribute("aria-pressed", "false");
+
+    const existingTimer = flipResetTimers.get(card);
+    if (existingTimer) {
+      window.clearTimeout(existingTimer);
+      flipResetTimers.delete(card);
+    }
+  };
+
+  cards.forEach((card) => {
+    const toggleCard = () => {
+      const willFlip = !card.classList.contains("is-flipped");
+
+      if (!willFlip) {
+        resetCard(card);
+        return;
+      }
+
+      card.classList.add("is-flipped");
+      card.setAttribute("aria-pressed", "true");
+
+      const existingTimer = flipResetTimers.get(card);
+      if (existingTimer) {
+        window.clearTimeout(existingTimer);
+      }
+
+      const resetTimer = window.setTimeout(() => resetCard(card), flipResetDelay);
+      flipResetTimers.set(card, resetTimer);
+    };
+
+    card.addEventListener("click", toggleCard);
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleCard();
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const resetObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) return;
+          cards.forEach((card) => resetCard(card));
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    resetObserver.observe(stack);
+  }
+};
+
 const initWebdevWhyCount = () => {
   const counters = Array.from(document.querySelectorAll("[data-webdev-why-count]"));
   if (counters.length === 0) return;
@@ -1466,5 +1531,6 @@ initHeroStageInteraction();
 initHeroTiltCards();
 initWebdevAuditScore();
 initWebdevQualityScores();
+initAiOfferFlip();
 initWebdevWhyCount();
 initCodeClosingTypewriter();

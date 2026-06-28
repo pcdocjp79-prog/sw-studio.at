@@ -160,6 +160,53 @@
 }
 
 /* --- DSGVO- / Vertrauens-Microcopy unter dem Absenden-Button --- */
+body[data-page="kontakt"] .contact-form-shell {
+  width: 100%;
+  max-width: 100%;
+}
+
+body[data-page="kontakt"] .webdev-section .webdev-container {
+  width: min(100% - 2rem, 80rem);
+}
+
+body[data-page="kontakt"] .approach-section__header {
+  max-width: 68rem;
+}
+
+body[data-page="kontakt"] .approach-section__subline {
+  max-width: 72ch;
+  margin-inline: auto;
+}
+
+body[data-page="kontakt"] .approach-section .approach-card:hover,
+body[data-page="kontakt"] .approach-section .approach-card.reveal-on-scroll.is-visible:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.2);
+}
+
+body[data-page="kontakt"] .approach-section .approach-card:hover::before {
+  opacity: 0;
+}
+
+body[data-page="kontakt"] .approach-section .approach-card:hover::after,
+body[data-page="kontakt"] .approach-section .contact-aside:hover::after {
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(185, 255, 248, 0.58));
+}
+
+@media (min-width: 640px) {
+  body[data-page="kontakt"] .webdev-section .webdev-container {
+    width: min(100% - 3rem, 80rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  body[data-page="kontakt"] .webdev-section .webdev-container {
+    width: min(100% - 4rem, 80rem);
+  }
+}
+
 .contact-form__legal {
   margin: 0.9rem 0 0;
   color: rgba(205, 217, 236, 0.6);

@@ -1,5 +1,5 @@
 .seo-page .webdev-hero__title {
-  max-width: 13.5ch;
+  max-width: 16ch;
   font-size: clamp(2.65rem, 6.2vw, 5.55rem);
 }
 
@@ -359,5 +359,81 @@
   .seo-timeline__step:hover {
     transition-duration: 0.01ms !important;
     transform: none;
+  }
+}
+
+/* ── Hero-Subline (Zielgruppe) ─────────────────────────────── */
+.seo-page .webdev-hero__lead {
+  max-width: 40rem;
+  margin: clamp(1rem, 2.4vw, 1.4rem) 0 0;
+  color: #f4f8ff;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* Reset: .seo-timeline wird als <ol> verwendet — keine Standard-Marker/Einzüge */
+.seo-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ── Vertrauens-/DSGVO-Signale (im "Wichtig zu wissen"-Block) ── */
+.seo-assurance {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+  margin: clamp(1.5rem, 3.5vw, 2.1rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.seo-assurance__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.95rem;
+  padding: 0.95rem 1.05rem;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.seo-assurance__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border: 1px solid rgba(148, 242, 255, 0.28);
+  border-radius: 0.7rem;
+  background: rgba(148, 242, 255, 0.08);
+  color: #94f2ff;
+}
+
+.seo-assurance__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.seo-assurance__text strong {
+  display: block;
+  color: #fff;
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+
+.seo-assurance__text span {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgba(231, 239, 250, 0.66);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .seo-assurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -7,13 +7,14 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <title>Danke | Smart Web Studio</title>
   <meta name="description"
-    content="Bestätigung nach deiner Anfrage bei Smart Web Studio mit klaren nächsten Schritten, weiterer Orientierung und direkten Wegen zurück in Leistungen, Projekte und Erstgespräch." />
+    content="Deine Anfrage bei Smart Web Studio ist angekommen. Eine ruhige Bestätigung mit klarer Übersicht der nächsten Schritte und einer persönlichen Rückmeldung in der Regel innerhalb von zwei Werktagen." />
 
   <script>
     document.documentElement.classList.add("js");
   </script>
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
+  <link rel="stylesheet" href="src/css/danke-page.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -53,127 +54,77 @@
     </div>
   </header>
 
-  <main class="relative pt-0 pb-0">
-    <section class="about-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="thanks-title">
-      <div class="about-section__inner max-w-7xl mx-auto">
-        <div class="about-section__layout">
-          <div class="about-section__text-col">
-            <div class="about-section__header reveal-on-scroll">
-              <p class="about-section__eyebrow">Bestätigung</p>
-              <h1 id="thanks-title" class="about-section__headline font-display">Deine Anfrage ist <span class="section-title-accent--cyan">angekommen</span>.</h1>
-              <p class="about-section__subline">
-                Danke für dein Interesse an Smart Web Studio. Wenn deine Anfrage zum Fokus passt, erhältst du in der
-                Regel innerhalb von zwei Werktagen eine Rückmeldung mit dem nächsten sinnvollen Schritt.
-              </p>
-            </div>
-            <div class="chip-row reveal-on-scroll" style="--approach-delay: 80ms;">
-              <span class="contact-chip">Direkter Ansprechpartner</span>
-              <span class="contact-chip">Strukturierte Einordnung</span>
-              <span class="contact-chip">Kein anonymes Postfach</span>
-            </div>
+  <main class="danke-main relative">
+    <section class="danke-stage scroll-focus-section" aria-labelledby="thanks-title">
+      <div class="danke-stage__inner">
+
+        <div class="danke-stage__intro">
+          <span class="danke-confirm__badge reveal-on-scroll" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </span>
+          <div class="danke-intro__head reveal-on-scroll" style="--approach-delay: 80ms;">
+            <p class="danke-eyebrow">Bestätigung</p>
+            <h1 id="thanks-title" class="danke-intro__title font-display">Deine Anfrage ist
+              <span class="section-title-accent--cyan">angekommen</span>.</h1>
+            <p class="danke-intro__lead">
+              Danke für dein Vertrauen. Ich habe deine Nachricht erhalten und melde mich in der Regel innerhalb
+              von zwei Werktagen persönlich bei dir.
+            </p>
           </div>
-
-          <div class="reveal-on-scroll" style="--approach-delay: 140ms;">
-            <article class="pkg-card pkg-card--featured">
-              <div class="pkg-card__inner">
-                <div class="pkg-card__header">
-                  <p class="pkg-card__name font-display">Was jetzt passiert</p>
-                  <p class="pkg-card__tagline">Der nächste Schritt bleibt klar und nachvollziehbar.</p>
-                </div>
-                <ul class="pkg-card__list" aria-label="Nächste Schritte nach der Anfrage">
-                  <li class="pkg-card__list-item">Anfrage wird auf Projektfit, Ziel und Priorität geprüft</li>
-                  <li class="pkg-card__list-item">du erhältst eine konkrete Rückmeldung statt einer Standardantwort</li>
-                  <li class="pkg-card__list-item">bei Bedarf starten wir direkt mit Erstgespräch oder Mini-Audit</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="process-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="next-steps-title">
-      <div class="process-section__inner max-w-7xl mx-auto">
-        <div class="process-section__header reveal-on-scroll">
-          <p class="process-section__eyebrow">Nächste Schritte</p>
-          <h2 id="next-steps-title" class="process-section__headline font-display">So geht es ab hier <span class="section-title-accent--cyan">sinnvoll
-            weiter</span>.</h2>
-        </div>
-
-        <div class="process-section__steps">
-          <article class="process-step reveal-on-scroll" style="--process-delay: 0ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">01</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">SICHTUNG</p>
-              <h3 class="process-step__title font-display">Ausgangslage verstehen</h3>
-              <p class="process-step__body">Ich prüfe, ob es primär um Website, Positionierung, SEO oder einen
-                kombinierten Projektstart geht.</p>
-            </div>
-          </article>
-          <article class="process-step reveal-on-scroll" style="--process-delay: 100ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">02</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">EINORDNUNG</p>
-              <h3 class="process-step__title font-display">Nächsten Hebel priorisieren</h3>
-              <p class="process-step__body">Statt alles parallel zu starten, wird der wirksamste nächste Schritt
-                zuerst sortiert.</p>
-            </div>
-          </article>
-          <article class="process-step reveal-on-scroll" style="--process-delay: 200ms;">
-            <span class="process-step__ghost-num" aria-hidden="true">03</span>
-            <div class="process-step__inner">
-              <p class="process-step__num">RÜCKMELDUNG</p>
-              <h3 class="process-step__title font-display">Konkreter weiterer Weg</h3>
-              <p class="process-step__body">Je nach Situation geht es in ein Erstgespräch, ein Mini-Audit oder direkt
-                in die passende Leistungsseite zur Vorbereitung.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="packages-section py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section"
-      aria-labelledby="while-waiting-title">
-      <div class="packages-section__inner max-w-7xl mx-auto">
-        <div class="packages-section__header reveal-on-scroll">
-          <p class="packages-section__eyebrow">Währenddessen sinnvoll</p>
-          <h2 id="while-waiting-title" class="packages-section__headline font-display">Wenn du dich bis zur <span class="section-title-accent--magenta">Rückmeldung
-            weiter orientieren</span> willst.</h2>
-        </div>
-
-        <div class="next-step-grid md:grid-cols-3">
-          <article class="next-step-card reveal-on-scroll" style="--pkg-delay: 0ms;">
-            <p class="proof-card__meta">Leistungen</p>
-            <h3 class="next-step-card__title font-display">Leistungswege verstehen</h3>
-            <p class="next-step-card__text">Wenn du genauer einordnen willst, ob eher Webentwicklung, SEO &amp; Marketing
-              oder KI &amp; Automatisierung im Vordergrund stehen.</p>
-            <div class="mt-5">
-              <a href="index.html#services" class="final-cta-btn final-cta-btn--primary" aria-label="Leistungen ansehen">Leistungen
-                ansehen</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta-section py-32 lg:py-40 px-4 sm:px-6 lg:px-8 scroll-focus-section">
-      <div class="final-cta-section__inner max-w-4xl mx-auto text-center">
-        <div class="reveal-on-scroll">
-          <h2 class="final-cta-section__headline font-display">Wenn du parallel schon den <span class="section-title-accent--cyan">nächsten Schritt</span> fixieren
-            willst.</h2>
-          <p class="final-cta-section__subline">
-            Dann kannst du direkt ein Erstgespräch einplanen oder dich vorab noch einmal durch die Leistungen
-            orientieren.
+          <p class="danke-confirm__meta reveal-on-scroll" style="--approach-delay: 160ms;">
+            <span class="danke-confirm__meta-dot" aria-hidden="true"></span>
+            Persönliche Rückmeldung — kein automatisiertes Postfach
           </p>
         </div>
-        <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-          <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
-            aria-label="Erstgespräch buchen">Erstgespräch buchen</a>
-          <a href="index.html#services" class="final-cta-btn final-cta-btn--secondary"
-            aria-label="Leistungen ansehen">Leistungen ansehen</a>
+
+        <aside class="danke-panel reveal-on-scroll" style="--approach-delay: 120ms;"
+          aria-labelledby="next-steps-title">
+          <div class="danke-panel__head">
+            <p class="danke-eyebrow">Wie es weitergeht</p>
+            <h2 id="next-steps-title" class="danke-panel__title font-display">Die nächsten Schritte</h2>
+          </div>
+          <ol class="danke-steps">
+            <li class="danke-step">
+              <span class="danke-step__index" aria-hidden="true">01</span>
+              <div class="danke-step__body">
+                <h3 class="danke-step__title">Sichtung</h3>
+                <p class="danke-step__text">Ich sehe mir deine Anfrage in Ruhe an und verstehe, worum es im Kern
+                  geht.</p>
+              </div>
+            </li>
+            <li class="danke-step">
+              <span class="danke-step__index" aria-hidden="true">02</span>
+              <div class="danke-step__body">
+                <h3 class="danke-step__title">Einordnung</h3>
+                <p class="danke-step__text">Ich prüfe, was für dein Vorhaben der sinnvollste nächste Schritt ist.</p>
+              </div>
+            </li>
+            <li class="danke-step">
+              <span class="danke-step__index" aria-hidden="true">03</span>
+              <div class="danke-step__body">
+                <h3 class="danke-step__title">Rückmeldung</h3>
+                <p class="danke-step__text">Du bekommst eine persönliche, konkrete Antwort — in der Regel innerhalb
+                  von zwei Werktagen.</p>
+              </div>
+            </li>
+          </ol>
+        </aside>
+
+        <div class="danke-stage__orient reveal-on-scroll" style="--approach-delay: 200ms;">
+          <p class="danke-orient__lead">Bis dahin kannst du dich in Ruhe weiter umsehen.</p>
+          <div class="danke-orient__links">
+            <a href="index.html" class="danke-link">
+              Zur Startseite <span class="danke-link__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="index.html#services" class="danke-link">
+              Leistungen ansehen <span class="danke-link__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
   </main>

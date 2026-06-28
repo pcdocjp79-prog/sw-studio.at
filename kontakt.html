@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
+  <link rel="stylesheet" href="src/css/contact-page.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -85,10 +86,14 @@
                 professionelle Webauftritte, digitale Strukturen und KI-gestützte Lösungen aufzubauen, die nicht nur
                 gut aussehen, sondern im Alltag echten Nutzen bringen.
               </p>
-              <div class="mt-4 flex">
+              <div class="mt-4 flex flex-col items-start gap-3">
                 <a href="#kontaktformular" class="final-cta-btn final-cta-btn--primary" aria-label="Erstgespräch anfragen">
                   Erstgespräch anfragen
                 </a>
+                <p class="contact-hero-note">
+                  <span class="contact-hero-note__dot" aria-hidden="true"></span>
+                  Unverbindlich &amp; persönlich — Rückmeldung in der Regel innerhalb von zwei Werktagen.
+                </p>
               </div>
             </div>
             <div class="chip-row reveal-on-scroll">
@@ -144,6 +149,39 @@
                 sinnvoll ist.</p>
             </div>
           </article>
+
+          <aside class="contact-aside contact-aside--row reveal-on-scroll" style="--approach-delay: 300ms;"
+            aria-labelledby="contact-collab-title">
+            <div class="contact-aside__head">
+              <p class="contact-aside__eyebrow">Zusammenarbeit</p>
+              <h3 id="contact-collab-title" class="contact-aside__title font-display">Was nach deiner Anfrage
+                passiert</h3>
+              <p class="contact-aside__text contact-aside__lead">Klar, persönlich und ohne Verkaufsdruck — du weißt
+                jederzeit, woran du bist.</p>
+            </div>
+            <div class="grid">
+              <section>
+                <ol class="contact-steps">
+                  <li class="contact-steps__item">Ich melde mich persönlich — in der Regel innerhalb von zwei
+                    Werktagen.</li>
+                  <li class="contact-steps__item">In einem kurzen Erstgespräch klären wir Ziel, Ausgangslage und
+                    Rahmen.</li>
+                  <li class="contact-steps__item">Du bekommst eine ehrliche Einschätzung zum sinnvollsten nächsten
+                    Schritt.</li>
+                </ol>
+              </section>
+              <section>
+                <h4 class="contact-aside__section-title font-display">Direkt, ohne Umwege</h4>
+                <p class="contact-aside__text">Deine Anfrage landet nicht in einem anonymen Postfach, sondern direkt
+                  bei mir. Du hast einen festen Ansprechpartner — vom ersten Wort bis zur Umsetzung.</p>
+              </section>
+              <section>
+                <h4 class="contact-aside__section-title font-display">Unverbindlich anfragen</h4>
+                <p class="contact-aside__text">Eine Anfrage ist noch kein Auftrag. Wir klären zuerst in Ruhe, ob und
+                  wie eine Zusammenarbeit für dich überhaupt sinnvoll ist.</p>
+              </section>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -238,6 +276,12 @@
                 Anfrage senden
               </button>
             </div>
+
+            <p class="contact-form__legal">
+              Mit dem Absenden stimmst du der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage zu.
+              Keine Weitergabe an Dritte, kein Newsletter. Mehr dazu in der
+              <a href="datenschutz.html">Datenschutzerklärung</a>.
+            </p>
           </form>
 
           <p class="contact-form__error" data-contact-error role="alert" aria-live="assertive" tabindex="-1" hidden>

@@ -7624,8 +7624,26 @@ body[data-page="home"] #process .process-section__header {
 .webdev-timeline__item h3 {
   margin: 0 0 0.45rem;
   color: #ffffff;
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
   line-height: 1.25;
+}
+
+.webdev-timeline__item p.webdev-timeline__result {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+  color: rgba(174, 230, 255, 0.92);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.webdev-timeline__item p.webdev-timeline__result::before {
+  content: "\2192";
+  color: rgba(255, 84, 184, 0.9);
+  font-size: 0.85rem;
 }
 
 .webdev-code-grid {

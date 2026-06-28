@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/feature-chip.css" />
+  <link rel="stylesheet" href="src/css/hero-cta.css" />
   <link rel="stylesheet" href="src/css/word-rotator.css" />
   <link rel="stylesheet" href="src/css/hero-text-reveal.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
@@ -105,10 +106,24 @@
               </div>
 
               <p class="hero-stage__text">
-                Ich entwickle codebasierte Websites, klare Marketing-Strukturen und praxisnahe KI-Setups für Unternehmen, die digital professioneller auftreten und effizienter arbeiten möchten.
+                Ich entwickle codebasierte Websites, klare Marketing-Strukturen und praxisnahe KI-Setups — damit kleine Unternehmen sichtbarer werden, mehr Vertrauen aufbauen und im Alltag spürbar effizienter arbeiten.
               </p>
 
               <div class="hero-stage__actions">
+                <div class="hero-cta-row">
+                  <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
+                    aria-label="Projekt anfragen">
+                    Projekt anfragen
+                  </a>
+                  <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+                    aria-label="Kostenloses Erstgespräch buchen">
+                    Erstgespräch buchen
+                  </a>
+                </div>
+                <p class="hero-cta-note">
+                  <span class="hero-cta-note__dot" aria-hidden="true"></span>
+                  Kostenlos &amp; unverbindlich — eine ehrliche Einschätzung statt Verkaufsgespräch.
+                </p>
                 <div class="chip-row chip-row--feature">
                   <div class="feature-chip">
                     <span class="feature-chip__icon" aria-hidden="true">
@@ -180,7 +195,7 @@
               <p class="trust-strip__eyebrow">SEO & MARKETING</p>
               <h3 class="trust-strip__title font-display">Sichtbarkeit, die zu Anfragen führt</h3>
               <p class="trust-strip__text">
-                Ich sorge dafür, dass deine Website gefunden wird und Besucher verstehen, was du anbietest.
+                Ich bringe deine Website dorthin, wo deine Kunden suchen — mit klarer Struktur, relevanten Inhalten und Seiten, die Besucher verstehen lassen, was du anbietest, und sie gezielt zur Anfrage führen.
               </p>
               <a href="seo-marketing.html" class="final-cta-btn final-cta-btn--primary"
                 aria-label="SEO und Marketing ansehen">
@@ -223,8 +238,7 @@
             <div class="pkg-card__inner">
               <div class="pkg-card__header">
                 <p class="pkg-card__name font-display">Ich brauche eine neue Website</p>
-                <p class="pkg-card__tagline">Ideal, wenn dein Unternehmen einen professionellen Auftritt braucht, der nicht nur gut aussieht, sondern Angebot, Vertrauen und Anfrage logisch verbindet.
-                  ist.</p>
+                <p class="pkg-card__tagline">Ideal, wenn dein Unternehmen einen professionellen Auftritt braucht, der nicht nur gut aussieht, sondern Angebot, Vertrauen und Anfrage logisch verbindet.</p>
               </div>
               <ul class="pkg-card__list" aria-label="Leistungsweg">
                 <li class="pkg-card__list-item">Codebasierte Umsetzung statt starrem Baukasten-System</li>
@@ -441,15 +455,20 @@
             </p>
           </div>
 
-          <div class="final-cta-section__btns reveal-on-scroll" style="--final-cta-delay: 100ms;">
-            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
-              aria-label="Erstgespräch buchen">
-              Erstgespräch buchen
-            </a>
-            <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
-              aria-label="Mini-Audit anfordern">
-              Projekt einordnen lassen
-            </a>
+          <div class="final-cta-section__action reveal-on-scroll" style="--final-cta-delay: 100ms;">
+            <div class="final-cta-section__btns">
+              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--primary"
+                aria-label="Erstgespräch buchen">
+                Erstgespräch buchen
+              </a>
+              <a href="kontakt.html#kontaktformular" class="final-cta-btn final-cta-btn--secondary"
+                aria-label="Mini-Audit anfordern">
+                Mini-Audit anfordern
+              </a>
+            </div>
+            <p class="final-cta-section__microcopy">
+              Kostenlos und unverbindlich. Du bekommst eine ehrliche Einschätzung zum sinnvollen nächsten Schritt — kein Verkaufsdruck.
+            </p>
           </div>
         </div>
       </div>
@@ -517,6 +536,7 @@
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/water-sphere.js"></script>
   <script type="module" src="src/js/word-rotator.js"></script>
+  <script type="module" src="src/js/hero-cta-proxy.js"></script>
 </body>
 
 </html>

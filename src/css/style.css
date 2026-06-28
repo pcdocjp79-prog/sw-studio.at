@@ -4222,7 +4222,8 @@ body[data-page="home"] #process .process-section__header {
   color: #ffffff;
 }
 
-.final-cta-btn--primary:hover {
+.final-cta-btn--primary:hover,
+.final-cta-btn--primary.is-hover-proxy {
   background: rgba(255, 255, 255, 0.17);
   border-color: rgba(255, 255, 255, 0.48);
   transform: translateY(-3px);
@@ -4236,7 +4237,8 @@ body[data-page="home"] #process .process-section__header {
   color: rgba(228, 228, 231, 0.72);
 }
 
-.final-cta-btn--secondary:hover {
+.final-cta-btn--secondary:hover,
+.final-cta-btn--secondary.is-hover-proxy {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.26);
   color: #ffffff;
@@ -4298,7 +4300,8 @@ body[data-page="home"] #process .process-section__header {
   pointer-events: none;
 }
 
-.final-cta-btn:hover {
+.final-cta-btn:hover,
+.final-cta-btn.is-hover-proxy {
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow:
@@ -4309,18 +4312,31 @@ body[data-page="home"] #process .process-section__header {
   filter: brightness(1.03);
 }
 
-.final-cta-btn:hover::before {
+.final-cta-btn:hover::before,
+.final-cta-btn.is-hover-proxy::before {
   opacity: 0.96;
   filter: blur(18px);
   transform: scale(1.015);
 }
 
+/* Buttons + Reassurance-Microcopy als ein zusammengehoeriger Block,
+   damit die Vertrauenszeile dicht unter den CTAs sitzt (statt mit dem
+   2.5rem Grid-Gap des __inner abgesetzt zu werden). */
+.final-cta-section__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.85rem, 1.6vw, 1.15rem);
+}
+
 /* Microcopy */
 .final-cta-section__microcopy {
   margin: 0 auto;
-  font-size: 0.8rem;
-  color: rgba(228, 228, 231, 0.35);
-  letter-spacing: 0.03em;
+  max-width: 46ch;
+  font-size: 0.85rem;
+  color: rgba(228, 228, 231, 0.5);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
   transition-delay: var(--final-cta-delay, 0ms);
 }
 
@@ -4334,7 +4350,8 @@ body[data-page="home"] #process .process-section__header {
 @media (prefers-reduced-motion: reduce) {
 
   .final-cta-btn,
-  .final-cta-btn:hover {
+  .final-cta-btn:hover,
+  .final-cta-btn.is-hover-proxy {
     transition: none;
     transform: none;
   }

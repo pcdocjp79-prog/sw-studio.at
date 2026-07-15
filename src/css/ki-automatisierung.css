@@ -775,19 +775,41 @@
    6 — VERTRAUEN & DATENSCHUTZ
    ============================================================ */
 .ai-trust-panel {
-  border-color: rgba(148, 242, 255, 0.18);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(148, 242, 255, 0.12), transparent 34%),
-    radial-gradient(circle at 100% 100%, rgba(255, 159, 95, 0.08), transparent 34%),
-    var(--ai-panel);
+  overflow: visible;
+  gap: clamp(2.6rem, 6vw, 5rem);
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ai-trust-panel::before {
+  display: none;
+}
+
+.ai-trust-panel__head {
+  position: relative;
+}
+
+.ai-trust-panel__head::after {
+  content: "";
+  display: block;
+  width: clamp(3.5rem, 8vw, 6rem);
+  height: 1px;
+  margin-top: clamp(1.5rem, 3vw, 2.2rem);
+  background: linear-gradient(90deg, rgba(148, 242, 255, 0.9), rgba(148, 242, 255, 0));
+  box-shadow: 0 0 18px rgba(148, 242, 255, 0.24);
 }
 
 .ai-trust-panel__statement {
-  max-width: 46rem;
+  max-width: 38rem;
   margin: 1.35rem 0 0;
-  color: rgba(242, 247, 255, 0.86);
-  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
-  line-height: 1.6;
+  padding-left: 1.15rem;
+  border-left: 1px solid rgba(148, 242, 255, 0.3);
+  color: rgba(242, 247, 255, 0.82);
+  font-size: clamp(1.02rem, 1.35vw, 1.16rem);
+  line-height: 1.68;
 }
 
 .ai-trust-list {
@@ -796,45 +818,67 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  counter-reset: trust-item;
 }
 
 .ai-trust-item {
+  position: relative;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.9rem;
-  padding: 1.2rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.25rem 3rem 1.3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  counter-increment: trust-item;
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+
+.ai-trust-item::after {
+  content: "0" counter(trust-item);
+  position: absolute;
+  top: 1.4rem;
+  right: 0.1rem;
+  color: rgba(148, 242, 255, 0.42);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
 }
 
 .ai-trust-item__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.85rem;
-  height: 1.85rem;
-  border-radius: 50%;
-  border: 1px solid rgba(148, 242, 255, 0.4);
-  background: rgba(148, 242, 255, 0.1);
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid rgba(148, 242, 255, 0.28);
+  border-radius: 0.72rem;
+  background:
+    linear-gradient(135deg, rgba(148, 242, 255, 0.13), rgba(148, 242, 255, 0.035));
   color: var(--ai-trust);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(148, 242, 255, 0.07);
 }
 
 .ai-trust-item h3 {
-  margin: 0 0 0.32rem;
+  margin: 0.08rem 0 0.38rem;
   color: var(--ai-heading);
-  font-size: 1.05rem;
-  line-height: 1.2;
+  font-size: clamp(1.03rem, 0.45vw + 0.94rem, 1.16rem);
+  line-height: 1.22;
 }
 
 .ai-trust-item p {
+  max-width: 34rem;
   margin: 0;
   color: var(--ai-text);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.64;
 }
 
 .ai-tech-panel {
-  margin-top: 1rem;
+  margin-top: clamp(3.75rem, 8vw, 7rem);
   border-color: var(--ai-line);
   isolation: isolate;
   background:
@@ -1107,6 +1151,11 @@
     transform: translateY(-3px);
   }
 
+  .ai-trust-item:hover {
+    border-color: rgba(148, 242, 255, 0.32);
+    transform: translateX(4px);
+  }
+
   .ai-tech-groups article:hover {
     border-color: rgba(var(--tech-accent-rgb), 0.28);
     background:
@@ -1175,6 +1224,11 @@
     transform: translateY(-1rem);
   }
 
+  .ai-trust-panel {
+    grid-template-columns: minmax(0, 0.82fr) minmax(24rem, 1.18fr);
+    column-gap: clamp(3rem, 7vw, 6.5rem);
+  }
+
   .ai-tech-groups {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.9rem;
@@ -1224,6 +1278,10 @@
     width: 40%;
     height: 17%;
   }
+
+  .ai-trust-item {
+    padding-right: 2.25rem;
+  }
 }
 
 /* ============================================================
@@ -1252,6 +1310,8 @@
   .ai-offer-card:hover,
   .ai-usecase-card:hover,
   .ai-flow__card:hover,
+  .ai-trust-item,
+  .ai-trust-item:hover,
   .ai-tech-groups article,
   .ai-tech-groups article:hover,
   .ai-offer-card--featured {

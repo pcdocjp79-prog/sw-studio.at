@@ -1,0 +1,113 @@
+/* ============================================================
+   AI-MARQUEE — Scroll-driven Keyword-Band (nur ki-automatisierung.html)
+   Zwei gegenläufige Zeilen, deren Position von src/js/ai-marquee.js
+   über --ai-marquee-progress (0 → 1, geglättet) gesteuert wird.
+   Ohne JS oder bei prefers-reduced-motion bleibt das Band statisch.
+   ============================================================ */
+
+.ai-marquee {
+  --ai-marquee-progress: 0.5;
+  --ai-marquee-travel: 18%;
+  --ai-marquee-gap: clamp(1.1rem, 2.6vw, 2.1rem);
+  position: relative;
+  margin: clamp(2rem, 4.5vw, 3.25rem) 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(1.5rem, 3.2vw, 2.35rem) 0;
+}
+
+/* Nur für Screenreader: vollständige Begriffsliste als Fließtext */
+.ai-marquee__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ai-marquee__rows {
+  display: grid;
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+  overflow: hidden;
+  /* weiche Kanten, damit die Begriffe ein- und ausgleiten */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.ai-marquee__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Bewegungsspanne bleibt in [-24%, -6%] der Trackbreite — bei
+   doppeltem Inhalt (2 Gruppen) entstehen so nie sichtbare Lücken */
+.ai-marquee__row--primary .ai-marquee__track {
+  transform: translate3d(calc(-6% - var(--ai-marquee-progress) * var(--ai-marquee-travel)), 0, 0);
+}
+
+.ai-marquee__row--reverse .ai-marquee__track {
+  transform: translate3d(calc(-24% + var(--ai-marquee-progress) * var(--ai-marquee-travel)), 0, 0);
+}
+
+.ai-marquee__group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: var(--ai-marquee-gap);
+  padding-right: var(--ai-marquee-gap);
+}
+
+.ai-marquee__item {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: var(--ai-marquee-gap);
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  white-space: nowrap;
+  color: rgba(240, 246, 255, 0.92);
+}
+
+/* Trennzeichen: font-unabhängige Raute im Cyan der Sektion */
+.ai-marquee__item::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.3em;
+  height: 0.3em;
+  border-radius: 0.07em;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, rgba(148, 242, 255, 0.85), rgba(98, 173, 255, 0.5));
+  box-shadow: 0 0 12px rgba(148, 242, 255, 0.3);
+}
+
+/* Jeder zweite Begriff als Outline — nur wo text-stroke unterstützt
+   wird, sonst bleiben alle Begriffe gefüllt lesbar */
+@supports (-webkit-text-stroke: 1px rgba(0, 0, 0, 0.5)) {
+  .ai-marquee__row--primary .ai-marquee__item:nth-child(even),
+  .ai-marquee__row--reverse .ai-marquee__item:nth-child(odd) {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(214, 231, 255, 0.42);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Statisches Band ohne Scroll-Bewegung */
+  .ai-marquee__track {
+    will-change: auto;
+  }
+
+  .ai-marquee__row--primary .ai-marquee__track,
+  .ai-marquee__row--reverse .ai-marquee__track {
+    transform: translate3d(-12%, 0, 0);
+  }
+}

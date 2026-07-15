@@ -1,0 +1,4 @@
+interface:
+  display_name: "Award-Level Web Design"
+  short_description: "Veredelt Web-UIs in iterativen Quality-Loops"
+  default_prompt: "Nutze $elevate-web-design, um diese Section in drei Quality-Loops auf ein unverwechselbares High-End-Niveau zu bringen."

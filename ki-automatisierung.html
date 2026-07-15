@@ -368,7 +368,7 @@
     <!-- 5 — INDIVIDUALIT&Auml;T &amp; FLEXIBILIT&Auml;T -->
     <section class="webdev-section ai-usecases scroll-focus-section" aria-labelledby="ai-usecases-title">
       <div class="webdev-container">
-        <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
+        <div class="webdev-section-head webdev-section-head--stacked ai-usecases__head reveal-on-scroll">
           <p class="webdev-eyebrow">Individuell</p>
           <h2 id="ai-usecases-title" class="webdev-section-title font-display">
             KI, die sich an <span class="section-title-accent--cyan">deine Prozesse anpasst</span> &ndash; nicht umgekehrt
@@ -379,35 +379,123 @@
           </p>
         </div>
         <div class="ai-usecase-grid" aria-label="Typische Einsatzbereiche f&uuml;r KI">
-          <article class="ai-usecase-card reveal-on-scroll" style="--ai-delay: 0ms;">
-            <span aria-hidden="true">01</span>
-            <h3 class="font-display">E-Mail &amp; Kommunikation</h3>
-            <p>KI analysiert eingehende Informationen, erkennt Themen, erstellt Antwortvorschl&auml;ge und unterst&uuml;tzt bei der Priorisierung.</p>
+          <article class="ai-usecase-card ai-usecase-card--mail reveal-on-scroll" style="--ai-delay: 0ms;">
+            <div class="ai-usecase-card__top">
+              <span class="ai-usecase-card__index" aria-hidden="true">01</span>
+              <span class="ai-usecase-card__status" aria-hidden="true"><i></i> Intelligent sortiert</span>
+            </div>
+            <div class="ai-usecase-visual ai-usecase-visual--mail" aria-hidden="true">
+              <div class="ai-usecase-mail-row ai-usecase-mail-row--focus">
+                <span class="ai-usecase-mail-row__dot"></span>
+                <span class="ai-usecase-mail-row__line"></span>
+                <span class="ai-usecase-mail-row__badge">Priorit&auml;t</span>
+              </div>
+              <div class="ai-usecase-mail-row">
+                <span class="ai-usecase-mail-row__dot"></span>
+                <span class="ai-usecase-mail-row__line"></span>
+                <span class="ai-usecase-mail-row__time">09:42</span>
+              </div>
+              <div class="ai-usecase-mail-row">
+                <span class="ai-usecase-mail-row__dot"></span>
+                <span class="ai-usecase-mail-row__line"></span>
+                <span class="ai-usecase-mail-row__time">08:17</span>
+              </div>
+            </div>
+            <div class="ai-usecase-card__copy">
+              <h3 class="font-display">E-Mail &amp; Kommunikation</h3>
+              <p>KI analysiert eingehende Informationen, erkennt Themen, erstellt Antwortvorschl&auml;ge und unterst&uuml;tzt bei der Priorisierung.</p>
+            </div>
           </article>
-          <article class="ai-usecase-card reveal-on-scroll" style="--ai-delay: 70ms;">
-            <span aria-hidden="true">02</span>
-            <h3 class="font-display">Meetings &amp; Aufgaben</h3>
-            <p>Besprechungen werden vorbereitet, zusammengefasst und automatisch in Aufgaben oder Follow-ups &uuml;bersetzt.</p>
+          <article class="ai-usecase-card ai-usecase-card--meetings reveal-on-scroll" style="--ai-delay: 70ms;">
+            <div class="ai-usecase-card__top">
+              <span class="ai-usecase-card__index" aria-hidden="true">02</span>
+              <span class="ai-usecase-card__status" aria-hidden="true"><i></i> Live erfasst</span>
+            </div>
+            <div class="ai-usecase-visual ai-usecase-visual--meetings" aria-hidden="true">
+              <div class="ai-usecase-waveform">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="ai-usecase-transcript">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="ai-usecase-visual__result"><i></i> 3 To-dos erkannt</div>
+            </div>
+            <div class="ai-usecase-card__copy">
+              <h3 class="font-display">Meetings &amp; Aufgaben</h3>
+              <p>Besprechungen werden vorbereitet, zusammengefasst und automatisch in Aufgaben oder Follow-ups &uuml;bersetzt.</p>
+            </div>
           </article>
-          <article class="ai-usecase-card reveal-on-scroll" style="--ai-delay: 140ms;">
-            <span aria-hidden="true">03</span>
-            <h3 class="font-display">Dokumente &amp; Wissen</h3>
-            <p>Richtlinien, PDFs, interne Anleitungen und Wissensartikel werden schneller auffindbar und verst&auml;ndlich zusammengefasst.</p>
+          <article class="ai-usecase-card ai-usecase-card--knowledge reveal-on-scroll" style="--ai-delay: 140ms;">
+            <div class="ai-usecase-card__top">
+              <span class="ai-usecase-card__index" aria-hidden="true">03</span>
+              <span class="ai-usecase-card__status" aria-hidden="true"><i></i> Kontext bereit</span>
+            </div>
+            <div class="ai-usecase-visual ai-usecase-visual--knowledge" aria-hidden="true">
+              <div class="ai-usecase-doc ai-usecase-doc--back"><span></span><span></span></div>
+              <div class="ai-usecase-doc ai-usecase-doc--front">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                  <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6" />
+                  <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <span></span><span></span><span></span>
+              </div>
+              <div class="ai-usecase-knowledge-hit"><i></i> Wissen gefunden <b>0,8 s</b></div>
+            </div>
+            <div class="ai-usecase-card__copy">
+              <h3 class="font-display">Dokumente &amp; Wissen</h3>
+              <p>Richtlinien, PDFs, interne Anleitungen und Wissensartikel werden schneller auffindbar und verst&auml;ndlich zusammengefasst.</p>
+            </div>
           </article>
-          <article class="ai-usecase-card reveal-on-scroll" style="--ai-delay: 210ms;">
-            <span aria-hidden="true">04</span>
-            <h3 class="font-display">Service &amp; Support</h3>
-            <p>Wiederkehrende Anfragen werden klassifiziert, mit passenden Wissensartikeln verbunden und f&uuml;r die Bearbeitung vorbereitet.</p>
+          <article class="ai-usecase-card ai-usecase-card--support reveal-on-scroll" style="--ai-delay: 210ms;">
+            <div class="ai-usecase-card__top">
+              <span class="ai-usecase-card__index" aria-hidden="true">04</span>
+              <span class="ai-usecase-card__status" aria-hidden="true"><i></i> Richtig geroutet</span>
+            </div>
+            <div class="ai-usecase-visual ai-usecase-visual--support" aria-hidden="true">
+              <svg viewBox="0 0 420 150" preserveAspectRatio="xMidYMid meet" fill="none">
+                <path class="ai-usecase-route-line" d="M88 75h74c23 0 24-38 48-38h72M162 75h48c24 0 25 38 49 38h23" stroke="currentColor" stroke-width="1.4" />
+                <circle cx="66" cy="75" r="21" />
+                <circle cx="162" cy="75" r="8" />
+                <rect x="282" y="18" width="94" height="38" rx="12" />
+                <rect x="282" y="94" width="94" height="38" rx="12" />
+                <path d="M58 75h16M66 67v16" stroke-width="1.6" stroke-linecap="round" />
+                <circle class="ai-usecase-route-pulse" cx="210" cy="37" r="4" />
+                <circle class="ai-usecase-route-pulse" cx="259" cy="113" r="4" />
+                <text class="ai-usecase-route-text" x="329" y="41" text-anchor="middle">Wissen</text>
+                <text class="ai-usecase-route-text" x="329" y="117" text-anchor="middle">Bearbeitung</text>
+              </svg>
+            </div>
+            <div class="ai-usecase-card__copy">
+              <h3 class="font-display">Service &amp; Support</h3>
+              <p>Wiederkehrende Anfragen werden klassifiziert, mit passenden Wissensartikeln verbunden und f&uuml;r die Bearbeitung vorbereitet.</p>
+            </div>
           </article>
-          <article class="ai-usecase-card ai-usecase-card--wide reveal-on-scroll" style="--ai-delay: 280ms;">
-            <span aria-hidden="true">05</span>
-            <h3 class="font-display">Prozesse &amp; Automatisierung</h3>
-            <p>Manuelle Zwischenschritte zwischen Tools werden reduziert, damit Teams weniger kopieren, suchen und nachbearbeiten m&uuml;ssen.</p>
+          <article class="ai-usecase-card ai-usecase-card--automation ai-usecase-card--wide reveal-on-scroll" style="--ai-delay: 280ms;">
+            <div class="ai-usecase-card__top">
+              <span class="ai-usecase-card__index" aria-hidden="true">05</span>
+              <span class="ai-usecase-card__status" aria-hidden="true"><i></i> Workflow aktiv</span>
+            </div>
+            <div class="ai-usecase-visual ai-usecase-visual--automation" aria-hidden="true">
+              <div class="ai-usecase-workflow">
+                <div class="ai-usecase-workflow__node"><i></i><span>Eingang</span></div>
+                <span class="ai-usecase-workflow__link"></span>
+                <div class="ai-usecase-workflow__node"><i></i><span>KI-Logik</span></div>
+                <span class="ai-usecase-workflow__link"></span>
+                <div class="ai-usecase-workflow__node"><i></i><span>Freigabe</span></div>
+                <span class="ai-usecase-workflow__link"></span>
+                <div class="ai-usecase-workflow__node"><i></i><span>Zielsystem</span></div>
+              </div>
+            </div>
+            <div class="ai-usecase-card__copy">
+              <h3 class="font-display">Prozesse &amp; Automatisierung</h3>
+              <p>Manuelle Zwischenschritte zwischen Tools werden reduziert, damit Teams weniger kopieren, suchen und nachbearbeiten m&uuml;ssen.</p>
+            </div>
           </article>
         </div>
         <p class="ai-usecase-note reveal-on-scroll">
-          Du musst nicht gro&szlig; starten: Oft beginnt der gr&ouml;&szlig;te Nutzen mit einem einzigen Workflow oder
-          Assistenten &ndash; und w&auml;chst von dort weiter.
+          <span class="ai-usecase-note__label" aria-hidden="true">Start small / scale smart</span>
+          <span>Du musst nicht gro&szlig; starten: Oft beginnt der gr&ouml;&szlig;te Nutzen mit einem einzigen Workflow oder
+            Assistenten &ndash; und w&auml;chst von dort weiter.</span>
         </p>
       </div>
     </section>

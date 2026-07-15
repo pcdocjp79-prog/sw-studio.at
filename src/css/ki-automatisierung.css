@@ -386,7 +386,7 @@
 }
 
 .ai-card-kicker,
-.ai-usecase-card span,
+.ai-usecase-card__index,
 .ai-offer-card__index,
 .ai-offer-card__stage {
   color: rgba(255, 184, 126, 0.86);
@@ -754,21 +754,603 @@
    ============================================================ */
 .ai-usecase-grid {
   display: grid;
-  gap: 1rem;
+  gap: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.ai-usecases {
+  position: relative;
+}
+
+.ai-usecases::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: min(82vw, 68rem);
+  height: 36rem;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 24% 38%, rgba(148, 242, 255, 0.07), transparent 34%),
+    radial-gradient(circle at 78% 62%, rgba(255, 126, 194, 0.055), transparent 36%);
+  filter: blur(18px);
+  transform: translateX(-50%);
+}
+
+.ai-usecases__head {
+  position: relative;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
 }
 
 .ai-usecase-card {
-  min-height: 15rem;
+  --usecase-accent-rgb: 148, 242, 255;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 24rem;
+  border-color: rgba(var(--usecase-accent-rgb), 0.16);
+  border-radius: clamp(1.1rem, 2vw, 1.4rem);
+  padding: clamp(1.15rem, 2.4vw, 1.55rem);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(var(--usecase-accent-rgb), 0.12), transparent 34%),
+    linear-gradient(155deg, rgba(14, 22, 38, 0.9), rgba(6, 11, 21, 0.94));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  transition:
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.ai-usecase-card--meetings,
+.ai-usecase-card--support {
+  --usecase-accent-rgb: 255, 126, 194;
+}
+
+.ai-usecase-card--knowledge,
+.ai-usecase-card--automation {
+  --usecase-accent-rgb: 255, 159, 95;
+}
+
+.ai-usecase-card::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+  background-size: 2.25rem 2.25rem;
+  -webkit-mask-image: linear-gradient(145deg, rgba(0, 0, 0, 0.85), transparent 66%);
+  mask-image: linear-gradient(145deg, rgba(0, 0, 0, 0.85), transparent 66%);
+  opacity: 0.55;
+}
+
+.ai-usecase-card::after {
+  content: "";
+  position: absolute;
+  right: -5rem;
+  bottom: -6rem;
+  width: 12rem;
+  height: 12rem;
+  pointer-events: none;
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2.4rem rgba(var(--usecase-accent-rgb), 0.018),
+    0 0 0 4.8rem rgba(var(--usecase-accent-rgb), 0.012);
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-usecase-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ai-usecase-card__index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.28);
+  border-radius: 0.68rem;
+  color: rgba(var(--usecase-accent-rgb), 0.94);
+  background: rgba(var(--usecase-accent-rgb), 0.065);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.ai-usecase-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: rgba(231, 239, 250, 0.58);
+  font-family: var(--font-mono);
+  font-size: 0.61rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ai-usecase-card__status i,
+.ai-usecase-visual__result i,
+.ai-usecase-knowledge-hit i {
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: rgb(var(--usecase-accent-rgb));
+  box-shadow: 0 0 12px rgba(var(--usecase-accent-rgb), 0.7);
+}
+
+.js .ai-usecase-card.is-visible .ai-usecase-card__status i {
+  animation: aiUsecaseSignal 380ms cubic-bezier(0.16, 1, 0.3, 1) 1 both;
+  animation-delay: calc(var(--ai-delay, 0ms) + 180ms);
+}
+
+.ai-usecase-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 9rem;
+  margin: clamp(1.25rem, 3vw, 1.7rem) 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.9rem;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(var(--usecase-accent-rgb), 0.1), transparent 42%),
+    rgba(1, 6, 15, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    inset 0 -24px 52px rgba(0, 0, 0, 0.12);
+  transition: border-color 240ms ease;
+}
+
+.ai-usecase-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.ai-usecase-card__copy {
+  margin-top: auto;
+}
+
+.ai-usecase-card h3 {
+  max-width: 18ch;
+  margin: 0 0 0.65rem;
+  color: var(--ai-heading);
+  font-size: clamp(1.2rem, 0.75vw + 1rem, 1.45rem);
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.ai-usecase-card p {
+  max-width: 41rem;
+  margin: 0;
+  color: rgba(231, 239, 250, 0.72);
+  font-size: 0.93rem;
+  line-height: 1.66;
+}
+
+/* E-Mail signal stack */
+.ai-usecase-visual--mail {
+  display: grid;
+  align-content: center;
+  gap: 0.55rem;
+  padding: 1rem;
+}
+
+.ai-usecase-mail-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(3rem, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 0.65rem;
+  padding: 0.48rem 0.65rem;
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    border-color 240ms ease,
+    background 240ms ease,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-usecase-mail-row--focus {
+  border-color: rgba(var(--usecase-accent-rgb), 0.24);
+  background: rgba(var(--usecase-accent-rgb), 0.075);
+  box-shadow: 0 0 22px rgba(var(--usecase-accent-rgb), 0.055);
+}
+
+.ai-usecase-mail-row__dot {
+  width: 0.46rem;
+  height: 0.46rem;
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.6);
+  border-radius: 50%;
+  background: rgba(var(--usecase-accent-rgb), 0.16);
+}
+
+.ai-usecase-mail-row__line {
+  width: min(100%, 8rem);
+  height: 0.32rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(231, 239, 250, 0.38), rgba(231, 239, 250, 0.08));
+}
+
+.ai-usecase-mail-row__badge,
+.ai-usecase-mail-row__time {
+  color: rgba(231, 239, 250, 0.45);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-style: normal;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.ai-usecase-mail-row__badge {
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.22);
+  border-radius: 999px;
+  padding: 0.3rem 0.45rem;
+  color: rgba(var(--usecase-accent-rgb), 0.9);
+  background: rgba(var(--usecase-accent-rgb), 0.08);
+}
+
+/* Meeting intelligence */
+.ai-usecase-waveform {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.1rem;
+  display: flex;
+  height: 2.8rem;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ai-usecase-waveform span {
+  width: 0.22rem;
+  height: 38%;
+  border-radius: 999px;
+  background: rgba(var(--usecase-accent-rgb), 0.78);
+  box-shadow: 0 0 8px rgba(var(--usecase-accent-rgb), 0.2);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease;
+}
+
+.ai-usecase-waveform span:nth-child(2),
+.ai-usecase-waveform span:nth-child(8) { height: 64%; }
+.ai-usecase-waveform span:nth-child(3),
+.ai-usecase-waveform span:nth-child(6) { height: 92%; }
+.ai-usecase-waveform span:nth-child(4) { height: 54%; }
+.ai-usecase-waveform span:nth-child(5) { height: 100%; }
+.ai-usecase-waveform span:nth-child(7) { height: 74%; }
+
+.ai-usecase-transcript {
+  position: absolute;
+  right: 1rem;
+  bottom: 1.15rem;
+  left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+  width: 56%;
+}
+
+.ai-usecase-transcript span {
+  height: 0.28rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(231, 239, 250, 0.28), rgba(231, 239, 250, 0.04));
+}
+
+.ai-usecase-transcript span:nth-child(2) { width: 82%; }
+.ai-usecase-transcript span:nth-child(3) { width: 64%; }
+
+.ai-usecase-visual__result {
+  position: absolute;
+  top: 1.25rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.22);
+  border-radius: 999px;
+  padding: 0.45rem 0.58rem;
+  color: rgba(var(--usecase-accent-rgb), 0.92);
+  background: rgba(var(--usecase-accent-rgb), 0.075);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Knowledge retrieval */
+.ai-usecase-doc {
+  position: absolute;
+  width: 5.4rem;
+  height: 6.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 0.7rem;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1), border-color 240ms ease;
+}
+
+.ai-usecase-doc--back {
+  top: 1.2rem;
+  left: 1.3rem;
+  opacity: 0.45;
+  transform: rotate(-7deg);
+}
+
+.ai-usecase-doc--front {
+  top: 0.8rem;
+  left: 3rem;
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  padding: 0.75rem;
+  color: rgba(var(--usecase-accent-rgb), 0.88);
+  transform: rotate(3deg);
+}
+
+.ai-usecase-doc span {
+  display: block;
+  height: 0.25rem;
+  margin: 0.75rem 0.7rem 0;
+  border-radius: 999px;
+  background: rgba(231, 239, 250, 0.15);
+}
+
+.ai-usecase-doc span + span { margin-top: 0.4rem; }
+.ai-usecase-doc span:nth-of-type(2) { width: 68%; }
+
+.ai-usecase-doc--front span {
+  width: 100%;
+  margin: 0;
+}
+
+.ai-usecase-doc--front span:nth-of-type(2) { width: 78%; }
+.ai-usecase-doc--front span:nth-of-type(3) { width: 58%; }
+
+.ai-usecase-knowledge-hit {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.22);
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.65rem;
+  color: rgba(var(--usecase-accent-rgb), 0.9);
+  background: rgba(7, 12, 22, 0.82);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.ai-usecase-knowledge-hit b {
+  color: rgba(231, 239, 250, 0.46);
+  font-weight: 500;
+}
+
+/* Support routing */
+.ai-usecase-visual--support svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(var(--usecase-accent-rgb), 0.55);
+}
+
+.ai-usecase-visual--support svg circle,
+.ai-usecase-visual--support svg rect {
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.ai-usecase-visual--support .ai-usecase-route-pulse {
+  fill: rgb(var(--usecase-accent-rgb));
+  stroke: none;
+  filter: drop-shadow(0 0 6px rgba(var(--usecase-accent-rgb), 0.7));
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), filter 240ms ease;
+}
+
+.ai-usecase-route-text {
+  fill: rgba(231, 239, 250, 0.68);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Automation chain */
+.ai-usecase-visual--automation {
+  display: grid;
+  align-items: center;
+  padding: clamp(1rem, 2.5vw, 1.4rem);
+}
+
+.ai-usecase-workflow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(2.8rem, auto) minmax(0.8rem, 1fr) minmax(2.8rem, auto) minmax(0.8rem, 1fr) minmax(2.8rem, auto) minmax(0.8rem, 1fr) minmax(2.8rem, auto);
+  align-items: center;
+  width: 100%;
+}
+
+.ai-usecase-workflow__node {
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.ai-usecase-workflow__node i {
+  position: relative;
+  display: block;
+  width: clamp(2.25rem, 5vw, 3rem);
+  height: clamp(2.25rem, 5vw, 3rem);
+  border: 1px solid rgba(var(--usecase-accent-rgb), 0.3);
+  border-radius: 0.8rem;
+  background:
+    radial-gradient(circle, rgba(var(--usecase-accent-rgb), 0.24) 0 13%, transparent 15%),
+    rgba(var(--usecase-accent-rgb), 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 0 24px rgba(var(--usecase-accent-rgb), 0.06);
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-usecase-workflow__node span {
+  color: rgba(231, 239, 250, 0.54);
+  font-family: var(--font-mono);
+  font-size: clamp(0.48rem, 1.1vw, 0.58rem);
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ai-usecase-workflow__link {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+  background: rgba(var(--usecase-accent-rgb), 0.24);
+}
+
+.ai-usecase-workflow__link::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 1rem;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgb(var(--usecase-accent-rgb)), transparent);
+  transform: translateX(-1rem);
+}
+
+.js .ai-usecase-card.is-visible .ai-usecase-workflow__link::after {
+  animation: aiUsecaseFlow 480ms cubic-bezier(0.16, 1, 0.3, 1) 1 both;
+  animation-delay: calc(var(--ai-delay, 0ms) + 260ms);
+}
+
+.js .ai-usecase-card.is-visible .ai-usecase-workflow__link:nth-of-type(2)::after {
+  animation-delay: calc(var(--ai-delay, 0ms) + 430ms);
+}
+
+.js .ai-usecase-card.is-visible .ai-usecase-workflow__link:nth-of-type(3)::after {
+  animation-delay: calc(var(--ai-delay, 0ms) + 600ms);
+}
+
+/* One-shot visual storytelling on reveal */
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row {
+  animation: aiUsecaseRowIn 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(1) { animation-delay: 120ms; }
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(2) { animation-delay: 180ms; }
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(3) { animation-delay: 240ms; }
+
+.ai-usecase-waveform span {
+  transform-origin: center;
+}
+
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-waveform span {
+  animation: aiUsecaseWaveIn 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: var(--wave-delay, 100ms);
+}
+
+.ai-usecase-waveform span:nth-child(1) { --wave-delay: 100ms; }
+.ai-usecase-waveform span:nth-child(2) { --wave-delay: 125ms; }
+.ai-usecase-waveform span:nth-child(3) { --wave-delay: 150ms; }
+.ai-usecase-waveform span:nth-child(4) { --wave-delay: 175ms; }
+.ai-usecase-waveform span:nth-child(5) { --wave-delay: 200ms; }
+.ai-usecase-waveform span:nth-child(6) { --wave-delay: 225ms; }
+.ai-usecase-waveform span:nth-child(7) { --wave-delay: 250ms; }
+.ai-usecase-waveform span:nth-child(8) { --wave-delay: 275ms; }
+.ai-usecase-waveform span:nth-child(9) { --wave-delay: 300ms; }
+
+.ai-usecase-transcript span {
+  transform-origin: left center;
+}
+
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span {
+  animation: aiUsecaseLineIn 320ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(1) { animation-delay: 220ms; }
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(2) { animation-delay: 280ms; }
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(3) { animation-delay: 340ms; }
+
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-visual__result,
+.js .ai-usecase-card--knowledge.is-visible .ai-usecase-knowledge-hit {
+  animation: aiUsecaseResultIn 380ms cubic-bezier(0.16, 1, 0.3, 1) 360ms backwards;
+}
+
+.js .ai-usecase-card--knowledge.is-visible .ai-usecase-doc--back {
+  animation: aiUsecaseDocBackIn 460ms cubic-bezier(0.16, 1, 0.3, 1) 100ms backwards;
+}
+
+.js .ai-usecase-card--knowledge.is-visible .ai-usecase-doc--front {
+  animation: aiUsecaseDocFrontIn 460ms cubic-bezier(0.16, 1, 0.3, 1) 160ms backwards;
+}
+
+.ai-usecase-route-line {
+  stroke-dasharray: 380;
+  stroke-dashoffset: 0;
+}
+
+.js .ai-usecase-card--support.is-visible .ai-usecase-route-line {
+  animation: aiUsecaseRouteIn 480ms cubic-bezier(0.16, 1, 0.3, 1) 120ms backwards;
+}
+
+.js .ai-usecase-card--support.is-visible .ai-usecase-route-pulse,
+.js .ai-usecase-card--support.is-visible .ai-usecase-route-text {
+  animation: aiUsecaseResultIn 320ms cubic-bezier(0.16, 1, 0.3, 1) 420ms backwards;
+}
+
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node {
+  animation: aiUsecaseNodeIn 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(1) { animation-delay: 100ms; }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(2) { animation-delay: 170ms; }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(3) { animation-delay: 240ms; }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(4) { animation-delay: 310ms; }
+
 .ai-usecase-note {
-  max-width: 52rem;
-  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
-  padding-left: 1.1rem;
-  border-left: 2px solid rgba(255, 159, 95, 0.4);
-  color: var(--ai-text);
+  display: grid;
+  gap: 0.65rem;
+  max-width: none;
+  margin: clamp(2rem, 4.5vw, 3.25rem) 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(1.15rem, 2.6vw, 1.55rem) 0;
+  color: rgba(231, 239, 250, 0.76);
   font-size: 1rem;
   line-height: 1.7;
+}
+
+.ai-usecase-note__label {
+  color: rgba(255, 184, 126, 0.82);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* ============================================================
@@ -1104,6 +1686,91 @@
   }
 }
 
+@keyframes aiUsecaseSignal {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.72);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+@keyframes aiUsecaseFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  18% {
+    opacity: 1;
+  }
+  70%, 100% {
+    opacity: 0;
+    transform: translateX(900%);
+  }
+}
+
+@keyframes aiUsecaseRowIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes aiUsecaseWaveIn {
+  from {
+    opacity: 0;
+    transform: scaleY(0.18);
+  }
+}
+
+@keyframes aiUsecaseLineIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0.18);
+  }
+}
+
+@keyframes aiUsecaseResultIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.94);
+  }
+}
+
+@keyframes aiUsecaseDocBackIn {
+  from {
+    opacity: 0;
+    transform: translate(-10px, 8px) rotate(-12deg);
+  }
+}
+
+@keyframes aiUsecaseDocFrontIn {
+  from {
+    opacity: 0;
+    transform: translate(10px, 8px) rotate(8deg);
+  }
+}
+
+@keyframes aiUsecaseRouteIn {
+  from {
+    opacity: 0.28;
+    stroke-dashoffset: 380;
+  }
+}
+
+@keyframes aiUsecaseNodeIn {
+  from {
+    opacity: 0;
+    transform: translateY(7px) scale(0.9);
+  }
+}
+
 @keyframes aiCoreBreath {
   0%,
   100% {
@@ -1133,13 +1800,67 @@
    ============================================================ */
 @media (hover: hover) and (pointer: fine) {
   .ai-insight-card:hover,
-  .ai-offer-card:hover,
-  .ai-usecase-card:hover {
+  .ai-offer-card:hover {
     border-color: rgba(255, 159, 95, 0.25);
     background:
       radial-gradient(circle at 12% 0%, rgba(255, 159, 95, 0.14), transparent 42%),
       rgba(14, 22, 39, 0.76);
     transform: translateY(-3px);
+  }
+
+  .ai-usecase-card:hover {
+    border-color: rgba(var(--usecase-accent-rgb), 0.34);
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.28),
+      0 0 38px rgba(var(--usecase-accent-rgb), 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.075);
+    transform: translateY(-4px);
+  }
+
+  .ai-usecase-card:hover .ai-usecase-visual {
+    border-color: rgba(var(--usecase-accent-rgb), 0.17);
+  }
+
+  .ai-usecase-card:hover::after {
+    transform: translate(-4px, -4px) scale(1.06);
+  }
+
+  .ai-usecase-card--mail:hover .ai-usecase-mail-row--focus {
+    border-color: rgba(var(--usecase-accent-rgb), 0.38);
+    background: rgba(var(--usecase-accent-rgb), 0.11);
+    transform: translateX(3px);
+  }
+
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(odd) {
+    transform: scaleY(0.78);
+    opacity: 0.72;
+  }
+
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(even) {
+    transform: scaleY(1.1);
+  }
+
+  .ai-usecase-card--knowledge:hover .ai-usecase-doc--back {
+    border-color: rgba(var(--usecase-accent-rgb), 0.2);
+    transform: translate(-3px, 2px) rotate(-9deg);
+  }
+
+  .ai-usecase-card--knowledge:hover .ai-usecase-doc--front {
+    border-color: rgba(var(--usecase-accent-rgb), 0.26);
+    transform: translate(3px, -2px) rotate(5deg);
+  }
+
+  .ai-usecase-card--support:hover .ai-usecase-route-pulse {
+    filter: drop-shadow(0 0 9px rgba(var(--usecase-accent-rgb), 0.9));
+    transform: scale(1.38);
+  }
+
+  .ai-usecase-card--automation:hover .ai-usecase-workflow__node i {
+    border-color: rgba(var(--usecase-accent-rgb), 0.46);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 0 28px rgba(var(--usecase-accent-rgb), 0.11);
+    transform: translateY(-2px);
   }
 
   .ai-offer-card--featured:hover {
@@ -1179,6 +1900,12 @@
 
   .ai-usecase-card--wide {
     grid-column: span 2;
+  }
+
+  .ai-usecase-note {
+    grid-template-columns: minmax(10rem, 0.32fr) minmax(0, 0.68fr);
+    align-items: start;
+    gap: 2rem;
   }
 }
 
@@ -1224,6 +1951,25 @@
     transform: translateY(-1rem);
   }
 
+  .ai-usecases__head {
+    grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.62fr);
+    column-gap: clamp(2.5rem, 7vw, 6.5rem);
+    align-items: end;
+  }
+
+  .ai-usecases__head .webdev-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .ai-usecases__head .webdev-section-title {
+    grid-column: 1;
+  }
+
+  .ai-usecases__head .webdev-section-intro {
+    grid-column: 2;
+    padding-bottom: 0.2rem;
+  }
+
   .ai-trust-panel {
     grid-template-columns: minmax(0, 0.82fr) minmax(24rem, 1.18fr);
     column-gap: clamp(3rem, 7vw, 6.5rem);
@@ -1252,15 +1998,19 @@
 
 @media (min-width: 1100px) {
   .ai-usecase-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .ai-usecase-card {
-    grid-column: span 2;
+    grid-column: span 4;
+  }
+
+  .ai-usecase-card--support {
+    grid-column: span 5;
   }
 
   .ai-usecase-card--wide {
-    grid-column: span 4;
+    grid-column: span 7;
   }
 }
 
@@ -1284,6 +2034,19 @@
   }
 }
 
+@media (max-width: 420px) {
+  .ai-usecase-visual--support svg {
+    width: 108%;
+    max-width: none;
+    transform: translateX(-4%);
+  }
+
+  .ai-usecase-route-text {
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+}
+
 /* ============================================================
    REDUCED MOTION
    ============================================================ */
@@ -1300,6 +2063,46 @@
   .ai-orbit-card__core,
   .ai-orbit-card__pulse {
     animation: none !important;
+  }
+
+  .ai-usecase-card__status i,
+  .ai-usecase-workflow__link::after,
+  .ai-usecase-mail-row,
+  .ai-usecase-waveform span,
+  .ai-usecase-transcript span,
+  .ai-usecase-visual__result,
+  .ai-usecase-knowledge-hit,
+  .ai-usecase-doc,
+  .ai-usecase-route-line,
+  .ai-usecase-route-pulse,
+  .ai-usecase-route-text,
+  .ai-usecase-workflow__node {
+    animation: none !important;
+  }
+
+  .ai-usecase-card::after,
+  .ai-usecase-mail-row,
+  .ai-usecase-waveform span,
+  .ai-usecase-doc,
+  .ai-usecase-route-pulse,
+  .ai-usecase-workflow__node i {
+    transition-duration: 0.01ms !important;
+  }
+
+  .ai-usecase-card:hover::after,
+  .ai-usecase-card--mail:hover .ai-usecase-mail-row--focus,
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span,
+  .ai-usecase-card--support:hover .ai-usecase-route-pulse,
+  .ai-usecase-card--automation:hover .ai-usecase-workflow__node i {
+    transform: none;
+  }
+
+  .ai-usecase-card--knowledge:hover .ai-usecase-doc--back {
+    transform: rotate(-7deg);
+  }
+
+  .ai-usecase-card--knowledge:hover .ai-usecase-doc--front {
+    transform: rotate(3deg);
   }
 
   .ai-insight-card,

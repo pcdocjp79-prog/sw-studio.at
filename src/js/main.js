@@ -956,7 +956,16 @@ const initHeroTiltCards = () => {
 
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const tiltFrames = new WeakMap();
+  const tiltRects = new WeakMap();
+  const tiltCoordinates = new WeakMap();
   const resetTilt = (card) => {
+    const frameId = tiltFrames.get(card);
+    if (frameId) window.cancelAnimationFrame(frameId);
+
+    tiltFrames.delete(card);
+    tiltRects.delete(card);
+    tiltCoordinates.delete(card);
     card.classList.remove("is-tilting");
     card.style.setProperty("--hero-tilt-x", "0deg");
     card.style.setProperty("--hero-tilt-y", "0deg");
@@ -966,19 +975,41 @@ const initHeroTiltCards = () => {
 
   cards.forEach((card) => {
     card.addEventListener(
+      "pointerenter",
+      () => {
+        if (!canTilt()) return;
+        tiltRects.set(card, card.getBoundingClientRect());
+      },
+      { passive: true }
+    );
+
+    card.addEventListener(
       "pointermove",
       (event) => {
         if (!canTilt()) return;
 
-        const rect = card.getBoundingClientRect();
+        const rect = tiltRects.get(card) || card.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         const rotateX = ((event.clientY - centerY) / Math.max(rect.height / 2, 1)) * -7;
         const rotateY = ((event.clientX - centerX) / Math.max(rect.width / 2, 1)) * 7;
 
-        card.classList.add("is-tilting");
-        card.style.setProperty("--hero-tilt-x", `${rotateX.toFixed(2)}deg`);
-        card.style.setProperty("--hero-tilt-y", `${rotateY.toFixed(2)}deg`);
+        tiltRects.set(card, rect);
+        tiltCoordinates.set(card, { rotateX, rotateY });
+
+        if (tiltFrames.has(card)) return;
+
+        const frameId = window.requestAnimationFrame(() => {
+          const coordinates = tiltCoordinates.get(card);
+          tiltFrames.delete(card);
+          if (!coordinates) return;
+
+          card.classList.add("is-tilting");
+          card.style.setProperty("--hero-tilt-x", `${coordinates.rotateX.toFixed(2)}deg`);
+          card.style.setProperty("--hero-tilt-y", `${coordinates.rotateY.toFixed(2)}deg`);
+        });
+
+        tiltFrames.set(card, frameId);
       },
       { passive: true }
     );

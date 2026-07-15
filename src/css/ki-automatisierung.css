@@ -783,6 +783,11 @@
 
 .ai-usecase-card {
   --usecase-accent-rgb: 148, 242, 255;
+  --ai-enter-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-delay: var(--ai-delay, 0ms);
+  --reveal-duration: 0.94s;
+  --reveal-distance: 24px;
+  --reveal-scale: 0.99;
   isolation: isolate;
   display: flex;
   flex-direction: column;
@@ -797,9 +802,24 @@
     0 24px 70px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.055);
   transition:
+    opacity var(--reveal-duration) var(--ai-enter-ease),
+    filter calc(var(--reveal-duration) + 80ms) var(--ai-enter-ease),
+    transform var(--reveal-duration) var(--ai-enter-ease),
     border-color 260ms ease,
-    box-shadow 260ms ease,
-    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow 260ms ease;
+}
+
+.js .ai-usecase-card.reveal-on-scroll:not(.is-reveal-complete) {
+  transition-delay: var(--reveal-delay);
+}
+
+.ai-usecase-card.reveal-on-scroll.is-reveal-complete {
+  transition:
+    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+  transition-delay: 0ms;
+  will-change: auto;
 }
 
 .ai-usecase-card--meetings,
@@ -883,7 +903,7 @@
 }
 
 .js .ai-usecase-card.is-visible .ai-usecase-card__status i {
-  animation: aiUsecaseSignal 380ms cubic-bezier(0.16, 1, 0.3, 1) 1 both;
+  animation: aiUsecaseSignal 420ms var(--ai-enter-ease) 1 both;
   animation-delay: calc(var(--ai-delay, 0ms) + 180ms);
 }
 
@@ -1242,7 +1262,7 @@
 }
 
 .js .ai-usecase-card.is-visible .ai-usecase-workflow__link::after {
-  animation: aiUsecaseFlow 480ms cubic-bezier(0.16, 1, 0.3, 1) 1 both;
+  animation: aiUsecaseFlow 480ms var(--ai-enter-ease) 1 both;
   animation-delay: calc(var(--ai-delay, 0ms) + 260ms);
 }
 
@@ -1256,55 +1276,58 @@
 
 /* One-shot visual storytelling on reveal */
 .js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row {
-  animation: aiUsecaseRowIn 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: aiUsecaseRowIn 420ms var(--ai-enter-ease) backwards;
 }
 
-.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(1) { animation-delay: 120ms; }
-.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(2) { animation-delay: 180ms; }
-.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(3) { animation-delay: 240ms; }
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(1) { animation-delay: calc(var(--ai-delay, 0ms) + 140ms); }
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(2) { animation-delay: calc(var(--ai-delay, 0ms) + 220ms); }
+.js .ai-usecase-card--mail.is-visible .ai-usecase-mail-row:nth-child(3) { animation-delay: calc(var(--ai-delay, 0ms) + 300ms); }
 
 .ai-usecase-waveform span {
   transform-origin: center;
 }
 
 .js .ai-usecase-card--meetings.is-visible .ai-usecase-waveform span {
-  animation: aiUsecaseWaveIn 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
-  animation-delay: var(--wave-delay, 100ms);
+  animation: aiUsecaseWaveIn 420ms var(--ai-enter-ease) backwards;
+  animation-delay: calc(var(--ai-delay, 0ms) + var(--wave-delay, 120ms));
 }
 
-.ai-usecase-waveform span:nth-child(1) { --wave-delay: 100ms; }
-.ai-usecase-waveform span:nth-child(2) { --wave-delay: 125ms; }
-.ai-usecase-waveform span:nth-child(3) { --wave-delay: 150ms; }
-.ai-usecase-waveform span:nth-child(4) { --wave-delay: 175ms; }
-.ai-usecase-waveform span:nth-child(5) { --wave-delay: 200ms; }
-.ai-usecase-waveform span:nth-child(6) { --wave-delay: 225ms; }
-.ai-usecase-waveform span:nth-child(7) { --wave-delay: 250ms; }
-.ai-usecase-waveform span:nth-child(8) { --wave-delay: 275ms; }
-.ai-usecase-waveform span:nth-child(9) { --wave-delay: 300ms; }
+.ai-usecase-waveform span:nth-child(1) { --wave-delay: 140ms; }
+.ai-usecase-waveform span:nth-child(2) { --wave-delay: 165ms; }
+.ai-usecase-waveform span:nth-child(3) { --wave-delay: 190ms; }
+.ai-usecase-waveform span:nth-child(4) { --wave-delay: 215ms; }
+.ai-usecase-waveform span:nth-child(5) { --wave-delay: 240ms; }
+.ai-usecase-waveform span:nth-child(6) { --wave-delay: 265ms; }
+.ai-usecase-waveform span:nth-child(7) { --wave-delay: 290ms; }
+.ai-usecase-waveform span:nth-child(8) { --wave-delay: 315ms; }
+.ai-usecase-waveform span:nth-child(9) { --wave-delay: 340ms; }
 
 .ai-usecase-transcript span {
   transform-origin: left center;
 }
 
 .js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span {
-  animation: aiUsecaseLineIn 320ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: aiUsecaseLineIn 380ms var(--ai-enter-ease) backwards;
 }
 
-.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(1) { animation-delay: 220ms; }
-.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(2) { animation-delay: 280ms; }
-.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(3) { animation-delay: 340ms; }
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(1) { animation-delay: calc(var(--ai-delay, 0ms) + 300ms); }
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(2) { animation-delay: calc(var(--ai-delay, 0ms) + 370ms); }
+.js .ai-usecase-card--meetings.is-visible .ai-usecase-transcript span:nth-child(3) { animation-delay: calc(var(--ai-delay, 0ms) + 440ms); }
 
 .js .ai-usecase-card--meetings.is-visible .ai-usecase-visual__result,
 .js .ai-usecase-card--knowledge.is-visible .ai-usecase-knowledge-hit {
-  animation: aiUsecaseResultIn 380ms cubic-bezier(0.16, 1, 0.3, 1) 360ms backwards;
+  animation: aiUsecaseResultIn 420ms var(--ai-enter-ease) backwards;
+  animation-delay: calc(var(--ai-delay, 0ms) + 460ms);
 }
 
 .js .ai-usecase-card--knowledge.is-visible .ai-usecase-doc--back {
-  animation: aiUsecaseDocBackIn 460ms cubic-bezier(0.16, 1, 0.3, 1) 100ms backwards;
+  animation: aiUsecaseDocBackIn 480ms var(--ai-enter-ease) backwards;
+  animation-delay: calc(var(--ai-delay, 0ms) + 140ms);
 }
 
 .js .ai-usecase-card--knowledge.is-visible .ai-usecase-doc--front {
-  animation: aiUsecaseDocFrontIn 460ms cubic-bezier(0.16, 1, 0.3, 1) 160ms backwards;
+  animation: aiUsecaseDocFrontIn 480ms var(--ai-enter-ease) backwards;
+  animation-delay: calc(var(--ai-delay, 0ms) + 220ms);
 }
 
 .ai-usecase-route-line {
@@ -1313,22 +1336,24 @@
 }
 
 .js .ai-usecase-card--support.is-visible .ai-usecase-route-line {
-  animation: aiUsecaseRouteIn 480ms cubic-bezier(0.16, 1, 0.3, 1) 120ms backwards;
+  animation: aiUsecaseRouteIn 480ms var(--ai-enter-ease) backwards;
+  animation-delay: calc(var(--ai-delay, 0ms) + 160ms);
 }
 
 .js .ai-usecase-card--support.is-visible .ai-usecase-route-pulse,
 .js .ai-usecase-card--support.is-visible .ai-usecase-route-text {
-  animation: aiUsecaseResultIn 320ms cubic-bezier(0.16, 1, 0.3, 1) 420ms backwards;
+  animation: aiUsecaseResultIn 380ms var(--ai-enter-ease) backwards;
+  animation-delay: calc(var(--ai-delay, 0ms) + 500ms);
 }
 
 .js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node {
-  animation: aiUsecaseNodeIn 360ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: aiUsecaseNodeIn 420ms var(--ai-enter-ease) backwards;
 }
 
-.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(1) { animation-delay: 100ms; }
-.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(2) { animation-delay: 170ms; }
-.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(3) { animation-delay: 240ms; }
-.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(4) { animation-delay: 310ms; }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(1) { animation-delay: calc(var(--ai-delay, 0ms) + 140ms); }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(2) { animation-delay: calc(var(--ai-delay, 0ms) + 230ms); }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(3) { animation-delay: calc(var(--ai-delay, 0ms) + 320ms); }
+.js .ai-usecase-card--automation.is-visible .ai-usecase-workflow__node:nth-of-type(4) { animation-delay: calc(var(--ai-delay, 0ms) + 410ms); }
 
 .ai-usecase-note {
   display: grid;
@@ -1667,8 +1692,7 @@
    REVEAL STAGGER
    ============================================================ */
 .js .ai-insight-card.reveal-on-scroll:not(.is-visible),
-.js .ai-offer-item.reveal-on-scroll:not(.is-visible),
-.js .ai-usecase-card.reveal-on-scroll:not(.is-visible) {
+.js .ai-offer-item.reveal-on-scroll:not(.is-visible) {
   transition-delay: var(--ai-delay, 0ms);
 }
 
@@ -1771,6 +1795,188 @@
   }
 }
 
+@keyframes aiUsecaseStatusLive {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(0.88);
+    box-shadow: 0 0 8px rgba(var(--usecase-accent-rgb), 0.42);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.14);
+    box-shadow: 0 0 16px rgba(var(--usecase-accent-rgb), 0.82);
+  }
+}
+
+@keyframes aiUsecaseMailLive {
+  0%, 18%, 100% {
+    border-color: rgba(255, 255, 255, 0.065);
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: none;
+    transform: translateX(0) scale(1);
+  }
+  36%, 54% {
+    border-color: rgba(var(--usecase-accent-rgb), 0.34);
+    background: rgba(var(--usecase-accent-rgb), 0.095);
+    box-shadow: 0 0 22px rgba(var(--usecase-accent-rgb), 0.07);
+    transform: translateX(4px) scale(1.008);
+  }
+  72% {
+    border-color: rgba(var(--usecase-accent-rgb), 0.13);
+    background: rgba(var(--usecase-accent-rgb), 0.035);
+    transform: translateX(1px) scale(1);
+  }
+}
+
+@keyframes aiUsecaseMailDotLive {
+  0%, 18%, 100% {
+    background: rgba(var(--usecase-accent-rgb), 0.16);
+    box-shadow: 0 0 0 rgba(var(--usecase-accent-rgb), 0);
+    transform: scale(0.92);
+  }
+  42%, 52% {
+    background: rgb(var(--usecase-accent-rgb));
+    box-shadow: 0 0 12px rgba(var(--usecase-accent-rgb), 0.72);
+    transform: scale(1.18);
+  }
+}
+
+@keyframes aiUsecaseAudioLive {
+  0% {
+    opacity: 0.62;
+    transform: scaleY(0.32);
+  }
+  34% {
+    opacity: 1;
+    transform: scaleY(1.18);
+  }
+  58% {
+    opacity: 0.74;
+    transform: scaleY(0.54);
+  }
+  82% {
+    opacity: 0.96;
+    transform: scaleY(0.92);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scaleY(0.42);
+  }
+}
+
+@keyframes aiUsecaseTranscriptLive {
+  0% {
+    opacity: 0.48;
+    transform: scaleX(0.7);
+  }
+  48% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scaleX(0.84);
+  }
+}
+
+@keyframes aiUsecaseResultLive {
+  0%, 100% {
+    border-color: rgba(var(--usecase-accent-rgb), 0.2);
+    box-shadow: 0 0 0 rgba(var(--usecase-accent-rgb), 0);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    border-color: rgba(var(--usecase-accent-rgb), 0.38);
+    box-shadow: 0 0 18px rgba(var(--usecase-accent-rgb), 0.1);
+    transform: translateY(-1px) scale(1.018);
+  }
+}
+
+@keyframes aiUsecaseDocBackLive {
+  from {
+    transform: translate(-3px, 2px) rotate(-9deg);
+  }
+  to {
+    transform: translate(-7px, 5px) rotate(-11deg);
+  }
+}
+
+@keyframes aiUsecaseDocFrontLive {
+  from {
+    transform: translate(3px, -2px) rotate(5deg);
+  }
+  to {
+    transform: translate(6px, -5px) rotate(3.5deg);
+  }
+}
+
+@keyframes aiUsecaseSearchLive {
+  from {
+    filter: drop-shadow(0 0 0 rgba(var(--usecase-accent-rgb), 0));
+    transform: translate3d(-1px, 1px, 0) rotate(-3deg) scale(0.96);
+  }
+  to {
+    filter: drop-shadow(0 0 7px rgba(var(--usecase-accent-rgb), 0.42));
+    transform: translate3d(4px, -2px, 0) rotate(4deg) scale(1.04);
+  }
+}
+
+@keyframes aiUsecaseRouteLive {
+  to {
+    stroke-dashoffset: -72;
+  }
+}
+
+@keyframes aiUsecaseRoutePulseLive {
+  from {
+    opacity: 0.46;
+    filter: drop-shadow(0 0 3px rgba(var(--usecase-accent-rgb), 0.38));
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(var(--usecase-accent-rgb), 0.92));
+    transform: scale(1.42);
+  }
+}
+
+@keyframes aiUsecaseRouteBranchLive {
+  0%, 42%, 100% {
+    fill: rgba(var(--usecase-accent-rgb), 0.01);
+    stroke: rgba(var(--usecase-accent-rgb), 0.5);
+  }
+  55%, 76% {
+    fill: rgba(var(--usecase-accent-rgb), 0.09);
+    stroke: rgba(var(--usecase-accent-rgb), 0.92);
+  }
+}
+
+@keyframes aiUsecaseRouteLabelLive {
+  0%, 42%, 100% {
+    fill: rgba(231, 239, 250, 0.5);
+  }
+  55%, 76% {
+    fill: rgba(255, 255, 255, 0.92);
+  }
+}
+
+@keyframes aiUsecaseNodeLive {
+  0%, 20%, 100% {
+    border-color: rgba(var(--usecase-accent-rgb), 0.3);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 0 16px rgba(var(--usecase-accent-rgb), 0.04);
+    transform: translateY(-1px) scale(1);
+  }
+  38%, 58% {
+    border-color: rgba(var(--usecase-accent-rgb), 0.62);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 30px rgba(var(--usecase-accent-rgb), 0.18);
+    transform: translateY(-3px) scale(1.055);
+  }
+}
+
 @keyframes aiCoreBreath {
   0%,
   100% {
@@ -1862,6 +2068,112 @@
       0 0 28px rgba(var(--usecase-accent-rgb), 0.11);
     transform: translateY(-2px);
   }
+
+  /* Contextual live states: each card demonstrates its own process on hover. */
+  .js .ai-usecase-card.is-visible:hover .ai-usecase-card__status i {
+    animation: aiUsecaseStatusLive 1.35s ease-in-out infinite;
+  }
+
+  .js .ai-usecase-card--mail.is-visible:hover .ai-usecase-mail-row {
+    animation: aiUsecaseMailLive 2.4s var(--ai-enter-ease) infinite;
+    animation-delay: var(--mail-live-delay, 0s);
+  }
+
+  .ai-usecase-card--mail:hover .ai-usecase-mail-row:nth-child(1) { --mail-live-delay: -1.6s; }
+  .ai-usecase-card--mail:hover .ai-usecase-mail-row:nth-child(2) { --mail-live-delay: -0.8s; }
+  .ai-usecase-card--mail:hover .ai-usecase-mail-row:nth-child(3) { --mail-live-delay: 0s; }
+
+  .ai-usecase-card--mail:hover .ai-usecase-mail-row__dot {
+    animation: aiUsecaseMailDotLive 2.4s ease-in-out infinite;
+    animation-delay: var(--mail-live-delay, 0s);
+  }
+
+  .js .ai-usecase-card--meetings.is-visible:hover .ai-usecase-waveform span {
+    animation: aiUsecaseAudioLive var(--wave-live-speed, 680ms) ease-in-out infinite alternate;
+    animation-delay: var(--wave-live-phase, 0ms);
+    will-change: transform, opacity;
+  }
+
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(1) { --wave-live-speed: 610ms; --wave-live-phase: -430ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(2) { --wave-live-speed: 780ms; --wave-live-phase: -120ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(3) { --wave-live-speed: 540ms; --wave-live-phase: -310ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(4) { --wave-live-speed: 720ms; --wave-live-phase: -560ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(5) { --wave-live-speed: 490ms; --wave-live-phase: -180ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(6) { --wave-live-speed: 830ms; --wave-live-phase: -640ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(7) { --wave-live-speed: 570ms; --wave-live-phase: -90ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(8) { --wave-live-speed: 750ms; --wave-live-phase: -380ms; }
+  .ai-usecase-card--meetings:hover .ai-usecase-waveform span:nth-child(9) { --wave-live-speed: 630ms; --wave-live-phase: -520ms; }
+
+  .js .ai-usecase-card--meetings.is-visible:hover .ai-usecase-transcript span {
+    animation: aiUsecaseTranscriptLive 1.8s ease-in-out infinite alternate;
+  }
+
+  .js .ai-usecase-card--meetings.is-visible:hover .ai-usecase-transcript span:nth-child(2) { animation-delay: -0.6s; }
+  .js .ai-usecase-card--meetings.is-visible:hover .ai-usecase-transcript span:nth-child(3) { animation-delay: -1.2s; }
+
+  .js .ai-usecase-card--meetings.is-visible:hover .ai-usecase-visual__result,
+  .js .ai-usecase-card--knowledge.is-visible:hover .ai-usecase-knowledge-hit {
+    animation: aiUsecaseResultLive 1.7s ease-in-out infinite;
+  }
+
+  .js .ai-usecase-card--knowledge.is-visible:hover .ai-usecase-doc--back {
+    animation: aiUsecaseDocBackLive 2.8s ease-in-out infinite alternate;
+  }
+
+  .js .ai-usecase-card--knowledge.is-visible:hover .ai-usecase-doc--front {
+    animation: aiUsecaseDocFrontLive 2.35s ease-in-out infinite alternate;
+  }
+
+  .ai-usecase-card--knowledge:hover .ai-usecase-doc--front svg {
+    animation: aiUsecaseSearchLive 1.25s var(--ai-enter-ease) infinite alternate;
+    transform-origin: center;
+  }
+
+  .js .ai-usecase-card--support.is-visible:hover .ai-usecase-route-line {
+    stroke-dasharray: 10 8;
+    animation: aiUsecaseRouteLive 1.15s linear infinite;
+  }
+
+  .js .ai-usecase-card--support.is-visible:hover .ai-usecase-route-pulse {
+    animation: aiUsecaseRoutePulseLive 1.35s ease-in-out infinite alternate;
+  }
+
+  .js .ai-usecase-card--support.is-visible:hover .ai-usecase-route-pulse:nth-of-type(4) {
+    animation-delay: -0.65s;
+  }
+
+  .ai-usecase-card--support:hover .ai-usecase-visual--support svg rect {
+    animation: aiUsecaseRouteBranchLive 2.2s ease-in-out infinite;
+  }
+
+  .ai-usecase-card--support:hover .ai-usecase-visual--support svg rect:nth-of-type(2) {
+    animation-delay: -1.1s;
+  }
+
+  .js .ai-usecase-card--support.is-visible:hover .ai-usecase-route-text {
+    animation: aiUsecaseRouteLabelLive 2.2s ease-in-out infinite;
+  }
+
+  .js .ai-usecase-card--support.is-visible:hover .ai-usecase-route-text:nth-of-type(2) {
+    animation-delay: -1.1s;
+  }
+
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__link::after {
+    animation: aiUsecaseFlow 720ms var(--ai-enter-ease) infinite;
+  }
+
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__link:nth-of-type(1)::after { animation-delay: 0ms; }
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__link:nth-of-type(2)::after { animation-delay: 240ms; }
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__link:nth-of-type(3)::after { animation-delay: 480ms; }
+
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__node i {
+    animation: aiUsecaseNodeLive 1.92s ease-in-out infinite;
+  }
+
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__node:nth-of-type(1) i { animation-delay: 0ms; }
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__node:nth-of-type(2) i { animation-delay: 240ms; }
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__node:nth-of-type(3) i { animation-delay: 480ms; }
+  .js .ai-usecase-card--automation.is-visible:hover .ai-usecase-workflow__node:nth-of-type(4) i { animation-delay: 720ms; }
 
   .ai-offer-card--featured:hover {
     border-color: rgba(255, 159, 95, 0.42);
@@ -2068,15 +2380,19 @@
   .ai-usecase-card__status i,
   .ai-usecase-workflow__link::after,
   .ai-usecase-mail-row,
+  .ai-usecase-mail-row__dot,
   .ai-usecase-waveform span,
   .ai-usecase-transcript span,
   .ai-usecase-visual__result,
   .ai-usecase-knowledge-hit,
   .ai-usecase-doc,
+  .ai-usecase-doc--front svg,
   .ai-usecase-route-line,
   .ai-usecase-route-pulse,
   .ai-usecase-route-text,
-  .ai-usecase-workflow__node {
+  .ai-usecase-visual--support svg rect,
+  .ai-usecase-workflow__node,
+  .ai-usecase-workflow__node i {
     animation: none !important;
   }
 

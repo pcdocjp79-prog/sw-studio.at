@@ -24,6 +24,7 @@ const REVEAL_COMPLETE_SELECTOR = [
   ".reveal-on-scroll--surface",
   ".reveal-on-scroll--media",
   ".about-block.reveal-on-scroll",
+  ".ai-usecase-card.reveal-on-scroll",
 ].join(", ");
 
 const parseCssTimeToMs = (value) => {
@@ -69,9 +70,9 @@ const initRevealOnScroll = () => {
 
           if (target.matches(REVEAL_COMPLETE_SELECTOR)) {
             const computedStyle = window.getComputedStyle(target);
-            const revealDelayMs = parseCssTimeToMs(
-              computedStyle.getPropertyValue("--reveal-delay")
-            );
+            const revealDelayMs =
+              parseCssTimeToMs(computedStyle.getPropertyValue("--reveal-delay")) ||
+              parseCssTimeToMs(computedStyle.getPropertyValue("--ai-delay"));
             const revealDurationMs = parseCssTimeToMs(
               computedStyle.getPropertyValue("--reveal-duration")
             );

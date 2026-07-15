@@ -1271,46 +1271,57 @@ const initAiOfferFlip = () => {
   const cards = Array.from(stack.querySelectorAll(".ai-offer-flip"));
   if (cards.length === 0) return;
 
-  const flipResetDelay = 10000;
-  const flipResetTimers = new WeakMap();
+  const syncCardState = (card, isFlipped) => {
+    const title = card.dataset.aiOfferTitle || "Leistungspaket";
+    const frontFace = card.querySelector('[data-ai-offer-face="front"]');
+    const backFace = card.querySelector('[data-ai-offer-face="back"]');
 
-  const resetCard = (card) => {
-    card.classList.remove("is-flipped");
-    card.setAttribute("aria-pressed", "false");
+    card.classList.toggle("is-flipped", isFlipped);
+    card.setAttribute("aria-expanded", String(isFlipped));
+    card.setAttribute(
+      "aria-label",
+      isFlipped
+        ? `${title} – zur Vorderseite zurückkehren`
+        : `${title} – Details ansehen`
+    );
 
-    const existingTimer = flipResetTimers.get(card);
-    if (existingTimer) {
-      window.clearTimeout(existingTimer);
-      flipResetTimers.delete(card);
+    if (frontFace) {
+      frontFace.setAttribute("aria-hidden", String(isFlipped));
+      frontFace.inert = isFlipped;
+    }
+
+    if (backFace) {
+      backFace.setAttribute("aria-hidden", String(!isFlipped));
+      backFace.inert = !isFlipped;
     }
   };
 
+  const resetCard = (card) => syncCardState(card, false);
+
   cards.forEach((card) => {
+    resetCard(card);
+
     const toggleCard = () => {
       const willFlip = !card.classList.contains("is-flipped");
 
-      if (!willFlip) {
-        resetCard(card);
-        return;
-      }
+      cards.forEach((otherCard) => {
+        if (otherCard !== card) resetCard(otherCard);
+      });
 
-      card.classList.add("is-flipped");
-      card.setAttribute("aria-pressed", "true");
-
-      const existingTimer = flipResetTimers.get(card);
-      if (existingTimer) {
-        window.clearTimeout(existingTimer);
-      }
-
-      const resetTimer = window.setTimeout(() => resetCard(card), flipResetDelay);
-      flipResetTimers.set(card, resetTimer);
+      syncCardState(card, willFlip);
     };
 
     card.addEventListener("click", toggleCard);
     card.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      toggleCard();
+      if (event.key === "Escape") {
+        resetCard(card);
+        return;
+      }
+
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleCard();
+      }
     });
   });
 

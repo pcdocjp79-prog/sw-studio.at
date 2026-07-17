@@ -7,17 +7,24 @@ const initSeoFlow = () => {
 
   const steps = Array.from(root.querySelectorAll("[data-flow-step]"));
   const triggers = Array.from(root.querySelectorAll("[data-flow-trigger]"));
+  const details = Array.from(root.querySelectorAll("[data-flow-detail]"));
   const scenes = Array.from(root.querySelectorAll("[data-flow-scene]"));
   const moduleLabel = root.querySelector("[data-flow-module]");
+  const signalLabel = root.querySelector("[data-flow-signal]");
   const ticks = Array.from(root.querySelectorAll("[data-flow-ticks] span"));
   const fill = root.querySelector("[data-flow-fill]");
-  const rail = root.querySelector(".seo-flow__rail");
-  const stepsWrap = root.querySelector(".seo-flow__steps");
   const viewer = root.querySelector("[data-flow-viewer]");
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const finePointerQuery = window.matchMedia("(pointer: fine)");
   const desktopTiltQuery = window.matchMedia("(min-width: 1024px)");
   const leaveTimers = new WeakMap();
+  const signalLabels = [
+    "INTENT_MAP",
+    "INDEX_READY",
+    "READ_PATH",
+    "TRUST_LAYER",
+    "REQUEST_READY",
+  ];
 
   if (triggers.length === 0) return;
 
@@ -27,24 +34,22 @@ const initSeoFlow = () => {
   const prefersReducedMotion = () => reducedMotionQuery.matches;
 
   const updateFill = (id = current) => {
-    if (!fill || !rail || !stepsWrap) return;
+    if (!fill || steps.length < 2) return;
 
-    const activeStep = steps.find((step) => step.dataset.flowStep === String(id));
-    const activeIcon = activeStep?.querySelector(".seo-flow__icon");
-    if (!activeIcon) return;
-
-    const railRect = rail.getBoundingClientRect();
-    const iconRect = activeIcon.getBoundingClientRect();
-    const iconCenter = iconRect.top + iconRect.height / 2;
-    const fillHeight = Math.max(0, Math.min(railRect.height, iconCenter - railRect.top));
-
-    fill.style.setProperty("--seo-flow-fill", `${fillHeight}px`);
+    const activeIndex = Math.max(0, steps.findIndex((step) => step.dataset.flowStep === String(id)));
+    const progress = (activeIndex / (steps.length - 1)) * 100;
+    fill.style.setProperty("--seo-flow-fill", `${progress}%`);
   };
 
   const setActive = (id) => {
     const next = Number(id);
     const key = String(next);
     if (!steps.some((step) => step.dataset.flowStep === key)) return;
+
+    if (viewer) {
+      viewer.dataset.flowDirection = next < current ? "backward" : "forward";
+      viewer.dataset.flowState = key;
+    }
 
     current = next;
 
@@ -53,10 +58,20 @@ const initSeoFlow = () => {
     });
 
     triggers.forEach((trigger) => {
-      trigger.setAttribute(
-        "aria-expanded",
-        trigger.dataset.flowTrigger === key ? "true" : "false"
-      );
+      const isActiveTrigger = trigger.dataset.flowTrigger === key;
+      trigger.setAttribute("aria-expanded", String(isActiveTrigger));
+
+      if (isActiveTrigger) {
+        trigger.setAttribute("aria-current", "step");
+      } else {
+        trigger.removeAttribute("aria-current");
+      }
+    });
+
+    details.forEach((detail) => {
+      const isActiveDetail = detail.dataset.flowDetail === key;
+      detail.classList.toggle("is-active", isActiveDetail);
+      detail.setAttribute("aria-hidden", String(!isActiveDetail));
     });
 
     scenes.forEach((scene) => {
@@ -86,6 +101,12 @@ const initSeoFlow = () => {
     });
 
     if (moduleLabel) moduleLabel.textContent = `MODUL_${String(next).padStart(2, "0")}`;
+    if (signalLabel) {
+      signalLabel.textContent = signalLabels[next - 1] || signalLabels[0];
+      signalLabel.classList.remove("is-refreshing");
+      void signalLabel.offsetWidth;
+      signalLabel.classList.add("is-refreshing");
+    }
 
     ticks.forEach((tick, index) => {
       tick.classList.toggle("is-on", index < next);
@@ -101,15 +122,20 @@ const initSeoFlow = () => {
   });
 
   root.addEventListener("keydown", (event) => {
-    if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+    const isForward = event.key === "ArrowRight" || event.key === "ArrowDown";
+    const isBackward = event.key === "ArrowLeft" || event.key === "ArrowUp";
+    const isBoundary = event.key === "Home" || event.key === "End";
+    if (!isForward && !isBackward && !isBoundary) return;
     const index = triggers.indexOf(document.activeElement);
     if (index === -1) return;
 
     event.preventDefault();
-    const next =
-      event.key === "ArrowDown"
-        ? (index + 1) % triggers.length
-        : (index - 1 + triggers.length) % triggers.length;
+    let next = index;
+
+    if (event.key === "Home") next = 0;
+    if (event.key === "End") next = triggers.length - 1;
+    if (isForward) next = (index + 1) % triggers.length;
+    if (isBackward) next = (index - 1 + triggers.length) % triggers.length;
 
     triggers[next].focus();
     setActive(triggers[next].dataset.flowTrigger);
@@ -248,6 +274,17 @@ const initSeoFlow = () => {
     viewer.addEventListener("pointercancel", () => resetViewer());
     window.addEventListener("resize", requestViewerRectUpdate);
     window.addEventListener("scroll", requestViewerRectUpdate, { passive: true });
+
+    if ("IntersectionObserver" in window) {
+      const viewerObserver = new IntersectionObserver(
+        ([entry]) => {
+          viewer.classList.toggle("is-paused", !entry.isIntersecting);
+        },
+        { rootMargin: "120px 0px", threshold: 0.08 }
+      );
+
+      viewerObserver.observe(viewer);
+    }
   }
 
   const syncMotionPreference = () => {

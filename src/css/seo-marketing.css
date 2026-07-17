@@ -97,15 +97,16 @@
 .seo-journey::after {
   content: "";
   position: absolute;
-  top: 0.68rem;
-  left: 0.53rem;
-  z-index: 1;
+  top: 0.93rem;
+  left: 0.52rem;
+  z-index: 3;
   width: 0.54rem;
   height: 0.54rem;
   border-radius: 50%;
   background: #d2fbff;
-  box-shadow: 0 0 0.7rem rgba(148, 242, 255, 0.9);
+  box-shadow: 0 0 0.3rem rgba(210, 251, 255, 0.95), 0 0 0.85rem rgba(148, 242, 255, 0.9);
   opacity: 0;
+  pointer-events: none;
 }
 
 .seo-journey__step {
@@ -301,6 +302,36 @@
     background: linear-gradient(90deg, rgba(148, 242, 255, 0.88), transparent);
   }
 
+}
+
+.seo-journey-card:hover .seo-journey::after,
+.seo-journey-card.is-tilting .seo-journey::after {
+  animation: seoJourneyProgress 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes seoJourneyProgress {
+  0%, 9% {
+    top: 0.93rem;
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  16% {
+    opacity: 0.96;
+    transform: scale(1);
+  }
+
+  76% {
+    top: calc(100% - 1.47rem);
+    opacity: 0.96;
+    transform: scale(1);
+  }
+
+  88%, 100% {
+    top: calc(100% - 1.47rem);
+    opacity: 0;
+    transform: scale(0.78);
+  }
 }
 
 @keyframes seoSignalTrace {

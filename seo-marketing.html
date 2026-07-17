@@ -95,16 +95,56 @@
                   <p class="webdev-audit-card__label">Search &rarr; Request Journey</p>
                   <h2 class="webdev-audit-card__title font-display">Von der Suche zur Entscheidung.</h2>
                 </div>
-                <ol class="seo-journey" aria-label="Schritte von der Suchanfrage bis zur Anfrage">
-                  <li class="seo-journey__step"><span>01</span>Suchanfrage</li>
-                  <li class="seo-journey__step"><span>02</span>Website-Besuch</li>
-                  <li class="seo-journey__step"><span>03</span>Verständnis</li>
-                  <li class="seo-journey__step"><span>04</span>Vertrauen</li>
-                  <li class="seo-journey__step"><span>05</span>Anfrage</li>
-                </ol>
-                <p class="seo-journey-card__intro">
-                  SEO ist nicht nur Sichtbarkeit. Es ist die Verbindung zwischen Suche, Inhalt und Entscheidung.
-                </p>
+                <div class="seo-journey__layout">
+                  <ol class="seo-journey" aria-label="Schritte von der Suchanfrage bis zur Anfrage">
+                    <li class="seo-journey__step">
+                      <span class="seo-journey__number">01</span>
+                      <span class="seo-journey__label">Suchanfrage</span>
+                    </li>
+                    <li class="seo-journey__step">
+                      <span class="seo-journey__number">02</span>
+                      <span class="seo-journey__label">Website-Besuch</span>
+                    </li>
+                    <li class="seo-journey__step">
+                      <span class="seo-journey__number">03</span>
+                      <span class="seo-journey__label">Verständnis</span>
+                    </li>
+                    <li class="seo-journey__step">
+                      <span class="seo-journey__number">04</span>
+                      <span class="seo-journey__label">Vertrauen</span>
+                    </li>
+                    <li class="seo-journey__step">
+                      <span class="seo-journey__number">05</span>
+                      <span class="seo-journey__label">Anfrage</span>
+                    </li>
+                  </ol>
+                  <div class="seo-signal-field" role="img" aria-label="SEO-Signalfläche: Relevante Inhalte und Signale erzeugen wachsende Sichtbarkeit und führen zu Anfragen.">
+                    <svg viewBox="0 0 220 200" aria-hidden="true" focusable="false">
+                      <defs>
+                        <linearGradient id="seo-signal-gradient" x1="0" y1="1" x2="1" y2="0">
+                          <stop offset="0%" stop-color="#94f2ff" />
+                          <stop offset="62%" stop-color="#6baeff" />
+                          <stop offset="100%" stop-color="#ff7ec2" />
+                        </linearGradient>
+                      </defs>
+                      <path class="seo-signal-field__grid" d="M12 32H208M12 74H208M12 116H208M12 158H208M38 16V184M100 16V184M162 16V184" />
+                      <path class="seo-signal-field__network" d="M20 150L58 128L92 142L130 94L164 110L197 48M58 128L130 94M92 142L164 110M130 94L197 48" />
+                      <path class="seo-signal-field__growth" d="M14 164C37 158 44 137 62 138S88 148 102 126 126 102 139 104 160 110 176 79 189 52 198 45" />
+                      <path class="seo-signal-field__trace" pathLength="100" d="M14 164C37 158 44 137 62 138S88 148 102 126 126 102 139 104 160 110 176 79 189 52 198 45" />
+                      <circle class="seo-signal-field__node seo-signal-field__node--source" cx="20" cy="150" r="4" />
+                      <circle class="seo-signal-field__node" cx="58" cy="128" r="3.5" />
+                      <circle class="seo-signal-field__node" cx="92" cy="142" r="3.5" />
+                      <circle class="seo-signal-field__node seo-signal-field__node--active" cx="130" cy="94" r="4.5" />
+                      <circle class="seo-signal-field__node" cx="164" cy="110" r="3.5" />
+                      <circle class="seo-signal-field__node seo-signal-field__node--result" cx="202" cy="48" r="5" />
+                      <circle class="seo-signal-field__pulse seo-signal-field__pulse--one" cx="130" cy="94" r="10" />
+                      <circle class="seo-signal-field__pulse seo-signal-field__pulse--two" cx="202" cy="48" r="12" />
+                      <text class="seo-signal-field__keyword seo-signal-field__keyword--one" x="14" y="116">CONTENT</text>
+                      <text class="seo-signal-field__keyword seo-signal-field__keyword--two" x="128" y="74">CTR</text>
+                      <text class="seo-signal-field__keyword seo-signal-field__keyword--three" x="144" y="144">TRUST</text>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </aside>
           </div>

@@ -1,0 +1,726 @@
+/* ============================================================
+   SEO Workflow — vierstufige Delivery-Pipeline
+   ============================================================ */
+.seo-workflow {
+  --workflow-accent: #94f2ff;
+  --workflow-accent-rgb: 148, 242, 255;
+  --workflow-progress: 0%;
+  --workflow-scale: 0;
+  position: relative;
+  margin-top: clamp(2rem, 5vw, 3.75rem);
+  overflow: hidden;
+  border: 1px solid rgba(186, 214, 255, 0.14);
+  border-radius: clamp(1.25rem, 2.2vw, 1.75rem);
+  background:
+    linear-gradient(rgba(148, 242, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.022) 1px, transparent 1px),
+    radial-gradient(75% 60% at 0% 0%, rgba(98, 173, 255, 0.08), transparent 68%),
+    linear-gradient(145deg, rgba(10, 19, 33, 0.96), rgba(4, 9, 18, 0.98));
+  background-size: 32px 32px, 32px 32px, auto, auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.065),
+    0 38px 82px rgba(0, 0, 0, 0.3);
+}
+
+.seo-workflow[data-workflow-active="2"] {
+  --workflow-accent: #62adff;
+  --workflow-accent-rgb: 98, 173, 255;
+  --workflow-progress: 33.333%;
+  --workflow-scale: 0.33333;
+}
+
+.seo-workflow[data-workflow-active="3"] {
+  --workflow-accent: #b5a8ff;
+  --workflow-accent-rgb: 181, 168, 255;
+  --workflow-progress: 66.666%;
+  --workflow-scale: 0.66666;
+}
+
+.seo-workflow[data-workflow-active="4"] {
+  --workflow-accent: #ff7ec2;
+  --workflow-accent-rgb: 255, 126, 194;
+  --workflow-progress: 100%;
+  --workflow-scale: 1;
+}
+
+.seo-workflow__chrome {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  min-height: 3.2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.78rem clamp(1rem, 2vw, 1.35rem);
+  border-bottom: 1px solid rgba(186, 214, 255, 0.11);
+  background: rgba(4, 9, 18, 0.78);
+}
+
+.seo-workflow__chrome-group,
+.seo-workflow__live {
+  display: flex;
+  align-items: center;
+}
+
+.seo-workflow__chrome-group {
+  gap: clamp(0.75rem, 2vw, 1.4rem);
+}
+
+.seo-workflow__live,
+.seo-workflow__mode,
+.seo-workflow__counter {
+  color: rgba(225, 237, 250, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.seo-workflow__live {
+  gap: 0.48rem;
+  color: rgba(var(--workflow-accent-rgb), 0.82);
+}
+
+.seo-workflow__live i,
+.seo-workflow__state i {
+  display: block;
+  flex: none;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--workflow-accent);
+  box-shadow: 0 0 0.65rem rgba(var(--workflow-accent-rgb), 0.78);
+}
+
+.seo-workflow__mode {
+  padding-left: 1.35rem;
+  border-left: 1px solid rgba(186, 214, 255, 0.13);
+}
+
+.seo-workflow__counter {
+  color: rgba(var(--workflow-accent-rgb), 0.82);
+  font-variant-numeric: tabular-nums;
+}
+
+.seo-workflow__rail {
+  position: absolute;
+  top: 5.35rem;
+  right: 12.5%;
+  left: 12.5%;
+  z-index: 2;
+  height: 1px;
+  background: rgba(186, 214, 255, 0.12);
+}
+
+.seo-workflow__rail::before {
+  content: "";
+  position: absolute;
+  inset: -0.25rem 0;
+  background-image: radial-gradient(circle, rgba(186, 214, 255, 0.22) 1px, transparent 1.5px);
+  background-size: 0.75rem 0.5rem;
+  opacity: 0.45;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.seo-workflow__rail-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #94f2ff, var(--workflow-accent));
+  box-shadow: 0 0 0.85rem rgba(var(--workflow-accent-rgb), 0.5);
+  transform: scaleX(var(--workflow-scale));
+  transform-origin: left;
+  transition: transform 460ms cubic-bezier(0.16, 1, 0.3, 1), background 320ms ease;
+}
+
+.seo-workflow__packet {
+  position: absolute;
+  top: 50%;
+  left: var(--workflow-progress);
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 2px solid rgba(5, 11, 21, 0.96);
+  border-radius: 50%;
+  background: var(--workflow-accent);
+  box-shadow:
+    0 0 0 0.24rem rgba(var(--workflow-accent-rgb), 0.12),
+    0 0 1.1rem rgba(var(--workflow-accent-rgb), 0.72);
+  transform: translate(-50%, -50%);
+  transition: left 460ms cubic-bezier(0.16, 1, 0.3, 1), background 320ms ease;
+}
+
+.seo-workflow__steps {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.seo-workflow__step {
+  --step-accent: 148, 242, 255;
+  position: relative;
+  min-width: 0;
+  border-right: 1px solid rgba(186, 214, 255, 0.085);
+  background: rgba(255, 255, 255, 0);
+  transition: background 320ms ease;
+}
+
+.seo-workflow__step:nth-child(2) { --step-accent: 98, 173, 255; }
+.seo-workflow__step:nth-child(3) { --step-accent: 181, 168, 255; }
+.seo-workflow__step:nth-child(4) { --step-accent: 255, 126, 194; }
+
+.seo-workflow__step:last-child {
+  border-right: 0;
+}
+
+.seo-workflow__step.is-active {
+  background:
+    radial-gradient(90% 44% at 50% 0%, rgba(var(--step-accent), 0.13), transparent 76%),
+    linear-gradient(180deg, rgba(var(--step-accent), 0.04), transparent 42%);
+}
+
+.seo-workflow__step::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 16%, rgba(var(--step-accent), 0.5), transparent 82%);
+  opacity: 0;
+  transform: scaleY(0.35);
+  transition: opacity 260ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.seo-workflow__step.is-active::after {
+  opacity: 0.72;
+  transform: scaleY(1);
+}
+
+.seo-workflow__card {
+  position: relative;
+  display: flex;
+  min-height: clamp(29rem, 38vw, 33rem);
+  flex-direction: column;
+  padding: 1.3rem clamp(1rem, 1.8vw, 1.45rem) clamp(1.3rem, 2.4vw, 1.75rem);
+}
+
+.seo-workflow__card-head {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 3.45rem;
+}
+
+.seo-workflow__number {
+  position: relative;
+  z-index: 3;
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  width: 1.85rem;
+  height: 1.85rem;
+  place-items: center;
+  border: 1px solid rgba(186, 214, 255, 0.24);
+  border-radius: 50%;
+  background: #0a1525;
+  color: rgba(225, 237, 250, 0.66);
+  box-shadow: 0 0 0 0.35rem rgba(6, 13, 24, 0.92);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  transition: color 260ms ease, border-color 260ms ease, box-shadow 320ms ease;
+}
+
+.seo-workflow__step.is-active .seo-workflow__number {
+  border-color: rgba(var(--step-accent), 0.78);
+  color: #fff;
+  box-shadow:
+    0 0 0 0.35rem rgba(6, 13, 24, 0.92),
+    0 0 1.25rem rgba(var(--step-accent), 0.42);
+}
+
+.seo-workflow__code,
+.seo-workflow__state {
+  grid-row: 2;
+  margin-top: 0.82rem;
+  color: rgba(225, 237, 250, 0.39);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.seo-workflow__code {
+  grid-column: 1 / 3;
+}
+
+.seo-workflow__state {
+  display: inline-flex;
+  grid-column: 3;
+  align-items: center;
+  justify-self: end;
+  gap: 0.35rem;
+  color: rgba(225, 237, 250, 0.34);
+}
+
+.seo-workflow__state b {
+  font: inherit;
+}
+
+.seo-workflow__state i {
+  width: 0.28rem;
+  height: 0.28rem;
+  background: rgba(186, 214, 255, 0.34);
+  box-shadow: none;
+}
+
+.seo-workflow__step.is-complete .seo-workflow__state,
+.seo-workflow__step.is-active .seo-workflow__state {
+  color: rgba(var(--step-accent), 0.74);
+}
+
+.seo-workflow__step.is-complete .seo-workflow__state i,
+.seo-workflow__step.is-active .seo-workflow__state i {
+  background: rgb(var(--step-accent));
+  box-shadow: 0 0 0.55rem rgba(var(--step-accent), 0.55);
+}
+
+.seo-workflow__visual {
+  position: relative;
+  display: grid;
+  min-height: 8.35rem;
+  margin: 0.9rem 0 1.35rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(186, 214, 255, 0.09);
+  border-bottom: 1px solid rgba(186, 214, 255, 0.09);
+  background:
+    linear-gradient(rgba(148, 242, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.02) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.seo-workflow__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(5, 11, 21, 0.82), transparent 12%, transparent 88%, rgba(5, 11, 21, 0.82));
+}
+
+.seo-workflow__visual svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.seo-workflow__visual--scan circle,
+.seo-workflow__scan-axis,
+.seo-workflow__signal-line,
+.seo-workflow__grid-line,
+.seo-workflow__measure-line {
+  vector-effect: non-scaling-stroke;
+}
+
+.seo-workflow__visual--scan circle {
+  stroke: rgba(var(--step-accent), 0.24);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.seo-workflow__scan-axis {
+  stroke: rgba(var(--step-accent), 0.12);
+  stroke-width: 1;
+}
+
+.seo-workflow__scan-sweep {
+  fill: rgba(var(--step-accent), 0.09);
+  stroke: rgba(var(--step-accent), 0.62);
+  stroke-width: 1;
+  transform-box: view-box;
+  transform-origin: 52px 56px;
+}
+
+.seo-workflow__signal-line {
+  stroke: rgba(var(--step-accent), 0.76);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+.seo-workflow__signal-dot {
+  fill: rgb(var(--step-accent));
+  filter: drop-shadow(0 0 5px rgba(var(--step-accent), 0.8));
+}
+
+.seo-workflow__visual--plan {
+  align-content: center;
+  gap: 0.78rem;
+  padding: 1.2rem 0.65rem;
+}
+
+.seo-workflow__visual--plan > span {
+  display: grid;
+  grid-template-columns: 1.2rem minmax(0, 1fr) 2.2rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(225, 237, 250, 0.42);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.seo-workflow__visual--plan i,
+.seo-workflow__visual--plan em {
+  font-style: normal;
+}
+
+.seo-workflow__visual--plan b {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(186, 214, 255, 0.1);
+}
+
+.seo-workflow__visual--plan b::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(var(--step-accent), 0.38), rgb(var(--step-accent)));
+  box-shadow: 0 0 0.55rem rgba(var(--step-accent), 0.55);
+  transform: scaleX(var(--workflow-bar));
+  transform-origin: left;
+}
+
+.seo-workflow__visual--plan em {
+  color: rgba(var(--step-accent), 0.7);
+  text-align: right;
+}
+
+.seo-workflow__visual--build {
+  align-content: center;
+  gap: 0.52rem;
+  padding: 1rem 0.65rem;
+}
+
+.seo-workflow__visual--build > span:not(.seo-workflow__build-progress) {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(186, 214, 255, 0.08);
+  background: rgba(7, 14, 26, 0.58);
+  color: rgba(225, 237, 250, 0.52);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+}
+
+.seo-workflow__visual--build > span:not(.seo-workflow__build-progress) > i {
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
+  background: rgb(var(--step-accent));
+  box-shadow: 0 0 0.5rem rgba(var(--step-accent), 0.58);
+}
+
+.seo-workflow__visual--build b,
+.seo-workflow__visual--build em {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.seo-workflow__visual--build em {
+  color: rgba(var(--step-accent), 0.68);
+  text-transform: uppercase;
+}
+
+.seo-workflow__build-progress {
+  position: relative;
+  height: 2px;
+  margin-top: 0.2rem;
+  overflow: hidden;
+  background: rgba(186, 214, 255, 0.08);
+}
+
+.seo-workflow__build-progress i {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(var(--step-accent), 0.3), rgb(var(--step-accent)));
+  transform: scaleX(0.84);
+  transform-origin: left;
+}
+
+.seo-workflow__grid-line {
+  stroke: rgba(var(--step-accent), 0.12);
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
+}
+
+.seo-workflow__measure-area {
+  fill: rgba(var(--step-accent), 0.07);
+}
+
+.seo-workflow__measure-line {
+  stroke: rgb(var(--step-accent));
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 5px rgba(var(--step-accent), 0.58));
+}
+
+.seo-workflow__measure-point {
+  fill: rgb(var(--step-accent));
+  stroke: rgba(7, 14, 26, 0.92);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 5px rgba(var(--step-accent), 0.7));
+}
+
+.seo-workflow__delta {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.65rem;
+  z-index: 2;
+  color: rgba(var(--step-accent), 0.82);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+}
+
+.seo-workflow__card h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.35rem, 2.1vw, 1.8rem);
+  font-weight: 560;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.seo-workflow__card > p:not(.seo-workflow__result) {
+  margin: 0.8rem 0 0;
+  color: rgba(231, 239, 250, 0.69);
+  font-size: clamp(0.88rem, 1vw, 0.96rem);
+  line-height: 1.67;
+}
+
+.seo-workflow__result {
+  display: grid;
+  gap: 0.4rem;
+  margin: auto 0 0;
+  padding-top: 1.05rem;
+  border-top: 1px solid rgba(186, 214, 255, 0.1);
+}
+
+.seo-workflow__result span,
+.seo-workflow__result strong {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.seo-workflow__result span {
+  color: rgba(225, 237, 250, 0.34);
+  font-size: 0.5rem;
+  letter-spacing: 0.16em;
+}
+
+.seo-workflow__result strong {
+  color: rgba(var(--step-accent), 0.84);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__scan-sweep {
+  animation: seoWorkflowScan 1.35s cubic-bezier(0.45, 0, 0.2, 1) both;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__signal-line,
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__measure-line {
+  animation: seoWorkflowDraw 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__signal-dot,
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__measure-point,
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__delta {
+  animation: seoWorkflowPop 360ms cubic-bezier(0.16, 1, 0.3, 1) 420ms both;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__visual--plan b::after,
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__build-progress i {
+  animation: seoWorkflowMeter 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__visual--plan > span:nth-child(2) b::after {
+  animation-delay: 90ms;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__visual--plan > span:nth-child(3) b::after {
+  animation-delay: 180ms;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__visual--build > span:not(.seo-workflow__build-progress) {
+  animation: seoWorkflowRowIn 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__visual--build > span:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.seo-workflow.is-running .seo-workflow__step.is-active .seo-workflow__visual--build > span:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+@keyframes seoWorkflowScan {
+  from { opacity: 0.3; transform: rotate(-42deg); }
+  to { opacity: 1; transform: rotate(318deg); }
+}
+
+@keyframes seoWorkflowDraw {
+  from { opacity: 0.2; stroke-dashoffset: 100; }
+  to { opacity: 1; stroke-dashoffset: 0; }
+}
+
+@keyframes seoWorkflowPop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes seoWorkflowMeter {
+  from { transform: scaleX(0); }
+}
+
+@keyframes seoWorkflowRowIn {
+  from { opacity: 0; transform: translateY(0.45rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .seo-workflow__step:hover {
+    background:
+      radial-gradient(90% 44% at 50% 0%, rgba(var(--step-accent), 0.1), transparent 76%),
+      rgba(var(--step-accent), 0.025);
+  }
+}
+
+@media (max-width: 1100px) {
+  .seo-workflow__rail {
+    display: none;
+  }
+
+  .seo-workflow__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .seo-workflow__step:nth-child(2) {
+    border-right: 0;
+  }
+
+  .seo-workflow__step:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(186, 214, 255, 0.085);
+  }
+
+  .seo-workflow__card {
+    min-height: 27rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .seo-workflow__mode {
+    display: none;
+  }
+
+  .seo-workflow__chrome-group {
+    gap: 0;
+  }
+
+  .seo-workflow__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-workflow__steps::before {
+    content: "";
+    position: absolute;
+    top: 2.45rem;
+    bottom: 2.45rem;
+    left: 1.97rem;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(148, 242, 255, 0.4), rgba(98, 173, 255, 0.3), rgba(181, 168, 255, 0.28), rgba(255, 126, 194, 0.38));
+  }
+
+  .seo-workflow__step,
+  .seo-workflow__step:nth-child(2),
+  .seo-workflow__step:nth-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(186, 214, 255, 0.085);
+  }
+
+  .seo-workflow__step:last-child {
+    border-bottom: 0;
+  }
+
+  .seo-workflow__card {
+    min-height: auto;
+    padding: 1.05rem 1.05rem 1.35rem;
+  }
+
+  .seo-workflow__card-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    min-height: 2rem;
+  }
+
+  .seo-workflow__number,
+  .seo-workflow__code,
+  .seo-workflow__state {
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .seo-workflow__number { grid-column: 1; }
+  .seo-workflow__code { grid-column: 2; }
+  .seo-workflow__state { grid-column: 3; }
+
+  .seo-workflow__visual {
+    min-height: 7.4rem;
+    margin-block: 1rem 1.2rem;
+  }
+
+  .seo-workflow__result {
+    margin-top: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seo-workflow *,
+  .seo-workflow *::before,
+  .seo-workflow *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .seo-workflow__scan-sweep {
+    transform: rotate(318deg);
+  }
+
+  .seo-workflow__signal-line,
+  .seo-workflow__measure-line {
+    stroke-dashoffset: 0;
+  }
+
+  .seo-workflow__visual--plan b::after {
+    transform: scaleX(var(--workflow-bar));
+  }
+
+  .seo-workflow__build-progress i {
+    transform: scaleX(0.84);
+  }
+}

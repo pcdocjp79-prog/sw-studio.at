@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="src/css/webdev-problem-stack.css" />
   <link rel="stylesheet" href="src/css/seo-marketing.css" />
   <link rel="stylesheet" href="src/css/seo-flow.css" />
+  <link rel="stylesheet" href="src/css/seo-workflow.css" />
+  <link rel="stylesheet" href="src/css/seo-marquee.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -565,7 +567,7 @@
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-process-title">
+    <section class="webdev-section scroll-focus-section seo-workflow-section" aria-labelledby="seo-process-title">
       <div class="webdev-container">
         <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
           <p class="webdev-eyebrow">So arbeite ich</p>
@@ -577,44 +579,108 @@
             Sichtbarkeit und deine Anfragen bedeutet.
           </p>
         </div>
-        <ol class="webdev-timeline" aria-label="Ablauf in vier Schritten">
-          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 0ms;">
-            <span aria-hidden="true">01</span>
-            <div>
-              <h3 class="font-display">Analyse</h3>
-              <p>Ich schaue mir deine Website, deine aktuelle Sichtbarkeit und deine wichtigsten Suchbegriffe an – und finde heraus, wo gerade Anfragen verloren gehen.</p>
-              <p class="webdev-timeline__result">Ergebnis: klare SEO-Prioritäten</p>
+        <div class="seo-workflow reveal-on-scroll" data-seo-workflow data-workflow-active="1">
+          <div class="seo-workflow__chrome" aria-hidden="true">
+            <div class="seo-workflow__chrome-group">
+              <span class="seo-workflow__live"><i></i>Process live</span>
+              <span class="seo-workflow__mode">SEO DELIVERY PIPELINE</span>
             </div>
-          </li>
-          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 90ms;">
-            <span aria-hidden="true">02</span>
-            <div>
-              <h3 class="font-display">Strategie</h3>
-              <p>Daraus entsteht ein nachvollziehbarer Plan: welche Seiten, Inhalte und Themen Priorität haben und in welcher Reihenfolge wir vorgehen.</p>
-              <p class="webdev-timeline__result">Ergebnis: nachvollziehbarer Maßnahmenplan</p>
-            </div>
-          </li>
-          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 180ms;">
-            <span aria-hidden="true">03</span>
-            <div>
-              <h3 class="font-display">Umsetzung</h3>
-              <p>Struktur, Texte, Technik und Nutzerführung werden Schritt für Schritt verbessert – sauber und ohne Risiko für deine bestehende Seite.</p>
-              <p class="webdev-timeline__result">Ergebnis: bessere Struktur und Inhalte</p>
-            </div>
-          </li>
-          <li class="webdev-timeline__item reveal-on-scroll" style="--webdev-card-delay: 270ms;">
-            <span aria-hidden="true">04</span>
-            <div>
-              <h3 class="font-display">Messung</h3>
-              <p>Wir behalten Sichtbarkeit, Anfragen und Nutzerverhalten im Blick und justieren nach. Du siehst, was wirkt – statt blind zu optimieren.</p>
-              <p class="webdev-timeline__result">Ergebnis: laufende Optimierung</p>
-            </div>
-          </li>
-        </ol>
+            <span class="seo-workflow__counter" data-workflow-counter>01 / 04</span>
+          </div>
+
+          <div class="seo-workflow__rail" aria-hidden="true">
+            <span class="seo-workflow__rail-fill"></span>
+            <i class="seo-workflow__packet"></i>
+          </div>
+
+          <ol class="seo-workflow__steps" aria-label="Ablauf in vier Schritten">
+            <li class="seo-workflow__step is-active" data-workflow-step="1">
+              <article class="seo-workflow__card">
+                <header class="seo-workflow__card-head">
+                  <span class="seo-workflow__number">01</span>
+                  <span class="seo-workflow__code">DISCOVER</span>
+                  <span class="seo-workflow__state"><i></i><b data-workflow-state>aktiv</b></span>
+                </header>
+                <div class="seo-workflow__visual seo-workflow__visual--scan" aria-hidden="true">
+                  <svg viewBox="0 0 240 112" fill="none">
+                    <circle cx="52" cy="56" r="34"></circle>
+                    <circle cx="52" cy="56" r="21"></circle>
+                    <path class="seo-workflow__scan-axis" d="M52 14V98M10 56H94"></path>
+                    <path class="seo-workflow__scan-sweep" d="M52 56 78 34A34 34 0 0 1 84 66Z"></path>
+                    <path class="seo-workflow__signal-line" pathLength="100" d="M108 78 C126 72 132 42 151 48 S177 82 194 62 211 38 230 44"></path>
+                    <circle class="seo-workflow__signal-dot" cx="194" cy="62" r="4"></circle>
+                  </svg>
+                </div>
+                <h3 class="font-display">Analyse</h3>
+                <p>Ich schaue mir deine Website, deine aktuelle Sichtbarkeit und deine wichtigsten Suchbegriffe an – und finde heraus, wo gerade Anfragen verloren gehen.</p>
+                <p class="seo-workflow__result"><span>Ergebnis</span><strong>klare SEO-Prioritäten</strong></p>
+              </article>
+            </li>
+
+            <li class="seo-workflow__step" data-workflow-step="2">
+              <article class="seo-workflow__card">
+                <header class="seo-workflow__card-head">
+                  <span class="seo-workflow__number">02</span>
+                  <span class="seo-workflow__code">PRIORITIZE</span>
+                  <span class="seo-workflow__state"><i></i><b data-workflow-state>bereit</b></span>
+                </header>
+                <div class="seo-workflow__visual seo-workflow__visual--plan" aria-hidden="true">
+                  <span style="--workflow-bar: 86%;"><i>01</i><b></b><em>High</em></span>
+                  <span style="--workflow-bar: 68%;"><i>02</i><b></b><em>Core</em></span>
+                  <span style="--workflow-bar: 48%;"><i>03</i><b></b><em>Next</em></span>
+                </div>
+                <h3 class="font-display">Strategie</h3>
+                <p>Daraus entsteht ein nachvollziehbarer Plan: welche Seiten, Inhalte und Themen Priorität haben und in welcher Reihenfolge wir vorgehen.</p>
+                <p class="seo-workflow__result"><span>Ergebnis</span><strong>nachvollziehbarer Maßnahmenplan</strong></p>
+              </article>
+            </li>
+
+            <li class="seo-workflow__step" data-workflow-step="3">
+              <article class="seo-workflow__card">
+                <header class="seo-workflow__card-head">
+                  <span class="seo-workflow__number">03</span>
+                  <span class="seo-workflow__code">BUILD</span>
+                  <span class="seo-workflow__state"><i></i><b data-workflow-state>bereit</b></span>
+                </header>
+                <div class="seo-workflow__visual seo-workflow__visual--build" aria-hidden="true">
+                  <span><i></i><b>Structure</b><em>done</em></span>
+                  <span><i></i><b>Content</b><em>sync</em></span>
+                  <span><i></i><b>Technical</b><em>ready</em></span>
+                  <span class="seo-workflow__build-progress"><i></i></span>
+                </div>
+                <h3 class="font-display">Umsetzung</h3>
+                <p>Struktur, Texte, Technik und Nutzerführung werden Schritt für Schritt verbessert – sauber und ohne Risiko für deine bestehende Seite.</p>
+                <p class="seo-workflow__result"><span>Ergebnis</span><strong>bessere Struktur und Inhalte</strong></p>
+              </article>
+            </li>
+
+            <li class="seo-workflow__step" data-workflow-step="4">
+              <article class="seo-workflow__card">
+                <header class="seo-workflow__card-head">
+                  <span class="seo-workflow__number">04</span>
+                  <span class="seo-workflow__code">MEASURE</span>
+                  <span class="seo-workflow__state"><i></i><b data-workflow-state>bereit</b></span>
+                </header>
+                <div class="seo-workflow__visual seo-workflow__visual--measure" aria-hidden="true">
+                  <svg viewBox="0 0 240 112" fill="none">
+                    <path class="seo-workflow__grid-line" d="M12 20H228M12 56H228M12 92H228"></path>
+                    <path class="seo-workflow__measure-area" d="M12 88 52 78 91 82 132 52 173 60 228 22V98H12Z"></path>
+                    <path class="seo-workflow__measure-line" pathLength="100" d="M12 88 52 78 91 82 132 52 173 60 228 22"></path>
+                    <circle class="seo-workflow__measure-point" cx="228" cy="22" r="5"></circle>
+                  </svg>
+                  <span class="seo-workflow__delta">+28.4%</span>
+                </div>
+                <h3 class="font-display">Messung</h3>
+                <p>Wir behalten Sichtbarkeit, Anfragen und Nutzerverhalten im Blick und justieren nach. Du siehst, was wirkt – statt blind zu optimieren.</p>
+                <p class="seo-workflow__result"><span>Ergebnis</span><strong>laufende Optimierung</strong></p>
+              </article>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="seo-ideal-title">
+    <section class="webdev-section scroll-focus-section seo-audience-section" aria-labelledby="seo-ideal-title">
       <div class="webdev-container">
         <div class="webdev-section-head webdev-section-head--stacked reveal-on-scroll">
           <p class="webdev-eyebrow">Ideal für</p>
@@ -622,59 +688,113 @@
             Für Unternehmen, die online <span class="seo-accent--magenta">professioneller wirken</span> und gezielter gefunden werden möchten.
           </h2>
         </div>
-        <div class="seo-marquee reveal-on-scroll" aria-label="Ideal für diese Unternehmen">
+        <div class="seo-marquee reveal-on-scroll" data-seo-marquee aria-label="Ideal für diese Unternehmen">
+          <div class="seo-marquee__chrome">
+            <div class="seo-marquee__status" aria-hidden="true">
+              <span class="seo-marquee__live"><i></i>Audience signal live</span>
+              <span class="seo-marquee__mode">PROFILE FIT SCANNER</span>
+            </div>
+            <div class="seo-marquee__controls">
+              <span class="seo-marquee__counter" data-marquee-counter aria-hidden="true">01 / 05</span>
+              <button class="seo-marquee__toggle" type="button" data-marquee-toggle aria-pressed="false" aria-label="Marquee pausieren">
+                <svg class="seo-marquee__toggle-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>
+                <svg class="seo-marquee__toggle-play" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z"/></svg>
+                <span data-marquee-toggle-label>Pause</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="seo-marquee__scanner" aria-hidden="true">
+            <span>Profile match</span>
+          </div>
+
           <div class="seo-marquee__track" role="list">
-            <article class="seo-trust-card" role="listitem">
-              <span class="seo-trust-card__index">01</span>
+            <article class="seo-trust-card is-scanned" role="listitem" data-marquee-card data-marquee-index="1">
+              <header class="seo-trust-card__head">
+                <span class="seo-trust-card__index">01</span>
+                <span class="seo-trust-card__type"><i></i>Profil</span>
+              </header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 42%;"></i><i style="--h: 68%;"></i><i style="--h: 88%;"></i><i style="--h: 58%;"></i><i style="--h: 76%;"></i></div>
               <strong class="seo-trust-card__title">Kleine Unternehmen</strong>
               <p>Du möchtest sichtbarer werden, aber ohne kompliziertes Marketing-Chaos.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.92;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" role="listitem">
-              <span class="seo-trust-card__index">02</span>
+            <article class="seo-trust-card" role="listitem" data-marquee-card data-marquee-index="2">
+              <header class="seo-trust-card__head">
+                <span class="seo-trust-card__index">02</span>
+                <span class="seo-trust-card__type"><i></i>Profil</span>
+              </header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 72%;"></i><i style="--h: 48%;"></i><i style="--h: 82%;"></i><i style="--h: 94%;"></i><i style="--h: 64%;"></i></div>
               <strong class="seo-trust-card__title">Dienstleister</strong>
               <p>Du brauchst bessere Leistungsseiten, die dein Angebot klar erklären.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.96;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" role="listitem">
-              <span class="seo-trust-card__index">03</span>
+            <article class="seo-trust-card" role="listitem" data-marquee-card data-marquee-index="3">
+              <header class="seo-trust-card__head">
+                <span class="seo-trust-card__index">03</span>
+                <span class="seo-trust-card__type"><i></i>Profil</span>
+              </header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 54%;"></i><i style="--h: 86%;"></i><i style="--h: 62%;"></i><i style="--h: 78%;"></i><i style="--h: 96%;"></i></div>
               <strong class="seo-trust-card__title">Lokale Anbieter</strong>
               <p>Du möchtest in deiner Region professioneller auftreten und besser gefunden werden.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.94;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" role="listitem">
-              <span class="seo-trust-card__index">04</span>
+            <article class="seo-trust-card" role="listitem" data-marquee-card data-marquee-index="4">
+              <header class="seo-trust-card__head">
+                <span class="seo-trust-card__index">04</span>
+                <span class="seo-trust-card__type"><i></i>Profil</span>
+              </header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 88%;"></i><i style="--h: 58%;"></i><i style="--h: 72%;"></i><i style="--h: 46%;"></i><i style="--h: 84%;"></i></div>
               <strong class="seo-trust-card__title">Bestehende Websites</strong>
               <p>Deine Website ist online, aber Sichtbarkeit, Struktur oder Anfragewege funktionieren noch nicht stark genug.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.89;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" role="listitem">
-              <span class="seo-trust-card__index">05</span>
+            <article class="seo-trust-card" role="listitem" data-marquee-card data-marquee-index="5">
+              <header class="seo-trust-card__head">
+                <span class="seo-trust-card__index">05</span>
+                <span class="seo-trust-card__type"><i></i>Profil</span>
+              </header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 64%;"></i><i style="--h: 92%;"></i><i style="--h: 76%;"></i><i style="--h: 86%;"></i><i style="--h: 56%;"></i></div>
               <strong class="seo-trust-card__title">Neue Websites</strong>
               <p>SEO und Marketing sollen von Anfang an sauber mitgedacht werden.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.98;"></b></i><em>hoch</em></footer>
             </article>
 
             <!-- Duplikat-Set für nahtlosen Endlos-Lauf (für AT/Screenreader ausgeblendet) -->
-            <article class="seo-trust-card" aria-hidden="true">
-              <span class="seo-trust-card__index">01</span>
+            <article class="seo-trust-card" aria-hidden="true" data-marquee-card data-marquee-index="1">
+              <header class="seo-trust-card__head"><span class="seo-trust-card__index">01</span><span class="seo-trust-card__type"><i></i>Profil</span></header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 42%;"></i><i style="--h: 68%;"></i><i style="--h: 88%;"></i><i style="--h: 58%;"></i><i style="--h: 76%;"></i></div>
               <strong class="seo-trust-card__title">Kleine Unternehmen</strong>
               <p>Du möchtest sichtbarer werden, aber ohne kompliziertes Marketing-Chaos.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.92;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" aria-hidden="true">
-              <span class="seo-trust-card__index">02</span>
+            <article class="seo-trust-card" aria-hidden="true" data-marquee-card data-marquee-index="2">
+              <header class="seo-trust-card__head"><span class="seo-trust-card__index">02</span><span class="seo-trust-card__type"><i></i>Profil</span></header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 72%;"></i><i style="--h: 48%;"></i><i style="--h: 82%;"></i><i style="--h: 94%;"></i><i style="--h: 64%;"></i></div>
               <strong class="seo-trust-card__title">Dienstleister</strong>
               <p>Du brauchst bessere Leistungsseiten, die dein Angebot klar erklären.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.96;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" aria-hidden="true">
-              <span class="seo-trust-card__index">03</span>
+            <article class="seo-trust-card" aria-hidden="true" data-marquee-card data-marquee-index="3">
+              <header class="seo-trust-card__head"><span class="seo-trust-card__index">03</span><span class="seo-trust-card__type"><i></i>Profil</span></header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 54%;"></i><i style="--h: 86%;"></i><i style="--h: 62%;"></i><i style="--h: 78%;"></i><i style="--h: 96%;"></i></div>
               <strong class="seo-trust-card__title">Lokale Anbieter</strong>
               <p>Du möchtest in deiner Region professioneller auftreten und besser gefunden werden.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.94;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" aria-hidden="true">
-              <span class="seo-trust-card__index">04</span>
+            <article class="seo-trust-card" aria-hidden="true" data-marquee-card data-marquee-index="4">
+              <header class="seo-trust-card__head"><span class="seo-trust-card__index">04</span><span class="seo-trust-card__type"><i></i>Profil</span></header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 88%;"></i><i style="--h: 58%;"></i><i style="--h: 72%;"></i><i style="--h: 46%;"></i><i style="--h: 84%;"></i></div>
               <strong class="seo-trust-card__title">Bestehende Websites</strong>
               <p>Deine Website ist online, aber Sichtbarkeit, Struktur oder Anfragewege funktionieren noch nicht stark genug.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.89;"></b></i><em>hoch</em></footer>
             </article>
-            <article class="seo-trust-card" aria-hidden="true">
-              <span class="seo-trust-card__index">05</span>
+            <article class="seo-trust-card" aria-hidden="true" data-marquee-card data-marquee-index="5">
+              <header class="seo-trust-card__head"><span class="seo-trust-card__index">05</span><span class="seo-trust-card__type"><i></i>Profil</span></header>
+              <div class="seo-trust-card__signal" aria-hidden="true"><i style="--h: 64%;"></i><i style="--h: 92%;"></i><i style="--h: 76%;"></i><i style="--h: 86%;"></i><i style="--h: 56%;"></i></div>
               <strong class="seo-trust-card__title">Neue Websites</strong>
               <p>SEO und Marketing sollen von Anfang an sauber mitgedacht werden.</p>
+              <footer class="seo-trust-card__fit"><span>Fit signal</span><i><b style="--fit: 0.98;"></b></i><em>hoch</em></footer>
             </article>
           </div>
         </div>
@@ -813,6 +933,8 @@
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/webdev-problem-stack.js"></script>
   <script type="module" src="src/js/seo-flow.js"></script>
+  <script type="module" src="src/js/seo-workflow.js"></script>
+  <script type="module" src="src/js/seo-marquee.js"></script>
 </body>
 
 </html>

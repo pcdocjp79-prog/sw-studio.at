@@ -1157,23 +1157,6 @@
 /* ============================================================
    SEO Process v2 — horizontale Journey + zweigeteilte Erklärung
    ============================================================ */
-.seo-process-section {
-  position: relative;
-  isolation: isolate;
-}
-
-.seo-process-section::before {
-  content: "";
-  position: absolute;
-  inset: 8% 0 auto;
-  z-index: -1;
-  height: 72%;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(98, 173, 255, 0.08), transparent 34%),
-    radial-gradient(circle at 82% 58%, rgba(255, 126, 194, 0.07), transparent 32%);
-}
-
 .seo-process-section .webdev-section-head {
   max-width: none;
   margin-bottom: 0;

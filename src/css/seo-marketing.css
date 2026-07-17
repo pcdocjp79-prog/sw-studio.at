@@ -18,6 +18,12 @@
   text-shadow: 0 0 16px rgba(255, 126, 194, 0.25);
 }
 
+/* Alle Inhaltssektionen liegen auf derselben durchgehenden Seitenfläche. */
+.seo-page > .webdev-section,
+.seo-page > .webdev-final {
+  background-color: transparent;
+}
+
 .seo-page .webdev-audit-card.seo-journey-card {
   border-color: rgba(148, 242, 255, 0.2);
   border-radius: 1.25rem;
@@ -506,113 +512,6 @@
 
 .seo-bento .webdev-service-card {
   height: 100%;
-}
-
-/* ── "Ideal für": High-End Marquee (rechts → links, Endlos-Lauf) ───── */
-.seo-marquee {
-  position: relative;
-  margin-top: clamp(0.7rem, 1.6vw, 1.2rem);
-  /* Innenabstand oben/unten, damit die Karten nicht abgeschnitten werden */
-  padding-top: clamp(0.9rem, 1.6vw, 1.3rem);
-  padding-bottom: clamp(1.7rem, 2.6vw, 2.5rem);
-  overflow: hidden;
-  /* weiche Kanten links/rechts, damit Karten ein-/ausgleiten statt abzuschneiden */
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-}
-
-.seo-marquee__track {
-  display: flex;
-  width: max-content;
-  animation: seoMarqueeScroll 46s linear infinite;
-  will-change: transform;
-}
-
-@keyframes seoMarqueeScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.seo-trust-card {
-  position: relative;
-  flex: 0 0 auto;
-  width: clamp(15.5rem, 24vw, 18.5rem);
-  margin-right: clamp(0.8rem, 1.4vw, 1.2rem);
-  padding: clamp(1.25rem, 2vw, 1.6rem);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.15rem;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(98, 173, 255, 0.1), transparent 62%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.03) 56%, rgba(0, 0, 0, 0.07)),
-    rgba(255, 255, 255, 0.045);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 10px 24px rgba(0, 0, 0, 0.18),
-    0 2px 7px rgba(0, 0, 0, 0.16);
-  overflow: hidden;
-  transition: transform 0.45s ease, border-color 0.45s ease, background 0.45s ease, box-shadow 0.45s ease;
-}
-
-/* Akzent-Linie oben, aktuell deaktiviert fuer ruhiges Marquee-Verhalten */
-.seo-trust-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(148, 242, 255, 0.6), transparent);
-  opacity: 0;
-  transition: opacity 0.45s ease;
-}
-
-.seo-trust-card__index {
-  display: block;
-  margin-bottom: clamp(0.8rem, 1.4vw, 1.05rem);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  color: rgba(148, 242, 255, 0.72);
-}
-
-.seo-trust-card__title {
-  display: block;
-  margin-bottom: 0.45rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: #fff;
-}
-
-.seo-trust-card p {
-  margin: 0;
-  color: rgba(231, 239, 250, 0.72);
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  /* Kein Auto-Lauf → statisches, zentriertes Raster ohne Duplikate */
-  .seo-marquee {
-    overflow: visible;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .seo-marquee__track {
-    animation: none;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: clamp(0.8rem, 1.4vw, 1.2rem);
-  }
-
-  .seo-trust-card {
-    margin-right: 0;
-  }
-
-  .seo-trust-card[aria-hidden="true"] {
-    display: none;
-  }
 }
 
 .seo-expectation {

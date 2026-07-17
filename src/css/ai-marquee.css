@@ -1,19 +1,17 @@
 /* ============================================================
-   AI-MARQUEE — Scroll-driven Keyword-Band (nur ki-automatisierung.html)
-   Zwei gegenläufige Zeilen, deren Position von src/js/ai-marquee.js
-   über --ai-marquee-progress (0 → 1, geglättet) gesteuert wird.
-   Ohne JS oder bei prefers-reduced-motion bleibt das Band statisch.
+   AI-MARQUEE — Klassisches Keyword-Band (nur ki-automatisierung.html)
+   Zwei gegenläufige Zeilen gleiten per reiner CSS-Animation endlos
+   und gleichmäßig ("hochwertiges Gleiten"). Der Inhalt ist doppelt
+   vorhanden, die Schleife läuft nahtlos über -50 % der Trackbreite.
+   Bei prefers-reduced-motion steht das Band still. Kein JS nötig.
    ============================================================ */
 
 .ai-marquee {
-  --ai-marquee-progress: 0.5;
-  --ai-marquee-travel: 18%;
-  --ai-marquee-gap: clamp(1.1rem, 2.6vw, 2.1rem);
+  --ai-marquee-duration: 46s;
+  --ai-marquee-gap: clamp(1.4rem, 3vw, 2.6rem);
   position: relative;
   margin: clamp(2rem, 4.5vw, 3.25rem) 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: clamp(1.5rem, 3.2vw, 2.35rem) 0;
+  padding: clamp(1.6rem, 3.4vw, 2.6rem) 0;
 }
 
 /* Nur für Screenreader: vollständige Begriffsliste als Fließtext */
@@ -46,14 +44,20 @@
   will-change: transform;
 }
 
-/* Bewegungsspanne bleibt in [-24%, -6%] der Trackbreite — bei
-   doppeltem Inhalt (2 Gruppen) entstehen so nie sichtbare Lücken */
+/* Endlos-Schleife: der Track wird um genau eine Gruppe (–50 %)
+   verschoben — bei zwei identischen Gruppen entsteht kein Sprung.
+   Läuft ununterbrochen weiter, auch beim Überfahren mit der Maus. */
 .ai-marquee__row--primary .ai-marquee__track {
-  transform: translate3d(calc(-6% - var(--ai-marquee-progress) * var(--ai-marquee-travel)), 0, 0);
+  animation: ai-marquee-glide var(--ai-marquee-duration) linear infinite;
 }
 
-.ai-marquee__row--reverse .ai-marquee__track {
-  transform: translate3d(calc(-24% + var(--ai-marquee-progress) * var(--ai-marquee-travel)), 0, 0);
+@keyframes ai-marquee-glide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .ai-marquee__group {
@@ -70,44 +74,38 @@
   flex: 0 0 auto;
   gap: var(--ai-marquee-gap);
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.15;
+  font-size: clamp(1.15rem, 2.5vw, 1.95rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   white-space: nowrap;
-  color: rgba(240, 246, 255, 0.92);
+  color: rgba(236, 242, 250, 0.86);
 }
 
-/* Trennzeichen: font-unabhängige Raute im Cyan der Sektion */
+/* Minimaler, ruhiger Trennpunkt statt glühender Raute */
 .ai-marquee__item::after {
   content: "";
   flex: 0 0 auto;
-  width: 0.3em;
-  height: 0.3em;
-  border-radius: 0.07em;
-  transform: rotate(45deg);
-  background: linear-gradient(135deg, rgba(148, 242, 255, 0.85), rgba(98, 173, 255, 0.5));
-  box-shadow: 0 0 12px rgba(148, 242, 255, 0.3);
+  width: 0.26em;
+  height: 0.26em;
+  border-radius: 50%;
+  background: rgba(150, 226, 255, 0.5);
 }
 
-/* Jeder zweite Begriff als Outline — nur wo text-stroke unterstützt
-   wird, sonst bleiben alle Begriffe gefüllt lesbar */
+/* Jeder zweite Begriff als feine Outline — nur wo text-stroke
+   unterstützt wird, sonst bleiben alle Begriffe gefüllt lesbar */
 @supports (-webkit-text-stroke: 1px rgba(0, 0, 0, 0.5)) {
-  .ai-marquee__row--primary .ai-marquee__item:nth-child(even),
-  .ai-marquee__row--reverse .ai-marquee__item:nth-child(odd) {
+  .ai-marquee__row--primary .ai-marquee__item:nth-child(even) {
     color: transparent;
-    -webkit-text-stroke: 1px rgba(214, 231, 255, 0.42);
+    -webkit-text-stroke: 1px rgba(212, 230, 250, 0.3);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Statisches Band ohne Scroll-Bewegung */
-  .ai-marquee__track {
+  /* Statisches Band ohne Bewegung */
+  .ai-marquee__row--primary .ai-marquee__track {
+    animation: none;
+    transform: translate3d(-25%, 0, 0);
     will-change: auto;
-  }
-
-  .ai-marquee__row--primary .ai-marquee__track,
-  .ai-marquee__row--reverse .ai-marquee__track {
-    transform: translate3d(-12%, 0, 0);
   }
 }

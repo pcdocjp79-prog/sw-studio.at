@@ -29,40 +29,53 @@
 .webdev-journey {
   --journey-accent: #94f2ff;
   --journey-accent-rgb: 148, 242, 255;
-  --journey-route-offset: 100;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid rgba(184, 216, 252, 0.14);
+  border: 1px solid rgba(186, 220, 255, 0.18);
   border-radius: clamp(1.3rem, 2.5vw, 1.8rem);
   background:
-    linear-gradient(rgba(148, 242, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 242, 255, 0.02) 1px, transparent 1px),
-    radial-gradient(66% 54% at 50% 48%, rgba(var(--journey-accent-rgb), 0.07), transparent 74%),
-    linear-gradient(145deg, rgba(9, 19, 34, 0.97), rgba(3, 8, 17, 0.99));
+    linear-gradient(rgba(148, 242, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.024) 1px, transparent 1px),
+    radial-gradient(72% 62% at 50% 44%, rgba(var(--journey-accent-rgb), 0.105), transparent 72%),
+    linear-gradient(145deg, rgba(25, 38, 58, 0.62), rgba(11, 19, 33, 0.56));
   background-size: 32px 32px, 32px 32px, auto, auto;
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
   box-shadow:
-    0 38px 96px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    0 18px 42px rgba(2, 6, 23, 0.24),
+    0 38px 96px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
   transition: --journey-accent 320ms ease;
+}
+
+.webdev-journey::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.065) 0%, transparent 30%),
+    radial-gradient(70% 95% at 12% 0%, rgba(148, 242, 255, 0.07), transparent 62%),
+    radial-gradient(70% 95% at 88% 100%, rgba(255, 126, 194, 0.05), transparent 64%);
+  pointer-events: none;
 }
 
 .webdev-journey[data-journey-active="2"] {
   --journey-accent: #6baeff;
   --journey-accent-rgb: 107, 174, 255;
-  --journey-route-offset: 60;
 }
 
 .webdev-journey[data-journey-active="3"] {
   --journey-accent: #ff7ec2;
   --journey-accent-rgb: 255, 126, 194;
-  --journey-route-offset: 40;
 }
 
 .webdev-journey[data-journey-active="4"] {
   --journey-accent: #9dffcd;
   --journey-accent-rgb: 157, 255, 205;
-  --journey-route-offset: 0;
 }
 
 .webdev-journey__chrome,
@@ -75,8 +88,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.66rem clamp(1rem, 2.5vw, 1.4rem);
-  color: rgba(218, 234, 252, 0.46);
-  background: rgba(4, 10, 20, 0.76);
+  color: rgba(218, 234, 252, 0.58);
   font-family: var(--font-mono);
   font-size: 0.55rem;
   font-weight: 500;
@@ -85,7 +97,11 @@
 }
 
 .webdev-journey__chrome {
-  border-bottom: 1px solid rgba(184, 216, 252, 0.1);
+  border-bottom: 1px solid rgba(184, 216, 252, 0.13);
+  background: linear-gradient(180deg, rgba(3, 9, 18, 0.94), rgba(5, 12, 23, 0.88));
+  backdrop-filter: blur(22px) saturate(125%);
+  -webkit-backdrop-filter: blur(22px) saturate(125%);
+  box-shadow: 0 8px 24px rgba(1, 5, 14, 0.18);
 }
 
 .webdev-journey__identity,
@@ -105,7 +121,7 @@
 }
 
 .webdev-journey__route-label {
-  color: rgba(224, 239, 255, 0.56);
+  color: rgba(224, 239, 255, 0.66);
 }
 
 .webdev-journey__route-label i {
@@ -121,8 +137,10 @@
 
 .webdev-journey__stage {
   position: relative;
+  z-index: 1;
   min-height: clamp(31.5rem, 43vw, 35rem);
   overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(5, 11, 21, 0.04));
 }
 
 .webdev-journey__stage::before {
@@ -241,20 +259,21 @@
 
 .webdev-journey__map-grid {
   fill: none;
-  stroke: rgba(184, 216, 252, 0.055);
+  stroke: rgba(184, 216, 252, 0.075);
   stroke-width: 1;
   stroke-dasharray: 2 7;
 }
 
 .webdev-journey__route-base,
-.webdev-journey__route-progress {
+.webdev-journey__route-segment,
+.webdev-journey__route-arrow {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .webdev-journey__route-base {
-  stroke: rgba(184, 216, 252, 0.18);
+  stroke: rgba(184, 216, 252, 0.25);
   stroke-width: 1.2;
 }
 
@@ -267,15 +286,49 @@
   animation: webdevJourneyRouteDraw 1.2s cubic-bezier(0.16, 1, 0.3, 1) 180ms forwards;
 }
 
-.webdev-journey__route-progress {
+.webdev-journey__route-segment {
   stroke: var(--journey-accent);
-  stroke-width: 2;
+  stroke-width: 2.2;
   stroke-dasharray: 100;
-  stroke-dashoffset: var(--journey-route-offset);
+  stroke-dashoffset: 100;
+  opacity: 0;
   filter: drop-shadow(0 0 5px rgba(var(--journey-accent-rgb), 0.65));
   transition:
+    opacity 260ms ease,
     stroke 320ms ease,
     stroke-dashoffset 620ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-journey__route-segment.is-complete {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+.webdev-journey__route-segment.is-next {
+  stroke-dasharray: 16 84;
+  stroke-dashoffset: 0;
+  opacity: 0.92;
+}
+
+.webdev-journey__route-arrow {
+  stroke: var(--journey-accent);
+  stroke-width: 1.8;
+  opacity: 0;
+  filter: drop-shadow(0 0 3px rgba(var(--journey-accent-rgb), 0.4));
+  transition:
+    opacity 260ms ease,
+    stroke 320ms ease,
+    filter 260ms ease;
+}
+
+.webdev-journey__route-arrow.is-complete {
+  opacity: 0.78;
+  filter: drop-shadow(0 0 5px rgba(var(--journey-accent-rgb), 0.62));
+}
+
+.webdev-journey__route-arrow.is-next {
+  opacity: 0.14;
 }
 
 .webdev-journey__map-anchor {
@@ -293,6 +346,7 @@
 
 .webdev-journey-node {
   --node-rgb: 148, 242, 255;
+  --node-arrow-angle: 45deg;
   position: absolute;
   display: grid;
   grid-template-columns: 2.45rem minmax(0, 1fr) 0.55rem;
@@ -300,14 +354,16 @@
   min-height: 4rem;
   align-items: center;
   gap: 0.7rem;
-  border: 1px solid rgba(184, 216, 252, 0.14);
+  border: 1px solid rgba(205, 229, 255, 0.2);
   border-radius: 0.9rem;
   padding: 0.65rem 0.72rem;
-  color: rgba(226, 239, 253, 0.58);
-  background: rgba(5, 13, 24, 0.92);
+  color: rgba(232, 242, 255, 0.74);
+  background:
+    linear-gradient(145deg, rgba(25, 38, 58, 0.8), rgba(12, 21, 35, 0.78));
   box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+    0 12px 28px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.018);
   text-align: left;
   cursor: pointer;
   pointer-events: auto;
@@ -327,7 +383,7 @@
   border-top: 1px solid rgba(var(--node-rgb), 0.46);
   border-right: 1px solid rgba(var(--node-rgb), 0.46);
   opacity: 0.7;
-  transform: rotate(45deg);
+  transform: rotate(var(--node-arrow-angle));
   transition:
     opacity 240ms ease,
     transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -335,8 +391,14 @@
 }
 
 .webdev-journey-node--two { --node-rgb: 107, 174, 255; }
-.webdev-journey-node--three { --node-rgb: 255, 126, 194; }
-.webdev-journey-node--four { --node-rgb: 157, 255, 205; }
+.webdev-journey-node--three {
+  --node-rgb: 255, 126, 194;
+  --node-arrow-angle: 135deg;
+}
+.webdev-journey-node--four {
+  --node-rgb: 157, 255, 205;
+  --node-arrow-angle: 225deg;
+}
 
 .webdev-journey-node--one { top: 17.73%; left: 12%; }
 .webdev-journey-node--two { top: 17.73%; left: 88%; }
@@ -354,15 +416,15 @@
 .webdev-journey-node:focus-visible::after {
   opacity: 1;
   filter: drop-shadow(0 0 5px rgba(var(--node-rgb), 0.75));
-  transform: translateX(0.14rem) rotate(45deg);
+  transform: rotate(var(--node-arrow-angle)) scale(1.08);
 }
 
 .webdev-journey-node.is-active {
   color: #ffffff;
   border-color: rgba(var(--node-rgb), 0.68);
   background:
-    radial-gradient(circle at 0% 0%, rgba(var(--node-rgb), 0.15), transparent 54%),
-    rgba(7, 17, 31, 0.96);
+    radial-gradient(circle at 0% 0%, rgba(var(--node-rgb), 0.2), transparent 54%),
+    linear-gradient(145deg, rgba(28, 43, 65, 0.9), rgba(12, 22, 37, 0.88));
   box-shadow:
     0 14px 34px rgba(0, 0, 0, 0.34),
     0 0 24px rgba(var(--node-rgb), 0.13),
@@ -406,7 +468,7 @@
 }
 
 .webdev-journey-node small {
-  color: rgba(var(--node-rgb), 0.62);
+  color: rgba(var(--node-rgb), 0.76);
   font-family: var(--font-mono);
   font-size: 0.48rem;
   line-height: 1;
@@ -430,15 +492,19 @@
   width: min(60%, 41rem);
   min-height: clamp(19.25rem, 25vw, 21rem);
   overflow: hidden;
-  border: 1px solid rgba(var(--journey-accent-rgb), 0.2);
+  border: 1px solid rgba(var(--journey-accent-rgb), 0.3);
   border-radius: clamp(1rem, 2vw, 1.35rem);
   background:
-    radial-gradient(circle at 10% 0%, rgba(var(--journey-accent-rgb), 0.1), transparent 36%),
-    rgba(5, 13, 24, 0.93);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 34%),
+    radial-gradient(circle at 10% 0%, rgba(var(--journey-accent-rgb), 0.14), transparent 40%),
+    linear-gradient(180deg, rgba(20, 31, 48, 0.86), rgba(10, 18, 31, 0.84));
+  backdrop-filter: blur(16px) saturate(138%);
+  -webkit-backdrop-filter: blur(16px) saturate(138%);
   box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.36),
-    0 0 32px rgba(var(--journey-accent-rgb), 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.065);
+    0 20px 54px rgba(2, 6, 23, 0.28),
+    0 0 36px rgba(var(--journey-accent-rgb), 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
   transform: translate(-50%, -50%);
   transition: border-color 320ms ease, background 320ms ease, box-shadow 320ms ease;
 }
@@ -468,11 +534,11 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border-right: 1px solid rgba(184, 216, 252, 0.1);
+  border-right: 1px solid rgba(184, 216, 252, 0.14);
   background:
     linear-gradient(rgba(var(--journey-accent-rgb), 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(var(--journey-accent-rgb), 0.03) 1px, transparent 1px),
-    rgba(2, 8, 17, 0.62);
+    rgba(7, 15, 27, 0.58);
   background-size: 22px 22px, 22px 22px, auto;
 }
 
@@ -503,7 +569,7 @@
 
 .webdev-journey-panel__copy > p:not(.webdev-journey-panel__result) {
   margin: 0.68rem 0 0;
-  color: rgba(231, 239, 250, 0.72);
+  color: rgba(235, 242, 252, 0.84);
   font-size: clamp(0.85rem, 1.2vw, 0.96rem);
   line-height: 1.56;
 }
@@ -517,7 +583,7 @@
 }
 
 .webdev-journey-panel__result span {
-  color: rgba(218, 234, 252, 0.42);
+  color: rgba(218, 234, 252, 0.56);
   font-family: var(--font-mono);
   font-size: 0.5rem;
   letter-spacing: 0.11em;
@@ -688,7 +754,10 @@
 
 .webdev-journey__footer {
   min-height: 2.7rem;
-  border-top: 1px solid rgba(184, 216, 252, 0.1);
+  border-top: 1px solid rgba(184, 216, 252, 0.12);
+  background: rgba(8, 16, 29, 0.54);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
 }
 
 .webdev-journey__footer-progress {
@@ -737,8 +806,60 @@
   }
 }
 
+.js .webdev-journey.is-visible .webdev-journey__route-segment.is-next {
+  animation: webdevJourneyRouteImpulse 1.85s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+.js .webdev-journey.is-visible .webdev-journey__route-arrow.is-next {
+  animation: webdevJourneyRouteArrowArrival 1.85s ease-in-out infinite;
+}
+
+.js .webdev-journey.is-visible .webdev-journey-node.is-next {
+  animation: webdevJourneyNextNodeArrival 1.85s ease-in-out infinite;
+}
+
 @keyframes webdevJourneyRouteDraw {
   to { stroke-dashoffset: 0; }
+}
+
+@keyframes webdevJourneyRouteImpulse {
+  0% { stroke-dashoffset: 0; opacity: 0; }
+  12% { opacity: 0.95; }
+  72% { stroke-dashoffset: -84; opacity: 0.95; }
+  82%, 100% { stroke-dashoffset: -100; opacity: 0; }
+}
+
+@keyframes webdevJourneyRouteArrowArrival {
+  0%, 68%, 100% {
+    opacity: 0.12;
+    stroke-width: 1.8;
+    filter: drop-shadow(0 0 2px rgba(var(--journey-accent-rgb), 0.3));
+  }
+  79% {
+    opacity: 1;
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 9px rgba(var(--journey-accent-rgb), 1));
+  }
+  90% {
+    opacity: 0.42;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 5px rgba(var(--journey-accent-rgb), 0.62));
+  }
+}
+
+@keyframes webdevJourneyNextNodeArrival {
+  0%, 68%, 100% {
+    border-color: rgba(205, 229, 255, 0.2);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.09), inset 0 0 0 1px rgba(255, 255, 255, 0.018);
+  }
+  79% {
+    border-color: rgba(var(--node-rgb), 0.76);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), 0 0 30px rgba(var(--node-rgb), 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 0 0 1px rgba(var(--node-rgb), 0.08);
+  }
+  90% {
+    border-color: rgba(var(--node-rgb), 0.34);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), 0 0 14px rgba(var(--node-rgb), 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
 }
 
 @keyframes webdevJourneyHintPulse {
@@ -899,8 +1020,10 @@
 @media (prefers-reduced-motion: reduce) {
   .webdev-journey,
   .webdev-journey__route-base,
-  .webdev-journey__route-progress,
+  .webdev-journey__route-segment,
+  .webdev-journey__route-arrow,
   .webdev-journey-node,
+  .webdev-journey-node::after,
   .webdev-journey__briefing,
   .webdev-journey-panel,
   .webdev-journey__footer-progress i,

@@ -697,24 +697,29 @@
                 </svg>
               </span>
               <span class="webdev-journey__interaction-copy">
-                <span class="webdev-journey__interaction-desktop">Über Phasen fahren</span>
+                <span class="webdev-journey__interaction-desktop">Phase anklicken</span>
                 <span class="webdev-journey__interaction-mobile">Phase antippen</span>
                 <small>Details entdecken</small>
               </span>
               <i class="webdev-journey__interaction-arrow"></i>
             </div>
 
-            <svg class="webdev-journey__map" viewBox="0 0 800 440" preserveAspectRatio="none" aria-hidden="true">
+            <svg class="webdev-journey__map" data-journey-route-map viewBox="0 0 800 440" preserveAspectRatio="none" aria-hidden="true">
               <path class="webdev-journey__map-grid" d="M96 26V414M704 26V414M26 78H774M26 362H774" />
-              <path class="webdev-journey__route-base" pathLength="100" d="M96 78H676Q704 78 704 106V334Q704 362 676 362H96" />
-              <path class="webdev-journey__route-progress" pathLength="100" d="M96 78H676Q704 78 704 106V334Q704 362 676 362H96" />
+              <path class="webdev-journey__route-base" pathLength="100" d="M96 78H704V362H96" />
+              <path class="webdev-journey__route-segment" data-journey-route-segment pathLength="100" d="M166 78H634" />
+              <path class="webdev-journey__route-segment" data-journey-route-segment pathLength="100" d="M704 130V310" />
+              <path class="webdev-journey__route-segment" data-journey-route-segment pathLength="100" d="M634 362H166" />
+              <path class="webdev-journey__route-arrow" data-journey-route-arrow d="M622 70L634 78 622 86" />
+              <path class="webdev-journey__route-arrow" data-journey-route-arrow d="M696 298L704 310 712 298" />
+              <path class="webdev-journey__route-arrow" data-journey-route-arrow d="M178 354L166 362 178 370" />
               <circle class="webdev-journey__map-anchor" cx="96" cy="78" r="4" />
               <circle class="webdev-journey__map-anchor" cx="704" cy="78" r="4" />
               <circle class="webdev-journey__map-anchor" cx="704" cy="362" r="4" />
               <circle class="webdev-journey__map-anchor" cx="96" cy="362" r="4" />
             </svg>
 
-            <div class="webdev-journey__nodes" role="tablist" aria-label="Projektphase auswählen; mit der Maus darüberfahren oder per Tastatur auswählen">
+            <div class="webdev-journey__nodes" role="tablist" aria-label="Projektphase per Klick oder Tastatur auswählen">
               <button class="webdev-journey-node webdev-journey-node--one is-active" type="button" role="tab"
                 id="webdev-journey-tab-1" aria-controls="webdev-journey-panel-1" aria-selected="true"
                 data-journey-node data-journey-index="0">

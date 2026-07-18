@@ -1,0 +1,663 @@
+/* Webentwicklung hero: a website blueprint that resolves into measurable quality. */
+
+.webdev-build-card {
+  --webdev-build-cyan: #94f2ff;
+  --webdev-build-blue: #79a7ff;
+  --webdev-build-green: #8fffc4;
+  --webdev-build-magenta: #ff7ec2;
+  isolation: isolate;
+  min-height: clamp(31rem, 63vh, 36rem);
+  border-color: rgba(174, 230, 255, 0.2);
+  border-radius: clamp(1.2rem, 3vw, 1.65rem);
+  background:
+    radial-gradient(circle at 87% 12%, rgba(121, 167, 255, 0.15), transparent 28%),
+    radial-gradient(circle at 10% 90%, rgba(148, 242, 255, 0.09), transparent 30%),
+    linear-gradient(145deg, rgba(13, 25, 42, 0.97), rgba(4, 10, 20, 0.985));
+  box-shadow:
+    0 38px 92px rgba(0, 0, 0, 0.38),
+    0 0 52px rgba(90, 169, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  contain: layout paint style;
+}
+
+.webdev-build-card::before {
+  inset: 3.7rem 0 0;
+  background-image:
+    linear-gradient(rgba(154, 202, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 202, 255, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 72%, transparent 100%);
+}
+
+.webdev-build-card::after {
+  content: none;
+}
+
+.webdev-build-card:hover,
+.webdev-build-card.is-tilting {
+  border-color: rgba(148, 242, 255, 0.38);
+  box-shadow:
+    0 42px 104px rgba(0, 0, 0, 0.44),
+    0 0 46px rgba(90, 169, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+.webdev-build-card .webdev-audit-card__top {
+  min-height: 3.7rem;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom-color: rgba(186, 214, 255, 0.1);
+  padding-inline: clamp(1rem, 3vw, 1.35rem);
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(231, 239, 250, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 500;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.webdev-build-card__identity,
+.webdev-build-card__status,
+.webdev-build-card__score-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.webdev-build-card__identity i {
+  width: 0.54rem;
+  height: 0.54rem;
+  border: 1px solid rgba(148, 242, 255, 0.6);
+  border-radius: 0.16rem;
+  background: rgba(148, 242, 255, 0.1);
+  box-shadow: 0 0 12px rgba(148, 242, 255, 0.16);
+}
+
+.webdev-build-card__status {
+  flex: 0 0 auto;
+  color: rgba(181, 255, 218, 0.76);
+}
+
+.webdev-build-card__status i,
+.webdev-build-card__score-state i {
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--webdev-build-green);
+  box-shadow: 0 0 10px rgba(143, 255, 196, 0.56);
+}
+
+.webdev-build-card .webdev-audit-card__body {
+  gap: clamp(0.9rem, 2.5vw, 1.2rem);
+  padding: clamp(1.15rem, 3.5vw, 1.55rem);
+  transform: translateZ(24px);
+}
+
+.webdev-build-card__intro {
+  position: relative;
+  padding-right: 4.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(186, 214, 255, 0.1);
+}
+
+.webdev-build-card .webdev-audit-card__label {
+  color: rgba(148, 242, 255, 0.74);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+}
+
+.webdev-build-card .webdev-audit-card__title {
+  max-width: 16ch;
+  margin-top: 0.38rem;
+  font-size: clamp(1.35rem, 3.6vw, 1.78rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+.webdev-build-card__run {
+  position: absolute;
+  right: 0;
+  bottom: 1.05rem;
+  color: rgba(174, 230, 255, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+}
+
+.webdev-build-card__workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(7.8rem, 0.82fr);
+  gap: 0.7rem;
+  align-items: stretch;
+  min-height: 12.7rem;
+}
+
+.webdev-build-preview,
+.webdev-build-card__score-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(186, 214, 255, 0.12);
+  border-radius: 0.9rem;
+  background: rgba(3, 9, 19, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.webdev-build-preview__bar {
+  display: flex;
+  min-height: 1.8rem;
+  align-items: center;
+  gap: 0.25rem;
+  border-bottom: 1px solid rgba(186, 214, 255, 0.08);
+  padding: 0 0.55rem;
+}
+
+.webdev-build-preview__bar span {
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: rgba(174, 230, 255, 0.28);
+}
+
+.webdev-build-preview__bar span:first-child {
+  background: rgba(143, 255, 196, 0.7);
+  box-shadow: 0 0 7px rgba(143, 255, 196, 0.28);
+}
+
+.webdev-build-preview__bar i {
+  min-width: 0;
+  margin-left: 0.28rem;
+  overflow: hidden;
+  color: rgba(215, 226, 242, 0.37);
+  font-family: var(--font-mono);
+  font-size: 0.42rem;
+  font-style: normal;
+  letter-spacing: 0.045em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.webdev-build-preview__canvas {
+  position: absolute;
+  inset: 1.8rem 0 0;
+  overflow: hidden;
+}
+
+.webdev-build-preview__grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(148, 242, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.035) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(180deg, #000, transparent 92%);
+}
+
+.webdev-build-preview__nav,
+.webdev-build-preview__brand,
+.webdev-build-preview__navline,
+.webdev-build-preview__eyebrow,
+.webdev-build-preview__headline,
+.webdev-build-preview__copy,
+.webdev-build-preview__visual,
+.webdev-build-preview__visual-ring {
+  position: absolute;
+  display: block;
+}
+
+.webdev-build-preview__nav {
+  top: 8%;
+  right: 7%;
+  left: 7%;
+  height: 15%;
+  border: 1px solid rgba(148, 242, 255, 0.13);
+  border-radius: 0.35rem;
+  background: rgba(18, 35, 54, 0.72);
+}
+
+.webdev-build-preview__brand {
+  top: 14%;
+  left: 11%;
+  width: 16%;
+  height: 3%;
+  border-radius: 999px;
+  background: rgba(226, 249, 255, 0.72);
+  box-shadow: 0 0 8px rgba(148, 242, 255, 0.2);
+}
+
+.webdev-build-preview__navline {
+  top: 14%;
+  width: 7%;
+  height: 2%;
+  border-radius: 999px;
+  background: rgba(174, 230, 255, 0.33);
+}
+
+.webdev-build-preview__navline--one { right: 32%; }
+.webdev-build-preview__navline--two { right: 22%; }
+.webdev-build-preview__navline--three {
+  right: 10%;
+  width: 9%;
+  background: rgba(255, 126, 194, 0.72);
+}
+
+.webdev-build-preview__eyebrow {
+  top: 36%;
+  left: 9%;
+  width: 14%;
+  height: 2%;
+  background: rgba(148, 242, 255, 0.72);
+}
+
+.webdev-build-preview__headline,
+.webdev-build-preview__copy {
+  left: 9%;
+  border-radius: 999px;
+}
+
+.webdev-build-preview__headline {
+  height: 4%;
+  background: rgba(244, 249, 255, 0.8);
+}
+
+.webdev-build-preview__headline--one { top: 44%; width: 42%; }
+.webdev-build-preview__headline--two { top: 51%; width: 31%; }
+
+.webdev-build-preview__copy {
+  height: 2%;
+  background: rgba(174, 197, 225, 0.35);
+}
+
+.webdev-build-preview__copy--one { top: 62%; width: 36%; }
+.webdev-build-preview__copy--two { top: 67%; width: 28%; }
+
+.webdev-build-preview__cta {
+  position: absolute;
+  left: 9%;
+  bottom: 14%;
+  display: grid;
+  min-width: 34%;
+  height: 14%;
+  place-items: center;
+  border: 1px solid rgba(255, 158, 215, 0.4);
+  border-radius: 0.35rem;
+  color: rgba(255, 229, 246, 0.84);
+  background: rgba(255, 84, 184, 0.14);
+  box-shadow: 0 0 16px rgba(255, 84, 184, 0.09);
+  font-family: var(--font-mono);
+  font-size: 0.35rem;
+  letter-spacing: 0.08em;
+}
+
+.webdev-build-preview__visual {
+  top: 34%;
+  right: 8%;
+  width: 31%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(121, 167, 255, 0.24);
+  border-radius: 0.7rem;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(148, 242, 255, 0.2), transparent 18%),
+    linear-gradient(145deg, rgba(49, 91, 137, 0.25), rgba(8, 17, 30, 0.76));
+}
+
+.webdev-build-preview__visual-ring {
+  top: 43%;
+  right: 15%;
+  width: 17%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(148, 242, 255, 0.45);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 0.3rem rgba(148, 242, 255, 0.04),
+    0 0 18px rgba(148, 242, 255, 0.16);
+}
+
+.webdev-build-preview__scan {
+  position: absolute;
+  top: 9%;
+  bottom: 7%;
+  left: 7%;
+  z-index: 4;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(148, 242, 255, 0.88), transparent);
+  box-shadow: 0 0 12px rgba(148, 242, 255, 0.5);
+  opacity: 0;
+}
+
+.webdev-build-preview__route {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.webdev-build-preview__route path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.webdev-build-preview__route-base {
+  stroke: rgba(148, 242, 255, 0.12);
+  stroke-width: 0.8;
+}
+
+.webdev-build-preview__route-signal {
+  stroke: var(--webdev-build-cyan);
+  stroke-width: 1.3;
+  stroke-dasharray: 9 91;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 4px rgba(148, 242, 255, 0.58));
+  opacity: 0.8;
+}
+
+.webdev-build-preview__route circle:first-of-type {
+  fill: #0f2639;
+  stroke: var(--webdev-build-cyan);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.webdev-build-preview__route circle:last-of-type {
+  fill: #371a31;
+  stroke: var(--webdev-build-magenta);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 126, 194, 0.55));
+  vector-effect: non-scaling-stroke;
+}
+
+.webdev-build-card__score-panel {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.55rem;
+  padding: 0.85rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(143, 255, 196, 0.1), transparent 38%),
+    rgba(3, 9, 19, 0.76);
+}
+
+.webdev-build-card__score-label {
+  color: rgba(174, 230, 255, 0.52);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.webdev-build-card .webdev-audit-score {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  gap: 0.22rem;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.webdev-build-card .webdev-audit-score::before {
+  content: none;
+}
+
+.webdev-build-card .webdev-audit-score span {
+  font-size: clamp(2.3rem, 7vw, 3.1rem);
+  letter-spacing: -0.09em;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--audit-score-color), transparent 70%);
+}
+
+.webdev-build-card .webdev-audit-score small {
+  padding-bottom: 0.28rem;
+  color: rgba(231, 239, 250, 0.38);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+.webdev-build-card__score-state {
+  color: rgba(181, 255, 218, 0.68);
+  font-family: var(--font-mono);
+  font-size: 0.43rem;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.webdev-build-card__score-state i {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+
+.webdev-build-card__signal {
+  display: flex;
+  width: 100%;
+  height: 2.4rem;
+  align-items: end;
+  gap: 0.22rem;
+  margin-top: 0.25rem;
+  border-bottom: 1px solid rgba(148, 242, 255, 0.12);
+  padding-bottom: 0.2rem;
+}
+
+.webdev-build-card__signal span {
+  width: 100%;
+  height: var(--signal-height);
+  border-radius: 0.1rem 0.1rem 0 0;
+  background: linear-gradient(180deg, rgba(148, 242, 255, 0.82), rgba(121, 167, 255, 0.2));
+  box-shadow: 0 0 8px rgba(148, 242, 255, 0.12);
+  transform-origin: center bottom;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), background 240ms ease;
+}
+
+.webdev-build-card .webdev-audit-metrics {
+  gap: 0.55rem;
+}
+
+.webdev-build-card .webdev-audit-metrics div {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(186, 214, 255, 0.11);
+  border-radius: 0.7rem;
+  padding: 0.62rem 0.68rem;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.webdev-build-card .webdev-audit-metrics div::after {
+  content: "";
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.65rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  opacity: 0.72;
+}
+
+.webdev-build-card .webdev-audit-metrics dt {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.webdev-build-card .webdev-audit-metrics dd {
+  max-width: calc(100% - 0.6rem);
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.webdev-build-card .webdev-audit-checks {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.48rem 0.75rem;
+  padding-top: 0.1rem;
+}
+
+.webdev-build-card .webdev-audit-checks li {
+  grid-template-columns: 0.75rem minmax(0, 1fr);
+  gap: 0.38rem;
+  color: rgba(231, 239, 250, 0.58);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+.webdev-build-card .webdev-audit-checks li::before {
+  width: 0.34rem;
+  height: 0.34rem;
+  margin-top: 0.24rem;
+  border: 1px solid rgba(148, 242, 255, 0.65);
+  background: rgba(148, 242, 255, 0.14);
+  box-shadow: 0 0 9px rgba(148, 242, 255, 0.25);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .webdev-build-card:hover .webdev-build-preview__scan,
+  .webdev-build-card.is-tilting .webdev-build-preview__scan {
+    animation: webdevBuildScan 2.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .webdev-build-card:hover .webdev-build-preview__route-signal,
+  .webdev-build-card.is-tilting .webdev-build-preview__route-signal {
+    animation: webdevBuildRoute 2.4s linear infinite;
+  }
+
+  .webdev-build-card:hover .webdev-build-card__signal span,
+  .webdev-build-card.is-tilting .webdev-build-card__signal span {
+    transform: scaleY(1.12);
+    background: linear-gradient(180deg, rgba(143, 255, 196, 0.9), rgba(148, 242, 255, 0.22));
+  }
+
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(2),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(2) { transition-delay: 35ms; }
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(3),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(3) { transition-delay: 70ms; }
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(4),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(4) { transition-delay: 105ms; }
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(5),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(5) { transition-delay: 140ms; }
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(6),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(6) { transition-delay: 175ms; }
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(7),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(7) { transition-delay: 210ms; }
+  .webdev-build-card:hover .webdev-build-card__signal span:nth-child(8),
+  .webdev-build-card.is-tilting .webdev-build-card__signal span:nth-child(8) { transition-delay: 245ms; }
+}
+
+@keyframes webdevBuildScan {
+  0% {
+    left: 7%;
+    opacity: 0;
+  }
+
+  14%, 76% {
+    opacity: 0.92;
+  }
+
+  100% {
+    left: 93%;
+    opacity: 0;
+  }
+}
+
+@keyframes webdevBuildRoute {
+  to { stroke-dashoffset: -100; }
+}
+
+@media (max-width: 520px) {
+  .webdev-build-card {
+    min-height: 0;
+  }
+
+  .webdev-build-card .webdev-audit-card__top {
+    min-height: 3.2rem;
+    font-size: 0.48rem;
+  }
+
+  .webdev-build-card__identity {
+    max-width: 8rem;
+  }
+
+  .webdev-build-card__intro {
+    padding-right: 0;
+  }
+
+  .webdev-build-card__run {
+    top: 0;
+    bottom: auto;
+  }
+
+  .webdev-build-card__workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .webdev-build-preview {
+    min-height: 12.2rem;
+  }
+
+  .webdev-build-card__score-panel {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.3rem 0.75rem;
+  }
+
+  .webdev-build-card__score-label,
+  .webdev-build-card__score-state {
+    grid-column: 1;
+  }
+
+  .webdev-build-card .webdev-audit-score {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    width: auto;
+  }
+
+  .webdev-build-card__signal {
+    grid-column: 1 / -1;
+  }
+
+  .webdev-build-card .webdev-audit-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .webdev-build-card .webdev-audit-metrics div {
+    padding: 0.56rem 0.48rem;
+  }
+
+  .webdev-build-card .webdev-audit-metrics dt {
+    font-size: 0.48rem;
+  }
+
+  .webdev-build-card .webdev-audit-metrics dd {
+    font-size: 0.63rem;
+  }
+
+  .webdev-build-card .webdev-audit-checks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .webdev-build-card__status i,
+  .webdev-build-preview__scan,
+  .webdev-build-preview__route-signal,
+  .webdev-build-card__signal span {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .webdev-build-preview__scan {
+    display: none;
+  }
+}

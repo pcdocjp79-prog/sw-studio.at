@@ -1,0 +1,744 @@
+/* Leistungsbereiche: four disciplines presented as one connected website system. */
+
+.webdev-services-section {
+  --service-system-line: rgba(174, 211, 255, 0.12);
+  --service-system-surface: rgba(5, 12, 24, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.webdev-services-section::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  right: -12rem;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  background: rgba(92, 158, 255, 0.08);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.webdev-services-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.webdev-services-heading__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  color: rgba(188, 215, 245, 0.45);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.webdev-services-heading__meta i {
+  width: 2.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(148, 242, 255, 0.5), rgba(255, 126, 194, 0.45));
+}
+
+.webdev-services-section .webdev-service-showcase {
+  --service-active-index: 0;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.36fr) minmax(0, 1fr);
+  width: 100%;
+  min-height: clamp(32rem, 49vw, 37rem);
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(174, 211, 255, 0.14);
+  border-radius: clamp(1.35rem, 2.5vw, 1.8rem);
+  background:
+    radial-gradient(circle at 14% 0%, rgba(148, 242, 255, 0.07), transparent 30%),
+    linear-gradient(145deg, rgba(9, 20, 36, 0.94), rgba(3, 8, 17, 0.98));
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.webdev-services-section .webdev-service-showcase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.018);
+  pointer-events: none;
+}
+
+.webdev-service-tabs {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: auto repeat(4, minmax(0, 1fr)) auto;
+  min-width: 0;
+  border-right: 1px solid var(--service-system-line);
+  background:
+    linear-gradient(rgba(148, 242, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.02) 1px, transparent 1px),
+    rgba(6, 14, 27, 0.76);
+  background-size: 24px 24px, 24px 24px, auto;
+}
+
+.webdev-service-tabs__header {
+  display: flex;
+  min-height: 3.7rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--service-system-line);
+  padding: 0 1.15rem;
+  color: rgba(205, 225, 248, 0.44);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.webdev-service-tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.7rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  min-width: 0;
+  min-height: 5.4rem;
+  border: 0;
+  border-bottom: 1px solid rgba(174, 211, 255, 0.09);
+  padding: 0.85rem 1rem;
+  color: rgba(231, 239, 250, 0.58);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 240ms ease,
+    background 320ms ease,
+    opacity 520ms ease,
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .webdev-services-section .webdev-service-showcase:not(.is-ready) .webdev-service-tab {
+  opacity: 0;
+  transform: translate3d(-0.7rem, 0, 0);
+}
+
+.js .webdev-services-section .webdev-service-showcase.is-ready .webdev-service-tab {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0ms, 0ms, var(--panel-entry-delay, 0ms), var(--panel-entry-delay, 0ms);
+}
+
+.webdev-service-tab::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  bottom: 18%;
+  left: 0;
+  width: 2px;
+  border-radius: 0 999px 999px 0;
+  background: var(--tab-accent, #94f2ff);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--tab-accent, #94f2ff) 52%, transparent);
+  opacity: 0;
+  transform: scaleY(0.35);
+  transition: opacity 240ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-service-tab:nth-of-type(1) { --tab-accent: #94f2ff; }
+.webdev-service-tab:nth-of-type(2) { --tab-accent: #67e8f9; }
+.webdev-service-tab:nth-of-type(3) { --tab-accent: #ff5ecf; }
+.webdev-service-tab:nth-of-type(4) { --tab-accent: #b2fff5; }
+
+.webdev-service-tab:hover {
+  color: rgba(248, 252, 255, 0.88);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.webdev-service-tab.is-active {
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--tab-accent) 10%, transparent), transparent 82%),
+    rgba(255, 255, 255, 0.025);
+}
+
+.webdev-service-tab.is-active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.webdev-service-tab:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--tab-accent);
+  outline-offset: -4px;
+}
+
+.webdev-service-tab__icon {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  border: 1px solid rgba(194, 220, 250, 0.14);
+  border-radius: 0.72rem;
+  color: rgba(203, 225, 249, 0.54);
+  background: rgba(8, 17, 30, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    color 240ms ease,
+    border-color 240ms ease,
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.webdev-service-tab.is-active .webdev-service-tab__icon {
+  border-color: color-mix(in srgb, var(--tab-accent) 38%, transparent);
+  color: var(--tab-accent);
+  background: color-mix(in srgb, var(--tab-accent) 8%, rgba(8, 17, 30, 0.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 0 18px color-mix(in srgb, var(--tab-accent) 14%, transparent);
+}
+
+.webdev-service-tab__svg {
+  display: block;
+  width: 1.55rem;
+  height: 1.55rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.webdev-service-tab__svg--code { width: 1.7rem; height: 1.7rem; }
+.webdev-service-tab__svg-accent { stroke: #ff7ec2; }
+
+.webdev-service-tab__copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.3rem;
+}
+
+.webdev-service-tab__copy small {
+  color: color-mix(in srgb, var(--tab-accent) 72%, rgba(231, 239, 250, 0.5));
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.webdev-service-tab__copy strong {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  text-overflow: ellipsis;
+}
+
+.webdev-service-tab__arrow {
+  color: var(--tab-accent);
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  transition: opacity 220ms ease, transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-service-tab.is-active .webdev-service-tab__arrow {
+  opacity: 0.86;
+  transform: translateX(0);
+}
+
+.webdev-service-tabs__sequence {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.28rem;
+  min-height: 2.8rem;
+  align-items: center;
+  padding: 0 1.15rem;
+}
+
+.webdev-service-tabs__sequence span {
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(174, 211, 255, 0.12);
+}
+
+.webdev-service-tabs__sequence span::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #94f2ff, #ff7ec2);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: opacity 260ms ease, transform 440ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-service-showcase[data-active-index="0"] .webdev-service-tabs__sequence span:nth-child(-n+1)::before,
+.webdev-service-showcase[data-active-index="1"] .webdev-service-tabs__sequence span:nth-child(-n+2)::before,
+.webdev-service-showcase[data-active-index="2"] .webdev-service-tabs__sequence span:nth-child(-n+3)::before,
+.webdev-service-showcase[data-active-index="3"] .webdev-service-tabs__sequence span:nth-child(-n+4)::before {
+  opacity: 0.85;
+  transform: scaleX(1);
+}
+
+.webdev-service-stage {
+  position: relative;
+  min-width: 0;
+  min-height: inherit;
+  overflow: hidden;
+  background: #050b15;
+}
+
+.webdev-service-stage__chrome,
+.webdev-service-stage__footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(1rem, 2.5vw, 1.4rem);
+  color: rgba(211, 229, 249, 0.48);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.webdev-service-stage__chrome {
+  top: 0;
+  min-height: 3.7rem;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(174, 211, 255, 0.1);
+  background: linear-gradient(180deg, rgba(4, 10, 20, 0.92), rgba(4, 10, 20, 0.66));
+}
+
+.webdev-service-stage__identity,
+.webdev-service-stage__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  white-space: nowrap;
+}
+
+.webdev-service-stage__identity > i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid rgba(148, 242, 255, 0.52);
+  border-radius: 0.15rem;
+  background: rgba(148, 242, 255, 0.08);
+}
+
+.webdev-service-stage__live { color: rgba(166, 255, 210, 0.68); }
+
+.webdev-service-stage__live > i {
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  background: #91ffc5;
+  box-shadow: 0 0 9px rgba(145, 255, 197, 0.54);
+}
+
+.webdev-service-stage__topology {
+  display: flex;
+  flex: 1;
+  max-width: 10rem;
+  align-items: center;
+}
+
+.webdev-service-stage__topology i {
+  width: 0.42rem;
+  height: 0.42rem;
+  flex: 0 0 auto;
+  border: 1px solid rgba(174, 211, 255, 0.3);
+  border-radius: 50%;
+  background: #0a1422;
+  transition: background 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.webdev-service-stage__topology i.is-complete,
+.webdev-service-stage__topology i.is-active {
+  border-color: rgba(148, 242, 255, 0.75);
+  background: #94f2ff;
+  box-shadow: 0 0 10px rgba(148, 242, 255, 0.48);
+}
+
+.webdev-service-stage__topology i.is-active {
+  border-color: rgba(255, 126, 194, 0.86);
+  background: #ff7ec2;
+  box-shadow: 0 0 12px rgba(255, 126, 194, 0.52);
+}
+
+.webdev-service-stage__topology b {
+  height: 1px;
+  flex: 1;
+  background: rgba(174, 211, 255, 0.16);
+}
+
+.webdev-service-stage__viewport {
+  position: absolute;
+  inset: 3.7rem 0 2.8rem;
+  overflow: hidden;
+}
+
+.webdev-services-section .webdev-service-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #08111f;
+  box-shadow: none;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.025);
+  transition:
+    opacity 440ms ease,
+    visibility 440ms ease,
+    transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.js .webdev-services-section .webdev-service-showcase.is-ready .webdev-service-panel {
+  opacity: 0;
+  transform: scale(1.025);
+}
+
+.webdev-services-section .webdev-service-panel.is-active,
+.js .webdev-services-section .webdev-service-showcase.is-ready .webdev-service-panel.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.webdev-services-section .webdev-service-panel::after { content: none; }
+
+.webdev-services-section .webdev-service-panel__media,
+.webdev-services-section .webdev-service-panel__shade,
+.webdev-service-panel__mesh {
+  position: absolute;
+  inset: 0;
+}
+
+.webdev-services-section .webdev-service-panel__media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.94) contrast(1.03) brightness(0.96);
+  transform: scale(1.055);
+  transition: filter 820ms ease, transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-services-section .webdev-service-panel.is-active .webdev-service-panel__media {
+  filter: saturate(1.08) contrast(1.02) brightness(1.12);
+  transform: scale(1.015);
+}
+
+.webdev-services-section .webdev-service-panel__shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(3, 8, 17, 0.9) 0%, rgba(3, 8, 17, 0.6) 34%, rgba(3, 8, 17, 0.06) 68%, rgba(3, 8, 17, 0.12) 100%),
+    linear-gradient(180deg, rgba(3, 8, 17, 0.01) 42%, rgba(3, 8, 17, 0.74) 100%),
+    radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--panel-accent) 10%, transparent), transparent 36%);
+  opacity: 1;
+}
+
+.webdev-service-panel__mesh {
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(174, 211, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(174, 211, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(90deg, #000, transparent 72%);
+  pointer-events: none;
+}
+
+.webdev-service-panel__index {
+  position: absolute;
+  top: clamp(1rem, 3vw, 1.8rem);
+  right: clamp(1rem, 3vw, 1.8rem);
+  z-index: 3;
+  color: rgba(230, 244, 255, 0.12);
+  font-family: var(--font-mono);
+  font-size: clamp(4.8rem, 10vw, 8.5rem);
+  font-weight: 600;
+  line-height: 0.82;
+  letter-spacing: -0.1em;
+  text-shadow: 0 0 34px color-mix(in srgb, var(--panel-accent) 12%, transparent);
+  transform: translate3d(1rem, 0, 0);
+  transition: color 620ms ease, transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-service-panel.is-active .webdev-service-panel__index {
+  color: color-mix(in srgb, var(--panel-accent) 17%, transparent);
+  transform: translate3d(0, 0, 0);
+}
+
+.webdev-service-panel__details {
+  position: absolute;
+  bottom: clamp(1.4rem, 3vw, 2.1rem);
+  left: clamp(1.35rem, 3.5vw, 2.4rem);
+  z-index: 4;
+  max-width: min(34rem, calc(100% - 3rem));
+}
+
+.webdev-service-panel__details > * {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+  transition: opacity 420ms ease, transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-service-panel.is-active .webdev-service-panel__details > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.webdev-service-panel.is-active .webdev-service-panel__details h3 { transition-delay: 70ms; }
+.webdev-service-panel.is-active .webdev-service-panel__details p { transition-delay: 130ms; }
+
+.webdev-service-panel__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--panel-accent);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.webdev-service-panel__kicker::before {
+  content: "";
+  width: 1.8rem;
+  height: 1px;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.webdev-service-panel__details h3 {
+  max-width: 13ch;
+  margin: 0.65rem 0 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 5.2vw, 4.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  white-space: normal;
+}
+
+.webdev-service-panel__details p {
+  max-width: 35rem;
+  margin: 0.8rem 0 0;
+  color: rgba(235, 243, 252, 0.78);
+  font-size: clamp(0.94rem, 1.45vw, 1.08rem);
+  font-weight: 450;
+  line-height: 1.58;
+  white-space: normal;
+}
+
+.webdev-service-stage__footer {
+  bottom: 0;
+  min-height: 2.8rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid rgba(174, 211, 255, 0.09);
+  background: rgba(4, 10, 20, 0.8);
+}
+
+.webdev-service-stage__footer > span:first-child {
+  min-width: 8rem;
+  color: rgba(231, 239, 250, 0.68);
+}
+
+.webdev-service-stage__progress {
+  position: relative;
+  height: 1px;
+  flex: 1;
+  overflow: hidden;
+  background: rgba(174, 211, 255, 0.12);
+}
+
+.webdev-service-stage__progress i {
+  display: block;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(90deg, #94f2ff, #ff7ec2);
+  box-shadow: 0 0 8px rgba(148, 242, 255, 0.35);
+  transform: translateX(calc(var(--service-active-index) * 100%));
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 900px) {
+  .webdev-services-heading {
+    grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.58fr);
+    column-gap: clamp(2.5rem, 7vw, 6.5rem);
+    align-items: end;
+  }
+
+  .webdev-services-heading .webdev-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .webdev-services-heading .webdev-section-title {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    max-width: 14ch;
+  }
+
+  .webdev-services-heading .webdev-section-intro,
+  .webdev-services-heading__meta {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .webdev-services-section .webdev-service-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .webdev-service-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--service-system-line);
+  }
+
+  .webdev-service-tabs__header,
+  .webdev-service-tabs__sequence {
+    grid-column: 1 / -1;
+  }
+
+  .webdev-service-tab {
+    min-height: 5rem;
+  }
+
+  .webdev-service-tab:nth-of-type(odd) {
+    border-right: 1px solid rgba(174, 211, 255, 0.09);
+  }
+
+  .webdev-service-stage {
+    min-height: clamp(27rem, 66vw, 33rem);
+  }
+}
+
+@media (max-width: 580px) {
+  .webdev-services-heading__meta { font-size: 0.55rem; }
+
+  .webdev-services-section .webdev-service-showcase {
+    border-radius: 1.1rem;
+  }
+
+  .webdev-service-tabs__header {
+    min-height: 3.2rem;
+  }
+
+  .webdev-service-tab {
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: 0.65rem;
+    min-height: 4.6rem;
+    padding: 0.72rem;
+  }
+
+  .webdev-service-tab__icon {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .webdev-service-tab__svg { width: 1.35rem; height: 1.35rem; }
+  .webdev-service-tab__copy small { font-size: 0.45rem; }
+  .webdev-service-tab__copy strong { font-size: 0.78rem; }
+  .webdev-service-tab__arrow { display: none; }
+
+  .webdev-service-stage {
+    min-height: 27rem;
+  }
+
+  .webdev-service-stage__topology { display: none; }
+  .webdev-service-stage__identity { max-width: 9.5rem; }
+
+  .webdev-service-stage__live {
+    font-size: 0;
+    gap: 0;
+  }
+
+  .webdev-service-panel__details {
+    right: 1rem;
+    bottom: 1.4rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .webdev-service-panel__details h3 {
+    max-width: 11ch;
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .webdev-service-panel__details p {
+    max-width: 28rem;
+    font-size: 0.9rem;
+  }
+
+  .webdev-services-section .webdev-service-panel__shade {
+    background:
+      linear-gradient(180deg, rgba(3, 8, 17, 0.02) 24%, rgba(3, 8, 17, 0.22) 50%, rgba(3, 8, 17, 0.9) 100%),
+      radial-gradient(circle at 20% 76%, color-mix(in srgb, var(--panel-accent) 10%, transparent), transparent 42%);
+  }
+
+  .webdev-service-panel__index {
+    font-size: 4.7rem;
+  }
+
+  .webdev-service-stage__footer > span:first-child {
+    min-width: 0;
+    max-width: 9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .webdev-service-stage__footer > span:last-child { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .webdev-services-section .webdev-service-panel,
+  .webdev-services-section .webdev-service-panel__media,
+  .webdev-service-panel__index,
+  .webdev-service-panel__details > *,
+  .webdev-service-tab,
+  .webdev-service-tab::before,
+  .webdev-service-tab__icon,
+  .webdev-service-tab__arrow,
+  .webdev-service-tabs__sequence span::before,
+  .webdev-service-stage__topology i,
+  .webdev-service-stage__progress i {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

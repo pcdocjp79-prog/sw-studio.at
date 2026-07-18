@@ -1989,6 +1989,7 @@
 
 .ai-usecases {
   position: relative;
+  padding-bottom: 0;
 }
 
 .ai-usecases::before {

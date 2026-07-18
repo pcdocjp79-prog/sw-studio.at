@@ -70,11 +70,11 @@
   position: relative;
   z-index: 8;
   display: flex;
-  min-height: 3.3rem;
+  min-height: 3.05rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.8rem clamp(1rem, 2.5vw, 1.4rem);
+  padding: 0.66rem clamp(1rem, 2.5vw, 1.4rem);
   color: rgba(218, 234, 252, 0.46);
   background: rgba(4, 10, 20, 0.76);
   font-family: var(--font-mono);
@@ -121,7 +121,7 @@
 
 .webdev-journey__stage {
   position: relative;
-  min-height: clamp(34rem, 52vw, 41rem);
+  min-height: clamp(31.5rem, 43vw, 35rem);
   overflow: hidden;
 }
 
@@ -142,7 +142,7 @@
 
 .webdev-journey__interaction-hint {
   position: absolute;
-  top: clamp(1rem, 2.2vw, 1.45rem);
+  top: clamp(0.8rem, 1.8vw, 1.15rem);
   left: 50%;
   z-index: 7;
   display: grid;
@@ -427,8 +427,8 @@
   top: 50%;
   left: 50%;
   z-index: 4;
-  width: min(56%, 39rem);
-  min-height: clamp(20rem, 29vw, 23rem);
+  width: min(60%, 41rem);
+  min-height: clamp(19.25rem, 25vw, 21rem);
   overflow: hidden;
   border: 1px solid rgba(var(--journey-accent-rgb), 0.2);
   border-radius: clamp(1rem, 2vw, 1.35rem);
@@ -447,7 +447,7 @@
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: minmax(9rem, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(9rem, 0.68fr) minmax(0, 1.32fr);
   min-width: 0;
   opacity: 0;
   visibility: hidden;
@@ -481,7 +481,7 @@
   min-width: 0;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.15rem, 2.4vw, 1.65rem);
 }
 
 .webdev-journey-panel__phase {
@@ -494,18 +494,18 @@
 }
 
 .webdev-journey-panel__copy h3 {
-  margin: 0.65rem 0 0;
+  margin: 0.5rem 0 0;
   color: #ffffff;
-  font-size: clamp(1.75rem, 3.8vw, 3.1rem);
+  font-size: clamp(1.7rem, 3.25vw, 2.8rem);
   line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .webdev-journey-panel__copy > p:not(.webdev-journey-panel__result) {
-  margin: 0.9rem 0 0;
+  margin: 0.68rem 0 0;
   color: rgba(231, 239, 250, 0.72);
   font-size: clamp(0.85rem, 1.2vw, 0.96rem);
-  line-height: 1.64;
+  line-height: 1.56;
 }
 
 .webdev-journey-panel__result {
@@ -513,7 +513,7 @@
   gap: 0.32rem;
   margin: auto 0 0;
   border-top: 1px solid rgba(184, 216, 252, 0.1);
-  padding-top: 0.9rem;
+  padding-top: 0.7rem;
 }
 
 .webdev-journey-panel__result span {
@@ -687,7 +687,7 @@
 }
 
 .webdev-journey__footer {
-  min-height: 3rem;
+  min-height: 2.7rem;
   border-top: 1px solid rgba(184, 216, 252, 0.1);
 }
 
@@ -835,7 +835,7 @@
     top: auto;
     left: auto;
     width: 100%;
-    min-height: 32rem;
+    min-height: 30.5rem;
     margin-top: 0.8rem;
     transform: none;
   }
@@ -889,7 +889,7 @@
   .webdev-journey-node strong { font-size: 0.76rem; }
 
   .webdev-journey__briefing {
-    min-height: 34rem;
+    min-height: 33rem;
   }
 
   .webdev-journey__footer > span:first-child { display: none; }

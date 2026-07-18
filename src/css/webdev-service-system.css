@@ -8,16 +8,8 @@
 }
 
 .webdev-services-section::before {
-  content: "";
-  position: absolute;
-  top: 18%;
-  right: -12rem;
-  width: 32rem;
-  height: 32rem;
-  border-radius: 50%;
-  background: rgba(92, 158, 255, 0.08);
-  filter: blur(90px);
-  pointer-events: none;
+  /* Keep the global page background continuous between sections. */
+  content: none;
 }
 
 .webdev-services-heading {
@@ -60,7 +52,7 @@
     radial-gradient(circle at 14% 0%, rgba(148, 242, 255, 0.07), transparent 30%),
     linear-gradient(145deg, rgba(9, 20, 36, 0.94), rgba(3, 8, 17, 0.98));
   box-shadow:
-    0 34px 90px rgba(0, 0, 0, 0.36),
+    0 18px 42px rgba(2, 6, 23, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.075);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -621,6 +613,9 @@
 @media (max-width: 900px) {
   .webdev-services-section .webdev-service-showcase {
     grid-template-columns: 1fr;
+    box-shadow:
+      0 10px 24px rgba(2, 6, 23, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.075);
   }
 
   .webdev-service-tabs {

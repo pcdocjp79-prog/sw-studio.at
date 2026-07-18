@@ -1,0 +1,349 @@
+/* Warum Smart Web Studio: quiet, editorial principles rather than interactive cards. */
+
+.webdev-why-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.webdev-why-section::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: min(92vw, 72rem);
+  height: 38rem;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(148, 242, 255, 0.055), transparent 36%),
+    radial-gradient(circle at 82% 74%, rgba(255, 126, 194, 0.045), transparent 38%);
+  filter: blur(36px);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.webdev-why-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.webdev-why-heading .webdev-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.webdev-why-heading .webdev-eyebrow::after {
+  content: "";
+  width: clamp(2.4rem, 7vw, 5.5rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(148, 242, 255, 0.52), transparent);
+}
+
+.webdev-why-bento {
+  position: relative;
+  z-index: 1;
+  gap: clamp(0.72rem, 1.5vw, 1rem);
+  margin-top: clamp(0.8rem, 1.6vw, 1.1rem);
+}
+
+.webdev-why-bento__item {
+  --why-accent-rgb: 148, 242, 255;
+  border-color: rgba(205, 225, 248, 0.12);
+  border-radius: clamp(1.05rem, 1.8vw, 1.35rem);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 34%),
+    linear-gradient(145deg, rgba(20, 31, 48, 0.72), rgba(9, 16, 28, 0.78));
+  box-shadow:
+    0 14px 34px rgba(2, 6, 23, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.018);
+  cursor: default;
+  transition: none;
+}
+
+.webdev-why-bento__item::before {
+  background:
+    radial-gradient(90% 130% at 0% 0%, rgba(var(--why-accent-rgb), 0.095), transparent 52%),
+    radial-gradient(80% 120% at 100% 100%, rgba(255, 126, 194, 0.038), transparent 58%);
+  opacity: 1;
+  transition: none;
+}
+
+.webdev-why-bento__item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: clamp(1rem, 2.2vw, 1.5rem);
+  left: clamp(1rem, 2.2vw, 1.5rem);
+  z-index: 2;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(var(--why-accent-rgb), 0.7), rgba(var(--why-accent-rgb), 0.08) 62%, transparent);
+  opacity: 0.72;
+  transform-origin: left;
+}
+
+.webdev-why-bento__item:hover {
+  border-color: rgba(205, 225, 248, 0.12);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 34%),
+    linear-gradient(145deg, rgba(20, 31, 48, 0.72), rgba(9, 16, 28, 0.78));
+  box-shadow:
+    0 14px 34px rgba(2, 6, 23, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.018);
+  transform: none;
+}
+
+.webdev-why-bento__item:hover::before {
+  opacity: 1;
+}
+
+.webdev-why-bento__item--contact {
+  --why-accent-rgb: 107, 174, 255;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.032), transparent 34%),
+    linear-gradient(145deg, rgba(22, 34, 54, 0.72), rgba(10, 17, 30, 0.8));
+}
+
+.webdev-why-bento__item--contact:hover {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.032), transparent 34%),
+    linear-gradient(145deg, rgba(22, 34, 54, 0.72), rgba(10, 17, 30, 0.8));
+}
+
+.webdev-why-bento__item--plain {
+  --why-accent-rgb: 255, 126, 194;
+}
+
+.webdev-why-bento__item--score {
+  --why-accent-rgb: 157, 255, 205;
+}
+
+.webdev-why-bento__meta {
+  display: block;
+  margin-bottom: clamp(0.8rem, 1.8vw, 1.2rem);
+  color: rgba(var(--why-accent-rgb), 0.78);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.webdev-why-bento__item--main {
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: clamp(1.4rem, 3vw, 2.15rem);
+}
+
+.webdev-why-bento__content {
+  width: 100%;
+  max-width: 40rem;
+}
+
+.webdev-why-bento .webdev-why-title {
+  max-width: 14.5ch;
+  overflow-wrap: normal;
+  font-size: clamp(2rem, 4.25vw, 3.65rem);
+  line-height: 1.03;
+  hyphens: none;
+}
+
+.webdev-why-bento__item--main .webdev-why-text {
+  max-width: 36rem;
+  margin-top: clamp(1.15rem, 2vw, 1.55rem);
+  color: rgba(235, 242, 252, 0.82);
+  font-size: clamp(0.96rem, 1.25vw, 1.06rem);
+  line-height: 1.68;
+}
+
+.webdev-why-bento__bolt {
+  top: clamp(1.2rem, 2.5vw, 1.8rem);
+  right: clamp(1.2rem, 2.5vw, 1.8rem);
+  width: clamp(5.2rem, 13vw, 8rem);
+  color: rgba(148, 242, 255, 0.2);
+  opacity: 0.62;
+  filter: drop-shadow(0 0 18px rgba(148, 242, 255, 0.07));
+  transform: rotate(5deg);
+  transition: none;
+}
+
+.webdev-why-bento__item--main:hover .webdev-why-bento__bolt {
+  color: rgba(148, 242, 255, 0.2);
+  opacity: 0.62;
+  transform: rotate(5deg);
+}
+
+.webdev-why-bento__item--contact,
+.webdev-why-bento__item--plain {
+  justify-content: flex-start;
+  padding: clamp(1.1rem, 2.2vw, 1.45rem);
+}
+
+.webdev-why-bento__item--contact .webdev-why-bento__copy,
+.webdev-why-bento__item--plain .webdev-why-bento__copy {
+  margin-top: auto;
+}
+
+.webdev-why-bento__icon {
+  width: 2.6rem;
+  border-color: rgba(107, 174, 255, 0.22);
+  border-radius: 0.78rem;
+  color: #9ac8ff;
+  background: rgba(107, 174, 255, 0.075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.webdev-why-bento__item h3 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.webdev-why-bento__item p {
+  color: rgba(231, 239, 250, 0.78);
+  line-height: 1.62;
+}
+
+.webdev-why-bento__item--plain h3 {
+  max-width: 12rem;
+}
+
+.webdev-why-bento__item--plain h3 span {
+  position: relative;
+  color: rgba(255, 145, 197, 0.94);
+  text-decoration: none;
+}
+
+.webdev-why-bento__item--plain h3 span::after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  right: -0.08em;
+  left: -0.08em;
+  height: 0.075em;
+  border-radius: 999px;
+  background: currentColor;
+  transform: rotate(-2deg) scaleX(1);
+  transform-origin: left;
+}
+
+.webdev-why-bento__item--score {
+  padding: clamp(1.1rem, 2.2vw, 1.45rem);
+}
+
+.webdev-why-bento__score-copy {
+  max-width: 30rem;
+}
+
+.webdev-why-bento__score-ring {
+  width: clamp(6.4rem, 16vw, 7.6rem);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.06) 0 33%, transparent 34%),
+    radial-gradient(circle, rgba(157, 255, 205, 0.085), rgba(8, 15, 26, 0.74) 72%);
+  box-shadow:
+    inset 0 0 22px rgba(0, 0, 0, 0.28),
+    0 0 20px rgba(157, 255, 205, 0.07);
+}
+
+.webdev-why-bento__score-track,
+.webdev-why-bento__score-progress {
+  stroke-width: 6;
+}
+
+.webdev-why-bento__score-track {
+  stroke: rgba(225, 239, 252, 0.13);
+}
+
+.webdev-why-bento__score-progress {
+  stroke: #9dffcd;
+  filter: drop-shadow(0 0 5px rgba(157, 255, 205, 0.58));
+}
+
+.webdev-why-bento__score-ring strong {
+  color: #9dffcd;
+  font-size: clamp(1.65rem, 4vw, 2.2rem);
+  font-weight: 600;
+  text-shadow: 0 0 14px rgba(157, 255, 205, 0.18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .webdev-why-bento .webdev-why-bento__item {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+  }
+
+  .js .webdev-why-bento.is-visible .webdev-why-bento__item {
+    animation: webdevWhyItemReveal 680ms cubic-bezier(0.16, 1, 0.3, 1) var(--webdev-card-delay, 0ms) both;
+  }
+
+  .js .webdev-why-bento .webdev-why-bento__item::after {
+    transform: scaleX(0.08);
+  }
+
+  .js .webdev-why-bento.is-visible .webdev-why-bento__item::after {
+    animation: webdevWhyRuleReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--webdev-card-delay, 0ms) + 180ms) both;
+  }
+
+  .js .webdev-why-bento .webdev-why-bento__bolt {
+    opacity: 0;
+    transform: translate3d(0.6rem, -0.4rem, 0) rotate(10deg) scale(0.92);
+  }
+
+  .js .webdev-why-bento.is-visible .webdev-why-bento__bolt {
+    animation: webdevWhyBoltReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both;
+  }
+
+  .js .webdev-why-bento .webdev-why-bento__icon path {
+    stroke-dasharray: 64;
+    stroke-dashoffset: 64;
+  }
+
+  .js .webdev-why-bento.is-visible .webdev-why-bento__icon path {
+    animation: webdevWhyIconDraw 900ms ease 420ms both;
+  }
+
+  .js .webdev-why-bento .webdev-why-bento__item--plain h3 span::after {
+    transform: rotate(-2deg) scaleX(0);
+  }
+
+  .js .webdev-why-bento.is-visible .webdev-why-bento__item--plain h3 span::after {
+    animation: webdevWhyStrikeReveal 620ms cubic-bezier(0.16, 1, 0.3, 1) 720ms both;
+  }
+}
+
+@keyframes webdevWhyItemReveal {
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes webdevWhyRuleReveal {
+  to { transform: scaleX(1); }
+}
+
+@keyframes webdevWhyBoltReveal {
+  to { opacity: 0.62; transform: translate3d(0, 0, 0) rotate(5deg) scale(1); }
+}
+
+@keyframes webdevWhyIconDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes webdevWhyStrikeReveal {
+  to { transform: rotate(-2deg) scaleX(1); }
+}
+
+@media (max-width: 560px) {
+  .webdev-why-bento__item--score {
+    gap: 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .webdev-why-bento__item,
+  .webdev-why-bento__item::after,
+  .webdev-why-bento__bolt,
+  .webdev-why-bento__icon path,
+  .webdev-why-bento__item--plain h3 span::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

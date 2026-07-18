@@ -1987,7 +1987,7 @@
   gap: clamp(0.8rem, 1.5vw, 1rem);
 }
 
-.ai-usecases {
+.ai-page .ai-usecases {
   position: relative;
   padding-bottom: 0;
 }

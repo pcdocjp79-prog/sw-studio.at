@@ -8158,12 +8158,18 @@ body[data-page="home"] #process .process-section__header {
   visibility: visible;
 }
 
+/* visibility zusätzlich zu opacity: die Gradient-Highlights malen ihren
+   Verlauf auf dem Eltern-Span via background-clip: text. Diese Maske
+   ignoriert die opacity der Buchstaben-Spans — nur nicht gemalte
+   (visibility: hidden) Glyphen fallen aus der Maske heraus. */
 .webdev-code-closing__char {
+  visibility: hidden;
   opacity: 0;
   transition: opacity 80ms ease;
 }
 
 .webdev-code-closing__char.is-visible {
+  visibility: visible;
   opacity: 1;
 }
 

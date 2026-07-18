@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/webdev-service-accordion.css" />
   <link rel="stylesheet" href="src/css/webdev-problem-stack.css" />
+  <link rel="stylesheet" href="src/css/seo-problem-stack.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -126,20 +127,31 @@
       </div>
     </section>
 
-    <section class="webdev-problem scroll-focus-section" aria-labelledby="webdev-problem-title">
+    <section class="webdev-section webdev-problem seo-problem-diagnostic scroll-focus-section" aria-labelledby="webdev-problem-title">
       <div class="webdev-container">
         <div class="webdev-problem__grid">
           <div class="webdev-problem__copy reveal-on-scroll">
-            <p class="webdev-eyebrow">Das Problem</p>
-            <h2 id="webdev-problem-title" class="webdev-section-title font-display">Viele Websites sehen okay aus, <span class="section-title-accent--magenta">funktionieren</span> aber nicht gut genug.</h2>
-            <p class="webdev-problem__text">
-              Eine Website muss mehr leisten als gut aussehen. Sie muss dein Angebot verständlich machen, Vertrauen
-              aufbauen, technisch sauber laufen und Besucher zur nächsten Handlung führen.
-            </p>
+            <p class="webdev-eyebrow">Typische Probleme</p>
+            <h2 id="webdev-problem-title" class="webdev-section-title font-display">Viele Websites sehen okay aus, <span class="section-title-accent--cyan">funktionieren</span> aber nicht gut genug.</h2>
+            <div class="seo-problem-cta">
+              <p class="seo-problem-cta__text">Ich prüfe deine Website kostenlos im Mini-Audit.</p>
+              <a href="kontakt.html#kontaktformular"
+                class="final-cta-btn final-cta-btn--primary"
+                data-prefill-project="Mini-Audit"
+                data-prefill-message="Ich möchte ein kostenloses Mini-Audit für meine Website anfragen und erfahren, wo aktuell Potenzial bei Klarheit, Struktur, Ladezeit und Anfragewegen liegt.">
+                Mini-Audit anfragen
+              </a>
+            </div>
           </div>
-          <div class="webdev-problem-stack reveal-on-scroll" style="--webdev-card-delay: 120ms;" data-webdev-problem-stack aria-label="Die 4 größten Website-Probleme">
+          <div class="webdev-problem-stack seo-problem-stack reveal-on-scroll" style="--webdev-card-delay: 120ms;"
+            data-webdev-problem-stack aria-label="Vier typische Website-Probleme">
+            <div class="seo-problem-stack__console-head" aria-hidden="true">
+              <span class="seo-problem-stack__live"><span></span> Live Diagnose</span>
+              <span>Klick / nächste Analyse</span>
+            </div>
             <div class="webdev-problem-stack__cards">
-              <button class="webdev-problem-stack__card webdev-problem-stack__card--message" type="button" data-problem-card data-problem-index="0">
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--message" type="button"
+                data-problem-card data-problem-index="0">
                 <span class="webdev-problem-stack__topline">
                   <span class="webdev-problem-stack__icon webdev-problem-stack__icon--blue" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -150,17 +162,34 @@
                   </span>
                   <span class="webdev-problem-stack__counter">Problem 1 von 4</span>
                 </span>
+                <span class="seo-problem-card__visual seo-problem-card__visual--clarity" aria-hidden="true">
+                  <span class="seo-problem-card__visual-head">
+                    <span>Message signal</span><b>Diffuse</b>
+                  </span>
+                  <svg viewBox="0 0 320 104" focusable="false">
+                    <path class="seo-problem-card__grid" d="M0 26H320M0 52H320M0 78H320" />
+                    <g class="seo-problem-card__bars">
+                      <path d="M9 20h72M94 20h24M132 20h101M247 20h42" />
+                      <path d="M9 44h42M65 44h117M196 44h31M241 44h62" />
+                      <path d="M9 68h104M127 68h34M175 68h79M268 68h35" />
+                      <path d="M9 92h30M53 92h76M143 92h122M279 92h24" />
+                    </g>
+                    <path class="seo-problem-card__trace" pathLength="100" d="M9 52C35 52 41 35 62 35s27 35 48 35 30-46 54-46 31 55 55 55 29-27 45-27 22 0 39 0" />
+                  </svg>
+                  <span class="seo-problem-card__scan"></span>
+                </span>
                 <span class="webdev-problem-stack__body">
                   <strong>Unklare Botschaft</strong>
                   <span>Besucher verstehen nicht schnell genug, was du anbietest und warum es relevant ist.</span>
                 </span>
                 <span class="webdev-problem-stack__footer">
-                  <span>Website Audit</span>
-                  <span class="webdev-problem-stack__next">Weiter</span>
+                  <span>Botschaft Klarheit</span>
+                  <span class="webdev-problem-stack__next">Weiter <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h9M9.5 5.5 13 9l-3.5 3.5" /></svg></span>
                 </span>
               </button>
 
-              <button class="webdev-problem-stack__card webdev-problem-stack__card--structure" type="button" data-problem-card data-problem-index="1">
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--structure" type="button"
+                data-problem-card data-problem-index="1">
                 <span class="webdev-problem-stack__topline">
                   <span class="webdev-problem-stack__icon webdev-problem-stack__icon--violet" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -174,17 +203,34 @@
                   </span>
                   <span class="webdev-problem-stack__counter">Problem 2 von 4</span>
                 </span>
+                <span class="seo-problem-card__visual seo-problem-card__visual--structure" aria-hidden="true">
+                  <span class="seo-problem-card__visual-head">
+                    <span>Page architecture</span><b>4 Inseln</b>
+                  </span>
+                  <svg viewBox="0 0 320 104" focusable="false">
+                    <path class="seo-problem-card__grid" d="M0 26H320M0 78H320M80 0V104M160 0V104M240 0V104" />
+                    <path class="seo-problem-card__ghost" d="M160 18v22M160 40H58v29M160 40h102v29M160 40v29M58 69H24v18M58 69h34v18M262 69h-32v18M262 69h32v18" />
+                    <path class="seo-problem-card__trace" pathLength="100" d="M160 18v22M160 40H58v29M160 40h102v29" />
+                    <g class="seo-problem-card__map-nodes">
+                      <rect x="145" y="8" width="30" height="18" rx="4" /><rect x="45" y="61" width="26" height="17" rx="4" />
+                      <rect x="147" y="61" width="26" height="17" rx="4" /><rect x="249" y="61" width="26" height="17" rx="4" />
+                      <circle cx="24" cy="87" r="5" /><circle cx="92" cy="87" r="5" /><circle cx="230" cy="87" r="5" /><circle cx="294" cy="87" r="5" />
+                    </g>
+                  </svg>
+                  <span class="seo-problem-card__scan"></span>
+                </span>
                 <span class="webdev-problem-stack__body">
                   <strong>Schwache Struktur</strong>
                   <span>Inhalte sind vorhanden, aber nicht so geordnet, dass sie Orientierung geben und Entscheidungen erleichtern.</span>
                 </span>
                 <span class="webdev-problem-stack__footer">
-                  <span>Website Audit</span>
-                  <span class="webdev-problem-stack__next">Weiter</span>
+                  <span>Seitenstruktur</span>
+                  <span class="webdev-problem-stack__next">Weiter <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h9M9.5 5.5 13 9l-3.5 3.5" /></svg></span>
                 </span>
               </button>
 
-              <button class="webdev-problem-stack__card webdev-problem-stack__card--speed" type="button" data-problem-card data-problem-index="2">
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--speed" type="button"
+                data-problem-card data-problem-index="2">
                 <span class="webdev-problem-stack__topline">
                   <span class="webdev-problem-stack__icon webdev-problem-stack__icon--rose" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -195,17 +241,36 @@
                   </span>
                   <span class="webdev-problem-stack__counter">Problem 3 von 4</span>
                 </span>
+                <span class="seo-problem-card__visual seo-problem-card__visual--performance" aria-hidden="true">
+                  <span class="seo-problem-card__visual-head">
+                    <span>Performance budget</span><b>4.8 s</b>
+                  </span>
+                  <svg viewBox="0 0 320 104" focusable="false">
+                    <path class="seo-problem-card__grid" d="M0 26H320M0 52H320M0 78H320M64 0V104M128 0V104M192 0V104M256 0V104" />
+                    <g class="seo-problem-card__bars">
+                      <path d="M10 19h92" />
+                      <path d="M47 43h126" />
+                      <path d="M91 67h157" />
+                      <path d="M144 91h151" />
+                    </g>
+                    <path class="seo-problem-card__trace" pathLength="100" d="M10 19H102M47 43h126M91 67h157M144 91h151" />
+                    <path class="seo-problem-card__marker" d="M265 8v88" />
+                    <circle class="seo-problem-card__node seo-problem-card__node--alert" cx="265" cy="91" r="5" />
+                  </svg>
+                  <span class="seo-problem-card__scan"></span>
+                </span>
                 <span class="webdev-problem-stack__body">
                   <strong>Langsame Ladezeiten</strong>
                   <span>Zu große Bilder, unnötige Skripte oder technische Altlasten bremsen die Website aus.</span>
                 </span>
                 <span class="webdev-problem-stack__footer">
-                  <span>Website Audit</span>
-                  <span class="webdev-problem-stack__next">Weiter</span>
+                  <span>Performance Audit</span>
+                  <span class="webdev-problem-stack__next">Weiter <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h9M9.5 5.5 13 9l-3.5 3.5" /></svg></span>
                 </span>
               </button>
 
-              <button class="webdev-problem-stack__card webdev-problem-stack__card--focus" type="button" data-problem-card data-problem-index="3">
+              <button class="webdev-problem-stack__card webdev-problem-stack__card--focus" type="button"
+                data-problem-card data-problem-index="3">
                 <span class="webdev-problem-stack__topline">
                   <span class="webdev-problem-stack__icon webdev-problem-stack__icon--mint" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -216,22 +281,41 @@
                   </span>
                   <span class="webdev-problem-stack__counter">Problem 4 von 4</span>
                 </span>
+                <span class="seo-problem-card__visual seo-problem-card__visual--journey" aria-hidden="true">
+                  <span class="seo-problem-card__visual-head">
+                    <span>Request path</span><b>Break / 03</b>
+                  </span>
+                  <svg viewBox="0 0 320 104" focusable="false">
+                    <path class="seo-problem-card__grid" d="M0 52H320" />
+                    <path class="seo-problem-card__ghost" d="M24 52H112M132 52H205M226 52H296" />
+                    <path class="seo-problem-card__trace" pathLength="100" d="M24 52H112M132 52H205" />
+                    <g class="seo-problem-card__journey-nodes">
+                      <circle cx="24" cy="52" r="7" /><circle cx="119" cy="52" r="7" />
+                      <circle class="seo-problem-card__node--alert" cx="215" cy="52" r="8" /><circle cx="296" cy="52" r="7" />
+                    </g>
+                    <path class="seo-problem-card__marker" d="m209 46 12 12m0-12-12 12" />
+                    <text x="12" y="83">VISIT</text><text x="98" y="83">TRUST</text><text x="190" y="83">ACTION</text><text x="272" y="83">LEAD</text>
+                  </svg>
+                  <span class="seo-problem-card__scan"></span>
+                </span>
                 <span class="webdev-problem-stack__body">
                   <strong>Zu wenig Anfragefokus</strong>
                   <span>Der Weg zur Kontaktaufnahme ist nicht klar genug sichtbar oder fühlt sich für Besucher zu unverbindlich an.</span>
                 </span>
                 <span class="webdev-problem-stack__footer">
-                  <span>Website Audit</span>
-                  <span class="webdev-problem-stack__next">Weiter</span>
+                  <span>Conversion Weg</span>
+                  <span class="webdev-problem-stack__next">Weiter <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h9M9.5 5.5 13 9l-3.5 3.5" /></svg></span>
                 </span>
               </button>
             </div>
-            <div class="webdev-problem-stack__dots" aria-label="Aktives Website-Problem">
+            <div class="webdev-problem-stack__dots" aria-hidden="true">
               <span class="webdev-problem-stack__dot" data-problem-dot></span>
               <span class="webdev-problem-stack__dot" data-problem-dot></span>
               <span class="webdev-problem-stack__dot" data-problem-dot></span>
               <span class="webdev-problem-stack__dot" data-problem-dot></span>
+              <span class="seo-problem-stack__progress-copy" data-problem-progress>01 / 04</span>
             </div>
+            <p class="sr-only" data-problem-announcer aria-live="polite"></p>
           </div>
         </div>
       </div>
@@ -761,7 +845,7 @@
   <script type="module" src="src/js/water-sphere.js"></script>
   <script type="module" src="src/js/main.js"></script>
   <script type="module" src="src/js/webdev-service-accordion.js"></script>
-  <script type="module" src="src/js/webdev-problem-stack.js"></script>
+  <script type="module" src="src/js/seo-problem-stack.js"></script>
   <script type="module" src="src/js/webdev-project-stack.js"></script>
 </body>
 

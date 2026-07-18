@@ -589,24 +589,24 @@
 }
 
 @media (min-width: 900px) {
-  .webdev-services-heading {
+  .webdev-services-section .webdev-services-heading {
     grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.58fr);
     column-gap: clamp(2.5rem, 7vw, 6.5rem);
     align-items: end;
   }
 
-  .webdev-services-heading .webdev-eyebrow {
+  .webdev-services-section .webdev-services-heading .webdev-eyebrow {
     grid-column: 1 / -1;
   }
 
-  .webdev-services-heading .webdev-section-title {
+  .webdev-services-section .webdev-services-heading .webdev-section-title {
     grid-column: 1;
     grid-row: 2 / span 2;
     max-width: 14ch;
   }
 
-  .webdev-services-heading .webdev-section-intro,
-  .webdev-services-heading__meta {
+  .webdev-services-section .webdev-services-heading .webdev-section-intro,
+  .webdev-services-section .webdev-services-heading__meta {
     grid-column: 2;
   }
 }

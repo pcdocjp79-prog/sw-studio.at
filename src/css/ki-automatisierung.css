@@ -2006,9 +2006,13 @@
   transform: translateX(-50%);
 }
 
-.ai-usecases__head {
+.ai-usecases .ai-usecases__head {
   position: relative;
   margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.ai-usecases .ai-usecases__head .webdev-section-title {
+  max-width: 22ch;
 }
 
 .ai-usecase-card {
@@ -3760,21 +3764,21 @@
     transform: translateY(-1rem);
   }
 
-  .ai-usecases__head {
+  .ai-usecases .ai-usecases__head {
     grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.62fr);
     column-gap: clamp(2.5rem, 7vw, 6.5rem);
     align-items: end;
   }
 
-  .ai-usecases__head .webdev-eyebrow {
+  .ai-usecases .ai-usecases__head .webdev-eyebrow {
     grid-column: 1 / -1;
   }
 
-  .ai-usecases__head .webdev-section-title {
+  .ai-usecases .ai-usecases__head .webdev-section-title {
     grid-column: 1;
   }
 
-  .ai-usecases__head .webdev-section-intro {
+  .ai-usecases .ai-usecases__head .webdev-section-intro {
     grid-column: 2;
     padding-bottom: 0.2rem;
   }

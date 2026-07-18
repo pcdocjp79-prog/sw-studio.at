@@ -20,32 +20,32 @@
   transform: translateX(-50%);
 }
 
-.webdev-why-heading {
+.webdev-why-section .webdev-why-heading {
   position: relative;
   z-index: 1;
 }
 
-.webdev-why-heading .webdev-eyebrow {
+.webdev-why-section .webdev-why-heading .webdev-eyebrow {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.webdev-why-heading .webdev-eyebrow::after {
+.webdev-why-section .webdev-why-heading .webdev-eyebrow::after {
   content: "";
   width: clamp(2.4rem, 7vw, 5.5rem);
   height: 1px;
   background: linear-gradient(90deg, rgba(148, 242, 255, 0.52), transparent);
 }
 
-.webdev-why-bento {
+.webdev-why-section .webdev-why-bento {
   position: relative;
   z-index: 1;
   gap: clamp(0.72rem, 1.5vw, 1rem);
   margin-top: clamp(0.8rem, 1.6vw, 1.1rem);
 }
 
-.webdev-why-bento__item {
+.webdev-why-section .webdev-why-bento__item {
   --why-accent-rgb: 148, 242, 255;
   border-color: rgba(205, 225, 248, 0.12);
   border-radius: clamp(1.05rem, 1.8vw, 1.35rem);
@@ -60,7 +60,7 @@
   transition: none;
 }
 
-.webdev-why-bento__item::before {
+.webdev-why-section .webdev-why-bento__item::before {
   background:
     radial-gradient(90% 130% at 0% 0%, rgba(var(--why-accent-rgb), 0.095), transparent 52%),
     radial-gradient(80% 120% at 100% 100%, rgba(255, 126, 194, 0.038), transparent 58%);
@@ -68,7 +68,7 @@
   transition: none;
 }
 
-.webdev-why-bento__item::after {
+.webdev-why-section .webdev-why-bento__item::after {
   content: "";
   position: absolute;
   top: 0;
@@ -81,7 +81,7 @@
   transform-origin: left;
 }
 
-.webdev-why-bento__item:hover {
+.webdev-why-section .webdev-why-bento__item:hover {
   border-color: rgba(205, 225, 248, 0.12);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 34%),
@@ -93,32 +93,32 @@
   transform: none;
 }
 
-.webdev-why-bento__item:hover::before {
+.webdev-why-section .webdev-why-bento__item:hover::before {
   opacity: 1;
 }
 
-.webdev-why-bento__item--contact {
+.webdev-why-section .webdev-why-bento__item--contact {
   --why-accent-rgb: 107, 174, 255;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.032), transparent 34%),
     linear-gradient(145deg, rgba(22, 34, 54, 0.72), rgba(10, 17, 30, 0.8));
 }
 
-.webdev-why-bento__item--contact:hover {
+.webdev-why-section .webdev-why-bento__item--contact:hover {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.032), transparent 34%),
     linear-gradient(145deg, rgba(22, 34, 54, 0.72), rgba(10, 17, 30, 0.8));
 }
 
-.webdev-why-bento__item--plain {
+.webdev-why-section .webdev-why-bento__item--plain {
   --why-accent-rgb: 255, 126, 194;
 }
 
-.webdev-why-bento__item--score {
+.webdev-why-section .webdev-why-bento__item--score {
   --why-accent-rgb: 157, 255, 205;
 }
 
-.webdev-why-bento__meta {
+.webdev-why-section .webdev-why-bento__meta {
   display: block;
   margin-bottom: clamp(0.8rem, 1.8vw, 1.2rem);
   color: rgba(var(--why-accent-rgb), 0.78);
@@ -130,18 +130,18 @@
   text-transform: uppercase;
 }
 
-.webdev-why-bento__item--main {
+.webdev-why-section .webdev-why-bento__item--main {
   align-items: flex-start;
   justify-content: flex-end;
   padding: clamp(1.4rem, 3vw, 2.15rem);
 }
 
-.webdev-why-bento__content {
+.webdev-why-section .webdev-why-bento__content {
   width: 100%;
   max-width: 40rem;
 }
 
-.webdev-why-bento .webdev-why-title {
+.webdev-why-section .webdev-why-bento .webdev-why-title {
   max-width: 14.5ch;
   overflow-wrap: normal;
   font-size: clamp(2rem, 4.25vw, 3.65rem);
@@ -149,7 +149,7 @@
   hyphens: none;
 }
 
-.webdev-why-bento__item--main .webdev-why-text {
+.webdev-why-section .webdev-why-bento__item--main .webdev-why-text {
   max-width: 36rem;
   margin-top: clamp(1.15rem, 2vw, 1.55rem);
   color: rgba(235, 242, 252, 0.82);
@@ -157,7 +157,7 @@
   line-height: 1.68;
 }
 
-.webdev-why-bento__bolt {
+.webdev-why-section .webdev-why-bento__bolt {
   top: clamp(1.2rem, 2.5vw, 1.8rem);
   right: clamp(1.2rem, 2.5vw, 1.8rem);
   width: clamp(5.2rem, 13vw, 8rem);
@@ -168,24 +168,24 @@
   transition: none;
 }
 
-.webdev-why-bento__item--main:hover .webdev-why-bento__bolt {
+.webdev-why-section .webdev-why-bento__item--main:hover .webdev-why-bento__bolt {
   color: rgba(148, 242, 255, 0.2);
   opacity: 0.62;
   transform: rotate(5deg);
 }
 
-.webdev-why-bento__item--contact,
-.webdev-why-bento__item--plain {
+.webdev-why-section .webdev-why-bento__item--contact,
+.webdev-why-section .webdev-why-bento__item--plain {
   justify-content: flex-start;
   padding: clamp(1.1rem, 2.2vw, 1.45rem);
 }
 
-.webdev-why-bento__item--contact .webdev-why-bento__copy,
-.webdev-why-bento__item--plain .webdev-why-bento__copy {
+.webdev-why-section .webdev-why-bento__item--contact .webdev-why-bento__copy,
+.webdev-why-section .webdev-why-bento__item--plain .webdev-why-bento__copy {
   margin-top: auto;
 }
 
-.webdev-why-bento__icon {
+.webdev-why-section .webdev-why-bento__icon {
   width: 2.6rem;
   border-color: rgba(107, 174, 255, 0.22);
   border-radius: 0.78rem;
@@ -194,27 +194,27 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.webdev-why-bento__item h3 {
+.webdev-why-section .webdev-why-bento__item h3 {
   font-weight: 600;
   letter-spacing: -0.025em;
 }
 
-.webdev-why-bento__item p {
+.webdev-why-section .webdev-why-bento__item p {
   color: rgba(231, 239, 250, 0.78);
   line-height: 1.62;
 }
 
-.webdev-why-bento__item--plain h3 {
+.webdev-why-section .webdev-why-bento__item--plain h3 {
   max-width: 12rem;
 }
 
-.webdev-why-bento__item--plain h3 span {
+.webdev-why-section .webdev-why-bento__item--plain h3 span {
   position: relative;
   color: rgba(255, 145, 197, 0.94);
   text-decoration: none;
 }
 
-.webdev-why-bento__item--plain h3 span::after {
+.webdev-why-section .webdev-why-bento__item--plain h3 span::after {
   content: "";
   position: absolute;
   top: 55%;
@@ -227,15 +227,15 @@
   transform-origin: left;
 }
 
-.webdev-why-bento__item--score {
+.webdev-why-section .webdev-why-bento__item--score {
   padding: clamp(1.1rem, 2.2vw, 1.45rem);
 }
 
-.webdev-why-bento__score-copy {
+.webdev-why-section .webdev-why-bento__score-copy {
   max-width: 30rem;
 }
 
-.webdev-why-bento__score-ring {
+.webdev-why-section .webdev-why-bento__score-ring {
   width: clamp(6.4rem, 16vw, 7.6rem);
   background:
     radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.06) 0 33%, transparent 34%),
@@ -245,21 +245,21 @@
     0 0 20px rgba(157, 255, 205, 0.07);
 }
 
-.webdev-why-bento__score-track,
-.webdev-why-bento__score-progress {
+.webdev-why-section .webdev-why-bento__score-track,
+.webdev-why-section .webdev-why-bento__score-progress {
   stroke-width: 6;
 }
 
-.webdev-why-bento__score-track {
+.webdev-why-section .webdev-why-bento__score-track {
   stroke: rgba(225, 239, 252, 0.13);
 }
 
-.webdev-why-bento__score-progress {
+.webdev-why-section .webdev-why-bento__score-progress {
   stroke: #9dffcd;
   filter: drop-shadow(0 0 5px rgba(157, 255, 205, 0.58));
 }
 
-.webdev-why-bento__score-ring strong {
+.webdev-why-section .webdev-why-bento__score-ring strong {
   color: #9dffcd;
   font-size: clamp(1.65rem, 4vw, 2.2rem);
   font-weight: 600;
@@ -332,7 +332,7 @@
 }
 
 @media (max-width: 560px) {
-  .webdev-why-bento__item--score {
+  .webdev-why-section .webdev-why-bento__item--score {
     gap: 1.4rem;
   }
 }

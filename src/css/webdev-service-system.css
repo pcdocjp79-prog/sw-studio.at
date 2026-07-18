@@ -392,7 +392,7 @@
   overflow: hidden;
 }
 
-.webdev-services-section .webdev-service-panel {
+.webdev-services-section .webdev-service-stage .webdev-service-panel {
   position: absolute;
   inset: 0;
   z-index: 0;

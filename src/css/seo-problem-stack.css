@@ -511,7 +511,7 @@
 }
 
 @media (min-width: 900px) {
-  .seo-problem-diagnostic .webdev-problem__grid {
+  .webdev-problem.seo-problem-diagnostic .webdev-problem__grid {
     grid-template-columns: minmax(0, 0.95fr) minmax(25rem, 0.58fr);
     align-items: start;
     gap: clamp(3rem, 6vw, 6.5rem);

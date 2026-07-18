@@ -3,7 +3,7 @@
   font-size: clamp(2.65rem, 6.2vw, 5.55rem);
 }
 
-.seo-page .webdev-section-title {
+.seo-page.webdev-page .webdev-section-title {
   max-width: 19ch;
 }
 
@@ -527,7 +527,7 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 30px 72px rgba(0, 0, 0, 0.28);
 }
 
-.seo-expectation .webdev-section-title {
+.seo-page.webdev-page .seo-expectation .webdev-section-title {
   max-width: 18ch;
 }
 

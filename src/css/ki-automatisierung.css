@@ -3761,10 +3761,6 @@
     align-items: stretch;
   }
 
-  .ai-page .ai-offers .ai-offer-item--featured {
-    transform: translateY(-1rem);
-  }
-
   .ai-usecases .ai-usecases__head {
     grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.62fr);
     column-gap: clamp(2.5rem, 7vw, 6.5rem);

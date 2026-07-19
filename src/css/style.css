@@ -7343,6 +7343,62 @@ body[data-page="home"] #process .process-section__header {
   margin-top: 0.8rem;
 }
 
+.webdev-usecase__lead {
+  max-width: 34rem;
+  color: rgba(244, 248, 255, 0.88) !important;
+  font-size: clamp(0.98rem, 1.08vw, 1.06rem) !important;
+  line-height: 1.52 !important;
+}
+
+.webdev-usecase__facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid rgba(190, 221, 255, 0.13);
+}
+
+.webdev-usecase__facts div {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 0.72fr) minmax(0, 1.28fr);
+  gap: 0.85rem;
+  align-items: baseline;
+  padding: 0.68rem 0;
+  border-bottom: 1px solid rgba(190, 221, 255, 0.1);
+}
+
+.webdev-usecase__facts dt,
+.webdev-usecase__outcome span {
+  color: rgba(174, 230, 255, 0.84);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.64rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.webdev-usecase__facts dd {
+  margin: 0;
+  color: rgba(231, 239, 250, 0.82);
+  font-size: 0.84rem;
+  line-height: 1.42;
+}
+
+.webdev-usecase__outcome {
+  display: grid !important;
+  grid-template-columns: minmax(6.5rem, 0.72fr) minmax(0, 1.28fr);
+  gap: 0.85rem !important;
+  margin: 0 !important;
+  color: rgba(248, 251, 255, 0.92) !important;
+  font-size: 0.88rem !important;
+  font-weight: 500;
+  line-height: 1.48 !important;
+}
+
+.webdev-usecase__outcome span {
+  display: block;
+  padding-top: 0.15rem;
+}
+
 .webdev-usecase span {
   color: rgba(174, 230, 255, 0.9);
   font-family: "JetBrains Mono", monospace;

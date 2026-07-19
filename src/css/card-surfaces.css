@@ -1,0 +1,111 @@
+/* Shared surfaces for the deliberately calm card groups across the site. */
+:root {
+  --card-surface-dark: rgba(18, 18, 26, 0.55);
+}
+
+:is(
+    #services,
+    #process,
+    #featured-project,
+    #webdev-standards,
+    #seo-improvements,
+    #contact-principles,
+    #contact-faq
+  ) .card-surface--dark,
+:is(
+    #services,
+    #process,
+    #featured-project,
+    #webdev-standards,
+    #seo-improvements,
+    #contact-principles,
+    #contact-faq
+  ) .card-surface--dark:hover,
+:is(
+    #services,
+    #process,
+    #featured-project,
+    #webdev-standards,
+    #seo-improvements,
+    #contact-principles,
+    #contact-faq
+  ) .card-surface--dark.reveal-on-scroll.is-visible:hover {
+  background: var(--card-surface-dark);
+}
+
+/* Homepage SEO cards: override the older page-specific surface in every state. */
+body[data-page="home"] #process .process-step.card-surface--dark,
+body[data-page="home"] #process .process-step.card-surface--dark:hover,
+body[data-page="home"] #process .process-step.card-surface--dark.reveal-on-scroll.is-visible:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.06);
+  background: var(--card-surface-dark);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  z-index: auto;
+}
+
+body[data-page="home"] #process .process-section__steps::before {
+  content: none;
+  display: none;
+}
+
+/* Numbered card treatment shared by the selected content sections. */
+.numbered-static-card {
+  --section2-border-angle: 0deg;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  background: var(--card-surface-dark);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.numbered-static-card::before {
+  content: none;
+}
+
+.numbered-static-card::after,
+.numbered-static-card:hover::after {
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(185, 255, 248, 0.58));
+}
+
+:is(#webdev-standards, #seo-improvements, #contact-principles) .numbered-static-card:hover,
+:is(#webdev-standards, #seo-improvements, #contact-principles) .numbered-static-card.reveal-on-scroll.is-visible:hover,
+#featured-project.home-ai-section .numbered-static-card:hover,
+#featured-project.home-ai-section .numbered-static-card.reveal-on-scroll.is-visible:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.06);
+  background: var(--card-surface-dark);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  z-index: auto;
+}
+
+.numbered-static-card .numbered-static-card__ghost-num {
+  position: absolute;
+  right: 0.5rem;
+  bottom: -0.5rem;
+  z-index: 0;
+  color: rgba(255, 255, 255, 0.035);
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.numbered-static-card > :not(.numbered-static-card__ghost-num) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .numbered-static-card::after {
+    animation: none;
+  }
+}

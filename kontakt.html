@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/hero-sphere.css?v=5" />
   <link rel="stylesheet" href="src/css/contact-page.css" />
+  <link rel="stylesheet" href="src/css/card-surfaces.css" />
   <link rel="stylesheet" href="src/css/tailwind.css" />
 </head>
 
@@ -106,7 +107,7 @@
       </div>
     </section>
 
-    <section class="approach-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="principles-title">
+    <section id="contact-principles" class="approach-section section-surface--global py-24 lg:py-32 px-4 sm:px-6 lg:px-8 scroll-focus-section" aria-labelledby="principles-title">
       <div class="approach-section__inner max-w-7xl mx-auto">
         <div class="approach-section__header reveal-on-scroll">
           <p class="approach-section__eyebrow">Arbeitsprinzipien</p>
@@ -119,8 +120,8 @@
           </p>
         </div>
         <div class="approach-section__grid">
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 0ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">01</span>
+          <article class="approach-card numbered-static-card card-surface--dark reveal-on-scroll" style="--approach-delay: 0ms;">
+            <span class="approach-card__ghost-num numbered-static-card__ghost-num" aria-hidden="true">01</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">ANALYSE</p>
               <h3 class="approach-card__title font-display">Ausgangslage verstehen</h3>
@@ -129,8 +130,8 @@
                 praktisch umsetzbar ist.</p>
             </div>
           </article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 100ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">02</span>
+          <article class="approach-card numbered-static-card card-surface--dark reveal-on-scroll" style="--approach-delay: 100ms;">
+            <span class="approach-card__ghost-num numbered-static-card__ghost-num" aria-hidden="true">02</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">STRUKTUR</p>
               <h3 class="approach-card__title font-display">Komplexität reduzieren</h3>
@@ -139,8 +140,8 @@
                 realistischen Blick auf Aufwand und Nutzen.</p>
             </div>
           </article>
-          <article class="approach-card reveal-on-scroll" style="--approach-delay: 200ms;">
-            <span class="approach-card__ghost-num" aria-hidden="true">03</span>
+          <article class="approach-card numbered-static-card card-surface--dark reveal-on-scroll" style="--approach-delay: 200ms;">
+            <span class="approach-card__ghost-num numbered-static-card__ghost-num" aria-hidden="true">03</span>
             <div class="approach-card__inner">
               <p class="approach-card__num">VERTRAUEN</p>
               <h3 class="approach-card__title font-display">Direkte Zusammenarbeit</h3>
@@ -294,38 +295,38 @@
       </div>
     </section>
 
-    <section class="webdev-section scroll-focus-section" aria-labelledby="webdev-faq-title">
+    <section id="contact-faq" class="webdev-section scroll-focus-section" aria-labelledby="webdev-faq-title">
       <div class="webdev-container">
         <div class="webdev-section-head reveal-on-scroll">
           <p class="webdev-eyebrow">FAQ</p>
           <h2 id="webdev-faq-title" class="webdev-section-title font-display">Kurze Antworten auf <span class="section-title-accent--cyan">häufige Fragen</span>.</h2>
         </div>
         <div class="webdev-faq-list">
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 0ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 0ms;">
             <summary>Was kostet eine Website?</summary>
             <p>Das hängt von Umfang, Inhalt, Funktionen und gewünschter Betreuung ab. Nach der Ersteinschätzung bekommst du einen klaren Rahmen statt einer Pauschalzahl ohne Kontext.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 70ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 70ms;">
             <summary>Wie lange dauert die Umsetzung?</summary>
             <p>Kleine Seiten können oft in wenigen Wochen umgesetzt werden. Relaunches oder Websites mit mehr Inhalt brauchen mehr Vorlauf für Struktur, Texte und Abstimmung.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 140ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 140ms;">
             <summary>Ist SEO enthalten?</summary>
             <p>Eine SEO-Basis ist enthalten: saubere Überschriften, Meta-Daten, technische Grundlagen, interne Verlinkung und Performance-Blick. Laufender SEO-Content ist ein eigenes Thema.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 210ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 210ms;">
             <summary>Kann ich Inhalte später selbst bearbeiten?</summary>
             <p>Ja, wenn das für dein Projekt sinnvoll ist. Dann wird die Website so aufgebaut, dass wichtige Inhalte ohne Entwicklerzugriff gepflegt werden können.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 280ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 280ms;">
             <summary>Arbeitest du mit WordPress?</summary>
             <p>Ich setze bewusst auf schlanke, moderne Weblösungen statt klassischer Baukasten- oder CMS-Systeme. So bleibt die Website schnell, sicher und technisch klar aufgebaut. Wenn bereits WordPress im Einsatz ist, prüfe ich die bestehende Seite und empfehle transparent, ob eine Migration sinnvoll ist oder ob vorhandene Inhalte ohne unnötige Zusatzkosten weiterverwendet werden können.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 350ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 350ms;">
             <summary>Bietest du Wartung an?</summary>
             <p>Ja. Wartung kann je nach System Updates, technische Kontrolle, kleinere Anpassungen und laufende Verbesserung umfassen.</p>
           </details>
-          <details class="webdev-faq trust-strip__item reveal-on-scroll" style="--webdev-card-delay: 420ms;">
+          <details class="webdev-faq trust-strip__item card-surface--dark reveal-on-scroll" style="--webdev-card-delay: 420ms;">
             <summary>Kannst du auch bestehende Websites verbessern?</summary>
             <p>Ja. Oft reicht bereits eine gezielte Verbesserung von Struktur, Ladezeit, SEO-Grundlagen oder Kontaktwegen, bevor ein kompletter Relaunch nötig ist.</p>
           </details>

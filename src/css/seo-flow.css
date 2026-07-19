@@ -1535,6 +1535,167 @@
   }
 }
 
+/* Mobile/Tablet: jede Phase steht direkt bei ihrer Erklärung. */
+.seo-flow-mobile {
+  display: none;
+}
+
+@media (max-width: 979px) {
+  .seo-flow__steps,
+  .seo-flow__details,
+  .seo-flow__viewer {
+    display: none;
+  }
+
+  .seo-flow-mobile {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(186, 214, 255, 0.12);
+    border-radius: clamp(1.2rem, 4vw, 1.6rem);
+    background:
+      radial-gradient(circle at 8% 0%, rgba(148, 242, 255, 0.09), transparent 28%),
+      radial-gradient(circle at 96% 100%, rgba(255, 126, 194, 0.07), transparent 30%),
+      linear-gradient(145deg, rgba(13, 24, 41, 0.9), rgba(6, 11, 21, 0.96));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 30px 70px rgba(0, 0, 0, 0.24);
+    list-style: none;
+  }
+
+  .seo-flow-mobile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(148, 242, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 242, 255, 0.025) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
+    -webkit-mask-image: linear-gradient(145deg, #000, transparent 72%);
+    mask-image: linear-gradient(145deg, #000, transparent 72%);
+  }
+
+  .seo-flow-mobile__step {
+    --seo-mobile-accent-rgb: 148, 242, 255;
+    position: relative;
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: clamp(0.85rem, 3vw, 1.2rem);
+    padding: clamp(1.1rem, 4vw, 1.5rem);
+    border-bottom: 1px solid rgba(186, 214, 255, 0.09);
+  }
+
+  .seo-flow-mobile__step:nth-child(2) { --seo-mobile-accent-rgb: 98, 173, 255; }
+  .seo-flow-mobile__step:nth-child(3) { --seo-mobile-accent-rgb: 255, 126, 194; }
+  .seo-flow-mobile__step:nth-child(4) { --seo-mobile-accent-rgb: 141, 242, 196; }
+  .seo-flow-mobile__step:nth-child(5) { --seo-mobile-accent-rgb: 255, 143, 109; }
+
+  .seo-flow-mobile__step:last-child {
+    border-bottom: 0;
+  }
+
+  .seo-flow-mobile__step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 4rem;
+    bottom: -1rem;
+    left: calc(clamp(1.1rem, 4vw, 1.5rem) + 1.5rem);
+    width: 1px;
+    background: linear-gradient(180deg, rgba(var(--seo-mobile-accent-rgb), 0.68), rgba(var(--seo-mobile-accent-rgb), 0.08));
+    box-shadow: 0 0 0.75rem rgba(var(--seo-mobile-accent-rgb), 0.16);
+  }
+
+  .seo-flow-mobile__marker {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    align-self: start;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(var(--seo-mobile-accent-rgb), 0.32);
+    border-radius: 0.9rem;
+    background: rgba(7, 14, 27, 0.94);
+    color: rgb(var(--seo-mobile-accent-rgb));
+    box-shadow:
+      0 0 1.5rem rgba(var(--seo-mobile-accent-rgb), 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+
+  .seo-flow-mobile__marker span {
+    position: absolute;
+    top: 0.28rem;
+    right: 0.32rem;
+    color: rgba(var(--seo-mobile-accent-rgb), 0.58);
+    font-family: var(--font-mono);
+    font-size: 0.43rem;
+    letter-spacing: 0.08em;
+  }
+
+  .seo-flow-mobile__marker svg {
+    width: 1.18rem;
+    height: 1.18rem;
+  }
+
+  .seo-flow-mobile__content {
+    min-width: 0;
+    padding-top: 0.12rem;
+  }
+
+  .seo-flow-mobile__phase {
+    display: block;
+    color: rgba(var(--seo-mobile-accent-rgb), 0.8);
+    font-family: var(--font-mono);
+    font-size: 0.57rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .seo-flow-mobile__title {
+    margin: 0.55rem 0 0;
+    color: #fff;
+    font-size: clamp(1.25rem, 5.5vw, 1.7rem);
+    font-weight: 550;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+
+  .seo-flow-mobile__content > p {
+    margin: 0.7rem 0 0;
+    color: rgba(231, 239, 250, 0.72);
+    font-size: clamp(0.87rem, 2.5vw, 0.96rem);
+    line-height: 1.68;
+  }
+
+  .seo-flow-mobile__focus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.38rem 0.55rem;
+    margin-top: 0.9rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(var(--seo-mobile-accent-rgb), 0.16);
+    color: rgba(241, 247, 255, 0.88);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .seo-flow-mobile__focus b {
+    color: rgba(var(--seo-mobile-accent-rgb), 0.82);
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
 @media (min-width: 700px) and (max-width: 979px) {
   .seo-flow__step:last-child {
     grid-column: 1 / -1;

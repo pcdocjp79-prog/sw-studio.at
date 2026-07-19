@@ -7,18 +7,6 @@
   isolation: isolate;
 }
 
-.webdev-operations-section::before {
-  content: "";
-  position: absolute;
-  inset: 8% 0 auto;
-  z-index: -1;
-  height: 78%;
-  pointer-events: none;
-  background:
-    radial-gradient(46% 58% at 18% 48%, rgba(77, 169, 255, 0.1), transparent 72%),
-    radial-gradient(38% 48% at 82% 62%, rgba(255, 95, 184, 0.055), transparent 74%);
-}
-
 .webdev-operations-heading .webdev-section-title {
   max-width: 18ch;
 }
@@ -516,12 +504,6 @@
   .webdev-operations__services {
     border-top: 0;
     border-left: 1px solid var(--operations-line);
-  }
-}
-
-@media (max-width: 760px) {
-  .webdev-operations-section::before {
-    content: none;
   }
 }
 

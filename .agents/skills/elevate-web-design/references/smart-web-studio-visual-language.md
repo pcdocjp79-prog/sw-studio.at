@@ -53,6 +53,7 @@ Use these as ingredients, not templates:
 ## Avoid
 
 - generic neon glass dashboards
+- full-section ambient gradients or pseudo-element background layers on the Webentwicklung content sections; keep the fixed global page background as the single source of ambience and contain local light inside components, because clipped section layers can create visible seams on mobile
 - excessive rounded pills
 - equal visual weight across every card
 - text squeezed to fit a decorative shape

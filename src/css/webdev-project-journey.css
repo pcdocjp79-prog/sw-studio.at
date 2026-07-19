@@ -5,21 +5,6 @@
   overflow: hidden;
 }
 
-.webdev-process-section::before {
-  content: "";
-  position: absolute;
-  top: 24%;
-  left: 50%;
-  width: min(80vw, 64rem);
-  height: 30rem;
-  background:
-    radial-gradient(circle at 18% 32%, rgba(148, 242, 255, 0.07), transparent 32%),
-    radial-gradient(circle at 82% 68%, rgba(255, 126, 194, 0.055), transparent 34%);
-  filter: blur(30px);
-  pointer-events: none;
-  transform: translateX(-50%);
-}
-
 .webdev-process-section .webdev-process-heading {
   position: relative;
   z-index: 1;
@@ -896,10 +881,6 @@
 }
 
 @media (max-width: 760px) {
-  .webdev-process-section::before {
-    content: none;
-  }
-
   .webdev-journey__route-label { display: none; }
 
   .webdev-journey__stage {

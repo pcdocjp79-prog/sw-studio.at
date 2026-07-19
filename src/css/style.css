@@ -3344,6 +3344,10 @@ body[data-page="home"] #process .process-section__header {
   position: relative;
 }
 
+#process .process-section__steps {
+  margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .process-section__steps {
     grid-template-columns: repeat(4, 1fr);
@@ -3577,6 +3581,10 @@ body[data-page="home"] #process .process-section__header {
 #conversion-paths .packages-section__grid,
 #terminbuchung .packages-section__grid {
   margin-inline: auto;
+}
+
+#conversion-paths .packages-section__grid {
+  margin-bottom: 0;
 }
 
 @media (min-width: 768px) {

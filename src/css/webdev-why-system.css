@@ -5,6 +5,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 899px) {
+  .webdev-projects-scroll + .webdev-why-section {
+    padding-top: clamp(5.5rem, 18vw, 6.5rem);
+  }
+}
+
 .webdev-why-section::before {
   content: "";
   position: absolute;

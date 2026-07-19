@@ -571,22 +571,26 @@ const initNavUnderline = (primaryNav) => {
   let isVisible = false;
 
   const positionUnderline = (link, options = {}) => {
+    // Alle Layout-Reads vor den Writes bündeln (vermeidet Forced Reflow)
     const styles = window.getComputedStyle(link);
     const paddingLeft = parseFloat(styles.paddingLeft) || 0;
     const paddingRight = parseFloat(styles.paddingRight) || 0;
     const width = Math.max(link.offsetWidth - paddingLeft - paddingRight, 0);
+    const offsetLeft = link.offsetLeft;
 
     if (options.immediate) {
       underline.style.transition = "none";
     }
 
-    underline.style.transform = `translateX(${link.offsetLeft + paddingLeft}px)`;
+    underline.style.transform = `translateX(${offsetLeft + paddingLeft}px)`;
     underline.style.width = `${width}px`;
 
     if (options.immediate) {
-      // Reflow erzwingen, damit die Position ohne Animation gesetzt wird
-      void underline.offsetWidth;
-      underline.style.transition = "";
+      // Transition erst im nächsten Frame reaktivieren: Position wird ohne
+      // Animation übernommen, ohne per void offsetWidth einen Reflow zu erzwingen
+      requestAnimationFrame(() => {
+        underline.style.transition = "";
+      });
     }
 
     underline.classList.add("is-visible");
@@ -632,7 +636,12 @@ const initNavUnderline = (primaryNav) => {
     document.fonts.ready.then(() => restoreToActive({ immediate: true }));
   }
 
-  restoreToActive({ immediate: true });
+  // Erst nach dem ersten Paint messen: Direkt nach dem Rendern von Nav/Footer
+  // wäre das Layout noch "dirty" und die Messung würde einen teuren
+  // Forced Reflow der ganzen Seite auslösen (~77 ms im Lighthouse-Trace)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => restoreToActive({ immediate: true }));
+  });
 };
 
 const renderMobileStickyCta = (pageConfig, runtimeConfig) => {

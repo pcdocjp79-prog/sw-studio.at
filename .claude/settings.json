@@ -5,7 +5,8 @@
       "Bash(npm run *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4173/)",
       "Bash(npm install *)",
-      "Read(//d/VS-Code/sw-studio_Projekt_1/Draft-main/**)"
+      "Read(//d/VS-Code/sw-studio_Projekt_1/Draft-main/**)",
+      "Bash(curl -s https://www.sw-studio.at/ki-automatisierung)"
     ]
   }
 }

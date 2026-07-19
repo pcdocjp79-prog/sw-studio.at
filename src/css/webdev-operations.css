@@ -519,6 +519,12 @@
   }
 }
 
+@media (max-width: 760px) {
+  .webdev-operations-section::before {
+    content: none;
+  }
+}
+
 @media (max-width: 520px) {
   .webdev-operations__bar {
     align-items: center;

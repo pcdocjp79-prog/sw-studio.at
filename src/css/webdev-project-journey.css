@@ -896,6 +896,10 @@
 }
 
 @media (max-width: 760px) {
+  .webdev-process-section::before {
+    content: none;
+  }
+
   .webdev-journey__route-label { display: none; }
 
   .webdev-journey__stage {

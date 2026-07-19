@@ -7177,6 +7177,10 @@ body[data-page="home"] #process .process-section__header {
   gap: 1rem;
 }
 
+.webdev-projects-scroll {
+  padding-bottom: 0;
+}
+
 .webdev-projects-layout {
   display: grid;
   gap: clamp(1.8rem, 5vw, 4rem);
@@ -8355,7 +8359,7 @@ body[data-page="home"] #process .process-section__header {
     align-items: center;
     min-height: 100vh;
     padding-top: clamp(5rem, 8vw, 7rem);
-    padding-bottom: clamp(3rem, 6vw, 5rem);
+    padding-bottom: 0;
   }
 
   .webdev-projects-layout {
@@ -8532,7 +8536,7 @@ body[data-page="home"] #process .process-section__header {
 @media (prefers-reduced-motion: reduce) {
   .js .webdev-projects-scroll {
     min-height: auto;
-    padding: clamp(3.8rem, 7vw, 6.4rem) 0;
+    padding: clamp(3.8rem, 7vw, 6.4rem) 0 0;
   }
 
   .js .webdev-projects-scroll .webdev-container {

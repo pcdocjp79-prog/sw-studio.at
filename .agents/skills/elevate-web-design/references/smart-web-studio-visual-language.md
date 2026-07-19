@@ -54,6 +54,7 @@ Use these as ingredients, not templates:
 
 - generic neon glass dashboards
 - full-section ambient gradients or pseudo-element background layers on the Webentwicklung content sections; keep the fixed global page background as the single source of ambience and contain local light inside components, because clipped section layers can create visible seams on mobile
+- clipping a section with `overflow: hidden` when a child surface casts an ambient shadow; the shadow will end as a hard horizontal brightness seam at the section boundary, especially at narrow viewport widths
 - excessive rounded pills
 - equal visual weight across every card
 - text squeezed to fit a decorative shape

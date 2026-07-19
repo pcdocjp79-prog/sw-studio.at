@@ -8229,6 +8229,26 @@ body[data-page="home"] #process .process-section__header {
   opacity: 1;
 }
 
+/* Mobile WebKit malt background-clip auf dem Eltern-Span teilweise schon,
+   bevor dessen versteckte Buchstaben freigegeben sind. Auf kleinen Screens
+   liegt die Highlight-Farbe deshalb direkt auf jedem sichtbaren Zeichen. */
+@media (max-width: 699px) {
+  .js .webdev-code-closing.has-typewriter-characters .webdev-code-closing__highlight--ki,
+  .js .webdev-code-closing.has-typewriter-characters .webdev-code-closing__highlight--value {
+    color: inherit;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .js .webdev-code-closing.has-typewriter-characters .webdev-code-closing__highlight--ki .webdev-code-closing__char,
+  .js .webdev-code-closing.has-typewriter-characters .webdev-code-closing__highlight--value .webdev-code-closing__char {
+    color: var(--webdev-code-char-color, currentColor);
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
 .webdev-code-closing__cursor {
   display: inline-block;
   width: 3px;

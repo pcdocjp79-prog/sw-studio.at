@@ -1474,16 +1474,31 @@ const initCodeClosingTypewriter = () => {
 
   const wrapTextNodes = (element) => {
     const childNodes = Array.from(element.childNodes);
+    const isKiHighlight = element.classList?.contains("webdev-code-closing__highlight--ki");
+    const isValueHighlight = element.classList?.contains("webdev-code-closing__highlight--value");
 
     childNodes.forEach((node) => {
       if (node.nodeType === Node.TEXT_NODE) {
         const text = node.textContent || "";
         const fragment = document.createDocumentFragment();
 
-        Array.from(text).forEach((character) => {
+        Array.from(text).forEach((character, characterIndex) => {
           const characterSpan = document.createElement("span");
           characterSpan.className = "webdev-code-closing__char";
           characterSpan.textContent = character;
+
+          if (isKiHighlight || isValueHighlight) {
+            const progress = characterIndex / Math.max(text.length - 1, 1);
+            const hue = isKiHighlight
+              ? 185 - progress * 27
+              : 185 + progress * 145;
+
+            characterSpan.style.setProperty(
+              "--webdev-code-char-color",
+              `hsl(${hue.toFixed(1)}, 88%, 72%)`
+            );
+          }
+
           fragment.appendChild(characterSpan);
         });
 
@@ -1498,6 +1513,7 @@ const initCodeClosingTypewriter = () => {
   };
 
   lines.forEach((line) => wrapTextNodes(line));
+  root.classList.add("has-typewriter-characters");
 
   const characters = Array.from(root.querySelectorAll(".webdev-code-closing__char"));
   const cursor = document.createElement("span");

@@ -8,6 +8,7 @@
     #process,
     #featured-project,
     #webdev-standards,
+    #webdev-projects,
     #seo-improvements,
     #contact-principles,
     #contact-faq
@@ -17,6 +18,7 @@
     #process,
     #featured-project,
     #webdev-standards,
+    #webdev-projects,
     #seo-improvements,
     #contact-principles,
     #contact-faq
@@ -26,6 +28,7 @@
     #process,
     #featured-project,
     #webdev-standards,
+    #webdev-projects,
     #seo-improvements,
     #contact-principles,
     #contact-faq
@@ -47,6 +50,11 @@ body[data-page="home"] #process .process-step.card-surface--dark.reveal-on-scrol
 body[data-page="home"] #process .process-section__steps::before {
   content: none;
   display: none;
+}
+
+/* Typical projects use an inner layer that must share the global surface. */
+#webdev-projects .webdev-usecase.card-surface--dark::before {
+  background: var(--card-surface-dark);
 }
 
 /* Numbered card treatment shared by the selected content sections. */
@@ -95,6 +103,23 @@ body[data-page="home"] #process .process-section__steps::before {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.card-surface--dark > .card-surface__ghost-num,
+#webdev-projects .webdev-project-stack .webdev-usecase.card-surface--dark > .card-surface__ghost-num {
+  position: absolute;
+  right: 0.5rem;
+  bottom: -0.5rem;
+  z-index: 0;
+  color: rgba(255, 255, 255, 0.035);
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: none;
   pointer-events: none;
   user-select: none;
 }

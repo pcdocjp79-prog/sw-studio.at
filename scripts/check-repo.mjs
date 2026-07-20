@@ -8,12 +8,14 @@ const ACTIVE_JS = "src/js/main.js";
 const ACTIVE_CSS = "src/css/style.css";
 const ACTIVE_TAILWIND_CSS = "src/css/tailwind.css";
 const VITE_CONFIG_PATH = "vite.config.js";
+const RUNTIME_MODULE_DIRS = ["src/js", "src/scripts/modules"];
 const VITE_INPUT_PATTERN = /resolve\(__dirname,\s*"([^"]+\.html)"\)/g;
 const TAILWIND_CDN_SRC = "https://cdn.tailwindcss.com";
 const TAILWIND_INLINE_MARKER = "window.tailwind.config";
 const DISALLOWED_REFS = new Set(["src/main.js", "src/styles/main.scss"]);
 
 const errors = [];
+const moduleEntryPaths = new Set();
 
 const toPosixPath = (value) => value.split(path.sep).join("/");
 
@@ -58,6 +60,23 @@ const normalizeRuntimePath = (value) => {
 
 const collectIds = (html) =>
   new Set(Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1]));
+
+const collectFiles = (relativeDir, extension) => {
+  const absoluteDir = path.join(ROOT, relativeDir);
+  if (!fs.existsSync(absoluteDir)) return [];
+
+  return fs.readdirSync(absoluteDir, { withFileTypes: true }).flatMap((entry) => {
+    const relativePath = path.join(relativeDir, entry.name);
+
+    if (entry.isDirectory()) {
+      return collectFiles(relativePath, extension);
+    }
+
+    return entry.isFile() && entry.name.endsWith(extension)
+      ? [toPosixPath(relativePath)]
+      : [];
+  });
+};
 
 const parseAttributes = (source) => {
   const attributes = new Map();
@@ -199,6 +218,37 @@ for (const file of HTML_FILES) {
     errors.push(`${file}: missing body[data-page]`);
   }
 
+  const idCounts = new Map();
+  for (const tag of tags) {
+    const id = tag.attributes.get("id")?.trim();
+    if (id) idCounts.set(id, (idCounts.get(id) || 0) + 1);
+  }
+
+  for (const [id, count] of idCounts) {
+    if (count > 1) {
+      errors.push(`${file}: duplicate id "${id}" found ${count} times`);
+    }
+  }
+
+  for (const tag of tags) {
+    for (const attributeName of ["aria-labelledby", "aria-describedby"]) {
+      const referencedIds =
+        tag.attributes.get(attributeName)?.trim().split(/\s+/).filter(Boolean) || [];
+      for (const referencedId of referencedIds) {
+        if (!idsByFile.get(file)?.has(referencedId)) {
+          errors.push(`${file}: ${attributeName} references missing id "${referencedId}"`);
+        }
+      }
+    }
+
+    if (tag.name === "label" && tag.attributes.has("for")) {
+      const targetId = tag.attributes.get("for")?.trim();
+      if (targetId && !idsByFile.get(file)?.has(targetId)) {
+        errors.push(`${file}: label references missing id "${targetId}"`);
+      }
+    }
+  }
+
   const stylesheetLinks = tags.filter(
     (tag) =>
       tag.name === "link" &&
@@ -211,6 +261,11 @@ for (const file of HTML_FILES) {
       tag.attributes.get("type") === "module" &&
       tag.attributes.has("src")
   );
+
+  for (const script of moduleScripts) {
+    const modulePath = resolveTargetPath(file, script.attributes.get("src"));
+    if (modulePath) moduleEntryPaths.add(modulePath);
+  }
   const tailwindCdnScripts = tags.filter(
     (tag) =>
       tag.name === "script" && tag.attributes.get("src") === TAILWIND_CDN_SRC
@@ -383,6 +438,41 @@ for (const file of HTML_FILES) {
 for (const inputFile of viteInputFiles) {
   if (!htmlByFile.has(inputFile)) {
     errors.push(`${VITE_CONFIG_PATH}: build input "${inputFile}" has no matching HTML file`);
+  }
+}
+
+const runtimeModuleFiles = new Set(
+  RUNTIME_MODULE_DIRS.flatMap((directory) => collectFiles(directory, ".js"))
+);
+const reachableModules = new Set();
+const pendingModules = Array.from(moduleEntryPaths);
+const importPattern = /(?:import|export)\s*(?:[^"'()]*?\sfrom\s*)?(?:\(\s*)?["']([^"']+)["']/g;
+
+while (pendingModules.length > 0) {
+  const modulePath = pendingModules.pop();
+  if (!modulePath || reachableModules.has(modulePath)) continue;
+  if (!fileExists(modulePath)) {
+    errors.push(`missing runtime module "${modulePath}"`);
+    continue;
+  }
+
+  reachableModules.add(modulePath);
+  const moduleSource = readFile(modulePath);
+
+  for (const match of moduleSource.matchAll(importPattern)) {
+    const importTarget = match[1];
+    if (!importTarget.startsWith(".")) continue;
+
+    const resolvedImport = normalizeRuntimePath(
+      path.posix.join(path.posix.dirname(modulePath), importTarget)
+    );
+    pendingModules.push(resolvedImport);
+  }
+}
+
+for (const modulePath of runtimeModuleFiles) {
+  if (!reachableModules.has(modulePath)) {
+    errors.push(`${modulePath}: runtime module is not reachable from any HTML entry`);
   }
 }
 

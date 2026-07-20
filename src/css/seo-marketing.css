@@ -441,70 +441,6 @@
   }
 }
 
-.seo-timeline {
-  position: relative;
-  display: grid;
-  gap: 0.8rem;
-  max-width: 58rem;
-}
-
-.seo-timeline::before {
-  content: "";
-  position: absolute;
-  left: 1.4rem;
-  top: 1.7rem;
-  bottom: 1.7rem;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(148, 242, 255, 0.6), rgba(255, 84, 184, 0.24));
-}
-
-.seo-timeline__step {
-  position: relative;
-  display: grid;
-  grid-template-columns: 2.8rem minmax(0, 1fr);
-  gap: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.15rem;
-  padding: clamp(1rem, 2.5vw, 1.35rem);
-  background: rgba(9, 15, 28, 0.54);
-  backdrop-filter: blur(12px);
-  transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
-}
-
-.seo-timeline__step:hover {
-  border-color: rgba(148, 242, 255, 0.28);
-  background: rgba(18, 26, 44, 0.7);
-  transform: translateX(4px);
-}
-
-.seo-timeline__num {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  width: 2.8rem;
-  height: 2.8rem;
-  place-items: center;
-  border: 1px solid rgba(148, 242, 255, 0.3);
-  border-radius: 999px;
-  color: #94f2ff;
-  background: #0c1426;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-}
-
-.seo-timeline__content h3 {
-  margin: 0 0 0.38rem;
-  color: #fff;
-  font-size: clamp(1.1rem, 1.7vw, 1.32rem);
-}
-
-.seo-timeline__content p {
-  margin: 0;
-  color: rgba(231, 239, 250, 0.75);
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
 .seo-bento {
   display: grid;
   gap: 1rem;
@@ -595,17 +531,6 @@
     margin-left: 0;
   }
 
-  .seo-timeline__step {
-    gap: 0.78rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .seo-timeline__step,
-  .seo-timeline__step:hover {
-    transition-duration: 0.01ms !important;
-    transform: none;
-  }
 }
 
 /* ── Hero-Subline (Zielgruppe) ─────────────────────────────── */
@@ -617,13 +542,6 @@
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: -0.01em;
-}
-
-/* Reset: .seo-timeline wird als <ol> verwendet — keine Standard-Marker/Einzüge */
-.seo-timeline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 /* ── Vertrauens-/DSGVO-Signale (im "Wichtig zu wissen"-Block) ── */
